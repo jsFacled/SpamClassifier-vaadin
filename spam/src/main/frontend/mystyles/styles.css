@@ -1,0 +1,21 @@
+.header-global-app {
+    background-color: #f3f4f6;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.app-link {
+    font-weight: bold;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.center-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+.user-avatar {
+    cursor: pointer;
+}

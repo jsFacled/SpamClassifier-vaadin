@@ -19,14 +19,14 @@ public class HeaderGlobalApp extends HorizontalLayout {
         addClassName("header-global-app");
 
         // Logo
-        Image logo = new Image("images/logo.png", "Logo de la aplicación");
+        Image logo = new Image("DukeTrabajando.png", "Logo de la aplicación");
         logo.setHeight("40px");
 
         // Contenedor del logo
         Div logoContainer = new Div(logo);
 
         // Enlace de la app
-        Anchor appLink = new Anchor("/home", "SpamApp");
+        Anchor appLink = new Anchor("/", "SpamApp");
         appLink.addClassName("app-link");
 
         // Texto centrado

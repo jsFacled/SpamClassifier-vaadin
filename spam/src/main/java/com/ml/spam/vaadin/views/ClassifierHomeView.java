@@ -1,6 +1,6 @@
 package com.ml.spam.vaadin.views;
 
-import com.ml.spam.ClassifierService;
+import com.ml.spam.service.ClassifierService;
 import com.ml.spam.vaadin.components.ClassifierResult;
 import com.ml.spam.vaadin.components.EmailForm;
 import com.ml.spam.vaadin.components.HeaderGlobalApp;

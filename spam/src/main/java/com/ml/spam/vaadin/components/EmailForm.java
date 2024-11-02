@@ -1,6 +1,7 @@
 package com.ml.spam.vaadin.components;
 
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.textfield.TextField;
@@ -13,6 +14,9 @@ public class EmailForm extends VerticalLayout {
     private final Button enviarButton;
 
     public EmailForm() {
+        // Título de instrucciones
+        H2 instructions = new H2("Llena el formulario con los datos del email que deseas clasificar.");
+
         // Campos de entrada para el correo electrónico
         origenField = new TextField("Origen (Email del remitente)");
         tituloField = new TextField("Título");
@@ -22,7 +26,7 @@ public class EmailForm extends VerticalLayout {
         enviarButton = new Button("Enviar");
 
         // Agregar componentes al layout
-        add(origenField, tituloField, textoArea, enviarButton);
+        add(instructions, origenField, tituloField, textoArea, enviarButton);
     }
 
     public Button getEnviarButton() {

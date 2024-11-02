@@ -22,7 +22,8 @@ public class FeedForwardSpamClassifierModel {
             int numOutputs = 1;
 
             // Cargar conjunto de datos desde el archivo CSV
-            DataSet dataSet = DataSets.readCsv("src/main/resources/static/spam.csv", numInputs, numOutputs, true);
+            var pathCSV = "F:\\JAVA GENERAL\\MACHINE LEARNING JAVA\\Código-ejemplos-intellij\\SpamClassifier-vaadin\\spam\\src\\main\\resources\\static\\spam.csv";
+            DataSet dataSet = DataSets.readCsv(pathCSV, numInputs, numOutputs, true);
             if (dataSet == null || dataSet.isEmpty()) {
                 throw new IOException("Error al cargar el archivo CSV o el archivo está vacío.");
             }
@@ -62,7 +63,7 @@ public class FeedForwardSpamClassifierModel {
             System.out.println("Resultados de evaluación en el conjunto de prueba: " + em);
 
             // Serializar y guardar el modelo entrenado
-            File modelFile = new File("src/main/resources/models/feedforward_spam_classifier.ser");
+            File modelFile = new File("spam/src/main/resources/models/feedforward_spam_classifier.ser");
             modelFile.getParentFile().mkdirs(); // Crear directorios si no existen
             try (FileOutputStream fileOut = new FileOutputStream(modelFile);
                  ObjectOutputStream out = new ObjectOutputStream(fileOut)) {

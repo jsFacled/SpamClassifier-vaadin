@@ -1,26 +1,27 @@
 package com.ml.spam.service;
 
 import org.springframework.stereotype.Service;
-
-
 import com.ml.spam.mlmodel.Email;
 import deepnetts.net.FeedForwardNetwork;
 import javax.visrec.ml.classification.BinaryClassifier;
-import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.FileNotFoundException;
 
 @Service
 public class ClassifierService {
-
 
     private final BinaryClassifier<float[]> spamClassifier;
 
     // Constructor que carga el modelo entrenado
     public ClassifierService() throws IOException, ClassNotFoundException {
-        // Cargar el modelo desde el archivo serializado
-        try (FileInputStream fileIn = new FileInputStream("src/main/resources/models/feedforward_spam_classifier.ser");
+        // Cargar el modelo desde el archivo en el classpath
+        try (InputStream fileIn = getClass().getClassLoader().getResourceAsStream("models/feedforward_spam_classifier.ser");
              ObjectInputStream in = new ObjectInputStream(fileIn)) {
+            if (fileIn == null) {
+                throw new FileNotFoundException("El archivo feedforward_spam_classifier.ser no se encontró en el classpath.");
+            }
             spamClassifier = (BinaryClassifier<float[]>) in.readObject();
         }
     }
@@ -41,7 +42,7 @@ public class ClassifierService {
         return (resultado > 0.5) ? "Spam" : "No Spam";
     }
 
-    //Métod para probar el front solamente.
+    // Método para probar el front solamente.
     public String processEmail(String origen, String titulo, String texto) {
         // Lógica de clasificación básica
         if (texto.toLowerCase().contains("oferta") || texto.toLowerCase().contains("gana dinero")) {

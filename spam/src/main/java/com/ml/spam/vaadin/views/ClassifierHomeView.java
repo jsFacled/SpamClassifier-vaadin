@@ -34,12 +34,17 @@ public class ClassifierHomeView extends VerticalLayout {
     private void classifyEmail() {
         emailForm.setEnabledEnviarButton(false);
 
+        // Obtener datos del formulario
         String origen = emailForm.getOrigen();
         String titulo = emailForm.getTitulo();
         String texto = emailForm.getTexto();
 
-        String mensajeClasificacion = classifierService.processEmail(origen, titulo, texto);
+        // Llamar a classifierService para clasificar el correo
+        String mensajeClasificacion = classifierService.classifyEmail(origen, titulo, texto);
 
+        //String mensajeClasificacion = classifierService.processEmail(origen, titulo, texto);
+
+        // Mostrar resultado en ClassifierResult
         classifierResult.showMessage(mensajeClasificacion);
         emailForm.setEnabledEnviarButton(true);
     }

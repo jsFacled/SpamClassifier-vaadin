@@ -8,10 +8,10 @@ import deepnetts.net.FeedForwardNetwork;
 import deepnetts.net.layers.activation.ActivationType;
 import deepnetts.net.loss.LossType;
 import deepnetts.util.DeepNettsException;
+import deepnetts.util.FileIO;
+
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import javax.visrec.ml.data.DataSet;
 
 public class FeedForwardSpamClassifierModel {
@@ -62,13 +62,14 @@ public class FeedForwardSpamClassifierModel {
             var em = Evaluators.evaluateClassifier(neuralNet, testSet);
             System.out.println("Resultados de evaluación en el conjunto de prueba: " + em);
 
-            // Serializar y guardar el modelo entrenado
-            File modelFile = new File("spam/src/main/resources/models/feedforward_spam_classifier.ser");
-            modelFile.getParentFile().mkdirs(); // Crear directorios si no existen
-            try (FileOutputStream fileOut = new FileOutputStream(modelFile);
-                 ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
-                out.writeObject(neuralNet);
-                System.out.println("Modelo guardado exitosamente en " + modelFile.getAbsolutePath());
+            // Guardar el modelo en formato JSON
+            String modelFilePath = "spam/src/main/resources/models/feedforward_spam_classifier.json";
+            new File(modelFilePath).getParentFile().mkdirs(); // Crear directorios si no existen
+            try {
+                FileIO.writeToFileAsJson(neuralNet, modelFilePath); // Guardar como JSON
+                System.out.println("Modelo guardado exitosamente en " + modelFilePath);
+            } catch (IOException e) {
+                System.err.println("Error al guardar el modelo en formato JSON: " + e.getMessage());
             }
 
         } catch (IOException | DeepNettsException e) {

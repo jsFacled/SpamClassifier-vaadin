@@ -3,11 +3,10 @@ package com.ml.spam.service;
 import org.springframework.stereotype.Service;
 import com.ml.spam.mlmodel.Email;
 import deepnetts.net.FeedForwardNetwork;
+import deepnetts.util.FileIO;
 import javax.visrec.ml.classification.BinaryClassifier;
-import java.io.InputStream;
+import java.io.File;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.FileNotFoundException;
 
 @Service
 public class ClassifierService {
@@ -17,13 +16,8 @@ public class ClassifierService {
     // Constructor que carga el modelo entrenado
     public ClassifierService() throws IOException, ClassNotFoundException {
         // Cargar el modelo desde el archivo en el classpath
-        try (InputStream fileIn = getClass().getClassLoader().getResourceAsStream("models/feedforward_spam_classifier.ser");
-             ObjectInputStream in = new ObjectInputStream(fileIn)) {
-            if (fileIn == null) {
-                throw new FileNotFoundException("El archivo feedforward_spam_classifier.ser no se encontró en el classpath.");
-            }
-            spamClassifier = (BinaryClassifier<float[]>) in.readObject();
-        }
+        File modelFile = new File(getClass().getClassLoader().getResource("models/feedforward_spam_classifier.dnet").getFile());
+        spamClassifier = (BinaryClassifier<float[]>) FileIO.createFromFile(modelFile);
     }
 
     // Método para clasificar el correo

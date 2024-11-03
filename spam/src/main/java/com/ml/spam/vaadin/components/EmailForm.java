@@ -8,7 +8,7 @@ import com.vaadin.flow.component.textfield.TextField;
 
 public class EmailForm extends VerticalLayout {
 
-    private final TextField origenField;
+
     private final TextField tituloField;
     private final TextArea textoArea;
     private final Button enviarButton;
@@ -18,7 +18,7 @@ public class EmailForm extends VerticalLayout {
         H2 instructions = new H2("Llena el formulario con los datos del email que deseas clasificar.");
 
         // Campos de entrada para el correo electrónico
-        origenField = new TextField("Origen (Email del remitente)");
+
         tituloField = new TextField("Título");
         textoArea = new TextArea("Texto del correo");
 
@@ -26,16 +26,14 @@ public class EmailForm extends VerticalLayout {
         enviarButton = new Button("Enviar");
 
         // Agregar componentes al layout
-        add(instructions, origenField, tituloField, textoArea, enviarButton);
+        add(instructions, tituloField, textoArea, enviarButton);
     }
 
     public Button getEnviarButton() {
         return enviarButton;
     }
 
-    public String getOrigen() {
-        return origenField.getValue();
-    }
+
 
     public String getTitulo() {
         return tituloField.getValue();

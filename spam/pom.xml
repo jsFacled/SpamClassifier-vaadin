@@ -66,6 +66,11 @@
 			<artifactId>visrec-ri</artifactId>
 			<version>1.0.3</version>
 		</dependency>
+		<dependency>
+			<groupId>com.deepnetts</groupId>
+			<artifactId>deepnetts-core</artifactId>
+			<version>1.13.2</version>
+		</dependency>
 		<!-- Dependencia explícita de org.json para evitar conflictos -->
 		<dependency>
 			<groupId>org.json</groupId>

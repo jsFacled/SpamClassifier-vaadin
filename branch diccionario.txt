@@ -1,0 +1,11 @@
+Crear Diccionario singleton con palabras claves, simbolos y stopwords.
+Generar Diccionario para luego crear el dataset del entrenamiento.
+
+Creación de carpeta "dictionary"
+├── dictionary/
+│   ├── SpamDictionary.java
+│   ├── WordData.java
+│   ├── DictionaryInitializer.java
+│   ├── DictionaryMain.java
+
+Desde DictionaryMain.java se generará el diccionario principal.

@@ -9,3 +9,4 @@ Creación de carpeta "dictionary"
 │   ├── DictionaryMain.java
 
 Desde DictionaryMain.java se generará el diccionario principal.
+Comenzaré por initialWords de 286 palabras.

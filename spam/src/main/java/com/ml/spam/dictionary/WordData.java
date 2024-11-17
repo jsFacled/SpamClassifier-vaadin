@@ -1,4 +1,14 @@
 package com.ml.spam.dictionary;
+
+/**
+ * Rol:
+ *      Modelo que representa una palabra con sus frecuencias en spam y ham.
+ * Responsabilidades:
+ *      Almacenar la palabra y sus frecuencias.
+ *      Incrementar las frecuencias.
+ *      Proveer acceso a los valores mediante getters.
+ */
+
 public class WordData {
     private final String word;
     private int spamFrequency;

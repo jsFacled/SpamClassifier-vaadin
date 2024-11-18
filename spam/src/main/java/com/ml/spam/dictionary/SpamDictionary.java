@@ -19,17 +19,8 @@ public class SpamDictionary {
     private static final SpamDictionary instance = new SpamDictionary();
 
     private final Map<String, WordData> wordSpam = new HashMap<>();
-    private final Set<String> rareSymbols = Set.of("!", "$", "%", "&", "*", "#", "_", "@", "?");
-    private final Set<String> stopWords = Set.of(
-            "a", "al", "algo", "algunos", "algunas", "así", "aunque", "con", "cómo", "cuándo", "dónde",
-            "de", "del", "desde", "el", "él", "ella", "ellas", "ellos", "en", "entre", "esa", "esas",
-            "ese", "esos", "esta", "estas", "este", "estos", "fue", "fui", "fuera", "fueron", "ha",
-            "había", "habían", "hasta", "hay", "he", "hemos", "la", "las", "le", "les", "lo", "los",
-            "más", "me", "mi", "mí", "mis", "muy", "ni", "no", "nos", "nosotros", "o", "para", "pero",
-            "por", "porque", "qué", "que", "quien", "quienes", "se", "será", "sí", "sin", "sobre",
-            "sólo", "su", "sus", "también", "tan", "tanto", "te", "ti", "tiene", "tienen", "todo",
-            "todos", "tu", "tus", "tú", "un", "una", "unas", "uno", "unos", "ya", "yo"
-    );
+    private final Map<String, WordData> rareSymbols = new HashMap<>();
+    private final Map<String, WordData> stopWords = new HashMap<>();
 
     private SpamDictionary() {}
 
@@ -41,13 +32,19 @@ public class SpamDictionary {
         return wordSpam;
     }
 
-    public boolean isRareSymbol(String symbol) {
-        return rareSymbols.contains(symbol);
+    public Map<String, WordData> getRareSymbols() {
+        return rareSymbols;
     }
 
-    public boolean isStopWord(String word) {
-        return stopWords.contains(word);
+    public Map<String, WordData> getStopWords() {
+        return stopWords;
     }
+
+    public void initializeDictionary(Set<String> words) {
+        // Agrega cada palabra al mapa con frecuencias en 0
+        words.forEach(this::initializeWord);
+    }
+
 
     public void addOrUpdateWord(String word, boolean isSpam) {
         WordData wordData = wordSpam.getOrDefault(word, new WordData(word, 0, 0));
@@ -58,4 +55,18 @@ public class SpamDictionary {
         }
         wordSpam.put(word, wordData);
     }
+
+    public void initializeWord(String word) {
+        // Inicializa la palabra con ambas frecuencias en 0
+        wordSpam.put(word, new WordData(word, 0, 0));
+    }
+
+    public void initializeRareSymbols(Set<String> symbols) {
+        symbols.forEach(symbol -> rareSymbols.put(symbol, new WordData(symbol, 0, 0)));
+    }
+
+    public void initializeStopWords(Set<String> words) {
+        words.forEach(word -> stopWords.put(word, new WordData(word, 0, 0)));
+    }
+
 }

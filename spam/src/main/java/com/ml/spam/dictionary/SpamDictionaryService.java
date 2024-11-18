@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -45,6 +46,13 @@ public class SpamDictionaryService {
         dictionary.getWordSpam().forEach((word, data) ->
                 System.out.println(word + " -> " + data)
         );
+        dictionary.getStopWords().forEach((word, data) ->
+                System.out.println(word + " -> " + data)
+        );
+        dictionary.getRareSymbols().forEach((word, data) ->
+                System.out.println(word + " -> " + data)
+        );
+
     }
 
     public void displayWordDetails(String word) {
@@ -55,4 +63,30 @@ public class SpamDictionaryService {
             System.out.println("Word '" + word + "' not found in dictionary.");
         }
     }
+
+    public double calculateRareSymbolSpamWeight(Map<String, Integer> messageSymbols) {
+        int totalSpamFrequency = dictionary.getRareSymbols().values().stream()
+                .mapToInt(WordData::getSpamFrequency).sum();
+
+        return messageSymbols.entrySet().stream()
+                .mapToDouble(entry -> {
+                    WordData data = dictionary.getRareSymbols().get(entry.getKey());
+                    return data != null ? (data.getSpamFrequency() / (double) totalSpamFrequency) * entry.getValue() : 0;
+                })
+                .sum();
+    }
+
+    public double calculateStopWordSpamWeight(Map<String, Integer> messageStopWords) {
+        int totalSpamFrequency = dictionary.getStopWords().values().stream()
+                .mapToInt(WordData::getSpamFrequency).sum();
+
+        return messageStopWords.entrySet().stream()
+                .mapToDouble(entry -> {
+                    WordData data = dictionary.getStopWords().get(entry.getKey());
+                    return data != null ? (data.getSpamFrequency() / (double) totalSpamFrequency) * entry.getValue() : 0;
+                })
+                .sum();
+    }
+
+
 }

@@ -3,5 +3,15 @@ Resumen de Cambios:
 Eliminación de inicializaciones estáticas manuales.
 Introducción de métodos para cargar y exportar datos.
 **Sustitución de WordData por Frequency para simplificar la estructura.
+/*
+ * Initialization:
+ * En este proyecto, "Initialization" significa configurar un diccionario desde un estado básico.
+ * Esto incluye:
+ * - Leer listas de palabras y símbolos sin frecuencias desde un archivo estático JSON.
+ * - Crear un diccionario estructurado donde cada palabra o símbolo tiene frecuencias inicializadas en cero.
+ *
+ * Esta etapa no incluye la carga de frecuencias actualizadas desde un archivo persistido
+ * ni el procesamiento de datos dinámicos para enriquecer el diccionario.
+ */
 
 

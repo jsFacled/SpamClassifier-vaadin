@@ -1,26 +1,23 @@
 package com.ml.spam.dictionary;
 
+import org.json.JSONObject;
+
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
-/**
- *Rol:
- *      Clase Singleton que gestiona las palabras y sus frecuencias en el diccionario.
- *
- * Responsabilidades:
- *      Almacenar palabras relevantes en un mapa.
- *      Identificar "stop words" y símbolos raros.
- *      Agregar o actualizar palabras en el diccionario.
+/*
+* Clase Singleton que almacena los mapas del diccionario (onlySpamWords, onlyRareSymbols, onlyStopWords)
+* y ofrece métodos para inicializarlos desde un archivo JSON.
+* Métodos para inicializar mapas desde un archivo JSON.
+* Utiliza un Frequency simple para almacenar las frecuencias de spam y ham.
  */
-
-
 public class SpamDictionary {
     private static final SpamDictionary instance = new SpamDictionary();
 
-    private final Map<String, WordData> wordSpam = new HashMap<>();
-    private final Map<String, WordData> rareSymbols = new HashMap<>();
-    private final Map<String, WordData> stopWords = new HashMap<>();
+    private final Map<String, Frequency> onlySpamWords = new HashMap<>();
+    private final Map<String, Frequency> onlyRareSymbols = new HashMap<>();
+    private final Map<String, Frequency> onlyStopWords = new HashMap<>();
 
     private SpamDictionary() {}
 
@@ -28,53 +25,32 @@ public class SpamDictionary {
         return instance;
     }
 
-    public Map<String, WordData> getWordSpam() {
-        return wordSpam;
+    public Map<String, Frequency> getOnlySpamWords() {
+        return onlySpamWords;
     }
 
-    public Map<String, WordData> getRareSymbols() {
-        return rareSymbols;
+    public Map<String, Frequency> getOnlyRareSymbols() {
+        return onlyRareSymbols;
     }
 
-    public Map<String, WordData> getStopWords() {
-        return stopWords;
+    public Map<String, Frequency> getOnlyStopWords() {
+        return onlyStopWords;
     }
 
-
-    public void initializeDictionary(Set<String> words) {
-        // Agrega cada palabra al mapa con frecuencias en 0
-        words.forEach(this::initializeWord);
+    public void initializeFromJson(InputStream jsonInputStream) {
+        JSONObject jsonObject = new JSONObject(new String(jsonInputStream.readAllBytes()));
+        loadCategory(jsonObject.getJSONObject("onlySpamWords"), onlySpamWords);
+        loadCategory(jsonObject.getJSONObject("onlyRareSymbols"), onlyRareSymbols);
+        loadCategory(jsonObject.getJSONObject("onlyStopWords"), onlyStopWords);
     }
 
-    public void initializeRareSymbols(Set<String> symbols) {
-        symbols.forEach(symbol -> rareSymbols.put(symbol, new WordData(symbol, 0, 0)));
+    private void loadCategory(JSONObject jsonCategory, Map<String, Frequency> targetMap) {
+        jsonCategory.keys().forEachRemaining(word -> {
+            JSONObject freqData = jsonCategory.getJSONObject(word);
+            targetMap.put(word, new Frequency(
+                    freqData.getInt("spamFrequency"),
+                    freqData.getInt("hamFrequency")
+            ));
+        });
     }
-
-    public void initializeStopWords(Set<String> words) {
-        words.forEach(word -> stopWords.put(word, new WordData(word, 0, 0)));
-    }
-
-    public void initializeWord(String word) {
-        // Inicializa la palabra con ambas frecuencias en 0
-        wordSpam.put(word, new WordData(word, 0, 0));
-    }
-
-
-/**
-        * Agrega una palabra al diccionario si no existe, inicializándola con frecuencias en 0.
-            * Si ya existe, incrementa la frecuencia correspondiente según el parámetro isSpam.
-            *
-            * @param word La palabra a agregar o actualizar.
- * @param isSpam True si la palabra pertenece a un mensaje spam, false si pertenece a ham.
-            */
-    public void addOrUpdateWord(String word, boolean isSpam) {
-        WordData wordData = wordSpam.getOrDefault(word, new WordData(word, 0, 0));
-        if (isSpam) {
-            wordData.incrementSpamFrequency();
-        } else {
-            wordData.incrementHamFrequency();
-        }
-        wordSpam.put(word, wordData);
-    }
-
 }

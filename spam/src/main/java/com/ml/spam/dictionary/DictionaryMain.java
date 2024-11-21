@@ -2,6 +2,7 @@ package com.ml.spam.dictionary;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 
 public class DictionaryMain {
     public static void main(String[] args) throws IOException {
@@ -10,8 +11,12 @@ public class DictionaryMain {
         SpamDictionary dictionary = SpamDictionary.getInstance();
         SpamDictionaryService service = new SpamDictionaryService(dictionary);
 
-        service.exportToJson("spam/src/main/resources/static/spam_vocabulary_persisted.json");
-        System.out.println("Diccionario exportado correctamente a spam_vocabulary_persisted.json");
+        // * * * * //
 
+
+        String filePath = "spam/src/main/resources/static/spam_vocabulary_initialized_persisted.json";
+
+        // Mostrar el diccionario persistido
+        service.displayJsonPersistedDictionary(filePath);
     }
 }

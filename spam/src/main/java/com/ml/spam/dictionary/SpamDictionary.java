@@ -16,6 +16,7 @@ import java.util.Map;
 public class SpamDictionary {
     private static final SpamDictionary instance = new SpamDictionary();
 
+    //Hay 3 categorías: SpamWords, RareSymbols y StopWords
     private final Map<String, Frequency> onlySpamWords = new HashMap<>();
     private final Map<String, Frequency> onlyRareSymbols = new HashMap<>();
     private final Map<String, Frequency> onlyStopWords = new HashMap<>();

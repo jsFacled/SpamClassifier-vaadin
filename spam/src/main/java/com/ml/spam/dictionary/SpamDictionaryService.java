@@ -2,9 +2,11 @@ package com.ml.spam.dictionary;
 
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
 import java.util.Map;
 
 /*
@@ -69,6 +71,7 @@ public class SpamDictionaryService {
     }
 
     public void displayDictionary() {
+        System.out.println(" * === * === Display Map de SpamDictionary * === * ===");
         System.out.println("=== Palabras de Spam ===");
         dictionary.getOnlySpamWords().forEach((word, freq) ->
                 System.out.println(word + " -> " + freq));
@@ -79,5 +82,44 @@ public class SpamDictionaryService {
         dictionary.getOnlyStopWords().forEach((stopWord, freq) ->
                 System.out.println(stopWord + " -> " + freq));
     }
+
+    public void displayJsonPersistedDictionary(String filePath) {
+        try {
+            File file = new File(filePath);
+
+            // Verificar si el archivo existe
+            if (!file.exists()) {
+                System.out.println("El archivo persistido no existe: " + filePath);
+                return;
+            }
+
+            // Leer el contenido del archivo
+            String jsonContent = new String(Files.readAllBytes(file.toPath()));
+            JSONObject jsonObject = new JSONObject(jsonContent);
+
+            // Mostrar el contenido por consola
+            System.out.println(" * === * === Display Archivo Json * === * ===");
+
+            System.out.println("=== Diccionario Persistido ===");
+            System.out.println();
+            System.out.println("=== Palabras de Spam ===");
+            System.out.println();
+            jsonObject.getJSONObject("onlySpamWords").toMap().forEach((word, freq) ->
+                    System.out.println(word + " -> " + freq));
+            System.out.println();
+            System.out.println("=== Símbolos Raros ===");
+            jsonObject.getJSONObject("onlyRareSymbols").toMap().forEach((symbol, freq) ->
+                    System.out.println(symbol + " -> " + freq));
+            System.out.println();
+            System.out.println("=== Stop Words ===");
+            jsonObject.getJSONObject("onlyStopWords").toMap().forEach((stopWord, freq) ->
+                    System.out.println(stopWord + " -> " + freq));
+
+        } catch (Exception e) {
+            System.err.println("Error al leer el archivo persistido: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
 
 }

@@ -22,6 +22,9 @@ public class DictionaryMain {
         System.out.println("Generando el diccionario de spam...");
 
         // Instanciar el diccionario y el servicio
+            /// Se pasa el Singleton SpamDictionary al servicio para que pueda operar sobre
+            /// la misma instancia global del diccionario, centralizando los datos y
+            /// separando responsabilidades entre almacenamiento y lógica de negocio.
         SpamDictionary dictionary = SpamDictionary.getInstance();
         SpamDictionaryService service = new SpamDictionaryService(dictionary);
 
@@ -45,9 +48,9 @@ public class DictionaryMain {
 
 
         // Inicializar las palabras, símbolos raros y stopwords
-        dictionary.initializeDictionary(initialWords);
-        dictionary.initializeRareSymbols(rareSymbols);
-        dictionary.initializeStopWords(stopWords);
+        service.initializeItems(initialWords);
+        service.initializeItems);
+        service.initializeItems();
 
         // Inicializa el diccionario con las palabras de la lista
         //service.initializeFromList(Set.copyOf(initialWords));

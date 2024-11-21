@@ -27,12 +27,33 @@ public class SpamDictionaryService {
 
     public void initializeFromFile(String filePath) throws IOException {
         List<String> words = Files.readAllLines(new File(filePath).toPath());
-        initializeFromList(Set.copyOf(words));
+        words.forEach(dictionary::initializeWord); // Inicializa las palabras con frecuencias en 0
+    }
+    public void initializeDictionary(Set<String> items, Map<String, WordData> targetMap) {
+        items.forEach(item -> targetMap.put(item, new WordData(item, 0, 0)));
     }
 
-    public void initializeFromList(Set<String> words) {
-        words.forEach(word -> dictionary.addOrUpdateWord(word, false)); // Inicializa como "ham" por defecto
+    public void initializeItems(Set<String> items, String type) {
+        Map<String, WordData> targetMap;
+
+        switch (type.toLowerCase()) {
+            case "words":
+                targetMap = dictionary.getWordSpam();
+                break;
+            case "rareSymbols":
+                targetMap = dictionary.getRareSymbols();
+                break;
+            case "stopWords":
+                targetMap = dictionary.getStopWords();
+                break;
+            default:
+                throw new IllegalArgumentException("Tipo desconocido: " + type);
+        }
+
+        items.forEach(item -> targetMap.put(item, new WordData(item, 0, 0)));
     }
+
+
 
     public void enrichFromSet(Set<String> words, boolean isSpam) {
         words.forEach(word -> dictionary.addOrUpdateWord(word, isSpam));
@@ -42,27 +63,6 @@ public class SpamDictionaryService {
         words.forEach(word -> dictionary.addOrUpdateWord(word, isSpam));
     }
 
-    public void displayDictionary() {
-        dictionary.getWordSpam().forEach((word, data) ->
-                System.out.println(word + " -> " + data)
-        );
-        dictionary.getStopWords().forEach((word, data) ->
-                System.out.println(word + " -> " + data)
-        );
-        dictionary.getRareSymbols().forEach((word, data) ->
-                System.out.println(word + " -> " + data)
-        );
-
-    }
-
-    public void displayWordDetails(String word) {
-        WordData data = dictionary.getWordSpam().get(word);
-        if (data != null) {
-            System.out.println("Word: " + word + ", Spam Frequency: " + data.getSpamFrequency() + ", Ham Frequency: " + data.getHamFrequency());
-        } else {
-            System.out.println("Word '" + word + "' not found in dictionary.");
-        }
-    }
 
     public double calculateRareSymbolSpamWeight(Map<String, Integer> messageSymbols) {
         int totalSpamFrequency = dictionary.getRareSymbols().values().stream()
@@ -88,5 +88,27 @@ public class SpamDictionaryService {
                 .sum();
     }
 
+
+    public void displayDictionary() {
+        dictionary.getWordSpam().forEach((word, data) ->
+                System.out.println(word + " -> " + data)
+        );
+        dictionary.getStopWords().forEach((word, data) ->
+                System.out.println(word + " -> " + data)
+        );
+        dictionary.getRareSymbols().forEach((word, data) ->
+                System.out.println(word + " -> " + data)
+        );
+
+    }
+
+    public void displayWordDetails(String word) {
+        WordData data = dictionary.getWordSpam().get(word);
+        if (data != null) {
+            System.out.println("Word: " + word + ", Spam Frequency: " + data.getSpamFrequency() + ", Ham Frequency: " + data.getHamFrequency());
+        } else {
+            System.out.println("Word '" + word + "' not found in dictionary.");
+        }
+    }
 
 }

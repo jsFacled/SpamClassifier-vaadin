@@ -44,6 +44,12 @@ public class WordData {
         return hamFrequency;
     }
 
+    //calcula el porcentaje de frecuencia relativa de spam frente a ham,
+    public double getSpamProbability() {
+        int total = spamFrequency + hamFrequency;
+        return total == 0 ? 0 : (double) spamFrequency / total;
+    }
+
     @Override
     public String toString() {
         return "WordData{" +

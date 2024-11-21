@@ -1,0 +1,2 @@
+Diccionario con palabras en las tres categorías (onlySpamWords, onlyRareSymbols, onlyStopWords): initial_spam_vocabulary.json.
+

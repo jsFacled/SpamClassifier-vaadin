@@ -40,25 +40,10 @@ public class SpamDictionary {
         return stopWords;
     }
 
+
     public void initializeDictionary(Set<String> words) {
         // Agrega cada palabra al mapa con frecuencias en 0
         words.forEach(this::initializeWord);
-    }
-
-
-    public void addOrUpdateWord(String word, boolean isSpam) {
-        WordData wordData = wordSpam.getOrDefault(word, new WordData(word, 0, 0));
-        if (isSpam) {
-            wordData.incrementSpamFrequency();
-        } else {
-            wordData.incrementHamFrequency();
-        }
-        wordSpam.put(word, wordData);
-    }
-
-    public void initializeWord(String word) {
-        // Inicializa la palabra con ambas frecuencias en 0
-        wordSpam.put(word, new WordData(word, 0, 0));
     }
 
     public void initializeRareSymbols(Set<String> symbols) {
@@ -67,6 +52,29 @@ public class SpamDictionary {
 
     public void initializeStopWords(Set<String> words) {
         words.forEach(word -> stopWords.put(word, new WordData(word, 0, 0)));
+    }
+
+    public void initializeWord(String word) {
+        // Inicializa la palabra con ambas frecuencias en 0
+        wordSpam.put(word, new WordData(word, 0, 0));
+    }
+
+
+/**
+        * Agrega una palabra al diccionario si no existe, inicializándola con frecuencias en 0.
+            * Si ya existe, incrementa la frecuencia correspondiente según el parámetro isSpam.
+            *
+            * @param word La palabra a agregar o actualizar.
+ * @param isSpam True si la palabra pertenece a un mensaje spam, false si pertenece a ham.
+            */
+    public void addOrUpdateWord(String word, boolean isSpam) {
+        WordData wordData = wordSpam.getOrDefault(word, new WordData(word, 0, 0));
+        if (isSpam) {
+            wordData.incrementSpamFrequency();
+        } else {
+            wordData.incrementHamFrequency();
+        }
+        wordSpam.put(word, wordData);
     }
 
 }

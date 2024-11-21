@@ -1,2 +1,7 @@
 Diccionario con palabras en las tres categorías (onlySpamWords, onlyRareSymbols, onlyStopWords): initial_spam_vocabulary.json.
+Resumen de Cambios:
+Eliminación de inicializaciones estáticas manuales.
+Introducción de métodos para cargar y exportar datos.
+**Sustitución de WordData por Frequency para simplificar la estructura.
+
 

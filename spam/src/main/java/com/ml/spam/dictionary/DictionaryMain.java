@@ -2,29 +2,38 @@ package com.ml.spam.dictionary;
 
 import java.io.InputStream;
 
-/*
-Lee el archivo JSON desde resources/static.
-Inicializa el diccionario y exporta el estado a un nuevo archivo para verificar.
- */
 public class DictionaryMain {
     public static void main(String[] args) {
-        System.out.println("Inicializando el diccionario desde JSON...");
+        System.out.println("Inicializando el diccionario...");
 
         SpamDictionary dictionary = SpamDictionary.getInstance();
         SpamDictionaryService service = new SpamDictionaryService(dictionary);
 
-        // Leer archivo JSON desde resources/static
+        // Leer archivo JSON
         try (InputStream inputStream = DictionaryMain.class.getClassLoader()
-                .getResourceAsStream("static/spam_vocabulary_initialized.json")) {
+                .getResourceAsStream("static/initial_spam_vocabulary.json")) {
+
             if (inputStream == null) {
                 throw new RuntimeException("Archivo JSON no encontrado.");
             }
-            service.initializeDictionary(inputStream);
+
+            // Inicializar el diccionario
+            service.initializeFromJson(inputStream);
             System.out.println("Diccionario inicializado correctamente.");
 
-            // Exportar el diccionario a un nuevo archivo JSON
-            service.exportToJson("spam_vocabulary_initialized_export.json");
-            System.out.println("Diccionario exportado correctamente.");
+            // Imprimir contenido
+            System.out.println("=== Palabras de Spam ===");
+            dictionary.getOnlySpamWords().forEach((word, freq) ->
+                    System.out.println(word + " -> " + freq));
+
+            System.out.println("=== Símbolos Raros ===");
+            dictionary.getOnlyRareSymbols().forEach((symbol, freq) ->
+                    System.out.println(symbol + " -> " + freq));
+
+            System.out.println("=== Stop Words ===");
+            dictionary.getOnlyStopWords().forEach((stopWord, freq) ->
+                    System.out.println(stopWord + " -> " + freq));
+
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }

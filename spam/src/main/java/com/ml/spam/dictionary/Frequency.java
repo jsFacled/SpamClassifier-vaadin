@@ -29,4 +29,9 @@ public class Frequency {
     public void incrementHamFrequency() {
         this.hamFrequency++;
     }
+
+    @Override
+    public String toString() {
+        return "{spamFrequency=" + spamFrequency + ", hamFrequency=" + hamFrequency + "}";
+    }
 }

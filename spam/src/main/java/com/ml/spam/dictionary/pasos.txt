@@ -16,6 +16,10 @@ Introducción de métodos para cargar y exportar datos.
  */
 
 > > > Enriquecimiento: Etapa de Cargar Frecuencias a partir de un Dataset de mensajes spam y ham
-Agregar la nueva estructura con package datasetProcessor, models, rules, utils
+Agregar la nueva estructura con package datasetProcessor, models, rules, utils.
+Agrego newWords en SpamDictionary
+Agrego 2 archivos csv en resources.static
+
+
 
 

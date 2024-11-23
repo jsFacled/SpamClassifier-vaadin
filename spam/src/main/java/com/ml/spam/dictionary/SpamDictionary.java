@@ -20,6 +20,7 @@ public class SpamDictionary {
     private final Map<String, Frequency> onlySpamWords = new HashMap<>();
     private final Map<String, Frequency> onlyRareSymbols = new HashMap<>();
     private final Map<String, Frequency> onlyStopWords = new HashMap<>();
+    private final Map<String, Frequency> newWords = new HashMap<>();
 
     private SpamDictionary() {}
 

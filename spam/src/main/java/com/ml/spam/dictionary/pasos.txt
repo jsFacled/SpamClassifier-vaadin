@@ -16,9 +16,26 @@ Introducción de métodos para cargar y exportar datos.
  */
 
 > > > Enriquecimiento: Etapa de Cargar Frecuencias a partir de un Dataset de mensajes spam y ham
-Agregar la nueva estructura con package datasetProcessor, models, rules, utils.
+Agrego la nueva estructura con package datasetProcessor, models, rules, utils.
 Agrego newWords en SpamDictionary
 Agrego 2 archivos csv en resources.static
+Nueva clase que contiene mensaje y spam/ham: LabeledMessage
+<<
+    Modularizamos la lectura y procesamiento del CSV:
+        CsvMessageProcessor se encarga de leer línea por línea, tokenizar los mensajes y delegar al servicio del diccionario.
+
+    Actualizamos SpamDictionaryService:
+    Se añadieron métodos para:
+        Actualizar frecuencias de palabras existentes.
+        Agregar palabras nuevas al mapa newWords en SpamDictionary.
+
+    Modificamos SpamDictionary:
+        Se añadió el mapa newWords para almacenar palabras no clasificadas.
+
+    Flujo resultante:
+        Palabras existentes: Frecuencias actualizadas en sus categorías (spam, stopwords, symbols).
+        Palabras nuevas: Agregadas al mapa newWords para su posterior clasificación o revisión.
+<<
 
 
 

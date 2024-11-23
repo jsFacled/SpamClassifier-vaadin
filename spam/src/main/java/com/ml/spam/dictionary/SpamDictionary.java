@@ -40,7 +40,9 @@ public class SpamDictionary {
         return onlyStopWords;
     }
 
-
+    public Map<String, Frequency> getNewWords() {
+        return newWords;
+    }
 
     public void initializeCategory(Map<String, Frequency> targetMap, Iterable<String> words) {
         words.forEach(word -> targetMap.put(word, new Frequency(0, 0)));

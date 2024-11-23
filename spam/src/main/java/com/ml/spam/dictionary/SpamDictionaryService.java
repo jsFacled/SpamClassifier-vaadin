@@ -22,7 +22,7 @@ public class SpamDictionaryService {
         this.dictionary = dictionary;
     }
 
-    // Método para inicializar desde JSON
+    // Métod para inicializar desde JSON
    /* public void initializeFromJson(InputStream jsonInputStream) throws IOException {
         JSONObject jsonObject = new JSONObject(new String(jsonInputStream.readAllBytes()));
         dictionary.initializeFromJson(jsonObject);
@@ -121,5 +121,55 @@ public class SpamDictionaryService {
         }
     }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+    // *  *  *  *  *  *  Actualizacion del diccionario * *  *  *  *  *
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 
+    // Verifica si una palabra existe en el diccionario
+    public boolean wordExists(String word) {
+        return dictionary.getOnlySpamWords().containsKey(word) ||
+                dictionary.getOnlyStopWords().containsKey(word) ||
+                dictionary.getOnlyRareSymbols().containsKey(word);
+    }
+
+    // Actualiza la frecuencia de una palabra existente
+    public void updateWordFrequency(String word, boolean isSpam) {
+        Map<String, Frequency> category = getCategory(word);
+        if (category != null) {
+            Frequency freq = category.get(word);
+            if (isSpam) {
+                freq.incrementSpamFrequency();
+            } else {
+                freq.incrementHamFrequency();
+            }
+        }
+    }
+
+
+    // Registra una nueva palabra en el mapa de palabras nuevas
+    public void addNewWord(String word, boolean isSpam) {
+        if (!dictionary.getNewWords().containsKey(word)) {
+            dictionary.getNewWords().put(word, new Frequency(isSpam ? 1 : 0, isSpam ? 0 : 1));
+        } else {
+            Frequency freq = dictionary.getNewWords().get(word);
+            if (isSpam) {
+                freq.incrementSpamFrequency();
+            } else {
+                freq.incrementHamFrequency();
+            }
+        }
+    }
+
+    // Determina a qué categoría pertenece una palabra
+    private Map<String, Frequency> getCategory(String word) {
+        if (dictionary.getOnlySpamWords().containsKey(word)) {
+            return dictionary.getOnlySpamWords();
+        } else if (dictionary.getOnlyStopWords().containsKey(word)) {
+            return dictionary.getOnlyStopWords();
+        } else if (dictionary.getOnlyRareSymbols().containsKey(word)) {
+            return dictionary.getOnlyRareSymbols();
+        }
+        return null;
+    }
 }
+

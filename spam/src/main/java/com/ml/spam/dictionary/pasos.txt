@@ -1,3 +1,4 @@
+> > > Confección del Diccionario
 Diccionario con palabras en las tres categorías (onlySpamWords, onlyRareSymbols, onlyStopWords): initial_spam_vocabulary.json.
 Resumen de Cambios:
 Eliminación de inicializaciones estáticas manuales.
@@ -13,5 +14,8 @@ Introducción de métodos para cargar y exportar datos.
  * Esta etapa no incluye la carga de frecuencias actualizadas desde un archivo persistido
  * ni el procesamiento de datos dinámicos para enriquecer el diccionario.
  */
+
+> > > Enriquecimiento: Etapa de Cargar Frecuencias a partir de un Dataset de mensajes spam y ham
+Agregar la nueva estructura con package datasetProcessor, models, rules, utils
 
 

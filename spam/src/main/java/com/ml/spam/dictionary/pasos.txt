@@ -36,6 +36,9 @@ Nueva clase que contiene mensaje y spam/ham: LabeledMessage
         Palabras existentes: Frecuencias actualizadas en sus categorías (spam, stopwords, symbols).
         Palabras nuevas: Agregadas al mapa newWords para su posterior clasificación o revisión.
 <<
+Agrego mensajes_pruebas.txt para testear el processor.
+
+Agrego 2 métodos en el service: loadFromJsonAndReplace y mergeFromJson.
 
 
 

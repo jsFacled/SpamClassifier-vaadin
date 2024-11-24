@@ -5,6 +5,8 @@ import com.ml.spam.datasetProcessor.DatasetExporter;
 
 public class FinalDictionaryDecisionMain {
     public static void main(String[] args) {
+
+        /*
         String updatedPath = "path/to/updated_spam_vocabulary.json";
         String finalPath = "path/to/final_spam_vocabulary.json";
         String newWordsExportPath = "path/to/new_words_to_review.json";
@@ -30,5 +32,7 @@ public class FinalDictionaryDecisionMain {
             System.err.println("Error en la decisión final del diccionario: " + e.getMessage());
             e.printStackTrace();
         }
+
+        */
     }
 }

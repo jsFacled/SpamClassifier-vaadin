@@ -2,13 +2,11 @@ package com.ml.spam.dictionary;
 
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
 /*
-* Clase Singleton que almacena los mapas del diccionario (onlySpamWords, onlyRareSymbols, onlyStopWords)
+* Clase Singleton que almacena los mapas del diccionario (spamWords, rareSymbols, stopWords)
 * y ofrece métodos para inicializarlos desde un archivo JSON.
 * Métodos para inicializar mapas desde un archivo JSON.
 * Utiliza un Frequency simple para almacenar las frecuencias de spam y ham.
@@ -16,10 +14,10 @@ import java.util.Map;
 public class SpamDictionary {
     private static final SpamDictionary instance = new SpamDictionary();
 
-    //Hay 3 categorías: SpamWords, RareSymbols y StopWords
-    private final Map<String, Frequency> onlySpamWords = new HashMap<>();
-    private final Map<String, Frequency> onlyRareSymbols = new HashMap<>();
-    private final Map<String, Frequency> onlyStopWords = new HashMap<>();
+    //Hay 4 categorías
+    private final Map<String, Frequency> spamWords = new HashMap<>();
+    private final Map<String, Frequency> rareSymbols = new HashMap<>();
+    private final Map<String, Frequency> stopWords = new HashMap<>();
     private final Map<String, Frequency> newWords = new HashMap<>();
 
     private SpamDictionary() {}
@@ -28,16 +26,16 @@ public class SpamDictionary {
         return instance;
     }
 
-    public Map<String, Frequency> getOnlySpamWords() {
-        return onlySpamWords;
+    public Map<String, Frequency> getSpamWords() {
+        return spamWords;
     }
 
-    public Map<String, Frequency> getOnlyRareSymbols() {
-        return onlyRareSymbols;
+    public Map<String, Frequency> getRareSymbols() {
+        return rareSymbols;
     }
 
-    public Map<String, Frequency> getOnlyStopWords() {
-        return onlyStopWords;
+    public Map<String, Frequency> getStopWords() {
+        return stopWords;
     }
 
     public Map<String, Frequency> getNewWords() {
@@ -51,16 +49,16 @@ public class SpamDictionary {
     //Ver estos metods
 
     public void initializeFromJson(JSONObject jsonObject) {
-        loadCategory(jsonObject.getJSONObject("onlySpamWords"), onlySpamWords);
-        loadCategory(jsonObject.getJSONObject("onlyRareSymbols"), onlyRareSymbols);
-        loadCategory(jsonObject.getJSONObject("onlyStopWords"), onlyStopWords);
+        loadCategory(jsonObject.getJSONObject("spamWords"), spamWords);
+        loadCategory(jsonObject.getJSONObject("rareSymbols"), rareSymbols);
+        loadCategory(jsonObject.getJSONObject("stopWords"), stopWords);
     }
 
     public JSONObject toJson() {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("onlySpamWords", categoryToJson(onlySpamWords));
-        jsonObject.put("onlyRareSymbols", categoryToJson(onlyRareSymbols));
-        jsonObject.put("onlyStopWords", categoryToJson(onlyStopWords));
+        jsonObject.put("spamWords", categoryToJson(spamWords));
+        jsonObject.put("rareSymbols", categoryToJson(rareSymbols));
+        jsonObject.put("stopWords", categoryToJson(stopWords));
         return jsonObject;
     }
     private void loadCategory(JSONObject jsonCategory, Map<String, Frequency> targetMap) {

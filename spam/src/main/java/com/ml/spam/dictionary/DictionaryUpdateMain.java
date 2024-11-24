@@ -4,7 +4,9 @@ import com.ml.spam.datasetProcessor.CsvMessageProcessor;
 
 public class DictionaryUpdateMain {
     public static void main(String[] args) {
-        String persistedPath = "path/to/persisted_initialized_spam_vocabulary.json";
+
+      /*
+       String persistedPath = "path/to/persisted_initialized_spam_vocabulary.json";
         String csvPath = "path/to/dataset.csv";
         String updatedPath = "path/to/updated_spam_vocabulary.json";
 
@@ -12,7 +14,17 @@ public class DictionaryUpdateMain {
             // Cargar el diccionario persistido
             SpamDictionary dictionary = SpamDictionary.getInstance();
             SpamDictionaryService service = new SpamDictionaryService(dictionary);
-            service.loadFromJson(persistedPath);
+
+            try (InputStream inputStream = DictionaryUpdateMain.class.getClassLoader()
+                    .getResourceAsStream(persistedPath)) {
+
+                if (inputStream == null) {
+                    throw new RuntimeException("Archivo JSON no encontrado.");
+                }
+
+                // Escoge si sobrescribir o fusionar
+                service.loadFromJsonAndReplace(inputStream); // O usar mergeFromJson(inputStream)
+            }
 
             // Procesar el archivo CSV y actualizar el diccionario
             CsvMessageProcessor processor = new CsvMessageProcessor(dictionary);
@@ -25,5 +37,8 @@ public class DictionaryUpdateMain {
             System.err.println("Error en la actualización del diccionario: " + e.getMessage());
             e.printStackTrace();
         }
+
+*/
     }
+
 }

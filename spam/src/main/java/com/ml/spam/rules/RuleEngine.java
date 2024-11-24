@@ -7,11 +7,11 @@ public class RuleEngine {
         dictionary.getNewWords().forEach((word, frequency) -> {
             // Clasificar automáticamente palabras nuevas en categorías
             if (isStopWord(word)) {
-                dictionary.getOnlyStopWords().put(word, frequency);
+                dictionary.getStopWords().put(word, frequency);
             } else if (isRareSymbol(word)) {
-                dictionary.getOnlyRareSymbols().put(word, frequency);
+                dictionary.getRareSymbols().put(word, frequency);
             } else {
-                dictionary.getOnlySpamWords().put(word, frequency);
+                dictionary.getSpamWords().put(word, frequency);
             }
         });
         dictionary.getNewWords().clear();

@@ -15,6 +15,7 @@ Métod initializeDictionary para cargar el diccionario desde un JSON.
 Métod exportToJson para guardar el estado del diccionario en un archivo JSON.
 
  */
+
 public class SpamDictionaryService {
     private final SpamDictionary dictionary;
 
@@ -37,11 +38,11 @@ public class SpamDictionaryService {
             JSONObject jsonObject = new JSONObject(jsonString);
 
             // Inicializar las categorías
-            dictionary.initializeCategory(dictionary.getOnlySpamWords(),
+            dictionary.initializeCategory(dictionary.getSpamWords(),
                     jsonObject.getJSONArray("onlySpamWords").toList().stream().map(Object::toString).toList());
-            dictionary.initializeCategory(dictionary.getOnlyRareSymbols(),
+            dictionary.initializeCategory(dictionary.getRareSymbols(),
                     jsonObject.getJSONArray("onlyRareSymbols").toList().stream().map(Object::toString).toList());
-            dictionary.initializeCategory(dictionary.getOnlyStopWords(),
+            dictionary.initializeCategory(dictionary.getStopWords(),
                     jsonObject.getJSONArray("onlyStopWords").toList().stream().map(Object::toString).toList());
 
         } catch (Exception e) {
@@ -50,9 +51,9 @@ public class SpamDictionaryService {
     }
     public void exportToJson(String filePath) throws IOException {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("onlySpamWords", exportCategory(dictionary.getOnlySpamWords()));
-        jsonObject.put("onlyRareSymbols", exportCategory(dictionary.getOnlyRareSymbols()));
-        jsonObject.put("onlyStopWords", exportCategory(dictionary.getOnlyStopWords()));
+        jsonObject.put("onlySpamWords", exportCategory(dictionary.getSpamWords()));
+        jsonObject.put("onlyRareSymbols", exportCategory(dictionary.getRareSymbols()));
+        jsonObject.put("onlyStopWords", exportCategory(dictionary.getStopWords()));
 
         try (FileWriter fileWriter = new FileWriter(filePath)) {
             fileWriter.write(jsonObject.toString(4));
@@ -73,13 +74,13 @@ public class SpamDictionaryService {
     public void displayDictionary() {
         System.out.println(" * === * === Display Map de SpamDictionary * === * ===");
         System.out.println("=== Palabras de Spam ===");
-        dictionary.getOnlySpamWords().forEach((word, freq) ->
+        dictionary.getSpamWords().forEach((word, freq) ->
                 System.out.println(word + " -> " + freq));
         System.out.println("=== Símbolos Raros ===");
-        dictionary.getOnlyRareSymbols().forEach((symbol, freq) ->
+        dictionary.getRareSymbols().forEach((symbol, freq) ->
                 System.out.println(symbol + " -> " + freq));
         System.out.println("=== Stop Words ===");
-        dictionary.getOnlyStopWords().forEach((stopWord, freq) ->
+        dictionary.getStopWords().forEach((stopWord, freq) ->
                 System.out.println(stopWord + " -> " + freq));
     }
 
@@ -125,11 +126,64 @@ public class SpamDictionaryService {
     // *  *  *  *  *  *  Actualizacion del diccionario * *  *  *  *  *
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 
+    public void loadFromJsonAndReplace(InputStream inputStream) {
+        try {
+            // Leer JSON desde InputStream
+            String jsonString = new String(inputStream.readAllBytes());
+            JSONObject jsonObject = new JSONObject(jsonString);
+
+            // Limpia los mapas actuales
+            dictionary.getSpamWords().clear();
+            dictionary.getRareSymbols().clear();
+            dictionary.getStopWords().clear();
+            dictionary.getNewWords().clear();
+
+            // Carga las categorías desde el JSON
+            dictionary.initializeFromJson(jsonObject);
+
+            System.out.println("Diccionario reemplazado con los datos del JSON.");
+        } catch (Exception e) {
+            throw new RuntimeException("Error al cargar el diccionario: " + e.getMessage(), e);
+        }
+    }
+    public void mergeFromJson(InputStream inputStream) {
+        try {
+            // Leer JSON desde InputStream
+            String jsonString = new String(inputStream.readAllBytes());
+            JSONObject jsonObject = new JSONObject(jsonString);
+
+            // Fusionar las categorías con las existentes
+            mergeCategory(jsonObject.getJSONObject("spamWords"), dictionary.getSpamWords());
+            mergeCategory(jsonObject.getJSONObject("rareSymbols"), dictionary.getRareSymbols());
+            mergeCategory(jsonObject.getJSONObject("stopWords"), dictionary.getStopWords());
+
+            System.out.println("Diccionario fusionado con los datos del JSON.");
+        } catch (Exception e) {
+            throw new RuntimeException("Error al fusionar el diccionario: " + e.getMessage(), e);
+        }
+    }
+
+    private void mergeCategory(JSONObject jsonCategory, Map<String, Frequency> targetMap) {
+        jsonCategory.keys().forEachRemaining(word -> {
+            JSONObject freqData = jsonCategory.getJSONObject(word);
+            Frequency newFrequency = new Frequency(
+                    freqData.getInt("spamFrequency"),
+                    freqData.getInt("hamFrequency")
+            );
+            targetMap.merge(word, newFrequency, (existingFreq, newFreq) -> {
+                existingFreq.incrementSpamFrequency(newFreq.getSpamFrequency());
+                existingFreq.incrementHamFrequency(newFreq.getHamFrequency());
+                return existingFreq;
+            });
+        });
+    }
+
+
     // Verifica si una palabra existe en el diccionario
     public boolean wordExists(String word) {
-        return dictionary.getOnlySpamWords().containsKey(word) ||
-                dictionary.getOnlyStopWords().containsKey(word) ||
-                dictionary.getOnlyRareSymbols().containsKey(word);
+        return dictionary.getSpamWords().containsKey(word) ||
+                dictionary.getStopWords().containsKey(word) ||
+                dictionary.getRareSymbols().containsKey(word);
     }
 
     // Actualiza la frecuencia de una palabra existente
@@ -162,12 +216,12 @@ public class SpamDictionaryService {
 
     // Determina a qué categoría pertenece una palabra
     private Map<String, Frequency> getCategory(String word) {
-        if (dictionary.getOnlySpamWords().containsKey(word)) {
-            return dictionary.getOnlySpamWords();
-        } else if (dictionary.getOnlyStopWords().containsKey(word)) {
-            return dictionary.getOnlyStopWords();
-        } else if (dictionary.getOnlyRareSymbols().containsKey(word)) {
-            return dictionary.getOnlyRareSymbols();
+        if (dictionary.getSpamWords().containsKey(word)) {
+            return dictionary.getSpamWords();
+        } else if (dictionary.getStopWords().containsKey(word)) {
+            return dictionary.getStopWords();
+        } else if (dictionary.getRareSymbols().containsKey(word)) {
+            return dictionary.getRareSymbols();
         }
         return null;
     }

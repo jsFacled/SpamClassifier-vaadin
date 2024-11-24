@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class DictionaryMain {
     public static void main(String[] args) throws IOException {
-        System.out.println("Persistiendo diccionario...");
+
 
         SpamDictionary dictionary = SpamDictionary.getInstance();
         SpamDictionaryService service = new SpamDictionaryService(dictionary);
@@ -14,7 +14,7 @@ public class DictionaryMain {
         // * * * * //
 
 
-        String filePath = "spam/src/main/resources/static/spam_vocabulary_initialized_persisted.json";
+        String filePath = "spam/src/main/resources/static/persisted_initialized_spam_vocabulary_frequenciesZero.json";
 
         // Mostrar el diccionario persistido
         service.displayJsonPersistedDictionary(filePath);

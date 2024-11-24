@@ -31,6 +31,14 @@ public class SpamDictionaryService {
 
     */
 
+    public Map<String, Frequency> getCategory(String category) {
+        switch (category){
+            case
+        }
+
+        return dictionary.gcategory;
+    }
+
     public void initializeFromJson(InputStream inputStream) {
         try {
             // Leer JSON desde InputStream
@@ -84,6 +92,9 @@ public class SpamDictionaryService {
                 System.out.println(stopWord + " -> " + freq));
     }
 
+
+    //El filePath debe estar en:
+    // String filePath = "spam/src/main/resources/static/persisted_initialized_spam_vocabulary_frequenciesZero.json";
     public void displayJsonPersistedDictionary(String filePath) {
         try {
             File file = new File(filePath);
@@ -105,6 +116,7 @@ public class SpamDictionaryService {
             System.out.println();
             System.out.println("=== Palabras de Spam ===");
             System.out.println();
+
             jsonObject.getJSONObject("onlySpamWords").toMap().forEach((word, freq) ->
                     System.out.println(word + " -> " + freq));
             System.out.println();
@@ -146,6 +158,10 @@ public class SpamDictionaryService {
             throw new RuntimeException("Error al cargar el diccionario: " + e.getMessage(), e);
         }
     }
+
+    /*
+    //Leer un json y actualizar el diccionario actual con estas palabras mezclando, o sea agregando las que
+    //no están y sumando las que ya están.
     public void mergeFromJson(InputStream inputStream) {
         try {
             // Leer JSON desde InputStream
@@ -162,7 +178,9 @@ public class SpamDictionaryService {
             throw new RuntimeException("Error al fusionar el diccionario: " + e.getMessage(), e);
         }
     }
-
+*/
+    /*
+    //Métod para mezclar palabras que ya están con nuevas.
     private void mergeCategory(JSONObject jsonCategory, Map<String, Frequency> targetMap) {
         jsonCategory.keys().forEachRemaining(word -> {
             JSONObject freqData = jsonCategory.getJSONObject(word);
@@ -177,7 +195,7 @@ public class SpamDictionaryService {
             });
         });
     }
-
+*/
 
     // Verifica si una palabra existe en el diccionario
     public boolean wordExists(String word) {

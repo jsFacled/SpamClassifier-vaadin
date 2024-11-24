@@ -40,6 +40,13 @@ Agrego mensajes_pruebas.txt para testear el processor.
 
 Agrego 2 métodos en el service: loadFromJsonAndReplace y mergeFromJson.
 
-
-
-
+<< Modificando estructura >>
+    Creación de WordData: nombre, frecuencia spam, frecuencia ham.
+    Creación de enum WordCategory.
+    Cambio y adecuación en SpamDictionary:
+        * Cambiar initializeCategory por initializeWordsWithZeroFrequency.
+        * Se agrega addWord y addWordWithFrequency.
+        * Para inicializar:
+            Desde un JSON: dictionary.initializeFromJson(jsonObject);
+            Desde una lista de palabras base: dictionary.initializeWordsWithZeroFrequency(WordCategory.SPAM_WORDS, List.of("word1", "word2"));
+        * Se agregan otros métodos que utilizaremos posteriormente

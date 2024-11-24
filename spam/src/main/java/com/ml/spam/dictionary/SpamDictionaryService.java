@@ -1,5 +1,6 @@
 package com.ml.spam.dictionary;
 
+import com.ml.spam.dictionary.models.Frequency;
 import org.json.JSONObject;
 
 import java.io.File;

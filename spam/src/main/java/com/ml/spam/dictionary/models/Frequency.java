@@ -1,4 +1,4 @@
-package com.ml.spam.dictionary;
+package com.ml.spam.dictionary.models;
 
 
 /*

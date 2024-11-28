@@ -1,6 +1,7 @@
 package com.ml.spam.dictionary;
 
-import com.ml.spam.datasetProcessor.CsvMessageProcessor;
+import com.ml.spam.dictionary.models.SpamDictionary;
+import com.ml.spam.dictionary.service.SpamDictionaryService;
 
 public class DictionaryUpdateMain {
     public static void main(String[] args) {

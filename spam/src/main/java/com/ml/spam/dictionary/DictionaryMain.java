@@ -1,8 +1,9 @@
 package com.ml.spam.dictionary;
 
+import com.ml.spam.dictionary.models.SpamDictionary;
+import com.ml.spam.dictionary.service.SpamDictionaryService;
+
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Arrays;
 
 public class DictionaryMain {
     public static void main(String[] args) throws IOException {

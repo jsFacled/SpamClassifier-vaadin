@@ -1,6 +1,6 @@
 package com.ml.spam.rules;
 
-import com.ml.spam.dictionary.SpamDictionary;
+import com.ml.spam.dictionary.models.SpamDictionary;
 
 public class RuleEngine {
     public void applyRules(SpamDictionary dictionary) {

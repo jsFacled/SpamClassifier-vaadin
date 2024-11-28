@@ -1,6 +1,6 @@
 package com.ml.spam.datasetProcessor;
 
-import com.ml.spam.dictionary.SpamDictionaryService;
+import com.ml.spam.dictionary.service.SpamDictionaryService;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

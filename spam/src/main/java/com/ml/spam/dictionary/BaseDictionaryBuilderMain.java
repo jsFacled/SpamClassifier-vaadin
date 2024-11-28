@@ -1,5 +1,8 @@
 package com.ml.spam.dictionary;
 
+import com.ml.spam.dictionary.models.SpamDictionary;
+import com.ml.spam.dictionary.service.SpamDictionaryService;
+
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -17,33 +20,35 @@ import java.io.InputStream;
  */
 
 public class BaseDictionaryBuilderMain {
+
+    // Ruta del archivo base y del archivo a persistir
+    private static final String INITIAL_JSON_PATH = "static/initial_spam_vocabulary_base_only.json";
+    private static final String PERSISTED_JSON_PATH = "spam/src/main/resources/static/persisted_initialized_spam_vocabulary_frequenciesZero.json";
+
     public static void main(String[] args) throws IOException {
 
-        // Ruta del archivo base y del archivo a persistir
-        String initialPath = "static/initial_spam_vocabulary_base_only.json";
-        String persistedInitializedPath = "spam/src/main/resources/static/persisted_initialized_spam_vocabulary_frequenciesZero.json";
-
-
-        System.out.println("* === * === 0000 Construcción del Diccionario Base - Inicializando el diccionario desde JSON... * === * === 000");
+        System.out.println("* === * === 0000 Construcción del Diccionario Base - Inicializando el diccionario desde una lista.JSON... * === * === 000");
 
         // Instanciar el servicio y el diccionario
         SpamDictionary dictionary = SpamDictionary.getInstance();
         SpamDictionaryService service = new SpamDictionaryService(dictionary);
 
-        //Inicialización en los Map
+        //Inicializar el diccionario
+        /// Apuntando al archivo
         try (InputStream inputStream = BaseDictionaryBuilderMain.class.getClassLoader()
-                .getResourceAsStream(initialPath)) {
+                .getResourceAsStream(INITIAL_JSON_PATH)) {
 
             if (inputStream == null) {
                 throw new RuntimeException("Archivo JSON no encontrado.");
             }
 
             System.out.println("Archivo JSON preparado para ser inicializado");
-            // Inicializar el diccionario
+
+            /// Inicializar el diccionario
             service.initializeFromJson(inputStream);
             System.out.println("Diccionario inicializado correctamente.");
 
-            // Mostrar el contenido del diccionario
+            /// Mostrar el contenido del diccionario
             service.displayDictionary();
 
         } catch (Exception e) {
@@ -51,7 +56,7 @@ public class BaseDictionaryBuilderMain {
         }
 
         //Persistencia en un json
-        service.exportToJson(persistedInitializedPath);
+        service.exportToJson(PERSISTED_JSON_PATH);
         System.out.println(" * === * ===> Diccionario exportado correctamente a spam_vocabulary_initialized_persisted.json");
 
 
@@ -59,7 +64,7 @@ public class BaseDictionaryBuilderMain {
 
 
         // Mostrar el diccionario persistido
-        service.displayJsonPersistedDictionary(persistedInitializedPath);
+        service.displayJsonPersistedDictionary(PERSISTED_JSON_PATH);
 
     }
 }

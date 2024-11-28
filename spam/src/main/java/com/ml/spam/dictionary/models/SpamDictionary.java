@@ -1,7 +1,5 @@
-package com.ml.spam.dictionary;
+package com.ml.spam.dictionary.models;
 
-import com.ml.spam.dictionary.models.WordCategory;
-import com.ml.spam.dictionary.models.WordData;
 import org.json.JSONObject;
 
 import java.util.HashMap;

@@ -1,5 +1,7 @@
 package com.ml.spam.dictionary;
 
+import com.ml.spam.dictionary.models.SpamDictionary;
+
 public class FinalDictionaryConsolidator {
     public void consolidateNewWords(SpamDictionary dictionary) {
         dictionary.getNewWords().forEach((word, frequency) -> {

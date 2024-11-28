@@ -1,6 +1,6 @@
 package com.ml.spam.datasetProcessor;
 
-import com.ml.spam.dictionary.SpamDictionary;
+import com.ml.spam.dictionary.models.SpamDictionary;
 import org.json.JSONObject;
 
 import java.io.FileWriter;

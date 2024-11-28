@@ -38,6 +38,11 @@ public class WordData {
         this.hamFrequency++;
     }
 
+    public void resetFrequencies() {
+        this.spamFrequency = 0;
+        this.hamFrequency = 0;
+    }
+
     @Override
     public String toString() {
         return "{word='" + word + "', spamFrequency=" + spamFrequency + ", hamFrequency=" + hamFrequency + "}";

@@ -54,4 +54,5 @@ Agrego 2 métodos en el service: loadFromJsonAndReplace y mergeFromJson.
 << Modificaciones >>
     Creacion de FileLoader en utils\.
     Implementación en SpamDictionaryService y BaseDictionaryBuilderMain.
+    Elimino la clase Frequency
 

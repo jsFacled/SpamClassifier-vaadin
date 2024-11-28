@@ -3,6 +3,8 @@ package com.ml.spam.rules;
 import com.ml.spam.dictionary.models.SpamDictionary;
 
 public class RuleEngine {
+
+    /*
     public void applyRules(SpamDictionary dictionary) {
         dictionary.getNewWords().forEach((word, frequency) -> {
             // Clasificar automáticamente palabras nuevas en categorías
@@ -26,4 +28,6 @@ public class RuleEngine {
         // Lógica para identificar símbolos raros
         return false;
     }
+
+     */
 }

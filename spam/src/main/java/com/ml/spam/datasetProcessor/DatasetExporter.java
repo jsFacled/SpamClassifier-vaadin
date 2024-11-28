@@ -8,6 +8,8 @@ import java.io.IOException;
 
 public class DatasetExporter {
 
+    /*
+
     public void exportNewWords(SpamDictionary dictionary, String filePath) throws IOException {
         JSONObject jsonNewWords = new JSONObject();
         dictionary.getNewWords().forEach((word, frequency) -> {
@@ -21,4 +23,6 @@ public class DatasetExporter {
             fileWriter.write(jsonNewWords.toString(4));
         }
     }
+
+     */
 }

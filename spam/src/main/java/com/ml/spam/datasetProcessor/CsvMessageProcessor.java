@@ -10,19 +10,25 @@ import java.util.List;
 
 public class CsvMessageProcessor {
 
+    /*
+         //ver su implementaciòn ya que se cambió la estructura del diccionario de set a Map.
+
+
     private final SpamDictionaryService dictionaryService;
 
     // Constructor para inyectar el servicio del diccionario
     public CsvMessageProcessor(SpamDictionaryService dictionaryService) {
         this.dictionaryService = dictionaryService;
     }
+*/
 
     /**
      * Método principal: procesa el CSV y actualiza el diccionario.
      *
      * @param filePath Ruta del archivo CSV.
      * @throws IOException Si ocurre algún error al leer el archivo.
-     */
+     **/
+    /*
     public void processCsvAndUpdateDictionary(String filePath) throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
@@ -40,7 +46,7 @@ public class CsvMessageProcessor {
             }
         }
     }
-
+*/
     /**
      * Convierte una línea CSV en un objeto LabeledMessage.
      *
@@ -78,6 +84,9 @@ public class CsvMessageProcessor {
      * @param tokens Lista de palabras tokenizadas.
      * @param isSpam Indica si el mensaje es spam.
      */
+
+    // Ver el tipo: String, Map, etc
+    /*
     private void updateDictionary(List<String> tokens, boolean isSpam) {
         for (String token : tokens) {
             if (dictionaryService.wordExists(token)) {
@@ -88,4 +97,5 @@ public class CsvMessageProcessor {
         }
     }
 
+     */
 }

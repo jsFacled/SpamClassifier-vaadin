@@ -4,6 +4,8 @@ import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
 
 public class DictionaryUpdateMain {
+
+
     public static void main(String[] args) {
         SpamDictionary dictionary = SpamDictionary.getInstance();
         SpamDictionaryService service = new SpamDictionaryService(dictionary);
@@ -14,7 +16,7 @@ public class DictionaryUpdateMain {
         * */
 
         // Mostrar el diccionario persistido
-        service.displayJsonPersistedDictionary(filePath);
+        //service.displayJsonPersistedDictionary(filePath);
 
         // Mostrar los Map de SpamDictionary
 

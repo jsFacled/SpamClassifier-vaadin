@@ -4,6 +4,8 @@ import com.ml.spam.dictionary.service.SpamDictionaryService;
 
 public class TestSpamProcessor {
 
+    /*
+
     public static void main(String[] args) {
         // Inicializar el diccionario y el servicio
         SpamDictionary dictionary = SpamDictionary.getInstance();
@@ -34,4 +36,6 @@ public class TestSpamProcessor {
             e.printStackTrace();
         }
     }
+
+     */
 }

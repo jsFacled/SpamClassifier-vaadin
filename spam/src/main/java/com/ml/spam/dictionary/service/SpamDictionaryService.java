@@ -77,6 +77,25 @@ public class SpamDictionaryService {
     }
 
     /**
+     * Muestra el contenido de un json.
+     * Utiliza inputStream para leer en resources.statis
+     * La ruta debe ser:
+     *  String filePath = "static/archivo.json";
+     */
+    public void displayJsonFileDictionary(String resourcePath) {
+        try {
+            // Leer el contenido del archivo desde recursos
+            String jsonContent = FileLoader.loadResourceAsString(resourcePath);
+
+            // Mostrar el contenido en consola
+            System.out.println("=== Diccionario Persistido en JSON ===");
+            System.out.println(jsonContent);
+        } catch (Exception e) {
+            System.err.println("Error al leer el archivo JSON desde recursos: " + e.getMessage());
+        }
+    }
+
+    /**
      * Verifica si una palabra existe en el diccionario.
      * @param word Palabra a verificar.
      * @return true si la palabra existe en alguna categoría, false en caso contrario.
@@ -119,4 +138,6 @@ public class SpamDictionaryService {
     public void addNewWord(WordCategory category, String word) {
         dictionary.addWord(category, word);
     }
+
+
 }

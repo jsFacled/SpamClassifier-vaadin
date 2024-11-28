@@ -3,6 +3,8 @@ package com.ml.spam.dictionary;
 import com.ml.spam.dictionary.models.SpamDictionary;
 
 public class FinalDictionaryConsolidator {
+
+    /*
     public void consolidateNewWords(SpamDictionary dictionary) {
         dictionary.getNewWords().forEach((word, frequency) -> {
             // Lógica para mover palabras nuevas a las categorías correspondientes
@@ -26,4 +28,6 @@ public class FinalDictionaryConsolidator {
         // Implementar lógica para identificar símbolos raros
         return false;
     }
+
+     */
 }

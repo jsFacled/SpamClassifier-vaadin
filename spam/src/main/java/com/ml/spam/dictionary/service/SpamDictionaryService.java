@@ -2,6 +2,7 @@ package com.ml.spam.dictionary.service;
 
 import com.ml.spam.dictionary.models.Frequency;
 import com.ml.spam.dictionary.models.SpamDictionary;
+import com.ml.spam.utils.FileLoader;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -41,6 +42,37 @@ public class SpamDictionaryService {
         return dictionary.gcategory;
     }
 
+    // Inicializa el diccionario desde un archivo JSON
+    public void initializeFromJson(String resourcePath) {
+        try (InputStream inputStream = FileLoader.loadResourceAsStream(resourcePath)) {
+            String jsonContent = FileLoader.readFile(inputStream);
+            JSONObject jsonObject = new JSONObject(jsonContent);
+
+            // Inicializar las categorías con frecuencias en cero
+            dictionary.initializeWordsWithZeroFrequency(SpamDictionary.WordCategory.SPAM_WORDS,
+                    jsonObject.getJSONArray("onlySpamWords").toList().stream().map(Object::toString).toList());
+            dictionary.initializeWordsWithZeroFrequency(SpamDictionary.WordCategory.STOP_WORDS,
+                    jsonObject.getJSONArray("onlyStopWords").toList().stream().map(Object::toString).toList());
+            dictionary.initializeWordsWithZeroFrequency(SpamDictionary.WordCategory.RARE_SYMBOLS,
+                    jsonObject.getJSONArray("onlyRareSymbols").toList().stream().map(Object::toString).toList());
+        } catch (IOException e) {
+            throw new RuntimeException("Error al inicializar desde JSON: " + e.getMessage(), e);
+        }
+    }
+
+    // Exporta el diccionario a un archivo JSON
+    public void exportToJson(String filePath) {
+        try (FileWriter fileWriter = new FileWriter(filePath)) {
+            JSONObject jsonObject = dictionary.toJson();
+            fileWriter.write(jsonObject.toString(4)); // Formateado con sangría
+        } catch (IOException e) {
+            throw new RuntimeException("Error al exportar a JSON: " + e.getMessage(), e);
+        }
+    }
+
+/*
+        //  - - - - - - - -  * * * * *     Métodos antiguos * * * * * - - - - - - - - //
+
     public void initializeFromJson(InputStream inputStream) {
         try {
             // Leer JSON desde InputStream
@@ -59,6 +91,8 @@ public class SpamDictionaryService {
             throw new RuntimeException("Error al inicializar el diccionario: " + e.getMessage(), e);
         }
     }
+
+
     public void exportToJson(String filePath) throws IOException {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("onlySpamWords", exportCategory(dictionary.getSpamWords()));
@@ -69,6 +103,9 @@ public class SpamDictionaryService {
             fileWriter.write(jsonObject.toString(4));
         }
     }
+
+
+ */
 
     private JSONObject exportCategory(Map<String, Frequency> category) {
         JSONObject jsonCategory = new JSONObject();

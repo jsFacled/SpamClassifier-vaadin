@@ -50,3 +50,8 @@ Agrego 2 métodos en el service: loadFromJsonAndReplace y mergeFromJson.
             Desde un JSON: dictionary.initializeFromJson(jsonObject);
             Desde una lista de palabras base: dictionary.initializeWordsWithZeroFrequency(WordCategory.SPAM_WORDS, List.of("word1", "word2"));
         * Se agregan otros métodos que utilizaremos posteriormente
+
+<< Modificaciones >>
+    Creacion de FileLoader en utils\.
+    Implementación en SpamDictionaryService y BaseDictionaryBuilderMain
+

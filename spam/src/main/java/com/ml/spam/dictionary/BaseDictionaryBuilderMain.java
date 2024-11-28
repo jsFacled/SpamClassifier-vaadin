@@ -25,41 +25,22 @@ public class BaseDictionaryBuilderMain {
     private static final String INITIAL_JSON_PATH = "static/initial_spam_vocabulary_base_only.json";
     private static final String PERSISTED_JSON_PATH = "spam/src/main/resources/static/persisted_initialized_spam_vocabulary_frequenciesZero.json";
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
+        System.out.println("=== Construcción del Diccionario Base ===");
 
-        System.out.println("* === * === 0000 Construcción del Diccionario Base - Inicializando el diccionario desde una lista.JSON... * === * === 000");
-
-        // Instanciar el servicio y el diccionario
+        // Instanciar el diccionario y servicio
         SpamDictionary dictionary = SpamDictionary.getInstance();
         SpamDictionaryService service = new SpamDictionaryService(dictionary);
 
-        //Inicializar el diccionario
-        /// Apuntando al archivo
-        try (InputStream inputStream = BaseDictionaryBuilderMain.class.getClassLoader()
-                .getResourceAsStream(INITIAL_JSON_PATH)) {
+        // Inicializar el diccionario desde el JSON base
+        System.out.println("Inicializando el diccionario desde: " + INITIAL_JSON_PATH);
+        service.initializeFromJson(INITIAL_JSON_PATH);
 
-            if (inputStream == null) {
-                throw new RuntimeException("Archivo JSON no encontrado.");
-            }
-
-            System.out.println("Archivo JSON preparado para ser inicializado");
-
-            /// Inicializar el diccionario
-            service.initializeFromJson(inputStream);
-            System.out.println("Diccionario inicializado correctamente.");
-
-            /// Mostrar el contenido del diccionario
-            service.displayDictionary();
-
-        } catch (Exception e) {
-            System.err.println("Error durante la inicialización: " + e.getMessage());
-        }
-
-        //Persistencia en un json
+        // Exportar el diccionario inicializado a un archivo persistido
+        System.out.println("Exportando el diccionario inicializado a: " + PERSISTED_JSON_PATH);
         service.exportToJson(PERSISTED_JSON_PATH);
-        System.out.println(" * === * ===> Diccionario exportado correctamente a spam_vocabulary_initialized_persisted.json");
 
-
+        System.out.println("=== Operación completada con éxito ===");
 
 
 

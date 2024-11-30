@@ -16,7 +16,7 @@ package com.ml.spam.dictionary.stageMain;
 public class BaseDictionaryBuilderMainAntiguo {
 
     // Ruta del archivo base y del archivo a persistir
-    private static final String INITIAL_JSON_PATH = "static/initial_spam_vocabulary_base_only.json";
+    private static final String INITIAL_JSON_PATH = "static/dictionary/initial_spam_vocabulary_base_only.json";
     private static final String PERSISTED_JSON_PATH = "static/persisted_initialized_spam_vocabulary_frequenciesZero.json";
    // private static final String PERSISTED_JSON_PATH = "spam/src/main/resources/static/persisted_initialized_spam_vocabulary_frequenciesZero.json";
 

@@ -2,6 +2,7 @@ package com.ml.spam.dictionary.service;
 
 import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.models.WordCategory;
+import com.ml.spam.dictionary.models.WordData;
 import com.ml.spam.handlers.ResourcesHandler;
 
 import com.ml.spam.utils.JsonUtils;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Map;
 
 /**
  * SpamDictionaryService:
@@ -46,7 +48,10 @@ public class SpamDictionaryService {
             // 2. Leer y procesar el JSON desde recursos
             JSONObject jsonObject = resourcesHandler.loadJson(resourcePath);
 
-            // 3. Inicializar las palabras en el diccionario
+            // 3. Validar las claves del JSON
+            validateJsonKeys(jsonObject);
+
+            // 4. Inicializar las palabras en el diccionario
             initializeCategoriesFromJson(jsonObject);
 
             System.out.println("Diccionario creado desde palabras en el archivo: " + resourcePath);
@@ -70,6 +75,36 @@ public class SpamDictionaryService {
             System.out.println("Diccionario inicializado desde JSON en: " + resourcePath);
         } catch (Exception e) {
             throw new RuntimeException("Error al inicializar desde JSON: " + e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Valida que el JSON contenga las claves necesarias para las categorías esenciales
+     * (spam_words, rare_symbols, stop_words). Si alguna de estas claves falta, lanza una excepción
+     * para interrumpir el proceso de creación del diccionario. La categoría 'unassigned_words'
+     * no se valida, ya que se llenará en una etapa posterior del proceso.
+     */
+    private void validateJsonKeys(JSONObject jsonObject) {
+        // Lista de las categorías esenciales que debemos verificar
+        String[] requiredCategories = {
+                "spam_words",       // Clave para SPAM_WORDS
+                "rare_symbols",     // Clave para RARE_SYMBOLS
+                "stop_words"        // Clave para STOP_WORDS
+        };
+
+        boolean missingKey = false;
+
+        // Iterar sobre las categorías requeridas
+        for (String categoryKey : requiredCategories) {
+            if (!jsonObject.has(categoryKey)) {
+                System.err.println("Advertencia: La clave '" + categoryKey + "' no se encuentra en el JSON.");
+                missingKey = true;
+            }
+        }
+
+        // Si alguna clave faltante es detectada, lanzamos una excepción
+        if (missingKey) {
+            throw new RuntimeException("Error: Faltan claves necesarias en el JSON (spam_words, rare_symbols, stop_words).");
         }
     }
 
@@ -133,16 +168,24 @@ public class SpamDictionaryService {
         }
     }
 
+
+
     /**
      * Muestra en la consola el contenido actual del diccionario.
      */
     public void displayDictionary() {
-        System.out.println("=== Contenido del Diccionario ===");
+        System.out.println("========= Contenido del Diccionario =========\n");
         for (WordCategory category : WordCategory.values()) {
             System.out.println("Categoría: " + category);
-            dictionary.getCategory(category).forEach((word, wordData) ->
-                    System.out.println(word + " -> " + wordData)
-            );
+            Map<String, WordData> wordsInCategory = dictionary.getCategory(category);
+
+            if (wordsInCategory.isEmpty()) {
+                System.out.println("  [Vacío]"); // Indicar que la categoría está vacía
+            } else {
+                wordsInCategory.forEach((word, wordData) ->
+                        System.out.println("  " + word + " -> " + wordData)
+                );
+            }
         }
     }
 

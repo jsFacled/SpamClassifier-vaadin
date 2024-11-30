@@ -19,7 +19,7 @@ public class DictionaryMain {
 
     // String filePath = "F:\\JAVA GENERAL\\MACHINE LEARNING JAVA\\Código-ejemplos-intellij\\Clasificador Spam\\SpamClassifier-vaadin\\spam\\src\\main\\resources\\static\\persisted_initialized_spam_vocabulary_frequenciesZero111.json";
 
-     String filePath = "static/persisted_initialized_spam_vocabulary_frequenciesZero111.json";
+     String filePath = "static/dictionary/persisted_initialized_spam_vocabulary_frequenciesZero111.json";
 
         // Mostrar el diccionario persistido
         service.displayJsonFileDictionary(filePath);

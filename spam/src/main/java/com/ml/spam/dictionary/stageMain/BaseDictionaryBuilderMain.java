@@ -1,4 +1,5 @@
 package com.ml.spam.dictionary.stageMain;
+import com.ml.spam.config.FilePathsConfig;
 import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
 import com.ml.spam.handlers.ResourcesHandler;
@@ -17,8 +18,8 @@ import com.ml.spam.utils.DictionaryUtils;
 public class BaseDictionaryBuilderMain {
 
     // Rutas para el JSON base y el archivo exportado
-    private static final String INITIAL_JSON_PATH = "static/initial_spam_vocabulary_base_only.json";
-    private static final String EXPORT_JSON_PATH = "static/persisted_initialized_spam_vocabulary_frequenciesZero.json";
+    private static final String INITIAL_JSON_PATH = FilePathsConfig.INITIAL_JSON_PATH;
+    private static final String EXPORT_DICTIONARY_CREATED_JSON_PATH = FilePathsConfig.EXPORT_DICTIONARY_CREATED_JSON_PATH;
 
     public static void main(String[] args) {
         System.out.println("=== Construcción del Diccionario Base ===");

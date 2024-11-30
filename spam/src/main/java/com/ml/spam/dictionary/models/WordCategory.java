@@ -3,5 +3,5 @@ public enum WordCategory {
     SPAM_WORDS,    // Palabras relacionadas con spam
     RARE_SYMBOLS,  // Símbolos raros
     STOP_WORDS,    // Palabras irrelevantes
-    NEW_WORDS      // Palabras nuevas
+    UNASSIGNED_WORDS      // Palabras nuevas NO ASIGNADAS TODAVÍA
 }

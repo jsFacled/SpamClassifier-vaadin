@@ -1,5 +1,6 @@
-package com.ml.spam.utils;
+package com.ml.spam.handlers;
 
+import com.ml.spam.utils.FileLoader;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -9,7 +10,28 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Centralizar la carga de datos desde recursos como archivos JSON o CSV.
+ * Transformar datos en formatos básicos (JSONObject, List<String>) para que
+ * otras clases no se preocupen por los detalles de acceso o transformación inicial.
+ */
+
 public class ResourcesHandler {
+
+    /**
+     * Carga el contenido de un archivo en recursos como String.
+     * @param resourcePath Ruta relativa dentro de los recursos (classpath).
+     * @return Contenido del archivo como String.
+     * @throws RuntimeException si el archivo no se encuentra o hay un error de lectura.
+     */
+    public String loadResourceAsString(String resourcePath) {
+        try {
+            return FileLoader.loadResourceAsString(resourcePath);
+        } catch (IOException e) {
+            throw new RuntimeException("Error al cargar archivo como String desde recursos: " + resourcePath, e);
+        }
+    }
+
 
     /**
      * Carga un archivo JSON desde los recursos (classpath) y lo devuelve como JSONObject.

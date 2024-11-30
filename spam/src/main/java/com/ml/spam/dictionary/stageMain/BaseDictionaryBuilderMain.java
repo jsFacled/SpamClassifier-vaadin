@@ -1,0 +1,45 @@
+package com.ml.spam.dictionary.stageMain;
+import com.ml.spam.dictionary.models.SpamDictionary;
+import com.ml.spam.dictionary.service.SpamDictionaryService;
+import com.ml.spam.handlers.ResourcesHandler;
+import com.ml.spam.utils.DictionaryUtils;
+
+/**
+ * Clase principal para inicializar el diccionario desde un archivo JSON.
+ *
+ * Responsabilidades:
+ * - Leer el archivo `initial_spam_vocabulary_base_only.json` desde el sistema de recursos.
+ * - Utilizar `SpamDictionaryService` para inicializar las categorías del diccionario.
+ * - Exportar el diccionario a un archivo JSON persistido.
+ * - Mostrar el contenido del diccionario en la consola.
+ */
+
+public class BaseDictionaryBuilderMain {
+
+    // Rutas para el JSON base y el archivo exportado
+    private static final String INITIAL_JSON_PATH = "static/initial_spam_vocabulary_base_only.json";
+    private static final String EXPORT_JSON_PATH = "static/persisted_initialized_spam_vocabulary_frequenciesZero.json";
+
+    public static void main(String[] args) {
+        System.out.println("=== Construcción del Diccionario Base ===");
+
+        // Instanciar la fachada (ResourcesHandler) y el diccionario
+        ResourcesHandler resourcesHandler = new ResourcesHandler();
+        SpamDictionary dictionary = SpamDictionary.getInstance();
+
+        // Crear el servicio de diccionario
+        SpamDictionaryService service = new SpamDictionaryService(resourcesHandler, dictionary);
+
+        // Paso 1: Crear el diccionario desde el JSON base
+        DictionaryUtils.createDictionary(service, INITIAL_JSON_PATH);
+
+        // Paso 2: Mostrar el diccionario en memoria
+        DictionaryUtils.displayDictionary(service);
+
+        // Paso 3: Exportar el diccionario a un archivo persistido
+        DictionaryUtils.exportDictionary(service, EXPORT_JSON_PATH);
+
+        // Paso 4: Mostrar el contenido del archivo JSON persistido (opcional)
+        DictionaryUtils.displayPersistedDictionary(EXPORT_JSON_PATH);
+    }
+}

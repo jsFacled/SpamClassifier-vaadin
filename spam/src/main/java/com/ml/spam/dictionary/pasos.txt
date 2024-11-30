@@ -61,3 +61,4 @@ Agrego 2 métodos en el service: loadFromJsonAndReplace y mergeFromJson.
     createDictionaryFromWords en el service.
 
 << Agrego fachada ResourcesHandler para el manejo de archivos
+<< Agrego DictionaryUtils para inicializar diccionarios, leerlos, mostrarlos, etc.

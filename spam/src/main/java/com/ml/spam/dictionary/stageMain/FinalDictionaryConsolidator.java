@@ -1,6 +1,4 @@
-package com.ml.spam.dictionary;
-
-import com.ml.spam.dictionary.models.SpamDictionary;
+package com.ml.spam.dictionary.stageMain;
 
 public class FinalDictionaryConsolidator {
 

@@ -1,7 +1,4 @@
-package com.ml.spam.dictionary;
-
-import com.ml.spam.rules.RuleEngine;
-import com.ml.spam.datasetProcessor.DatasetExporter;
+package com.ml.spam.dictionary.stageMain;
 
 public class FinalDictionaryDecisionMain {
     public static void main(String[] args) {

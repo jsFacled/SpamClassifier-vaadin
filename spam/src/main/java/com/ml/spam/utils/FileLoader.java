@@ -2,6 +2,7 @@ package com.ml.spam.utils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -69,11 +70,20 @@ public class FileLoader {
      * * La ruta debe ser:
      *      *  String filePath = "static/archivo.json";
      */
-    public static String loadResourceAsString(String resourcePath) {
-        try (InputStream inputStream = loadResourceAsStream(resourcePath)) {
-            return readFile(inputStream);
-        } catch (IOException e) {
-            throw new RuntimeException("Error al leer el archivo desde los recursos: " + resourcePath, e);
+    /**
+     * Carga un archivo desde los recursos como String.
+     * @param resourcePath Ruta relativa dentro de los recursos (classpath).
+     * @return Contenido del archivo como String.
+     * @throws IOException si ocurre un error de lectura.
+     */
+    public static String loadResourceAsString(String resourcePath) throws IOException {
+        try (InputStream inputStream = FileLoader.class.getClassLoader().getResourceAsStream(resourcePath)) {
+            if (inputStream == null) {
+                throw new IOException("Archivo no encontrado en recursos: " + resourcePath);
+            }
+            return new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
         }
     }
 }
+
+

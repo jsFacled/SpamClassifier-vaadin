@@ -1,182 +1,144 @@
 package com.ml.spam.dictionary.service;
 
 import com.ml.spam.dictionary.models.SpamDictionary;
-import com.ml.spam.dictionary.models.WordData;
 import com.ml.spam.dictionary.models.WordCategory;
-import com.ml.spam.utils.FileLoader;
-import org.json.JSONObject;
+import com.ml.spam.handlers.ResourcesHandler;
 
+import com.ml.spam.utils.JsonUtils;
+import org.json.JSONObject;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Map;
+import java.util.List;
 
 /**
  * SpamDictionaryService:
  * Servicio que interactúa con SpamDictionary para inicialización, manipulación, y exportación de datos.
  */
+/**
+ * SpamDictionaryService:
+ * Servicio que interactúa con SpamDictionary para inicialización, manipulación y exportación de datos.
+ */
 public class SpamDictionaryService {
 
     private final SpamDictionary dictionary;
+    private final ResourcesHandler resourcesHandler;
 
-    /**
-     * Constructor para inicializar con un diccionario existente.
-     * @param dictionary Instancia de SpamDictionary.
-     */
-    public SpamDictionaryService(SpamDictionary dictionary) {
+    public SpamDictionaryService(ResourcesHandler resourcesHandler, SpamDictionary dictionary) {
+        this.resourcesHandler = resourcesHandler;
         this.dictionary = dictionary;
     }
 
-
     /**
-     * Crea un diccionario desde un archivo JSON que contiene palabras sueltas por categoría.
-     * Todas las palabras se inicializan con frecuencias en cero.
+     * Crea un diccionario desde un archivo JSON con palabras organizadas por categoría.
+     * Cada palabra se inicializa con frecuencia en cero.
      *
-     * @param resourcePath Ruta del archivo JSON en recursos.
+     * @param resourcePath Ruta relativa del archivo JSON en los recursos.
      */
     public void createDictionaryFromWords(String resourcePath) {
         try {
             // 1. Limpiar el diccionario antes de inicializar
             dictionary.clearDictionary();
 
-            // 2. Leer el JSON desde los recursos
-            InputStream inputStream = FileLoader.loadResourceAsStream(resourcePath);
-            String jsonContent = FileLoader.readFile(inputStream);
-            JSONObject jsonObject = new JSONObject(jsonContent);
+            // 2. Leer y procesar el JSON desde recursos
+            JSONObject jsonObject = resourcesHandler.loadJson(resourcePath);
 
-            // 3. Iterar por cada categoría en el diccionario
-            for (WordCategory category : WordCategory.values()) {
-                if (jsonObject.has(category.name().toLowerCase())) {
-                    // Extraer la lista de palabras de la categoría
-                    var words = jsonObject.getJSONArray(category.name().toLowerCase())
-                            .toList()
-                            .stream()
-                            .map(Object::toString)
-                            .toList();
+            // 3. Inicializar las palabras en el diccionario
+            initializeCategoriesFromJson(jsonObject);
 
-                    // Agregar palabras al diccionario con frecuencias en cero
-                    dictionary.initializeWordsWithZeroFrequency(category, words);
-                }
-            }
-
-            System.out.println("Diccionario creado con palabras desde el archivo: " + resourcePath);
+            System.out.println("Diccionario creado desde palabras en el archivo: " + resourcePath);
         } catch (Exception e) {
             throw new RuntimeException("Error al crear el diccionario desde palabras: " + e.getMessage(), e);
         }
     }
 
-
     /**
-     * Inicializa el diccionario desde un archivo JSON ubicado en resources.
-     * @param resourcePath Ruta del archivo JSON en los recursos.
+     * Inicializa el diccionario cargando palabras desde un archivo JSON ubicado en resources.
+     * @param resourcePath Ruta relativa del archivo JSON en los recursos.
      */
     public void initializeFromJson(String resourcePath) {
-        try (InputStream inputStream = FileLoader.loadResourceAsStream(resourcePath)) {
-            String jsonContent = FileLoader.readFile(inputStream);
-            JSONObject jsonObject = new JSONObject(jsonContent);
+        try {
+            // 1. Leer y procesar el JSON desde recursos
+            JSONObject jsonObject = resourcesHandler.loadJson(resourcePath);
 
-            // Inicializar las categorías
-            for (WordCategory category : WordCategory.values()) {
-                dictionary.initializeWordsWithZeroFrequency(
-                        category,
-                        jsonObject.optJSONArray(category.name().toLowerCase())
-                                .toList().stream().map(Object::toString).toList()
-                );
-            }
-        } catch (IOException e) {
+            // 2. Inicializar las palabras en el diccionario
+            initializeCategoriesFromJson(jsonObject);
+
+            System.out.println("Diccionario inicializado desde JSON en: " + resourcePath);
+        } catch (Exception e) {
             throw new RuntimeException("Error al inicializar desde JSON: " + e.getMessage(), e);
         }
     }
 
     /**
-     * Exporta el contenido del diccionario a un archivo JSON.
-     * @param filePath Ruta del archivo donde se exportará el JSON.
+     * Exporta el contenido del diccionario a un archivo JSON en el sistema.
+     * @param filePath Ruta absoluta o relativa donde se guardará el JSON.
      */
     public void exportToJson(String filePath) {
         try (FileWriter fileWriter = new FileWriter(filePath)) {
+            // 1. Convertir el diccionario a JSON
             JSONObject jsonObject = dictionary.toJson();
-            fileWriter.write(jsonObject.toString(4)); // Formateado con sangría
+
+            // 2. Escribir el JSON formateado en el archivo
+            fileWriter.write(jsonObject.toString(4));
+
+            System.out.println("Diccionario exportado a JSON en: " + filePath);
         } catch (IOException e) {
             throw new RuntimeException("Error al exportar a JSON: " + e.getMessage(), e);
         }
     }
 
     /**
-     * Muestra las palabras y frecuencias en la consola.
+     * Inicializa las categorías del diccionario utilizando datos de un JSONObject.
+     * @param jsonObject JSON que contiene las palabras por categoría.
+     * 3 pasos:
+     *         - Iterar sobre las categorías (WordCategory).
+     *         - Procesar un JSONArray para convertirlo en una List<String>.
+     *         - Inicializar palabras en el diccionario con frecuencia cero.
+     *
+     */
+    private void initializeCategoriesFromJson(JSONObject jsonObject) {
+        for (WordCategory category : WordCategory.values()) {
+            initializeCategoryFromJson(jsonObject, category);
+        }
+    }
+
+    // Métod auxiliar para inicializar una categoría específica
+    private void initializeCategoryFromJson(JSONObject jsonObject, WordCategory category) {
+        if (jsonObject.has(category.name().toLowerCase())) {
+            List<String> words = JsonUtils.jsonArrayToStringList(
+                    jsonObject.optJSONArray(category.name().toLowerCase())
+            );
+            dictionary.initializeWordsWithZeroFrequency(category, words);
+        }
+    }
+
+    /**
+     * Muestra en la consola el contenido actual del diccionario.
      */
     public void displayDictionary() {
-        System.out.println("=== Display Diccionario ===");
+        System.out.println("=== Contenido del Diccionario ===");
         for (WordCategory category : WordCategory.values()) {
             System.out.println("Categoría: " + category);
             dictionary.getCategory(category).forEach((word, wordData) ->
                     System.out.println(word + " -> " + wordData)
             );
-            System.out.println();
         }
     }
 
     /**
-     * Muestra el contenido de un json.
-     * Utiliza inputStream para leer en resources.statis
-     * La ruta debe ser:
-     *  String filePath = "static/archivo.json";
+     * Muestra el contenido de un archivo JSON desde resources en la consola.
+     * @param resourcePath Ruta relativa del archivo JSON en los recursos.
      */
     public void displayJsonFileDictionary(String resourcePath) {
         try {
             // Leer el contenido del archivo desde recursos
-            String jsonContent = FileLoader.loadResourceAsString(resourcePath);
+            String jsonContent = resourcesHandler.loadResourceAsString(resourcePath);
 
-            // Mostrar el contenido en consola
+            // Mostrar el contenido en la consola
             System.out.println("=== Diccionario Persistido en JSON ===");
             System.out.println(jsonContent);
         } catch (Exception e) {
             System.err.println("Error al leer el archivo JSON desde recursos: " + e.getMessage());
         }
     }
-
-    /**
-     * Verifica si una palabra existe en el diccionario.
-     * @param word Palabra a verificar.
-     * @return true si la palabra existe en alguna categoría, false en caso contrario.
-     */
-    public boolean wordExists(String word) {
-        for (WordCategory category : WordCategory.values()) {
-            if (dictionary.getCategory(category).containsKey(word)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Actualiza la frecuencia de una palabra existente en la categoría correspondiente.
-     * @param word Palabra a actualizar.
-     * @param isSpam True para incrementar como spam, false para incrementar como ham.
-     */
-    public void updateWordFrequency(String word, boolean isSpam) {
-        for (WordCategory category : WordCategory.values()) {
-            Map<String, WordData> categoryMap = dictionary.getCategory(category);
-            if (categoryMap.containsKey(word)) {
-                WordData wordData = categoryMap.get(word);
-                if (isSpam) {
-                    wordData.incrementSpamFrequency();
-                } else {
-                    wordData.incrementHamFrequency();
-                }
-                return;
-            }
-        }
-        throw new RuntimeException("La palabra '" + word + "' no existe en el diccionario.");
-    }
-
-    /**
-     * Agrega una nueva palabra a una categoría específica con frecuencias iniciales en cero.
-     * @param category Categoría a la que pertenece la palabra.
-     * @param word Palabra a agregar.
-     */
-    public void addNewWord(WordCategory category, String word) {
-        dictionary.addWord(category, word);
-    }
-
-
 }

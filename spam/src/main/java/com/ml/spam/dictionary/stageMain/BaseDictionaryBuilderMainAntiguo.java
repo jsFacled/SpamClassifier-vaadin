@@ -1,7 +1,4 @@
-package com.ml.spam.dictionary;
-
-import com.ml.spam.dictionary.models.SpamDictionary;
-import com.ml.spam.dictionary.service.SpamDictionaryService;
+package com.ml.spam.dictionary.stageMain;
 
 /*
  * Clase principal para inicializar el diccionario desde un archivo JSON.
@@ -20,7 +17,8 @@ public class BaseDictionaryBuilderMainAntiguo {
 
     // Ruta del archivo base y del archivo a persistir
     private static final String INITIAL_JSON_PATH = "static/initial_spam_vocabulary_base_only.json";
-    private static final String PERSISTED_JSON_PATH = "spam/src/main/resources/static/persisted_initialized_spam_vocabulary_frequenciesZero.json";
+    private static final String PERSISTED_JSON_PATH = "static/persisted_initialized_spam_vocabulary_frequenciesZero.json";
+   // private static final String PERSISTED_JSON_PATH = "spam/src/main/resources/static/persisted_initialized_spam_vocabulary_frequenciesZero.json";
 
     public static void main(String[] args) {
 

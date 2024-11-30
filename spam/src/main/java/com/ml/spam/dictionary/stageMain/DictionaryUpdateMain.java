@@ -1,14 +1,18 @@
-package com.ml.spam.dictionary;
+package com.ml.spam.dictionary.stageMain;
 
 import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
+import com.ml.spam.handlers.ResourcesHandler;
 
 public class DictionaryUpdateMain {
 
 
     public static void main(String[] args) {
+
         SpamDictionary dictionary = SpamDictionary.getInstance();
-        SpamDictionaryService service = new SpamDictionaryService(dictionary);
+        ResourcesHandler resourcesHandler = new ResourcesHandler();
+        SpamDictionaryService service = new SpamDictionaryService(resourcesHandler,dictionary);
+
         String filePath = "spam/src/main/resources/static/persisted_initialized_spam_vocabulary_frequenciesZero.json";
 
         /*

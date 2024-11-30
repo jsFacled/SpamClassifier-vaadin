@@ -6,8 +6,12 @@ import com.ml.spam.handlers.ResourcesHandler;
 
 import com.ml.spam.utils.JsonUtils;
 import org.json.JSONObject;
+
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 /**
@@ -73,6 +77,20 @@ public class SpamDictionaryService {
      * Exporta el contenido del diccionario a un archivo JSON en el sistema.
      * @param filePath Ruta absoluta o relativa donde se guardará el JSON.
      */
+
+    public void exportToJson(String filePath) {
+        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(filePath))) {
+            // 1. Convertir el diccionario a JSON
+            JSONObject jsonObject = dictionary.toJson();
+            // 2. Escribir el JSON formateado en el archivo
+            writer.write(jsonObject.toString(4));  // Formato de indentación
+            System.out.println("Diccionario exportado a JSON en: " + filePath);
+        } catch (IOException e) {
+            throw new RuntimeException("Error al exportar a JSON: " + e.getMessage(), e);
+        }
+    }
+
+    /*
     public void exportToJson(String filePath) {
         try (FileWriter fileWriter = new FileWriter(filePath)) {
             // 1. Convertir el diccionario a JSON
@@ -86,6 +104,9 @@ public class SpamDictionaryService {
             throw new RuntimeException("Error al exportar a JSON: " + e.getMessage(), e);
         }
     }
+    */
+
+
 
     /**
      * Inicializa las categorías del diccionario utilizando datos de un JSONObject.

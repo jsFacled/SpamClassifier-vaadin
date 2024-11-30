@@ -62,3 +62,4 @@ Agrego 2 métodos en el service: loadFromJsonAndReplace y mergeFromJson.
 
 << Agrego fachada ResourcesHandler para el manejo de archivos
 << Agrego DictionaryUtils para inicializar diccionarios, leerlos, mostrarlos, etc.
+<< Agrego FilePathsConfig para centralizar las rutas a los archivos.

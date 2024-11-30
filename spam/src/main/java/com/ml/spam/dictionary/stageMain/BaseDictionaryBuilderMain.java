@@ -35,11 +35,12 @@ public class BaseDictionaryBuilderMain {
 
         // Paso 2: Mostrar el diccionario en memoria
         DictionaryUtils.displayDictionary(service);
-
+/*
         // Paso 3: Exportar el diccionario a un archivo persistido
         DictionaryUtils.exportDictionary(service, EXPORT_JSON_PATH);
 
         // Paso 4: Mostrar el contenido del archivo JSON persistido (opcional)
         DictionaryUtils.displayPersistedDictionary(EXPORT_JSON_PATH);
+  */
     }
 }

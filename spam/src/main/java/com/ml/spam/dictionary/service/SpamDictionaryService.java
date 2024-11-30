@@ -27,6 +27,45 @@ public class SpamDictionaryService {
         this.dictionary = dictionary;
     }
 
+
+    /**
+     * Crea un diccionario desde un archivo JSON que contiene palabras sueltas por categoría.
+     * Todas las palabras se inicializan con frecuencias en cero.
+     *
+     * @param resourcePath Ruta del archivo JSON en recursos.
+     */
+    public void createDictionaryFromWords(String resourcePath) {
+        try {
+            // 1. Limpiar el diccionario antes de inicializar
+            dictionary.clearDictionary();
+
+            // 2. Leer el JSON desde los recursos
+            InputStream inputStream = FileLoader.loadResourceAsStream(resourcePath);
+            String jsonContent = FileLoader.readFile(inputStream);
+            JSONObject jsonObject = new JSONObject(jsonContent);
+
+            // 3. Iterar por cada categoría en el diccionario
+            for (WordCategory category : WordCategory.values()) {
+                if (jsonObject.has(category.name().toLowerCase())) {
+                    // Extraer la lista de palabras de la categoría
+                    var words = jsonObject.getJSONArray(category.name().toLowerCase())
+                            .toList()
+                            .stream()
+                            .map(Object::toString)
+                            .toList();
+
+                    // Agregar palabras al diccionario con frecuencias en cero
+                    dictionary.initializeWordsWithZeroFrequency(category, words);
+                }
+            }
+
+            System.out.println("Diccionario creado con palabras desde el archivo: " + resourcePath);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al crear el diccionario desde palabras: " + e.getMessage(), e);
+        }
+    }
+
+
     /**
      * Inicializa el diccionario desde un archivo JSON ubicado en resources.
      * @param resourcePath Ruta del archivo JSON en los recursos.

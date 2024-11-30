@@ -57,3 +57,7 @@ Agrego 2 métodos en el service: loadFromJsonAndReplace y mergeFromJson.
     Elimino la clase Frequency
     Camios en WordData, estructura del SpamDictionary y SpamDictionaryService se cambia el set por un Map, etc.
 
+<< Crear diccionario a partir de palabras
+    createDictionaryFromWords en el service.
+
+<< Agrego fachada ResourcesHandler para el manejo de archivos

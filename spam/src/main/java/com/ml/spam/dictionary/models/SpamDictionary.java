@@ -135,4 +135,11 @@ public class SpamDictionary {
         });
         return jsonCategory;
     }
+
+    public void clearDictionary() {
+        for (WordCategory category : WordCategory.values()) {
+            dictionary.get(category).clear();
+        }
+    }
+
 }

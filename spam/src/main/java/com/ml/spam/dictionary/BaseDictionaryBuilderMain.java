@@ -26,9 +26,9 @@ public class BaseDictionaryBuilderMain {
         SpamDictionaryService service = new SpamDictionaryService(dictionary);
 
         try {
-            // Inicializar el diccionario desde el JSON base
-            System.out.println("Inicializando el diccionario desde: " + INITIAL_JSON_PATH);
-            service.initializeFromJson(INITIAL_JSON_PATH);
+            // Inicializar el diccionario desde el JSON base (palabras sueltas)
+            System.out.println("Leyendo archivo JSON desde: " + INITIAL_JSON_PATH);
+            service.createDictionaryFromWords(INITIAL_JSON_PATH);
 
             // Mostrar el contenido del diccionario inicializado
             System.out.println("\n=== Contenido del Diccionario Inicializado ===");

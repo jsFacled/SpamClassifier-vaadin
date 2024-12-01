@@ -9,7 +9,6 @@ import com.ml.spam.utils.JsonUtils;
 import org.json.JSONObject;
 
 import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -29,9 +28,9 @@ public class SpamDictionaryService {
     private final SpamDictionary dictionary;
     private final ResourcesHandler resourcesHandler;
 
-    public SpamDictionaryService(ResourcesHandler resourcesHandler, SpamDictionary dictionary) {
-        this.resourcesHandler = resourcesHandler;
-        this.dictionary = dictionary;
+    public SpamDictionaryService() {
+        this.resourcesHandler = new ResourcesHandler();
+        this.dictionary = SpamDictionary.getInstance();
     }
 
     /**

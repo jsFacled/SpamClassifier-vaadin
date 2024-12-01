@@ -11,7 +11,7 @@ public class DictionaryUpdateMain {
 
         SpamDictionary dictionary = SpamDictionary.getInstance();
         ResourcesHandler resourcesHandler = new ResourcesHandler();
-        SpamDictionaryService service = new SpamDictionaryService(resourcesHandler,dictionary);
+        SpamDictionaryService service = new SpamDictionaryService();
 
         String filePath = "spam/src/main/resources/static/persisted_initialized_spam_vocabulary_frequenciesZero.json";
 

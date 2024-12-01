@@ -1,9 +1,7 @@
 package com.ml.spam.dictionary.stageMain;
 import com.ml.spam.config.FilePathsConfig;
-import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
-import com.ml.spam.handlers.ResourcesHandler;
-import com.ml.spam.utils.DictionaryUtils;
+import com.ml.spam.dictionary.utils.DictionaryUtils;
 
 /**
  * Clase principal para inicializar el diccionario desde un archivo JSON.
@@ -24,12 +22,8 @@ public class BaseDictionaryBuilderMain {
     public static void main(String[] args) {
         System.out.println("=== Construcción del Diccionario Base ===");
 
-        // Instanciar la fachada (ResourcesHandler) y el diccionario
-        ResourcesHandler resourcesHandler = new ResourcesHandler();
-        SpamDictionary dictionary = SpamDictionary.getInstance();
-
         // Crear el servicio de diccionario
-        SpamDictionaryService service = new SpamDictionaryService(resourcesHandler, dictionary);
+        SpamDictionaryService service = new SpamDictionaryService();
 
         // Paso 1: Crear el diccionario desde el JSON base
         DictionaryUtils.createDictionary(service, INITIAL_JSON_PATH);

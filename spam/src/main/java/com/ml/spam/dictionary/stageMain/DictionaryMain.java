@@ -13,7 +13,7 @@ public class DictionaryMain {
 
         SpamDictionary dictionary = SpamDictionary.getInstance();
         ResourcesHandler resourcesHandler = new ResourcesHandler();
-        SpamDictionaryService service = new SpamDictionaryService(resourcesHandler,dictionary);
+        SpamDictionaryService service = new SpamDictionaryService();
 
         // * * * * //
 

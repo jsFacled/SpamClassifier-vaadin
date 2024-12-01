@@ -1,4 +1,4 @@
-package com.ml.spam.utils;
+package com.ml.spam.dictionary.utils;
 
 import com.ml.spam.dictionary.service.SpamDictionaryService;
 

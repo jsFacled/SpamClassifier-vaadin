@@ -1,12 +1,10 @@
 package com.ml.spam.utils;
 
 import com.ml.spam.dictionary.models.WordCategory;
-import com.ml.spam.dictionary.models.WordData;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class JsonUtils {
 
@@ -15,14 +13,6 @@ public class JsonUtils {
      * @param jsonArray El JSONArray a convertir.
      * @return Una lista de Strings, o una lista vacía si el JSONArray es nulo.
      */
-    public static List<String> jsonArrayToStringList(JSONArray jsonArray) {
-        if (jsonArray == null) {
-            return Collections.emptyList();
-        }
-        return jsonArray.toList().stream()
-                .map(Object::toString)
-                .collect(Collectors.toList());
-    }
     public static List<String> jsonArrayToStringList(JSONArray jsonArray) {
         List<String> list = new ArrayList<>();
         if (jsonArray != null) {
@@ -33,32 +23,11 @@ public class JsonUtils {
         return list;
     }
 
-
-    public static void validateJsonKeys(JSONObject jsonObject) {
-        for (WordCategory category : WordCategory.values()) {
-            if (!jsonObject.has(category.name().toLowerCase())) {
-                throw new IllegalArgumentException("Falta la categoría: " + category.name().toLowerCase());
-            }
-        }
-    }
-
-    public static Map<WordCategory, List<String>> jsonToCategoryMap(JSONObject jsonObject) {
-        Map<WordCategory, List<String>> categoryMap = new HashMap<>();
-
-        for (WordCategory category : WordCategory.values()) {
-            if (jsonObject.has(category.name().toLowerCase())) {
-                List<String> words = jsonArrayToStringList(
-                        jsonObject.optJSONArray(category.name().toLowerCase())
-                );
-                categoryMap.put(category, words);
-            }
-        }
-
-        return categoryMap;
-    }
-
-
-    // Valida que el JSON tenga las categorías necesarias
+    /**
+     * Valida que el JSONObject contenga todas las claves necesarias basadas en las categorías de WordCategory.
+     * @param jsonObject El JSON a validar.
+     * @throws IllegalArgumentException Si falta alguna clave.
+     */
     public static void validateJsonStructure(JSONObject jsonObject) {
         for (WordCategory category : WordCategory.values()) {
             if (!jsonObject.has(category.name().toLowerCase())) {
@@ -67,6 +36,12 @@ public class JsonUtils {
         }
     }
 
+    /**
+     * Transforma un JSONObject en un Map<WordCategory, List<String>>.
+     * Cada clave del JSON se mapea a una categoría, y su valor es una lista de palabras.
+     * @param jsonObject El JSON a transformar.
+     * @return Un Map con WordCategory como clave y una lista de palabras como valor.
+     */
     public static Map<WordCategory, List<String>> jsonToCategoryMap(JSONObject jsonObject) {
         Map<WordCategory, List<String>> categoryMap = new HashMap<>();
 

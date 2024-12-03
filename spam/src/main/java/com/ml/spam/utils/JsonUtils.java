@@ -21,4 +21,37 @@ public class JsonUtils {
                 .map(Object::toString)
                 .collect(Collectors.toList());
     }
+
+    public static void validateJsonKeys(JSONObject jsonObject) {
+        for (WordCategory category : WordCategory.values()) {
+            if (!jsonObject.has(category.name().toLowerCase())) {
+                throw new IllegalArgumentException("Falta la categoría: " + category.name().toLowerCase());
+            }
+        }
+    }
+
+    public static Map<WordCategory, List<String>> jsonToCategoryMap(JSONObject jsonObject) {
+        Map<WordCategory, List<String>> categoryMap = new HashMap<>();
+
+        for (WordCategory category : WordCategory.values()) {
+            if (jsonObject.has(category.name().toLowerCase())) {
+                List<String> words = jsonArrayToStringList(
+                        jsonObject.optJSONArray(category.name().toLowerCase())
+                );
+                categoryMap.put(category, words);
+            }
+        }
+
+        return categoryMap;
+    }
+
+    public static List<String> jsonArrayToStringList(JSONArray jsonArray) {
+        List<String> list = new ArrayList<>();
+        if (jsonArray != null) {
+            for (int i = 0; i < jsonArray.length(); i++) {
+                list.add(jsonArray.getString(i));
+            }
+        }
+        return list;
+    }
 }

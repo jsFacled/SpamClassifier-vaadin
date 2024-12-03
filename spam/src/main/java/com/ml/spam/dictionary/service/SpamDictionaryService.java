@@ -14,9 +14,9 @@ public class SpamDictionaryService {
     private final SpamDictionary dictionary;
     private final ResourcesHandler resourcesHandler;
 
-    public SpamDictionaryService(ResourcesHandler resourcesHandler, SpamDictionary dictionary) {
-        this.resourcesHandler = resourcesHandler;
-        this.dictionary = dictionary;
+    public SpamDictionaryService() {
+        this.resourcesHandler = new ResourcesHandler();
+        this.dictionary = SpamDictionary.getInstance();
     }
 
     /**

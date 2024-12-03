@@ -4,6 +4,7 @@ import com.ml.spam.utils.FileLoader;
 import com.ml.spam.utils.FileWriter;
 import org.json.JSONObject;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -66,11 +67,18 @@ public class ResourcesHandler {
      * @param filePath   Ruta del archivo donde se guardará el JSON.
      */
     public void saveJson(JSONObject jsonObject, String filePath) {
-        try {
-            Path path = resolvePath(filePath);
-            // Delegar la escritura a FileWriter
-            String content = jsonObject.toString(4);
-            FileWriter.writeJsonFile(filePath, content );
+        Path path = Paths.get(filePath);
+
+        // Asegurar que el directorio padre exista
+        if (path.getParent() != null && Files.notExists(path.getParent())) {
+            Files.createDirectories(path.getParent());
+        }
+
+        // Escribir el contenido utilizando BufferedWriter
+        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
+            writer.write(content);
+            System.out.println("Diccionario exportado a JSON en: " + filePath);
+        }
         } catch (IOException e) {
             throw new RuntimeException("Error al guardar JSON en el archivo: " + filePath, e);
         }

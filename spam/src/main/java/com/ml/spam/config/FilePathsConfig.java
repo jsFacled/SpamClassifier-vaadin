@@ -1,6 +1,11 @@
 package com.ml.spam.config;
 
 public class FilePathsConfig {
+    /**
+     * Se utilizan rutas relativas a  'resources' en classpath (src/main/resources).
+     */
+
+
     // Ruta para cargar el archivo JSON inicial
     public static final String INITIAL_JSON_PATH = "static/dictionary/initial_spam_vocabulary_base_only.json";
 

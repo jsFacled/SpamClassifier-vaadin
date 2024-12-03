@@ -39,7 +39,7 @@ public class SpamDictionaryService {
      *
      * @param resourcePath Ruta relativa del archivo JSON en los recursos.
      */
-    public void createDictionaryFromWords(String resourcePath) {
+    public void createDictionaryFromWordsInJson(String resourcePath) {
         try {
             // 1. Limpiar el diccionario antes de inicializar
             dictionary.clearDictionary();
@@ -112,16 +112,28 @@ public class SpamDictionaryService {
      * @param filePath Ruta absoluta o relativa donde se guardará el JSON.
      */
 
+
     public void exportToJson(String filePath) {
         try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(filePath))) {
             // 1. Convertir el diccionario a JSON
             JSONObject jsonObject = dictionary.toJson();
             // 2. Escribir el JSON formateado en el archivo
             writer.write(jsonObject.toString(4));  // Formato de indentación
-            System.out.println("Diccionario exportado a JSON en: " + filePath);
+
         } catch (IOException e) {
             throw new RuntimeException("Error al exportar a JSON: " + e.getMessage(), e);
         }
+    }
+
+    public void exportDictionaryToJson(String exportPath) {
+        // Crear el JSON desde el diccionario
+        JSONObject jsonObject = dictionary.toJson();
+
+        // Solicitar a la fachada que guarde el JSON
+        resourcesHandler.saveJson(jsonObject, exportPath);
+
+        // Confirmar la exportación
+        System.out.println("Diccionario exportado a: " + exportPath);
     }
 
     /*

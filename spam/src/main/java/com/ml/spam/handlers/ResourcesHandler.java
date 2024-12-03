@@ -1,11 +1,14 @@
 package com.ml.spam.handlers;
 
 import com.ml.spam.utils.FileLoader;
+import com.ml.spam.utils.FileWriter;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +21,12 @@ import java.util.Map;
 
 public class ResourcesHandler {
 
+    // Resuelve rutas relativas al classpath
+    private Path resolvePath(String relativePath) {
+        return Paths.get("src/main/resources").resolve(relativePath).toAbsolutePath();
+    }
+
+
     /**
      * Carga el contenido de un archivo en recursos como String.
      * @param resourcePath Ruta relativa dentro de los recursos (classpath).
@@ -25,10 +34,13 @@ public class ResourcesHandler {
      * @throws RuntimeException si el archivo no se encuentra o hay un error de lectura.
      */
     public String loadResourceAsString(String resourcePath) {
-        try {
-            return FileLoader.loadResourceAsString(resourcePath);
+        try (InputStream inputStream = ResourcesHandler.class.getClassLoader().getResourceAsStream(resourcePath)) {
+            if (inputStream == null) {
+                throw new IOException("Archivo no encontrado en recursos: " + resourcePath);
+            }
+            return new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
         } catch (IOException e) {
-            throw new RuntimeException("Error al cargar archivo como String desde recursos: " + resourcePath, e);
+            throw new RuntimeException(e);
         }
     }
 
@@ -48,14 +60,17 @@ public class ResourcesHandler {
     }
 
     /**
-     * Persiste un mapa (Map) como un archivo JSON en el sistema de archivos.
-     * @param data Map a persistir.
-     * @param filePath Ruta del archivo donde se guardará el JSON.
+     * Guarda un objeto JSON en un archivo.
+     *
+     * @param jsonObject Objeto JSON que se desea guardar.
+     * @param filePath   Ruta del archivo donde se guardará el JSON.
      */
-    public void saveJson(Map<String, Object> data, String filePath) {
+    public void saveJson(JSONObject jsonObject, String filePath) {
         try {
-            JSONObject jsonObject = new JSONObject(data);
-            Files.write(Paths.get(filePath), jsonObject.toString(4).getBytes());
+            Path path = resolvePath(filePath);
+            // Delegar la escritura a FileWriter
+            String content = jsonObject.toString(4);
+            FileWriter.writeJsonFile(filePath, content );
         } catch (IOException e) {
             throw new RuntimeException("Error al guardar JSON en el archivo: " + filePath, e);
         }

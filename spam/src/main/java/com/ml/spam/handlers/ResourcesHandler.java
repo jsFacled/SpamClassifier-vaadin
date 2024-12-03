@@ -1,18 +1,13 @@
 package com.ml.spam.handlers;
 
-import com.ml.spam.utils.FileLoader;
-import com.ml.spam.utils.FileWriter;
 import org.json.JSONObject;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Centralizar la carga de datos desde recursos como archivos JSON o CSV.
@@ -46,54 +41,27 @@ public class ResourcesHandler {
     }
 
 
-    /**
-     * Carga un archivo JSON desde los recursos (classpath) y lo devuelve como JSONObject.
-     * @param resourcePath Ruta relativa dentro de los recursos (classpath).
-     * @return JSONObject representando el contenido del archivo JSON.
-     */
-    public JSONObject loadJson(String resourcePath) {
-        try (InputStream inputStream = FileLoader.loadResourceAsStream(resourcePath)) {
-            String jsonContent = FileLoader.readFile(inputStream);
-            return new JSONObject(jsonContent);
+
+    public JSONObject loadJson(String filePath) {
+        try {
+            String content = Files.readString(Paths.get(filePath), StandardCharsets.UTF_8);
+            if (content.isBlank()) {
+                throw new RuntimeException("El archivo JSON está vacío: " + filePath);
+            }
+            return new JSONObject(content);
         } catch (IOException e) {
-            throw new RuntimeException("Error al cargar JSON desde los recursos: " + resourcePath, e);
+            throw new RuntimeException("Error al leer el archivo JSON: " + filePath, e);
         }
     }
-
-    /**
-     * Guarda un objeto JSON en un archivo.
-     *
-     * @param jsonObject Objeto JSON que se desea guardar.
-     * @param filePath   Ruta del archivo donde se guardará el JSON.
-     */
     public void saveJson(JSONObject jsonObject, String filePath) {
-        Path path = Paths.get(filePath);
-
-        // Asegurar que el directorio padre exista
-        if (path.getParent() != null && Files.notExists(path.getParent())) {
-            Files.createDirectories(path.getParent());
-        }
-
-        // Escribir el contenido utilizando BufferedWriter
-        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
-            writer.write(content);
-            System.out.println("Diccionario exportado a JSON en: " + filePath);
-        }
+        try {
+            Files.createDirectories(Paths.get(filePath).getParent()); // Asegura que el directorio exista
+            Files.writeString(Paths.get(filePath), jsonObject.toString(4), StandardCharsets.UTF_8);
+            System.out.println("JSON guardado en: " + filePath);
         } catch (IOException e) {
-            throw new RuntimeException("Error al guardar JSON en el archivo: " + filePath, e);
+            throw new RuntimeException("Error al guardar el archivo JSON: " + filePath, e);
         }
     }
 
-    /**
-     * Carga un archivo CSV desde los recursos (classpath) y devuelve su contenido como una lista de líneas.
-     * @param resourcePath Ruta relativa dentro de los recursos (classpath).
-     * @return Lista de líneas representando el contenido del CSV.
-     */
-    public List<String> loadCsv(String resourcePath) {
-        try (InputStream inputStream = FileLoader.loadResourceAsStream(resourcePath)) {
-            return Files.readAllLines(Paths.get(resourcePath));
-        } catch (IOException e) {
-            throw new RuntimeException("Error al cargar CSV desde los recursos: " + resourcePath, e);
-        }
-    }
+
 }

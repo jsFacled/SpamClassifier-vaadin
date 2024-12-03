@@ -63,3 +63,6 @@ Agrego 2 métodos en el service: loadFromJsonAndReplace y mergeFromJson.
 << Agrego fachada ResourcesHandler para el manejo de archivos
 << Agrego DictionaryUtils para inicializar diccionarios, leerlos, mostrarlos, etc.
 << Agrego FilePathsConfig para centralizar las rutas a los archivos.
+<<El método createDictionaryFromWordsInJson ahora utiliza JsonUtils para validar y transformar el JSON.
+  La lógica de validación y transformación se delega a JsonUtils.
+  Simplificación del manejo del diccionario para mayor claridad.

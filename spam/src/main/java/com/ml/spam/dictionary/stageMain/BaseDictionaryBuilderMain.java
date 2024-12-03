@@ -22,7 +22,7 @@ public class BaseDictionaryBuilderMain {
     public static void main(String[] args) {
         SpamDictionaryService service = new SpamDictionaryService();
 
-        System.out.println("=== Construcción del Diccionario Base ===");
+        System.out.println("=== Construcción del Diccionario Base ===\n");
 
         // Paso 1: Crear el diccionario desde el JSON base
         service.createDictionaryFromWordsInJson(INITIAL_JSON_PATH);

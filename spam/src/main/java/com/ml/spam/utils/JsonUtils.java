@@ -1,6 +1,7 @@
 package com.ml.spam.utils;
 
 import com.ml.spam.dictionary.models.WordCategory;
+import com.ml.spam.dictionary.models.WordData;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -55,5 +56,33 @@ public class JsonUtils {
         }
 
         return categoryMap;
+    }
+    /**
+     * Convierte un diccionario categorizado en un objeto JSON.
+     * @param categorizedDictionary Mapa de categorías y sus palabras con datos.
+     * @return Un objeto JSON que representa el diccionario completo.
+     */
+    public static JSONObject toJson(Map<WordCategory, Map<String, WordData>> categorizedDictionary) {
+        JSONObject jsonObject = new JSONObject();
+        for (WordCategory category : categorizedDictionary.keySet()) {
+            jsonObject.put(category.name().toLowerCase(), categoryToJson(categorizedDictionary.get(category)));
+        }
+        return jsonObject;
+    }
+
+    /**
+     * Convierte un mapa de WordData a un objeto JSON.
+     * @param category Mapa de palabras con sus datos (frecuencias).
+     * @return Un objeto JSON que representa una categoría.
+     */
+    private static JSONObject categoryToJson(Map<String, WordData> category) {
+        JSONObject jsonCategory = new JSONObject();
+        category.forEach((word, wordData) -> {
+            JSONObject freqData = new JSONObject();
+            freqData.put("spamFrequency", wordData.getSpamFrequency());
+            freqData.put("hamFrequency", wordData.getHamFrequency());
+            jsonCategory.put(word, freqData);
+        });
+        return jsonCategory;
     }
 }

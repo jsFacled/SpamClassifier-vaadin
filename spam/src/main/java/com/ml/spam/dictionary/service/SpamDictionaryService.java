@@ -2,6 +2,7 @@ package com.ml.spam.dictionary.service;
 
 import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.models.WordCategory;
+import com.ml.spam.dictionary.models.WordData;
 import com.ml.spam.handlers.ResourcesHandler;
 import com.ml.spam.utils.JsonUtils;
 import org.json.JSONObject;
@@ -75,15 +76,20 @@ public class SpamDictionaryService {
      */
     public void exportDictionaryToJson(String filePath) {
         try {
-            // Convertir el diccionario a JSON y guardarlo
-            JSONObject jsonObject = dictionary.toJson();
+            // Obtener el diccionario categorizado
+            Map<WordCategory, Map<String, WordData>> categorizedDictionary = dictionary.getAllCategories();
+
+            // Convertir el diccionario a JSON usando JsonUtils
+            JSONObject jsonObject = JsonUtils.toJson(categorizedDictionary);
+
+            // Guardar el JSON utilizando el handler de recursos
             resourcesHandler.saveJson(jsonObject, filePath);
+
             System.out.println("Diccionario exportado a: " + filePath);
         } catch (Exception e) {
             throw new RuntimeException("Error al exportar el diccionario: " + e.getMessage(), e);
         }
     }
-
     /**
      * Muestra el contenido actual del diccionario en la consola.
      */

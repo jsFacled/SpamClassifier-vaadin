@@ -46,6 +46,9 @@ public class SpamDictionary {
         return dictionary.get(category);
     }
 
+    public Map<WordCategory, Map<String, WordData>> getAllCategories() {
+        return dictionary;
+    }
     /**
      * Agrega una palabra a la categoría especificada con frecuencias iniciales en cero.
      * Si la palabra ya existe, no se sobrescribe.
@@ -78,37 +81,9 @@ public class SpamDictionary {
         words.forEach(word -> addWord(category, word));
     }
 
-    /**
-     * Carga palabras y sus frecuencias desde un archivo JSON para todas las categorías.
-     * Sobrescribe las categorías existentes en el diccionario.
-     * @param jsonObject Objeto JSON que contiene las categorías y palabras.
-     */
-    public void initializeFromJson(JSONObject jsonObject) {
-        for (WordCategory category : WordCategory.values()) {
-            JSONObject jsonCategory = jsonObject.optJSONObject(category.name().toLowerCase());
-            if (jsonCategory != null) {
-                loadCategory(jsonCategory, dictionary.get(category));
-            }
-        }
-    }
 
-    /**
-     * Convierte el contenido del diccionario a un objeto JSON para exportarlo o persistirlo.
-     * @return Un JSONObject que representa el diccionario completo.
-     */
-    public JSONObject toJson() {
-        JSONObject jsonObject = new JSONObject();
-        for (WordCategory category : WordCategory.values()) {
-            jsonObject.put(category.name().toLowerCase(), categoryToJson(dictionary.get(category)));
-        }
-        return jsonObject;
-    }
 
-    /**
-     * Carga una categoría desde un JSON en el mapa correspondiente.
-     * @param jsonCategory JSON que contiene las palabras y sus frecuencias.
-     * @param targetMap Mapa donde se almacenarán las palabras cargadas.
-     */
+
     private void loadCategory(JSONObject jsonCategory, Map<String, WordData> targetMap) {
         jsonCategory.keys().forEachRemaining(word -> {
             JSONObject freqData = jsonCategory.getJSONObject(word);
@@ -120,21 +95,7 @@ public class SpamDictionary {
         });
     }
 
-    /**
-     * Convierte un mapa de WordData a un objeto JSON.
-     * @param category Mapa de WordData a convertir.
-     * @return Un JSONObject que representa la categoría.
-     */
-    private JSONObject categoryToJson(Map<String, WordData> category) {
-        JSONObject jsonCategory = new JSONObject();
-        category.forEach((word, wordData) -> {
-            JSONObject freqData = new JSONObject();
-            freqData.put("spamFrequency", wordData.getSpamFrequency());
-            freqData.put("hamFrequency", wordData.getHamFrequency());
-            jsonCategory.put(word, freqData);
-        });
-        return jsonCategory;
-    }
+
 
     public void clearDictionary() {
         for (WordCategory category : WordCategory.values()) {

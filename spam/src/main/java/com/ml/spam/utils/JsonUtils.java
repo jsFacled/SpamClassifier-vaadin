@@ -37,6 +37,25 @@ public class JsonUtils {
         }
     }
 
+    //Valida que las frecuencias estén en cero
+    public static void validateJsonFrequenciesZero(JSONObject jsonObject) {
+        for (WordCategory category : WordCategory.values()) {
+            JSONObject categoryJson = jsonObject.optJSONObject(category.name().toLowerCase());
+            if (categoryJson != null) {
+                for (String word : categoryJson.keySet()) {
+                    JSONObject frequencies = categoryJson.getJSONObject(word);
+                    int spamFrequency = frequencies.optInt("spamFrequency", -1);
+                    int hamFrequency = frequencies.optInt("hamFrequency", -1);
+
+                    if (spamFrequency != 0 || hamFrequency != 0) {
+                        throw new IllegalArgumentException("Frecuencias no válidas para la palabra '" + word + "' en la categoría '" + category.name() + "'");
+                    }
+                }
+            }
+        }
+    }
+
+
     /**
      * Transforma un JSONObject en un Map<WordCategory, List<String>>.
      * Cada clave del JSON se mapea a una categoría, y su valor es una lista de palabras.

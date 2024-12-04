@@ -1,64 +1,33 @@
 package com.ml.spam.dictionary.stageMain;
 
+import com.ml.spam.config.FilePathsConfig;
 import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
 import com.ml.spam.handlers.ResourcesHandler;
 
 public class DictionaryUpdateMain {
+    private static final String filePath = FilePathsConfig.EXPORT_DICTIONARY_CREATED_JSON_PATH;
 
 
     public static void main(String[] args) {
-
-        SpamDictionary dictionary = SpamDictionary.getInstance();
-        ResourcesHandler resourcesHandler = new ResourcesHandler();
         SpamDictionaryService service = new SpamDictionaryService();
 
-        String filePath = "spam/src/main/resources/static/persisted_initialized_spam_vocabulary_frequenciesZero.json";
+System.out.println("===  /  /   /   /   /   /   /   /   /   /   ===  Etapa 2: Actualización del Diccionario  === /  /   /   /   /   /   /   /   /   /   === \n");
 
-        /*
-        * * * * * * Lectura del diccionario json inicializado a Zero para ver su contenido
-        * */
+        //Mostrar el Map de Dictionary para chequear que estén las categorías vacías
+        service.displayDictionary();
 
-        // Mostrar el diccionario persistido
-        //service.displayJsonPersistedDictionary(filePath);
+        // Mostrar el diccionario persistido para testear el formato del json en consola
+        service.displayJsonFileDictionary(filePath);
 
-        // Mostrar los Map de SpamDictionary
+        // Inicializar el diccionario desde el JSON
+        service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(filePath);
+
+        // Mostrar los Map de SpamDictionary para chequear que se haya inicializado correctamente
+        service.displayDictionary();
 
 
-      /*
-       String persistedPath = "path/to/persisted_initialized_spam_vocabulary_frequenciesZero.json";
-        String csvPath = "path/to/dataset.csv";
-        String updatedPath = "path/to/updated_spam_vocabulary.json";
 
-        try {
-            // Cargar el diccionario persistido
-            SpamDictionary dictionary = SpamDictionary.getInstance();
-            SpamDictionaryService service = new SpamDictionaryService(dictionary);
-
-            try (InputStream inputStream = DictionaryUpdateMain.class.getClassLoader()
-                    .getResourceAsStream(persistedPath)) {
-
-                if (inputStream == null) {
-                    throw new RuntimeException("Archivo JSON no encontrado.");
-                }
-
-                // Escoge si sobrescribir o fusionar
-                service.loadFromJsonAndReplace(inputStream); // O usar mergeFromJson(inputStream)
-            }
-
-            // Procesar el archivo CSV y actualizar el diccionario
-            CsvMessageProcessor processor = new CsvMessageProcessor(dictionary);
-            processor.processCsv(csvPath);
-
-            // Guardar el diccionario actualizado
-            service.exportToJson(updatedPath);
-            System.out.println("Diccionario actualizado y guardado en: " + updatedPath);
-        } catch (Exception e) {
-            System.err.println("Error en la actualización del diccionario: " + e.getMessage());
-            e.printStackTrace();
-        }
-
-*/
     }
 
 }

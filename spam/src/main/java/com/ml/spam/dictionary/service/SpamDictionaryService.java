@@ -47,28 +47,57 @@ public class SpamDictionaryService {
         }
     }
 
-    /**
-     * Inicializa el diccionario cargando palabras desde un archivo JSON ubicado en resources.
-     * @param resourcePath Ruta relativa del archivo JSON en los recursos.
-     */
-    public void initializeFromJson(String resourcePath) {
+    //Inicializa solamente si las frecuencias están en cero
+    public void initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(String filePath) {
         try {
-            // Leer JSON desde el handler
-            JSONObject jsonObject = resourcesHandler.loadJson(resourcePath);
+            // Validar que las frecuencias en el JSON sean cero antes de inicializar
+            JSONObject jsonObject = resourcesHandler.loadJson(filePath);
+            JsonUtils.validateJsonFrequenciesZero(jsonObject);
 
-            // Validar la estructura y cargar palabras
-            JsonUtils.validateJsonStructure(jsonObject);
-            Map<WordCategory, List<String>> categoryMap = JsonUtils.jsonToCategoryMap(jsonObject);
+            // Inicializar el diccionario desde el JSON
+            initializeDictionaryFromJson(filePath);
 
-            // Inicializar palabras en el diccionario
-            dictionary.clearDictionary();
-            categoryMap.forEach(dictionary::initializeWordsWithZeroFrequency);
+            // Confirmar que las frecuencias en el diccionario son cero
+            if (!dictionary.areFrequenciesZero()) {
+                throw new IllegalStateException("El diccionario contiene frecuencias no inicializadas a cero.");
+            }
 
-            System.out.println("Diccionario inicializado desde JSON en: " + resourcePath);
+            System.out.println("Diccionario inicializado correctamente con frecuencias en cero.");
         } catch (Exception e) {
-            throw new RuntimeException("Error al inicializar desde JSON: " + e.getMessage(), e);
+            throw new RuntimeException("Error al inicializar y validar el diccionario: " + e.getMessage(), e);
         }
     }
+
+
+    public void initializeDictionaryFromJson(String filePath) {
+        try {
+            // Cargar el JSON desde el archivo
+            JSONObject jsonObject = resourcesHandler.loadJson(filePath);
+
+            // Validar la estructura del JSON
+            JsonUtils.validateJsonStructure(jsonObject);
+
+            // Iterar sobre las categorías y actualizar el diccionario
+            for (WordCategory category : WordCategory.values()) {
+                JSONObject categoryJson = jsonObject.optJSONObject(category.name().toLowerCase());
+                if (categoryJson != null) {
+                    for (String word : categoryJson.keySet()) {
+                        JSONObject frequencies = categoryJson.getJSONObject(word);
+                        int spamFrequency = frequencies.getInt("spamFrequency");
+                        int hamFrequency = frequencies.getInt("hamFrequency");
+
+                        // Agregar la palabra al diccionario
+                        dictionary.addWordWithFrequencies(category, word, spamFrequency, hamFrequency);
+                    }
+                }
+            }
+
+            System.out.println("Diccionario inicializado correctamente desde el archivo JSON.");
+        } catch (Exception e) {
+            throw new RuntimeException("Error al inicializar el diccionario: " + e.getMessage(), e);
+        }
+    }
+
 
     /**
      * Exporta el contenido del diccionario a un archivo JSON en el sistema.

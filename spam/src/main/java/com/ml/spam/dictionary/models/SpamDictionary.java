@@ -67,7 +67,7 @@ public class SpamDictionary {
      * @param spamFrequency Frecuencia como spam.
      * @param hamFrequency Frecuencia como ham.
      */
-    public void addWordWithFrequency(WordCategory category, String word, int spamFrequency, int hamFrequency) {
+    public void addWordWithFrequencies(WordCategory category, String word, int spamFrequency, int hamFrequency) {
         dictionary.get(category).putIfAbsent(word, new WordData(word, spamFrequency, hamFrequency));
     }
 
@@ -79,6 +79,19 @@ public class SpamDictionary {
      */
     public void initializeWordsWithZeroFrequency(WordCategory category, Iterable<String> words) {
         words.forEach(word -> addWord(category, word));
+    }
+
+    //Chequea que cada palabre tenga su frecuencia en cero.
+    public boolean areFrequenciesZero() {
+        for (WordCategory category : dictionary.keySet()) {
+            Map<String, WordData> words = dictionary.get(category);
+            for (WordData wordData : words.values()) {
+                if (wordData.getSpamFrequency() != 0 || wordData.getHamFrequency() != 0) {
+                    return false; // Se detectó una frecuencia no válida
+                }
+            }
+        }
+        return true; // Todas las frecuencias están en cero
     }
 
 

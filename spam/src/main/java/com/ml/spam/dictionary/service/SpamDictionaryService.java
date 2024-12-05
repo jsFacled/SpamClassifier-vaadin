@@ -1,5 +1,6 @@
 package com.ml.spam.dictionary.service;
 
+import com.ml.spam.datasetProcessor.models.LabeledMessage;
 import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.models.WordCategory;
 import com.ml.spam.dictionary.models.WordData;
@@ -96,6 +97,16 @@ public class SpamDictionaryService {
         } catch (Exception e) {
             throw new RuntimeException("Error al inicializar el diccionario: " + e.getMessage(), e);
         }
+    }
+
+    public void updateDictionary(String csvFilePath) {
+        // Obtener rawRows (filas crudas) del archivo CSV
+        List<String[]> rawRows = resourcesHandler.loadCsvFile(csvFilePath);
+
+        // Procesar filas crudas a LabeledMessage
+        List<LabeledMessage> labeledMessages = MessageProcessor.process(rawRows);
+
+        // Aquí se agregará la lógica para actualizar el diccionario con los mensajes etiquetados
     }
 
 

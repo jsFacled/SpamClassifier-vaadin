@@ -2,24 +2,41 @@ package com.ml.spam.handlers;
 
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Centralizar la carga de datos desde recursos como archivos JSON o CSV.
- * Transformar datos en formatos básicos (JSONObject, List<String>) para que
- * otras clases no se preocupen por los detalles de acceso o transformación inicial.
+ * ResourcesHandler:
+ * Clase responsable de manejar la interacción con los recursos externos del sistema,
+ * como archivos CSV o JSON, centralizando la carga de datos.
  *
- * Nota Importante!!!
- *  Uso en Entornos Empaquetados: Una vez empaquetado como JAR/WAR,
- *  escribir en src/main/resources no es posible porque estará dentro del archivo empaquetado.
- *  En producción, sería mejor escribir en un directorio externo configurable
- *  (por ejemplo, definido en el archivo application.properties o como argumento del programa).
+ * Responsabilidades principales:
+ * - Leer y cargar datos desde archivos, como CSV o JSON, en formatos básicos y utilizables
+ *   (por ejemplo, JSONObject o List<String[]> para filas crudas).
+ * - Transformar datos en estructuras básicas para que otras clases no se preocupen
+ *   por los detalles de acceso o transformación inicial.
+ * - Proveer métodos utilitarios para manejar errores de lectura y validaciones básicas.
+ * - Aislar la lógica de acceso a datos del resto de la aplicación, promoviendo
+ *   la separación de responsabilidades y facilitando pruebas independientes.
+ *
+ * Nota Importante:
+ * - Uso en Entornos Empaquetados: Una vez empaquetado como JAR/WAR,
+ *   escribir en src/main/resources no es posible porque estará dentro del archivo empaquetado.
+ *   En producción, sería mejor escribir en un directorio externo configurable
+ *   (por ejemplo, definido en el archivo application.properties o como argumento del programa).
+ *
+ * Ejemplo de uso:
+ * List<String[]> rawRows = ResourcesHandler.loadCsvFile("path/al/archivo.csv");
  */
+
 
 public class ResourcesHandler {
     private static final String RESOURCES_DIR = "spam/src/main/resources";
@@ -75,4 +92,26 @@ public class ResourcesHandler {
     }
 
 
+    /**
+     * Carga un archivo CSV y devuelve una lista de filas crudas como List<String[]>.
+     *
+     * @param filePath Ruta del archivo CSV.
+     * @return Una lista de arreglos de cadenas, donde cada arreglo representa una fila.
+     * @throws IOException Si ocurre un error al leer el archivo.
+     */
+    public List<String[]> loadCsvFile(String filePath) throws IOException {
+        List<String[]> rawRows = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // Divide la línea por comas (o el delimitador que uses) y agrega al resultado
+                String[] row = line.split(",");
+                rawRows.add(row);
+            }
+        }
+
+        return rawRows;
+    }
 }
+

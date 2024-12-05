@@ -1,5 +1,6 @@
 package com.ml.spam.handlers;
 
+import com.ml.spam.utils.CsvUtils;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -102,11 +103,15 @@ public class ResourcesHandler {
     public List<String[]> loadCsvFile(String filePath) throws IOException {
         List<String[]> rawRows = new ArrayList<>();
 
+        // Detectar el delimitador
+        String delimiter = CsvUtils.detectDelimiter(filePath);
+        System.out.println("Delimitador detectado: \"" + delimiter + "\"");
+
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                // Divide la línea por comas (o el delimitador que uses) y agrega al resultado
-                String[] row = line.split(",");
+                // Divide la línea usando el delimitador detectado
+                String[] row = line.split(delimiter);
                 rawRows.add(row);
             }
         }

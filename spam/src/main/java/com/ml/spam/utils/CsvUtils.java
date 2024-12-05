@@ -4,6 +4,8 @@ package com.ml.spam.utils;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 public class CsvUtils {
 
@@ -31,6 +33,28 @@ public class CsvUtils {
         }
         return ","; // Por defecto, devuelve la coma
     }
+
+    public static void removeHeaderIfPresent(List<String[]> rows) {
+        if (!rows.isEmpty()) {
+            String[] firstRow = rows.get(0);
+            if (firstRow.length >= 2 &&
+                    ((firstRow[0].equalsIgnoreCase("mensaje") || firstRow[0].equalsIgnoreCase("message")) &&
+                            (firstRow[1].equalsIgnoreCase("tipo") || firstRow[1].equalsIgnoreCase("label")))) {
+                rows.remove(0); // Eliminar cabecera
+            }
+        }
+    }
+
+    public static List<String> tokenizeMessage(String message) {
+        return Arrays.asList(message.toLowerCase().split("\\s+"));
+    }
+
+    public static boolean isValidRow(String[] row) {
+        return row != null && row.length >= 2;
+    }
+
+
+
 
     /**
      * Detecta y muestra el delimitador del archivo CSV en la consola.

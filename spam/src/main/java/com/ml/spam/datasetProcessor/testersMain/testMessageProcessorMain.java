@@ -2,7 +2,7 @@ package com.ml.spam.datasetProcessor.testersMain;
 
 import com.ml.spam.config.FilePathsConfig;
 import com.ml.spam.datasetProcessor.MessageProcessor;
-import com.ml.spam.datasetProcessor.models.LabeledMessage;
+import com.ml.spam.datasetProcessor.models.ProcessedMessage;
 import com.ml.spam.handlers.ResourcesHandler;
 
 import java.io.IOException;
@@ -21,11 +21,11 @@ public class testMessageProcessorMain {
             List<String[]> rawRows = resourcesHandler.loadCsvFile(testMessagesFilePath);
 
             // Procesar las filas crudas a objetos LabeledMessage
-            List<LabeledMessage> labeledMessages = MessageProcessor.process(rawRows);
+            List<ProcessedMessage> processedMessages = MessageProcessor.simpleProcess(rawRows);
 
             // Mostrar el resultado
             System.out.println("=== Resultado del procesamiento ===");
-            labeledMessages.forEach(System.out::println);
+            processedMessages.forEach(System.out::println);
 
         } catch (IOException e) {
             System.err.println("Error al cargar el archivo CSV: " + e.getMessage());

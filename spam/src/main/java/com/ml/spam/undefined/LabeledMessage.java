@@ -1,4 +1,4 @@
-package com.ml.spam.datasetProcessor.models;
+package com.ml.spam.undefined;
 
 public class LabeledMessage {
     private String message;

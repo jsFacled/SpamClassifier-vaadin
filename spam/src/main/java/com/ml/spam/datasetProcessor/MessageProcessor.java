@@ -1,15 +1,66 @@
 package com.ml.spam.datasetProcessor;
 
-import com.ml.spam.datasetProcessor.models.LabeledMessage;
+import com.ml.spam.undefined.LabeledMessage;
+import com.ml.spam.datasetProcessor.models.ProcessedMessage;
+import com.ml.spam.utils.CsvUtils;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class MessageProcessor {
 
 
+    public static List<ProcessedMessage> simpleProcess(List<String[]> rawRows) {
+        if (rawRows == null || rawRows.isEmpty()) {
+            throw new IllegalArgumentException("Las filas crudas están vacías o no son válidas.");
+        }
+
+        // Eliminar cabecera si está presente
+        CsvUtils.removeHeaderIfPresent(rawRows);
+
+        List<ProcessedMessage> processedMessages = new ArrayList<>();
+
+        for (String[] row : rawRows) {
+            // Validar fila
+            if (!CsvUtils.isValidRow(row)) {
+                System.err.println("Fila inválida encontrada: " + Arrays.toString(row));
+                continue;
+            }
+
+            // Crear y agregar el ProcessedMessage usando el método auxiliar
+            processedMessages.add(createProcessedMessage(row));
+        }
+
+        return processedMessages;
+    }
+
+    // Método auxiliar para procesar una fila en un ProcessedMessage
+    private static ProcessedMessage createProcessedMessage(String[] row) {
+        String message = row[0].trim(); // Mensaje
+        String label = row[1].trim();   // Etiqueta
+
+        // Tokenización y frecuencia de palabras
+        List<String> tokens = CsvUtils.tokenizeMessage(message);
+        Map<String, Integer> wordFrequency = new HashMap<>();
+        for (String token : tokens) {
+            wordFrequency.put(token, wordFrequency.getOrDefault(token, 0) + 1);
+        }
+
+        // Crear y devolver ProcessedMessage
+        return new ProcessedMessage(
+                tokens,
+                wordFrequency,
+                label,
+                tokens.size(),
+                0.0, // rareSymbolProportion no aplica aquí
+                0.0  // stopWordFrequency no aplica aquí
+        );
+    }
+
+
+
+
+    //procesa listas crudas en labeledmessages, por ahora está obsoleta
     public static List<LabeledMessage> process(List<String[]> rawRows) {
         // Verificar si la primera fila es una cabecera válida
         if (!rawRows.isEmpty()) {
@@ -38,15 +89,6 @@ public class MessageProcessor {
 
         return labeledMessages;
     }
-
-    // Método auxiliar para limpiar comillas y espacios
-    private static String cleanString(String input) {
-        if (input == null) {
-            return "";
-        }
-        return input.trim().replaceAll("^\"|\"$", ""); // Eliminar comillas alrededor del texto
-    }
-
 
     /**
      *

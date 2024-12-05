@@ -1,7 +1,8 @@
 package com.ml.spam.dictionary.service;
 
 import com.ml.spam.datasetProcessor.MessageProcessor;
-import com.ml.spam.datasetProcessor.models.LabeledMessage;
+import com.ml.spam.datasetProcessor.models.ProcessedMessage;
+import com.ml.spam.undefined.LabeledMessage;
 import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.models.WordCategory;
 import com.ml.spam.dictionary.models.WordData;
@@ -110,11 +111,10 @@ public class SpamDictionaryService {
             throw new IllegalArgumentException("El archivo CSV no contiene datos válidos.");
         }
 
+        // Procesar filas crudas a ProcessedMessage
+        List<ProcessedMessage> processedMessages = MessageProcessor.simpleProcess(rawRows);
 
-        // Procesar filas crudas a LabeledMessage
-        List<LabeledMessage> labeledMessages = MessageProcessor.process(rawRows);
-
-        // Aquí se agregará la lógica para actualizar el diccionario con los mensajes etiquetados
+        // Aquí se agregará la lógica para actualizar el diccionario con los mensajes procesados
 
 
     }

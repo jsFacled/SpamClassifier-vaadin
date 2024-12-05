@@ -1,31 +1,23 @@
-package com.ml.spam.dictionary.stageMain;
+package com.ml.spam.dictionary.testersDictionaryMain;
 
 import com.ml.spam.config.FilePathsConfig;
-import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
-import com.ml.spam.handlers.ResourcesHandler;
 
-import java.io.IOException;
+public class testDictionaryInitializeMain {
 
-public class DictionaryUpdateMain {
     private static final String filePath = FilePathsConfig.EXPORT_DICTIONARY_CREATED_JSON_PATH;
-    private static final String testMessagesFilePath = FilePathsConfig.TEST_CSV_DATA_PATH;
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         SpamDictionaryService service = new SpamDictionaryService();
 
-System.out.println("===  /  /   /   /   /   /   /   /   /   /   ===  Etapa 2: Actualización del Diccionario  === /  /   /   /   /   /   /   /   /   /   === \n");
-
-/**
-        ***  Solamente se utilizarían estos 2 mètodos en casos de algun error o duda ***
+        System.out.println("===  /  /   /   /   /   /   /   /   /   /   ===  Etapa 2: Actualización del Diccionario  === /  /   /   /   /   /   /   /   /   /   === \n");
 
         //Mostrar el Map de Dictionary para chequear que estén las categorías vacías
         service.displayDictionary();
 
         // Mostrar el diccionario persistido para testear el formato del json en consola
         service.displayJsonFileDictionary(filePath);
-*/
 
         // Inicializar el diccionario desde el JSON
         service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(filePath);
@@ -34,10 +26,6 @@ System.out.println("===  /  /   /   /   /   /   /   /   /   /   ===  Etapa 2: Ac
         service.displayDictionary();
 
 
-        // Solicitar la actualización del diccionario al service
-        service.updateDictionary(testMessagesFilePath);
-
 
     }
-
 }

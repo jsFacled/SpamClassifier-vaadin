@@ -3,10 +3,7 @@ package com.ml.spam.handlers;
 import com.ml.spam.utils.CsvUtils;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -94,20 +91,23 @@ public class ResourcesHandler {
 
 
     /**
-     * Carga un archivo CSV y devuelve una lista de filas crudas como List<String[]>.
+     * Carga un archivo CSV desde el sistema de archivos y devuelve una lista de filas crudas como List<String[]>.
      *
-     * @param filePath Ruta del archivo CSV.
+     * @param relativePath Ruta relativa al archivo CSV.
      * @return Una lista de arreglos de cadenas, donde cada arreglo representa una fila.
      * @throws IOException Si ocurre un error al leer el archivo.
      */
-    public List<String[]> loadCsvFile(String filePath) throws IOException {
+    public List<String[]> loadCsvFile(String relativePath) throws IOException {
         List<String[]> rawRows = new ArrayList<>();
 
+        // Resuelve la ruta relativa
+        Path absolutePath = resolvePath(relativePath);
+
         // Detectar el delimitador
-        String delimiter = CsvUtils.detectDelimiter(filePath);
+        String delimiter = CsvUtils.detectDelimiter(absolutePath.toString());
         System.out.println("Delimitador detectado: \"" + delimiter + "\"");
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(absolutePath.toFile()))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 // Divide la línea usando el delimitador detectado

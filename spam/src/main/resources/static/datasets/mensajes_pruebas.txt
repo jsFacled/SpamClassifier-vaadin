@@ -1,5 +1,5 @@
-message,label
-"¡Gana un premio ahora!",spam
-"Hola, ¿cómo estás?",ham
-"Oferta exclusiva solo hoy",spam
-"Hola amigo, te llamo luego",ham
+mensaje,tipo
+¡Gana un premio ahora!,spam
+Hola ¿cómo estás?,ham
+Oferta exclusiva solo hoy,spam
+Hola amigo te llamo luego,ham

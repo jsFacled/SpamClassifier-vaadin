@@ -4,9 +4,56 @@ import com.ml.spam.datasetProcessor.models.LabeledMessage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MessageProcessor {
+
+
+    public static List<LabeledMessage> process(List<String[]> rawRows) {
+        // Verificar si la primera fila es una cabecera válida
+        if (!rawRows.isEmpty()) {
+            String headerMessage = rawRows.get(0)[0].toLowerCase(); // Primera columna de la cabecera
+            String headerLabel = rawRows.get(0)[1].toLowerCase();   // Segunda columna de la cabecera
+
+            // Si la cabecera corresponde a "mensaje" o "message" y "tipo" o "label", la eliminamos
+            if ((headerMessage.equals("mensaje") || headerMessage.equals("message")) &&
+                    (headerLabel.equals("tipo") || headerLabel.equals("label"))) {
+                rawRows.remove(0); // Remover la fila de cabecera
+            }
+        }
+
+        List<LabeledMessage> labeledMessages = new ArrayList<>();
+
+        for (String[] row : rawRows) {
+            // Validar que la fila tenga al menos dos columnas
+            if (row.length >= 2) {
+                String message = row[0].trim(); // Primera columna como mensaje
+                String label = row[1].trim();   // Segunda columna como tipo o label
+                labeledMessages.add(new LabeledMessage(message, label));
+            } else {
+                System.err.println("Fila inválida encontrada: " + Arrays.toString(row));
+            }
+        }
+
+        return labeledMessages;
+    }
+
+    // Método auxiliar para limpiar comillas y espacios
+    private static String cleanString(String input) {
+        if (input == null) {
+            return "";
+        }
+        return input.trim().replaceAll("^\"|\"$", ""); // Eliminar comillas alrededor del texto
+    }
+
+
+    /**
+     *
+     *
+     *  ******* Código viejo *******
+     *
+     * */
 
     /*
          //ver su implementaciòn ya que se cambió la estructura del diccionario de set a Map.

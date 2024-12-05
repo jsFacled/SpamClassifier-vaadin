@@ -1,5 +1,6 @@
 package com.ml.spam.dictionary.service;
 
+import com.ml.spam.datasetProcessor.MessageProcessor;
 import com.ml.spam.datasetProcessor.models.LabeledMessage;
 import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.models.WordCategory;
@@ -8,6 +9,7 @@ import com.ml.spam.handlers.ResourcesHandler;
 import com.ml.spam.utils.JsonUtils;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -99,14 +101,22 @@ public class SpamDictionaryService {
         }
     }
 
-    public void updateDictionary(String csvFilePath) {
+    public void updateDictionary(String csvFilePath) throws IOException {
         // Obtener rawRows (filas crudas) del archivo CSV
         List<String[]> rawRows = resourcesHandler.loadCsvFile(csvFilePath);
+
+        // Validar que rawRows no sea vacío
+        if (rawRows == null || rawRows.isEmpty()) {
+            throw new IllegalArgumentException("El archivo CSV no contiene datos válidos.");
+        }
+
 
         // Procesar filas crudas a LabeledMessage
         List<LabeledMessage> labeledMessages = MessageProcessor.process(rawRows);
 
         // Aquí se agregará la lógica para actualizar el diccionario con los mensajes etiquetados
+
+
     }
 
 

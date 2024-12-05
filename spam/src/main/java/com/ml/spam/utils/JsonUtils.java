@@ -76,6 +76,7 @@ public class JsonUtils {
 
         return categoryMap;
     }
+
     /**
      * Convierte un diccionario categorizado en un objeto JSON.
      * @param categorizedDictionary Mapa de categorías y sus palabras con datos.

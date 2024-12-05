@@ -1,4 +1,4 @@
-package com.ml.spam.datasetProcessor;
+package com.ml.spam.datasetProcessor.models;
 
 public class LabeledMessage {
     private String content;

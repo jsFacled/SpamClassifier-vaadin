@@ -119,6 +119,7 @@ public class SpamDictionaryService {
             throw new RuntimeException("Error al exportar el diccionario: " + e.getMessage(), e);
         }
     }
+
     /**
      * Muestra el contenido actual del diccionario en la consola.
      */

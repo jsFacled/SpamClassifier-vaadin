@@ -1,14 +1,12 @@
 package com.ml.spam.datasetProcessor;
 
-import com.ml.spam.dictionary.service.SpamDictionaryService;
+import com.ml.spam.datasetProcessor.models.LabeledMessage;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CsvMessageProcessor {
+public class MessageProcessor {
 
     /*
          //ver su implementaciòn ya que se cambió la estructura del diccionario de set a Map.

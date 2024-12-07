@@ -8,11 +8,13 @@ import com.ml.spam.dictionary.models.WordCategory;
 import com.ml.spam.dictionary.models.WordData;
 import com.ml.spam.handlers.ResourcesHandler;
 import com.ml.spam.utils.JsonUtils;
+import com.ml.spam.utils.TextUtils;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class SpamDictionaryService {
 
@@ -118,6 +120,73 @@ public class SpamDictionaryService {
 
 
     }
+    public void updateDictionaryFromProcessedWordData(List<List<WordData>> processedData) {
+        // Aplanar la estructura
+        List<WordData> flattenedWordData = processedData.stream()
+                .flatMap(List::stream)
+                .toList();
+
+        // Actualizar el diccionario
+        for (WordData wordData : flattenedWordData) {
+            WordCategory category = determineCategory(wordData.getWord()); // Determinar categoría
+
+            dictionary.getCategory(category).merge(
+                    wordData.getWord(),
+                    wordData,
+                    (existing, newData) -> {
+                        existing.incrementSpamFrequency(newData.getSpamFrequency());
+                        existing.incrementHamFrequency(newData.getHamFrequency());
+                        return existing;
+                    }
+            );
+        }
+    }
+
+
+    /*
+             // ****************************************************** //
+             //  * * * * Por ahora no utilizo ProcessedMessages * * * *
+             // ****************************************************** //
+    public void updateDictionaryFromProcessedMessages(List<ProcessedMessage> messages) {
+        for (ProcessedMessage message : messages) {
+            for (String word : message.getTokens()) {
+                boolean found = false;
+
+                // Recorremos las categorías para ver si la palabra pertenece a alguna
+                for (WordCategory category : WordCategory.values()) {
+                    Map<String, WordData> categoryWords = dictionary.get(category);
+                    if (categoryWords != null && categoryWords.containsKey(word)) {
+                        WordData wordData = categoryWords.get(word);
+
+                        // Actualizamos la frecuencia según el label (spam/ham)
+                        if ("ham".equals(message.getLabel())) {
+                            wordData.incrementHamCount(message.getWordFrequency().get(word));
+                        } else if ("spam".equals(message.getLabel())) {
+                            wordData.incrementSpamCount(message.getWordFrequency().get(word));
+                        }
+                        found = true;
+                        break;
+                    }
+                }
+
+                // Si la palabra no está en ninguna categoría, la agregamos a UNASSIGNED_WORDS
+                if (!found) {
+                    Map<String, WordData> unassignedWords = dictionary.get(WordCategory.UNASSIGNED_WORDS);
+                    if (unassignedWords == null) {
+                        unassignedWords = new HashMap<>();
+                        dictionary.put(WordCategory.UNASSIGNED_WORDS, unassignedWords);
+                    }
+
+                    // Creamos una nueva entrada de WordData si no existe
+                    WordData wordData = unassignedWords.computeIfAbsent(word, k -> new WordData());
+
+                    // Aquí no contamos 'ham' ni 'spam', solo incrementamos 'unassignedCount'
+                    wordData.incrementUnassignedCount(message.getWordFrequency().get(word));
+                }
+            }
+        }
+    }
+*/
 
 
     /**
@@ -170,4 +239,43 @@ public class SpamDictionaryService {
             System.err.println("Error al leer el archivo JSON desde recursos: " + e.getMessage());
         }
     }
+
+
+
+
+    /**
+     *  * * * *  Metods de asignación y verificación sobre Categorías
+     */
+
+    private WordCategory determineCategory(String word) {
+        if (TextUtils.isSpamWord(word)) {
+            return WordCategory.SPAM_WORDS;
+        } else if (TextUtils.isStopWord(word)) {
+            return WordCategory.STOP_WORDS;
+        } else if (TextUtils.containsRareSymbols(word)) {
+            return WordCategory.RARE_SYMBOLS;
+        } else {
+            return WordCategory.UNASSIGNED_WORDS;
+        }
+    }
+
+    private boolean isSpamWord(String word) {
+        Map<String, WordData> spamWords = dictionary.getCategory(WordCategory.SPAM_WORDS);
+        return spamWords.containsKey(word.toLowerCase());
+    }
+    private boolean isStopWord(String word) {
+        Map<String, WordData> stopWords = dictionary.getCategory(WordCategory.STOP_WORDS);
+        return stopWords.containsKey(word.toLowerCase());
+    }
+    private boolean containsRareSymbols(String word) {
+        Map<String, WordData> rareSymbols = dictionary.getCategory(WordCategory.RARE_SYMBOLS);
+        for (char c : word.toCharArray()) {
+            if (rareSymbols.containsKey(String.valueOf(c))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }

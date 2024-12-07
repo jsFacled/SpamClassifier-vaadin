@@ -1,5 +1,6 @@
 package com.ml.spam.datasetProcessor;
 
+import com.ml.spam.dictionary.models.WordData;
 import com.ml.spam.undefined.LabeledMessage;
 import com.ml.spam.datasetProcessor.models.ProcessedMessage;
 import com.ml.spam.utils.CsvUtils;
@@ -8,6 +9,38 @@ import java.io.IOException;
 import java.util.*;
 
 public class MessageProcessor {
+
+
+    //Recibe filas crudas del service, tokeniza y crea lista de WordData, Devuelve Lista de Lista<palabra,WordData>
+    public static List<List<WordData>> processToWordData(List<String[]> rawRows) {
+        CsvUtils.removeHeaderIfPresent(rawRows);
+
+        List<List<WordData>> result = new ArrayList<>();
+
+        for (String[] row : rawRows) {
+            if (!CsvUtils.isValidRow(row)) continue;
+
+            String message = row[0].trim();
+            String label = row[1].trim();
+
+            Map<String, WordData> wordDataMap = new HashMap<>();
+            List<String> tokens = CsvUtils.tokenizeMessage(message);
+
+            for (String token : tokens) {
+                WordData wordData = wordDataMap.getOrDefault(token, new WordData(token));
+                if ("spam".equalsIgnoreCase(label)) {
+                    wordData.incrementSpamFrequency();
+                } else {
+                    wordData.incrementHamFrequency();
+                }
+                wordDataMap.put(token, wordData);
+            }
+
+            result.add(new ArrayList<>(wordDataMap.values()));
+        }
+
+        return result;
+    }
 
 
     public static List<ProcessedMessage> simpleProcess(List<String[]> rawRows) {

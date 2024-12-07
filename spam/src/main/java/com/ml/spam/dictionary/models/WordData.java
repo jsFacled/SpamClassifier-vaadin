@@ -25,17 +25,20 @@ public class WordData {
     public int getSpamFrequency() {
         return spamFrequency;
     }
-
-    public void incrementSpamFrequency() {
-        this.spamFrequency++;
+    public void incrementSpamFrequency(int count) {
+        if (count < 0) {
+            throw new IllegalArgumentException("La frecuencia no puede ser negativa.");
+        }
+        this.spamFrequency += count;
     }
-
     public int getHamFrequency() {
         return hamFrequency;
     }
-
-    public void incrementHamFrequency() {
-        this.hamFrequency++;
+    public void incrementHamFrequency(int count) {
+        if (count < 0) {
+            throw new IllegalArgumentException("La frecuencia no puede ser negativa.");
+        }
+        this.hamFrequency += count;
     }
 
     public void resetFrequencies() {

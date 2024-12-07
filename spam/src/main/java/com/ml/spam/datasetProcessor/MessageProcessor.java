@@ -13,29 +13,38 @@ public class MessageProcessor {
 
     //Recibe filas crudas del service, tokeniza y crea lista de WordData, Devuelve Lista de Lista<palabra,WordData>
     public static List<List<WordData>> processToWordData(List<String[]> rawRows) {
+        // Remover la cabecera si está presente
         CsvUtils.removeHeaderIfPresent(rawRows);
 
+        // Estructura para almacenar el resultado final
         List<List<WordData>> result = new ArrayList<>();
 
         for (String[] row : rawRows) {
-            if (!CsvUtils.isValidRow(row)) continue;
+            // Validar la fila
+            if (!CsvUtils.isValidRow(row)) {
+                System.err.println("Fila inválida: " + Arrays.toString(row));
+                continue; // Omitir filas inválidas
+            }
 
-            String message = row[0].trim();
-            String label = row[1].trim();
+            String message = row[0].trim(); // Contenido del mensaje
+            String label = row[1].trim();   // Etiqueta (spam/ham)
 
+            // Mapa temporal para consolidar las frecuencias dentro del mensaje
             Map<String, WordData> wordDataMap = new HashMap<>();
             List<String> tokens = CsvUtils.tokenizeMessage(message);
 
             for (String token : tokens) {
+                // Crear o actualizar WordData para el token actual
                 WordData wordData = wordDataMap.getOrDefault(token, new WordData(token));
                 if ("spam".equalsIgnoreCase(label)) {
-                    wordData.incrementSpamFrequency();
+                    wordData.incrementSpamFrequency(1); // Incrementar frecuencia de spam
                 } else {
-                    wordData.incrementHamFrequency();
+                    wordData.incrementHamFrequency(1); // Incrementar frecuencia de ham
                 }
-                wordDataMap.put(token, wordData);
+                wordDataMap.put(token, wordData); // Actualizar el mapa
             }
 
+            // Convertir el mapa a una lista y agregar al resultado
             result.add(new ArrayList<>(wordDataMap.values()));
         }
 

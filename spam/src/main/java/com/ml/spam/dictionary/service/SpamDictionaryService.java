@@ -105,21 +105,24 @@ public class SpamDictionaryService {
     }
 
     public void updateDictionary(String csvFilePath) throws IOException {
-        // Obtener rawRows (filas crudas) del archivo CSV
+        // 1. Obtener filas crudas del archivo CSV utilizando el ResourcesHandler
         List<String[]> rawRows = resourcesHandler.loadCsvFile(csvFilePath);
 
-        // Validar que rawRows no sea vacío
+        // 2. Validar que las filas no estén vacías
         if (rawRows == null || rawRows.isEmpty()) {
             throw new IllegalArgumentException("El archivo CSV no contiene datos válidos.");
         }
 
-        // Procesar filas crudas a ProcessedMessage
-        List<ProcessedMessage> processedMessages = MessageProcessor.simpleProcess(rawRows);
+        // 3. Procesar las filas crudas para obtener listas de WordData
+        List<List<WordData>> processedWordData = MessageProcessor.processToWordData(rawRows);
 
-        // Aquí se agregará la lógica para actualizar el diccionario con los mensajes procesados
+        // 4. Actualizar el diccionario con los datos procesados
+        updateDictionaryFromProcessedWordData(processedWordData);
 
-
+        System.out.println("Diccionario actualizado correctamente con datos del archivo: " + csvFilePath);
     }
+
+    //Metod auxiliar para update
     public void updateDictionaryFromProcessedWordData(List<List<WordData>> processedData) {
         // Aplanar la estructura
         List<WordData> flattenedWordData = processedData.stream()

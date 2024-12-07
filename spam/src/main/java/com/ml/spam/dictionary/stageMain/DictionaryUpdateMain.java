@@ -33,9 +33,18 @@ System.out.println("===  /  /   /   /   /   /   /   /   /   /   ===  Etapa 2: Ac
         // Mostrar los Map de SpamDictionary para chequear que se haya inicializado correctamente
         service.displayDictionary();
 
+        System.out.println(" *  *  *  *  *  //  //  //  //  //  //  // Solicitando Actualización . . . . . . . . . . . . . . . .. . . . . . . . . . . .\n");
+
 
         // Solicitar la actualización del diccionario al service
         service.updateDictionary(testMessagesFilePath);
+        System.out.println(" *  *  *  *  *  //  //  //  //  //  //  // //  //  //  Actualización finalizada ! ! ! ! !\n");
+
+
+
+
+        // Mostrar SpamDictionary actualizado
+        service.displayDictionary();
 
 
     }

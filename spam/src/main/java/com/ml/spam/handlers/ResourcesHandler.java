@@ -109,14 +109,29 @@ public class ResourcesHandler {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(absolutePath.toFile()))) {
             String line;
+            boolean isFirstLine = true;
+
             while ((line = reader.readLine()) != null) {
                 // Divide la línea usando el delimitador detectado
                 String[] row = line.split(delimiter);
+
+                // Remover la cabecera si está presente (solo en la primera línea)
+                if (isFirstLine) {
+                    if (CsvUtils.isHeaderRow(row)) {
+                        System.out.println("Cabecera detectada y eliminada: " + String.join(delimiter, row));
+                        isFirstLine = false;
+                        continue; // Salta esta línea
+                    }
+                }
+
+                // Agregar filas válidas
                 rawRows.add(row);
+                isFirstLine = false;
             }
         }
 
         return rawRows;
     }
+
 }
 

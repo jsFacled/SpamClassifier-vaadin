@@ -9,6 +9,16 @@ import java.util.List;
 
 public class CsvUtils {
 
+    // Detecta si una fila es una cabecera
+    public static boolean isHeaderRow(String[] row) {
+        for (String value : row) {
+            if (value.matches("(?i)spam|ham|message|id|content|mensaje|tipo")) { // Palabras clave comunes de cabeceras
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Detecta el delimitador utilizado en la primera línea de un archivo CSV.
      *

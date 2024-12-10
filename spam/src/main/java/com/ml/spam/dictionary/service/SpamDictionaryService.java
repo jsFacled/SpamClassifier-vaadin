@@ -113,10 +113,20 @@ public class SpamDictionaryService {
             throw new IllegalArgumentException("El archivo CSV no contiene datos válidos.");
         }
 
-        // 3. Procesar las filas crudas para obtener listas de WordData
-        List<List<WordData>> processedWordData = MessageProcessor.processToWordData(rawRows);
+        // 3. Filtrar y validar filas utilizando TextUtils
+        List<String[]> validRows = rawRows.stream()
+                .filter(TextUtils::isRawRow) // Valida cada fila
+                .toList();
 
-        // 4. Actualizar el diccionario con los datos procesados
+        // 4. Verificar que haya al menos una fila válida
+        if (validRows.isEmpty()) {
+            throw new IllegalArgumentException("El archivo CSV no contiene filas válidas.");
+        }
+
+        // 5. Procesar las filas válidas para obtener listas de WordData
+        List<List<WordData>> processedWordData = MessageProcessor.processToWordData(validRows);
+
+        // 6. Actualizar el diccionario con los datos procesados
         updateDictionaryFromProcessedWordData(processedWordData);
 
         System.out.println("Diccionario actualizado correctamente con datos del archivo: " + csvFilePath);

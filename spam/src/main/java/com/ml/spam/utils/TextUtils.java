@@ -25,4 +25,20 @@ public class TextUtils {
     public static boolean containsRareSymbols(String word) {
         return word.matches(".*[\\W_]+.*"); // Verifica si contiene caracteres no alfanuméricos
     }
+
+    // Valida si una fila es válida para el dataset
+    public static boolean isRawRow(String[] row) {
+        // Regla 1: La fila debe tener exactamente 2 columnas
+        if (row == null || row.length != 2) {
+            return false;
+        }
+
+        // Regla 2: La segunda columna debe ser 'spam' o 'ham'
+        return isSpamOrHam(row[1]);
+    }
+
+    // Verifica si un valor es 'spam' o 'ham'
+    public static boolean isSpamOrHam(String value) {
+        return "spam".equalsIgnoreCase(value) || "ham".equalsIgnoreCase(value);
+    }
 }

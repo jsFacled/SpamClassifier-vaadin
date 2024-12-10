@@ -3,3 +3,6 @@ mensaje,tipo
 Hola ¿cómo estás?,ham
 Oferta exclusiva solo hoy,spam
 Hola amigo te llamo luego,ham
+Compromiso es pagar con compromiso acá acá, spam
+Pareces una cacatúa, cacahuate, ham
+

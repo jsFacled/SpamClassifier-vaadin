@@ -34,14 +34,30 @@ public class MessageProcessor {
             List<String> tokens = CsvUtils.tokenizeMessage(message);
 
             for (String token : tokens) {
-                // Crear o actualizar WordData para el token actual
-                WordData wordData = wordDataMap.getOrDefault(token, new WordData(token));
-                if ("spam".equalsIgnoreCase(label)) {
-                    wordData.incrementSpamFrequency(1); // Incrementar frecuencia de spam
-                } else {
-                    wordData.incrementHamFrequency(1); // Incrementar frecuencia de ham
+                // Separar símbolos raros de la palabra
+                String[] splitToken = splitRareSymbols(token);
+
+                // Procesar palabra (si existe)
+                if (!splitToken[0].isEmpty()) {
+                    WordData wordData = wordDataMap.getOrDefault(splitToken[0], new WordData(splitToken[0]));
+                    if ("spam".equalsIgnoreCase(label)) {
+                        wordData.incrementSpamFrequency(1); // Incrementar frecuencia de spam
+                    } else {
+                        wordData.incrementHamFrequency(1); // Incrementar frecuencia de ham
+                    }
+                    wordDataMap.put(splitToken[0], wordData);
                 }
-                wordDataMap.put(token, wordData); // Actualizar el mapa
+
+                // Procesar símbolo raro (si existe)
+                if (!splitToken[1].isEmpty()) {
+                    WordData symbolData = wordDataMap.getOrDefault(splitToken[1], new WordData(splitToken[1]));
+                    if ("spam".equalsIgnoreCase(label)) {
+                        symbolData.incrementSpamFrequency(1); // Incrementar frecuencia de spam
+                    } else {
+                        symbolData.incrementHamFrequency(1); // Incrementar frecuencia de ham
+                    }
+                    wordDataMap.put(splitToken[1], symbolData);
+                }
             }
 
             // Convertir el mapa a una lista y agregar al resultado
@@ -49,6 +65,27 @@ public class MessageProcessor {
         }
 
         return result;
+    }
+
+    /**
+     * Divide un token en dos partes: la palabra principal y los símbolos raros.
+     *
+     * @param token El token a dividir.
+     * @return Un arreglo de dos elementos: [palabra, símbolo raro].
+     */
+    /**
+     * Divide un token en dos partes: la palabra principal y los símbolos raros.
+     * Palabras válidas incluyen acentos y caracteres especiales del idioma español.
+     *
+     * @param token El token a dividir.
+     * @return Un arreglo de dos elementos: [palabra, símbolo raro].
+     */
+    private static String[] splitRareSymbols(String token) {
+        // Regex: Mantiene palabras con letras, acentos y caracteres válidos en español.
+        String wordPart = token.replaceAll("^[^\\p{L}áéíóúÁÉÍÓÚñÑ]+|[^\\p{L}áéíóúÁÉÍÓÚñÑ]+$", "");
+        String rareSymbolsPart = token.replaceAll("[\\p{L}áéíóúÁÉÍÓÚñÑ]+", "");
+
+        return new String[]{wordPart, rareSymbolsPart};
     }
 
 
@@ -207,24 +244,6 @@ public class MessageProcessor {
         return tokenList;
     }
 
-    /**
-     * Actualiza el diccionario con las palabras tokenizadas.
-     *
-     * @param tokens Lista de palabras tokenizadas.
-     * @param isSpam Indica si el mensaje es spam.
-     */
 
-    // Ver el tipo: String, Map, etc
-    /*
-    private void updateDictionary(List<String> tokens, boolean isSpam) {
-        for (String token : tokens) {
-            if (dictionaryService.wordExists(token)) {
-                dictionaryService.updateWordFrequency(token, isSpam);
-            } else {
-                dictionaryService.addNewWord(token, isSpam);
-            }
-        }
-    }
 
-     */
 }

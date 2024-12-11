@@ -91,11 +91,26 @@ public class ResourcesHandler {
 
 
     /**
-     * Carga un archivo CSV desde el sistema de archivos y devuelve una lista de filas crudas como List<String[]>.
+     * Método: loadCsvFile
      *
-     * @param relativePath Ruta relativa al archivo CSV.
-     * @return Una lista de arreglos de cadenas, donde cada arreglo representa una fila.
-     * @throws IOException Si ocurre un error al leer el archivo.
+     * Descripción:
+     * Este método carga un archivo CSV desde una ruta relativa especificada,
+     * procesa su contenido y retorna una lista de filas válidas como arreglos de cadenas.
+     * El método detecta automáticamente el delimitador utilizado y omite la cabecera
+     * si está presente. Cada línea es procesada y validada antes de ser agregada
+     * a la lista de resultados.
+     *
+     * Pasos principales:
+     * 1. Inicializar estructuras para almacenar las filas procesadas.
+     * 2. Resolver la ruta absoluta del archivo a partir de la ruta relativa proporcionada.
+     * 3. Abrir y leer el archivo línea por línea.
+     * 4. Detectar el delimitador del archivo.
+     * 5. Omitir la cabecera si está presente.
+     * 6. Procesar las líneas restantes, validando y agregando filas válidas a la lista de resultados.
+     *
+     * @param relativePath Ruta relativa del archivo CSV a procesar.
+     * @return Una lista de arreglos de cadenas (List<String[]>) que representa las filas válidas.
+     * @throws IOException Si ocurre un error al leer el archivo o si está vacío.
      */
     public List<String[]> loadCsvFile(String relativePath) throws IOException {
         // Paso 1: Inicializar estructuras
@@ -105,28 +120,47 @@ public class ResourcesHandler {
         Path absolutePath = resolvePath(relativePath);
         System.out.println("Ruta absoluta resuelta: " + absolutePath);
 
-        // Paso 3: Abrir archivo y leer la primera línea para detectar el delimitador
+        // Paso 3: Abrir archivo y leer
         try (BufferedReader reader = new BufferedReader(new FileReader(absolutePath.toFile()))) {
             String line;
 
-            // Leer la primera línea (para detección del delimitador y procesamiento inicial)
+            // Leer la primera línea
             line = reader.readLine();
             if (line == null) {
                 throw new IOException("El archivo está vacío: " + absolutePath);
             }
 
-            // Detectar delimitador (por implementar en el siguiente paso)
-            // String delimiter = CsvUtils.detectDelimiter(line);
-            // System.out.println("Delimitador detectado: \"" + delimiter + "\"");
+            // Detectar delimitador
+            String delimiter = CsvUtils.detectDelimiter(absolutePath.toString());
+            System.out.println("Delimitador detectado: \"" + delimiter + "\"");
 
-            // Procesar primera línea como cabecera o fila válida (por implementar)
-            // boolean isFirstLine = true;
+            // Validar y eliminar cabecera
+            if (CsvUtils.isHeaderRow(line.split(delimiter))) {
+                System.out.println("Cabecera detectada y eliminada: " + line);
+                line = reader.readLine(); // Saltar la cabecera
+            }
 
-            // Continuar leyendo y procesando las líneas restantes (por implementar)
-            // while ((line = reader.readLine()) != null) {
-            //     String[] row = line.split(delimiter);
-            //     rawRows.add(row);
-            // }
+            // Leer y procesar las líneas restantes
+            while (line != null) {
+                System.out.println("Procesando línea: " + line);
+                String[] columns = line.split(delimiter);
+
+                // Normalizar las columnas eliminando espacios extra
+                for (int i = 0; i < columns.length; i++) {
+                    columns[i] = columns[i].trim();
+                }
+
+                // Validar y agregar fila
+                if (columns.length == 2 && CsvUtils.isValidRow(columns)) {
+                    rawRows.add(columns); // Agregar la fila válida a la lista
+                    System.out.println("Fila válida agregada: " + String.join(" | ", columns));
+                } else {
+                    System.err.println("Fila inválida ignorada: " + line); // Reportar fila inválida
+                }
+
+                // Leer la siguiente línea
+                line = reader.readLine();
+            }
         }
 
         // Retornar las filas crudas

@@ -4,8 +4,7 @@ package com.ml.spam.utils;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class CsvUtils {
 
@@ -19,30 +18,51 @@ public class CsvUtils {
         return false;
     }
 
+
     /**
-     * Detecta el delimitador utilizado en la primera línea de un archivo CSV.
+     * Detecta el delimitador utilizado en un archivo CSV basado en el análisis de las primeras líneas.
      *
-     * @param filePath Ruta del archivo CSV.
-     * @return El delimitador detectado (por defecto una coma si no se encuentra otro patrón).
-     * @throws IOException Si ocurre un error al leer el archivo.
+     * Este método analiza las primeras líneas del archivo para determinar cuál de los delimitadores
+     * comunes (",", ";", "\t", " ") es más consistente al dividir las columnas. Valida que el delimitador
+     * seleccionado produzca al menos un número mínimo de columnas esperadas (por defecto, 2: mensaje y etiqueta).
+     *
+     * @param filePath Ruta al archivo CSV.
+     * @return El delimitador detectado como una cadena (por ejemplo, "," o ";").
+     * @throws IOException Si el archivo está vacío, no se detecta un delimitador válido,
+     *                     o ocurre un error al leer el archivo.
      */
     public static String detectDelimiter(String filePath) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String firstLine = reader.readLine();
-            if (firstLine != null) {
-                if (firstLine.contains(",")) {
-                    return ",";
-                } else if (firstLine.contains(";")) {
-                    return ";";
-                } else if (firstLine.contains("\t")) {
-                    return "\t";
-                } else if (firstLine.contains(" ")) {
-                    return " ";
+            List<String> delimiters = Arrays.asList(",", ";", "\t", " ");
+            int expectedColumns = 2; // Se espera al menos mensaje y etiqueta
+            int maxLines = 5; // Analizar las primeras 5 líneas
+
+            String line;
+            int lineCount = 0;
+
+            // Contadores para cada delimitador
+            Map<String, Integer> delimiterCounts = new HashMap<>();
+            delimiters.forEach(delimiter -> delimiterCounts.put(delimiter, 0));
+
+            while ((line = reader.readLine()) != null && lineCount < maxLines) {
+                for (String delimiter : delimiters) {
+                    String[] columns = line.split(delimiter);
+                    if (columns.length >= expectedColumns) {
+                        delimiterCounts.put(delimiter, delimiterCounts.get(delimiter) + 1);
+                    }
                 }
+                lineCount++;
             }
+
+            // Encontrar el delimitador más frecuente
+            return delimiterCounts.entrySet().stream()
+                    .max(Comparator.comparingInt(Map.Entry::getValue))
+                    .filter(entry -> entry.getValue() > 0) // Validar que haya coincidencias
+                    .map(Map.Entry::getKey)
+                    .orElseThrow(() -> new IOException("No se pudo detectar un delimitador válido en las primeras líneas."));
         }
-        return ","; // Por defecto, devuelve la coma
     }
+
 
     public static void removeHeaderIfPresent(List<String[]> rows) {
         if (!rows.isEmpty()) {

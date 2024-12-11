@@ -98,40 +98,41 @@ public class ResourcesHandler {
      * @throws IOException Si ocurre un error al leer el archivo.
      */
     public List<String[]> loadCsvFile(String relativePath) throws IOException {
+        // Paso 1: Inicializar estructuras
         List<String[]> rawRows = new ArrayList<>();
 
-        // Resuelve la ruta relativa
+        // Paso 2: Resolver ruta
         Path absolutePath = resolvePath(relativePath);
+        System.out.println("Ruta absoluta resuelta: " + absolutePath);
 
-        // Detectar el delimitador
-        String delimiter = CsvUtils.detectDelimiter(absolutePath.toString());
-        System.out.println("Delimitador detectado: \"" + delimiter + "\"");
-
+        // Paso 3: Abrir archivo y leer la primera línea para detectar el delimitador
         try (BufferedReader reader = new BufferedReader(new FileReader(absolutePath.toFile()))) {
             String line;
-            boolean isFirstLine = true;
 
-            while ((line = reader.readLine()) != null) {
-                // Divide la línea usando el delimitador detectado
-                String[] row = line.split(delimiter);
-
-                // Remover la cabecera si está presente (solo en la primera línea)
-                if (isFirstLine) {
-                    if (CsvUtils.isHeaderRow(row)) {
-                        System.out.println("Cabecera detectada y eliminada: " + String.join(delimiter, row));
-                        isFirstLine = false;
-                        continue; // Salta esta línea
-                    }
-                }
-
-                // Agregar filas válidas
-                rawRows.add(row);
-                isFirstLine = false;
+            // Leer la primera línea (para detección del delimitador y procesamiento inicial)
+            line = reader.readLine();
+            if (line == null) {
+                throw new IOException("El archivo está vacío: " + absolutePath);
             }
+
+            // Detectar delimitador (por implementar en el siguiente paso)
+            // String delimiter = CsvUtils.detectDelimiter(line);
+            // System.out.println("Delimitador detectado: \"" + delimiter + "\"");
+
+            // Procesar primera línea como cabecera o fila válida (por implementar)
+            // boolean isFirstLine = true;
+
+            // Continuar leyendo y procesando las líneas restantes (por implementar)
+            // while ((line = reader.readLine()) != null) {
+            //     String[] row = line.split(delimiter);
+            //     rawRows.add(row);
+            // }
         }
 
+        // Retornar las filas crudas
         return rawRows;
     }
+
 
 }
 

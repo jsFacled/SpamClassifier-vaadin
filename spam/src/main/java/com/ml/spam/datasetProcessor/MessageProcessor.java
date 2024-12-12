@@ -16,7 +16,8 @@ import static com.ml.spam.utils.TextUtils.validateAndNormalizeRow;
 public class MessageProcessor {
 
     public static List<List<WordData>> processToWordData(List<String[]> rawRows) {
-        // Validar entrada rawRows
+
+        // Validar entrada de List rawRows
         if (rawRows == null || rawRows.isEmpty()) {
             throw new IllegalArgumentException("La lista de filas está vacía o es nula.");
         }
@@ -30,7 +31,7 @@ public class MessageProcessor {
             String[] currentRow = row; // Usar una variable temporal para posibles modificaciones
 
 
-            // Validar mensaje y etiqueta: Tratar filas no válidas
+            // Validar mensaje y etiqueta: Tratar también la filas no válidas
             if (!isValidMessageAndLabel(currentRow)) {
                 // Intentar normalizar la fila
                 RowValidationResult validationResult = validateAndNormalizeRow("Ver qué va aquí dentro, escribo esto porque da error de tipo String o String[]");

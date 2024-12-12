@@ -29,10 +29,11 @@ public class ResourceHandlerLoadCsvFileTest {
 
         // Ruta relativa al archivo CSV de prueba
         String testCsvPath = "static/datasets/mensajes_pruebas.txt";
+        String testMmensajesEspañol = "static/datasets/test-mensajesEspañol.csv";
 
         try {
             // Cargar y procesar el archivo CSV
-            resourcesHandler.loadCsvFile(testCsvPath);
+            resourcesHandler.loadCsvFile(testMmensajesEspañol);
             // Nota: La salida se maneja completamente dentro de loadCsvFile y showSummary
         } catch (IOException e) {
             // Manejo de errores

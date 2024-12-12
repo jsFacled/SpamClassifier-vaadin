@@ -1,12 +1,17 @@
 package com.ml.spam.datasetProcessor;
 
+import com.ml.spam.datasetProcessor.models.RowValidationResult;
 import com.ml.spam.dictionary.models.WordData;
 import com.ml.spam.undefined.LabeledMessage;
 import com.ml.spam.datasetProcessor.models.ProcessedMessage;
 import com.ml.spam.utils.CsvUtils;
+import com.ml.spam.utils.TextUtils;
 
 import java.io.IOException;
 import java.util.*;
+
+import static com.ml.spam.utils.TextUtils.isValidMessageAndLabel;
+import static com.ml.spam.utils.TextUtils.validateAndNormalizeRow;
 
 public class MessageProcessor {
 
@@ -16,13 +21,29 @@ public class MessageProcessor {
             throw new IllegalArgumentException("La lista de filas está vacía o es nula.");
         }
 
-        // Inicializar estructura de salida
+        // Inicializar estructura de salida y filas inválidas
         List<List<WordData>> result = new ArrayList<>();
+        List<String[]> invalidRows = new ArrayList<>();
 
         // Iterar sobre las filas rawRows
         for (String[] row : rawRows) {
-            // // Validar mensaje y etiqueta
-            // // Tokenizar mensaje
+            String[] currentRow = row; // Usar una variable temporal para posibles modificaciones
+
+
+            // Validar mensaje y etiqueta: Tratar filas no válidas
+            if (!isValidMessageAndLabel(currentRow)) {
+                // Intentar normalizar la fila
+                RowValidationResult validationResult = validateAndNormalizeRow("Ver qué va aquí dentro, escribo esto porque da error de tipo String o String[]");
+                if (!validationResult.isValid()) {
+                    invalidRows.add(currentRow); // Registrar fila irreparable
+                    continue;
+                }
+               // currentRow = validationResult.getNormalizedRow(); // Usar fila normalizada
+            }
+
+
+
+            // // Tokenizar mensaje:separar palabras de símbolos raros pero no realizar operaciones avanzadas como la normalización o eliminación de acentos.
             // // Procesar palabras principales
             // // Procesar símbolos raros
             // // Agregar palabras procesadas al resultado
@@ -85,7 +106,7 @@ public class MessageProcessor {
         String label = row[1].trim();   // Etiqueta
 
         // Tokenización y frecuencia de palabras
-        List<String> tokens = CsvUtils.tokenizeMessage(message);
+        List<String> tokens = TextUtils.tokenizeMessage(message);
         Map<String, Integer> wordFrequency = new HashMap<>();
         for (String token : tokens) {
             wordFrequency.put(token, wordFrequency.getOrDefault(token, 0) + 1);

@@ -16,6 +16,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * Crea un diccionario desde un archivo JSON con palabras organizadas por categoría.
+ * Cada palabra se inicializa con frecuencia en cero.
+ * Coordina la inicialización, actualización y exportación del diccionario.
+ * Utiliza el ResourceHandler (inyectado para manejo de archivos en resources/static)
+ * y el MessageProcessor (usado directamente para transformar listas crudas en objetos WordData).
+ *
+ */
+
 public class SpamDictionaryService {
 
     private final SpamDictionary dictionary;

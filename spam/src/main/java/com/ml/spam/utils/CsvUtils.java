@@ -75,10 +75,6 @@ public class CsvUtils {
         }
     }
 
-    public static List<String> tokenizeMessage(String message) {
-        return Arrays.asList(message.toLowerCase().split("\\s+"));
-    }
-
     public static boolean isValidRow(String[] row) {
         return row != null && row.length >= 2;
     }

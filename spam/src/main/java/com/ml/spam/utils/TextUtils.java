@@ -1,8 +1,38 @@
 package com.ml.spam.utils;
 
+import com.ml.spam.datasetProcessor.models.RowValidationResult;
+import com.ml.spam.dictionary.models.MessageLabel;
+
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 
 public class TextUtils {
+
+    public static RowValidationResult validateAndNormalizeRow(String row) {
+        if (row == null || row.trim().isEmpty()) {
+            return new RowValidationResult(false, null, null);
+        }
+
+        // Dividir por coma
+        String[] parts = row.split(",");
+        if (parts.length != 2) {
+            return new RowValidationResult(false, null, null); // Fila inválida
+        }
+
+        // Normalizar mensaje y etiqueta
+        String message = parts[0].trim();
+        String label = parts[1].trim();
+
+        // Validar mensaje y etiqueta
+        if (message.isEmpty() || (!label.equalsIgnoreCase("spam") && !label.equalsIgnoreCase("ham"))) {
+            return new RowValidationResult(false, null, null);
+        }
+
+        // Retornar la fila normalizada como válida
+        return new RowValidationResult(true, message, label);
+    }
+
 
     // Normalización de texto
     public static String normalize(String text) {
@@ -39,6 +69,38 @@ public class TextUtils {
 
     // Verifica si un valor es 'spam' o 'ham'
     public static boolean isSpamOrHam(String value) {
-        return "spam".equalsIgnoreCase(value) || "ham".equalsIgnoreCase(value);
+        try {
+            MessageLabel.valueOf(value.toUpperCase()); // Verifica si existe en el enum
+            return true;
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
     }
+
+    public static boolean isValidMessageAndLabel(String[] row) {
+        if (row == null || row.length != 2) {
+            return false; // Estructura incorrecta
+        }
+
+        String message = row[0].trim();
+        String label = row[1].trim();
+
+        if (message.isEmpty()) {
+            return false;
+        }
+
+        try {
+            MessageLabel.valueOf(label.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
+
+        return true;
+    }
+
+
+    public static List<String> tokenizeMessage(String message) {
+        return Arrays.asList(message.toLowerCase().split("\\s+"));
+    }
+
 }

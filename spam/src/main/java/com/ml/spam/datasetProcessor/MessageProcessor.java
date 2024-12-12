@@ -10,62 +10,28 @@ import java.util.*;
 
 public class MessageProcessor {
 
-
-    //Recibe filas crudas del service, tokeniza y crea lista de WordData, Devuelve Lista de Lista<palabra,WordData>
     public static List<List<WordData>> processToWordData(List<String[]> rawRows) {
-        // Remover la cabecera si está presente
-        CsvUtils.removeHeaderIfPresent(rawRows);
-
-        // Estructura para almacenar el resultado final
-        List<List<WordData>> result = new ArrayList<>();
-
-        for (String[] row : rawRows) {
-            // Validar la fila
-            if (!CsvUtils.isValidRow(row)) {
-                System.err.println("Fila inválida: " + Arrays.toString(row));
-                continue; // Omitir filas inválidas
-            }
-
-            String message = row[0].trim(); // Contenido del mensaje
-            String label = row[1].trim();   // Etiqueta (spam/ham)
-
-            // Mapa temporal para consolidar las frecuencias dentro del mensaje
-            Map<String, WordData> wordDataMap = new HashMap<>();
-            List<String> tokens = CsvUtils.tokenizeMessage(message);
-
-            for (String token : tokens) {
-                // Separar símbolos raros de la palabra
-                String[] splitToken = splitRareSymbols(token);
-
-                // Procesar palabra (si existe)
-                if (!splitToken[0].isEmpty()) {
-                    WordData wordData = wordDataMap.getOrDefault(splitToken[0], new WordData(splitToken[0]));
-                    if ("spam".equalsIgnoreCase(label)) {
-                        wordData.incrementSpamFrequency(1); // Incrementar frecuencia de spam
-                    } else {
-                        wordData.incrementHamFrequency(1); // Incrementar frecuencia de ham
-                    }
-                    wordDataMap.put(splitToken[0], wordData);
-                }
-
-                // Procesar símbolo raro (si existe)
-                if (!splitToken[1].isEmpty()) {
-                    WordData symbolData = wordDataMap.getOrDefault(splitToken[1], new WordData(splitToken[1]));
-                    if ("spam".equalsIgnoreCase(label)) {
-                        symbolData.incrementSpamFrequency(1); // Incrementar frecuencia de spam
-                    } else {
-                        symbolData.incrementHamFrequency(1); // Incrementar frecuencia de ham
-                    }
-                    wordDataMap.put(splitToken[1], symbolData);
-                }
-            }
-
-            // Convertir el mapa a una lista y agregar al resultado
-            result.add(new ArrayList<>(wordDataMap.values()));
+        // Validar entrada rawRows
+        if (rawRows == null || rawRows.isEmpty()) {
+            throw new IllegalArgumentException("La lista de filas está vacía o es nula.");
         }
 
+        // Inicializar estructura de salida
+        List<List<WordData>> result = new ArrayList<>();
+
+        // Iterar sobre las filas rawRows
+        for (String[] row : rawRows) {
+            // // Validar mensaje y etiqueta
+            // // Tokenizar mensaje
+            // // Procesar palabras principales
+            // // Procesar símbolos raros
+            // // Agregar palabras procesadas al resultado
+        }
+
+        // // Retornar la lista de listas WordData
         return result;
     }
+
 
     /**
      * Divide un token en dos partes: la palabra principal y los símbolos raros.
@@ -172,7 +138,7 @@ public class MessageProcessor {
     /**
      *
      *
-     *  ******* Código viejo *******
+     *  ******* A partir de acá dejo Código viejo por las dudas *******
      *
      * */
 
@@ -243,6 +209,69 @@ public class MessageProcessor {
         }
         return tokenList;
     }
+
+
+
+
+/**
+ * * * * * *   processToWordData viejo   * * * * *
+ *
+ //Recibe filas crudas del service, tokeniza y crea lista de WordData, Devuelve Lista de Lista<palabra,WordData>
+ public static List<List<WordData>> processToWordData(List<String[]> rawRows) {
+ // Remover la cabecera si está presente
+ CsvUtils.removeHeaderIfPresent(rawRows);
+
+ // Estructura para almacenar el resultado final
+ List<List<WordData>> result = new ArrayList<>();
+
+ for (String[] row : rawRows) {
+ // Validar la fila
+ if (!CsvUtils.isValidRow(row)) {
+ System.err.println("Fila inválida: " + Arrays.toString(row));
+ continue; // Omitir filas inválidas
+ }
+
+ String message = row[0].trim(); // Contenido del mensaje
+ String label = row[1].trim();   // Etiqueta (spam/ham)
+
+ // Mapa temporal para consolidar las frecuencias dentro del mensaje
+ Map<String, WordData> wordDataMap = new HashMap<>();
+ List<String> tokens = CsvUtils.tokenizeMessage(message);
+
+ for (String token : tokens) {
+ // Separar símbolos raros de la palabra
+ String[] splitToken = splitRareSymbols(token);
+
+ // Procesar palabra (si existe)
+ if (!splitToken[0].isEmpty()) {
+ WordData wordData = wordDataMap.getOrDefault(splitToken[0], new WordData(splitToken[0]));
+ if ("spam".equalsIgnoreCase(label)) {
+ wordData.incrementSpamFrequency(1); // Incrementar frecuencia de spam
+ } else {
+ wordData.incrementHamFrequency(1); // Incrementar frecuencia de ham
+ }
+ wordDataMap.put(splitToken[0], wordData);
+ }
+
+ // Procesar símbolo raro (si existe)
+ if (!splitToken[1].isEmpty()) {
+ WordData symbolData = wordDataMap.getOrDefault(splitToken[1], new WordData(splitToken[1]));
+ if ("spam".equalsIgnoreCase(label)) {
+ symbolData.incrementSpamFrequency(1); // Incrementar frecuencia de spam
+ } else {
+ symbolData.incrementHamFrequency(1); // Incrementar frecuencia de ham
+ }
+ wordDataMap.put(splitToken[1], symbolData);
+ }
+ }
+
+ // Convertir el mapa a una lista y agregar al resultado
+ result.add(new ArrayList<>(wordDataMap.values()));
+ }
+
+ return result;
+ }
+ */
 
 
 

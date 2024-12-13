@@ -148,27 +148,25 @@ public class TextUtils {
         return symbols;
     }
 
-    /**
-     * Divide un token en dos partes: la palabra principal y los símbolos raros.
-     *
-     * @param token El token a dividir.
-     * @return Un arreglo de dos elementos: [palabra, símbolo raro].
-     */
-    /**
-     * Divide un token en dos partes: la palabra principal y los símbolos raros.
-     * Palabras válidas incluyen acentos y caracteres especiales del idioma español.
-     *
-     * @param token El token a dividir.
-     * @return Un arreglo de dos elementos: [palabra, símbolo raro].
-     */
     public static String[] splitRareSymbolsAndNumbers(String token) {
+        // Detectar si el token es número + "hs"
+        if (token.matches("\\d{1,3}hs")) {
+            return new String[]{token, "", ""}; // Tratar todo el token como palabra
+        }
+
         // Extraer parte de palabras (letras con soporte para acentos)
         String wordPart = token.replaceAll("[^\\p{L}áéíóúÁÉÍÓÚñÑ]", ""); // Solo letras
         // Extraer números
         String numberPart = token.replaceAll("[^0-9]", ""); // Solo números
-        // Extraer símbolos raros
+        // Extraer símbolos raros como caracteres separados
         String rareSymbolsPart = token.replaceAll("[\\p{L}áéíóúÁÉÍÓÚñÑ0-9]", ""); // No letras ni números
+
+        // Separar cada símbolo raro para evitar agrupamiento
+        if (!rareSymbolsPart.isEmpty()) {
+            rareSymbolsPart = String.join(" ", rareSymbolsPart.split(""));
+        }
 
         return new String[]{wordPart, numberPart, rareSymbolsPart};
     }
+
 }

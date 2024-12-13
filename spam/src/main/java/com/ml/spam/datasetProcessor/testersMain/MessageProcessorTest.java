@@ -17,7 +17,7 @@ public class MessageProcessorTest {
         rawRows.add(new String[]{"Te llamo luego", "ham"});
         rawRows.add(new String[]{"Mensaje inválido solo texto", ""}); // Fila inválida
         rawRows.add(new String[]{"", "ham"}); // Fila inválida
-        rawRows.add(new String[]{"¡Oferta limitada $100!", "spam"});
+        rawRows.add(new String[]{"¡Oferta limitada $100! 24hs", "spam"});
 
         // Procesar las filas crudas para convertirlas en WordData
         try {

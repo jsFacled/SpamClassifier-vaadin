@@ -90,20 +90,14 @@ public class MessageProcessor {
     }
 
     private static List<WordData> processValidRow(String[] row) {
-        // Separar mensaje y label
         String message = row[0].trim();
         String label = row[1].trim();
-// Tokenización básica del mensaje
-        List<String> tokens = TextUtils.tokenizeMessage(message);
-// Preparar la Lista
+
+        List<String> tokens = TextUtils.tokenizeMessage(message); // Tokenización básica
         List<WordData> wordDataList = new ArrayList<>();
 
-        //Recorre la lista y por cada token procesa.
-        //Cada token se toma como un fragmento de mensaje que puede tener 3 opciones.
         for (String token : tokens) {
-            //Separa el token en distintas partes.
             String[] splitToken = TextUtils.splitRareSymbolsAndNumbers(token);
-            //Asigna un lugar en el array para tratarlos por separado
             String wordPart = splitToken[0];
             String numberPart = splitToken[1];
             String rareSymbolPart = splitToken[2];
@@ -114,14 +108,16 @@ public class MessageProcessor {
                 wordDataList.add(wordData);
             }
             if (!numberPart.isEmpty()) {
-                WordData numberData = new WordData("NUM"); // Etiqueta estándar para números
+                WordData numberData = new WordData("NUMlow");
                 updateWordDataFrequency(numberData, label);
                 wordDataList.add(numberData);
             }
             if (!rareSymbolPart.isEmpty()) {
-                WordData symbolData = new WordData(rareSymbolPart);
-                updateWordDataFrequency(symbolData, label);
-                wordDataList.add(symbolData);
+                for (String symbol : rareSymbolPart.split(" ")) { // Procesar cada símbolo raro por separado
+                    WordData symbolData = new WordData(symbol);
+                    updateWordDataFrequency(symbolData, label);
+                    wordDataList.add(symbolData);
+                }
             }
         }
 

@@ -3,6 +3,7 @@ package com.ml.spam.utils;
 import com.ml.spam.datasetProcessor.models.RowValidationResult;
 import com.ml.spam.dictionary.models.MessageLabel;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -77,24 +78,40 @@ public class TextUtils {
         }
     }
 
+    /**
+     * Valida si una fila cumple con los requisitos de formato y contenido para procesamiento.
+     *
+     * Este métod verifica que:
+     * 1. La fila no sea nula y tenga exactamente dos columnas.
+     * 2. El mensaje (primer columna) no esté vacío.
+     * 3. El label (segunda columna) sea un valor válido definido en el enum `MessageLabel`.
+     *
+     * @param row Arreglo de cadenas que representa una fila del dataset (mensaje y label).
+     * @return true si la fila es válida; false en caso contrario.
+     */
     public static boolean isValidMessageAndLabel(String[] row) {
+        // Validar que la fila no sea nula y tenga exactamente dos elementos
         if (row == null || row.length != 2) {
             return false; // Estructura incorrecta
         }
 
+        // Eliminar espacios extra en los extremos de los elementos de la fila
         String message = row[0].trim();
         String label = row[1].trim();
 
+        // Verificar que el mensaje no esté vacío
         if (message.isEmpty()) {
-            return false;
+            return false; // Mensaje vacío
         }
 
+        // Validar que el label sea un valor válido del enum `MessageLabel`
         try {
-            MessageLabel.valueOf(label.toUpperCase());
+            MessageLabel.valueOf(label.toUpperCase()); // Convierte el label a mayúsculas para validar
         } catch (IllegalArgumentException e) {
-            return false;
+            return false; // Label no coincide con ningún valor válido en `MessageLabel`
         }
 
+        // Si pasa todas las validaciones, la fila es válida
         return true;
     }
 
@@ -102,5 +119,31 @@ public class TextUtils {
     public static List<String> tokenizeMessage(String message) {
         return Arrays.asList(message.toLowerCase().split("\\s+"));
     }
+
+    // Extraer palabras principales de los tokens
+    public static List<String> extractWordsFromTokens(List<String> tokens) {
+
+        List<String> words = new ArrayList<>();
+        for (String token : tokens) {
+            String word = token.replaceAll("[^\\p{L}áéíóúÁÉÍÓÚñÑ]", ""); // Solo letras
+            if (!word.isEmpty()) {
+                words.add(word);
+            }
+        }
+        return words;
+    }
+
+    // Extraer símbolos raros de los tokens
+    public static List<String> extractRareSymbols(List<String> tokens) {
+        List<String> symbols = new ArrayList<>();
+        for (String token : tokens) {
+            String symbol = token.replaceAll("[\\p{L}áéíóúÁÉÍÓÚñÑ]", ""); // No letras
+            if (!symbol.isEmpty()) {
+                symbols.add(symbol);
+            }
+        }
+        return symbols;
+    }
+
 
 }

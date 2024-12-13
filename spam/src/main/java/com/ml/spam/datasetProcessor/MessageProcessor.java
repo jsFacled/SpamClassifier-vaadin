@@ -26,20 +26,42 @@ public class MessageProcessor {
         List<List<WordData>> result = new ArrayList<>();
         List<String[]> invalidRows = new ArrayList<>();
 
-        // Iterar sobre las filas rawRows
+        // Iterar sobre las filas rawRows [mensaje,label]
         for (String[] row : rawRows) {
             String[] currentRow = row; // Usar una variable temporal para posibles modificaciones
 
 
-            // Validar mensaje y etiqueta: Tratar también la filas no válidas
+            // Validar mensaje y etiqueta: Tratar también las filas no válidas
             if (!isValidMessageAndLabel(currentRow)) {
-                // Intentar normalizar la fila
-                RowValidationResult validationResult = validateAndNormalizeRow("Ver qué va aquí dentro, escribo esto porque da error de tipo String o String[]");
-                if (!validationResult.isValid()) {
-                    invalidRows.add(currentRow); // Registrar fila irreparable
-                    continue;
+                invalidRows.add(currentRow); // Registrar la fila no válida
+                System.err.println("Fila no válida encontrada: " + Arrays.toString(currentRow)); // Notificar el problema.Omitir la fila y continuar con la siguiente
+            } else {
+                // Tokenizar el mensaje (palabras y símbolos raros)
+                String message = currentRow[0].trim(); // Extraer el mensaje
+                String label = currentRow[1].trim();   // Extraer la etiqueta
+
+                List<String> tokens = TextUtils.tokenizeMessage(message);
+
+                // Inicializar estructura para almacenar los WordData de este mensaje
+                List<WordData> wordDataList = new ArrayList<>();
+
+                for (String token : tokens) {
+                    WordData wordData = new WordData(token);
+                    if ("spam".equalsIgnoreCase(label)) {
+                        wordData.incrementSpamFrequency(1); // Incrementar frecuencia de spam
+                    } else if ("ham".equalsIgnoreCase(label)) {
+                        wordData.incrementHamFrequency(1); // Incrementar frecuencia de ham
+                    }
+                    wordDataList.add(wordData);
                 }
-               // currentRow = validationResult.getNormalizedRow(); // Usar fila normalizada
+
+// Agregar la lista de WordData resultante al resultado general
+                result.add(wordDataList);
+            }
+
+            // Notificar filas inválidas si es necesario
+            if (!invalidRows.isEmpty()) {
+                System.err.println("Número total de filas no válidas: " + invalidRows.size());
             }
 
 
@@ -107,6 +129,7 @@ public class MessageProcessor {
         String label = row[1].trim();   // Etiqueta
 
         // Tokenización y frecuencia de palabras
+        //tokenizeMessage en principio era solamente pasar a minuscula y separar por espacios
         List<String> tokens = TextUtils.tokenizeMessage(message);
         Map<String, Integer> wordFrequency = new HashMap<>();
         for (String token : tokens) {

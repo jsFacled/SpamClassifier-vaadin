@@ -13,7 +13,7 @@ public class MessageProcessorTest {
         List<String[]> rawRows = new ArrayList<>();
         rawRows.add(new String[]{"¡Gana un premio ahora!", "spam"});
         rawRows.add(new String[]{"Hola, ¿cómo estás?", "ham"});
-        rawRows.add(new String[]{"Oferta exclusiva solo hoy", "spam"});
+        rawRows.add(new String[]{"Oferta exclusiva 1000 solo hoy", "spam"});
         rawRows.add(new String[]{"Te llamo luego", "ham"});
         rawRows.add(new String[]{"Mensaje inválido solo texto", ""}); // Fila inválida
         rawRows.add(new String[]{"", "ham"}); // Fila inválida
@@ -31,10 +31,16 @@ public class MessageProcessorTest {
                     System.out.println(wordData);
                 }
                 System.out.println("--------------------");
+
+
             }
+            System.out.println("\n ************ Lista completa ************\n");
+            System.out.println(processedData);
 
         } catch (IllegalArgumentException e) {
             System.err.println("Error en la entrada de datos: " + e.getMessage());
         }
+
+
     }
 }

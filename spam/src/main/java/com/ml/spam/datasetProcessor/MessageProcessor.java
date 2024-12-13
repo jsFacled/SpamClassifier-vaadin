@@ -1,6 +1,5 @@
 package com.ml.spam.datasetProcessor;
 
-import com.ml.spam.datasetProcessor.models.RowValidationResult;
 import com.ml.spam.dictionary.models.WordData;
 import com.ml.spam.undefined.LabeledMessage;
 import com.ml.spam.datasetProcessor.models.ProcessedMessage;
@@ -11,91 +10,34 @@ import java.io.IOException;
 import java.util.*;
 
 import static com.ml.spam.utils.TextUtils.isValidMessageAndLabel;
-import static com.ml.spam.utils.TextUtils.validateAndNormalizeRow;
 
 public class MessageProcessor {
 
     public static List<List<WordData>> processToWordData(List<String[]> rawRows) {
-
         // Validar entrada de List rawRows
         if (rawRows == null || rawRows.isEmpty()) {
             throw new IllegalArgumentException("La lista de filas está vacía o es nula.");
         }
-
         // Inicializar estructura de salida y filas inválidas
-        List<List<WordData>> result = new ArrayList<>();
+        List<List<WordData>> validRows = new ArrayList<>();
         List<String[]> invalidRows = new ArrayList<>();
 
         // Iterar sobre las filas rawRows [mensaje,label]
         for (String[] row : rawRows) {
-            String[] currentRow = row; // Usar una variable temporal para posibles modificaciones
-
-
             // Validar mensaje y etiqueta: Tratar también las filas no válidas
-            if (!isValidMessageAndLabel(currentRow)) {
-                invalidRows.add(currentRow); // Registrar la fila no válida
-                System.err.println("Fila no válida encontrada: " + Arrays.toString(currentRow)); // Notificar el problema.Omitir la fila y continuar con la siguiente
+            if (isValidMessageAndLabel(row)) {
+                validRows.add(processValidRow(row));// Tokenizar el mensaje (palabras y símbolos raros) y agregar a validRows
             } else {
-                // Tokenizar el mensaje (palabras y símbolos raros)
-                String message = currentRow[0].trim(); // Extraer el mensaje
-                String label = currentRow[1].trim();   // Extraer la etiqueta
-
-                List<String> tokens = TextUtils.tokenizeMessage(message);
-
-                // Inicializar estructura para almacenar los WordData de este mensaje
-                List<WordData> wordDataList = new ArrayList<>();
-
-                for (String token : tokens) {
-                    WordData wordData = new WordData(token);
-                    if ("spam".equalsIgnoreCase(label)) {
-                        wordData.incrementSpamFrequency(1); // Incrementar frecuencia de spam
-                    } else if ("ham".equalsIgnoreCase(label)) {
-                        wordData.incrementHamFrequency(1); // Incrementar frecuencia de ham
-                    }
-                    wordDataList.add(wordData);
-                }
-
-// Agregar la lista de WordData resultante al resultado general
-                result.add(wordDataList);
+                invalidRows.add(row);
+                System.err.println("Fila no válida encontrada: " + Arrays.toString(row));
             }
-
-            // Notificar filas inválidas si es necesario
-            if (!invalidRows.isEmpty()) {
-                System.err.println("Número total de filas no válidas: " + invalidRows.size());
-            }
-
-
-
-            // // Tokenizar mensaje:separar palabras de símbolos raros pero no realizar operaciones avanzadas como la normalización o eliminación de acentos.
-            // // Procesar palabras principales
-            // // Procesar símbolos raros
-            // // Agregar palabras procesadas al resultado
         }
 
-        // // Retornar la lista de listas WordData
-        return result;
-    }
+        if (!invalidRows.isEmpty()) {
+            System.err.println("Número total de filas no válidas: " + invalidRows.size());
+        }
 
-
-    /**
-     * Divide un token en dos partes: la palabra principal y los símbolos raros.
-     *
-     * @param token El token a dividir.
-     * @return Un arreglo de dos elementos: [palabra, símbolo raro].
-     */
-    /**
-     * Divide un token en dos partes: la palabra principal y los símbolos raros.
-     * Palabras válidas incluyen acentos y caracteres especiales del idioma español.
-     *
-     * @param token El token a dividir.
-     * @return Un arreglo de dos elementos: [palabra, símbolo raro].
-     */
-    private static String[] splitRareSymbols(String token) {
-        // Regex: Mantiene palabras con letras, acentos y caracteres válidos en español.
-        String wordPart = token.replaceAll("^[^\\p{L}áéíóúÁÉÍÓÚñÑ]+|[^\\p{L}áéíóúÁÉÍÓÚñÑ]+$", "");
-        String rareSymbolsPart = token.replaceAll("[\\p{L}áéíóúÁÉÍÓÚñÑ]+", "");
-
-        return new String[]{wordPart, rareSymbolsPart};
+        return validRows;
     }
 
 
@@ -145,6 +87,54 @@ public class MessageProcessor {
                 0.0, // rareSymbolProportion no aplica aquí
                 0.0  // stopWordFrequency no aplica aquí
         );
+    }
+
+    private static List<WordData> processValidRow(String[] row) {
+        // Separar mensaje y label
+        String message = row[0].trim();
+        String label = row[1].trim();
+// Tokenización básica del mensaje
+        List<String> tokens = TextUtils.tokenizeMessage(message);
+// Preparar la Lista
+        List<WordData> wordDataList = new ArrayList<>();
+
+        //Recorre la lista y por cada token procesa.
+        //Cada token se toma como un fragmento de mensaje que puede tener 3 opciones.
+        for (String token : tokens) {
+            //Separa el token en distintas partes.
+            String[] splitToken = TextUtils.splitRareSymbolsAndNumbers(token);
+            //Asigna un lugar en el array para tratarlos por separado
+            String wordPart = splitToken[0];
+            String numberPart = splitToken[1];
+            String rareSymbolPart = splitToken[2];
+
+            if (!wordPart.isEmpty()) {
+                WordData wordData = new WordData(wordPart);
+                updateWordDataFrequency(wordData, label);
+                wordDataList.add(wordData);
+            }
+            if (!numberPart.isEmpty()) {
+                WordData numberData = new WordData("NUM"); // Etiqueta estándar para números
+                updateWordDataFrequency(numberData, label);
+                wordDataList.add(numberData);
+            }
+            if (!rareSymbolPart.isEmpty()) {
+                WordData symbolData = new WordData(rareSymbolPart);
+                updateWordDataFrequency(symbolData, label);
+                wordDataList.add(symbolData);
+            }
+        }
+
+        return wordDataList;
+    }
+
+
+    private static void updateWordDataFrequency(WordData wordData, String label) {
+        if ("spam".equalsIgnoreCase(label)) {
+            wordData.incrementSpamFrequency(1);
+        } else if ("ham".equalsIgnoreCase(label)) {
+            wordData.incrementHamFrequency(1);
+        }
     }
 
 
@@ -255,69 +245,4 @@ public class MessageProcessor {
         return tokenList;
     }
 
-
-
-
-/**
- * * * * * *   processToWordData viejo   * * * * *
- *
- //Recibe filas crudas del service, tokeniza y crea lista de WordData, Devuelve Lista de Lista<palabra,WordData>
- public static List<List<WordData>> processToWordData(List<String[]> rawRows) {
- // Remover la cabecera si está presente
- CsvUtils.removeHeaderIfPresent(rawRows);
-
- // Estructura para almacenar el resultado final
- List<List<WordData>> result = new ArrayList<>();
-
- for (String[] row : rawRows) {
- // Validar la fila
- if (!CsvUtils.isValidRow(row)) {
- System.err.println("Fila inválida: " + Arrays.toString(row));
- continue; // Omitir filas inválidas
- }
-
- String message = row[0].trim(); // Contenido del mensaje
- String label = row[1].trim();   // Etiqueta (spam/ham)
-
- // Mapa temporal para consolidar las frecuencias dentro del mensaje
- Map<String, WordData> wordDataMap = new HashMap<>();
- List<String> tokens = CsvUtils.tokenizeMessage(message);
-
- for (String token : tokens) {
- // Separar símbolos raros de la palabra
- String[] splitToken = splitRareSymbols(token);
-
- // Procesar palabra (si existe)
- if (!splitToken[0].isEmpty()) {
- WordData wordData = wordDataMap.getOrDefault(splitToken[0], new WordData(splitToken[0]));
- if ("spam".equalsIgnoreCase(label)) {
- wordData.incrementSpamFrequency(1); // Incrementar frecuencia de spam
- } else {
- wordData.incrementHamFrequency(1); // Incrementar frecuencia de ham
- }
- wordDataMap.put(splitToken[0], wordData);
- }
-
- // Procesar símbolo raro (si existe)
- if (!splitToken[1].isEmpty()) {
- WordData symbolData = wordDataMap.getOrDefault(splitToken[1], new WordData(splitToken[1]));
- if ("spam".equalsIgnoreCase(label)) {
- symbolData.incrementSpamFrequency(1); // Incrementar frecuencia de spam
- } else {
- symbolData.incrementHamFrequency(1); // Incrementar frecuencia de ham
- }
- wordDataMap.put(splitToken[1], symbolData);
- }
- }
-
- // Convertir el mapa a una lista y agregar al resultado
- result.add(new ArrayList<>(wordDataMap.values()));
- }
-
- return result;
- }
- */
-
-
-
-}
+}//END MessageProcessor

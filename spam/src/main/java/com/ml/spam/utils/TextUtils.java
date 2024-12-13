@@ -133,17 +133,42 @@ public class TextUtils {
         return words;
     }
 
-    // Extraer símbolos raros de los tokens
+    // Extraer símbolos raros de los tokens usando containsRareSymbols
     public static List<String> extractRareSymbols(List<String> tokens) {
         List<String> symbols = new ArrayList<>();
         for (String token : tokens) {
-            String symbol = token.replaceAll("[\\p{L}áéíóúÁÉÍÓÚñÑ]", ""); // No letras
-            if (!symbol.isEmpty()) {
-                symbols.add(symbol);
+            if (containsRareSymbols(token)) {
+                // Extraer los símbolos raros del token
+                String rareSymbols = token.replaceAll("[\\p{L}áéíóúÁÉÍÓÚñÑ]", ""); // No letras
+                if (!rareSymbols.isEmpty()) {
+                    symbols.add(rareSymbols);
+                }
             }
         }
         return symbols;
     }
 
+    /**
+     * Divide un token en dos partes: la palabra principal y los símbolos raros.
+     *
+     * @param token El token a dividir.
+     * @return Un arreglo de dos elementos: [palabra, símbolo raro].
+     */
+    /**
+     * Divide un token en dos partes: la palabra principal y los símbolos raros.
+     * Palabras válidas incluyen acentos y caracteres especiales del idioma español.
+     *
+     * @param token El token a dividir.
+     * @return Un arreglo de dos elementos: [palabra, símbolo raro].
+     */
+    public static String[] splitRareSymbolsAndNumbers(String token) {
+        // Extraer parte de palabras (letras con soporte para acentos)
+        String wordPart = token.replaceAll("[^\\p{L}áéíóúÁÉÍÓÚñÑ]", ""); // Solo letras
+        // Extraer números
+        String numberPart = token.replaceAll("[^0-9]", ""); // Solo números
+        // Extraer símbolos raros
+        String rareSymbolsPart = token.replaceAll("[\\p{L}áéíóúÁÉÍÓÚñÑ0-9]", ""); // No letras ni números
 
+        return new String[]{wordPart, numberPart, rareSymbolsPart};
+    }
 }

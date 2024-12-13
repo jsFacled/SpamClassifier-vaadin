@@ -12,6 +12,7 @@ import com.ml.spam.utils.TextUtils;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -46,21 +47,50 @@ public class SpamDictionaryService {
             // Leer JSON desde el handler
             JSONObject jsonObject = resourcesHandler.loadJson(resourcePath);
 
-            // Validar la estructura del JSON
+            // Validar la estructura del JSON. Deben estar las Categorías.
             JsonUtils.validateJsonStructure(jsonObject);
 
             // Transformar el JSON en un mapa
             Map<WordCategory, List<String>> categoryMap = JsonUtils.jsonToCategoryMap(jsonObject);
 
+            // Limpieza y normalización de palabras en todas las categorías
+            Map<WordCategory, List<String>> cleanedCategoryMap = cleanCategoryMap(categoryMap);
+
             // Inicializar el diccionario
             dictionary.clearDictionary();
-            categoryMap.forEach(dictionary::initializeWordsWithZeroFrequency);
+
+            // Procesar cada categoría y sus palabras limpias
+            cleanedCategoryMap.forEach(dictionary::initializeWordsWithZeroFrequency);
 
             System.out.println("Diccionario creado desde palabras en el archivo: " + resourcePath);
         } catch (Exception e) {
             throw new RuntimeException("Error al crear el diccionario desde palabras: " + e.getMessage(), e);
         }
     }
+
+
+
+    private Map<WordCategory, List<String>> cleanCategoryMap(Map<WordCategory, List<String>> categoryMap) {
+        Map<WordCategory, List<String>> cleanedMap = new HashMap<>();
+
+        categoryMap.forEach((category, words) -> {
+            List<String> cleanedWords = words.stream()
+                    .map(word -> {
+                        if (category == WordCategory.RARE_SYMBOLS) {
+                            // RARE_SYMBOLS no se alteran
+                            return word;
+                        } else {
+                            // Aplicar normalización controlada para otras categorías
+                            return TextUtils.normalizeString(word);
+                        }
+                    })
+                    .toList();
+            cleanedMap.put(category, cleanedWords);
+        });
+
+        return cleanedMap;
+    }
+
 
     //Inicializa solamente si las frecuencias están en cero
     public void initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(String filePath) {

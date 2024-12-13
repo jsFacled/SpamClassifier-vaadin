@@ -110,7 +110,7 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "tú": {
+        "habia": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -170,7 +170,7 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "mí": {
+        "como": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -182,19 +182,7 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "cómo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "cuándo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
         "desde": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "él": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -218,6 +206,10 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "donde": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "sobre": {
             "spamFrequency": 0,
             "hamFrequency": 0
@@ -230,15 +222,11 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "será": {
+        "sera": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
         "fueron": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "había": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -266,15 +254,7 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "qué": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
         "pero": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "también": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -290,7 +270,7 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "habían": {
+        "habian": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -322,10 +302,6 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "sólo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
         "tiene": {
             "spamFrequency": 0,
             "hamFrequency": 0
@@ -338,15 +314,19 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "si": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "tambien": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "sin": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "sí": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "más": {
+        "mas": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -366,7 +346,15 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "cuando": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "una": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "solo": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -383,10 +371,6 @@
             "hamFrequency": 0
         },
         "todo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "dónde": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -414,6 +398,10 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "asi": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "ese": {
             "spamFrequency": 0,
             "hamFrequency": 0
@@ -431,10 +419,6 @@
             "hamFrequency": 0
         },
         "le": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "así": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -468,7 +452,15 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "aumente": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "promocion": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -480,7 +472,7 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "promoción": {
+        "bonificacion": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -492,15 +484,11 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "bonificación": {
+        "cancelacion": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
         "mejora": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "cancelación": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -524,10 +512,6 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "membresía": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
         "anuncio": {
             "spamFrequency": 0,
             "hamFrequency": 0
@@ -537,6 +521,10 @@
             "hamFrequency": 0
         },
         "correo": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "membresia": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -564,6 +552,14 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "ultimo": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "autorizacion": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "prima": {
             "spamFrequency": 0,
             "hamFrequency": 0
@@ -584,19 +580,11 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "interés": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
         "expira": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
         "escaso": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "donación": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -608,15 +596,23 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "interes": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "flash": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "autorización": {
+        "diagnosticos": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
         "gratis": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "donacion": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -640,6 +636,10 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "increible": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "acceso": {
             "spamFrequency": 0,
             "hamFrequency": 0
@@ -648,11 +648,11 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "último": {
+        "prueba": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "prueba": {
+        "loteria": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -661,10 +661,6 @@
             "hamFrequency": 0
         },
         "privacidad": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "lotería": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -692,6 +688,10 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "busqueda": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "medicina": {
             "spamFrequency": 0,
             "hamFrequency": 0
@@ -712,15 +712,7 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "rápido": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
         "marketing": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "mágico": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -744,7 +736,15 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "introduccion": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "caduca": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "revelacion": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -756,23 +756,15 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "introducción": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "revelación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "tráfico": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
         "inmediato": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "facturación": {
+        "letra pequena": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "facturacion": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -792,11 +784,7 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "pérdida": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "único": {
+        "organico": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -812,19 +800,11 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "éxito": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
         "ahorrar": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
         "haz": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "única": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -860,6 +840,10 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "suscribete": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "garantizado": {
             "spamFrequency": 0,
             "hamFrequency": 0
@@ -876,6 +860,10 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "verificacion": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "potencial": {
             "spamFrequency": 0,
             "hamFrequency": 0
@@ -885,10 +873,6 @@
             "hamFrequency": 0
         },
         "confidencial": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "verificación": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -932,7 +916,7 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "acción": {
+        "accion": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -996,7 +980,7 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "suscríbete": {
+        "exito": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1016,7 +1000,19 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "contrasena": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "bono": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "rapido": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "multiplicacion": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1024,19 +1020,7 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "multiplicación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "orgánico": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
         "sexy": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "letra pequeña": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1044,19 +1028,19 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "confirmacion": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "trafico": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "formulario": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "confirmación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
         "eliminar": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "búsqueda": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1084,15 +1068,23 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "contraseña": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
         "emergencia": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "valida": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "seguro": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "millon": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "proteccion": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1108,10 +1100,6 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "compañero": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
         "sistema": {
             "spamFrequency": 0,
             "hamFrequency": 0
@@ -1120,19 +1108,11 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "renovación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
         "jefe": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "millón": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "protección": {
+        "renovacion": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1140,7 +1120,15 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "prestamo": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "segura": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "billon": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1149,10 +1137,6 @@
             "hamFrequency": 0
         },
         "resultados": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "billón": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1173,6 +1157,10 @@
             "hamFrequency": 0
         },
         "natural": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "actue": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1200,15 +1188,11 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "cupón": {
+        "cupon": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
         "hazte": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "actúe": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1217,10 +1201,6 @@
             "hamFrequency": 0
         },
         "lanzamiento": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "increíble": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1264,15 +1244,19 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "actualización": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
         "viagra": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
         "medicamento": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "instantaneo": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "actualizacion": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1284,11 +1268,11 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "activación": {
+        "tarifas": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "tarifas": {
+        "activacion": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1296,11 +1280,11 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "aceptación": {
+        "descargar": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "descargar": {
+        "aceptacion": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1324,6 +1308,10 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "devolucion": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "ahorro": {
             "spamFrequency": 0,
             "hamFrequency": 0
@@ -1340,15 +1328,11 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "instalacion": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "spam": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "devolución": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "instalación": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1364,23 +1348,15 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "autenticacion": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "casino": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "relámpago": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "crédito": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
         "simple": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "garantía": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1396,19 +1372,19 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "garantia": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "solicita": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "informacion": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "factura": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "válida": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "información": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1436,15 +1412,11 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "$$$": {
+        "terminos": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "instantáneo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "fácil": {
+        "companero": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1460,11 +1432,11 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "comercio": {
+        "relampago": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "liquidación": {
+        "comercio": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1476,6 +1448,10 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "liquidacion": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "urgencia": {
             "spamFrequency": 0,
             "hamFrequency": 0
@@ -1484,15 +1460,7 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "suscripción": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "solución": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "inversión": {
+        "suscripcion": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1500,11 +1468,31 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "solucion": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "seleccionado": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "préstamo": {
+        "inversion": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "coleccion": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "perdida": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "credito": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "atencion": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1520,15 +1508,7 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "actuación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
         "probar": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "satisfacción": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1536,7 +1516,11 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "diagnósticos": {
+        "facil": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "actuacion": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1544,19 +1528,19 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "atención": {
+        "satisfaccion": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "magico": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "unica": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
         "irresistible": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "notificación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "colección": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1568,15 +1552,19 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "obligación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
         "invierte": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
+        "notificacion": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
         "certificado": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "obligacion": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
@@ -1588,23 +1576,19 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "términos": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
         "prohibido": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "autenticación": {
+        "unico": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "amplíe": {
+        "clasificacion": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "clasificación": {
+        "amplie": {
             "spamFrequency": 0,
             "hamFrequency": 0
         }

@@ -7,6 +7,7 @@ import org.json.JSONObject;
 
 import java.text.Normalizer;
 import java.util.*;
+import java.util.regex.Pattern;
 
 public class JsonUtils {
 
@@ -18,23 +19,42 @@ public class JsonUtils {
          * @param jsonObject El objeto JSON a normalizar.
          * @return Un nuevo JSONObject con las claves y valores normalizados.
          */
+
+
+
         public static JSONObject normalizeJson(JSONObject jsonObject) {
             JSONObject normalizedJson = new JSONObject();
             for (String key : jsonObject.keySet()) {
-                String normalizedKey = Normalizer.normalize(key, Normalizer.Form.NFD)
-                        .replaceAll("[\\p{InCombiningDiacriticalMarks}]+", "");
+                // Normaliza la clave
+                String normalizedKey = normalizeString(key);
+                // Obtiene el valor
                 Object value = jsonObject.get(key);
+
                 if (value instanceof JSONObject) {
-                    value = normalizeJson((JSONObject) value);
+                    // Si el valor es un JSONObject, normalízalo recursivamente
+                    normalizedJson.put(normalizedKey, normalizeJson((JSONObject) value));
                 } else if (value instanceof String) {
-                    value = Normalizer.normalize((String) value, Normalizer.Form.NFD)
-                            .replaceAll("[\\p{InCombiningDiacriticalMarks}]+", "");
+                    // Si el valor es una cadena, normalízalo
+                    normalizedJson.put(normalizedKey, normalizeString((String) value));
+                } else {
+                    // De lo contrario, simplemente inserta el valor
+                    normalizedJson.put(normalizedKey, value);
                 }
-                normalizedJson.put(normalizedKey, value);
             }
             return normalizedJson;
         }
 
+
+    // Normaliza una cadena eliminando acentos y caracteres no ASCII
+    public static String normalizeString(String input) {
+        if (input == null) {
+            return null;
+        }
+        // Normaliza a forma de composición canónica (NFD)
+        String normalized = Normalizer.normalize(input, Normalizer.Form.NFD);
+        // Elimina los caracteres no ASCII (como diacríticos)
+        return Pattern.compile("\\p{M}").matcher(normalized).replaceAll("");
+    }
 
 
     /**

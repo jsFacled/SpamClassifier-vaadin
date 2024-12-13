@@ -37,4 +37,5 @@ public class BaseDictionaryBuilderMain {
         service.displayJsonFileDictionary(EXPORT_DICTIONARY_CREATED_JSON_PATH);
 
     }
+
 }

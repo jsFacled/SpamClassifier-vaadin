@@ -3,6 +3,7 @@ package com.ml.spam.utils;
 import com.ml.spam.datasetProcessor.models.RowValidationResult;
 import com.ml.spam.dictionary.models.MessageLabel;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -147,6 +148,25 @@ public class TextUtils {
         }
         return symbols;
     }
+    public static String normalizeString(String input) {
+        if (input == null) {
+            return null;
+        }
+
+        // Normalizar el texto a la forma de composición canónica (NFD)
+        String normalized = Normalizer.normalize(input, Normalizer.Form.NFD);
+
+        // Eliminar marcas diacríticas (acentos)
+        normalized = normalized.replaceAll("\\p{M}", "");
+
+        // Convertir a minúsculas
+        normalized = normalized.toLowerCase();
+
+        // Mantener letras, números, símbolos y espacios
+        normalized = normalized.replaceAll("[^\\p{L}\\p{N}\\p{P}\\p{Z}]", "");
+
+        return normalized.trim(); // Eliminar espacios sobrantes
+    }
 
     public static String[] splitRareSymbolsAndNumbers(String token) {
         // Detectar si el token es número + "hs"
@@ -168,5 +188,13 @@ public class TextUtils {
 
         return new String[]{wordPart, numberPart, rareSymbolsPart};
     }
+
+    public static List<String> cleanWords(List<String> words) {
+        return words.stream()
+                .map(TextUtils::normalize) // Limpia cada palabra
+                .filter(word -> word != null && !word.isEmpty()) // Filtra palabras vacías o nulas
+                .toList();
+    }
+
 
 }

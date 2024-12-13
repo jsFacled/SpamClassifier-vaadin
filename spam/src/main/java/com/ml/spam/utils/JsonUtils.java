@@ -5,9 +5,37 @@ import com.ml.spam.dictionary.models.WordData;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.text.Normalizer;
 import java.util.*;
 
 public class JsonUtils {
+
+
+        // Otros métodos...
+
+        /**
+         * Normaliza las claves y valores de un JSONObject eliminando acentos.
+         * @param jsonObject El objeto JSON a normalizar.
+         * @return Un nuevo JSONObject con las claves y valores normalizados.
+         */
+        public static JSONObject normalizeJson(JSONObject jsonObject) {
+            JSONObject normalizedJson = new JSONObject();
+            for (String key : jsonObject.keySet()) {
+                String normalizedKey = Normalizer.normalize(key, Normalizer.Form.NFD)
+                        .replaceAll("[\\p{InCombiningDiacriticalMarks}]+", "");
+                Object value = jsonObject.get(key);
+                if (value instanceof JSONObject) {
+                    value = normalizeJson((JSONObject) value);
+                } else if (value instanceof String) {
+                    value = Normalizer.normalize((String) value, Normalizer.Form.NFD)
+                            .replaceAll("[\\p{InCombiningDiacriticalMarks}]+", "");
+                }
+                normalizedJson.put(normalizedKey, value);
+            }
+            return normalizedJson;
+        }
+
+
 
     /**
      * Convierte un JSONArray en una lista de Strings.

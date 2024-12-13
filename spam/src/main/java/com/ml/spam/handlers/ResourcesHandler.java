@@ -1,6 +1,7 @@
 package com.ml.spam.handlers;
 
 import com.ml.spam.utils.CsvUtils;
+import com.ml.spam.utils.JsonUtils;
 import org.json.JSONObject;
 
 import java.io.*;
@@ -203,13 +204,28 @@ public class ResourcesHandler {
 
 
     public JSONObject loadJson(String resourcePath) {
+        // Intenta cargar un recurso JSON desde el classpath
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(resourcePath)) {
+            // Verifica si el archivo existe en el classpath
             if (inputStream == null) {
                 throw new RuntimeException("Archivo no encontrado en el classpath: " + resourcePath);
             }
+
+            // Lee todo el contenido del archivo como una cadena (UTF-8 para evitar problemas de codificación)
             String content = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
-            return new JSONObject(content);
+
+            // Crea un JSONObject a partir del contenido del archivo
+            JSONObject jsonObject = new JSONObject(content);
+
+            // Aplica la normalización de claves y valores (elimina acentos)
+            // Se utiliza el método de JsonUtils para mantener la lógica centralizada
+            JSONObject normalizedJson = JsonUtils.normalizeJson(jsonObject);
+
+            // Retorna el JSON normalizado
+            return normalizedJson;
+
         } catch (IOException e) {
+            // Si ocurre un error al leer el archivo, lanza una excepción personalizada con información adicional
             throw new RuntimeException("Error al leer el archivo JSON desde el classpath: " + resourcePath, e);
         }
     }

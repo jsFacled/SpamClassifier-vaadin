@@ -329,5 +329,9 @@ public class SpamDictionaryService {
         return false;
     }
 
+    public SpamDictionary getDictionary() {
+        return this.dictionary;
+    }
+
 
 }

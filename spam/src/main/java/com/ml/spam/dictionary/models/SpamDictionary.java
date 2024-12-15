@@ -1,31 +1,32 @@
 package com.ml.spam.dictionary.models;
 
-import org.json.JSONObject;
-
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-
 /**
  * SpamDictionary:
- * Clase Singleton que gestiona un diccionario dividido en categorías de palabras.
- * Utiliza WordCategory para categorizar palabras y WordData para almacenar información
- * sobre cada palabra (nombre, frecuencias de spam y ham).
+ * Clase Singleton que gestiona un diccionario compuesto por:
+ * - Palabras categorizadas (`categorizedWords`) organizadas por WordCategory.
+ * - Pares acentuados/no acentuados (`accentPairs`).
  */
 public class SpamDictionary {
     // Instancia única de la clase (Singleton)
     private static final SpamDictionary instance = new SpamDictionary();
 
-    // Mapa principal que organiza las palabras por categorías
-    // Cada categoría es un Map con palabras como clave y WordData como valor
-    private final Map<WordCategory, Map<String, WordData>> dictionary = new HashMap<>();
+    // Palabras categorizadas organizadas por categoría
+    private final Map<WordCategory, Map<String, WordData>> categorizedWords = new HashMap<>();
+
+    // Lista de pares acentuados/no acentuados
+    private List<Pair> accentPairs = new ArrayList<>();
 
     /**
      * Constructor privado para inicializar el Singleton.
-     * Inicializa un mapa vacío para cada categoría en el diccionario principal.
+     * Inicializa un mapa vacío para cada categoría en las palabras categorizadas.
      */
     private SpamDictionary() {
         for (WordCategory category : WordCategory.values()) {
-            dictionary.put(category, new HashMap<>()); // Cambiado de HashSet a HashMap
+            categorizedWords.put(category, new HashMap<>());
         }
     }
 
@@ -37,83 +38,91 @@ public class SpamDictionary {
         return instance;
     }
 
-    /**
-     * Obtiene todas las palabras asociadas a una categoría específica.
-     * @param category La categoría de palabras (WordCategory).
-     * @return Un mapa de palabras y sus datos (WordData) correspondiente a la categoría.
-     */
+    // ============================
+    // Métodos para Palabras Categorizadas
+    // ============================
+
     public Map<String, WordData> getCategory(WordCategory category) {
-        return dictionary.get(category);
+        return categorizedWords.get(category);
     }
 
     public Map<WordCategory, Map<String, WordData>> getAllCategories() {
-        return dictionary;
+        return categorizedWords;
     }
-    /**
-     * Agrega una palabra a la categoría especificada con frecuencias iniciales en cero.
-     * Si la palabra ya existe, no se sobrescribe.
-     * @param category La categoría a la que pertenece la palabra.
-     * @param word El nombre de la palabra a agregar.
-     */
+
     public void addWord(WordCategory category, String word) {
-        dictionary.get(category).putIfAbsent(word, new WordData(word));
+        categorizedWords.get(category).putIfAbsent(word, new WordData(word));
     }
 
-    /**
-     * Agrega una palabra a la categoría especificada con frecuencias personalizadas.
-     * Si la palabra ya existe, no se sobrescribe.
-     * @param category La categoría a la que pertenece la palabra.
-     * @param word El nombre de la palabra.
-     * @param spamFrequency Frecuencia como spam.
-     * @param hamFrequency Frecuencia como ham.
-     */
     public void addWordWithFrequencies(WordCategory category, String word, int spamFrequency, int hamFrequency) {
-        dictionary.get(category).putIfAbsent(word, new WordData(word, spamFrequency, hamFrequency));
+        categorizedWords.get(category).putIfAbsent(word, new WordData(word, spamFrequency, hamFrequency));
     }
 
-    /**
-     * Inicializa una categoría con un conjunto de palabras, asignándoles frecuencias en cero.
-     * Si una palabra ya existe, no se sobrescribe.
-     * @param category La categoría a inicializar.
-     * @param words Iterable de palabras a agregar.
-     */
     public void initializeWordsWithZeroFrequency(WordCategory category, Iterable<String> words) {
         words.forEach(word -> addWord(category, word));
     }
 
-    //Chequea que cada palabre tenga su frecuencia en cero.
     public boolean areFrequenciesZero() {
-        for (WordCategory category : dictionary.keySet()) {
-            Map<String, WordData> words = dictionary.get(category);
-            for (WordData wordData : words.values()) {
+        for (WordCategory category : categorizedWords.keySet()) {
+            for (WordData wordData : categorizedWords.get(category).values()) {
                 if (wordData.getSpamFrequency() != 0 || wordData.getHamFrequency() != 0) {
-                    return false; // Se detectó una frecuencia no válida
+                    return false; // Frecuencia no válida
                 }
             }
         }
         return true; // Todas las frecuencias están en cero
     }
 
-
-
-
-    private void loadCategory(JSONObject jsonCategory, Map<String, WordData> targetMap) {
-        jsonCategory.keys().forEachRemaining(word -> {
-            JSONObject freqData = jsonCategory.getJSONObject(word);
-            targetMap.put(word, new WordData(
-                    word,
-                    freqData.getInt("spamFrequency"),
-                    freqData.getInt("hamFrequency")
-            ));
-        });
-    }
-
-
-
     public void clearDictionary() {
         for (WordCategory category : WordCategory.values()) {
-            dictionary.get(category).clear();
+            categorizedWords.get(category).clear();
         }
     }
 
+    // ============================
+    // Métodos para Pares Acentuados
+    // ============================
+
+    public List<Pair> getAccentPairs() {
+        return accentPairs;
+    }
+
+    public void setAccentPairs(List<Pair> accentPairs) {
+        this.accentPairs = accentPairs;
+    }
+
+    // ============================
+    // Métodos de Inicialización
+    // ============================
+
+    /**
+     * Inicializa el diccionario completo: palabras categorizadas y pares acentuados.
+     * @param categorizedWords Mapa de palabras categorizadas.
+     * @param accentPairs Lista de pares acentuados/no acentuados.
+     */
+    public void initialize(Map<WordCategory, Map<String, WordData>> categorizedWords, List<Pair> accentPairs) {
+        this.categorizedWords.clear();
+        this.categorizedWords.putAll(categorizedWords);
+
+        this.accentPairs.clear();
+        this.accentPairs.addAll(accentPairs);
+    }
+
+    // ============================
+    // Validaciones
+    // ============================
+
+    /**
+     * Verifica si el diccionario está completamente cargado.
+     * @return True si contiene palabras categorizadas y pares acentuados.
+     */
+    public boolean isFullyInitialized() {
+        return !categorizedWords.isEmpty() && !accentPairs.isEmpty();
+    }
+
+    // ============================
+    // Clase Interna: Pair
+    // ============================
+
+    public record Pair(String accented, String nonAccented, WordCategory category) {}
 }

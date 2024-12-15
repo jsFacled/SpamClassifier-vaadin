@@ -1,5 +1,7 @@
 package com.ml.spam.dictionary.service;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ml.spam.datasetProcessor.MessageProcessor;
 import com.ml.spam.datasetProcessor.models.ProcessedMessage;
 import com.ml.spam.undefined.LabeledMessage;
@@ -107,6 +109,10 @@ public class SpamDictionaryService {
                 throw new IllegalStateException("El diccionario contiene frecuencias no inicializadas a cero.");
             }
 
+            // Cargar y registrar los pares acentuados
+            List<SpamDictionary.Pair> accentPairs = loadAccentPairs(pairsFilePath);
+            dictionary.setAccentPairs(accentPairs);
+
             System.out.println("Diccionario inicializado correctamente con frecuencias en cero.");
         } catch (Exception e) {
             throw new RuntimeException("Error al inicializar y validar el diccionario: " + e.getMessage(), e);
@@ -142,6 +148,26 @@ public class SpamDictionaryService {
             throw new RuntimeException("Error al inicializar el diccionario: " + e.getMessage(), e);
         }
     }
+
+
+    /**
+     * Carga los pares acentuados desde un archivo JSON.
+     * @param pairsFilePath Ruta del archivo JSON de pares acentuados.
+     * @return Lista de pares acentuados/no acentuados.
+     */
+    private List<SpamDictionary.Pair> loadAccentPairs(String pairsFilePath) {
+        try {
+            String jsonContent = resourcesHandler.loadResourceAsString(pairsFilePath);
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.readValue(
+                    jsonContent,
+                    new TypeReference<List<SpamDictionary.Pair>>() {}
+            );
+        } catch (IOException e) {
+            throw new RuntimeException("Error al cargar los pares acentuados: " + e.getMessage(), e);
+        }
+    }
+
 
     public void updateDictionary(String csvFilePath) throws IOException {
         // 1. Obtener filas crudas del archivo CSV utilizando el ResourcesHandler

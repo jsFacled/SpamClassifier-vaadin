@@ -14,17 +14,17 @@ public class DictionaryZeroInitializationAndUpdateMain {
     public static void main(String[] args) throws IOException {
         SpamDictionaryService service = new SpamDictionaryService();
 
-System.out.println("===  /  /   /   /   /   /   /   /   /   /   ===  Etapa 2: Actualización del Diccionario  === /  /   /   /   /   /   /   /   /   /   === \n");
+        System.out.println("===  /  /   /   /   /   /   /   /   /   /   ===  Etapa 2: Actualización del Diccionario  === /  /   /   /   /   /   /   /   /   /   === \n");
 
 /**
-        ***  Solamente se utilizarían estos 2 mètodos en casos de algun error o duda ***
+ ***  Solamente se utilizarían estos 2 mètodos en casos de algun error o duda ***
 
-        //Mostrar el Map de Dictionary para chequear que estén las categorías vacías
-        service.displayDictionary();
+ //Mostrar el Map de Dictionary para chequear que estén las categorías vacías
+ service.displayDictionary();
 
-        // Mostrar el diccionario persistido para testear el formato del json en consola
-        service.displayJsonFileDictionary(filePath);
-*/
+ // Mostrar el diccionario persistido para testear el formato del json en consola
+ service.displayJsonFileDictionary(filePath);
+ */
 
         // Inicializar el diccionario desde el JSON
         service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(filePath);
@@ -38,8 +38,6 @@ System.out.println("===  /  /   /   /   /   /   /   /   /   /   ===  Etapa 2: Ac
         // Solicitar la actualización del diccionario al service
         service.updateDictionary(testMessagesFilePath);
         System.out.println(" *  *  *  *  *  //  //  //  //  //  //  // //  //  //  Actualización finalizada ! ! ! ! !\n");
-
-
 
 
         // Mostrar SpamDictionary actualizado

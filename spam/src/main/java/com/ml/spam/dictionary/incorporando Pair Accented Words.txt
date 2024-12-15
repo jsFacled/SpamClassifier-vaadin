@@ -1,0 +1,12 @@
+Spam dictionary ahora tiene:
+- Map<WordCategory, Map<String, WordData>> categorizedWords
+- List<Pair> accentPairs
+
+Resumen de Cambios
+Renombrado:
+    - dictionary → categorizedWords para reflejar que solo contiene palabras categorizadas.
+    - Nuevo Método de Inicialización Completa:
+        - initialize(Map<WordCategory, Map<String, WordData>> categorizedWords, List<Pair> accentPairs).
+    - Validación Completa:
+        - isFullyInitialized(): Verifica que ambas estructuras estén cargadas.
+

@@ -77,7 +77,7 @@ public class JsonUtils {
      * @param jsonObject El JSON a validar.
      * @throws IllegalArgumentException Si falta alguna clave.
      */
-    public static void validateJsonStructure(JSONObject jsonObject) {
+    public static void validateWordCategoryJsonStructure(JSONObject jsonObject) {
         for (WordCategory category : WordCategory.values()) {
             if (!jsonObject.has(category.name().toLowerCase())) {
                 throw new IllegalArgumentException("Falta la categoría: " + category.name().toLowerCase());
@@ -130,7 +130,7 @@ public class JsonUtils {
      * @param categorizedDictionary Mapa de categorías y sus palabras con datos.
      * @return Un objeto JSON que representa el diccionario completo.
      */
-    public static JSONObject toJson(Map<WordCategory, Map<String, WordData>> categorizedDictionary) {
+    public static JSONObject categorizedWordsToJson(Map<WordCategory, Map<String, WordData>> categorizedDictionary) {
         JSONObject jsonObject = new JSONObject();
         for (WordCategory category : categorizedDictionary.keySet()) {
             jsonObject.put(category.name().toLowerCase(), categoryToJson(categorizedDictionary.get(category)));

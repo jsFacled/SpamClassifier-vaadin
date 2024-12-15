@@ -468,10 +468,6 @@
             "spamFrequency": 0,
             "hamFrequency": 0
         },
-        "": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
         "aumente": {
             "spamFrequency": 0,
             "hamFrequency": 0
@@ -1437,6 +1433,10 @@
             "hamFrequency": 0
         },
         "fortuna": {
+            "spamFrequency": 0,
+            "hamFrequency": 0
+        },
+        "$$$": {
             "spamFrequency": 0,
             "hamFrequency": 0
         },

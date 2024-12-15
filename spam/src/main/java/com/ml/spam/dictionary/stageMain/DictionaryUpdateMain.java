@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class DictionaryUpdateMain {
 
-    private static final String filePath = FilePathsConfig.EXPORT_DICTIONARY_CREATED_JSON_PATH;
+    private static final String filePath = FilePathsConfig.CATEGORIZED_WORDS_BASE_JSON_PATH;
     private static final String testMessagesFilePath = FilePathsConfig.TEST_CSV_DATA_PATH;
 
 

@@ -8,9 +8,9 @@ import java.io.IOException;
 
 public class DictionaryZeroInitializationAndUpdateTest {
 
-    private static final String filePath = FilePathsConfig.EXPORT_DICTIONARY_CREATED_JSON_PATH;
+    private static final String filePath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
     private static final String testMessagesFilePath = FilePathsConfig.TEST_CSV_DATA_PATH;
-    private static final String messagesProcessedFilePath = FilePathsConfig.CSV_ESPAÑOL_DATA_PATH;
+    private static final String messagesProcessedFilePath = FilePathsConfig.TEST_CSV_ESPAÑOL_DATA_PATH;
 
     public static void main(String[] args) throws IOException {
         SpamDictionaryService service = new SpamDictionaryService();

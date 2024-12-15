@@ -7,7 +7,7 @@ import com.ml.spam.dictionary.service.SpamDictionaryService;
 import java.io.IOException;
 
 public class DictionaryZeroInitializationAndUpdateMain {
-    private static final String filePath = FilePathsConfig.EXPORT_DICTIONARY_CREATED_JSON_PATH;
+    private static final String filePath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
     private static final String testMessagesFilePath = FilePathsConfig.TEST_CSV_DATA_PATH;
 
 

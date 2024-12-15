@@ -5,7 +5,7 @@ import com.ml.spam.dictionary.service.SpamDictionaryService;
 
 public class testDictionaryInitializeMain {
 
-    private static final String filePath = FilePathsConfig.EXPORT_DICTIONARY_CREATED_JSON_PATH;
+    private static final String filePath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
 
 
     public static void main(String[] args) {

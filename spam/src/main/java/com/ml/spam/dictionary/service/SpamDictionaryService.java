@@ -3,8 +3,6 @@ package com.ml.spam.dictionary.service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ml.spam.datasetProcessor.MessageProcessor;
-import com.ml.spam.datasetProcessor.models.ProcessedMessage;
-import com.ml.spam.undefined.LabeledMessage;
 import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.models.WordCategory;
 import com.ml.spam.dictionary.models.WordData;
@@ -39,18 +37,58 @@ public class SpamDictionaryService {
     }
 
     /**
+     * Transforma palabras categorizadas sin frecuencias en WordData con frecuencias iniciales en cero.
+     * Guarda el resultado en un nuevo archivo JSON para etapas posteriores.
+     *
+     * @param baseWordsPath Ruta al archivo JSON con palabras categorizadas (sin frecuencias).
+     * @param outputPath Ruta donde se guardará el archivo JSON con frecuencias en cero.
+     */
+    public void transformBaseWordsToFrequenciesZero(String baseWordsPath, String outputPath) {
+        try {
+            JSONObject baseWordsJson = resourcesHandler.loadJson(baseWordsPath);
+            JsonUtils.validateWordCategoryJsonStructure(baseWordsJson);
+
+            // Transformar palabras en WordData con frecuencias iniciales
+            Map<WordCategory, List<String>> categoryMap = JsonUtils.jsonToCategoryMap(baseWordsJson);
+            Map<WordCategory, Map<String, WordData>> categorizedWordsMap = new HashMap<>();
+
+            categoryMap.forEach((category, words) -> {
+                Map<String, WordData> wordsMap = words.stream()
+                        .collect(Collectors.toMap(word -> word, word -> new WordData(word, 0, 0)));
+                categorizedWordsMap.put(category, wordsMap);
+            });
+
+            // Guardar en archivo JSON
+            JSONObject outputJson = JsonUtils.categorizedWordsToJson(categorizedWordsMap);
+            resourcesHandler.saveJson(outputJson, outputPath);
+
+            // Cargar los datos en SpamDictionary
+            categorizedWordsMap.forEach((category, wordsMap) ->
+                    wordsMap.forEach((word, wordData) ->
+                            dictionary.addWordWithFrequencies(category, word, wordData.getSpamFrequency(), wordData.getHamFrequency())
+                    )
+            );
+
+            System.out.println("Palabras base transformadas y guardadas en: " + outputPath);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al transformar palabras base: " + e.getMessage(), e);
+        }
+    }
+
+
+    /**
      * Crea un diccionario desde un archivo JSON con palabras organizadas por categoría.
      * Cada palabra se inicializa con frecuencia en cero.
      *
      * @param resourcePath Ruta relativa del archivo JSON en los recursos.
      */
-    public void createDictionaryFromWordsInJson(String resourcePath) {
+    public void createCategorizedWordsFromJson(String resourcePath) {
         try {
             // Leer JSON desde el handler
             JSONObject jsonObject = resourcesHandler.loadJson(resourcePath);
 
             // Validar la estructura del JSON. Deben estar las Categorías.
-            JsonUtils.validateJsonStructure(jsonObject);
+            JsonUtils.validateWordCategoryJsonStructure(jsonObject);
 
             // Transformar el JSON en un mapa
             Map<WordCategory, List<String>> categoryMap = JsonUtils.jsonToCategoryMap(jsonObject);
@@ -95,6 +133,8 @@ public class SpamDictionaryService {
 
 
     //Inicializa solamente si las frecuencias están en cero
+    ////Importante!!:No Carga los Pares Acentuados ya que no intervienen en esta etapa
+
     public void initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(String filePath) {
         try {
             // Validar que las frecuencias en el JSON sean cero antes de inicializar
@@ -109,9 +149,7 @@ public class SpamDictionaryService {
                 throw new IllegalStateException("El diccionario contiene frecuencias no inicializadas a cero.");
             }
 
-            // Cargar y registrar los pares acentuados
-            List<SpamDictionary.Pair> accentPairs = loadAccentPairs(pairsFilePath);
-            dictionary.setAccentPairs(accentPairs);
+
 
             System.out.println("Diccionario inicializado correctamente con frecuencias en cero.");
         } catch (Exception e) {
@@ -126,7 +164,7 @@ public class SpamDictionaryService {
             JSONObject jsonObject = resourcesHandler.loadJson(filePath);
 
             // Validar la estructura del JSON
-            JsonUtils.validateJsonStructure(jsonObject);
+            JsonUtils.validateWordCategoryJsonStructure(jsonObject);
 
             // Iterar sobre las categorías y actualizar el diccionario
             for (WordCategory category : WordCategory.values()) {
@@ -277,7 +315,7 @@ public class SpamDictionaryService {
             Map<WordCategory, Map<String, WordData>> categorizedDictionary = dictionary.getAllCategories();
 
             // Convertir el diccionario a JSON usando JsonUtils
-            JSONObject jsonObject = JsonUtils.toJson(categorizedDictionary);
+            JSONObject jsonObject = JsonUtils.categorizedWordsToJson(categorizedDictionary);
 
             // Guardar el JSON utilizando el handler de recursos
             resourcesHandler.saveJson(jsonObject, filePath);

@@ -202,8 +202,24 @@ public class ResourcesHandler {
         }
     }
 
-
+    /**
+     * Carga un archivo JSON desde resources.
+     *
+     * @param resourcePath Ruta relativa del archivo JSON en resources.
+     * @return Objeto JSONObject con el contenido del archivo.
+     */
     public JSONObject loadJson(String resourcePath) {
+        try {
+            Path absolutePath = resolvePath(resourcePath);
+            String content = Files.readString(absolutePath, StandardCharsets.UTF_8);
+            return new JSONObject(content);
+        } catch (IOException e) {
+            throw new RuntimeException("Error al cargar archivo JSON: " + resourcePath, e);
+        }
+    }
+
+
+    public JSONObject loadJsonViejo(String resourcePath) {
         // Intenta cargar un recurso JSON desde el classpath
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(resourcePath)) {
             // Verifica si el archivo existe en el classpath

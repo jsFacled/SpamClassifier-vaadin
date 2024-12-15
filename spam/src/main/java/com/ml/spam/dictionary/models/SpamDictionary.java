@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * SpamDictionary:
@@ -18,7 +19,10 @@ public class SpamDictionary {
     // Palabras categorizadas organizadas por categoría
     private final Map<WordCategory, Map<String, WordData>> categorizedWords = new HashMap<>();
 
+
     // Lista de pares acentuados/no acentuados
+    // Nota: accentPairs se almacena como List para flexibilidad (e.g., preservar orden o manejar duplicados).
+    // Para operaciones frecuentes de búsqueda, es recomendable convertirla a Map (palabraAcentuada -> Pair) cuando sea necesario.
     private List<Pair> accentPairs = new ArrayList<>();
 
     /**
@@ -80,6 +84,16 @@ public class SpamDictionary {
         }
     }
 
+    public boolean containsWord(String word) {
+        for (Map<String, WordData> category : categorizedWords.values()) {
+            if (category.containsKey(word)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     // ============================
     // Métodos para Pares Acentuados
     // ============================
@@ -90,6 +104,17 @@ public class SpamDictionary {
 
     public void setAccentPairs(List<Pair> accentPairs) {
         this.accentPairs = accentPairs;
+    }
+
+    /**
+     * Convierte accentPairs a un Map para búsquedas rápidas (palabraAcentuada -> Pair).
+     * Recomendado para operaciones frecuentes donde se consulten pares acentuados.
+     *
+     * @return Un Map de palabra acentuada a su par correspondiente.
+     */
+    public Map<String, Pair> getAccentPairsAsMap() {
+        return accentPairs.stream()
+                .collect(Collectors.toMap(Pair::accented, pair -> pair));
     }
 
     // ============================

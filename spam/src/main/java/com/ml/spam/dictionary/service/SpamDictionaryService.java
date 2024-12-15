@@ -251,28 +251,78 @@ public class SpamDictionaryService {
         System.out.println("Diccionario actualizado correctamente con datos del archivo: " + csvFilePath);
     }
 
-    //Metod auxiliar para update
     public void updateDictionaryFromProcessedWordData(List<List<WordData>> processedData) {
         // Aplanar la estructura
         List<WordData> flattenedWordData = processedData.stream()
                 .flatMap(List::stream)
                 .toList();
+   // Preparar accentPairs como Map para búsquedas rápidas
+        Map<String, SpamDictionary.Pair> accentPairMap = dictionary.getAccentPairsAsMap();
 
         // Actualizar el diccionario
         for (WordData wordData : flattenedWordData) {
-            WordCategory category = determineCategory(wordData.getWord()); // Determinar categoría
+            String token = wordData.getWord();
+            WordCategory category;
 
-            dictionary.getCategory(category).merge(
-                    wordData.getWord(),
-                    wordData,
-                    (existing, newData) -> {
-                        existing.incrementSpamFrequency(newData.getSpamFrequency());
-                        existing.incrementHamFrequency(newData.getHamFrequency());
-                        return existing;
-                    }
-            );
+            // Si la palabra ya existe en el diccionario
+            if (dictionary.containsWord(token)) {
+                category = determineCategory(token);
+                dictionary.getCategory(category).merge(
+                        token, wordData,
+                        (existing, newData) -> {
+                            existing.incrementSpamFrequency(newData.getSpamFrequency());
+                            existing.incrementHamFrequency(newData.getHamFrequency());
+                            return existing;
+                        }
+                );
+                continue; // Pasar al siguiente token
+            }
+
+            // Si la palabra tiene tilde
+            if (TextUtils.hasAccent(token)) {
+                SpamDictionary.Pair pair = accentPairMap.get(token);
+                if (pair != null) {
+                    // Categorizar usando accentPairs y conservar tilde
+                    category = pair.category();
+                    dictionary.addWordWithFrequencies(category, token, wordData.getSpamFrequency(), wordData.getHamFrequency());
+                    continue; // Pasar al siguiente token
+                }
+            }
+
+            // Palabra nueva sin tilde o no en accentPairs
+            String normalizedToken = TextUtils.removeAccents(token);
+            category = WordCategory.UNASSIGNED_WORDS;
+            dictionary.addWordWithFrequencies(category, normalizedToken, wordData.getSpamFrequency(), wordData.getHamFrequency());
         }
     }
+
+
+    //----------------------Metod auxiliar para update
+   // public void Viejo______updateDictionaryFromProcessedWordData(List<List<WordData>> processedData) {
+
+        // Aplanar la estructura
+     //   List<WordData> flattenedWordData = processedData.stream()
+     //           .flatMap(List::stream)
+     //           .toList();
+
+        // Actualizar el diccionario
+       // for (WordData wordData : flattenedWordData) {
+      //      WordCategory category = determineCategory(wordData.getWord()); // Determinar categoría
+
+       //     dictionary.getCategory(category).merge(
+      //              wordData.getWord(),
+       //             wordData,
+        //            (existing, newData) -> {
+        //                existing.incrementSpamFrequency(newData.getSpamFrequency());
+        //                existing.incrementHamFrequency(newData.getHamFrequency());
+         //               return existing;
+                 //   }
+       //     );
+       // }
+    //}
+
+
+
 
 
     /*

@@ -175,6 +175,16 @@ public class TextUtils {
                 .replaceAll("\\p{M}", "");
     }
 
+    public static boolean hasAccent(String input) {
+        if (input == null) return false;
+        return input.matches(".*[áéíóúÁÉÍÓÚñÑ].*");
+    }
+    public static String removeAccents(String input) {
+        if (input == null) return null;
+        return Normalizer.normalize(input, Normalizer.Form.NFD)
+                .replaceAll("\\p{M}", ""); // Eliminar marcas diacríticas
+    }
+
 
     public static String[] splitRareSymbolsAndNumbers(String token) {
         // Detectar si el token es número + "hs"

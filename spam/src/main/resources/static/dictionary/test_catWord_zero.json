@@ -1,0 +1,94 @@
+{
+  "rare_symbols": {
+    "@": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    },
+    "!": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    },
+
+    "$": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    },
+    "?": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    }
+  },
+  "stop_words": {
+    "de": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    },
+    "tu": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    },
+    "con": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    },
+    "tú": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    },
+    "ya": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    },
+    "cómo": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    },
+    "cuándo": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    },
+   "porque": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    }
+  },
+  "spam_words": {
+    "compromiso": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    },
+  "promoción": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    },
+    "bonificación": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    },
+    "comprar": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    },
+  "compra": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    },
+    "100%": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    },
+    "ahorra": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    },
+    "efectivo": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    },
+   "clasificación": {
+      "spamFrequency": 0,
+      "hamFrequency": 0
+    }
+  },
+  "unassigned_words": {}
+}

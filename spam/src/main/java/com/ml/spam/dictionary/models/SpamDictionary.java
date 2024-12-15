@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 /**
  * SpamDictionary:
  * Clase Singleton que gestiona un diccionario compuesto por:

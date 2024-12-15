@@ -135,30 +135,46 @@ public class SpamDictionaryService {
     //Inicializa solamente si las frecuencias están en cero
     ////Importante!!:No Carga los Pares Acentuados ya que no intervienen en esta etapa
 
-    public void initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(String filePath) {
+    public void initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(String catWordsPath, String pairsFilePath) {
         try {
-            // Validar que las frecuencias en el JSON sean cero antes de inicializar
-            JSONObject jsonObject = resourcesHandler.loadJson(filePath);
+            /**
+             * // CATEGORIZED WORDS
+             */
+
+            // Leer categorizedWords y Validar que las frecuencias en el JSON sean cero antes de inicializar
+            JSONObject jsonObject = resourcesHandler.loadJson(catWordsPath);
             JsonUtils.validateJsonFrequenciesZero(jsonObject);
 
-            // Inicializar el diccionario desde el JSON
-            initializeDictionaryFromJson(filePath);
+            // Inicializar categorizedWords desde el JSON
+            initializeCategorizedWordsFromJson(catWordsPath);
 
-            // Confirmar que las frecuencias en el diccionario son cero
+            // Confirmar que las frecuencias son cero
             if (!dictionary.areFrequenciesZero()) {
-                throw new IllegalStateException("El diccionario contiene frecuencias no inicializadas a cero.");
+                throw new IllegalStateException("Categorized Words contiene frecuencias no inicializadas a cero.");
             }
 
+            /**
+             * // ACCENT PAIRS
+             */
 
+            // Cargar los pares acentuados desde el JSON
+            List<SpamDictionary.Pair> accentPairs = loadAccentPairs(pairsFilePath);
+            if (accentPairs == null || accentPairs.isEmpty()) {
+                throw new IllegalStateException("No se pudieron cargar los pares acentuados.");
+            }
 
-            System.out.println("Diccionario inicializado correctamente con frecuencias en cero.");
+            // Almacenar los pares acentuados en el diccionario
+            dictionary.setAccentPairs(accentPairs);
+
+            System.out.println("\n [INFO] Diccionario inicializado correctamente con CATEGORIZED WORDS y ACCENT PAIRS.");
+
         } catch (Exception e) {
             throw new RuntimeException("Error al inicializar y validar el diccionario: " + e.getMessage(), e);
         }
     }
 
 
-    public void initializeDictionaryFromJson(String filePath) {
+    public void initializeCategorizedWordsFromJson(String filePath) {
         try {
             // Cargar el JSON desde el archivo
             JSONObject jsonObject = resourcesHandler.loadJson(filePath);
@@ -181,7 +197,7 @@ public class SpamDictionaryService {
                 }
             }
 
-            System.out.println("Diccionario inicializado correctamente desde el archivo JSON.");
+            System.out.println("\n [INFO] Diccionario inicializado correctamente desde el archivo JSON.");
         } catch (Exception e) {
             throw new RuntimeException("Error al inicializar el diccionario: " + e.getMessage(), e);
         }
@@ -329,8 +345,8 @@ public class SpamDictionaryService {
     /**
      * Muestra el contenido actual del diccionario en la consola.
      */
-    public void displayDictionary() {
-        System.out.println("========= Contenido del Diccionario =========\n");
+    public void displayCategorizedWordsInDictionary() {
+        System.out.println("\n========= Contenido de CATEGORIZED WORDS en DICTIONARY =========\n");
         for (WordCategory category : WordCategory.values()) {
             System.out.println("Categoría: " + category);
             dictionary.getCategory(category).forEach((word, wordData) ->

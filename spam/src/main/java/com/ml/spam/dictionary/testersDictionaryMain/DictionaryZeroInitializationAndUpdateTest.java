@@ -7,9 +7,9 @@ import com.ml.spam.dictionary.service.SpamDictionaryService;
 import java.io.IOException;
 
 public class DictionaryZeroInitializationAndUpdateTest {
-
-    private static final String filePath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
-    private static final String testMessagesFilePath = FilePathsConfig.TEST_CSV_DATA_PATH;
+    private static final String catWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
+    private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
+private static final String testMessagesFilePath = FilePathsConfig.TEST_CSV_DATA_PATH;
     private static final String messagesProcessedFilePath = FilePathsConfig.TEST_CSV_ESPAÑOL_DATA_PATH;
 
     public static void main(String[] args) throws IOException {
@@ -28,10 +28,10 @@ public class DictionaryZeroInitializationAndUpdateTest {
  */
 
         // Inicializar el diccionario desde el JSON
-        service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(filePath);
+        service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(catWordsPath,accentPairsPath);
 
         // Mostrar los Map de SpamDictionary para chequear que se haya inicializado correctamente
-        service.displayDictionary();
+        service.displayCategorizedWordsInDictionary();
 
         System.out.println(" *  *  *  *  *  //  //  //  //  //  //  // Solicitando Actualización . . . . . . . . . . . . . . . .. . . . . . . . . . . .\n");
 
@@ -44,7 +44,7 @@ public class DictionaryZeroInitializationAndUpdateTest {
 
 
         // Mostrar SpamDictionary actualizado
-        service.displayDictionary();
+        service.displayCategorizedWordsInDictionary();
 
         // Mostrar el informe del diccionario actualizado
         DictionarySummaryReport.displaySummaryReport(service);

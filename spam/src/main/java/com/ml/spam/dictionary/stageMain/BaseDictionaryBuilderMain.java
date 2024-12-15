@@ -27,7 +27,7 @@ public class BaseDictionaryBuilderMain {
         service.transformBaseWordsToFrequenciesZero(INITIAL_JSON_PATH, EXPORT_JSON_PATH);
 
         // Paso 2: Mostrar el diccionario en memoria
-        service.displayDictionary();
+        service.displayCategorizedWordsInDictionary();
 
         // Paso 3: Mostrar el contenido del archivo JSON exportado
         service.displayJsonFileDictionary(EXPORT_JSON_PATH);

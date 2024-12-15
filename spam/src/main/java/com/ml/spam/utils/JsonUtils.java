@@ -11,18 +11,7 @@ import java.util.regex.Pattern;
 
 public class JsonUtils {
 
-
-        // Otros métodos...
-
-        /**
-         * Normaliza las claves y valores de un JSONObject eliminando acentos.
-         * @param jsonObject El objeto JSON a normalizar.
-         * @return Un nuevo JSONObject con las claves y valores normalizados.
-         */
-
-
-
-        public static JSONObject normalizeJson(JSONObject jsonObject) {
+    public static JSONObject normalizeJson(JSONObject jsonObject) {
             JSONObject normalizedJson = new JSONObject();
             for (String key : jsonObject.keySet()) {
                 // Normaliza la clave
@@ -44,7 +33,6 @@ public class JsonUtils {
             return normalizedJson;
         }
 
-
     // Normaliza una cadena eliminando acentos y caracteres no ASCII
     public static String normalizeString(String input) {
         if (input == null) {
@@ -55,7 +43,6 @@ public class JsonUtils {
         // Elimina los caracteres no ASCII (como diacríticos)
         return Pattern.compile("\\p{M}").matcher(normalized).replaceAll("");
     }
-
 
     /**
      * Convierte un JSONArray en una lista de Strings.
@@ -102,7 +89,6 @@ public class JsonUtils {
             }
         }
     }
-
 
     /**
      * Transforma un JSONObject en un Map<WordCategory, List<String>>.

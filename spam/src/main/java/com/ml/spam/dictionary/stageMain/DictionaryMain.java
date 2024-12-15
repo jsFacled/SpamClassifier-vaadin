@@ -27,7 +27,7 @@ public class DictionaryMain {
 
 
    //mostrar dictionary
-        service.displayDictionary();
+        service.displayCategorizedWordsInDictionary();
     }
 
 

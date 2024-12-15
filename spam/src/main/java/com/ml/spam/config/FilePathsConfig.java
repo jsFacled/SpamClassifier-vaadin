@@ -9,6 +9,9 @@ public class FilePathsConfig {
     public static final String INITIAL_JSON_PATH = "static/dictionary/initial_spam_vocabulary_base_only.json";
     public static final String EXPORT_DICTIONARY_CREATED_JSON_PATH = "static/dictionary/persisted_initialized_spam_vocabulary_frequenciesZero.json";
     public static final String TEST_CSV_DATA_PATH = "static/datasets/mensajes_pruebas.txt";
+    public static final String CSV_ESPAÑOL_DATA_PATH = "static/datasets/test-mensajesEspañol.csv";
+
+
     public static final String CSV_DATA_PATH = "path/to/your/file/data.csv";
     public static final String IMAGE_PATH = "path/to/your/image/image.png";
 }

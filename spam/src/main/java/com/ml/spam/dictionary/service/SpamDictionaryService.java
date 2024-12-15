@@ -80,7 +80,7 @@ public class SpamDictionaryService {
                             // RARE_SYMBOLS no se alteran
                             return word;
                         } else {
-                            // Aplicar normalización controlada para otras categorías
+                            // normalización inicial sin quitar acentos
                             return TextUtils.normalizeString(word);
                         }
                     })

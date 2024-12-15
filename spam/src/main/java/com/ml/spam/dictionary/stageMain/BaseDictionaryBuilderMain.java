@@ -25,6 +25,7 @@ public class BaseDictionaryBuilderMain {
         System.out.println("=== Construcción del Diccionario Base ===\n");
 
         // Paso 1: Crear el diccionario desde el JSON base
+        //Desde el initial_json con palabras solas se crean los WordData con Frecuencias en cero
         service.createDictionaryFromWordsInJson(INITIAL_JSON_PATH);
 
         // Paso 2: Mostrar el diccionario en memoria

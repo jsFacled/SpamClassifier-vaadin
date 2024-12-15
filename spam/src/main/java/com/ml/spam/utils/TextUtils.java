@@ -148,25 +148,33 @@ public class TextUtils {
         }
         return symbols;
     }
+    // Normaliza texto: convierte a minúsculas y elimina caracteres no válidos, pero conserva acentos
     public static String normalizeString(String input) {
         if (input == null) {
             return null;
         }
 
-        // Normalizar el texto a la forma de composición canónica (NFD)
-        String normalized = Normalizer.normalize(input, Normalizer.Form.NFD);
-
-        // Eliminar marcas diacríticas (acentos)
-        normalized = normalized.replaceAll("\\p{M}", "");
-
         // Convertir a minúsculas
-        normalized = normalized.toLowerCase();
+        String normalized = input.toLowerCase();
 
-        // Mantener letras, números, símbolos y espacios
+        // Mantener letras (incluyendo acentuadas), números, símbolos y espacios
         normalized = normalized.replaceAll("[^\\p{L}\\p{N}\\p{P}\\p{Z}]", "");
 
         return normalized.trim(); // Eliminar espacios sobrantes
     }
+
+    // Extensión para eliminar acentos después de usar normalizeString
+    public static String normalizeWithAccentRemoval(String input) {
+        String normalized = normalizeString(input);
+        if (normalized == null) {
+            return null;
+        }
+
+        // Eliminar marcas diacríticas (acentos)
+        return Normalizer.normalize(normalized, Normalizer.Form.NFD)
+                .replaceAll("\\p{M}", "");
+    }
+
 
     public static String[] splitRareSymbolsAndNumbers(String token) {
         // Detectar si el token es número + "hs"

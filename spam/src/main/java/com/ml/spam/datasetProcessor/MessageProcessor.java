@@ -1,5 +1,6 @@
 package com.ml.spam.datasetProcessor;
 
+import com.ml.spam.dictionary.models.NumCategory;
 import com.ml.spam.dictionary.models.WordData;
 import com.ml.spam.undefined.LabeledMessage;
 import com.ml.spam.datasetProcessor.models.ProcessedMessage;
@@ -122,6 +123,19 @@ public class MessageProcessor {
         }
 
         return wordDataList;
+    }
+
+    private static NumCategory detectNumberCategory(String token) {
+        if (RegexUtils.isNumDim(token)) return NumCategory.NUM_DIM;
+        if (RegexUtils.isNumCal(token)) return NumCategory.NUM_CAL;
+        if (RegexUtils.isNumm(token)) return NumCategory.NUM_MONEY;
+        if (RegexUtils.isNumStat(token)) return NumCategory.NUM_STAT;
+        if (RegexUtils.isNumCod(token)) return NumCategory.NUM_COD;
+        if (RegexUtils.isNumUrl(token)) return NumCategory.NUM_URL;
+        if (RegexUtils.isNumTel(token)) return NumCategory.NUM_TEL;
+        if (RegexUtils.isNumIp(token)) return NumCategory.NUM_IP;
+        if (RegexUtils.isNumLow(token)) return NumCategory.NUM_LOW;
+        return null;
     }
 
 

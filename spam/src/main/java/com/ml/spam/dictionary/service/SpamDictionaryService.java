@@ -256,46 +256,62 @@ public class SpamDictionaryService {
         List<WordData> flattenedWordData = processedData.stream()
                 .flatMap(List::stream)
                 .toList();
-   // Preparar accentPairs como Map para búsquedas rápidas
+
+        // Convertir accentPairs a Map para búsquedas rápidas
         Map<String, SpamDictionary.Pair> accentPairMap = dictionary.getAccentPairsAsMap();
 
-        // Actualizar el diccionario
+        // Procesar cada WordData
         for (WordData wordData : flattenedWordData) {
-            String token = wordData.getWord();
-            WordCategory category;
+            String token = wordData.getWord().trim();
 
-            // Si la palabra ya existe en el diccionario
-            if (dictionary.containsWord(token)) {
-                category = determineCategory(token);
-                dictionary.getCategory(category).merge(
-                        token, wordData,
-                        (existing, newData) -> {
-                            existing.incrementSpamFrequency(newData.getSpamFrequency());
-                            existing.incrementHamFrequency(newData.getHamFrequency());
-                            return existing;
-                        }
-                );
-                continue; // Pasar al siguiente token
+            // Validación básica: Palabra no vacía
+            if (token.isEmpty()) {
+                System.err.println("Palabra vacía encontrada. Se omite.");
+                continue;
             }
 
-            // Si la palabra tiene tilde
+            // Verificar si la palabra ya existe en alguna categoría
+            if (dictionary.containsWord(token)) {
+                updateExistingWordFrequencies(token, wordData);
+                continue;
+            }
+
+            // Si es una palabra nueva: verificar si tiene tilde
             if (TextUtils.hasAccent(token)) {
                 SpamDictionary.Pair pair = accentPairMap.get(token);
-                if (pair != null) {
-                    // Categorizar usando accentPairs y conservar tilde
-                    category = pair.category();
-                    dictionary.addWordWithFrequencies(category, token, wordData.getSpamFrequency(), wordData.getHamFrequency());
-                    continue; // Pasar al siguiente token
-                }
-            }
 
-            // Palabra nueva sin tilde o no en accentPairs
-            String normalizedToken = TextUtils.removeAccents(token);
-            category = WordCategory.UNASSIGNED_WORDS;
-            dictionary.addWordWithFrequencies(category, normalizedToken, wordData.getSpamFrequency(), wordData.getHamFrequency());
+                if (pair != null) {
+                    // Si está en accentPairs, asignar la categoría correspondiente
+                    dictionary.addWordWithFrequencies(
+                            pair.category(), token, wordData.getSpamFrequency(), wordData.getHamFrequency()
+                    );
+                } else {
+                    // Si no está en accentPairs, agregar a UNASSIGNED_WORDS
+                    dictionary.addWordWithFrequencies(
+                            WordCategory.UNASSIGNED_WORDS, token, wordData.getSpamFrequency(), wordData.getHamFrequency()
+                    );
+                }
+            } else {
+                // Sin tilde → Agregar a UNASSIGNED_WORDS
+                dictionary.addWordWithFrequencies(
+                        WordCategory.UNASSIGNED_WORDS, token, wordData.getSpamFrequency(), wordData.getHamFrequency()
+                );
+            }
         }
     }
 
+    private void updateExistingWordFrequencies(String token, WordData wordData) {
+        // Buscar en todas las categorías y actualizar las frecuencias existentes
+        for (WordCategory category : WordCategory.values()) {
+            Map<String, WordData> categoryWords = dictionary.getCategory(category);
+            if (categoryWords.containsKey(token)) {
+                WordData existingWord = categoryWords.get(token);
+                existingWord.incrementSpamFrequency(wordData.getSpamFrequency());
+                existingWord.incrementHamFrequency(wordData.getHamFrequency());
+                break;
+            }
+        }
+    }
 
     //----------------------Metod auxiliar para update
    // public void Viejo______updateDictionaryFromProcessedWordData(List<List<WordData>> processedData) {

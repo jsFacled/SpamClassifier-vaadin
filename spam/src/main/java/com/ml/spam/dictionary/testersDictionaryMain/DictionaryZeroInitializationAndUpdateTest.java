@@ -11,7 +11,7 @@ public class DictionaryZeroInitializationAndUpdateTest {
     private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
 private static final String testMessagesFilePath = FilePathsConfig.TEST_CSV_DATA_PATH;
     private static final String messagesProcessedFilePath = FilePathsConfig.TEST_CSV_ESPAÑOL_DATA_PATH;
-
+private static final String prueba_catWords = "static/dictionary/test_catWord_zero.json";
     public static void main(String[] args) throws IOException {
         SpamDictionaryService service = new SpamDictionaryService();
 
@@ -28,7 +28,7 @@ private static final String testMessagesFilePath = FilePathsConfig.TEST_CSV_DATA
  */
 
         // Inicializar el diccionario desde el JSON
-        service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(catWordsPath,accentPairsPath);
+        service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(prueba_catWords,accentPairsPath);
 
         // Mostrar los Map de SpamDictionary para chequear que se haya inicializado correctamente
         service.displayCategorizedWordsInDictionary();
@@ -37,7 +37,7 @@ private static final String testMessagesFilePath = FilePathsConfig.TEST_CSV_DATA
 
 
         // Solicitar la actualización del diccionario al service
-        service.updateDictionary(messagesProcessedFilePath);
+        service.updateDictionary(testMessagesFilePath);
         System.out.println(" *  *  *  *  *  //  //  //  //  //  //  // //  //  //  Actualización finalizada ! ! ! ! !\n");
 
 

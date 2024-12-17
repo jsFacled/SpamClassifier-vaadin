@@ -21,7 +21,7 @@ public class BaseDictionaryBuilderMain {
     public static void main(String[] args) {
         SpamDictionaryService service = new SpamDictionaryService();
 
-        System.out.println("=== Iniciando la Construcción de la Estructura del Diccionario Base ===\n");
+        System.out.println("=== Etapa 1 - Iniciando la Construcción de la Estructura del Diccionario Base ===\n");
 
         // Paso 1: Transformar palabras categorizadas en WordData con frecuencias en cero
         service.transformBaseWordsToFrequenciesZero(INITIAL_JSON_PATH, EXPORT_JSON_PATH);

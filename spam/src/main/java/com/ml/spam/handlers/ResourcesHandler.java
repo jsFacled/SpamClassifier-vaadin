@@ -1,5 +1,7 @@
 package com.ml.spam.handlers;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.ml.spam.utils.CsvUtils;
 import com.ml.spam.utils.JsonUtils;
 import org.json.JSONObject;
@@ -246,9 +248,27 @@ public class ResourcesHandler {
         }
     }
 
+    //Se agrega jackson para guardar json con palabras ordenadas.
+    public void saveJson(JSONObject jsonObject, String relativePath) {
+        try {
+            Path path = resolvePath(relativePath);
+            Files.createDirectories(path.getParent()); // Crear directorios si no existen
+
+            // Convertir JSONObject a un Map para usar Jackson
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.enable(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS); // Ordenar claves
+            String jsonString = mapper.writerWithDefaultPrettyPrinter()
+                    .writeValueAsString(jsonObject.toMap());
+
+            Files.writeString(path, jsonString, StandardCharsets.UTF_8);
+            System.out.println("JSON guardado en: " + path);
+        } catch (IOException e) {
+            throw new RuntimeException("Error al guardar el archivo JSON: " + relativePath, e);
+        }
+    }
 
     // Método para guardar un archivo JSON
-    public void saveJson(JSONObject jsonObject, String relativePath) {
+    public void saveJsonViejo(JSONObject jsonObject, String relativePath) {
         try {
             Path path = resolvePath(relativePath);
             Files.createDirectories(path.getParent()); // Crear directorios si no existen

@@ -97,31 +97,53 @@ public class JsonUtils {
      * @return Un Map con WordCategory como clave y una lista de palabras como valor.
      */
     public static Map<WordCategory, List<String>> jsonToCategoryMap(JSONObject jsonObject) {
-        Map<WordCategory, List<String>> categoryMap = new HashMap<>();
+        Map<WordCategory, List<String>> categoryMap = new TreeMap<>();
 
         for (WordCategory category : WordCategory.values()) {
             if (jsonObject.has(category.name().toLowerCase())) {
                 List<String> words = jsonArrayToStringList(
                         jsonObject.optJSONArray(category.name().toLowerCase())
                 );
+                // Depuración: Antes de ordenar
+                System.out.println("Antes de ordenar (" + category + "): " + words);
+
+                // Ordenar la lista de palabras alfabéticamente
+                Collections.sort(words);
+
+                // Depuración: Después de ordenar
+                System.out.println("Después de ordenar (" + category + "): " + words);
+
                 categoryMap.put(category, words);
             }
         }
+
+        // Depuración: Mapa completo
+        System.out.println("Categorías cargadas y ordenadas: " + categoryMap);
 
         return categoryMap;
     }
 
     /**
      * Convierte un diccionario categorizado en un objeto JSON.
-     * @param categorizedDictionary Mapa de categorías y sus palabras con datos.
      * @return Un objeto JSON que representa el diccionario completo.
      */
-    public static JSONObject categorizedWordsToJson(Map<WordCategory, Map<String, WordData>> categorizedDictionary) {
-        JSONObject jsonObject = new JSONObject();
-        for (WordCategory category : categorizedDictionary.keySet()) {
-            jsonObject.put(category.name().toLowerCase(), categoryToJson(categorizedDictionary.get(category)));
-        }
-        return jsonObject;
+    public static JSONObject categorizedWordsToJson(Map<WordCategory, Map<String, WordData>> categorizedWordsMap) {
+        JSONObject json = new JSONObject();
+
+        categorizedWordsMap.forEach((category, wordsMap) -> {
+            JSONObject categoryJson = new JSONObject();
+            wordsMap.forEach((word, wordData) -> {
+                JSONObject wordDataJson = new JSONObject();
+                wordDataJson.put("spamFrequency", wordData.getSpamFrequency());
+                wordDataJson.put("hamFrequency", wordData.getHamFrequency());
+                categoryJson.put(word, wordDataJson);
+            });
+
+            // Agregar la categoría ordenada al JSON principal
+            json.put(category.name().toLowerCase(), categoryJson);
+        });
+
+        return json;
     }
 
     /**

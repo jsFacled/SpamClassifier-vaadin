@@ -1,49 +1,59 @@
 package com.ml.spam.utils;
 
+import com.ml.spam.config.RegexConfig;
+
+import java.util.regex.Pattern;
+
 public class RegexUtils {
 
-    // Detecta dimensiones y medidas (kg, L, cm, m²)
-    public static boolean isNumDim(String word) {
-        return word.matches("\\b\\d+(\\.\\d+)?(kg|m²|cm|km|L|litros|ml)\\b");
-    }
+    /**
+     *  *   *   *   *   *   *   *   *   *   *   *   *   *   *
+     ************ Tratamiento de números ********************
+     *  *   *   *   *   *   *   *   *   *   *   *   *   *   *
+     */
 
-    // Detecta tiempo y fechas (ej.: 15 hs, 30 min, 12-06-2024)
-    public static boolean isNumCal(String word) {
-        return word.matches("\\b(\\d{1,2}[-/.]\\d{1,2}[-/.]\\d{2,4}|\\d+ (hs|min|días|años|meses))\\b");
-    }
+        // Dimensiones y medidas (e.g., 15kg, 3.5m, 12L)
+        public static boolean isNumDim(String input) {
+            return Pattern.matches(RegexConfig.NUM_DIM, input);
+        }
 
-    // Detecta cantidades monetarias ($50, €100, 300 pesos)
-    public static boolean isNumm(String word) {
-        return word.matches("\\b\\d+(\\.\\d+)?(\\$|USD|€|euros|pesos|dólares)\\b");
-    }
+        // Tiempos y fechas (e.g., 15:30, 30min, 12-06-2024)
+        public static boolean isNumCal(String input) {
+            return Pattern.matches(RegexConfig.NUM_CAL, input);
+        }
 
-    // Detecta estadísticas y porcentajes (80%, promedio 4.5)
-    public static boolean isNumStat(String word) {
-        return word.matches("\\b\\d+(\\.\\d+)?(%|promedio|rating|calificación|valoración)\\b");
-    }
+        // Cantidades monetarias (e.g., $50, €100)
+        public static boolean isNumMoney(String input) {
+            return Pattern.matches(RegexConfig.NUM_MONEY, input);
+        }
 
-    // Detecta códigos y referencias (ej.: REF123, 456789, códigos aleatorios)
-    public static boolean isNumCod(String word) {
-        return word.matches("\\b([A-Z0-9]{3,})\\b");
-    }
+        // Estadísticas y porcentajes (e.g., 80%, promedio 4.5)
+        public static boolean isNumStat(String input) {
+            return Pattern.matches(RegexConfig.NUM_STAT, input);
+        }
 
-    // Detecta números en URLs o enlaces (ej.: offer123.com, http://promo456.net)
-    public static boolean isNumUrl(String word) {
-        return word.matches("\\b(https?://|www\\.)\\S*\\d+\\S*\\b");
-    }
+        // Códigos y referencias (e.g., REF123, SKU4567)
+        public static boolean isNumCod(String input) {
+            return Pattern.matches(RegexConfig.NUM_COD, input);
+        }
 
-    // Detecta números con formato de teléfono (ej.: +54 9 111 2222, 123-4567)
-    public static boolean isNumTel(String word) {
-        return word.matches("\\b(\\+?\\d{1,3}[- ]?)?(\\(?\\d{1,4}\\)?[- ]?)?\\d{3,4}[- ]\\d{3,4}\\b");
-    }
+        // Enlaces con números (e.g., http://offer123.com)
+        public static boolean isNumUrl(String input) {
+            return Pattern.matches(RegexConfig.NUM_URL, input);
+        }
 
-    // Detecta direcciones IP (ej.: 192.168.0.1)
-    public static boolean isNumIp(String word) {
-        return word.matches("\\b(\\d{1,3}\\.){3}\\d{1,3}\\b");
-    }
+        // Números de teléfono (e.g., +54 9 111 2222)
+        public static boolean isNumTel(String input) {
+            return Pattern.matches(RegexConfig.NUM_TEL, input);
+        }
 
-    // Detecta números pequeños y frecuencias (1, 2 intentos, 3 veces)
-    public static boolean isNumLow(String word) {
-        return word.matches("\\b\\d{1,2}\\b");
+        // Direcciones IP (e.g., 192.168.0.1)
+        public static boolean isNumIp(String input) {
+            return Pattern.matches(RegexConfig.NUM_IP, input);
+        }
+
+        // Números pequeños (e.g., 1 vez, 3 intentos)
+        public static boolean isNumLow(String input) {
+            return Pattern.matches(RegexConfig.NUM_LOW, input);
+        }
     }
-}

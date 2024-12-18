@@ -137,7 +137,7 @@ public class MessageProcessor {
     private static NumCategory detectNumberCategory(String token) {
         if (RegexUtils.isNumDim(token)) return NumCategory.NUM_DIM;
         if (RegexUtils.isNumCal(token)) return NumCategory.NUM_CAL;
-        if (RegexUtils.isNumm(token)) return NumCategory.NUM_MONEY;
+        if (RegexUtils.isNumMoney(token)) return NumCategory.NUM_MONEY;
         if (RegexUtils.isNumStat(token)) return NumCategory.NUM_STAT;
         if (RegexUtils.isNumCod(token)) return NumCategory.NUM_COD;
         if (RegexUtils.isNumUrl(token)) return NumCategory.NUM_URL;

@@ -12,7 +12,7 @@ import com.ml.spam.utils.TextUtils;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -50,13 +50,23 @@ public class SpamDictionaryService {
 
             // Transformar palabras en WordData con frecuencias iniciales
             Map<WordCategory, List<String>> categoryMap = JsonUtils.jsonToCategoryMap(baseWordsJson);
-            Map<WordCategory, Map<String, WordData>> categorizedWordsMap = new HashMap<>();
+            System.out.println("[DEPURACION] * * * * * * * * * * * * * * * Desde transformBaseWordsToFrequenciesZero MUESTRO categoryMap que devuelve JsonUtils.jsonToCategoryMap :   "+ categoryMap+"\n");
+
+            Map<WordCategory, Map<String, WordData>> categorizedWordsMap = new TreeMap<>();
 
             categoryMap.forEach((category, words) -> {
                 Map<String, WordData> wordsMap = words.stream()
-                        .collect(Collectors.toMap(word -> word, word -> new WordData(word, 0, 0)));
+                        .collect(Collectors.toMap(
+                                word -> word,
+                                word -> new WordData(word, 0, 0),
+                                (existing, replacement) -> existing, // Resolver conflictos (no debería ocurrir)
+                                TreeMap::new // Forzar el uso de TreeMap
+                        ));
                 categorizedWordsMap.put(category, wordsMap);
             });
+            System.out.println("[DEPURACION] * * * * * * * * * * * * * * * Desde transformBaseWordsToFrequenciesZero MUESTRO categorizedWordMap luego del foreach :   "+ categorizedWordsMap+"\n");
+
+
 
             // Guardar en archivo JSON
             JSONObject outputJson = JsonUtils.categorizedWordsToJson(categorizedWordsMap);
@@ -111,7 +121,7 @@ public class SpamDictionaryService {
 
 
     private Map<WordCategory, List<String>> cleanCategoryMap(Map<WordCategory, List<String>> categoryMap) {
-        Map<WordCategory, List<String>> cleanedMap = new HashMap<>();
+        Map<WordCategory, List<String>> cleanedMap = new TreeMap<>();
 
         categoryMap.forEach((category, words) -> {
             List<String> cleanedWords = words.stream()
@@ -394,7 +404,7 @@ public class SpamDictionaryService {
                 if (!found) {
                     Map<String, WordData> unassignedWords = dictionary.get(WordCategory.UNASSIGNED_WORDS);
                     if (unassignedWords == null) {
-                        unassignedWords = new HashMap<>();
+                        unassignedWords = new TreeMap<>();
                         dictionary.put(WordCategory.UNASSIGNED_WORDS, unassignedWords);
                     }
 

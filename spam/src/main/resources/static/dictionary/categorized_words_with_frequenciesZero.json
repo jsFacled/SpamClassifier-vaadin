@@ -1,1613 +1,1421 @@
 {
-    "rare_symbols": {
-        "@": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "!": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "\"": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "#": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "$": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "%": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "&": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "'": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "(": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        ")": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "*": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "+": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "/": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        ":": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        ";": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "|": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "<": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "=": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "~": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "^": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        ">": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "_": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "?": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        }
+  "rare_symbols" : {
+    "!" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
     },
-    "stop_words": {
-        "de": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "tu": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "con": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "lo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "tú": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "ya": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "del": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "ellos": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "unos": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "tus": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "yo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "me": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "un": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "les": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "nosotros": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "mi": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "entre": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "hemos": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "las": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "mí": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "tan": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "hay": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "cómo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "cuándo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "desde": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "él": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "el": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "en": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "al": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "estos": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "este": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "sobre": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "algunos": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "esta": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "será": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "fueron": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "había": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "ni": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "esos": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "unas": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "que": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "no": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "quien": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "qué": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "pero": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "también": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "tanto": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "algunas": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "esas": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "habían": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "muy": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "sus": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "los": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "por": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "se": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "nos": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "para": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "sólo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "tiene": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "ellas": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "mis": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "sin": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "sí": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "más": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "hasta": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "a": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "quienes": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "su": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "una": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "aunque": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "tienen": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "o": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "todo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "dónde": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "fuera": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "te": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "esa": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "ella": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "la": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "ti": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "ese": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "fue": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "uno": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "ha": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "le": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "así": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "fui": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "todos": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "estas": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "he": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "algo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "porque": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        }
+    "\"" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
     },
-    "spam_words": {
-        "compromiso": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "aumente": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "rueda": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "pronto": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "promoción": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "libertad": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "texas": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "bonificación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "mejora": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "cancelación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "cura": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "marca": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "mejore": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "ganancias": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "comprar": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "membresía": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "anuncio": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "hipoteca": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "correo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "vip": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "participar": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "exclusiva": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "enriquezca": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "transferencia": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "deuda": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "prima": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "accesible": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "rebaja": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "click": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "exclusivo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "interés": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "expira": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "escaso": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "donación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "vista": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "gana": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "flash": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "autorización": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "gratis": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "compra": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "100%": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "diazepam": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "vida": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "sorteo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "acceso": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "testimonios": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "último": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "prueba": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "transferencias": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "privacidad": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "lotería": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "asistencia": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "enlace": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "tarjeta": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "milagro": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "contacto": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "seguridad": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "medicina": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "arrugas": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "limitada": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "aprobado": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "retiro": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "rápido": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "marketing": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "mágico": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "estimado": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "rendimiento": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "pierda": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "visa": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "registrarse": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "caduca": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "ganador": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "limitado": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "introducción": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "revelación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "tráfico": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "inmediato": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "facturación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "ahorra": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "gastos": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "recompensa": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "primeros": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "pérdida": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "único": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "legal": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "enriquecerse": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "garantizada": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "éxito": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "ahorrar": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "haz": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "única": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "dinero": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "premios": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "asombroso": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "especial": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "negocio": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "miembro": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "pago": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "personalizado": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "garantizado": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "cliente": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "riesgo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "oferta especial": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "potencial": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "ingreso": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "confidencial": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "verificación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "rolex": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "final": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "sorpresa": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "ventas": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "personalizada": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "actuar": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "cantidad": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "lujo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "fabuloso": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "empleo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "acción": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "dominio": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "multiplicar": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "asequible": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "video": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "suministros": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "sin esfuerzo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "vende": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "prioridad": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "miles": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "ahora": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "secreto": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "precio": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "finanzas": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "prosperidad": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "rapidez": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "suscríbete": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "regalo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "urgente": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "sin": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "poderoso": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "bono": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "venta": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "multiplicación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "orgánico": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "sexy": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "letra pequeña": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "amigo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "formulario": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "confirmación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "eliminar": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "búsqueda": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "efectivo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "cheque": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "sexo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "trampa": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "revolucionario": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "muestra": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "contraseña": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "emergencia": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "seguro": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "calificado": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "transfiere": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "celebridad": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "compañero": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "sistema": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "oferta": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "renovación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "jefe": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "millón": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "protección": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "ganancia": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "segura": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "agotado": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "resultados": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "billón": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "orden": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "alerta": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "amor": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "visite": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "natural": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "prueba gratuita": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "banco": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "reducido": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "irrepetible": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "blackjack": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "existencias": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "cupón": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "hazte": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "actúe": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "empieza": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "lanzamiento": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "increíble": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "instrucciones": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "premio": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "levita": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "intereses": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "salvar": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "reembolsable": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "renovable": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "gratuito": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "millones": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "rebajas": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "actualización": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "viagra": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "medicamento": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "dieta": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "ingresos": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "activación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "tarifas": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "descuento": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "aceptación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "descargar": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "clic": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "barato": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "promocional": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "oportunidad": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "aprovecha": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "ahorro": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "tiempo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "ganga": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "reembolsado": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "spam": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "devolución": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "instalación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "beneficios": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "estado": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "llamada": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "casino": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "relámpago": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "crédito": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "simple": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "garantía": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "compite": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "millonario": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "bancario": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "solicita": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "factura": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "válida": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "información": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "bancarrota": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "lotes": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "stock": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "refinanciar": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "reembolso": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "fortuna": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "$$$": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "instantáneo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "fácil": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "adquirir": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "sin costo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "felicitaciones": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "comercio": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "liquidación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "vacaciones": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "comprador": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "urgencia": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "aviso": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "suscripción": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "solución": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "inversión": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "suscriptores": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "seleccionado": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "préstamo": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "ganar": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "reserva": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "consulta": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "actuación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "probar": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "satisfacción": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "cierre": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "diagnósticos": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "motores": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "atención": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "irresistible": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "notificación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "colección": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "publicidad": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "encuentros": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "obligación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "invierte": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "certificado": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "comparar": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "solicitud": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "términos": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "prohibido": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "autenticación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "amplíe": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        },
-        "clasificación": {
-            "spamFrequency": 0,
-            "hamFrequency": 0
-        }
+    "#" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
     },
-    "unassigned_words": {}
+    "$" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "%" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "&" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "(" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    ")" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "*" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "+" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "/" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    ":" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    ";" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "<" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "=" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    ">" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "?" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "@" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "^" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "_" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "|" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "~" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    }
+  },
+  "spam_words" : {
+    "accesible" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "acceso" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "acción" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "aceptación" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "activación" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "actuación" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "actualización" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "actuar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ahora" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ahorra" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ahorrar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ahorro" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "alerta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "amigo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "amor" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "amplíe" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "anuncio" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "aprobado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "aprovecha" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "arrugas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "asequible" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "asistencia" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "asombroso" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "atención" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "aumente" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "autenticación" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "autorización" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "aviso" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "bancario" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "bancarrota" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "banco" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "barato" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "beneficios" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "billón" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "blackjack" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "bonificación" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "bono" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "búsqueda" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "caduca" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "calificado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "cancelación" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "cantidad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "casino" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "celebridad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "cheque" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "cierre" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "clic" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "click" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "cliente" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "colección" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "comercio" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "comparar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "compañero" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "compite" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "compra" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "comprador" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "comprar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "compromiso" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "confidencial" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "confirmación" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "consulta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "contacto" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "contraseña" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "costo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "crédito" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "cupón" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "cura" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "diagnósticos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "dieta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "dinero" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "dominio" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "donación" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "dónde" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "efectivo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "eliminar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "empleo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "en" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "encuentros" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "enlace" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "enriquecerse" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "enriquezca" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "entonces" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "esfuerzo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "especial" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "estado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "estimado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "existencias" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "expira" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "fabuloso" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "factura" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "facturación" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "felicitaciones" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "final" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "finanzas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "flash" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "forma" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "formulario" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "fortuna" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "frecuente" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "gana" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ganador" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ganancia" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ganancias" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ganar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "garantizada" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "garantizado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "garantía" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "gastos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "gratis" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "gratuita" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "gratuito" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "haz" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "hazte" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "hipoteca" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "increíble" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "información" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ingreso" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ingresos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "instantáneo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "instrucciones" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "intereses" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "interés" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "introducción" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "inversión" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "invierte" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "irrepetible" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "irresistible" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "jefe" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "juega" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "legal" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "levita" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "libertad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "limitada" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "limitado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "llamada" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lotería" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lujo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "marca" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "marketing" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "mejora" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "mejore" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "membresía" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "miembro" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "milagro" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "miles" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "millonario" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "millones" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "millón" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "multiplicación" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "multiplicar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "mágico" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "natural" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "negocio" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "notificación" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "oportunidad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "participar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "personalizada" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "personalizado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "pierda" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "plan" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "poderoso" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "potencial" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "premio" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "premios" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "privacidad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "privilegio" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "probar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "problema" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "procesa" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "producto" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "prohibido" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "promocional" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "promoción" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "pronto" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "prosperidad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "protección" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "prueba" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "préstamo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "publicidad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "rapidez" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "rebaja" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "rebajado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "rebajas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "recompensa" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "reducido" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "reembolsable" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "reembolsado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "reembolso" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "rendimiento" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "renovable" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "renovación" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "reserva" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "resultados" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "revelación" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "revolucionario" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "riesgo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "rolex" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "rueda" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "rápido" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "salvar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "satisfacción" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "secreto" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "segura" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "seguridad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "seguro" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "seleccionado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "sistema" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "sorteo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "spam" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "stock" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "suministros" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "suscribirse" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "suscripción" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "suscriptores" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "tarifas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "tarjeta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "testimonios" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "tiempo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "trampa" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "transferencia" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "transferencias" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "tráfico" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "urgencia" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "urgente" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "vacaciones" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "valida" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "valioso" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "venta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ventas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "verificación" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "viagra" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "vida" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "vip" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "visite" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "vista" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "éxito" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "último" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "única" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "único" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    }
+  },
+  "stop_words" : {
+    "a" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "al" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "algo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "algunas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "algunos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "así" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "aunque" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "con" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "cuándo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "cómo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "de" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "del" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "desde" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "dónde" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "el" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ella" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ellas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ellos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "en" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "entre" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "esa" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "esas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ese" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "esos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "esta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "estas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "este" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "estos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "fue" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "fuera" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "fueron" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "fui" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ha" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "había" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "habían" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "hasta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "hay" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "he" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "hemos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "la" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "las" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "le" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "les" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "los" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "me" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "mi" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "mis" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "muy" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "más" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "mí" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ni" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "no" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "nos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "nosotros" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "o" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "para" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "pero" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "por" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "porque" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "que" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "quien" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "quienes" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "qué" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "se" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "será" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "sin" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "sobre" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "su" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "sus" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "sí" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "sólo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "también" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "tan" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "tanto" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "te" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ti" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "tiene" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "tienen" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "todo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "todos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "tu" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "tus" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "tú" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "un" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "una" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "unas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "uno" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "unos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ya" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "yo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "él" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    }
+  },
+  "unassigned_words" : { }
 }

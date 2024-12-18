@@ -12,9 +12,7 @@ import com.ml.spam.utils.TextUtils;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.TreeMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -158,6 +156,10 @@ public class SpamDictionaryService {
             // Inicializar categorizedWords desde el JSON
             initializeCategorizedWordsFromJson(catWordsPath);
 
+            System.out.println("[DEPURACION 00] * * * * * initializeCategorizedWordsFromJson en spamdicioaryservice ********");
+            System.out.println();
+            displayCategorizedWordsInDictionary();
+            System.out.println("[fin     DEPURACION 00] *****************");
             // Confirmar que las frecuencias son cero
             if (!dictionary.areFrequenciesZero()) {
                 throw new IllegalStateException("Categorized Words contiene frecuencias no inicializadas a cero.");
@@ -177,14 +179,48 @@ public class SpamDictionaryService {
             dictionary.setAccentPairs(accentPairs);
 
             System.out.println("\n [INFO] Diccionario inicializado correctamente con CATEGORIZED WORDS y ACCENT PAIRS.");
-
+            System.out.println("[DEPURACION 1] * * * * * Muestro el dictionary en memoria luego de inicializar todo: \n");
+            displayCategorizedWordsInDictionary();
+            System.out.println("[fin DEPURACION 1] * * * * * ");
         } catch (Exception e) {
             throw new RuntimeException("Error al inicializar y validar el diccionario: " + e.getMessage(), e);
         }
     }
 
-
     public void initializeCategorizedWordsFromJson(String filePath) {
+        try {
+            // Cargar el JSON desde el archivo
+            JSONObject jsonObject = resourcesHandler.loadJson(filePath);
+
+            // Validar la estructura del JSON
+            JsonUtils.validateWordCategoryJsonStructure(jsonObject);
+
+            // Iterar sobre las categorías y actualizar el diccionario
+            for (WordCategory category : WordCategory.values()) {
+                JSONObject categoryJson = jsonObject.optJSONObject(category.name().toLowerCase());
+                if (categoryJson != null) {
+                    // Ordenar las claves del JSON
+                    List<String> sortedKeys = new ArrayList<>(categoryJson.keySet());
+                    Collections.sort(sortedKeys);
+
+                    for (String word : sortedKeys) {
+                        JSONObject frequencies = categoryJson.getJSONObject(word);
+                        int spamFrequency = frequencies.getInt("spamFrequency");
+                        int hamFrequency = frequencies.getInt("hamFrequency");
+
+                        // Agregar la palabra al diccionario
+                        dictionary.addWordWithFrequencies(category, word, spamFrequency, hamFrequency);
+                    }
+                }
+            }
+
+            System.out.println("\n [INFO] Diccionario inicializado correctamente desde el archivo JSON.");
+        } catch (Exception e) {
+            throw new RuntimeException("Error al inicializar el diccionario: " + e.getMessage(), e);
+        }
+    }
+
+    public void initializeCategorizedWordsFromJsonVIEJO(String filePath) {
         try {
             // Cargar el JSON desde el archivo
             JSONObject jsonObject = resourcesHandler.loadJson(filePath);

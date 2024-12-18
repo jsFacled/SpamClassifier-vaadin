@@ -5,6 +5,7 @@ import com.ml.spam.dictionary.models.WordData;
 import com.ml.spam.undefined.LabeledMessage;
 import com.ml.spam.datasetProcessor.models.ProcessedMessage;
 import com.ml.spam.utils.CsvUtils;
+import com.ml.spam.utils.RegexUtils;
 import com.ml.spam.utils.TextUtils;
 
 import java.io.IOException;
@@ -98,21 +99,29 @@ public class MessageProcessor {
         List<WordData> wordDataList = new ArrayList<>();
 
         for (String token : tokens) {
+            // Separar palabra, número y símbolos raros
             String[] splitToken = TextUtils.splitRareSymbolsAndNumbers(token);
             String wordPart = splitToken[0];
             String numberPart = splitToken[1];
             String rareSymbolPart = splitToken[2];
 
+            // Procesar palabras
             if (!wordPart.isEmpty()) {
                 WordData wordData = new WordData(wordPart);
                 updateWordDataFrequency(wordData, label);
                 wordDataList.add(wordData);
             }
+
+            // Procesar números y clasificarlos en su categoría
             if (!numberPart.isEmpty()) {
-                WordData numberData = new WordData("NUMlow");
+                NumCategory numCategory = detectNumberCategory(numberPart);
+                String numName = (numCategory != null) ? numCategory.toString() : "numlow";//si no se encuentra asigno numlow por defecto
+                WordData numberData = new WordData(numName);
                 updateWordDataFrequency(numberData, label);
                 wordDataList.add(numberData);
             }
+
+            // Procesar símbolos raros
             if (!rareSymbolPart.isEmpty()) {
                 for (String symbol : rareSymbolPart.split(" ")) { // Procesar cada símbolo raro por separado
                     WordData symbolData = new WordData(symbol);

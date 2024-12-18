@@ -276,27 +276,50 @@ public class SpamDictionaryService {
                 continue;
             }
 
-            // Si es una palabra nueva: verificar si tiene tilde
+            // Nueva palabra: Check si tiene tilde
             if (TextUtils.hasAccent(token)) {
                 SpamDictionary.Pair pair = accentPairMap.get(token);
 
                 if (pair != null) {
-                    // Si está en accentPairs, asignar la categoría correspondiente
+                    // La palabra con tilde está en accentPairs → asignar a categoría correspondiente
                     dictionary.addWordWithFrequencies(
                             pair.category(), token, wordData.getSpamFrequency(), wordData.getHamFrequency()
                     );
                 } else {
-                    // Si no está en accentPairs, agregar a UNASSIGNED_WORDS
+                    // La palabra con tilde no está en accentPairs → remover tilde y asignar
+                    String tokenWithoutAccent = TextUtils.removeAccents(token);
+
+                    // Determinar categoría basándose en frecuencias
+                    WordCategory targetCategory = determineCategoryByFrequency(wordData);
+
                     dictionary.addWordWithFrequencies(
-                            WordCategory.UNASSIGNED_WORDS, token, wordData.getSpamFrequency(), wordData.getHamFrequency()
+                            targetCategory, tokenWithoutAccent, wordData.getSpamFrequency(), wordData.getHamFrequency()
                     );
                 }
             } else {
-                // Sin tilde → Agregar a UNASSIGNED_WORDS
+                // Palabra sin tilde → Determinar categoría basándose en frecuencias
+                WordCategory targetCategory = determineCategoryByFrequency(wordData);
+
                 dictionary.addWordWithFrequencies(
-                        WordCategory.UNASSIGNED_WORDS, token, wordData.getSpamFrequency(), wordData.getHamFrequency()
+                        targetCategory, token, wordData.getSpamFrequency(), wordData.getHamFrequency()
                 );
             }
+        }
+    }
+
+    /**
+     * Determina la categoría de la palabra en función de las frecuencias de spam y ham:
+     * - Si la frecuencia de spam es mayor que la de ham, se clasifica como SPAM_WORDS.
+     * - Si la frecuencia de ham es mayor o igual a la de spam, se clasifica como UNASSIGNED_WORDS.
+     *
+     * @param wordData Objeto WordData que contiene las frecuencias de spam y ham.
+     * @return La categoría correspondiente (SPAM_WORDS o UNASSIGNED_WORDS).
+     */
+    private WordCategory determineCategoryByFrequency(WordData wordData) {
+        if (wordData.getSpamFrequency() > wordData.getHamFrequency()) {
+            return WordCategory.SPAM_WORDS;
+        } else {
+            return WordCategory.UNASSIGNED_WORDS;
         }
     }
 

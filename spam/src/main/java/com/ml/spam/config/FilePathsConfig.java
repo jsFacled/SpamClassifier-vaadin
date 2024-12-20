@@ -6,6 +6,7 @@ public class FilePathsConfig {
     public static final String CATEGORIZED_WORDS_BASE_JSON_PATH = "static/dictionary/categorized_words_vocabulary_base_only.json";
     public static final String CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH = "static/dictionary/categorized_words_with_frequenciesZero.json";
     public static final String ACCENTED_PAIRS_JSON_PATH = "static/dictionary/accented_pairs.json";
+    public static final String LEXEMES_JSON_PATH = "static/dictionary/lexemes.json";
 
     // Rutas relativas dentro de 'src/main/resources/static/datasets'
     public static final String TEST_CSV_DATA_PATH = "static/datasets/mensajes_pruebas.txt";

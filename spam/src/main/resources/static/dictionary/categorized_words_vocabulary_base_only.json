@@ -29,13 +29,13 @@
         "suscribirse", "suscripción", "suscriptores", "tarifas", "tarjeta", "testimonios", "tiempo",
         "transferencia", "transferencias", "trampa", "tráfico", "último", "única", "único", "urgencia",
         "urgente", "vacaciones", "valida", "valioso", "venta", "ventas", "verificación", "vida", "viagra",
-        "vista", "visite", "vip"
+        "vista", "visite", "vip", "nummon", "numstat", "numurl", "lexmon"
     ],
     "rare_symbols": [
-        "!", "\"", "#", "$", "%", "&", "(", ")", "*", "+", "/", ":", ";", "<", "=", ">", "?", "@", "^", "_", "|", "~"
+        "$", "@", "lexsym", "excl"
     ],
     "stop_words": [
-        "a", "al", "algo", "algunas", "algunos", "así", "aunque", "cómo", "con", "cuándo", "de", "del",
+        "lexuni","lexdim", "lexcal","numdim", "numcal ", "a", "al", "algo", "algunas", "algunos", "así", "aunque", "cómo", "con", "cuándo", "de", "del",
         "desde", "dónde", "el", "él", "ella", "ellas", "ellos", "en", "entre", "esa", "esas", "ese",
         "esos", "esta", "estas", "este", "estos", "fue", "fui", "fuera", "fueron", "ha", "había", "habían",
         "hasta", "hay", "he", "hemos", "la", "las", "le", "les", "lo", "los", "más", "me", "mi", "mí", "mis",
@@ -44,5 +44,5 @@
         "ti", "tiene", "tienen", "todo", "todos", "tu", "tus", "tú", "un", "una", "unas", "uno", "unos",
         "ya", "yo"
     ],
-    "unassigned_words": []
+    "unassigned_words": ["numcod", "numtel", "numip" ]
 }

@@ -109,59 +109,56 @@ public class MessageProcessor {
         String numberPart = parts[0];
         String textPart = parts[1];
 
-        // 2. Procesar la parte textual
+        //********************************************
+        //* * * *  2. Procesar la parte textual * * * *
+        //*********************************************
+
+            // Buscar la parte textual en las categorías de lexemas
+            // Verificar en las que comienzan con "num".
         if (!textPart.isEmpty()) {
             String numCategory = findInNumCategories(textPart);
             if (numCategory != null) {
+                // 2.a Si está en una categoría de "num"-->Asignar el token a esa categoría y agregar a wordDataList.
                 createAndAddWordData(numCategory, label, wordDataList);
+
             } else {
+                // 2.b Si no está en "num", buscar en categorías "lex"
                 String lexCategory = findInLexCategories(textPart);
+                    // Verificar si la palabra pertenece a una categoría léxica.
                 if (lexCategory != null) {
+                    // 2.b.1 Si está en una categoría léxica
+                    // Asignar la categoría léxica y agregar a wordDataList.
                     createAndAddWordData(lexCategory, label, wordDataList);
                 } else {
+                    // 2.b.2 Si no está en ninguna categoría
+                    // Crear un nuevo WordData con la palabra como texto y el label del mensaje.
                     createAndAddWordData(textPart, label, wordDataList);
                 }
             }
         }
+        //********************************************
+        //* * * *  3. Procesar la parte numérica * * * *
+        //*********************************************
 
-        // 3. Procesar la parte numérica
+        // Evaluar si el número es numlow o numhigh, y crear WordData correspondiente.
         if (!numberPart.isEmpty()) {
             String numType = Integer.parseInt(numberPart) > 999 ? "numhigh" : "numlow";
             createAndAddWordData(numType, label, wordDataList);
         }
-    }
 
-        private static void createAndAddWordData(String word, String label, List<WordData> wordDataList) {
-            WordData wordData = new WordData(word); // Crear un objeto WordData
-            updateWordDataFrequency(wordData, label); // Actualizar la frecuencia según el label (spam/ham)
-            wordDataList.add(wordData); // Agregar a la lista wordDataList
-        }
-
-        // 2. Buscar la parte textual en las categorías de lexemas
-        // Verificar si la palabra está en una categoría que comienza con "num".
-
-
-        // 2.a Si está en una categoría de "num"
-        // Asignar todo el token a esa categoría y agregar a wordDataList.
-
-        // 2.b Si no está en "num", buscar en categorías "lex"
-        // Verificar si la palabra pertenece a una categoría léxica.
-
-        // 2.b.1 Si está en una categoría léxica
-        // Asignar la categoría léxica y agregar a wordDataList.
-
-        // 2.b.2 Si no está en ninguna categoría
-        // Crear un nuevo WordData con la palabra como texto y el label del mensaje.
-
-        // 3. Procesar la parte numérica
-        // Evaluar si el número es numlow o numhigh, y crear WordData correspondiente.
 
         // 4. Agregar ambos objetos WordData a wordDataList
         // Asegurarse de que tanto el texto como el número se procesen y agreguen correctamente.
 
-
     }
 
+
+
+private static void createAndAddWordData(String word, String label, List<WordData> wordDataList) {
+    WordData wordData = new WordData(word); // Crear un objeto WordData
+    updateWordDataFrequency(wordData, label); // Actualizar la frecuencia según el label (spam/ham)
+    wordDataList.add(wordData); // Agregar a la lista wordDataList
+}
 
 
     public static List<ProcessedMessage> simpleProcess(List<String[]> rawRows) {

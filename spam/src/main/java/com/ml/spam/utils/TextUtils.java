@@ -117,7 +117,7 @@ public class TextUtils {
     }
 
 
-    public static List<String> tokenizeMessage(String message) {
+    public static List<String> splitMessageAndLowercase(String message) {
         return Arrays.asList(message.toLowerCase().split("\\s+"));
     }
 
@@ -184,6 +184,23 @@ public class TextUtils {
         return Normalizer.normalize(input, Normalizer.Form.NFD)
                 .replaceAll("\\p{M}", ""); // Eliminar marcas diacríticas
     }
+
+    public static boolean containsNumber(String token) {
+        return token != null && token.matches(".*\\d.*");
+    }
+
+    public static String[] splitNumberAndText(String token) {
+        // 1. Extraer la parte numérica (solo dígitos).
+        String numberPart = token.replaceAll("[^0-9]", "");
+
+        // 2. Extraer la parte textual (solo letras y símbolos).
+        String textPart = token.replaceAll("[0-9]", "");
+
+        // 3. Retornar ambas partes como un arreglo.
+        return new String[]{numberPart, textPart};
+    }
+
+
 
 
     public static String[] splitRareSymbolsAndNumbers(String token) {

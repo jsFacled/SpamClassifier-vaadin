@@ -1,26 +1,25 @@
 package com.ml.spam.dictionary.models;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * SpamDictionary:
- * Clase Singleton que gestiona un diccionario compuesto por:
- * - Palabras categorizadas (`categorizedWords`) organizadas por WordCategory.
- * - Pares acentuados/no acentuados (`accentPairs`).
+ * Clase Singleton que gestiona un diccionario que incluye:
+ * - Palabras categorizadas organizadas en `categorizedWords` según WordCategory.
+ * - Un mapa de pares acentuados/no acentuados (`accentPairs`) para búsquedas rápidas.
+ * - Diccionario de lexemas (`categoryLexemes`) organizado por categorías específicas.
  */
 public class SpamDictionary {
     // Instancia única de la clase (Singleton)
     private static final SpamDictionary instance = new SpamDictionary();
 
     // Palabras categorizadas organizadas por categoría
-    private final Map<WordCategory, Map<String, WordData>> categorizedWords = new TreeMap<>();
+    private final Map<WordCategory, Map<String, WordData>> categorizedWords = new HashMap<>();
+    // Diccionario de lexemas organizados por categoría (ejemplo: numdim, lexcal, etc.)
+    private final Map<String, List<String>> categoryLexemes = new HashMap<>();
 
-
-    // Lista de pares acentuados/no acentuados
-    // Nota: accentPairs se almacena como List para flexibilidad (e.g., preservar orden o manejar duplicados).
-    // Para operaciones frecuentes de búsqueda, es recomendable convertirla a Map (palabraAcentuada -> Pair) cuando sea necesario.
-    private List<Pair> accentPairs = new ArrayList<>();
+    // Mapa de pares acentuados/no acentuados para búsquedas rápidas
+    private final Map<String, Pair> accentPairs = new HashMap<>();
 
     /**
      * Constructor privado para inicializar el Singleton.
@@ -90,28 +89,21 @@ public class SpamDictionary {
         return false;
     }
 
-
     // ============================
     // Métodos para Pares Acentuados
     // ============================
 
-    public List<Pair> getAccentPairs() {
-        return accentPairs;
+    public Pair getAccentPair(String accentedWord) {
+        return accentPairs.get(accentedWord);
     }
 
-    public void setAccentPairs(List<Pair> accentPairs) {
-        this.accentPairs = accentPairs;
+    public void addAccentPair(String accented, String nonAccented, WordCategory category) {
+        accentPairs.put(accented, new Pair(accented, nonAccented, category));
     }
 
-    /**
-     * Convierte accentPairs a un Map para búsquedas rápidas (palabraAcentuada -> Pair).
-     * Recomendado para operaciones frecuentes donde se consulten pares acentuados.
-     *
-     * @return Un Map de palabra acentuada a su par correspondiente.
-     */
-    public Map<String, Pair> getAccentPairsAsMap() {
-        return accentPairs.stream()
-                .collect(Collectors.toMap(Pair::accented, pair -> pair));
+    public void initializeAccentPairs(Map<String, Pair> pairs) {
+        accentPairs.clear();
+        accentPairs.putAll(pairs);
     }
 
     // ============================
@@ -121,24 +113,16 @@ public class SpamDictionary {
     /**
      * Inicializa el diccionario completo: palabras categorizadas y pares acentuados.
      * @param categorizedWords Mapa de palabras categorizadas.
-     * @param accentPairs Lista de pares acentuados/no acentuados.
+     * @param accentPairs Mapa de pares acentuados/no acentuados.
      */
-    public void initialize(Map<WordCategory, Map<String, WordData>> categorizedWords, List<Pair> accentPairs) {
+    public void initialize(Map<WordCategory, Map<String, WordData>> categorizedWords, Map<String, Pair> accentPairs) {
         this.categorizedWords.clear();
         this.categorizedWords.putAll(categorizedWords);
 
         this.accentPairs.clear();
-        this.accentPairs.addAll(accentPairs);
+        this.accentPairs.putAll(accentPairs);
     }
 
-    // ============================
-    // Validaciones
-    // ============================
-
-    /**
-     * Verifica si el diccionario está completamente cargado.
-     * @return True si contiene palabras categorizadas y pares acentuados.
-     */
     public boolean isFullyInitialized() {
         return !categorizedWords.isEmpty() && !accentPairs.isEmpty();
     }

@@ -97,7 +97,7 @@ public class JsonUtils {
      * @return Un Map con WordCategory como clave y una lista de palabras como valor.
      */
     public static Map<WordCategory, List<String>> jsonToCategoryMap(JSONObject jsonObject) {
-        Map<WordCategory, List<String>> categoryMap = new TreeMap<>();
+        Map<WordCategory, List<String>> categoryMap = new HashMap<>();
 
         for (WordCategory category : WordCategory.values()) {
             if (jsonObject.has(category.name().toLowerCase())) {

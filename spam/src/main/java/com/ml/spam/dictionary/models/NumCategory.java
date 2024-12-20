@@ -3,7 +3,7 @@ package com.ml.spam.dictionary.models;
 public enum NumCategory {
     NUM_DIM("numdim"),       // Dimensiones y medidas (kg, L, cm, m²)
     NUM_CAL("numcal"),       // Tiempo y fechas (15 hs, 30 min, 12-06-2024)
-    NUM_MONEY("numm"),       // Cantidades monetarias ($50, €100)
+    NUM_MONEY("nummon"),       // Cantidades monetarias ($50, €100)
     NUM_STAT("numstat"),     // Estadísticas y porcentajes (80%, promedio 4.5)
     NUM_COD("numcod"),       // Códigos y referencias (REF123, 456789)
     NUM_URL("numurl"),       // Enlaces con números (http://offer123.com)

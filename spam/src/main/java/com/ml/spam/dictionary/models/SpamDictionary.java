@@ -42,6 +42,17 @@ public class SpamDictionary {
     // ============================
     // Métodos para Palabras Categorizadas
     // ============================
+    /**
+     * Devuelve la cantidad de palabras en cada categoría de `categorizedWords`.
+     * @return Un mapa donde la clave es la categoría y el valor es la cantidad de palabras.
+     */
+    public Map<WordCategory, Integer> getCategoryCounts() {
+        Map<WordCategory, Integer> categoryCounts = new HashMap<>();
+        for (Map.Entry<WordCategory, Map<String, WordData>> entry : categorizedWords.entrySet()) {
+            categoryCounts.put(entry.getKey(), entry.getValue().size());
+        }
+        return categoryCounts;
+    }
 
     public Map<String, WordData> getCategory(WordCategory category) {
         return categorizedWords.get(category);

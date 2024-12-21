@@ -1,18 +1,19 @@
-package com.ml.spam.handlers;
+package com.ml.spam.dictionary.models;
 
-import com.ml.spam.dictionary.models.LexCategory;
-import com.ml.spam.dictionary.models.NumCategory;
 import org.json.JSONObject;
 
 import java.util.*;
 
-public class LexemeHandler {
+public class LexemeDictionary {
 
-    private final Map<LexCategory, Set<String>> lexemes;
+    private final Map<LexCategory, Set<String>> textLexemes;
     private final Map<NumCategory, Set<String>> numLexemes;
+    private final Map<String, Set<String>> contextualLexemes;
 
-    public LexemeHandler() {
-        lexemes = new HashMap<>();
+
+    public LexemeDictionary() {
+        contextualLexemes = new HashMap<>();
+        textLexemes = new HashMap<>();
         numLexemes = new HashMap<>();
     }
 
@@ -20,7 +21,7 @@ public class LexemeHandler {
     public void loadLexemesFromJson(JSONObject json) {
         for (LexCategory category : LexCategory.values()) {
             Set<String> words = new HashSet<>(jsonArrayToSet(json.optJSONArray(category.getName())));
-            lexemes.put(category, words);
+            textLexemes.put(category, words);
         }
 
         for (NumCategory category : NumCategory.values()) {
@@ -31,7 +32,7 @@ public class LexemeHandler {
 
     // Busca en categorías de lexemas
     public String findInLexCategories(String token) {
-        for (Map.Entry<LexCategory, Set<String>> entry : lexemes.entrySet()) {
+        for (Map.Entry<LexCategory, Set<String>> entry : textLexemes.entrySet()) {
             if (entry.getValue().contains(token)) {
                 return entry.getKey().getName();
             }
@@ -67,8 +68,8 @@ public class LexemeHandler {
     }
 
     // Obtener todos los lexemas para depuración o análisis
-    public Map<LexCategory, Set<String>> getLexemes() {
-        return Collections.unmodifiableMap(lexemes);
+    public Map<LexCategory, Set<String>> getTextLexemes() {
+        return Collections.unmodifiableMap(textLexemes);
     }
 
     public Map<NumCategory, Set<String>> getNumLexemes() {

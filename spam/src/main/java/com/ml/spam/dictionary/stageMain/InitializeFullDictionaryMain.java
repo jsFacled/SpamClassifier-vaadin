@@ -22,8 +22,8 @@ public class InitializeFullDictionaryMain {
         System.out.println("=== Diccionarios Inicializados Correctamente ===");
 
         // Mostrar el contenido inicializado
-        service.displayCategorizedWordsInDictionary();
-        DictionarySummaryReport.displayLexemesReport();
+        service.displayFullReport();
+
 
     }
 }

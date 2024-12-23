@@ -138,6 +138,16 @@ public class SpamDictionary {
         }
     }
 
+    public boolean containsWord(String token) {
+        // todo metodo a implementar cuando se realice el update
+        return true;
+    }
+
+    public Map<WordCategory, Map<String, WordData>> getAllCategorizedWords() {
+        // Retorna un mapa inmutable para proteger la integridad de los datos internos
+        return Collections.unmodifiableMap(categorizedWords);
+    }
+
     // ============================
     // Clase Interna: Pair
     // ============================

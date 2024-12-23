@@ -67,11 +67,12 @@ public class JsonUtils {
      */
     public static void validateWordCategoryJsonStructure(JSONObject jsonObject) {
         for (WordCategory category : WordCategory.values()) {
-            if (!jsonObject.has(category.name().toLowerCase())) {
-                throw new IllegalArgumentException("Falta la categoría: " + category.name().toLowerCase());
+            if (!jsonObject.has(category.getJsonKey())) {
+                throw new IllegalArgumentException("Falta la categoría: " + category.getJsonKey());
             }
         }
     }
+
 
     //Valida que las frecuencias estén en cero
     public static void validateJsonFrequenciesZero(JSONObject jsonObject) {
@@ -175,6 +176,17 @@ public class JsonUtils {
             }
         }
         System.out.println("[INFO] Todas las categorías principales están presentes en el JSON.");
+    }
+    public static Map<LexemeRepositoryCategories, Set<String>> jsonToLexemeMap(JSONObject jsonObject) {
+        Map<LexemeRepositoryCategories, Set<String>> lexemesMap = new HashMap<>();
+        for (LexemeRepositoryCategories category : LexemeRepositoryCategories.values()) {
+            JSONArray categoryArray = jsonObject.optJSONArray(category.getJsonKey());
+            if (categoryArray != null) {
+                Set<String> lexemesSet = new HashSet<>(jsonArrayToStringList(categoryArray));
+                lexemesMap.put(category, lexemesSet);
+            }
+        }
+        return lexemesMap;
     }
 
 }

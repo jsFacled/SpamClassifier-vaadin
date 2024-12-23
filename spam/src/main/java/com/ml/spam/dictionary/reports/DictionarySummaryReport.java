@@ -1,11 +1,13 @@
 package com.ml.spam.dictionary.reports;
 
+import com.ml.spam.dictionary.models.LexemeRepositoryCategories;
 import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.models.WordCategory;
 import com.ml.spam.dictionary.models.WordData;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
 
 import java.util.Map;
+import java.util.Set;
 
 /**
  * The DictionarySummaryReport class provides a structured and concise way
@@ -64,7 +66,7 @@ public class DictionarySummaryReport {
 
         // Obtener el diccionario y sus categorías
         SpamDictionary dictionary = service.getDictionary();
-        Map<WordCategory, Map<String, WordData>> allCategories = dictionary.getAllCategories();
+        Map<WordCategory, Map<String, WordData>> allCategories = dictionary.getAllCategorizedWords();
 
 
         int totalWords = 0; // Acumulador para el total de palabras
@@ -87,4 +89,45 @@ public class DictionarySummaryReport {
     public static void displayLexemesReport() {
         //implementar metod
     }
+
+    public static void displayFullReport(SpamDictionaryService spamDictionaryService) {
+        System.out.println("\n=== Full Dictionary Report ===");
+
+        // Obtener el diccionario y sus categorías
+        SpamDictionary dictionary = spamDictionaryService.getDictionary();
+        Map<WordCategory, Map<String, WordData>> allCategories = dictionary.getAllCategorizedWords();
+
+        // Iterar sobre cada categoría y mostrar detalles
+        for (WordCategory category : allCategories.keySet()) {
+            Map<String, WordData> wordsInCategory = allCategories.get(category);
+            System.out.printf("\nCategory: %s -> Total Words: %d%n", category.name(), wordsInCategory.size());
+
+            if (wordsInCategory.isEmpty()) {
+                System.out.println(" - No words in this category.");
+            } else {
+                System.out.println(" - Words and frequencies:");
+                wordsInCategory.forEach((word, data) ->
+                        System.out.printf("   * %s -> Spam Frequency: %d, Ham Frequency: %d%n",
+                                word, data.getSpamFrequency(), data.getHamFrequency()));
+            }
+        }
+
+        // Mostrar la cantidad de Accent Pairs
+        Map<String, SpamDictionary.Pair> accentPairs = dictionary.getAccentPairs();
+        System.out.println("\nAccent Pairs Count: " + accentPairs.size());
+
+        // Mostrar la cantidad de lexemas por categoría
+        Map<LexemeRepositoryCategories, Set<String>> lexemesRepository = dictionary.getLexemesRepository();
+        System.out.println("\nLexeme Categories:");
+        lexemesRepository.forEach((category, lexemes) ->
+                System.out.printf(" - %s: %d lexemes%n", category.name(), lexemes.size()));
+
+        // Resumen adicional
+        int totalWords = allCategories.values().stream().mapToInt(Map::size).sum();
+        System.out.println("\nSummary:");
+        System.out.println(" - Total Categories: " + allCategories.size());
+        System.out.println(" - Total Words in Dictionary: " + totalWords);
+        System.out.println("=== End of Full Report ===\n");
+    }
+
 }

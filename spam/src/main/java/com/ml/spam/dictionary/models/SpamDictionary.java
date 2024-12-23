@@ -16,10 +16,11 @@ public class SpamDictionary {
     // Palabras categorizadas organizadas por categoría
     private final Map<WordCategory, Map<String, WordData>> categorizedWords = new HashMap<>();
     // Diccionario de lexemas organizados por categoría (ejemplo: numdim, lexcal, etc.)
-    private final Map<String, List<String>> categoryLexemes = new HashMap<>();
+    //private final Map<String, List<String>> categoryLexemes = new HashMap<>();
 
     // Mapa de pares acentuados/no acentuados para búsquedas rápidas
     private final Map<String, Pair> accentPairs = new HashMap<>();
+
 
     /**
      * Constructor privado para inicializar el Singleton.
@@ -42,6 +43,10 @@ public class SpamDictionary {
     // ============================
     // Métodos para Palabras Categorizadas
     // ============================
+
+    public Map<WordCategory, Map<String, WordData>> getCategorizedWords() {
+        return categorizedWords;
+    }
     /**
      * Devuelve la cantidad de palabras en cada categoría de `categorizedWords`.
      * @return Un mapa donde la clave es la categoría y el valor es la cantidad de palabras.
@@ -103,6 +108,12 @@ public class SpamDictionary {
     // ============================
     // Métodos para Pares Acentuados
     // ============================
+
+
+    public Map<String, Pair> getAccentPairs() {
+        return accentPairs;
+    }
+
 
     public Pair getAccentPair(String accentedWord) {
         return accentPairs.get(accentedWord);

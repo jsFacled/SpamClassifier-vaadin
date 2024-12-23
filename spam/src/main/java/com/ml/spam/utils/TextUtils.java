@@ -232,4 +232,9 @@ public class TextUtils {
     }
 
 
+    public static boolean isWord(String token) {
+        //todo comletar metod
+        var variable_a_revisar=true;
+        return variable_a_revisar;
+    }
 }

@@ -41,66 +41,16 @@ public class MessageProcessor {
 
 
     private static List<WordData> processValidRow(String[] row) {
-        // 1. Validar entrada
-        if (row == null || row.length != 2) {
-            throw new IllegalArgumentException("La fila es nula o no tiene el formato esperado (mensaje, etiqueta).");
-        }
+        return null;
+    }
 
-        // 2. Extraer mensaje y etiqueta
-        String message = row[0].trim(); // Extraer y limpiar el mensaje
-        String label = row[1].trim();   // Extraer y limpiar la etiqueta
+    private static void processRareSymbolToken(String token, List<WordData> wordDataList, String label) {
+    }
 
-        // 3. Inicializar estructuras de salida
-        // Crear una lista para almacenar los objetos WordData generados.
-        List<WordData> wordDataList = new ArrayList<>();
+    private static void processWordToken(String token, List<WordData> wordDataList, String label) {
+    }
 
-
-
-        // 4. Tokenizar el mensaje
-        // Dividir el mensaje en tokens utilizando la lógica de tokenización.
-        List<String> tokens = TextUtils.splitMessageAndLowercase(message);
-
-        // 5. Iterar sobre los tokens
-        for (String token : tokens) {
-            // Primero, verificar si el token contiene números
-            if (TextUtils.containsNumber(token)) {
-                processNumberToken(token, wordDataList, label); // Procesar números o texto con números
-            }
-            // Si no contiene números, verificar si tiene tilde
-            else if (TextUtils.hasAccent(token)) {
-                processTokenWithTilde(token, wordDataList, label); // Procesar tokens con tilde
-            }
-            // Si no contiene números ni tilde, procesar como palabra principal
-            else if (TextUtils.isWord(token)) {
-                processWordToken(token, wordDataList, label); // Procesar palabras normales
-            }
-            // Finalmente, procesar símbolos raros
-            else {
-                processRareSymbolToken(token, wordDataList, label); // Procesar símbolos raros
-            }
-        }
-
-
-        // 5. Iterar sobre los tokens
-// Analizar cada token para identificar su categoría o características y convertirlo en un objeto WordData.
-
-// 5.a Detectar y procesar tilde
-// Verificar si el token tiene tilde. Si es así, decidir si se agrega directamente o se normaliza antes de procesarlo.
-
-// 5.b Procesar números
-// Detectar tokens que contengan números y clasificarlos según NumCategory o dividir texto y números para procesarlos por separado.
-
-// 5.c Identificar palabras principales
-// Detectar palabras normales (sin números ni símbolos) y agregar a wordDataList.
-
-// 5.d Procesar símbolos raros
-// Identificar caracteres no alfanuméricos, clasificarlos, y agregarlos a wordDataList.
-
-
-
-
-        // 6. Retornar la lista de WordData
-        return wordDataList;
+    private static void processTokenWithTilde(String token, List<WordData> wordDataList, String label) {
     }
 
     public static void processNumberToken(String token, List<WordData> wordDataList, String label) {
@@ -152,9 +102,16 @@ public class MessageProcessor {
 
     }
 
+    private static String findInLexCategories(String textPart) {
+        return "revisar metodo";//todo revisar metodo
+    }
+
+    private static String findInNumCategories(String textPart) {
+        return "revisar metodo";//todo revisar metodo
+    }
 
 
-private static void createAndAddWordData(String word, String label, List<WordData> wordDataList) {
+    private static void createAndAddWordData(String word, String label, List<WordData> wordDataList) {
     WordData wordData = new WordData(word); // Crear un objeto WordData
     updateWordDataFrequency(wordData, label); // Actualizar la frecuencia según el label (spam/ham)
     wordDataList.add(wordData); // Agregar a la lista wordDataList

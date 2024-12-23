@@ -66,6 +66,7 @@ public class DictionarySummaryReport {
         SpamDictionary dictionary = service.getDictionary();
         Map<WordCategory, Map<String, WordData>> allCategories = dictionary.getAllCategories();
 
+
         int totalWords = 0; // Acumulador para el total de palabras
 
         // Mostrar un resumen por categoría
@@ -81,5 +82,9 @@ public class DictionarySummaryReport {
         System.out.println("\nTotal Categories: " + allCategories.size());
         System.out.println("Total Words in Dictionary: " + totalWords);
         System.out.println("=== End of Summary ===\n");
+    }
+
+    public static void displayLexemesReport() {
+        //implementar metod
     }
 }

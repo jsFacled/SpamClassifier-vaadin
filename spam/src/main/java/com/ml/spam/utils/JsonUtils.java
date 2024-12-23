@@ -1,5 +1,6 @@
 package com.ml.spam.utils;
 
+import com.ml.spam.dictionary.models.LexemeDictionaryCategory;
 import com.ml.spam.dictionary.models.WordCategory;
 import com.ml.spam.dictionary.models.WordData;
 import org.json.JSONArray;
@@ -161,4 +162,19 @@ public class JsonUtils {
         });
         return jsonCategory;
     }
+
+    /**
+     * // LEXEMES
+     */
+    public static void validateLexemeJsonStructure(JSONObject jsonObject) {
+        for (LexemeDictionaryCategory category : LexemeDictionaryCategory.values()) {
+            if (!jsonObject.has(category.getJsonKey())) {
+                throw new IllegalArgumentException(
+                        "Validación fallida: Falta la categoría principal '" + category.getJsonKey() + "' en el JSON proporcionado."
+                );
+            }
+        }
+        System.out.println("[INFO] Todas las categorías principales están presentes en el JSON.");
+    }
+
 }

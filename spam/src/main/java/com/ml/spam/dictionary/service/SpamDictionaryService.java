@@ -3,6 +3,7 @@ package com.ml.spam.dictionary.service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ml.spam.datasetProcessor.MessageProcessor;
+import com.ml.spam.dictionary.models.LexemeDictionary;
 import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.models.WordCategory;
 import com.ml.spam.dictionary.models.WordData;
@@ -27,11 +28,13 @@ import java.util.stream.Collectors;
 public class SpamDictionaryService {
 
     private final SpamDictionary dictionary;
+    private final LexemeDictionary lexemeDictionary;
     private final ResourcesHandler resourcesHandler;
 
     public SpamDictionaryService() {
         this.resourcesHandler = new ResourcesHandler();
         this.dictionary = SpamDictionary.getInstance();
+       this.lexemeDictionary = new LexemeDictionary();
     }
 
     /**
@@ -143,7 +146,7 @@ public class SpamDictionaryService {
     //Inicializa solamente si las frecuencias están en cero
     ////Importante!!:No Carga los Pares Acentuados ya que no intervienen en esta etapa
 
-    public void initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(String catWordsPath, String pairsFilePath) {
+    public void initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(String catWordsPath, String pairsFilePath, String lexemePath) {
         try {
             /**
              * // CATEGORIZED WORDS
@@ -175,8 +178,27 @@ public class SpamDictionaryService {
                 throw new IllegalStateException("No se pudieron cargar los pares acentuados.");
             }
 
+
+// Convertir la lista de pares a un mapa antes de inicializar
+            Map<String, SpamDictionary.Pair> accentPairsMap = accentPairs.stream()
+                    .collect(Collectors.toMap(SpamDictionary.Pair::accented, pair -> pair));
+
+// Inicializar el mapa de pares acentuados en el diccionario
+            dictionary.initializeAccentPairs(accentPairsMap);
+
             // Almacenar los pares acentuados en el diccionario
-            dictionary.setAccentPairs(accentPairs);
+
+            dictionary.initializeAccentPairs(accentPairsMap);
+
+            /**
+             * // LEXEMES
+             */
+
+            initializeLexemes(lexemePath);
+
+            /**
+             * // Info en consola y reportes
+             */
 
             System.out.println("\n [INFO] Diccionario inicializado correctamente con CATEGORIZED WORDS y ACCENT PAIRS.");
             System.out.println("[DEPURACION 1] * * * * * Muestro el dictionary en memoria luego de inicializar todo: \n");
@@ -184,6 +206,27 @@ public class SpamDictionaryService {
             System.out.println("[fin DEPURACION 1] * * * * * ");
         } catch (Exception e) {
             throw new RuntimeException("Error al inicializar y validar el diccionario: " + e.getMessage(), e);
+        }
+    }
+
+    public void initializeLexemes(String lexemePath) {
+        try {
+            System.out.println("[INFO] Iniciando carga de lexemas desde: " + lexemePath);
+
+            // Leer el archivo JSON de lexemas
+            JSONObject lexemeJson = resourcesHandler.loadJson(lexemePath);
+
+            // Validar la estructura del JSON
+            JsonUtils.validateLexemeJsonStructure(lexemeJson);
+
+            // Inicializar el LexemeDictionary
+            lexemeDictionary.loadLexemesFromJson(lexemeJson);
+
+            System.out.println("[INFO] LexemeDictionary inicializado correctamente.");
+        } catch (IllegalArgumentException e) {
+            throw new RuntimeException("Error en la validación del archivo de lexemas: " + e.getMessage(), e);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al inicializar los lexemas desde el archivo: " + lexemePath, e);
         }
     }
 
@@ -305,7 +348,7 @@ public class SpamDictionaryService {
                 .toList();
 
         // Convertir accentPairs a un mapa para búsquedas rápidas
-        Map<String, SpamDictionary.Pair> accentPairMap = dictionary.getAccentPairsAsMap();
+        Map<String, SpamDictionary.Pair> accentPairMap = dictionary.getAccentPairs();
 
         // Procesar cada WordData
         for (WordData wordData : flattenedWordData) {

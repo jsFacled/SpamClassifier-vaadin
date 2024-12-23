@@ -8,6 +8,7 @@ import java.io.IOException;
 
 public class DictionaryZeroInitializationAndUpdateTest {
     private static final String catWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
+    private static final String lexemePath = FilePathsConfig.LEXEMES_JSON_PATH;
     private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
 private static final String testMessagesFilePath = FilePathsConfig.TEST_CSV_DATA_PATH;
     private static final String messagesProcessedFilePath = FilePathsConfig.TEST_CSV_ESPAÑOL_DATA_PATH;
@@ -28,7 +29,7 @@ private static final String prueba_catWords = "static/dictionary/test_catWord_ze
  */
 
         // Inicializar el diccionario desde el JSON
-        service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(prueba_catWords,accentPairsPath);
+        service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(prueba_catWords,accentPairsPath, lexemePath);
 
         // Mostrar los Map de SpamDictionary para chequear que se haya inicializado correctamente
         service.displayCategorizedWordsInDictionary();

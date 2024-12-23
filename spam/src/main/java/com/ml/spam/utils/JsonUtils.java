@@ -1,6 +1,6 @@
 package com.ml.spam.utils;
 
-import com.ml.spam.dictionary.models.LexemeDictionaryCategory;
+import com.ml.spam.dictionary.models.LexemeRepositoryCategories;
 import com.ml.spam.dictionary.models.WordCategory;
 import com.ml.spam.dictionary.models.WordData;
 import org.json.JSONArray;
@@ -167,7 +167,7 @@ public class JsonUtils {
      * // LEXEMES
      */
     public static void validateLexemeJsonStructure(JSONObject jsonObject) {
-        for (LexemeDictionaryCategory category : LexemeDictionaryCategory.values()) {
+        for (LexemeRepositoryCategories category : LexemeRepositoryCategories.values()) {
             if (!jsonObject.has(category.getJsonKey())) {
                 throw new IllegalArgumentException(
                         "Validación fallida: Falta la categoría principal '" + category.getJsonKey() + "' en el JSON proporcionado."

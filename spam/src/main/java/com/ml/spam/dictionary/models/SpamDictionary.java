@@ -15,11 +15,13 @@ public class SpamDictionary {
 
     // Palabras categorizadas organizadas por categoría
     private final Map<WordCategory, Map<String, WordData>> categorizedWords = new HashMap<>();
+    // Mapa de pares acentuados/no acentuados para búsquedas rápidas
+    private final Map<String, Pair> accentPairs = new HashMap<>();
+
     // Diccionario de lexemas organizados por categoría (ejemplo: numdim, lexcal, etc.)
     //private final Map<String, List<String>> categoryLexemes = new HashMap<>();
 
-    // Mapa de pares acentuados/no acentuados para búsquedas rápidas
-    private final Map<String, Pair> accentPairs = new HashMap<>();
+
 
 
     /**
@@ -151,7 +153,7 @@ public class SpamDictionary {
 
     // ============================
     // Clase Interna: Pair
-    // ============================
 
+    // ============================
     public record Pair(String accented, String nonAccented, WordCategory category) {}
 }

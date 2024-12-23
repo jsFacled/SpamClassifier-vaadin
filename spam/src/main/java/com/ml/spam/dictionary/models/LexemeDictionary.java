@@ -5,7 +5,6 @@ import org.json.JSONObject;
 import java.util.*;
 
 public class LexemeDictionary {
-
     private final Map<LexCategory, Set<String>> textLexemes;
     private final Map<NumCategory, Set<String>> numLexemes;
     private final Map<String, Set<String>> contextualLexemes;

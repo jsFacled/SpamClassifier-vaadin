@@ -9,10 +9,10 @@ import java.io.IOException;
 public class DictionaryZeroInitializationAndUpdateMain {
     private static final String catWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
     private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
+    private static final String  lexemePath=FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+
     private static final String testMessagesFilePath = FilePathsConfig.TEST_CSV_DATA_PATH;
     private static final String testCatWords = "static/dictionary/test_catWord_zero.json";
-//todo asignar lexemepath
-    private static final String  lexemePath="";
 
     public static void main(String[] args) throws IOException {
         SpamDictionaryService service = new SpamDictionaryService();
@@ -30,14 +30,14 @@ public class DictionaryZeroInitializationAndUpdateMain {
  */
 
         // Inicializar el diccionario desde el JSON
-        service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(catWordsPath, accentPairsPath, lexemePath);
+        service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(testCatWords, accentPairsPath, lexemePath);
 
         // Mostrar los Map de SpamDictionary para chequear que se haya inicializado correctamente
         service.displayCategorizedWordsInDictionary();
 
         System.out.println(" *  *  *  *  *  //  //  //  //  //  //  // Solicitando Actualización . . . . . . . . . . . . . . . .. . . . . . . . . . . .\n");
 
-
+/*
         // Solicitar la actualización del diccionario al service
         service.updateDictionary(testMessagesFilePath);
         System.out.println(" *  *  *  *  *  //  //  //  //  //  //  // //  //  //  Actualización finalizada ! ! ! ! !\n");
@@ -45,7 +45,7 @@ public class DictionaryZeroInitializationAndUpdateMain {
 
         // Mostrar SpamDictionary actualizado
         service.displayCategorizedWordsInDictionary();
-
+*/
         // Mostrar el informe del diccionario actualizado
         DictionarySummaryReport.displaySummaryReport(service);
 

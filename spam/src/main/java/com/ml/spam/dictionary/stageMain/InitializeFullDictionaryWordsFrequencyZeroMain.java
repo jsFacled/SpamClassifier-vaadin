@@ -3,7 +3,7 @@ package com.ml.spam.dictionary.stageMain;
 import com.ml.spam.config.FilePathsConfig;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
 
-public class InitializeFullDictionaryMain {
+public class InitializeFullDictionaryWordsFrequencyZeroMain {
 
     private static final String catWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
     private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
@@ -25,4 +25,6 @@ public class InitializeFullDictionaryMain {
 
 
     }
+
+
 }

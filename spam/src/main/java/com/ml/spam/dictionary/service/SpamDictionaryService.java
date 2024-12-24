@@ -150,7 +150,7 @@ public class SpamDictionaryService {
      */
     public void initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(String catWordsPath, String pairsFilePath, String lexemePath) {
         try {
-            initializeCategorizedWords(catWordsPath);
+            initializeCategorizedWordsZeroFrequencies(catWordsPath);
             initializeAccentPairs(pairsFilePath);
             initializeLexemes(lexemePath);
 
@@ -161,11 +161,11 @@ public class SpamDictionaryService {
         }
     }
 
-    private void initializeCategorizedWords(String catWordsPath) {
+    private void initializeCategorizedWordsZeroFrequencies(String catWordsPath) {
         JSONObject jsonObject = resourcesHandler.loadJson(catWordsPath);
         JsonUtils.validateJsonFrequenciesZero(jsonObject);
 
-        initializeCategorizedWordsFromJson(catWordsPath);
+        initializeCategorizedWordsFromJsonPath(catWordsPath);
 
         if (!dictionary.areFrequenciesZero()) {
             throw new IllegalStateException("Categorized Words contiene frecuencias no inicializadas a cero.");
@@ -209,7 +209,11 @@ public class SpamDictionaryService {
     }
 
 
-    public void initializeCategorizedWordsFromJson(String filePath) {
+    public JSONObject loadJson(String filePath){
+        // Cargar el JSON desde el archivo
+        return resourcesHandler.loadJson(filePath);
+    }
+    public void initializeCategorizedWordsFromJsonPath(String filePath) {
         try {
             // Cargar el JSON desde el archivo
             JSONObject jsonObject = resourcesHandler.loadJson(filePath);
@@ -219,42 +223,14 @@ public class SpamDictionaryService {
 
             // Iterar sobre las categorías y actualizar el diccionario
             for (WordCategory category : WordCategory.values()) {
-                JSONObject categoryJson = jsonObject.optJSONObject(category.name().toLowerCase());
+                // Usar el jsonKey en lugar del nombre del enum
+                JSONObject categoryJson = jsonObject.optJSONObject(category.getJsonKey());
                 if (categoryJson != null) {
                     // Ordenar las claves del JSON
                     List<String> sortedKeys = new ArrayList<>(categoryJson.keySet());
                     Collections.sort(sortedKeys);
 
                     for (String word : sortedKeys) {
-                        JSONObject frequencies = categoryJson.getJSONObject(word);
-                        int spamFrequency = frequencies.getInt("spamFrequency");
-                        int hamFrequency = frequencies.getInt("hamFrequency");
-
-                        // Agregar la palabra al diccionario
-                        dictionary.addWordWithFrequencies(category, word, spamFrequency, hamFrequency);
-                    }
-                }
-            }
-
-            System.out.println("\n [INFO] Diccionario inicializado correctamente desde el archivo JSON.");
-        } catch (Exception e) {
-            throw new RuntimeException("Error al inicializar el diccionario: " + e.getMessage(), e);
-        }
-    }
-
-    public void initializeCategorizedWordsFromJsonVIEJO(String filePath) {
-        try {
-            // Cargar el JSON desde el archivo
-            JSONObject jsonObject = resourcesHandler.loadJson(filePath);
-
-            // Validar la estructura del JSON
-            JsonUtils.validateWordCategoryJsonStructure(jsonObject);
-
-            // Iterar sobre las categorías y actualizar el diccionario
-            for (WordCategory category : WordCategory.values()) {
-                JSONObject categoryJson = jsonObject.optJSONObject(category.name().toLowerCase());
-                if (categoryJson != null) {
-                    for (String word : categoryJson.keySet()) {
                         JSONObject frequencies = categoryJson.getJSONObject(word);
                         int spamFrequency = frequencies.getInt("spamFrequency");
                         int hamFrequency = frequencies.getInt("hamFrequency");

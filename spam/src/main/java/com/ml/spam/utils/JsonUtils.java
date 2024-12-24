@@ -71,6 +71,7 @@ public class JsonUtils {
             if (!jsonObject.has(category.getJsonKey())) {
                 throw new IllegalArgumentException("Falta la categoría: " + category.getJsonKey());
             }
+            System.out.println("[DEBUGG] Categorías en CategorizedWords validadas en json");
         }
     }
 

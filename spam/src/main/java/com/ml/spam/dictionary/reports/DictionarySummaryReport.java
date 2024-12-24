@@ -147,9 +147,9 @@ public class DictionarySummaryReport {
 
         // Resumen adicional
         int totalWords = allCategories.values().stream().mapToInt(Map::size).sum();
-        System.out.println("\nSummary:");
-        System.out.println(" - Total Categories: " + allCategories.size());
-        System.out.println(" - Total Words in Dictionary: " + totalWords);
+        System.out.println("\nCategorizedWords Summary:");
+        System.out.println(" - Total Categories in CategorizedWords: " + allCategories.size());
+        System.out.println(" - Total Words: " + totalWords);
         System.out.println("=== End of Full Report ===\n");
     }
 

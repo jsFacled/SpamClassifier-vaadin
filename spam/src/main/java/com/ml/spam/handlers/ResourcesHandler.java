@@ -164,14 +164,10 @@ public class ResourcesHandler {
      * @param invalidRows Lista de filas inválidas ignoradas.
      */
     private void showSummary(List<String[]> validRows, List<String> invalidRows) {
-        System.out.println("\n................. * * * SUMMARY: loadCsvFile * * * .......................... ");
+        System.out.println("\n [ REPORT INIT ]................. * * * SUMMARY: loadCsvFile * * * .......................... ");
         System.out.println("\n[INFO] Archivo procesado exitosamente.");
         System.out.println("[INFO] Número de filas válidas (incluyendo rescatadas): " + validRows.size());
 
-        System.out.println("[INFO] Contenido de las filas válidas:");
-        for (String[] row : validRows) {
-            System.out.println(String.join(" | ", row));
-        }
 
         if (!invalidRows.isEmpty()) {
             System.out.println("\n[WARNING] Número de filas inválidas ignoradas: " + invalidRows.size());
@@ -181,6 +177,7 @@ public class ResourcesHandler {
         } else {
             System.out.println("[INFO] No se encontraron filas inválidas.");
         }
+        System.out.println("\n [ REPORT END]................. * * * SUMMARY: loadCsvFile FINISHED * * * .......................... ");
     }
 
 

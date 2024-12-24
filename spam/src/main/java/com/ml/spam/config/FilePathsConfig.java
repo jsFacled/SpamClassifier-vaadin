@@ -9,7 +9,7 @@ public class FilePathsConfig {
     public static final String ACCENTED_PAIRS_JSON_PATH = "static/dictionary/accented_pairs.json";
 
     public static final String LEXEMES_JSON_PATH = "static/dictionary/lexemes.json";
-       public static final String LEXEMES_DICTIONARY_JSON_PATH = "static/dictionary/lexemes_dictionary.json";
+       public static final String LEXEMES_REPOSITORY_JSON_PATH = "static/dictionary/lexemes_repository.json";
 
     // Rutas relativas dentro de 'src/main/resources/static/datasets'
     public static final String TEST_CSV_DATA_PATH = "static/datasets/mensajes_pruebas.txt";

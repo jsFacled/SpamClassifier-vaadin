@@ -1,14 +1,13 @@
 package com.ml.spam.dictionary.stageMain;
 
 import com.ml.spam.config.FilePathsConfig;
-import com.ml.spam.dictionary.reports.DictionarySummaryReport;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
 
 public class InitializeFullDictionaryMain {
 
     private static final String catWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
     private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
-    private static final String lexemePath = FilePathsConfig.LEXEMES_DICTIONARY_JSON_PATH;
+    private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
 
     public static void main(String[] args) {
         // Crear instancia del servicio

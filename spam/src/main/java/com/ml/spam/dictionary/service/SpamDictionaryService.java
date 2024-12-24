@@ -150,83 +150,64 @@ public class SpamDictionaryService {
      */
     public void initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(String catWordsPath, String pairsFilePath, String lexemePath) {
         try {
-            /**
-             * // CATEGORIZED WORDS
-             */
-
-            // Leer y validar que las frecuencias sean cero antes de inicializar
-            JSONObject jsonObject = resourcesHandler.loadJson(catWordsPath);
-            JsonUtils.validateJsonFrequenciesZero(jsonObject);
-
-            // Inicializar categorizedWords desde el JSON
-            initializeCategorizedWordsFromJson(catWordsPath);
-
-            // Confirmar que las frecuencias son cero
-            if (!dictionary.areFrequenciesZero()) {
-                throw new IllegalStateException("Categorized Words contiene frecuencias no inicializadas a cero.");
-            }
-
-            /**
-             * // ACCENT PAIRS
-             */
-
-            // Cargar los pares acentuados desde el JSON
-            List<SpamDictionary.Pair> accentPairs = loadAccentPairs(pairsFilePath);
-            if (accentPairs == null || accentPairs.isEmpty()) {
-                throw new IllegalStateException("No se pudieron cargar los pares acentuados.");
-            }
-
-            // Convertir la lista de pares a un mapa antes de inicializar
-            Map<String, SpamDictionary.Pair> accentPairsMap = accentPairs.stream()
-                    .collect(Collectors.toMap(SpamDictionary.Pair::accented, pair -> pair));
-
-            // Inicializar los pares acentuados en el diccionario
-            dictionary.initializeAccentPairs(accentPairsMap);
-
-            /**
-             * // LEXEMES
-             */
-
-            // Inicializar lexemas desde el archivo proporcionado
+            initializeCategorizedWords(catWordsPath);
+            initializeAccentPairs(pairsFilePath);
             initializeLexemes(lexemePath);
 
-            /**
-             * // Info en consola y reportes
-             */
-
-            System.out.println("\n [INFO] Diccionario inicializado correctamente con CATEGORIZED WORDS y ACCENT PAIRS.");
+            System.out.println("\n[INFO] Diccionario inicializado correctamente.");
             displayCategorizedWordsInDictionary();
         } catch (Exception e) {
-            throw new RuntimeException("Error al inicializar y validar el diccionario: " + e.getMessage(), e);
+            throw new RuntimeException("Error al inicializar el diccionario: " + e.getMessage(), e);
         }
+    }
+
+    private void initializeCategorizedWords(String catWordsPath) {
+        JSONObject jsonObject = resourcesHandler.loadJson(catWordsPath);
+        JsonUtils.validateJsonFrequenciesZero(jsonObject);
+
+        initializeCategorizedWordsFromJson(catWordsPath);
+
+        if (!dictionary.areFrequenciesZero()) {
+            throw new IllegalStateException("Categorized Words contiene frecuencias no inicializadas a cero.");
+        }
+
+        System.out.println("[INFO] CATEGORIZED WORDS inicializados correctamente.");
+    }
+
+    private void initializeAccentPairs(String pairsFilePath) {
+        List<SpamDictionary.Pair> accentPairs = loadAccentPairs(pairsFilePath);
+
+        if (accentPairs == null || accentPairs.isEmpty()) {
+            throw new IllegalStateException("No se pudieron cargar los pares acentuados.");
+        }
+
+        Map<String, SpamDictionary.Pair> accentPairsMap = accentPairs.stream()
+                .collect(Collectors.toMap(SpamDictionary.Pair::accented, pair -> pair));
+
+        dictionary.initializeAccentPairs(accentPairsMap);
+
+        System.out.println("[INFO] ACCENT PAIRS inicializados correctamente.");
     }
 
     public void initializeLexemes(String lexemePath) {
         try {
             System.out.println("[INFO] Iniciando carga de lexemas desde: " + lexemePath);
 
-            // Paso 1: Leer el archivo JSON de lexemas
             JSONObject lexemeJson = resourcesHandler.loadJson(lexemePath);
-
-            // Paso 2: Validar la estructura del JSON para asegurar que cumple con el formato esperado
             JsonUtils.validateLexemeJsonStructure(lexemeJson);
 
-            // Paso 3: Convertir el JSON a un mapa categorizado de lexemas usando JsonUtils
+            // Convertir el JSON a un mapa categorizado
             Map<LexemeRepositoryCategories, Set<String>> lexemesMap = JsonUtils.jsonToLexemeMap(lexemeJson);
 
-
-            // Paso 4: Utilizar el inicializador de SpamDictionary para cargar los lexemas
+            // Transferir los lexemas al repositorio
             dictionary.initializeLexemes(lexemesMap);
 
-            System.out.println("[INFO] Lexemas inicializados correctamente en SpamDictionary.");
-        } catch (IllegalArgumentException e) {
-            // Manejo específico para errores de validación de estructura
-            throw new RuntimeException("Error en la validación del archivo de lexemas: " + e.getMessage(), e);
+            System.out.println("[INFO] Lexemas inicializados correctamente.");
         } catch (Exception e) {
-            // Manejo general para cualquier otro error inesperado
-            throw new RuntimeException("Error al inicializar los lexemas desde el archivo: " + lexemePath, e);
+            throw new RuntimeException("Error al inicializar los lexemas: " + e.getMessage(), e);
         }
     }
+
 
     public void initializeCategorizedWordsFromJson(String filePath) {
         try {
@@ -561,31 +542,18 @@ public class SpamDictionaryService {
         System.out.println("=== Report Generation Complete ===");
     }
 
-    /**
-     *  * * * *  Metods de asignación y verificación sobre Categorías
-     */
-
-    private WordCategory determineCategory(String word) {
-        if (TextUtils.isSpamWord(word)) {
-            return WordCategory.SPAM_WORDS;
-        } else if (TextUtils.isStopWord(word)) {
-            return WordCategory.STOP_WORDS;
-        } else if (TextUtils.containsRareSymbols(word)) {
-            return WordCategory.RARE_SYMBOLS;
-        } else {
-            return WordCategory.UNASSIGNED_WORDS;
-        }
+    // Verifica si la palabra pertenece a la categoría SPAM_WORDS
+    public boolean isSpamWord(String word) {
+        return dictionary.getCategory(WordCategory.SPAM_WORDS).containsKey(word.toLowerCase());
     }
 
-    private boolean isSpamWord(String word) {
-        Map<String, WordData> spamWords = dictionary.getCategory(WordCategory.SPAM_WORDS);
-        return spamWords.containsKey(word.toLowerCase());
+    // Verifica si la palabra pertenece a la categoría STOP_WORDS
+    public boolean isStopWord(String word) {
+        return dictionary.getCategory(WordCategory.STOP_WORDS).containsKey(word.toLowerCase());
     }
-    private boolean isStopWord(String word) {
-        Map<String, WordData> stopWords = dictionary.getCategory(WordCategory.STOP_WORDS);
-        return stopWords.containsKey(word.toLowerCase());
-    }
-    private boolean containsRareSymbols(String word) {
+
+    // Determina si la palabra pertenece a la categoría RARE_SYMBOLS
+    public boolean containsRareSymbols(String word) {
         Map<String, WordData> rareSymbols = dictionary.getCategory(WordCategory.RARE_SYMBOLS);
         for (char c : word.toCharArray()) {
             if (rareSymbols.containsKey(String.valueOf(c))) {
@@ -594,7 +562,6 @@ public class SpamDictionaryService {
         }
         return false;
     }
-
     public SpamDictionary getDictionary() {
         return this.dictionary;
     }

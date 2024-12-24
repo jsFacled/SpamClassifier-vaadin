@@ -1,5 +1,6 @@
 package com.ml.spam.utils;
 
+import com.ml.spam.dictionary.models.FrequencyKey;
 import com.ml.spam.dictionary.models.LexemeRepositoryCategories;
 import com.ml.spam.dictionary.models.WordCategory;
 import com.ml.spam.dictionary.models.WordData;
@@ -81,16 +82,18 @@ public class JsonUtils {
             if (categoryJson != null) {
                 for (String word : categoryJson.keySet()) {
                     JSONObject frequencies = categoryJson.getJSONObject(word);
-                    int spamFrequency = frequencies.optInt("spamFrequency", -1);
-                    int hamFrequency = frequencies.optInt("hamFrequency", -1);
 
-                    if (spamFrequency != 0 || hamFrequency != 0) {
-                        throw new IllegalArgumentException("Frecuencias no válidas para la palabra '" + word + "' en la categoría '" + category.name() + "'");
+                    for (FrequencyKey key : FrequencyKey.values()) {
+                        int frequency = frequencies.optInt(key.getKey(), -1);
+                        if (frequency != 0) {
+                            throw new IllegalArgumentException("Frecuencia no válida para '" + word + "' en la categoría '" + category.name() + "': " + key.getKey() + "=" + frequency);
+                        }
                     }
                 }
             }
         }
     }
+
 
     /**
      * Transforma un JSONObject en un Map<WordCategory, List<String>>.
@@ -106,22 +109,11 @@ public class JsonUtils {
                 List<String> words = jsonArrayToStringList(
                         jsonObject.optJSONArray(category.name().toLowerCase())
                 );
-                // Depuración: Antes de ordenar
-                System.out.println("Antes de ordenar (" + category + "): " + words);
 
-                // Ordenar la lista de palabras alfabéticamente
-                Collections.sort(words);
-
-                // Depuración: Después de ordenar
-                System.out.println("Después de ordenar (" + category + "): " + words);
-
+                // Agregar las palabras directamente al mapa
                 categoryMap.put(category, words);
             }
         }
-
-        // Depuración: Mapa completo
-        System.out.println("Categorías cargadas y ordenadas: " + categoryMap);
-
         return categoryMap;
     }
 
@@ -136,33 +128,21 @@ public class JsonUtils {
             JSONObject categoryJson = new JSONObject();
             wordsMap.forEach((word, wordData) -> {
                 JSONObject wordDataJson = new JSONObject();
-                wordDataJson.put("spamFrequency", wordData.getSpamFrequency());
-                wordDataJson.put("hamFrequency", wordData.getHamFrequency());
+
+                // Usar el enum para las claves
+                wordDataJson.put(FrequencyKey.SPAM_FREQUENCY.getKey(), wordData.getSpamFrequency());
+                wordDataJson.put(FrequencyKey.HAM_FREQUENCY.getKey(), wordData.getHamFrequency());
+
                 categoryJson.put(word, wordDataJson);
             });
 
-            // Agregar la categoría ordenada al JSON principal
+            // Agregar la categoría al JSON principal
             json.put(category.name().toLowerCase(), categoryJson);
         });
 
         return json;
     }
 
-    /**
-     * Convierte un mapa de WordData a un objeto JSON.
-     * @param category Mapa de palabras con sus datos (frecuencias).
-     * @return Un objeto JSON que representa una categoría.
-     */
-    private static JSONObject categoryToJson(Map<String, WordData> category) {
-        JSONObject jsonCategory = new JSONObject();
-        category.forEach((word, wordData) -> {
-            JSONObject freqData = new JSONObject();
-            freqData.put("spamFrequency", wordData.getSpamFrequency());
-            freqData.put("hamFrequency", wordData.getHamFrequency());
-            jsonCategory.put(word, freqData);
-        });
-        return jsonCategory;
-    }
 
     /**
      * // LEXEMES
@@ -177,15 +157,28 @@ public class JsonUtils {
         }
         System.out.println("[INFO] Todas las categorías principales están presentes en el JSON.");
     }
+
     public static Map<LexemeRepositoryCategories, Set<String>> jsonToLexemeMap(JSONObject jsonObject) {
         Map<LexemeRepositoryCategories, Set<String>> lexemesMap = new HashMap<>();
+
         for (LexemeRepositoryCategories category : LexemeRepositoryCategories.values()) {
-            JSONArray categoryArray = jsonObject.optJSONArray(category.getJsonKey());
-            if (categoryArray != null) {
-                Set<String> lexemesSet = new HashSet<>(jsonArrayToStringList(categoryArray));
-                lexemesMap.put(category, lexemesSet);
+            JSONObject subCategories = jsonObject.optJSONObject(category.getJsonKey());
+            if (subCategories != null) {
+                Set<String> allLexemes = new HashSet<>();
+
+                for (String subCategory : subCategories.keySet()) {
+                    JSONArray lexemeArray = subCategories.optJSONArray(subCategory);
+                    if (lexemeArray != null) {
+                        allLexemes.addAll(jsonArrayToStringList(lexemeArray));
+                    }
+                }
+
+                lexemesMap.put(category, allLexemes);
+            } else {
+                lexemesMap.put(category, Collections.emptySet());
             }
         }
+
         return lexemesMap;
     }
 

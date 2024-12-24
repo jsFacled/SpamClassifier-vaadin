@@ -85,9 +85,32 @@ public class DictionarySummaryReport {
         System.out.println("Total Words in Dictionary: " + totalWords);
         System.out.println("=== End of Summary ===\n");
     }
-
     public static void displayLexemesReport() {
-        //implementar metod
+        SpamDictionary dictionary = SpamDictionary.getInstance();
+
+        System.out.println("\n=== Reporte de Lexemas ===");
+
+        // Iterar sobre las categorías
+        for (LexemeRepositoryCategories category : LexemeRepositoryCategories.values()) {
+            Set<String> lexemes = dictionary.getLexemesRepository().get(category);
+
+            if (lexemes == null || lexemes.isEmpty()) {
+                System.out.println("Categoría: " + category.getJsonKey() + " (sin lexemas)");
+                continue;
+            }
+
+            System.out.println("Categoría: " + category.getJsonKey());
+            System.out.println("Número de lexemas: " + lexemes.size());
+
+            // Mostrar los primeros 5 lexemas como muestra
+            lexemes.stream()
+                    .limit(5)
+                    .forEach(lexeme -> System.out.println("  " + lexeme));
+
+            System.out.println("...");
+        }
+
+        System.out.println("\n[INFO] Reporte de lexemas generado correctamente.");
     }
 
     public static void displayFullReport(SpamDictionaryService spamDictionaryService) {

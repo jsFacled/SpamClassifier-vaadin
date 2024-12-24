@@ -2,6 +2,7 @@ package com.ml.spam.utils;
 
 import com.ml.spam.datasetProcessor.models.RowValidationResult;
 import com.ml.spam.dictionary.models.MessageLabel;
+import com.ml.spam.dictionary.models.WordCategory;
 
 import java.text.Normalizer;
 import java.util.ArrayList;
@@ -39,23 +40,6 @@ public class TextUtils {
     // Normalización de texto
     public static String normalize(String text) {
         return text.toLowerCase().replaceAll("[^a-zA-Z0-9]", "");
-    }
-
-    // Verifica si la palabra es típica de spam
-    public static boolean isSpamWord(String word) {
-        Set<String> spamWords = Set.of("gratis", "descuento", "oferta", "compra", "urgente");
-        return spamWords.contains(word.toLowerCase());
-    }
-
-    // Verifica si la palabra es una stop word
-    public static boolean isStopWord(String word) {
-        Set<String> stopWords = Set.of("el", "la", "de", "y", "a", "que", "en", "un", "por");
-        return stopWords.contains(word.toLowerCase());
-    }
-
-    // Determina si la palabra contiene símbolos raros
-    public static boolean containsRareSymbols(String word) {
-        return word.matches(".*[\\W_]+.*"); // Verifica si contiene caracteres no alfanuméricos
     }
 
     // Valida si una fila es válida para el dataset
@@ -134,20 +118,7 @@ public class TextUtils {
         return words;
     }
 
-    // Extraer símbolos raros de los tokens usando containsRareSymbols
-    public static List<String> extractRareSymbols(List<String> tokens) {
-        List<String> symbols = new ArrayList<>();
-        for (String token : tokens) {
-            if (containsRareSymbols(token)) {
-                // Extraer los símbolos raros del token
-                String rareSymbols = token.replaceAll("[\\p{L}áéíóúÁÉÍÓÚñÑ]", ""); // No letras
-                if (!rareSymbols.isEmpty()) {
-                    symbols.add(rareSymbols);
-                }
-            }
-        }
-        return symbols;
-    }
+
     // Normaliza texto: convierte a minúsculas y elimina caracteres no válidos, pero conserva acentos
     public static String normalizeString(String input) {
         if (input == null) {
@@ -232,9 +203,31 @@ public class TextUtils {
     }
 
 
+
     public static boolean isWord(String token) {
         //todo comletar metod
         var variable_a_revisar=true;
         return variable_a_revisar;
     }
+
+/**
+ * Metodos antiguos
+ */
+
+/*
+   // Extraer símbolos raros de los tokens usando containsRareSymbols
+    public static List<String> extractRareSymbols(List<String> tokens) {
+        List<String> symbols = new ArrayList<>();
+        for (String token : tokens) {
+            if (containsRareSymbols(token)) {
+                // Extraer los símbolos raros del token
+                String rareSymbols = token.replaceAll("[\\p{L}áéíóúÁÉÍÓÚñÑ]", ""); // No letras
+                if (!rareSymbols.isEmpty()) {
+                    symbols.add(rareSymbols);
+                }
+            }
+        }
+        return symbols;
+    }
+ */
 }

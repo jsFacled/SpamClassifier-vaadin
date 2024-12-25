@@ -2,13 +2,11 @@ package com.ml.spam.utils;
 
 import com.ml.spam.datasetProcessor.models.RowValidationResult;
 import com.ml.spam.dictionary.models.MessageLabel;
-import com.ml.spam.dictionary.models.WordCategory;
+import com.ml.spam.dictionary.models.TokenType;
 
 import java.text.Normalizer;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 
 public class TextUtils {
 
@@ -36,7 +34,6 @@ public class TextUtils {
         return new RowValidationResult(true, message, label);
     }
 
-
     // Normalización de texto
     public static String normalize(String text) {
         return text.toLowerCase().replaceAll("[^a-zA-Z0-9]", "");
@@ -44,16 +41,12 @@ public class TextUtils {
 
     // Valida si una fila es válida para el dataset
     public static boolean isRawRow(String[] row) {
-        // Regla 1: La fila debe tener exactamente 2 columnas
         if (row == null || row.length != 2) {
             return false;
         }
-
-        // Regla 2: La segunda columna debe ser 'spam' o 'ham'
         return isSpamOrHam(row[1]);
     }
 
-    // Verifica si un valor es 'spam' o 'ham'
     public static boolean isSpamOrHam(String value) {
         try {
             MessageLabel.valueOf(value.toUpperCase()); // Verifica si existe en el enum
@@ -63,85 +56,99 @@ public class TextUtils {
         }
     }
 
-    /**
-     * Valida si una fila cumple con los requisitos de formato y contenido para procesamiento.
-     *
-     * Este métod verifica que:
-     * 1. La fila no sea nula y tenga exactamente dos columnas.
-     * 2. El mensaje (primer columna) no esté vacío.
-     * 3. El label (segunda columna) sea un valor válido definido en el enum `MessageLabel`.
-     *
-     * @param row Arreglo de cadenas que representa una fila del dataset (mensaje y label).
-     * @return true si la fila es válida; false en caso contrario.
-     */
     public static boolean isValidMessageAndLabel(String[] row) {
-        // Validar que la fila no sea nula y tenga exactamente dos elementos
         if (row == null || row.length != 2) {
-            return false; // Estructura incorrecta
+            return false;
         }
 
-        // Eliminar espacios extra en los extremos de los elementos de la fila
         String message = row[0].trim();
         String label = row[1].trim();
 
-        // Verificar que el mensaje no esté vacío
         if (message.isEmpty()) {
-            return false; // Mensaje vacío
+            return false;
         }
 
-        // Validar que el label sea un valor válido del enum `MessageLabel`
         try {
-            MessageLabel.valueOf(label.toUpperCase()); // Convierte el label a mayúsculas para validar
+            MessageLabel.valueOf(label.toUpperCase());
         } catch (IllegalArgumentException e) {
-            return false; // Label no coincide con ningún valor válido en `MessageLabel`
+            return false;
         }
 
-        // Si pasa todas las validaciones, la fila es válida
         return true;
     }
 
-
     public static List<String> splitMessageAndLowercase(String message) {
-        return Arrays.asList(message.toLowerCase().split("\\s+"));
+        return List.of(message.toLowerCase().split("\\s+"));
     }
 
-    // Extraer palabras principales de los tokens
-    public static List<String> extractWordsFromTokens(List<String> tokens) {
+    /***************** Tratamiento con Tokens ***************************/
 
-        List<String> words = new ArrayList<>();
-        for (String token : tokens) {
-            String word = token.replaceAll("[^\\p{L}áéíóúÁÉÍÓÚñÑ]", ""); // Solo letras
-            if (!word.isEmpty()) {
-                words.add(word);
-            }
+    public static TokenType classifyToken(String token) {
+        if (token == null || token.trim().isEmpty()) return TokenType.UNASSIGNED;
+        if (isNumericToken(token)) return TokenType.NUM;
+        if (isTextToken(token)) return TokenType.TEXT;
+        if (isNumTextToken(token)) return TokenType.NUM_TEXT;
+        if (isTextNumSymbolToken(token)) return TokenType.TEXT_NUM_SYMBOL;
+        if (isCharToken(token)) return TokenType.CHAR;
+        if (isSymbolToken(token)) return TokenType.SYMBOL;
+        return TokenType.UNASSIGNED;
+    }
+
+    public static boolean isNumericToken(String token) {
+        return token.matches("\\d+");
+    }
+
+    public static boolean isTextToken(String token) {
+        return token.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]+");
+    }
+
+    public static boolean isNumTextToken(String token) {
+        return token.matches("\\d+[a-zA-Z]+|[a-zA-Z]+\\d+");
+    }
+
+    public static boolean isTextNumSymbolToken(String token) {
+        return token.matches(".*\\W.*");
+    }
+
+    public static boolean isCharToken(String token) {
+        return token.length() == 1 && Character.isLetterOrDigit(token.charAt(0));
+    }
+
+    public static boolean isSymbolToken(String token) {
+        return token.matches("[!@#$%^&*()_+={}:;\\\"',.<>?/-]+");
+    }
+
+    public static String[] splitNumberAndText(String token) {
+        String numberPart = token.replaceAll("[^0-9]", "");
+        String textPart = token.replaceAll("[0-9]", "");
+        return new String[]{numberPart, textPart};
+    }
+
+    public static String[] splitRareSymbolsAndNumbers(String token) {
+        String wordPart = token.replaceAll("[^\\p{L}áéíóúÁÉÍÓÚñÑ]", "");
+        String numberPart = token.replaceAll("[^0-9]", "");
+        String rareSymbolsPart = token.replaceAll("[\\p{L}áéíóúÁÉÍÓÚñÑ0-9]", "");
+        if (!rareSymbolsPart.isEmpty()) {
+            rareSymbolsPart = String.join(" ", rareSymbolsPart.split(""));
         }
-        return words;
+        return new String[]{wordPart, numberPart, rareSymbolsPart};
     }
 
 
-    // Normaliza texto: convierte a minúsculas y elimina caracteres no válidos, pero conserva acentos
     public static String normalizeString(String input) {
         if (input == null) {
             return null;
         }
-
-        // Convertir a minúsculas
         String normalized = input.toLowerCase();
-
-        // Mantener letras (incluyendo acentuadas), números, símbolos y espacios
         normalized = normalized.replaceAll("[^\\p{L}\\p{N}\\p{P}\\p{Z}]", "");
-
-        return normalized.trim(); // Eliminar espacios sobrantes
+        return normalized.trim();
     }
 
-    // Extensión para eliminar acentos después de usar normalizeString
     public static String normalizeWithAccentRemoval(String input) {
         String normalized = normalizeString(input);
         if (normalized == null) {
             return null;
         }
-
-        // Eliminar marcas diacríticas (acentos)
         return Normalizer.normalize(normalized, Normalizer.Form.NFD)
                 .replaceAll("\\p{M}", "");
     }
@@ -150,84 +157,23 @@ public class TextUtils {
         if (input == null) return false;
         return input.matches(".*[áéíóúÁÉÍÓÚñÑ].*");
     }
+
     public static String removeAccents(String input) {
         if (input == null) return null;
         return Normalizer.normalize(input, Normalizer.Form.NFD)
-                .replaceAll("\\p{M}", ""); // Eliminar marcas diacríticas
+                .replaceAll("\\p{M}", "");
     }
 
     public static boolean containsNumber(String token) {
         return token != null && token.matches(".*\\d.*");
     }
 
-    public static String[] splitNumberAndText(String token) {
-        // 1. Extraer la parte numérica (solo dígitos).
-        String numberPart = token.replaceAll("[^0-9]", "");
-
-        // 2. Extraer la parte textual (solo letras y símbolos).
-        String textPart = token.replaceAll("[0-9]", "");
-
-        // 3. Retornar ambas partes como un arreglo.
-        return new String[]{numberPart, textPart};
-    }
-
-
-
-
-    public static String[] splitRareSymbolsAndNumbers(String token) {
-        // Detectar si el token es número + "hs"
-        if (token.matches("\\d{1,3}hs")) {
-            return new String[]{token, "", ""}; // Tratar todo el token como palabra
-        }
-
-        // Extraer parte de palabras (letras con soporte para acentos)
-        String wordPart = token.replaceAll("[^\\p{L}áéíóúÁÉÍÓÚñÑ]", ""); // Solo letras
-        // Extraer números
-        String numberPart = token.replaceAll("[^0-9]", ""); // Solo números
-        // Extraer símbolos raros como caracteres separados
-        String rareSymbolsPart = token.replaceAll("[\\p{L}áéíóúÁÉÍÓÚñÑ0-9]", ""); // No letras ni números
-
-        // Separar cada símbolo raro para evitar agrupamiento
-        if (!rareSymbolsPart.isEmpty()) {
-            rareSymbolsPart = String.join(" ", rareSymbolsPart.split(""));
-        }
-
-        return new String[]{wordPart, numberPart, rareSymbolsPart};
-    }
-
     public static List<String> cleanWords(List<String> words) {
         return words.stream()
-                .map(TextUtils::normalize) // Limpia cada palabra
-                .filter(word -> word != null && !word.isEmpty()) // Filtra palabras vacías o nulas
+                .map(TextUtils::normalize)
+                .filter(word -> word != null && !word.isEmpty())
                 .toList();
     }
 
 
-
-    public static boolean isWord(String token) {
-        //todo comletar metod
-        var variable_a_revisar=true;
-        return variable_a_revisar;
-    }
-
-/**
- * Metodos antiguos
- */
-
-/*
-   // Extraer símbolos raros de los tokens usando containsRareSymbols
-    public static List<String> extractRareSymbols(List<String> tokens) {
-        List<String> symbols = new ArrayList<>();
-        for (String token : tokens) {
-            if (containsRareSymbols(token)) {
-                // Extraer los símbolos raros del token
-                String rareSymbols = token.replaceAll("[\\p{L}áéíóúÁÉÍÓÚñÑ]", ""); // No letras
-                if (!rareSymbols.isEmpty()) {
-                    symbols.add(rareSymbols);
-                }
-            }
-        }
-        return symbols;
-    }
- */
 }

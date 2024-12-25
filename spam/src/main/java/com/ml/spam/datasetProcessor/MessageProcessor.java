@@ -89,6 +89,27 @@ public class MessageProcessor {
         return wordDataList;
     }
 
+
+    private String assignWordName(String token, TokenType type) {
+        switch (type) {
+            case NUM:
+                return processNumToken(token);
+            case TEXT:
+                return processTextToken(token);
+            case NUM_TEXT:
+                return processNumTextToken(token);
+            case TEXT_NUM_SYMBOL:
+                return processTextNumSymbolToken(token);
+            case CHAR:
+                return processCharToken(token);
+            case SYMBOL:
+                return processSymbolToken(token);
+            default:
+                return processUnassignedToken(token);
+        }
+    }
+
+
     private static void processRareSymbolToken(String token, List<WordData> wordDataList, String label) {
     }
 

@@ -38,9 +38,55 @@ public class MessageProcessor {
         return wordDataLists;
     }
 
-
     private static List<WordData> processValidRow(String[] row) {
-        return null;
+        // Paso 1: Separar mensaje y etiqueta (label)
+        String message = row[0].trim();
+        String label = row[1].trim();
+
+        // Paso 2: Tokenización básica del mensaje
+        List<String> tokens = TextUtils.splitMessageAndLowercase(message);
+
+        // Paso 3: Inicializar la lista de WordData
+        List<WordData> wordDataList = new ArrayList<>();
+
+        // Paso 4: Recorrer la lista de tokens y procesar cada uno
+        for (String token : tokens) {
+            // Subpaso 4.1: Separar el token en partes (palabra, número, símbolo raro)
+            String[] splitToken = TextUtils.splitRareSymbolsAndNumbers(token);
+            String wordPart = splitToken[0]; // Parte alfabética del token
+            String numberPart = splitToken[1]; // Parte numérica del token
+            String rareSymbolPart = splitToken[2]; // Símbolos raros del token
+
+            // Subpaso 4.2: Procesar la parte de palabra (wordPart)
+            if (!wordPart.isEmpty()) {
+                // Crear un objeto WordData para la palabra y actualizar su frecuencia
+                WordData wordData = new WordData(wordPart);
+                updateWordDataFrequency(wordData, label);
+                wordDataList.add(wordData);
+            }
+
+            // Subpaso 4.3: Procesar la parte numérica (numberPart)
+            if (!numberPart.isEmpty()) {
+                // Clasificar el número como "NUMlow" o "NUMhigh" según el valor
+                String numCategory = Integer.parseInt(numberPart) > 999 ? "NUMhigh" : "NUMlow";
+                WordData numberData = new WordData(numCategory);
+                updateWordDataFrequency(numberData, label);
+                wordDataList.add(numberData);
+            }
+
+            // Subpaso 4.4: Procesar los símbolos raros (rareSymbolPart)
+            if (!rareSymbolPart.isEmpty()) {
+                // Dividir los símbolos raros y procesarlos individualmente
+                for (String symbol : rareSymbolPart.split(" ")) {
+                    WordData symbolData = new WordData(symbol);
+                    updateWordDataFrequency(symbolData, label);
+                    wordDataList.add(symbolData);
+                }
+            }
+        }
+
+        // Paso 5: Retornar la lista de WordData procesada
+        return wordDataList;
     }
 
     private static void processRareSymbolToken(String token, List<WordData> wordDataList, String label) {

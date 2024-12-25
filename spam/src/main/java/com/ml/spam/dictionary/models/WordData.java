@@ -18,6 +18,20 @@ public class WordData {
         this.hamFrequency = hamFrequency;
     }
 
+    public WordData(String word, String label) {
+        this.word = word;
+        if ("spam".equalsIgnoreCase(label)) {
+            this.spamFrequency = 1;
+            this.hamFrequency = 0;
+        } else if ("ham".equalsIgnoreCase(label)) {
+            this.spamFrequency = 0;
+            this.hamFrequency = 1;
+        } else {
+            this.spamFrequency = 0;
+            this.hamFrequency = 0;
+        }
+    }
+
     public String getWord() {
         return word;
     }

@@ -1,10 +1,10 @@
 package com.ml.spam.datasetProcessor;
 
+import com.ml.spam.dictionary.models.TokenType;
 import com.ml.spam.dictionary.models.WordData;
 import com.ml.spam.undefined.LabeledMessage;
 import com.ml.spam.datasetProcessor.models.ProcessedMessage;
 import com.ml.spam.utils.CsvUtils;
-import com.ml.spam.utils.RegexUtils;
 import com.ml.spam.utils.TextUtils;
 
 import java.io.IOException;
@@ -51,37 +51,32 @@ public class MessageProcessor {
 
         // Paso 4: Recorrer la lista de tokens y procesar cada uno
         for (String token : tokens) {
-            // Subpaso 4.1: Separar el token en partes (palabra, número, símbolo raro)
-            String[] splitToken = TextUtils.splitRareSymbolsAndNumbers(token);
-            String wordPart = splitToken[0]; // Parte alfabética del token
-            String numberPart = splitToken[1]; // Parte numérica del token
-            String rareSymbolPart = splitToken[2]; // Símbolos raros del token
+            // Subpaso 4.1: Clasificar el token
+            TokenType type = TextUtils.classifyToken(token);
 
-            // Subpaso 4.2: Procesar la parte de palabra (wordPart)
-            if (!wordPart.isEmpty()) {
-                // Crear un objeto WordData para la palabra y actualizar su frecuencia
-                WordData wordData = new WordData(wordPart);
-                updateWordDataFrequency(wordData, label);
-                wordDataList.add(wordData);
-            }
-
-            // Subpaso 4.3: Procesar la parte numérica (numberPart)
-            if (!numberPart.isEmpty()) {
-                // Clasificar el número como "NUMlow" o "NUMhigh" según el valor
-                String numCategory = Integer.parseInt(numberPart) > 999 ? "NUMhigh" : "NUMlow";
-                WordData numberData = new WordData(numCategory);
-                updateWordDataFrequency(numberData, label);
-                wordDataList.add(numberData);
-            }
-
-            // Subpaso 4.4: Procesar los símbolos raros (rareSymbolPart)
-            if (!rareSymbolPart.isEmpty()) {
-                // Dividir los símbolos raros y procesarlos individualmente
-                for (String symbol : rareSymbolPart.split(" ")) {
-                    WordData symbolData = new WordData(symbol);
-                    updateWordDataFrequency(symbolData, label);
-                    wordDataList.add(symbolData);
-                }
+            // Subpaso 4.2: Procesar según la clasificación del token
+            switch (type) {
+                case NUM:
+                    processNumToken(token, wordDataList, label);
+                    break;
+                case TEXT:
+                    processTextToken(token, wordDataList, label);
+                    break;
+                case NUM_TEXT:
+                    processNumTextToken(token, wordDataList, label);
+                    break;
+                case TEXT_NUM_SYMBOL:
+                    processTextNumSymbolToken(token, wordDataList, label);
+                    break;
+                case CHAR:
+                    processCharToken(token, wordDataList, label);
+                    break;
+                case SYMBOL:
+                    processSymbolToken(token, wordDataList, label);
+                    break;
+                default:
+                    processUnassignedToken(token, wordDataList, label);
+                    break;
             }
         }
 
@@ -89,91 +84,85 @@ public class MessageProcessor {
         return wordDataList;
     }
 
-
-    private String assignWordName(String token, TokenType type) {
-        switch (type) {
-            case NUM:
-                return processNumToken(token);
-            case TEXT:
-                return processTextToken(token);
-            case NUM_TEXT:
-                return processNumTextToken(token);
-            case TEXT_NUM_SYMBOL:
-                return processTextNumSymbolToken(token);
-            case CHAR:
-                return processCharToken(token);
-            case SYMBOL:
-                return processSymbolToken(token);
-            default:
-                return processUnassignedToken(token);
-        }
+    // Métodos auxiliares para cada tipo de token
+    private static void processNumToken(String token, List<WordData> wordDataList, String label) {
+        int number = Integer.parseInt(token);
+        String numCategory = number > 999 ? "NUMhigh" : "NUMlow";
+        wordDataList.add(new WordData(numCategory, label));
     }
 
-
-    private static void processRareSymbolToken(String token, List<WordData> wordDataList, String label) {
-    }
-
-    private static void processWordToken(String token, List<WordData> wordDataList, String label) {
-    }
-
-    private static void processTokenWithTilde(String token, List<WordData> wordDataList, String label) {
-    }
-
-    public static void processNumberToken(String token, List<WordData> wordDataList, String label) {
-        // 1. Separar el token en número y texto
-        String[] parts = TextUtils.splitNumberAndText(token);
-        String numberPart = parts[0];
-        String textPart = parts[1];
-
-        //********************************************
-        //* * * *  2. Procesar la parte textual * * * *
-        //*********************************************
-
-            // Buscar la parte textual en las categorías de lexemas
-            // Verificar en las que comienzan con "num".
-        if (!textPart.isEmpty()) {
-            String numCategory = findInNumCategories(textPart);
-            if (numCategory != null) {
-                // 2.a Si está en una categoría de "num"-->Asignar el token a esa categoría y agregar a wordDataList.
-                createAndAddWordData(numCategory, label, wordDataList);
-
-            } else {
-                // 2.b Si no está en "num", buscar en categorías "lex"
-                String lexCategory = findInLexCategories(textPart);
-                    // Verificar si la palabra pertenece a una categoría léxica.
-                if (lexCategory != null) {
-                    // 2.b.1 Si está en una categoría léxica
-                    // Asignar la categoría léxica y agregar a wordDataList.
-                    createAndAddWordData(lexCategory, label, wordDataList);
-                } else {
-                    // 2.b.2 Si no está en ninguna categoría
-                    // Crear un nuevo WordData con la palabra como texto y el label del mensaje.
-                    createAndAddWordData(textPart, label, wordDataList);
-                }
+    private static void processTextToken(String token, List<WordData> wordDataList, String label) {
+        if (TextUtils.hasAccent(token)) {
+            String normalized = TextUtils.removeAccents(token);
+            if (isInAccentPairs(normalized)) {
+                wordDataList.add(new WordData(getAccentPairCategory(normalized), label));
+                return;
             }
         }
-        //********************************************
-        //* * * *  3. Procesar la parte numérica * * * *
-        //*********************************************
-
-        // Evaluar si el número es numlow o numhigh, y crear WordData correspondiente.
-        if (!numberPart.isEmpty()) {
-            String numType = Integer.parseInt(numberPart) > 999 ? "numhigh" : "numlow";
-            createAndAddWordData(numType, label, wordDataList);
+        if (isInTextLexemeRepo(token)) {
+            wordDataList.add(new WordData(getLexemeCategory(token), label));
+        } else {
+            wordDataList.add(new WordData(token, label));
         }
-
-
-        // 4. Agregar ambos objetos WordData a wordDataList
-        // Asegurarse de que tanto el texto como el número se procesen y agreguen correctamente.
-
     }
 
-    private static String findInLexCategories(String textPart) {
-        return "revisar metodo";//todo revisar metodo
+    private static void processNumTextToken(String token, List<WordData> wordDataList, String label) {
+        String[] parts = TextUtils.splitNumberAndText(token);
+        processNumToken(parts[0], wordDataList, label);
+        processTextToken(parts[1], wordDataList, label);
     }
 
-    private static String findInNumCategories(String textPart) {
-        return "revisar metodo";//todo revisar metodo
+    private static void processTextNumSymbolToken(String token, List<WordData> wordDataList, String label) {
+        String[] components = TextUtils.splitRareSymbolsAndNumbers(token);
+        processTextToken(components[0], wordDataList, label);
+        processNumToken(components[1], wordDataList, label);
+        processSymbolToken(components[2], wordDataList, label);
+    }
+
+    private static void processCharToken(String token, List<WordData> wordDataList, String label) {
+        if (token.length() == 1) {
+            wordDataList.add(new WordData(token, label));
+        } else {
+            wordDataList.add(new WordData("UNASSIGNED", label));
+        }
+    }
+
+    private static void processSymbolToken(String token, List<WordData> wordDataList, String label) {
+        if (isRareSymbol(token)) {
+            wordDataList.add(new WordData(token, label));
+        } else {
+            wordDataList.add(new WordData("UNASSIGNED", label));
+        }
+    }
+
+    private static void processUnassignedToken(String token, List<WordData> wordDataList, String label) {
+        wordDataList.add(new WordData("UNASSIGNED", label));
+    }
+
+    // Métodos adicionales para validaciones y repositorios
+    private static boolean isInAccentPairs(String token) {
+        // Validar en el mapa de accentPairs
+        return false; // Implementar según lógica
+    }
+
+    private static String getAccentPairCategory(String token) {
+        // Obtener categoría del par acentuado
+        return "ACCENT_PAIR_CATEGORY"; // Implementar según lógica
+    }
+
+    private static boolean isInTextLexemeRepo(String token) {
+        // Validar si está en el repositorio de lexemas
+        return false; // Implementar según lógica
+    }
+
+    private static String getLexemeCategory(String token) {
+        // Obtener categoría de lexema
+        return "LEXEME_CATEGORY"; // Implementar según lógica
+    }
+
+    private static boolean isRareSymbol(String token) {
+        // Validar si es un símbolo raro
+        return false; // Implementar según lógica
     }
 
 
@@ -331,22 +320,5 @@ public class MessageProcessor {
         return new LabeledMessage(message, label);
     }
 
-    /**
-     * Tokeniza el contenido del mensaje en palabras.
-     *
-     * @param message Contenido del mensaje.
-     * @return Lista de palabras (tokens).
-     */
-    private List<String> tokenizeMessage(String message) {
-        // Tokenizar por espacios, eliminar puntuaciones y convertir a minúsculas
-        String[] tokens = message.toLowerCase().replaceAll("[^a-zA-Záéíóúñ]", " ").split("\\s+");
-        List<String> tokenList = new ArrayList<>();
-        for (String token : tokens) {
-            if (!token.isEmpty()) {
-                tokenList.add(token);
-            }
-        }
-        return tokenList;
-    }
 
 }//END MessageProcessor

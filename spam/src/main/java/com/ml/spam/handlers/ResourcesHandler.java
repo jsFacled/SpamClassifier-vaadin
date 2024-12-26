@@ -75,7 +75,7 @@ public class ResourcesHandler {
 
         // Paso 2: Resolver ruta
         Path absolutePath = resolvePath(relativePath);
-        System.out.println("Ruta absoluta resuelta: " + absolutePath);
+        System.out.println("\n [Info LoadCsvFile] >> Ruta absoluta resuelta: " + absolutePath + "\n");
 
         // Paso 3: Abrir archivo y leer
         try (BufferedReader reader = new BufferedReader(new FileReader(absolutePath.toFile()))) {
@@ -87,11 +87,11 @@ public class ResourcesHandler {
 
             // Detectar delimitador
             String delimiter = CsvUtils.detectDelimiter(absolutePath.toString());
-            System.out.println("Delimitador detectado: \"" + delimiter + "\"");
+            System.out.println("[Info LoadCsvFile] >> Delimitador detectado: \"" + delimiter + "\"");
 
             // Validar y eliminar cabecera
             if (CsvUtils.isHeaderRow(line.split(delimiter))) {
-                System.out.println("Cabecera detectada y eliminada: " + line);
+                System.out.println("[Info LoadCsvFile] >> Cabecera detectada y eliminada: " + line);
                 line = reader.readLine(); // Saltar la cabecera
             }
 
@@ -108,18 +108,18 @@ public class ResourcesHandler {
                 // Validar y agregar fila
                 if (columns.length == 2 && CsvUtils.isValidRow(columns)) {
                     rawRows.add(columns); // Agregar la fila válida a la lista
-                    System.out.println("Fila válida agregada: " + String.join(" | ", columns));
+                    System.out.println("[Info LoadCsvFile] >> Fila válida agregada: " + String.join(" | ", columns));
                 } else {
 
                     // Intentar rescatar la fila
                     String[] rescuedColumns = attemptRescue(line, delimiter);
-                    System.err.println("Fila inválida detectada, intentando rescatar: " + "^" + line + "^" + ". . . . . . . . . . . \n");
+                    System.err.println("[Info LoadCsvFile] >> Fila inválida detectada, intentando rescatar: " + "^" + line + "^" + ". . . . . . . . . . . \n");
 
 
                     if (rescuedColumns != null && rescuedColumns.length == 2 && CsvUtils.isValidRow(rescuedColumns)) {
                         rawRows.add(rescuedColumns); // Agregar la fila rescatada si es válida
 
-                        System.out.println("Fila rescatada y agregada: " + String.join(" | ", rescuedColumns));
+                        System.out.println(" [Info LoadCsvFile] >> Fila rescatada y agregada: " + String.join(" | ", rescuedColumns));
                     } else {
                         invalidRows.add(line); // Agregar a la lista de filas inválidas
                         System.err.println("Fila inválida ignorada: " + line); // Ignorar si no se puede rescatar

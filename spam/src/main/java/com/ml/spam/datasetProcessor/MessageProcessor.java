@@ -46,6 +46,8 @@ public class MessageProcessor {
         // Paso 2: Tokenización básica del mensaje
         List<String> tokens = TextUtils.splitMessageAndLowercase(message);
 
+        System.out.println("\n [DEBUG] >> tokens List: " + tokens+ "\n");
+
         // Paso 3: Inicializar la lista de WordData
         List<WordData> wordDataList = new ArrayList<>();
 
@@ -53,6 +55,8 @@ public class MessageProcessor {
         for (String token : tokens) {
             // Subpaso 4.1: Clasificar el token
             TokenType type = TextUtils.classifyToken(token);
+
+            System.out.println("\n [DEBUG 4.1] >>  token: -" + token+ "- Es de tipo: "+type + "\n");
 
             // Subpaso 4.2: Procesar según la clasificación del token
             switch (type) {
@@ -64,6 +68,12 @@ public class MessageProcessor {
                     break;
                 case NUM_TEXT:
                     processNumTextToken(token, wordDataList, label);
+                    break;
+                case NUM_SYMBOL:
+                    processNumSymbolToken(token, wordDataList, label);
+                    break;
+                case TEXT_SYMBOL:
+                    processTextSymbolToken(token, wordDataList, label);
                     break;
                 case TEXT_NUM_SYMBOL:
                     processTextNumSymbolToken(token, wordDataList, label);
@@ -82,6 +92,34 @@ public class MessageProcessor {
 
         // Paso 5: Retornar la lista de WordData procesada
         return wordDataList;
+    }
+
+    private static void processNumSymbolToken(String token, List<WordData> wordDataList, String label) {
+        // Divide números y símbolos para categorizarlos por separado
+        String[] parts = token.split("(?<=\\d)(?=\\W)|(?<=\\W)(?=\\d)");
+
+        for (String part : parts) {
+            if (part.matches("\\d+")) {
+                processNumToken(part, wordDataList, label); // Proceso de número
+            } else if (part.matches("\\W+")) {
+                processSymbolToken(part, wordDataList, label); // Proceso de símbolo
+            }
+        }
+    }
+
+    private static void processTextSymbolToken(String token, List<WordData> wordDataList, String label) {
+        // Divide el token en partes: texto y símbolos
+        String[] parts = token.split("(?<=\\p{L})(?=\\W)|(?<=\\W)(?=\\p{L})");
+
+        for (String part : parts) {
+            if (part.matches("\\p{L}+")) {
+                // Parte es texto
+                wordDataList.add(new WordData(part, label));
+            } else if (part.matches("\\W+")) {
+                // Parte es un símbolo raro
+                wordDataList.add(new WordData(part, label));
+            }
+        }
     }
 
     // Métodos auxiliares para cada tipo de token

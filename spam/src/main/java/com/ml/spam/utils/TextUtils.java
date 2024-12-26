@@ -84,14 +84,43 @@ public class TextUtils {
     /***************** Tratamiento con Tokens ***************************/
 
     public static TokenType classifyToken(String token) {
-        if (token == null || token.trim().isEmpty()) return TokenType.UNASSIGNED;
-        if (isNumericToken(token)) return TokenType.NUM;
-        if (isTextToken(token)) return TokenType.TEXT;
-        if (isNumTextToken(token)) return TokenType.NUM_TEXT;
-        if (isTextNumSymbolToken(token)) return TokenType.TEXT_NUM_SYMBOL;
-        if (isCharToken(token)) return TokenType.CHAR;
-        if (isSymbolToken(token)) return TokenType.SYMBOL;
-        return TokenType.UNASSIGNED;
+        if (token == null || token.trim().isEmpty()) {
+            return TokenType.UNASSIGNED; // Token vacío o nulo
+        }
+        if (isNumericToken(token)) {
+            return TokenType.NUM; // Token es un número puro
+        }
+        if (isTextToken(token)) {
+            return TokenType.TEXT; // Token es texto alfabético puro
+        }
+        if (isTextSymbolToken(token)) {
+            return TokenType.TEXT_SYMBOL; // Token contiene texto y símbolos raros
+        }
+        if (isNumTextToken(token)) {
+            return TokenType.NUM_TEXT; // Token contiene números y texto mezclados
+        }
+        if (isNumSymbolToken(token)) {
+            return TokenType.NUM_SYMBOL; // Token contiene números y símbolos
+        }
+        if (isTextNumSymbolToken(token)) {
+            return TokenType.TEXT_NUM_SYMBOL; // Token tiene texto, números y símbolos mezclados
+        }
+        if (isCharToken(token)) {
+            return TokenType.CHAR; // Token es un único carácter
+        }
+        if (isSymbolToken(token)) {
+            return TokenType.SYMBOL; // Token es un símbolo raro puro
+        }
+        return TokenType.UNASSIGNED; // Token no clasificable
+    }
+
+    private static boolean isNumSymbolToken(String token) {
+        return token.matches(".*\\d.*") && token.matches(".*\\W.*") && !token.matches(".*\\p{L}.*");
+    }
+
+    private static boolean isTextSymbolToken(String token) {
+        // Verifica si el token contiene letras (\\p{L}) y símbolos (\\W) al mismo tiempo
+        return token.matches(".*\\p{L}.*") && token.matches(".*\\W.*");
     }
 
     public static boolean isNumericToken(String token) {
@@ -107,7 +136,7 @@ public class TextUtils {
     }
 
     public static boolean isTextNumSymbolToken(String token) {
-        return token.matches(".*\\W.*");
+        return token.matches("^(?=.*[a-zA-Z])(?=.*\\\\d)(?=.*\\\\W).+$");
     }
 
     public static boolean isCharToken(String token) {

@@ -200,13 +200,13 @@ public class MessageProcessor {
     }
 
     private static boolean isInSpamEmojiRepo(String token) {
-        // Aquí verificas si el token está en la categoría "spamemoji" del repositorio
-        return LexemeRepository.getInstance().getSpamEmojis().contains(token);
+        // Aquí todo verificas si el token está en la categoría "spamemoji" del repositorio
+        return false;
     }
 
     private static boolean isInHamEmojiRepo(String token) {
-        // Aquí verificas si el token está en la categoría "hamemoji" del repositorio
-        return LexemeRepository.getInstance().getHamEmojis().contains(token);
+        // todo Aquí verificas si el token está en la categoría "hamemoji" del repositorio
+        return false;
     }
 
     private static void processUnassignedToken(String token, List<WordData> wordDataList, String label) {
@@ -216,10 +216,13 @@ public class MessageProcessor {
     }
 
 
-    // Métodos adicionales para validaciones y repositorios
     private static boolean isInAccentPairs(String token) {
-        // Validar en el mapa de accentPairs
-        return false; // Implementar según lógica
+        return accentPairs != null && accentPairs.containsKey(token);
+    }
+
+    private static boolean isInLexemeRepository(String token) {
+        return lexemeRepository != null && lexemeRepository.values().stream()
+                .anyMatch(set -> set.contains(token));
     }
 
     private static String getAccentPairCategory(String token) {
@@ -347,43 +350,7 @@ public class MessageProcessor {
      *
      * */
 
-    /*
-         //ver su implementaciòn ya que se cambió la estructura del diccionario de set a Map.
 
-
-    private final SpamDictionaryService dictionaryService;
-
-    // Constructor para inyectar el servicio del diccionario
-    public CsvMessageProcessor(SpamDictionaryService dictionaryService) {
-        this.dictionaryService = dictionaryService;
-    }
-*/
-
-    /**
-     * Método principal: procesa el CSV y actualiza el diccionario.
-     *
-     * @param filePath Ruta del archivo CSV.
-     * @throws IOException Si ocurre algún error al leer el archivo.
-     **/
-    /*
-    public void processCsvAndUpdateDictionary(String filePath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            br.readLine(); // Saltar la línea del encabezado
-
-            while ((line = br.readLine()) != null) {
-                // Paso 1: Parsear la línea
-                LabeledMessage labeledMessage = readLineAndParse(line);
-
-                // Paso 2: Tokenizar el mensaje
-                List<String> tokens = splitMessageAndLowercase(labeledMessage.getContent());
-
-                // Paso 3: Actualizar el diccionario
-                updateDictionary(tokens, "spam".equalsIgnoreCase(labeledMessage.getLabel()));
-            }
-        }
-    }
-*/
     /**
      * Convierte una línea CSV en un objeto LabeledMessage.
      *

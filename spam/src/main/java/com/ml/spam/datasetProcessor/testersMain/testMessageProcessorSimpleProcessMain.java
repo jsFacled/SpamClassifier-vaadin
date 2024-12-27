@@ -8,7 +8,7 @@ import com.ml.spam.handlers.ResourcesHandler;
 import java.io.IOException;
 import java.util.List;
 
-public class testMessageProcessorMain {
+public class testMessageProcessorSimpleProcessMain {
 
     public static void main(String[] args) {
         String testMessagesFilePath = FilePathsConfig.TEST_CSV_DATA_PATH;

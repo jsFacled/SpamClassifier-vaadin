@@ -12,60 +12,66 @@ import java.util.List;
 
 public class InitializationAndTokenProcessingTestMain {
 
-        private static final String catWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
-        private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
-        private static final String  lexemePath=FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+    private static final String catWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
+    private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
+    private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
 
-        private static final String testMessagesFilePath = FilePathsConfig.TEST_CSV_DATA_PATH;
-        private static final String testCatWords = FilePathsConfig.TEST_CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
+    private static final String testMessagesFilePath = FilePathsConfig.TEST_CSV_DATA_PATH;
 
-        public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
+        try {
             SpamDictionaryService service = new SpamDictionaryService();
             ResourcesHandler resourcesHandler = new ResourcesHandler();
 
-            System.out.println("[ STAGE 1 ]* * * * * Inicializando dictionary   .    .   .  .  .  . . . . . . . . . \n");
+            // Etapa 1: Inicializar el diccionario
+            System.out.println("[ STAGE 1 ] Inicializando diccionario desde JSON...");
+            service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(catWordsPath, accentPairsPath, lexemePath);
 
-
-            // Inicializar el diccionario desde el JSON
-            service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(testCatWords, accentPairsPath, lexemePath);
-
-            // Mostrar los Map de SpamDictionary para chequear que se haya inicializado correctamente
+            // Mostrar el estado inicial del diccionario
+            System.out.println("[INFO] Diccionario inicializado:");
             service.displayCategorizedWordsInDictionary();
 
-            System.out.println("\n **************** INICIANDO PRECESS MESSAGES ********************************************************************************");
-            System.out.println("[ STAGE 2 ]* * * * * Cargando csv con messages,label    .    .   .  .  .  . . . . . . . . . \n");
-
-
-            // Paso 2: Cargar las filas crudas desde el archivo CSV
+            // Etapa 2: Cargar las filas crudas desde el CSV
+            System.out.println("\n[ STAGE 2 ] Cargando mensajes desde archivo CSV...");
             List<String[]> rawRows = resourcesHandler.loadCsvFile(testMessagesFilePath);
-            System.out.println("[INFO] > > >  Filas crudas cargadas: " + rawRows.size());
 
-
-        // Paso 3: Validar que las filas no estén vacías
-        if (rawRows == null || rawRows.isEmpty()) {
-            throw new IllegalArgumentException("El archivo CSV no contiene datos válidos.");
-        }
-
-        // Paso 4: Filtrar y validar filas
-        List<String[]> validRows = rawRows.stream()
-                .filter(row -> row.length == 2) // Validación simple: deben tener 2 columnas
-                .toList();
-        System.out.println("[INFO] Filas válidas después de filtrar: " + validRows.size());
-
-        // Paso 5: Procesar filas válidas para obtener listas de WordData
-        System.out.println("[INFO] Procesando filas válidas...");
-        List<List<WordData>> processedWordData = MessageProcessor.processToWordData(validRows);
-        System.out.println("[INFO] Número de listas de WordData generadas: " + processedWordData.size());
-/*
-        // Imprimir los datos procesados
-        for (int i = 0; i < processedWordData.size(); i++) {
-            System.out.println("\n[Mensaje " + (i + 1) + "]");
-            for (WordData wordData : processedWordData.get(i)) {
-                System.out.println(wordData);
+            // Validar y procesar las filas crudas
+            if (rawRows == null || rawRows.isEmpty()) {
+                throw new IllegalArgumentException("[ERROR] El archivo CSV no contiene datos válidos.");
             }
-        }
-DictionarySummaryReport.displayFullReport(service);
-*/
+            System.out.println("[INFO] Filas crudas cargadas: " + rawRows.size());
 
+            // Filtrar filas válidas
+            List<String[]> validRows = rawRows.stream()
+                    .filter(row -> row.length == 2 && !row[0].isBlank() && !row[1].isBlank())
+                    .toList();
+
+            System.out.println("[INFO] Filas válidas después del filtrado: " + validRows.size());
+            if (validRows.isEmpty()) {
+                throw new IllegalArgumentException("[ERROR] No hay filas válidas después del filtrado.");
+            }
+
+            // Etapa 3: Tokenizar y procesar mensajes
+            System.out.println("\n[ STAGE 3 ] Tokenizando y procesando mensajes...");
+            List<List<WordData>> processedWordData = MessageProcessor.processToWordData(validRows,
+                    service.getAccentPairs(), service.getLexemesRepository());
+            System.out.println("[INFO] Número de listas de WordData generadas: " + processedWordData.size());
+
+            // Etapa 4: Actualizar el diccionario
+            System.out.println("\n[ STAGE 4 ] Actualizando el diccionario con los tokens procesados...");
+            service.updateDictionaryFromProcessedWordData(processedWordData);
+
+            // Mostrar el reporte del diccionario
+            System.out.println("\n[INFO] Generando reporte del diccionario actualizado...");
+            DictionarySummaryReport.displayFullReport(service);
+
+        } catch (IOException e) {
+            System.err.println("[ERROR] Error al manejar archivos: " + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.err.println("[ERROR] Error en datos de entrada: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("[ERROR] Error inesperado: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }

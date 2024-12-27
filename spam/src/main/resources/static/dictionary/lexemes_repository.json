@@ -9,7 +9,12 @@
     "lexadv": ["algo", "así", "aunque", "cómo", "muy", "ni", "no", "sí"],
     "lexprep": ["con", "de", "del", "en", "entre", "para", "por", "sobre"],
     "lexconj": ["aunque", "pero", "que", "porque"],
-    "lexverbaux": ["fue", "fui", "fuera", "fueron", "ha", "había", "habían", "hay", "he", "hemos", "será", "tiene", "tienen"]
+    "lexverbaux": ["fue", "fui", "fuera", "fueron", "ha", "había", "habían", "hay", "he", "hemos", "será", "tiene", "tienen"],
+    "lexdim": ["kilo", "metro", "litro", "gramo", "tonelada", "mililitro", "centimetro", "milimetro", "galon", "pulgada", "hectometro", "decametro", "micrometro", "nanometro", "milibar", "hectopascal", "pie", "yarda", "rod", "cadena"],
+    "lexcal": ["al", "desde", "hasta","enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo", "semana", "quincena", "mes", "ano", "decada", "siglo", "milenio", "bisiesto", "festivo", "jornada", "intervalo"],
+    "lexmon": ["dolar", "euro", "peso", "yen", "libra", "rupia", "franco", "real", "corona", "rublo", "yuan", "shekel", "lira", "dinar", "ringgit", "won", "zloty", "colones", "soles", "bolivares","cuándo", "dónde", "hasta"],
+    "lexuni": ["kg", "m2", "l", "ml", "g", "cm", "mm", "km", "ft", "in", "oz", "lb", "t", "ha", "a", "cl", "dl", "qt", "pt", "yd"]
+
   },
   "numLexemes": {
     "numdim": ["cm", "m2", "litros", "kg", "mm", "km", "galones", "pulgadas", "yardas", "toneladas", "pies", "hectareas", "decimetros", "mililitros", "centimetros cubicos", "metros cubicos", "kilometros cuadrados", "onzas", "libras", "gramos"],
@@ -22,6 +27,13 @@
     "numip": ["ip", "direccion", "red", "host", "dominio", "subred", "gateway", "enrutador", "proxy", "servidor"]
   },
   "contextualLexemes": {
+    "spamemoji": [
+      "🔥", "🎉", "✨", "🚨", "💥", "🎁", "🛑", "💰", "💵", "💎", "💳", "💲",
+      "❤️", "😘", "😉", "🌹", "🏆", "🥇", "✅", "✔️"
+    ],
+    "hamemoji": [
+      "😊", "😂", "👍", "👏", "🎂", "🍰", "🎶", "📚", "🖋️", "💡", "🌟", "📅"
+    ],
     "lexcompra": ["compra", "comprar", "comprate", "comprarás", "comprando", "comprador", "compradores"],
     "lexahorro": ["ahorra", "ahorrar", "ahorro"],
     "lexurgencia": ["urgente", "pronto", "inmediato", "último", "ahora", "ya"],

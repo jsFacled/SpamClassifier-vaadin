@@ -286,10 +286,14 @@ public class SpamDictionaryService {
             throw new IllegalArgumentException("El archivo CSV no contiene filas válidas.");
         }
 
-        // 5. Procesar las filas válidas para obtener listas de WordData
-        List<List<WordData>> processedWordData = MessageProcessor.processToWordData(validRows);
+        // 5. Obtener recursos necesarios para el procesamiento
+        Map<String, SpamDictionary.Pair> accentPairs = dictionary.getAccentPairs();
+        Map<LexemeRepositoryCategories, Set<String>> lexemeRepository = dictionary.getLexemesRepository();
 
-        // 6. Actualizar el diccionario con los datos procesados
+        // 6. Procesar las filas válidas para obtener listas de WordData
+        List<List<WordData>> processedWordData = MessageProcessor.processToWordData(validRows, accentPairs, lexemeRepository);
+
+        // 7. Actualizar el diccionario con los datos procesados
         updateDictionaryFromProcessedWordData(processedWordData);
 
         System.out.println("Diccionario actualizado correctamente con datos del archivo: " + csvFilePath);
@@ -541,6 +545,15 @@ public class SpamDictionaryService {
     public SpamDictionary getDictionary() {
         return this.dictionary;
     }
+
+    public Map<LexemeRepositoryCategories, Set<String>> getLexemesRepository() {
+        return dictionary.getLexemesRepository();
+    }
+
+    public Map<String, SpamDictionary.Pair> getAccentPairs() {
+        return dictionary.getAccentPairs();
+    }
+
 
 
 }

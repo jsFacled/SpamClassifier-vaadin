@@ -11,13 +11,7 @@ public class MessageProcessorTest {
     public static void main(String[] args) {
         // Simulación de datos crudos (rawRows) en formato [mensaje, etiqueta]
         List<String[]> rawRows = new ArrayList<>();
-        rawRows.add(new String[]{"¡Gana un premio ahora!", "spam"});
-        rawRows.add(new String[]{"Hola, ¿cómo estás?", "ham"});
-        rawRows.add(new String[]{"Oferta exclusiva 1000 solo hoy", "spam"});
-        rawRows.add(new String[]{"Te llamo luego", "ham"});
-        rawRows.add(new String[]{"Mensaje inválido solo texto", ""}); // Fila inválida
-        rawRows.add(new String[]{"", "ham"}); // Fila inválida
-        rawRows.add(new String[]{"¡Oferta limitada $100! 24hs", "spam"});
+        rawRows.add(new String[]{"Compra 35kg de arroz en oferta! $100 24hs es un buen precio para ahorrar y es urgente! http://promo123.com \uD83D\uDE0A cómpralo ya yá", "spam"});
 
         // Procesar las filas crudas para convertirlas en WordData
         try {

@@ -1,5 +1,7 @@
 package com.ml.spam.datasetProcessor;
 
+import com.ml.spam.dictionary.models.LexemeRepositoryCategories;
+import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.models.TokenType;
 import com.ml.spam.dictionary.models.WordData;
 import com.ml.spam.undefined.LabeledMessage;
@@ -12,14 +14,25 @@ import java.util.*;
 
 public class MessageProcessor {
 
-    public static List<List<WordData>> processToWordData(List<String[]> rawRows) {
+    private static Map<String, SpamDictionary.Pair> accentPairs;
+    private static Map<LexemeRepositoryCategories, Set<String>> lexemeRepository;
+
+
+    //Recibe los mensajes, accentpairs y repositorio de lexemas.
+    public static List<List<WordData>> processToWordData(List<String[]> rawRows, Map<String, SpamDictionary.Pair> accentPairs, Map<LexemeRepositoryCategories, Set<String>> lexemeRepository ) {
+
         // Validar entrada de List rawRows
         if (rawRows == null || rawRows.isEmpty()) {
             throw new IllegalArgumentException("La lista de filas está vacía o es nula.");
         }
+
         // Inicializar estructura de salida y filas inválidas
         List<List<WordData>> wordDataLists = new ArrayList<>();
         List<String[]> invalidRows = new ArrayList<>();
+
+        // Asignar valores a las variables estáticas del dictionary
+        MessageProcessor.accentPairs = accentPairs;
+        MessageProcessor.lexemeRepository = lexemeRepository;
 
         // Iterar sobre las filas rawRows [mensaje,label]
         for (String[] row : rawRows) {
@@ -84,7 +97,9 @@ public class MessageProcessor {
                 case SYMBOL:
                     processSymbolToken(token, wordDataList, label);
                     break;
+                case UNASSIGNED:
                 default:
+                    // En lugar de asignar UNASSIGNED, simplemente deja el token tal cual.
                     processUnassignedToken(token, wordDataList, label);
                     break;
             }
@@ -161,21 +176,45 @@ public class MessageProcessor {
         if (token.length() == 1) {
             wordDataList.add(new WordData(token, label));
         } else {
-            wordDataList.add(new WordData("UNASSIGNED", label));
+            wordDataList.add(new WordData(token, label));
         }
     }
 
     private static void processSymbolToken(String token, List<WordData> wordDataList, String label) {
-        if (isRareSymbol(token)) {
-            wordDataList.add(new WordData(token, label));
+
+
+        // Verificar si el token clasificado como SYMBOL es un
+        if (TextUtils.isEmoji(token)) {
+            if (isInSpamEmojiRepo(token)) {
+                wordDataList.add(new WordData("spamemoji", label));
+            } else if (isInHamEmojiRepo(token)) {
+                wordDataList.add(new WordData("hamemoji", label));
+            } else {
+                // Emoji desconocido todo: agregar al categorizedWords
+                wordDataList.add(new WordData("unknownemoji", label));
+            }
         } else {
-            wordDataList.add(new WordData("UNASSIGNED", label));
+            // Procesar símbolo genérico
+            wordDataList.add(new WordData(token, label));
         }
     }
 
-    private static void processUnassignedToken(String token, List<WordData> wordDataList, String label) {
-        wordDataList.add(new WordData("UNASSIGNED", label));
+    private static boolean isInSpamEmojiRepo(String token) {
+        // Aquí verificas si el token está en la categoría "spamemoji" del repositorio
+        return LexemeRepository.getInstance().getSpamEmojis().contains(token);
     }
+
+    private static boolean isInHamEmojiRepo(String token) {
+        // Aquí verificas si el token está en la categoría "hamemoji" del repositorio
+        return LexemeRepository.getInstance().getHamEmojis().contains(token);
+    }
+
+    private static void processUnassignedToken(String token, List<WordData> wordDataList, String label) {
+        // Agrega el token sin clasificar para que el Service decida cómo manejarlo
+        System.out.println("[DEBUG] Token UNASSIGNED detectado: " + token);
+        wordDataList.add(new WordData(token, label));
+    }
+
 
     // Métodos adicionales para validaciones y repositorios
     private static boolean isInAccentPairs(String token) {

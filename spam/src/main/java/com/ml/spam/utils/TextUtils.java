@@ -6,6 +6,7 @@ import com.ml.spam.dictionary.models.TokenType;
 
 import java.text.Normalizer;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class TextUtils {
@@ -78,7 +79,11 @@ public class TextUtils {
     }
 
     public static List<String> splitMessageAndLowercase(String message) {
-        return List.of(message.toLowerCase().split("\\s+"));
+        if (message == null || message.trim().isEmpty()) {
+            return Collections.emptyList(); // Retorna lista vacía si el mensaje es nulo o vacío
+        }
+        // Convierte a minúsculas, elimina comas y divide por espacios
+        return List.of(message.toLowerCase().replace(",", "").trim().split("\\s+"));
     }
 
     /***************** Tratamiento con Tokens ***************************/
@@ -110,6 +115,9 @@ public class TextUtils {
         }
         if (isSymbolToken(token)) {
             return TokenType.SYMBOL; // Token es un símbolo raro puro
+        }
+        if (isEmoji(token)) {
+            return TokenType.SYMBOL; // Token es un emoji
         }
         return TokenType.UNASSIGNED; // Token no clasificable
     }
@@ -146,6 +154,11 @@ public class TextUtils {
     public static boolean isSymbolToken(String token) {
         return token.matches("[!@#$%^&*()_+={}:;\\\"',.<>?/-]+");
     }
+    public static boolean isEmoji(String token) {
+        // Verifica si el token contiene solo emojis (caracteres de la categoría Unicode 'So')
+        return token != null && token.matches("[\\p{So}]+");
+    }
+
 
     public static String[] splitNumberAndText(String token) {
         String numberPart = token.replaceAll("[^0-9]", "");

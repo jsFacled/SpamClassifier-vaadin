@@ -11,43 +11,19 @@ import java.util.List;
 
 public class TextUtils {
 
-    public static RowValidationResult validateAndNormalizeRow(String row) {
-        if (row == null || row.trim().isEmpty()) {
-            return new RowValidationResult(false, null, null);
-        }
-
-        // Dividir por coma
-        String[] parts = row.split(",");
-        if (parts.length != 2) {
-            return new RowValidationResult(false, null, null); // Fila inválida
-        }
-
-        // Normalizar mensaje y etiqueta
-        String message = parts[0].trim();
-        String label = parts[1].trim();
-
-        // Validar mensaje y etiqueta
-        if (message.isEmpty() || (!label.equalsIgnoreCase("spam") && !label.equalsIgnoreCase("ham"))) {
-            return new RowValidationResult(false, null, null);
-        }
-
-        // Retornar la fila normalizada como válida
-        return new RowValidationResult(true, message, label);
-    }
-
     // Normalización de texto
+
     public static String normalize(String text) {
         return text.toLowerCase().replaceAll("[^a-zA-Z0-9]", "");
     }
-
     // Valida si una fila es válida para el dataset
+
     public static boolean isRawRow(String[] row) {
         if (row == null || row.length != 2) {
             return false;
         }
         return isSpamOrHam(row[1]);
     }
-
     public static boolean isSpamOrHam(String value) {
         try {
             MessageLabel.valueOf(value.toUpperCase()); // Verifica si existe en el enum
@@ -86,12 +62,30 @@ public class TextUtils {
         return List.of(message.toLowerCase().replace(",", "").trim().split("\\s+"));
     }
 
+
+
     /***************** Tratamiento con Tokens ***************************/
 
-    public static TokenType classifyToken(String token) {
-        if (token == null || token.trim().isEmpty()) {
-            return TokenType.UNASSIGNED; // Token vacío o nulo
+
+    public static TokenType classifyTokenByOneDigit(String token) {
+       if (isCharToken(token)) {
+                return TokenType.CHAR; // Token es un único carácter
+            }
+       if (isSymbolToken(token)) {
+                return TokenType.SYMBOL; // Token es un símbolo raro puro
+            }
+        if (isNumericToken(token)) {
+            return TokenType.NUM; // Token es un número puro
         }
+        return TokenType.UNASSIGNED; // Token no clasificable
+    }
+
+
+    public static TokenType classifyToken(String token) {
+        if (isOneDigit(token)){
+            classifyTokenByOneDigit(token);
+        }
+
         if (isNumericToken(token)) {
             return TokenType.NUM; // Token es un número puro
         }
@@ -110,17 +104,14 @@ public class TextUtils {
         if (isTextNumSymbolToken(token)) {
             return TokenType.TEXT_NUM_SYMBOL; // Token tiene texto, números y símbolos mezclados
         }
-        if (isCharToken(token)) {
-            return TokenType.CHAR; // Token es un único carácter
-        }
-        if (isSymbolToken(token)) {
-            return TokenType.SYMBOL; // Token es un símbolo raro puro
-        }
         if (isEmoji(token)) {
             return TokenType.SYMBOL; // Token es un emoji
         }
         return TokenType.UNASSIGNED; // Token no clasificable
     }
+
+    public static boolean isOneDigit(String token) {
+        return token.length() == 1;    }
 
     private static boolean isNumSymbolToken(String token) {
         return token.matches(".*\\d.*") && token.matches(".*\\W.*") && !token.matches(".*\\p{L}.*");
@@ -218,4 +209,27 @@ public class TextUtils {
     }
 
 
+    public static RowValidationResult validateAndNormalizeRow(String row) {
+        if (row == null || row.trim().isEmpty()) {
+            return new RowValidationResult(false, null, null);
+        }
+
+        // Dividir por coma
+        String[] parts = row.split(",");
+        if (parts.length != 2) {
+            return new RowValidationResult(false, null, null); // Fila inválida
+        }
+
+        // Normalizar mensaje y etiqueta
+        String message = parts[0].trim();
+        String label = parts[1].trim();
+
+        // Validar mensaje y etiqueta
+        if (message.isEmpty() || (!label.equalsIgnoreCase("spam") && !label.equalsIgnoreCase("ham"))) {
+            return new RowValidationResult(false, null, null);
+        }
+
+        // Retornar la fila normalizada como válida
+        return new RowValidationResult(true, message, label);
+    }
 }

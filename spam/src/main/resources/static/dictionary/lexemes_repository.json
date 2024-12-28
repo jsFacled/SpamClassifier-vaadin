@@ -1,6 +1,7 @@
 {
   "textLexemes": {
-    "lexvocals": ["á", "é", "í", "ó", "ú", "a", "e", "i", "o", "u"],
+    "lexvowel": ["á", "é", "í", "ó", "ú", "a", "e", "i", "o", "u"],
+    "lexconsonant": ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "z", "ç", "ñ"],
     "excl": ["?", "¿", "!", "¡", "...", "???", "!!!", "?!?", "¡!?", "¡?!", ".."],
     "lexsym": ["$", "%", "@", "&", "*", "#", "~", "^", "!", "?", "/", ":", ";", "|", "\\", "_", "-", "+", "=", "<>"],
     "mathop": ["+", "-", "*", "/", "=", "%", "^", "**", "//", "-=", "+=", "<", ">", "<=", ">=", "!=", "==", "~", "|"],
@@ -13,7 +14,7 @@
     "lexdim": ["kilo", "metro", "litro", "gramo", "tonelada", "mililitro", "centimetro", "milimetro", "galon", "pulgada", "hectometro", "decametro", "micrometro", "nanometro", "milibar", "hectopascal", "pie", "yarda", "rod", "cadena"],
     "lexcal": ["al", "desde", "hasta","enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo", "semana", "quincena", "mes", "ano", "decada", "siglo", "milenio", "bisiesto", "festivo", "jornada", "intervalo"],
     "lexmon": ["dolar", "euro", "peso", "yen", "libra", "rupia", "franco", "real", "corona", "rublo", "yuan", "shekel", "lira", "dinar", "ringgit", "won", "zloty", "colones", "soles", "bolivares","cuándo", "dónde", "hasta"],
-    "lexuni": ["kg", "m2", "l", "ml", "g", "cm", "mm", "km", "ft", "in", "oz", "lb", "t", "ha", "a", "cl", "dl", "qt", "pt", "yd"]
+    "lexuni": ["kg", "m2","ml", "gs", "cm", "mm", "km", "ft", "in", "oz", "lb","ha", "cl", "dl", "qt", "pt", "yd"]
 
   },
   "numLexemes": {

@@ -9,7 +9,6 @@ import com.ml.spam.datasetProcessor.models.ProcessedMessage;
 import com.ml.spam.utils.CsvUtils;
 import com.ml.spam.utils.TextUtils;
 
-import java.io.IOException;
 import java.util.*;
 
 public class MessageProcessor {
@@ -58,55 +57,94 @@ public class MessageProcessor {
 
         // Paso 2: Tokenización básica del mensaje
         List<String> tokens = TextUtils.splitMessageAndLowercase(message);
-
-        System.out.println("\n [DEBUG] >> tokens List: " + tokens+ "\n");
+        displayTokenListInConsole(tokens);
 
         // Paso 3: Inicializar la lista de WordData
         List<WordData> wordDataList = new ArrayList<>();
 
         // Paso 4: Recorrer la lista de tokens y procesar cada uno
         for (String token : tokens) {
-            // Subpaso 4.1: Clasificar el token
-            TokenType type = TextUtils.classifyToken(token);
+            //inicializar tokenType;
+            TokenType tokenType = TokenType.UNASSIGNED;
 
-            System.out.println("\n [DEBUG 4.1] >>  token: -" + token+ "- Es de tipo: "+type + "\n");
+            // Subpaso 4.1: Clasificar el token
+            /**
+             *Primero clasifica los que tienen un sólo dígito para agilizar
+             */
+            if(TextUtils.isOneDigit(token)){
+                 tokenType = TextUtils.classifyTokenByOneDigit(token);
+                processTokenByOneDigit(token, tokenType, wordDataList, label);
+                displayTokenInConsole(token, tokenType);
+            }
+
+
+            /**
+             *     Tiene más digitos
+             */
+
+//            TokenType tokenType = TextUtils.classifyToken(token);
 
             // Subpaso 4.2: Procesar según la clasificación del token
-            switch (type) {
-                case NUM:
-                    processNumToken(token, wordDataList, label);
-                    break;
-                case TEXT:
-                    processTextToken(token, wordDataList, label);
-                    break;
-                case NUM_TEXT:
-                    processNumTextToken(token, wordDataList, label);
-                    break;
-                case NUM_SYMBOL:
-                    processNumSymbolToken(token, wordDataList, label);
-                    break;
-                case TEXT_SYMBOL:
-                    processTextSymbolToken(token, wordDataList, label);
-                    break;
-                case TEXT_NUM_SYMBOL:
-                    processTextNumSymbolToken(token, wordDataList, label);
-                    break;
-                case CHAR:
-                    processCharToken(token, wordDataList, label);
-                    break;
-                case SYMBOL:
-                    processSymbolToken(token, wordDataList, label);
-                    break;
-                case UNASSIGNED:
-                default:
-                    // En lugar de asignar UNASSIGNED, simplemente deja el token tal cual.
-                    processUnassignedToken(token, wordDataList, label);
-                    break;
-            }
+            processAllTokenSizes(token, tokenType, wordDataList, label);
+
         }
 
         // Paso 5: Retornar la lista de WordData procesada
         return wordDataList;
+    }
+
+    private static void processAllTokenSizes(String token, TokenType tokenType, List<WordData> wordDataList, String label) {
+        switch (tokenType) {
+
+            case NUM:
+                processNumToken(token, wordDataList, label);
+                break;
+            case NUM_TEXT:
+                processNumTextToken(token, wordDataList, label);
+                break;
+            case NUM_SYMBOL:
+                processNumSymbolToken(token, wordDataList, label);
+                break;
+            case TEXT_NUM_SYMBOL:
+                processTextNumSymbolToken(token, wordDataList, label);
+                break;
+            case TEXT:
+                processTextToken(token, wordDataList, label);
+                break;
+            case TEXT_SYMBOL:
+                processTextSymbolToken(token, wordDataList, label);
+                break;
+            case SYMBOL:
+                ///// processOneDigit()
+                processSymbolToken(token, wordDataList, label);
+                break;
+            case CHAR:
+                //// processOneDigit()
+                processCharToken(token, wordDataList, label);
+                break;
+            case UNASSIGNED:
+            default:
+                // En lugar de asignar UNASSIGNED, simplemente deja el token tal cual.
+                processUnassignedToken(token, wordDataList, label);
+                break;
+        }
+    }
+
+    private static void processTokenByOneDigit(String token, TokenType tokenType, List<WordData> wordDataList, String label)  {
+        switch (tokenType){
+            //buscar token en lexemerepository
+            case CHAR  -> processCharToken(token, wordDataList, label);
+            case SYMBOL -> processSymbolToken(token,wordDataList,label);
+            case NUM -> processNumToken(token, wordDataList, label);
+        }
+    }
+
+
+    // Métodos auxiliares para cada tipo de token
+    private static void processNumToken(String token, List<WordData> wordDataList, String label) {
+        int number = Integer.parseInt(token);
+        String numCategory = number > 999 ? "numhigh" : "numlow";
+        wordDataList.add(new WordData(numCategory, label));
     }
 
     private static void processNumSymbolToken(String token, List<WordData> wordDataList, String label) {
@@ -121,7 +159,6 @@ public class MessageProcessor {
             }
         }
     }
-
     private static void processTextSymbolToken(String token, List<WordData> wordDataList, String label) {
         // Divide el token en partes: texto y símbolos
         String[] parts = token.split("(?<=\\p{L})(?=\\W)|(?<=\\W)(?=\\p{L})");
@@ -135,13 +172,6 @@ public class MessageProcessor {
                 wordDataList.add(new WordData(part, label));
             }
         }
-    }
-
-    // Métodos auxiliares para cada tipo de token
-    private static void processNumToken(String token, List<WordData> wordDataList, String label) {
-        int number = Integer.parseInt(token);
-        String numCategory = number > 999 ? "NUMhigh" : "NUMlow";
-        wordDataList.add(new WordData(numCategory, label));
     }
 
     private static void processTextToken(String token, List<WordData> wordDataList, String label) {
@@ -277,6 +307,7 @@ public class MessageProcessor {
         return processedMessages;
     }
 
+
     // Método auxiliar para procesar una fila en un ProcessedMessage
     private static ProcessedMessage createProcessedMessage(String[] row) {
         String message = row[0].trim(); // Mensaje
@@ -301,7 +332,6 @@ public class MessageProcessor {
         );
     }
 
-
     private static void updateWordDataFrequency(WordData wordData, String label) {
         if ("spam".equalsIgnoreCase(label)) {
             wordData.incrementSpamFrequency(1);
@@ -309,6 +339,7 @@ public class MessageProcessor {
             wordData.incrementHamFrequency(1);
         }
     }
+
 
 
 
@@ -343,13 +374,6 @@ public class MessageProcessor {
         return labeledMessages;
     }
 
-    /**
-     *
-     *
-     *  ******* A partir de acá dejo Código viejo por las dudas *******
-     *
-     * */
-
 
     /**
      * Convierte una línea CSV en un objeto LabeledMessage.
@@ -365,4 +389,14 @@ public class MessageProcessor {
     }
 
 
+
+    private static void displayTokenInConsole(String token, TokenType tokenType) {
+        System.out.println("\n [DEBUG 4.1] >>  token: -" + token+ "- Es de tipo: "+tokenType + "\n");
+
+    }
+
+    private static void displayTokenListInConsole(List<String> tokens) {
+        System.out.println("\n [DEBUG] >> tokens List: " + tokens+ "\n");
+
+    }
 }//END MessageProcessor

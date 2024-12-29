@@ -115,11 +115,11 @@ public class MessageProcessor {
                 processTextSymbolToken(token, wordDataList, label);
                 break;
             case SYMBOL:
-                ///// processOneDigit()
+
                 processSymbolToken(token, wordDataList, label);
                 break;
             case CHAR:
-                //// processOneDigit()
+
                 processCharToken(token, wordDataList, label);
                 break;
             case UNASSIGNED:
@@ -203,15 +203,62 @@ public class MessageProcessor {
     }
 
     private static void processCharToken(String token, List<WordData> wordDataList, String label) {
-        if (token.length() == 1) {
-            wordDataList.add(new WordData(token, label));
-        } else {
-            wordDataList.add(new WordData(token, label));
-        }
+             // Acceder directamente a las categorías dentro de TEXT_LEXEMES
+            Set<String> textLexemes = lexemeRepository.get(LexemeRepositoryCategories.TEXT_LEXEMES);
+
+            // Verificar si es una vocal
+            boolean isVowel = textLexemes != null && textLexemes.contains("lexvowel") &&
+                    textLexemes.stream().filter(vowel -> vowel.equals("lexvowel"))
+                            .anyMatch(lex -> lex.contains(token));
+
+            // Verificar si es una consonante
+            boolean isConsonant = textLexemes != null && textLexemes.contains("lexconsonant") &&
+                    textLexemes.stream().filter(consonant -> consonant.equals("lexconsonant"))
+                            .anyMatch(lex -> lex.contains(token));
+
+            // Asignar categoría
+            if (isVowel) {
+                wordDataList.add(new WordData("lexvowel", label));
+            } else if (isConsonant) {
+                wordDataList.add(new WordData("lexconsonant", label));
+            } else {
+                wordDataList.add(new WordData("UNKNOWN_CHAR", label)); // No pertenece a ninguna categoría conocida
+            }
+
     }
 
     private static void processSymbolToken(String token, List<WordData> wordDataList, String label) {
+        if(TextUtils.isOneDigit(token)){
+            // Acceder directamente a las categorías dentro de TEXT_LEXEMES
+            Set<String> textLexemes = lexemeRepository.get(LexemeRepositoryCategories.TEXT_LEXEMES);
 
+            // Verificar si es una excl
+            boolean isExcl = textLexemes != null && textLexemes.contains("excl") &&
+                    textLexemes.stream().filter(d -> d.equals("excl"))
+                            .anyMatch(lex -> lex.contains(token));
+
+            // Verificar si es una lexsym
+            boolean isLexsym = textLexemes != null && textLexemes.contains("lexsym") &&
+                    textLexemes.stream().filter(d -> d.equals("lexsym"))
+                            .anyMatch(lex -> lex.contains(token));
+
+            // Verificar si es una mathop
+            boolean isMathop = textLexemes != null && textLexemes.contains("mathop") &&
+                    textLexemes.stream().filter(d -> d.equals("mathop"))
+                            .anyMatch(lex -> lex.contains(token));
+
+            // Asignar categoría
+            if (isExcl) {
+                wordDataList.add(new WordData("excl", label));
+            } else if (isLexsym) {
+                wordDataList.add(new WordData("lexsym", label));
+            } else if (isMathop) {
+                wordDataList.add(new WordData("mathop", label));
+
+            } else {
+                wordDataList.add(new WordData("UNKNOWN_CHAR", label)); // No pertenece a ninguna categoría conocida
+            }
+}
 
         // Verificar si el token clasificado como SYMBOL es un
         if (TextUtils.isEmoji(token)) {

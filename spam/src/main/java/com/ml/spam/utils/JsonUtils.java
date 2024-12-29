@@ -71,7 +71,7 @@ public class JsonUtils {
             if (!jsonObject.has(category.getJsonKey())) {
                 throw new IllegalArgumentException("Falta la categoría: " + category.getJsonKey());
             }
-            System.out.println("[DEBUGG] Categorías en CategorizedWords validadas en json");
+            System.out.println("[DEBUGG] Categoría en CategorizedWords validadas en json: "+category);
         }
     }
 
@@ -105,16 +105,28 @@ public class JsonUtils {
     public static Map<WordCategory, List<String>> jsonToCategoryMap(JSONObject jsonObject) {
         Map<WordCategory, List<String>> categoryMap = new HashMap<>();
 
-        for (WordCategory category : WordCategory.values()) {
-            if (jsonObject.has(category.name().toLowerCase())) {
-                List<String> words = jsonArrayToStringList(
-                        jsonObject.optJSONArray(category.name().toLowerCase())
-                );
+        System.out.println("Claves en el JSON: " + jsonObject.keySet()); // Depuración
 
-                // Agregar las palabras directamente al mapa
-                categoryMap.put(category, words);
+        for (WordCategory category : WordCategory.values()) {
+            String jsonKey = category.getJsonKey(); // Usar jsonKey directamente
+            System.out.println("Procesando categoría: " + jsonKey); // Depuración
+
+            if (jsonObject.has(jsonKey)) {
+                JSONArray jsonArray = jsonObject.optJSONArray(jsonKey);
+
+                if (jsonArray != null) {
+                    List<String> words = jsonArrayToStringList(jsonArray);
+                    System.out.println("Palabras encontradas para " + jsonKey + ": " + words); // Depuración
+                    categoryMap.put(category, words);
+                } else {
+                    System.out.println("No hay palabras en la categoría: " + jsonKey); // Depuración
+                }
+            } else {
+                System.out.println("Clave no encontrada en JSON: " + jsonKey); // Depuración
             }
         }
+
+        System.out.println("Mapa generado: " + categoryMap); // Depuración final
         return categoryMap;
     }
 

@@ -6,6 +6,7 @@ import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.reports.DictionarySummaryReport;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
 
+import java.util.Map;
 import java.util.Set;
 
 public class initializeLexemesTest {
@@ -32,23 +33,34 @@ displayLexemesReportInThisTest();
 
         System.out.println("\n=== Reporte de Lexemas ===");
 
-        // Iterar sobre las categorías
+        // Iterar sobre las categorías principales
         for (LexemeRepositoryCategories category : LexemeRepositoryCategories.values()) {
-            Set<String> lexemes = dictionary.getLexemesRepository().get(category);
+            Map<String, Set<String>> subCategoryMap = dictionary.getLexemesRepository().get(category);
 
-            if (lexemes == null || lexemes.isEmpty()) {
-                System.out.println("Categoría: " + category.getJsonKey() + " (sin lexemas)");
+            if (subCategoryMap == null || subCategoryMap.isEmpty()) {
+                System.out.println("Categoría: " + category.getJsonKey() + " (sin subcategorías ni lexemas)");
                 continue;
             }
 
             System.out.println("Categoría: " + category.getJsonKey());
-            System.out.println("Número de lexemas: " + lexemes.size());
+            System.out.println("Número de subcategorías: " + subCategoryMap.size());
 
-            // Mostrar los primeros 5 lexemas como muestra
-            lexemes.stream()
-                    .limit(5)
-                    .forEach(lexeme -> System.out.println("  " + lexeme));
+            // Iterar sobre las subcategorías dentro de cada categoría
+            for (Map.Entry<String, Set<String>> subCategoryEntry : subCategoryMap.entrySet()) {
+                String subCategory = subCategoryEntry.getKey();
+                Set<String> lexemes = subCategoryEntry.getValue();
 
+                System.out.println("  Subcategoría: " + subCategory);
+                System.out.println("  Número de lexemas: " + (lexemes != null ? lexemes.size() : 0));
+
+                if (lexemes != null && !lexemes.isEmpty()) {
+                    lexemes.stream()
+                            .limit(5) // Mostrar un máximo de 5 lexemas
+                            .forEach(lexeme -> System.out.println("    - " + lexeme));
+                } else {
+                    System.out.println("    (sin lexemas)");
+                }
+            }
             System.out.println("...");
         }
 

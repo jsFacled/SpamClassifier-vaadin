@@ -14,11 +14,14 @@ import java.util.*;
 public class MessageProcessor {
 
     private static Map<String, SpamDictionary.Pair> accentPairs;
-    private static Map<LexemeRepositoryCategories, Set<String>> lexemeRepository;
+    private static Map<LexemeRepositoryCategories, Map<String, Set<String>>> lexemeRepository;
 
 
     //Recibe los mensajes, accentpairs y repositorio de lexemas.
-    public static List<List<WordData>> processToWordData(List<String[]> rawRows, Map<String, SpamDictionary.Pair> accentPairs, Map<LexemeRepositoryCategories, Set<String>> lexemeRepository ) {
+    public static List<List<WordData>> processToWordData(
+            List<String[]> rawRows,
+            Map<String, SpamDictionary.Pair> accentPairs,
+            Map<LexemeRepositoryCategories, Map<String, Set<String>>> lexemeRepository) {
 
         // Validar entrada de List rawRows
         if (rawRows == null || rawRows.isEmpty()) {
@@ -33,11 +36,12 @@ public class MessageProcessor {
         MessageProcessor.accentPairs = accentPairs;
         MessageProcessor.lexemeRepository = lexemeRepository;
 
-        // Iterar sobre las filas rawRows [mensaje,label]
+        // Iterar sobre las filas rawRows [mensaje, label]
         for (String[] row : rawRows) {
             // Validar mensaje y etiqueta: Tratar también las filas no válidas
             if (TextUtils.isValidMessageAndLabel(row)) {
-                wordDataLists.add(processValidRow(row));// Tokenizar el mensaje (palabras y símbolos raros) y agregar a validRows
+                // Tokenizar el mensaje (palabras y símbolos raros) y agregar a validRows
+                wordDataLists.add(processValidRow(row));
             } else {
                 invalidRows.add(row);
                 System.err.println("Fila no válida encontrada: " + Arrays.toString(row));
@@ -192,17 +196,19 @@ public class MessageProcessor {
     }
 
     private static void processCharToken(String token, List<WordData> wordDataList, String label) {
-        Set<String> textLexemes = lexemeRepository.get(LexemeRepositoryCategories.TEXT_LEXEMES);
+        Map<String, Set<String>> textLexemes = lexemeRepository.get(LexemeRepositoryCategories.TEXT_LEXEMES);
 
         if (textLexemes != null) {
             // Verificar si el token pertenece a lexvowel
-            if (textLexemes.contains("lexvowel") && textLexemes.contains(token)) {
+            Set<String> lexVowel = textLexemes.get("lexvowel");
+            if (lexVowel != null && lexVowel.contains(token)) {
                 wordDataList.add(new WordData("lexvowel", label)); // Clasificar como vocal
                 return;
             }
 
             // Verificar si el token pertenece a lexconsonant
-            if (textLexemes.contains("lexconsonant") && textLexemes.contains(token)) {
+            Set<String> lexConsonant = textLexemes.get("lexconsonant");
+            if (lexConsonant != null && lexConsonant.contains(token)) {
                 wordDataList.add(new WordData("lexconsonant", label)); // Clasificar como consonante
                 return;
             }
@@ -213,24 +219,17 @@ public class MessageProcessor {
     }
 
     private static void processSymbolToken(String token, List<WordData> wordDataList, String label) {
-        if(TextUtils.isOneDigit(token)){
-            // Acceder directamente a las categorías dentro de TEXT_LEXEMES
-            Set<String> textLexemes = lexemeRepository.get(LexemeRepositoryCategories.TEXT_LEXEMES);
+        Map<String, Set<String>> textLexemes = lexemeRepository.get(LexemeRepositoryCategories.TEXT_LEXEMES);
 
+        if (TextUtils.isOneDigit(token)) {
             // Verificar si es una excl
-            boolean isExcl = textLexemes != null && textLexemes.contains("excl") &&
-                    textLexemes.stream().filter(d -> d.equals("excl"))
-                            .anyMatch(lex -> lex.contains(token));
+            boolean isExcl = textLexemes != null && textLexemes.getOrDefault("excl", Collections.emptySet()).contains(token);
 
             // Verificar si es una lexsym
-            boolean isLexsym = textLexemes != null && textLexemes.contains("lexsym") &&
-                    textLexemes.stream().filter(d -> d.equals("lexsym"))
-                            .anyMatch(lex -> lex.contains(token));
+            boolean isLexsym = textLexemes != null && textLexemes.getOrDefault("lexsym", Collections.emptySet()).contains(token);
 
             // Verificar si es una mathop
-            boolean isMathop = textLexemes != null && textLexemes.contains("mathop") &&
-                    textLexemes.stream().filter(d -> d.equals("mathop"))
-                            .anyMatch(lex -> lex.contains(token));
+            boolean isMathop = textLexemes != null && textLexemes.getOrDefault("mathop", Collections.emptySet()).contains(token);
 
             // Asignar categoría
             if (isExcl) {
@@ -239,13 +238,13 @@ public class MessageProcessor {
                 wordDataList.add(new WordData("lexsym", label));
             } else if (isMathop) {
                 wordDataList.add(new WordData("mathop", label));
-
             } else {
                 wordDataList.add(new WordData("UNKNOWN_CHAR", label)); // No pertenece a ninguna categoría conocida
             }
-}
+            return;
+        }
 
-        // Verificar si el token clasificado como SYMBOL es un
+        // Verificar si el token clasificado como SYMBOL es un emoji
         if (TextUtils.isEmoji(token)) {
             if (isInSpamEmojiRepo(token)) {
                 wordDataList.add(new WordData("spamemoji", label));
@@ -281,10 +280,10 @@ public class MessageProcessor {
     private static boolean isInAccentPairs(String token) {
         return accentPairs != null && accentPairs.containsKey(token);
     }
-
     private static boolean isInLexemeRepository(String token) {
         return lexemeRepository != null && lexemeRepository.values().stream()
-                .anyMatch(set -> set.contains(token));
+                .flatMap(subCategoryMap -> subCategoryMap.values().stream()) // Iterar sobre los conjuntos dentro de las subcategorías
+                .anyMatch(set -> set.contains(token)); // Verificar si el token está en alguno de los conjuntos
     }
 
     private static String getAccentPairCategory(String token) {

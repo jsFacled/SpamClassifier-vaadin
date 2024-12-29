@@ -206,6 +206,47 @@ public class JsonUtils {
         // Retornar el mapa con las categorías y sus lexemas
         return lexemesMap;
     }
+    public static Map<LexemeRepositoryCategories, Map<String, Set<String>>> jsonToStructuredLexemeMap(JSONObject jsonObject) {
+        // Mapa donde se almacenarán los lexemas organizados por categoría y subcategoría
+        Map<LexemeRepositoryCategories, Map<String, Set<String>>> lexemesMap = new HashMap<>();
+
+        // Iterar sobre todas las categorías del enum LexemeRepositoryCategories
+        for (LexemeRepositoryCategories category : LexemeRepositoryCategories.values()) {
+            System.out.println("Procesando categoría: " + category.getJsonKey());
+
+            // Obtener el objeto JSON asociado a la categoría
+            JSONObject subCategories = jsonObject.optJSONObject(category.getJsonKey());
+            if (subCategories != null) {
+                Map<String, Set<String>> subCategoryMap = new HashMap<>();
+
+                // Iterar sobre las claves de las subcategorías
+                for (String subCategory : subCategories.keySet()) {
+                    System.out.println("  Subcategoría encontrada: " + subCategory);
+
+                    // Obtener el array de lexemas de la subcategoría
+                    JSONArray lexemeArray = subCategories.optJSONArray(subCategory);
+                    if (lexemeArray != null) {
+                        // Convertir el array a un conjunto de strings
+                        Set<String> lexemes = new HashSet<>(jsonArrayToStringList(lexemeArray));
+                        subCategoryMap.put(subCategory, lexemes);
+                    } else {
+                        System.out.println("  No se encontró array en la subcategoría: " + subCategory);
+                        subCategoryMap.put(subCategory, Collections.emptySet());
+                    }
+                }
+
+                // Agregar la categoría y sus subcategorías al mapa principal
+                lexemesMap.put(category, subCategoryMap);
+            } else {
+                System.out.println("Categoría no encontrada en el JSON: " + category.getJsonKey());
+                // Si no hay subcategorías, se agrega un mapa vacío
+                lexemesMap.put(category, Collections.emptyMap());
+            }
+        }
+
+        // Retornar el mapa con las categorías, subcategorías y sus lexemas
+        return lexemesMap;
+    }
 
 
 

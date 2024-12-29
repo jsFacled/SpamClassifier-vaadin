@@ -92,22 +92,31 @@ public class DictionarySummaryReport {
 
         // Iterar sobre las categorías
         for (LexemeRepositoryCategories category : LexemeRepositoryCategories.values()) {
-            Set<String> lexemes = dictionary.getLexemesRepository().get(category);
+            Map<String, Set<String>> subcategories = dictionary.getLexemesRepository().get(category);
 
-            if (lexemes == null || lexemes.isEmpty()) {
+            if (subcategories == null || subcategories.isEmpty()) {
                 System.out.println("Categoría: " + category.getJsonKey() + " (sin lexemas)");
                 continue;
             }
 
             System.out.println("Categoría: " + category.getJsonKey());
-            System.out.println("Número de lexemas: " + lexemes.size());
+            System.out.println("Número de subcategorías: " + subcategories.size());
 
-            // Mostrar los primeros 5 lexemas como muestra
-            lexemes.stream()
-                    .limit(5)
-                    .forEach(lexeme -> System.out.println("  " + lexeme));
+            // Iterar sobre las subcategorías
+            for (Map.Entry<String, Set<String>> entry : subcategories.entrySet()) {
+                String subcategory = entry.getKey();
+                Set<String> lexemes = entry.getValue();
 
-            System.out.println("...");
+                System.out.println("  Subcategoría: " + subcategory);
+                System.out.println("  Número de lexemas: " + lexemes.size());
+
+                // Mostrar los primeros 5 lexemas como muestra
+                lexemes.stream()
+                        .limit(5)
+                        .forEach(lexeme -> System.out.println("    " + lexeme));
+
+                System.out.println("  ...");
+            }
         }
 
         System.out.println("\n[INFO] Reporte de lexemas generado correctamente.");
@@ -139,17 +148,41 @@ public class DictionarySummaryReport {
         Map<String, SpamDictionary.Pair> accentPairs = dictionary.getAccentPairs();
         System.out.println("\nAccent Pairs Count: " + accentPairs.size());
 
-        // Mostrar la cantidad de lexemas por categoría
-        Map<LexemeRepositoryCategories, Set<String>> lexemesRepository = dictionary.getLexemesRepository();
+        // Mostrar la cantidad de lexemas por categoría y subcategoría
+        Map<LexemeRepositoryCategories, Map<String, Set<String>>> lexemesRepository = dictionary.getLexemesRepository();
         System.out.println("\nLexeme Categories:");
-        lexemesRepository.forEach((category, lexemes) ->
-                System.out.printf(" - %s: %d lexemes%n", category.name(), lexemes.size()));
+        for (Map.Entry<LexemeRepositoryCategories, Map<String, Set<String>>> entry : lexemesRepository.entrySet()) {
+            LexemeRepositoryCategories category = entry.getKey();
+            Map<String, Set<String>> subcategories = entry.getValue();
+
+            System.out.printf(" - %s -> Total Subcategories: %d%n", category.name(), subcategories.size());
+
+            for (Map.Entry<String, Set<String>> subcategoryEntry : subcategories.entrySet()) {
+                String subcategory = subcategoryEntry.getKey();
+                Set<String> lexemes = subcategoryEntry.getValue();
+
+                System.out.printf("   * Subcategory: %s -> Total Lexemes: %d%n", subcategory, lexemes.size());
+                lexemes.stream()
+                        .limit(5) // Muestra solo los primeros 5 lexemas como ejemplo
+                        .forEach(lexeme -> System.out.println("     - " + lexeme));
+                System.out.println("     ...");
+            }
+        }
 
         // Resumen adicional
         int totalWords = allCategories.values().stream().mapToInt(Map::size).sum();
         System.out.println("\nCategorizedWords Summary:");
         System.out.println(" - Total Categories in CategorizedWords: " + allCategories.size());
         System.out.println(" - Total Words: " + totalWords);
+
+        int totalLexemes = lexemesRepository.values().stream()
+                .flatMap(subcategories -> subcategories.values().stream())
+                .mapToInt(Set::size)
+                .sum();
+        System.out.println("\nLexemes Summary:");
+        System.out.println(" - Total Categories in LexemesRepository: " + lexemesRepository.size());
+        System.out.println(" - Total Lexemes: " + totalLexemes);
+
         System.out.println("=== End of Full Report ===\n");
     }
 

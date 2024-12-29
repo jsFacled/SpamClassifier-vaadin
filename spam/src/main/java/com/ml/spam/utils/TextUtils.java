@@ -83,7 +83,7 @@ public class TextUtils {
 
     public static TokenType classifyToken(String token) {
         if (isOneDigit(token)){
-            classifyTokenByOneDigit(token);
+            return classifyTokenByOneDigit(token);
         }
 
         if (isNumericToken(token)) {
@@ -139,7 +139,7 @@ public class TextUtils {
     }
 
     public static boolean isCharToken(String token) {
-        return token.length() == 1 && Character.isLetterOrDigit(token.charAt(0));
+        return token.length() == 1 && Character.isLetter(token.charAt(0));
     }
 
     public static boolean isSymbolToken(String token) {

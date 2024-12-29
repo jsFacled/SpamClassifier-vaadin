@@ -168,27 +168,45 @@ public class JsonUtils {
     }
 
     public static Map<LexemeRepositoryCategories, Set<String>> jsonToLexemeMap(JSONObject jsonObject) {
+        // Mapa donde se almacenarán los lexemas clasificados por categoría
         Map<LexemeRepositoryCategories, Set<String>> lexemesMap = new HashMap<>();
 
+        // Iterar sobre todas las categorías del enum LexemeRepositoryCategories
         for (LexemeRepositoryCategories category : LexemeRepositoryCategories.values()) {
+            System.out.println("Procesando categoría: " + category.getJsonKey());
+
+            // Obtener el objeto JSON asociado a la categoría
             JSONObject subCategories = jsonObject.optJSONObject(category.getJsonKey());
             if (subCategories != null) {
                 Set<String> allLexemes = new HashSet<>();
 
+                // Iterar sobre las claves de las subcategorías
                 for (String subCategory : subCategories.keySet()) {
+                    System.out.println("  Subcategoría encontrada: " + subCategory);
+
+                    // Obtener el array de lexemas de la subcategoría
                     JSONArray lexemeArray = subCategories.optJSONArray(subCategory);
                     if (lexemeArray != null) {
+                        // Convertir el array a una lista de strings y agregar al conjunto de lexemas
                         allLexemes.addAll(jsonArrayToStringList(lexemeArray));
+                    } else {
+                        System.out.println("  No se encontró array en la subcategoría: " + subCategory);
                     }
                 }
 
+                // Agregar la categoría y sus lexemas al mapa
                 lexemesMap.put(category, allLexemes);
             } else {
+                System.out.println("Categoría no encontrada en el JSON: " + category.getJsonKey());
+                // Si no hay subcategorías, se agrega un conjunto vacío
                 lexemesMap.put(category, Collections.emptySet());
             }
         }
 
+        // Retornar el mapa con las categorías y sus lexemas
         return lexemesMap;
     }
+
+
 
 }

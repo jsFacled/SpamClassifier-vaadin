@@ -64,29 +64,18 @@ public class MessageProcessor {
 
         // Paso 4: Recorrer la lista de tokens y procesar cada uno
         for (String token : tokens) {
-            //inicializar tokenType;
+            // Inicializar tokenType
             TokenType tokenType = TokenType.UNASSIGNED;
 
             // Subpaso 4.1: Clasificar el token
-            /**
-             *Primero clasifica los que tienen un sólo dígito para agilizar
-             */
-            if(TextUtils.isOneDigit(token)){
-                 tokenType = TextUtils.classifyTokenByOneDigit(token);
+            if (TextUtils.isOneDigit(token)) {
+                tokenType = TextUtils.classifyTokenByOneDigit(token);
                 processTokenByOneDigit(token, tokenType, wordDataList, label);
                 displayTokenInConsole(token, tokenType);
+            } else {
+                // Subpaso 4.2: Procesar según la clasificación del token
+                processAllTokenSizes(token, tokenType, wordDataList, label);
             }
-
-
-            /**
-             *     Tiene más digitos
-             */
-
-//            TokenType tokenType = TextUtils.classifyToken(token);
-
-            // Subpaso 4.2: Procesar según la clasificación del token
-            processAllTokenSizes(token, tokenType, wordDataList, label);
-
         }
 
         // Paso 5: Retornar la lista de WordData procesada
@@ -203,28 +192,24 @@ public class MessageProcessor {
     }
 
     private static void processCharToken(String token, List<WordData> wordDataList, String label) {
-             // Acceder directamente a las categorías dentro de TEXT_LEXEMES
-            Set<String> textLexemes = lexemeRepository.get(LexemeRepositoryCategories.TEXT_LEXEMES);
+        Set<String> textLexemes = lexemeRepository.get(LexemeRepositoryCategories.TEXT_LEXEMES);
 
-            // Verificar si es una vocal
-            boolean isVowel = textLexemes != null && textLexemes.contains("lexvowel") &&
-                    textLexemes.stream().filter(vowel -> vowel.equals("lexvowel"))
-                            .anyMatch(lex -> lex.contains(token));
-
-            // Verificar si es una consonante
-            boolean isConsonant = textLexemes != null && textLexemes.contains("lexconsonant") &&
-                    textLexemes.stream().filter(consonant -> consonant.equals("lexconsonant"))
-                            .anyMatch(lex -> lex.contains(token));
-
-            // Asignar categoría
-            if (isVowel) {
-                wordDataList.add(new WordData("lexvowel", label));
-            } else if (isConsonant) {
-                wordDataList.add(new WordData("lexconsonant", label));
-            } else {
-                wordDataList.add(new WordData("UNKNOWN_CHAR", label)); // No pertenece a ninguna categoría conocida
+        if (textLexemes != null) {
+            // Verificar si el token pertenece a lexvowel
+            if (textLexemes.contains("lexvowel") && textLexemes.contains(token)) {
+                wordDataList.add(new WordData("lexvowel", label)); // Clasificar como vocal
+                return;
             }
 
+            // Verificar si el token pertenece a lexconsonant
+            if (textLexemes.contains("lexconsonant") && textLexemes.contains(token)) {
+                wordDataList.add(new WordData("lexconsonant", label)); // Clasificar como consonante
+                return;
+            }
+        }
+
+        // Si no pertenece a ninguna categoría, devolver el token directamente
+        wordDataList.add(new WordData(token, label));
     }
 
     private static void processSymbolToken(String token, List<WordData> wordDataList, String label) {

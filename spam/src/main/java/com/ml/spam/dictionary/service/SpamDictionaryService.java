@@ -199,6 +199,15 @@ public class SpamDictionaryService {
             // Convertir el JSON a un mapa categorizado
             Map<LexemeRepositoryCategories, Set<String>> lexemesMap = JsonUtils.jsonToLexemeMap(lexemeJson);
 
+            // [DEBUG] Imprimir el contenido del mapa de lexemas
+            System.out.println("[DEBUG] Mapa de lexemas generados:");
+            for (Map.Entry<LexemeRepositoryCategories, Set<String>> entry : lexemesMap.entrySet()) {
+                System.out.println("Categoría: " + entry.getKey());
+                for (String lexeme : entry.getValue()) {
+                    System.out.println("  - " + lexeme);
+                }
+            }
+
             // Transferir los lexemas al repositorio
             dictionary.initializeLexemes(lexemesMap);
 
@@ -497,6 +506,22 @@ public class SpamDictionaryService {
             );
         }
     }
+
+    public void displayLexemeRepository() {
+        System.out.println("\n========= Contenido del Lexeme Repository =========\n");
+        Map<LexemeRepositoryCategories, Set<String>> lexemeRepository = dictionary.getLexemesRepository();
+
+        if (lexemeRepository == null || lexemeRepository.isEmpty()) {
+            System.out.println("El repositorio de lexemas está vacío o no inicializado.");
+            return;
+        }
+
+        lexemeRepository.forEach((category, lexemes) -> {
+            System.out.println("Categoría: " + category);
+            lexemes.forEach(lexeme -> System.out.println("  - " + lexeme));
+        });
+    }
+
 
     /**
      * Muestra el contenido de un archivo JSON desde resources en la consola.

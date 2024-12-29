@@ -16,27 +16,41 @@ public class ProcessToWordDataTest {
 
 
     public static void main(String[] args) {
+String[] mensaje = new String[]{
+        "Compra 2999 35kg arroz oferta! $ $100 24hs es buen precio ahorrar y es urgente! http://promo123.com \uD83D\uDE0A cómpralo ya yá",
+         "spam"
+};
+        String[] mensaje2 = new String[]{
+                "9 $ a z hola",
+                "spam"
+        };
 
         try {
-            // Inicializar el servicio del diccionario
+            // Inicializar el Service
             SpamDictionaryService dictionaryService = new SpamDictionaryService();
             System.out.println("=== Inicializando Diccionarios Completos ===");
 
             // Inicializar diccionarios desde JSON
             dictionaryService.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(catWordsPath, accentPairsPath, lexemePath);
-
             System.out.println("=== Diccionarios Inicializados Correctamente ===");
-
 
             // Simulación de datos crudos (rawRows) en formato [mensaje, etiqueta]
             List<String[]> rawRows = new ArrayList<>();
-            rawRows.add(new String[]{
-                    "Compra 35kg de arroz en oferta! $100 24hs es un buen precio para ahorrar y es urgente! http://promo123.com \uD83D\uDE0A cómpralo ya yá",
-                    "spam"
-            });
+            rawRows.add(
+                    mensaje2
+                    //new String[]{
+                   // "Compra 35kg de arroz en oferta! $100 24hs es un buen precio para ahorrar y es urgente! http://promo123.com \uD83D\uDE0A cómpralo ya yá",
+                   // "spam"
+                    //    }
+        );
+
+
+
+            //Mostrar lexemerepository en dictionary
+            dictionaryService.displayLexemeRepository();
 
             // Mostrar datos iniciales para referencia
-            System.out.println("\n[INFO] Datos crudos iniciales:");
+            System.out.println("\n[INFO Inicio de lextura de Mensajes ] * * * Datos crudos iniciales:");
             for (String[] row : rawRows) {
                 System.out.println("[Mensaje: " + row[0] + ", Etiqueta: " + row[1] + "]");
             }

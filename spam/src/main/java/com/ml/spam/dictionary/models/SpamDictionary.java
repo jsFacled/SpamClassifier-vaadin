@@ -11,7 +11,7 @@ public class SpamDictionary {
     // Mapa de pares acentuados/no acentuados para búsquedas rápidas
     private final Map<String, Pair> accentPairs = new HashMap<>();
     // Lista de lexemas organizados por categoría
-    private final Map<LexemeRepositoryCategories, Set<String>> lexemesRepository = new HashMap<>();
+    private final Map<LexemeRepositoryCategories, Map<String, Set<String>>> lexemesRepository = new HashMap<>();
 
     /**
      * Constructor privado para inicializar el Singleton.
@@ -23,10 +23,11 @@ public class SpamDictionary {
             categorizedWords.put(category, new HashMap<>());
         }
 
-        // Inicializa lexemesRepository con las categorías de LexemeRepositoryCategories
+        // Inicializa lexemesRepository con las categorías de LexemeRepositoryCategories y subcategorías vacías
         for (LexemeRepositoryCategories category : LexemeRepositoryCategories.values()) {
-            lexemesRepository.put(category, new HashSet<>());
+            lexemesRepository.put(category, new HashMap<>()); // Cada categoría tendrá un mapa de subcategorías
         }
+
     }
 
     /**
@@ -111,31 +112,66 @@ public class SpamDictionary {
     // Métodos para LexemesRepository
     // ============================
 
-    public Map<LexemeRepositoryCategories, Set<String>> getLexemesRepository() {
+    public Map<LexemeRepositoryCategories, Map<String, Set<String>>> getLexemesRepository() {
         return lexemesRepository;
     }
-
-    public Set<String> getLexemesByCategory(LexemeRepositoryCategories category) {
+    public Map<String, Set<String>> getSubcategories(LexemeRepositoryCategories category) {
         return lexemesRepository.get(category);
     }
+    public Set<String> getLexemesBySubcategory(LexemeRepositoryCategories category, String subcategory) {
+        return lexemesRepository.getOrDefault(category, new HashMap<>()).getOrDefault(subcategory, new HashSet<>());
+    }
+    public void addSubcategory(LexemeRepositoryCategories category, String subcategory) {
+        lexemesRepository.computeIfAbsent(category, k -> new HashMap<>()).putIfAbsent(subcategory, new HashSet<>());
+    }
+    public Set<String> getLexemesByCategory(LexemeRepositoryCategories category) {
+        Map<String, Set<String>> subcategories = lexemesRepository.get(category);
 
-    public void addLexeme(LexemeRepositoryCategories category, String lexeme) {
-        lexemesRepository.get(category).add(lexeme);
+        if (subcategories == null) {
+            return Collections.emptySet();
+        }
+
+        // Combina todos los conjuntos de lexemas en un solo conjunto
+        Set<String> combinedLexemes = new HashSet<>();
+        for (Set<String> lexemes : subcategories.values()) {
+            combinedLexemes.addAll(lexemes);
+        }
+
+        return combinedLexemes;
     }
 
-    public void initializeLexemes(Map<LexemeRepositoryCategories, Set<String>> lexemes) {
+
+    public void addLexeme(LexemeRepositoryCategories category, String subcategory, String lexeme) {
+        lexemesRepository.computeIfAbsent(category, k -> new HashMap<>())
+                .computeIfAbsent(subcategory, k -> new HashSet<>())
+                .add(lexeme);
+    }
+
+    public void initializeLexemes(Map<LexemeRepositoryCategories, Map<String, Set<String>>> lexemes) {
         lexemesRepository.clear();
         lexemesRepository.putAll(lexemes);
     }
 
-    public boolean containsLexeme(String lexeme) {
-        return lexemesRepository.values().stream().anyMatch(set -> set.contains(lexeme));
-    }
+
 
     public void clearLexemesRepository() {
         for (LexemeRepositoryCategories category : LexemeRepositoryCategories.values()) {
             lexemesRepository.get(category).clear();
         }
+    }
+
+    //Buscar un Lexema en Subcategorías
+    public boolean containsLexemeInSubCategory(LexemeRepositoryCategories category, String lexeme) {
+        return lexemesRepository.getOrDefault(category, new HashMap<>())
+                .values()
+                .stream()
+                .anyMatch(set -> set.contains(lexeme));
+    }
+//    Buscar un Token en Todo el Repositorio
+    public boolean containsLexeme(String lexeme) {
+        return lexemesRepository.values().stream()
+                .flatMap(subcategoryMap -> subcategoryMap.values().stream())
+                .anyMatch(set -> set.contains(lexeme));
     }
 
     public boolean containsWord(String token) {

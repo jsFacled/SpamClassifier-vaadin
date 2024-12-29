@@ -50,7 +50,7 @@ public class SpamDictionaryService {
 
             // Transformar palabras en WordData con frecuencias iniciales
             Map<WordCategory, List<String>> categoryMap = JsonUtils.jsonToCategoryMap(baseWordsJson);
-            System.out.println("[DEPURACION] * * * * * * * * * * * * * * * Desde transformBaseWordsToFrequenciesZero MUESTRO categoryMap que devuelve JsonUtils.jsonToCategoryMap :   "+ categoryMap+"\n");
+            System.out.println("[DEPURACION] * * * * * * * * * * * * * * * Desde transformBaseWordsToFrequenciesZero MUESTRO categoryMap que devuelve JsonUtils.jsonToCategoryMap :   \n"+ categoryMap+"\n");
 
             Map<WordCategory, Map<String, WordData>> categorizedWordsMap = new HashMap<>();
 
@@ -64,7 +64,7 @@ public class SpamDictionaryService {
                         ));
                 categorizedWordsMap.put(category, wordsMap);
             });
-            System.out.println("[DEPURACION] * * * * * * * * * * * * * * * Desde transformBaseWordsToFrequenciesZero MUESTRO categorizedWordMap luego del foreach :   "+ categorizedWordsMap+"\n");
+            System.out.println("[DEPURACION] * * * * * * * * * * * * * * * Desde transformBaseWordsToFrequenciesZero MUESTRO categorizedWordMap luego del foreach :   \n"+ categorizedWordsMap+"\n");
 
 
 

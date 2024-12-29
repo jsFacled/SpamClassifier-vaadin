@@ -1,5 +1,5 @@
 {
-  "rare_symbols" : {
+  "rareSymbols" : {
     "$" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -17,7 +17,7 @@
       "spamFrequency" : 0
     }
   },
-  "spam_words" : {
+  "spamWords" : {
     "acceso" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -711,7 +711,7 @@
       "spamFrequency" : 0
     }
   },
-  "stop_words" : {
+  "stopWords" : {
     "hamemoji" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -789,7 +789,7 @@
       "spamFrequency" : 0
     }
   },
-  "unassigned_words" : {
+  "unassignedWords" : {
     "numcod" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0

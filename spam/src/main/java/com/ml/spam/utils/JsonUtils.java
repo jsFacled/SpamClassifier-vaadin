@@ -109,14 +109,12 @@ public class JsonUtils {
 
         for (WordCategory category : WordCategory.values()) {
             String jsonKey = category.getJsonKey(); // Usar jsonKey directamente
-            System.out.println("Procesando categoría: " + jsonKey); // Depuración
 
             if (jsonObject.has(jsonKey)) {
                 JSONArray jsonArray = jsonObject.optJSONArray(jsonKey);
 
                 if (jsonArray != null) {
                     List<String> words = jsonArrayToStringList(jsonArray);
-                    System.out.println("Palabras encontradas para " + jsonKey + ": " + words); // Depuración
                     categoryMap.put(category, words);
                 } else {
                     System.out.println("No hay palabras en la categoría: " + jsonKey); // Depuración
@@ -125,9 +123,7 @@ public class JsonUtils {
                 System.out.println("Clave no encontrada en JSON: " + jsonKey); // Depuración
             }
         }
-
-        System.out.println("Mapa generado: " + categoryMap); // Depuración final
-        return categoryMap;
+       return categoryMap;
     }
 
     /**
@@ -149,8 +145,8 @@ public class JsonUtils {
                 categoryJson.put(word, wordDataJson);
             });
 
-            // Agregar la categoría al JSON principal
-            json.put(category.name().toLowerCase(), categoryJson);
+            // Usar el jsonKey en formato camelCase para la clave de la categoría
+            json.put(category.getJsonKey(), categoryJson);
         });
 
         return json;

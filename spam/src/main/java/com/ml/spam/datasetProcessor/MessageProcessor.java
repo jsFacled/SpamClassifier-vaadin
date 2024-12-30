@@ -91,11 +91,11 @@ public class MessageProcessor {
             case NUM:
                 processNumToken(token, wordDataList, label);
                 break;
-            case NUM_TEXT:
-                processNumTextToken(token, wordDataList, label);
-                break;
             case NUM_SYMBOL:
                 processNumSymbolToken(token, wordDataList, label);
+                break;
+            case NUM_TEXT:
+                processNumTextToken(token, wordDataList, label);
                 break;
             case TEXT_NUM_SYMBOL:
                 processTextNumSymbolToken(token, wordDataList, label);
@@ -107,11 +107,9 @@ public class MessageProcessor {
                 processTextSymbolToken(token, wordDataList, label);
                 break;
             case SYMBOL:
-
                 processSymbolToken(token, wordDataList, label);
                 break;
             case CHAR:
-
                 processCharToken(token, wordDataList, label);
                 break;
             case UNASSIGNED:
@@ -140,17 +138,26 @@ public class MessageProcessor {
     }
 
     private static void processNumSymbolToken(String token, List<WordData> wordDataList, String label) {
+        Map<String, Set<String>> textLexemes = lexemeRepository.get(LexemeRepositoryCategories.TEXT_LEXEMES);
+
         // Divide números y símbolos para categorizarlos por separado
         String[] parts = token.split("(?<=\\d)(?=\\W)|(?<=\\W)(?=\\d)");
-
+        System.out.println("El split de numSymbol es parts: "+Arrays.toString(parts));
         for (String part : parts) {
-            if (part.matches("\\d+")) {
-                processNumToken(part, wordDataList, label); // Proceso de número
-            } else if (part.matches("\\W+")) {
-                processSymbolToken(part, wordDataList, label); // Proceso de símbolo
+            System.out.println("Cada part in parts es: " + part);
+            TokenType t = TextUtils.classifyToken(part);
+            System.out.println("El tokenType de "+part +" es: "+t);
+            switch (t){
+                //buscar token en lexemerepository
+                case CHAR  -> processCharToken(part, wordDataList, label);
+                case SYMBOL -> processAnySymbolToken(part,wordDataList,label);
+                case NUM -> processNumToken(part, wordDataList, label);
+                default -> processUnassignedToken(part, wordDataList, label);
+
             }
         }
     }
+
     private static void processTextSymbolToken(String token, List<WordData> wordDataList, String label) {
         // Divide el token en partes: texto y símbolos
         String[] parts = token.split("(?<=\\p{L})(?=\\W)|(?<=\\W)(?=\\p{L})");
@@ -240,21 +247,23 @@ public class MessageProcessor {
                     wordDataList.add(new WordData(token, label));
                 }
             } else if (TextUtils.isSymbolToken(token)) {
-                processAnySymbolToken(token, textLexemes, wordDataList, label);
+                processAnySymbolToken(token, wordDataList, label);
             } else {
                 wordDataList.add(new WordData(token, label));
             }
         } else {
             // Procesar símbolos de más de un dígito, incluidos emojis
             if (TextUtils.isEmoji(token)) {
-                processEmojiToken(token, contextualLexemes, wordDataList, label);
+                processEmojiToken(token, wordDataList, label);
             } else {
-                processAnySymbolToken(token, textLexemes, wordDataList, label);
+                processAnySymbolToken(token, wordDataList, label);
             }
         }
     }
 
-    private static void processEmojiToken(String token, Map<String, Set<String>> contextualLexemes, List<WordData> wordDataList, String label) {
+    private static void processEmojiToken(String token, List<WordData> wordDataList, String label) {
+        Map<String, Set<String>> contextualLexemes
+                = lexemeRepository. get(LexemeRepositoryCategories.CONTEXTUAL_LEXEMES);
         if (contextualLexemes != null) {
             if (contextualLexemes.getOrDefault("spamemoji", Collections.emptySet()).contains(token)) {
                 wordDataList.add(new WordData("spamemoji", label));
@@ -270,7 +279,9 @@ public class MessageProcessor {
         }
     }
 
-    private static void processAnySymbolToken(String token, Map<String, Set<String>> textLexemes, List<WordData> wordDataList, String label) {
+    private static void processAnySymbolToken(String token, List<WordData> wordDataList, String label) {
+        Map<String, Set<String>> textLexemes = lexemeRepository.get(LexemeRepositoryCategories.TEXT_LEXEMES);
+
         boolean isExcl = textLexemes != null && textLexemes.getOrDefault("excl", Collections.emptySet()).contains(token);
         boolean isLexsym = textLexemes != null && textLexemes.getOrDefault("lexsym", Collections.emptySet()).contains(token);
         boolean isMathop = textLexemes != null && textLexemes.getOrDefault("mathop", Collections.emptySet()).contains(token);

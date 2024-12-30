@@ -25,10 +25,10 @@
       "salvar", "satisfacción", "secreto", "seleccionado", "sistema", "sorteo", "spam",
       "stock", "suministros", "tarifas", "testimonios", "tiempo", "trampa", "transferencia",
       "transferencias", "tráfico", "vacaciones", "verificación", "viagra", "vida", "visite",
-      "vista","spamemoji"
+      "vista","spamemoji","$","€"
     ],
   "rareSymbols": [
-        "$", "@", "lexsym", "excl"
+        "@", "lexsym", "excl"
     ],
     "stopWords": [
       "hamemoji","lexverbaux","lexconj","lexprep","lexadv","lexdet","lexpron","lexvocals","lexuni","lexdim", "lexcal","numdim", "numcal","todo", "todos", "mas", "tan", "tanto", "que"

@@ -94,6 +94,9 @@ public class TextUtils {
         if (isEmoji(token)) {
             return TokenType.SYMBOL; // Token es un emoji
         }
+        if (isSymbolToken(token)) {
+            return TokenType.SYMBOL; // Token es un símbolo
+        }
         if (isNumericToken(token)) {
             return TokenType.NUM; // Token es un número puro
         }
@@ -148,7 +151,7 @@ public class TextUtils {
     }
 
     public static boolean isSymbolToken(String token) {
-        return token.matches("[!@#$%^&*()_+={}:;\\\"',.<>?/-]+");
+        return token.matches("[¡!@#$%^&*()_+={}:;\\\"',.<>?/-]+");
     }
     public static boolean isEmoji(String token) {
         if (token == null || token.isEmpty()) {

@@ -6,6 +6,7 @@ import com.ml.spam.dictionary.service.SpamDictionaryService;
 import com.ml.spam.datasetProcessor.MessageProcessor;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ProcessToWordDataTest {
@@ -21,7 +22,7 @@ String[] mensaje = new String[]{
          "spam"
 };
         String[] mensaje2 = new String[]{
-                "1500 + 9 $ % a z hola // 🌹 👍",
+                "+300¡",
                 "spam"
         };
 
@@ -68,6 +69,7 @@ String[] mensaje = new String[]{
             System.out.println("\n[INFO] Resultados del procesamiento:");
             for (int i = 0; i < processedData.size(); i++) {
                 System.out.println("Nuevo mensaje procesado (" + (i + 1) + "):");
+                System.out.println(Arrays.toString(rawRows.get(0)));
                 for (WordData wordData : processedData.get(i)) {
                     System.out.println(" - " + wordData);
                 }

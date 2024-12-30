@@ -1,9 +1,6 @@
 package com.ml.spam.datasetProcessor;
 
-import com.ml.spam.dictionary.models.LexemeRepositoryCategories;
-import com.ml.spam.dictionary.models.SpamDictionary;
-import com.ml.spam.dictionary.models.TokenType;
-import com.ml.spam.dictionary.models.WordData;
+import com.ml.spam.dictionary.models.*;
 import com.ml.spam.undefined.LabeledMessage;
 import com.ml.spam.datasetProcessor.models.ProcessedMessage;
 import com.ml.spam.utils.CsvUtils;
@@ -71,14 +68,16 @@ public class MessageProcessor {
             // Inicializar tokenType
             TokenType tokenType = TokenType.UNASSIGNED;
 
-            // Subpaso 4.1: Clasificar el token
+            // Subpaso 4.1: Procesar Clasificar el token
             if (TextUtils.isOneDigit(token)) {
                 tokenType = TextUtils.classifyTokenByOneDigit(token);
                 processTokenByOneDigit(token, tokenType, wordDataList, label);
                 displayTokenInConsole(token, tokenType);
             } else {
+                tokenType = TextUtils.classifyToken(token);
                 // Subpaso 4.2: Procesar según la clasificación del token
                 processAllTokenSizes(token, tokenType, wordDataList, label);
+                displayTokenInConsole(token,tokenType);
             }
         }
 
@@ -219,46 +218,74 @@ public class MessageProcessor {
     }
 
     private static void processSymbolToken(String token, List<WordData> wordDataList, String label) {
+        // Elimina comillas y caracteres irrelevantes
+        token = token.replace("\"", "");
+
         Map<String, Set<String>> textLexemes = lexemeRepository.get(LexemeRepositoryCategories.TEXT_LEXEMES);
+        Map<String, Set<String>> contextualLexemes = lexemeRepository.get(LexemeRepositoryCategories.CONTEXTUAL_LEXEMES);
 
         if (TextUtils.isOneDigit(token)) {
-            // Verificar si es una excl
-            boolean isExcl = textLexemes != null && textLexemes.getOrDefault("excl", Collections.emptySet()).contains(token);
+            // Procesar dígitos únicos
+            if (TextUtils.isNumericToken(token)) {
+                wordDataList.add(new WordData("numlow", label));
+            } else if (TextUtils.isCharToken(token)) {
+                Set<String> lexVowel = textLexemes != null ? textLexemes.get("lexvowel") : Collections.emptySet();
+                Set<String> lexConsonant = textLexemes != null ? textLexemes.get("lexconsonant") : Collections.emptySet();
 
-            // Verificar si es una lexsym
-            boolean isLexsym = textLexemes != null && textLexemes.getOrDefault("lexsym", Collections.emptySet()).contains(token);
-
-            // Verificar si es una mathop
-            boolean isMathop = textLexemes != null && textLexemes.getOrDefault("mathop", Collections.emptySet()).contains(token);
-
-            // Asignar categoría
-            if (isExcl) {
-                wordDataList.add(new WordData("excl", label));
-            } else if (isLexsym) {
-                wordDataList.add(new WordData("lexsym", label));
-            } else if (isMathop) {
-                wordDataList.add(new WordData("mathop", label));
+                if (lexVowel.contains(token)) {
+                    wordDataList.add(new WordData("lexvowel", label));
+                } else if (lexConsonant.contains(token)) {
+                    wordDataList.add(new WordData("lexconsonant", label));
+                } else {
+                    wordDataList.add(new WordData(token, label));
+                }
+            } else if (TextUtils.isSymbolToken(token)) {
+                processAnySymbolToken(token, textLexemes, wordDataList, label);
             } else {
-                wordDataList.add(new WordData("UNKNOWN_CHAR", label)); // No pertenece a ninguna categoría conocida
-            }
-            return;
-        }
-
-        // Verificar si el token clasificado como SYMBOL es un emoji
-        if (TextUtils.isEmoji(token)) {
-            if (isInSpamEmojiRepo(token)) {
-                wordDataList.add(new WordData("spamemoji", label));
-            } else if (isInHamEmojiRepo(token)) {
-                wordDataList.add(new WordData("hamemoji", label));
-            } else {
-                // Emoji desconocido todo: agregar al categorizedWords
-                wordDataList.add(new WordData("unknownemoji", label));
+                wordDataList.add(new WordData(token, label));
             }
         } else {
-            // Procesar símbolo genérico
+            // Procesar símbolos de más de un dígito, incluidos emojis
+            if (TextUtils.isEmoji(token)) {
+                processEmojiToken(token, contextualLexemes, wordDataList, label);
+            } else {
+                processAnySymbolToken(token, textLexemes, wordDataList, label);
+            }
+        }
+    }
+
+    private static void processEmojiToken(String token, Map<String, Set<String>> contextualLexemes, List<WordData> wordDataList, String label) {
+        if (contextualLexemes != null) {
+            if (contextualLexemes.getOrDefault("spamemoji", Collections.emptySet()).contains(token)) {
+                wordDataList.add(new WordData("spamemoji", label));
+            } else if (contextualLexemes.getOrDefault("hamemoji", Collections.emptySet()).contains(token)) {
+                wordDataList.add(new WordData("hamemoji", label));
+            } else {
+                // Si no pertenece a ninguna categoría conocida, devuelve el token
+                wordDataList.add(new WordData(token, label));
+            }
+        } else {
+            // Si el repositorio de lexemas no está inicializado, devuelve el token
             wordDataList.add(new WordData(token, label));
         }
     }
+
+    private static void processAnySymbolToken(String token, Map<String, Set<String>> textLexemes, List<WordData> wordDataList, String label) {
+        boolean isExcl = textLexemes != null && textLexemes.getOrDefault("excl", Collections.emptySet()).contains(token);
+        boolean isLexsym = textLexemes != null && textLexemes.getOrDefault("lexsym", Collections.emptySet()).contains(token);
+        boolean isMathop = textLexemes != null && textLexemes.getOrDefault("mathop", Collections.emptySet()).contains(token);
+
+        if (isExcl) {
+            wordDataList.add(new WordData("excl", label));
+        } else if (isLexsym) {
+            wordDataList.add(new WordData("lexsym", label));
+        } else if (isMathop) {
+            wordDataList.add(new WordData("mathop", label));
+        } else {
+            wordDataList.add(new WordData(token, label));
+        }
+    }
+
 
     private static boolean isInSpamEmojiRepo(String token) {
         // Aquí todo verificas si el token está en la categoría "spamemoji" del repositorio
@@ -314,6 +341,21 @@ public class MessageProcessor {
 }
 
 
+
+
+
+    private static void updateWordDataFrequency(WordData wordData, String label) {
+        if (MessageLabel.SPAM.getKey().equalsIgnoreCase(label)) {
+            wordData.incrementSpamFrequency(1);
+        } else if (MessageLabel.HAM.getKey().equalsIgnoreCase(label)) {
+            wordData.incrementHamFrequency(1);
+        }
+    }
+
+
+
+
+    @Deprecated
     public static List<ProcessedMessage> simpleProcess(List<String[]> rawRows) {
         if (rawRows == null || rawRows.isEmpty()) {
             throw new IllegalArgumentException("Las filas crudas están vacías o no son válidas.");
@@ -339,7 +381,8 @@ public class MessageProcessor {
     }
 
 
-    // Método auxiliar para procesar una fila en un ProcessedMessage
+
+    @Deprecated    // Método auxiliar para procesar una fila en un ProcessedMessage
     private static ProcessedMessage createProcessedMessage(String[] row) {
         String message = row[0].trim(); // Mensaje
         String label = row[1].trim();   // Etiqueta
@@ -363,19 +406,8 @@ public class MessageProcessor {
         );
     }
 
-    private static void updateWordDataFrequency(WordData wordData, String label) {
-        if ("spam".equalsIgnoreCase(label)) {
-            wordData.incrementSpamFrequency(1);
-        } else if ("ham".equalsIgnoreCase(label)) {
-            wordData.incrementHamFrequency(1);
-        }
-    }
-
-
-
-
-
     //procesa listas crudas en labeledmessages, por ahora está obsoleta
+    @Deprecated
     public static List<LabeledMessage> process(List<String[]> rawRows) {
         // Verificar si la primera fila es una cabecera válida
         if (!rawRows.isEmpty()) {
@@ -412,6 +444,7 @@ public class MessageProcessor {
      * @param line Línea del archivo CSV.
      * @return Objeto LabeledMessage con el mensaje y la etiqueta.
      */
+    @Deprecated
     private LabeledMessage readLineAndParse(String line) {
         String[] parts = line.split(",", 2); // Divide en contenido del mensaje y etiqueta
         String message = parts[0].trim();

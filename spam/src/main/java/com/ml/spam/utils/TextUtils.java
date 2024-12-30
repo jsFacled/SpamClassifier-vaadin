@@ -56,10 +56,14 @@ public class TextUtils {
 
     public static List<String> splitMessageAndLowercase(String message) {
         if (message == null || message.trim().isEmpty()) {
-            return Collections.emptyList(); // Retorna lista vacía si el mensaje es nulo o vacío
+            return Collections.emptyList();
         }
-        // Convierte a minúsculas, elimina comas y divide por espacios
-        return List.of(message.toLowerCase().replace(",", "").trim().split("\\s+"));
+        // Normalizar mensaje: eliminar comillas y dividir por espacios
+        return List.of(message.toLowerCase()
+                .replaceAll("[\"']", "") // Elimina comillas dobles y simples
+                .replace(",", "") // Opcional: elimina comas
+                .trim()
+                .split("\\s+"));
     }
 
 
@@ -77,6 +81,7 @@ public class TextUtils {
         if (isNumericToken(token)) {
             return TokenType.NUM; // Token es un número puro
         }
+
         return TokenType.UNASSIGNED; // Token no clasificable
     }
 
@@ -86,6 +91,9 @@ public class TextUtils {
             return classifyTokenByOneDigit(token);
         }
 
+        if (isEmoji(token)) {
+            return TokenType.SYMBOL; // Token es un emoji
+        }
         if (isNumericToken(token)) {
             return TokenType.NUM; // Token es un número puro
         }
@@ -103,9 +111,6 @@ public class TextUtils {
         }
         if (isTextNumSymbolToken(token)) {
             return TokenType.TEXT_NUM_SYMBOL; // Token tiene texto, números y símbolos mezclados
-        }
-        if (isEmoji(token)) {
-            return TokenType.SYMBOL; // Token es un emoji
         }
         return TokenType.UNASSIGNED; // Token no clasificable
     }
@@ -146,8 +151,11 @@ public class TextUtils {
         return token.matches("[!@#$%^&*()_+={}:;\\\"',.<>?/-]+");
     }
     public static boolean isEmoji(String token) {
-        // Verifica si el token contiene solo emojis (caracteres de la categoría Unicode 'So')
-        return token != null && token.matches("[\\p{So}]+");
+        if (token == null || token.isEmpty()) {
+            return false;
+        }
+        // Expresión regular mejorada para detectar emojis
+        return token.matches("[\\uD83C-\\uDBFF\\uDC00-\\uDFFF]+");
     }
 
 

@@ -21,7 +21,7 @@ String[] mensaje = new String[]{
          "spam"
 };
         String[] mensaje2 = new String[]{
-                "9 $ a z hola",
+                "1500 + 9 $ % a z hola // 🌹 👍",
                 "spam"
         };
 

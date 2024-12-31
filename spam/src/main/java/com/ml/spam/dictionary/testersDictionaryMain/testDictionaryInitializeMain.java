@@ -30,6 +30,7 @@ public class testDictionaryInitializeMain {
         service.displayCategorizedWordsInDictionary();
 JsonDebugHelper.debugJsonLoad(catWordsPath, rh);
 
-
+        System.out.println(" - - - - - - - - - - - - - -  - Mostrando el accentpairs - - - - - - - - - - - - - -  -  ");
+service.displayAccentPairsInDictionary();
     }
 }

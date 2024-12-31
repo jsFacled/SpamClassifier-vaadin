@@ -121,6 +121,13 @@ public class TextUtils {
     public static boolean isOneDigit(String token) {
         return token.length() == 1;    }
 
+    public static boolean isTextToken(String token) {
+        // Detecta palabras que contienen solo letras (incluye letras acentuadas y ñ automáticamente)
+        return token.matches("\\p{L}+");
+    }
+
+
+
     private static boolean isNumSymbolToken(String token) {
         return token.matches(".*\\d.*") && token.matches(".*\\W.*") && !token.matches(".*\\p{L}.*");
     }
@@ -132,10 +139,6 @@ public class TextUtils {
 
     public static boolean isNumericToken(String token) {
         return token.matches("\\d+");
-    }
-
-    public static boolean isTextToken(String token) {
-        return token.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]+");
     }
 
     public static boolean isNumTextToken(String token) {
@@ -151,8 +154,11 @@ public class TextUtils {
     }
 
     public static boolean isSymbolToken(String token) {
-        return token.matches("[¡!@#$%^&*()_+={}:;\\\"',.<>?/-]+");
+        // Detecta símbolos raros, pero excluye letras válidas
+        return token.matches("[^\\p{L}\\d]+");
     }
+
+
     public static boolean isEmoji(String token) {
         if (token == null || token.isEmpty()) {
             return false;
@@ -198,15 +204,24 @@ public class TextUtils {
     }
 
     public static boolean hasAccent(String input) {
-        if (input == null) return false;
-        return input.matches(".*[áéíóúÁÉÍÓÚñÑ].*");
+        if (input == null || input.isEmpty()) {
+            return false;
+        }
+        // Normalizar a forma NFD para separar los diacríticos
+        String normalized = Normalizer.normalize(input, Normalizer.Form.NFD);
+
+        // Verificar si contiene caracteres de diacríticos (\p{M})
+        return normalized.matches(".*\\p{M}.*");
     }
 
     public static String removeAccents(String input) {
         if (input == null) return null;
-        return Normalizer.normalize(input, Normalizer.Form.NFD)
-                .replaceAll("\\p{M}", "");
+        String normalized = Normalizer.normalize(input, Normalizer.Form.NFD);
+        String result = normalized.replaceAll("\\p{M}", "");
+        System.out.println("[DEBUG] removeAccents: " + input + " -> " + result);
+        return result;
     }
+
 
     public static boolean containsNumber(String token) {
         return token != null && token.matches(".*\\d.*");

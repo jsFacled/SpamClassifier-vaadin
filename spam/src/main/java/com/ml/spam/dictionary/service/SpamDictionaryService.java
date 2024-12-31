@@ -12,7 +12,6 @@ import com.ml.spam.handlers.ResourcesHandler;
 import com.ml.spam.utils.JsonUtils;
 import com.ml.spam.utils.TextUtils;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -174,19 +173,38 @@ public class SpamDictionaryService {
         System.out.println("[INFO] CATEGORIZED WORDS inicializados correctamente.");
     }
 
-    private void initializeAccentPairs(String pairsFilePath) {
-        List<SpamDictionary.Pair> accentPairs = loadAccentPairs(pairsFilePath);
+    // Inicializa accentPairs desde el JSON de acentos
+    public void initializeAccentPairs(String accentPairsJsonPath) {
+        // Cargar el JSON desde ResourcesHandler
+        JSONObject accentJson = resourcesHandler.loadJson(accentPairsJsonPath);
 
-        if (accentPairs == null || accentPairs.isEmpty()) {
-            throw new IllegalStateException("No se pudieron cargar los pares acentuados.");
+        // Mapa para almacenar los pares acentuados
+        Map<String, SpamDictionary.Pair> accentPairsMap = new HashMap<>();
+
+        // Iterar sobre las claves del JSON
+        for (String key : accentJson.keySet()) {
+            // Obtener el valor asociado a la clave (el par)
+            JSONObject pairObject = accentJson.getJSONObject(key);
+
+            // Extraer los valores correspondientes
+            String nonAccented = pairObject.getString("nonAccented");
+            String categoryStr = pairObject.getString("category");
+
+            // Validar y convertir la categoría
+            WordCategory category;
+            try {
+                category = WordCategory.valueOf(categoryStr.toUpperCase());
+            } catch (IllegalArgumentException e) {
+                throw new RuntimeException("Categoría inválida en JSON: " + categoryStr);
+            }
+
+            // Crear el par y agregarlo al mapa
+            SpamDictionary.Pair pair = new SpamDictionary.Pair(nonAccented, category);
+            accentPairsMap.put(key, pair);
         }
 
-        Map<String, SpamDictionary.Pair> accentPairsMap = accentPairs.stream()
-                .collect(Collectors.toMap(SpamDictionary.Pair::accented, pair -> pair));
-
-        dictionary.initializeAccentPairs(accentPairsMap);
-
-        System.out.println("[INFO] ACCENT PAIRS inicializados correctamente.");
+        // Inicializar el diccionario con los pares procesados
+        SpamDictionary.getInstance().initializeAccentPairs(accentPairsMap);
     }
 
     public void initializeLexemes(String lexemePath) {
@@ -553,6 +571,22 @@ public class SpamDictionaryService {
         } catch (Exception e) {
             System.err.println("Error al leer el archivo JSON desde recursos: " + e.getMessage());
         }
+    }
+
+    public void displayAccentPairsInDictionary() {
+        System.out.println("=== Mostrar accentPairs en SpamDictionary ===");
+        Map<String, SpamDictionary.Pair> accentPairs = SpamDictionary.getInstance().getAccentPairs();
+
+        if (accentPairs.isEmpty()) {
+            System.out.println("accentPairs está vacío.");
+        } else {
+            accentPairs.forEach((key, pair) -> {
+                System.out.println("Palabra acentuada: " + key +
+                        ", No acentuada: " + pair.nonAccented() +
+                        ", Categoría: " + pair.category());
+            });
+        }
+        System.out.println("=============================================\n");
     }
 
 

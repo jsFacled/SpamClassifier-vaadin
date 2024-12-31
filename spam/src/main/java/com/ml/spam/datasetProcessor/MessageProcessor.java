@@ -152,7 +152,9 @@ public class MessageProcessor {
                 case CHAR  -> processCharToken(part, wordDataList, label);
                 case SYMBOL -> processAnySymbolToken(part,wordDataList,label);
                 case NUM -> processNumToken(part, wordDataList, label);
-                default -> processUnassignedToken(part, wordDataList, label);
+                case UNASSIGNED -> processUnassignedToken(part, wordDataList, label);
+
+                default -> wordDataList.add(new WordData(part, label));
 
             }
         }
@@ -174,19 +176,67 @@ public class MessageProcessor {
     }
 
     private static void processTextToken(String token, List<WordData> wordDataList, String label) {
+        System.out.println("[DEBUG] Procesando token: " + token);
+
         if (TextUtils.hasAccent(token)) {
-            String normalized = TextUtils.removeAccents(token);
-            if (isInAccentPairs(normalized)) {
-                wordDataList.add(new WordData(getAccentPairCategory(normalized), label));
-                return;
+            processAccentedWord(token, wordDataList, label);
+            System.out.println("[DEBUG] Token tiene acento: " + token);
+        } else {
+            // Busca la subcategoría directamente
+            String subCategory = findSubcategoryForToken(token);
+            if (subCategory != null) {
+                wordDataList.add(new WordData(subCategory, label));
+            } else {
+                wordDataList.add(new WordData(token, label));
             }
         }
-        if (isInTextLexemeRepo(token)) {
-            wordDataList.add(new WordData(getLexemeCategory(token), label));
-        } else {
+    }
+    private static String findSubcategoryForToken(String token) {
+        for (Map.Entry<LexemeRepositoryCategories, Map<String, Set<String>>> categoryEntry : lexemeRepository.entrySet()) {
+            Map<String, Set<String>> subCategories = categoryEntry.getValue();
+
+            for (Map.Entry<String, Set<String>> subCategoryEntry : subCategories.entrySet()) {
+                Set<String> words = subCategoryEntry.getValue();
+
+                if (words.contains(token)) {
+                    return subCategoryEntry.getKey(); // Retorna la subcategoría si se encuentra el token
+                }
+            }
+        }
+        return null; // Retorna null si no se encuentra
+    }
+
+
+
+    private static void processAccentedWord(String token, List<WordData> wordDataList, String label) {
+        System.out.println("[DEBUG] Verificando token en accentPairs: " + token);
+
+        if (isInAccentPairs(token)) {
+            // Si el token está en accentPairs, se agrega tal cual
+            System.out.println("[DEBUG] Token encontrado en accentPairs: " + token);
             wordDataList.add(new WordData(token, label));
+        } else {
+            // Verificar si el token tiene acentos
+            if (TextUtils.hasAccent(token)) {
+                // Si tiene acentos y no está en accentPairs, normalizar eliminando acentos
+                String normalizedToken = TextUtils.removeAccents(token);
+                System.out.println("[DEBUG] Token con acentos no encontrado en accentPairs. Normalizado: " + token + " -> " + normalizedToken);
+                wordDataList.add(new WordData(normalizedToken, label));
+            } else {
+                // Si no tiene acentos y no está en accentPairs, procesarlo como está
+                System.out.println("[DEBUG] Token sin acentos no encontrado en accentPairs. Se procesa como está: " + token);
+                wordDataList.add(new WordData(token, label));
+            }
         }
     }
+
+    public static boolean isInAccentPairs(String token) {
+        // Verifica si el token está en accentPairs
+        return accentPairs.containsKey(token);
+    }
+
+
+
 
     private static void processNumTextToken(String token, List<WordData> wordDataList, String label) {
         String[] parts = TextUtils.splitNumberAndText(token);
@@ -203,26 +253,27 @@ public class MessageProcessor {
 
     private static void processCharToken(String token, List<WordData> wordDataList, String label) {
         Map<String, Set<String>> textLexemes = lexemeRepository.get(LexemeRepositoryCategories.TEXT_LEXEMES);
-
-        if (textLexemes != null) {
-            // Verificar si el token pertenece a lexvowel
-            Set<String> lexVowel = textLexemes.get("lexvowel");
-            if (lexVowel != null && lexVowel.contains(token)) {
-                wordDataList.add(new WordData("lexvowel", label)); // Clasificar como vocal
-                return;
-            }
-
-            // Verificar si el token pertenece a lexconsonant
-            Set<String> lexConsonant = textLexemes.get("lexconsonant");
-            if (lexConsonant != null && lexConsonant.contains(token)) {
-                wordDataList.add(new WordData("lexconsonant", label)); // Clasificar como consonante
-                return;
-            }
+if (TextUtils.isTextToken(token)) {
+    if (textLexemes != null) {
+        // Verificar si el token pertenece a lexvowel
+        Set<String> lexVowel = textLexemes.get("lexvowel");
+        if (lexVowel != null && lexVowel.contains(token)) {
+            wordDataList.add(new WordData("lexvowel", label)); // Clasificar como vocal
+            return;
         }
 
-        // Si no pertenece a ninguna categoría, devolver el token directamente
-        wordDataList.add(new WordData(token, label));
+        // Verificar si el token pertenece a lexconsonant
+        Set<String> lexConsonant = textLexemes.get("lexconsonant");
+        if (lexConsonant != null && lexConsonant.contains(token)) {
+            wordDataList.add(new WordData("lexconsonant", label)); // Clasificar como consonante
+            return;
+        }
     }
+
+    // Si no pertenece a ninguna categoría, devolver el token directamente
+    wordDataList.add(new WordData(token, label));
+}
+}
 
     private static void processSymbolToken(String token, List<WordData> wordDataList, String label) {
         // Elimina comillas y caracteres irrelevantes
@@ -298,31 +349,32 @@ public class MessageProcessor {
     }
 
 
-    private static boolean isInSpamEmojiRepo(String token) {
-        // Aquí todo verificas si el token está en la categoría "spamemoji" del repositorio
-        return false;
-    }
-
-    private static boolean isInHamEmojiRepo(String token) {
-        // todo Aquí verificas si el token está en la categoría "hamemoji" del repositorio
-        return false;
-    }
 
     private static void processUnassignedToken(String token, List<WordData> wordDataList, String label) {
-        // Agrega el token sin clasificar para que el Service decida cómo manejarlo
-        System.out.println("[DEBUG] Token UNASSIGNED detectado: " + token);
-        wordDataList.add(new WordData(token, label));
+        System.out.println("[INFO processUnassignedToken] Procesando UNASSIGNED token: " + "<< " + token + " >>");
+
+        // Busca directamente la subcategoría para el token
+        String subCategory = findSubcategoryForToken(token);
+        if (subCategory != null) {
+            System.out.println("El TokenInLexemes ES: " + subCategory);
+            wordDataList.add(new WordData(subCategory, label));
+        } else {
+            wordDataList.add(new WordData(token, label));
+        }
     }
 
-
-    private static boolean isInAccentPairs(String token) {
-        return accentPairs != null && accentPairs.containsKey(token);
-    }
     private static boolean isInLexemeRepository(String token) {
         return lexemeRepository != null && lexemeRepository.values().stream()
                 .flatMap(subCategoryMap -> subCategoryMap.values().stream()) // Iterar sobre los conjuntos dentro de las subcategorías
                 .anyMatch(set -> set.contains(token)); // Verificar si el token está en alguno de los conjuntos
     }
+
+    private static String getTokenIfIsInLexemeRepository(String token) {
+        String lexeme = getSubcategoryForToken(token);
+        System.out.println("Estamos en getTokenIfIsInLexemeRepository: "+lexeme);
+       return lexeme;
+         }
+
 
     private static String getAccentPairCategory(String token) {
         // Obtener categoría del par acentuado
@@ -334,11 +386,32 @@ public class MessageProcessor {
         return false; // Implementar según lógica
     }
 
-    private static String getLexemeCategory(String token) {
-        // Obtener categoría de lexema
-        return "LEXEME_CATEGORY"; // Implementar según lógica
-    }
+    private static String getSubcategoryForToken(String token) {
+        for (Map.Entry<LexemeRepositoryCategories, Map<String, Set<String>>> categoryEntry : lexemeRepository.entrySet()) {
+            Map<String, Set<String>> subCategories = categoryEntry.getValue();
 
+            for (Map.Entry<String, Set<String>> subCategoryEntry : subCategories.entrySet()) {
+                String subCategory = subCategoryEntry.getKey();
+                Set<String> words = subCategoryEntry.getValue();
+
+                if (words.contains(token)) {
+                    return subCategory; // Retorna la subcategoría si se encuentra el token
+                }
+            }
+        }
+        return "UNKNOWN_CATEGORY"; // Retorna un valor predeterminado si no se encuentra
+    }
+/*
+//Uso de api stram
+    private static String getSubcategoryForToken(String token) {
+        return lexemeRepository.entrySet().stream()
+                .flatMap(categoryEntry -> categoryEntry.getValue().entrySet().stream())
+                .filter(subCategoryEntry -> subCategoryEntry.getValue().contains(token))
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElse("UNKNOWN_CATEGORY");
+    }
+*/
     private static boolean isRareSymbol(String token) {
         // Validar si es un símbolo raro
         return false; // Implementar según lógica

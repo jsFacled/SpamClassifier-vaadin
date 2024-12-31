@@ -9,7 +9,10 @@ public class SpamDictionary {
     // Palabras categorizadas organizadas por categoría
     private final Map<WordCategory, Map<String, WordData>> categorizedWords = new HashMap<>();
     // Mapa de pares acentuados/no acentuados para búsquedas rápidas
+
     private final Map<String, Pair> accentPairs = new HashMap<>();
+
+
     // Lista de lexemas organizados por categoría
     private final Map<LexemeRepositoryCategories, Map<String, Set<String>>> lexemesRepository = new HashMap<>();
 
@@ -98,10 +101,20 @@ public class SpamDictionary {
     public Pair getAccentPair(String accentedWord) {
         return accentPairs.get(accentedWord);
     }
-
-    public void addAccentPair(String accented, String nonAccented, WordCategory category) {
-        accentPairs.put(accented, new Pair(accented, nonAccented, category));
+    /**
+     * Agrega un nuevo par acentuado/no acentuado al mapa de accentPairs.
+     *
+     * @param accentedWord La palabra acentuada como clave.
+     * @param nonAccented La versión no acentuada de la palabra.
+     * @param category La categoría asociada a la palabra.
+     */
+    public void addAccentPair(String accentedWord, String nonAccented, WordCategory category) {
+        if (accentedWord == null || nonAccented == null || category == null) {
+            throw new IllegalArgumentException("Los valores para accentedWord, nonAccented y category no pueden ser nulos.");
+        }
+        accentPairs.put(accentedWord, new Pair(nonAccented, category));
     }
+
 
     public void initializeAccentPairs(Map<String, Pair> pairs) {
         accentPairs.clear();
@@ -188,5 +201,6 @@ public class SpamDictionary {
     // Clase Interna: Pair
     // ============================
 
-    public record Pair(String accented, String nonAccented, WordCategory category) {}
+    public record Pair(String nonAccented, WordCategory category) {}
+
 }

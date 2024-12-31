@@ -91,6 +91,9 @@ public class TextUtils {
             return classifyTokenByOneDigit(token);
         }
 
+        if (isTextNumSymbolToken(token)) {
+            return TokenType.TEXT_NUM_SYMBOL; // Token tiene texto, números y símbolos mezclados
+        }
         if (isEmoji(token)) {
             return TokenType.SYMBOL; // Token es un emoji
         }
@@ -111,9 +114,6 @@ public class TextUtils {
         }
         if (isNumSymbolToken(token)) {
             return TokenType.NUM_SYMBOL; // Token contiene números y símbolos
-        }
-        if (isTextNumSymbolToken(token)) {
-            return TokenType.TEXT_NUM_SYMBOL; // Token tiene texto, números y símbolos mezclados
         }
         return TokenType.UNASSIGNED; // Token no clasificable
     }
@@ -146,7 +146,12 @@ public class TextUtils {
     }
 
     public static boolean isTextNumSymbolToken(String token) {
-        return token.matches("^(?=.*[a-zA-Z])(?=.*\\\\d)(?=.*\\\\W).+$");
+        // Verifica si el token contiene letras, números y símbolos al mismo tiempo
+        return token.matches("^(?=.*\\p{L})(?=.*\\d)(?=.*\\W).+$");
+    }
+
+    public static boolean isWebAddress(String token) {
+        return token.toLowerCase().matches("^(http|https)://.*\\.(com|net|org|edu|gov|mil|io|dev|site|online)$");
     }
 
     public static boolean isCharToken(String token) {

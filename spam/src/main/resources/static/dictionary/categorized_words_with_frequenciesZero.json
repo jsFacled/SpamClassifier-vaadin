@@ -42,6 +42,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
+    "webaddress": {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "actuar" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0

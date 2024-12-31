@@ -25,7 +25,7 @@
       "salvar", "satisfacción", "secreto", "seleccionado", "sistema", "sorteo", "spam",
       "stock", "suministros", "tarifas", "testimonios", "tiempo", "trampa", "transferencia",
       "transferencias", "tráfico", "vacaciones", "verificación", "viagra", "vida", "visite",
-      "vista","spamemoji","$","€"
+      "vista","spamemoji","$","€", "webaddress"
     ],
   "rareSymbols": [
         "@", "lexsym", "excl"

@@ -88,6 +88,9 @@ public class MessageProcessor {
     private static void processAllTokenSizes(String token, TokenType tokenType, List<WordData> wordDataList, String label) {
         switch (tokenType) {
 
+            case TEXT_NUM_SYMBOL:
+                processTextNumSymbolToken(token, wordDataList, label);
+                break;
             case NUM:
                 processNumToken(token, wordDataList, label);
                 break;
@@ -96,9 +99,6 @@ public class MessageProcessor {
                 break;
             case NUM_TEXT:
                 processNumTextToken(token, wordDataList, label);
-                break;
-            case TEXT_NUM_SYMBOL:
-                processTextNumSymbolToken(token, wordDataList, label);
                 break;
             case TEXT:
                 processTextToken(token, wordDataList, label);
@@ -207,34 +207,32 @@ public class MessageProcessor {
     }
 
 
-
     private static void processAccentedWord(String token, List<WordData> wordDataList, String label) {
-        System.out.println("[DEBUG] Verificando token en accentPairs: " + token);
+        System.out.println("[DEBUG] Verificando token en lexemesRepository: " + token);
 
-        if (isInAccentPairs(token)) {
-            // Si el token está en accentPairs, se agrega tal cual
-            System.out.println("[DEBUG] Token encontrado en accentPairs: " + token);
-            wordDataList.add(new WordData(token, label));
+        // Paso 1: Intentar encontrar el token con tilde directamente en lexemesRepository
+        String subCategory = findSubcategoryForToken(token);
+        if (subCategory != null) {
+            System.out.println("[DEBUG] Token con tilde encontrado en lexemesRepository. Subcategoría: " + subCategory);
+            wordDataList.add(new WordData(subCategory, label));
+            return;
+        }
+
+        // Paso 2: Normalizar el token eliminando la tilde
+        String normalizedToken = TextUtils.removeAccents(token);
+        System.out.println("[DEBUG] Token con tilde no encontrado. Normalizado: " + token + " -> " + normalizedToken);
+
+        // Paso 3: Buscar el token normalizado en lexemesRepository
+        subCategory = findSubcategoryForToken(normalizedToken);
+        if (subCategory != null) {
+            System.out.println("[DEBUG] Token sin tilde encontrado en lexemesRepository. Subcategoría: " + subCategory);
+            wordDataList.add(new WordData(subCategory, label));
         } else {
-            // Verificar si el token tiene acentos
-            if (TextUtils.hasAccent(token)) {
-                // Si tiene acentos y no está en accentPairs, normalizar eliminando acentos
-                String normalizedToken = TextUtils.removeAccents(token);
-                System.out.println("[DEBUG] Token con acentos no encontrado en accentPairs. Normalizado: " + token + " -> " + normalizedToken);
-                wordDataList.add(new WordData(normalizedToken, label));
-            } else {
-                // Si no tiene acentos y no está en accentPairs, procesarlo como está
-                System.out.println("[DEBUG] Token sin acentos no encontrado en accentPairs. Se procesa como está: " + token);
-                wordDataList.add(new WordData(token, label));
-            }
+            // Paso 4: Si no se encuentra, usar el token normalizado como valor final
+            System.out.println("[DEBUG] Token sin tilde no encontrado en lexemesRepository. Usando token sin tilde: " + normalizedToken);
+            wordDataList.add(new WordData(normalizedToken, label));
         }
     }
-
-    public static boolean isInAccentPairs(String token) {
-        // Verifica si el token está en accentPairs
-        return accentPairs.containsKey(token);
-    }
-
 
 
 
@@ -245,11 +243,31 @@ public class MessageProcessor {
     }
 
     private static void processTextNumSymbolToken(String token, List<WordData> wordDataList, String label) {
-        String[] components = TextUtils.splitRareSymbolsAndNumbers(token);
-        processTextToken(components[0], wordDataList, label);
-        processNumToken(components[1], wordDataList, label);
-        processSymbolToken(components[2], wordDataList, label);
+        // Verificar si el token es una dirección web
+        if (TextUtils.isWebAddress(token)) {
+            String lowerCaseToken = token.toLowerCase(); // Convertir a minúsculas
+            System.out.println("[DEBUG] Dirección web detectada: " + lowerCaseToken);
+            wordDataList.add(new WordData("webaddress", label)); // Asignar categoría webaddress
+        } else {
+            // Procesamiento estándar para TEXT_NUM_SYMBOL
+            String[] components = TextUtils.splitRareSymbolsAndNumbers(token);
+
+            for (String component : components) {
+                if (!component.isEmpty()) {
+                    if (TextUtils.isTextToken(component)) {
+                        processTextToken(component, wordDataList, label);
+                    } else if (TextUtils.isNumericToken(component)) {
+                        processNumToken(component, wordDataList, label);
+                    } else if (TextUtils.isSymbolToken(component)) {
+                        processSymbolToken(component, wordDataList, label);
+                    } else {
+                        wordDataList.add(new WordData(component, label));
+                    }
+                }
+            }
+        }
     }
+
 
     private static void processCharToken(String token, List<WordData> wordDataList, String label) {
         Map<String, Set<String>> textLexemes = lexemeRepository.get(LexemeRepositoryCategories.TEXT_LEXEMES);

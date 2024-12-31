@@ -20,15 +20,19 @@ public class TestProcessToWordDataTest {
 
     public static void main(String[] args) {
 String[] mensaje = new String[]{
-        "Compra 2999 35kg arroz oferta! $ $100 24hs es buen precio ahorrar y es urgente! http://promo123.com \uD83D\uDE0A cómpralo ya yá",
+        "Comprá comprate 2999 35kg oferta! $ $100 24hs http://promo123.com \uD83D\uDE0A ya yá",
          "spam"
 };
+        String[] mensajeMixto = new String[]{
+                "http://promo123.com abc123$ 50kg! promo@2024 23@abc# $10off!",
+                "spam"
+        };
         String[] mensajeTextSymbol = new String[]{
                 "\"@ño niño$ piñ@ta sueño! casa123 año2024 día1\"\n",
                 "spam"
         };
         String[] mensajeAccent = new String[]{
-                "cuándo cuándo cuando cacatúa",
+                "cuándo cuando cacatúa había servidor",
                 "spam"
         };
         try {
@@ -42,7 +46,10 @@ String[] mensaje = new String[]{
 
             // Simulación de datos crudos (rawRows) en formato [mensaje, etiqueta]
             List<String[]> rawRows = new ArrayList<>();
-            rawRows.add( mensaje );
+
+            rawRows.add(
+                    mensajeMixto
+            );
 
 
             //Mostrar lexemerepository en dictionary

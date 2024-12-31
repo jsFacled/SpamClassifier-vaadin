@@ -7,13 +7,13 @@
     "mathop": ["+", "-", "*", "/", "=", "%", "^", "**", "//", "-=", "+=", "<", ">", "<=", ">=", "!=", "=="],
     "lexpron": ["él", "ella", "ellas", "ellos", "me", "mi", "mí", "mis", "nos", "nosotros", "te", "ti", "tú", "tu", "tus", "yo", "quien", "quienes"],
     "lexdet": ["algunas", "algunos", "esa", "esas", "ese", "esos", "esta", "estas", "este", "estos", "la", "las", "lo", "los", "su", "sus", "un", "una", "unas", "uno", "unos"],
-    "lexadv": ["algo", "así", "aunque", "cómo", "muy", "ni", "no", "sí"],
-    "lexprep": ["con", "de", "del", "en", "entre", "para", "por", "sobre"],
+    "lexadv": ["algo", "así", "aunque", "cómo", "muy", "ni", "no", "sí","cuándo","dónde"],
+    "lexprep": ["con", "de", "del", "en", "entre", "para", "por", "sobre","hasta"],
     "lexconj": ["aunque", "pero", "que", "porque"],
     "lexverbaux": ["fue", "fui", "fuera", "fueron", "ha", "había", "habían", "hay", "he", "hemos", "será", "tiene", "tienen"],
     "lexdim": ["kilo", "metro", "litro", "gramo", "tonelada", "mililitro", "centimetro", "milimetro", "galon", "pulgada", "hectometro", "decametro", "micrometro", "nanometro", "milibar", "hectopascal", "pie", "yarda", "rod", "cadena"],
-    "lexcal": ["al", "desde", "hasta","enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo", "semana", "quincena", "mes", "ano", "decada", "siglo", "milenio", "bisiesto", "festivo", "jornada", "intervalo"],
-    "lexmon": ["dolar", "euro", "peso", "yen", "libra", "rupia", "franco", "real", "corona", "rublo", "yuan", "shekel", "lira", "dinar", "ringgit", "won", "zloty", "colones", "soles", "bolivares","cuándo", "dónde", "hasta"],
+    "lexcal": ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo", "semana", "quincena", "mes", "ano", "año","decada", "siglo", "milenio", "bisiesto", "festivo", "jornada", "intervalo"],
+    "lexmon": ["dolar", "euro", "peso", "yen", "libra", "rupia", "franco", "real", "corona", "rublo", "yuan", "shekel", "lira", "dinar", "ringgit", "won", "zloty", "colones", "soles", "bolivares"],
     "lexuni": ["kg", "m2","ml", "gs", "cm", "mm", "km", "ft", "in", "oz", "lb","ha", "cl", "dl", "qt", "pt", "yd"]
 
   },

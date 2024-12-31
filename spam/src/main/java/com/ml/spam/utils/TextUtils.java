@@ -6,6 +6,7 @@ import com.ml.spam.dictionary.models.TokenType;
 
 import java.text.Normalizer;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -180,13 +181,30 @@ public class TextUtils {
     }
 
     public static String[] splitRareSymbolsAndNumbers(String token) {
-        String wordPart = token.replaceAll("[^\\p{L}áéíóúÁÉÍÓÚñÑ]", "");
-        String numberPart = token.replaceAll("[^0-9]", "");
-        String rareSymbolsPart = token.replaceAll("[\\p{L}áéíóúÁÉÍÓÚñÑ0-9]", "");
-        if (!rareSymbolsPart.isEmpty()) {
-            rareSymbolsPart = String.join(" ", rareSymbolsPart.split(""));
+        // Inicializar lista para componentes procesados
+        List<String> components = new ArrayList<>();
+
+        // Extraer letras, números y símbolos
+        String wordPart = token.replaceAll("[^\\p{L}áéíóúÁÉÍÓÚñÑ]", ""); // Solo letras
+        String numberPart = token.replaceAll("[^0-9]", ""); // Solo números
+        String rareSymbolsPart = token.replaceAll("[\\p{L}áéíóúÁÉÍÓÚñÑ0-9]", ""); // Solo símbolos
+
+        // Agregar partes no vacías
+        if (!wordPart.isEmpty()) {
+            components.add(wordPart);
         }
-        return new String[]{wordPart, numberPart, rareSymbolsPart};
+        if (!numberPart.isEmpty()) {
+            components.add(numberPart);
+        }
+        if (!rareSymbolsPart.isEmpty()) {
+            // Dividir símbolos en caracteres individuales
+            for (char symbol : rareSymbolsPart.toCharArray()) {
+                components.add(String.valueOf(symbol));
+            }
+        }
+
+        // Convertir la lista a un arreglo
+        return components.toArray(new String[0]);
     }
 
 

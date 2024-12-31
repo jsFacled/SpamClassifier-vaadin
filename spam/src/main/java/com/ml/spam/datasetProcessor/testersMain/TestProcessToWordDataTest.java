@@ -27,6 +27,10 @@ String[] mensaje = new String[]{
                 "http://promo123.com abc123$ 50kg! promo@2024 23@abc# $10off!",
                 "spam"
         };
+        String[] mensajeMixto2 = new String[]{
+                "23@abc# $10off!",
+                "spam"
+        };
         String[] mensajeTextSymbol = new String[]{
                 "\"@ño niño$ piñ@ta sueño! casa123 año2024 día1\"\n",
                 "spam"
@@ -48,7 +52,7 @@ String[] mensaje = new String[]{
             List<String[]> rawRows = new ArrayList<>();
 
             rawRows.add(
-                    mensajeMixto
+                    mensajeMixto2
             );
 
 

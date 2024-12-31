@@ -243,26 +243,34 @@ public class MessageProcessor {
     }
 
     private static void processTextNumSymbolToken(String token, List<WordData> wordDataList, String label) {
-        // Verificar si el token es una dirección web
-        if (TextUtils.isWebAddress(token)) {
-            String lowerCaseToken = token.toLowerCase(); // Convertir a minúsculas
-            System.out.println("[DEBUG] Dirección web detectada: " + lowerCaseToken);
-            wordDataList.add(new WordData("webaddress", label)); // Asignar categoría webaddress
-        } else {
-            // Procesamiento estándar para TEXT_NUM_SYMBOL
-            String[] components = TextUtils.splitRareSymbolsAndNumbers(token);
+        // Divide el token en componentes y elimina espacios vacíos
+        String[] components = TextUtils.splitRareSymbolsAndNumbers(token);
+        List<String> filteredComponents = Arrays.stream(components)
+                .map(String::trim) // Eliminar espacios alrededor de los componentes
+                .filter(component -> !component.isEmpty()) // Descartar vacíos
+                .toList();
 
-            for (String component : components) {
-                if (!component.isEmpty()) {
-                    if (TextUtils.isTextToken(component)) {
-                        processTextToken(component, wordDataList, label);
-                    } else if (TextUtils.isNumericToken(component)) {
-                        processNumToken(component, wordDataList, label);
-                    } else if (TextUtils.isSymbolToken(component)) {
-                        processSymbolToken(component, wordDataList, label);
+        for (String component : filteredComponents) {
+            if (TextUtils.isSymbolToken(component)) {
+                // Caso 1: Símbolos puros
+                for (char symbol : component.toCharArray()) {
+                    String symbolStr = String.valueOf(symbol);
+                    String subCategory = findSubcategoryForToken(symbolStr); // Buscar subcategoría
+                    if (subCategory != null) {
+                        wordDataList.add(new WordData(subCategory, label)); // Asignar subcategoría
                     } else {
-                        wordDataList.add(new WordData(component, label));
+                        wordDataList.add(new WordData(symbolStr, label)); // Asignar directamente si no hay subcategoría
                     }
+                }
+            } else {
+                // Caso 2: Procesar con reglas estándar
+                if (TextUtils.isTextToken(component)) {
+                    processTextToken(component, wordDataList, label);
+                } else if (TextUtils.isNumericToken(component)) {
+                    processNumToken(component, wordDataList, label);
+                } else {
+                    // Caso 3: Otros componentes
+                    wordDataList.add(new WordData(component, label));
                 }
             }
         }

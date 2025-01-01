@@ -88,34 +88,42 @@ public class TextUtils {
 
 
     public static TokenType classifyToken(String token) {
-        if (isOneDigit(token)){
+        if (isOneDigit(token)) {
             return classifyTokenByOneDigit(token);
         }
 
-        if (isTextNumSymbolToken(token)) {
-            return TokenType.TEXT_NUM_SYMBOL; // Token tiene texto, números y símbolos mezclados
+        if (isNumTextToken(token)) {
+            return TokenType.NUM_TEXT; // Detecta tokens como 5m2 o 10km
         }
+
+        if (isTextNumSymbolToken(token)) {
+            return TokenType.TEXT_NUM_SYMBOL; // Token con texto, números y símbolos
+        }
+
         if (isEmoji(token)) {
             return TokenType.SYMBOL; // Token es un emoji
         }
+
         if (isSymbolToken(token)) {
             return TokenType.SYMBOL; // Token es un símbolo
         }
+
         if (isNumericToken(token)) {
             return TokenType.NUM; // Token es un número puro
         }
+
         if (isTextToken(token)) {
             return TokenType.TEXT; // Token es texto alfabético puro
         }
+
         if (isTextSymbolToken(token)) {
-            return TokenType.TEXT_SYMBOL; // Token contiene texto y símbolos raros
+            return TokenType.TEXT_SYMBOL; // Token con texto y símbolos raros
         }
-        if (isNumTextToken(token)) {
-            return TokenType.NUM_TEXT; // Token contiene números y texto mezclados
-        }
+
         if (isNumSymbolToken(token)) {
-            return TokenType.NUM_SYMBOL; // Token contiene números y símbolos
+            return TokenType.NUM_SYMBOL; // Token con números y símbolos
         }
+
         return TokenType.UNASSIGNED; // Token no clasificable
     }
 

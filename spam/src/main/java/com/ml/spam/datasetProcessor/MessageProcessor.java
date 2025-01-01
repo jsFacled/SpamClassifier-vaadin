@@ -274,9 +274,26 @@ public class MessageProcessor {
 
 
     private static void processNumTextToken(String token, List<WordData> wordDataList, String label) {
+        // Paso 1: Separar el token en números y texto
         String[] parts = TextUtils.splitNumberAndText(token);
-        processNumToken(parts[0], wordDataList, label);
-        processTextToken(parts[1], wordDataList, label);
+        String numberPart = parts[0];
+        String textPart = parts[1];
+
+        // Paso 2: Verificar si la parte de texto está categorizada
+        String subCategory = findSubcategoryForToken(textPart);
+
+        if (subCategory != null) {
+            // Clasificar el token completo si la parte textual está categorizada
+            wordDataList.add(new WordData(subCategory, label));
+        } else {
+            // Paso 3: Procesar las partes por separado si la parte textual no está categorizada
+            if (!numberPart.isEmpty()) {
+                processNumToken(numberPart, wordDataList, label);
+            }
+            if (!textPart.isEmpty()) {
+                processTextToken(textPart, wordDataList, label);
+            }
+        }
     }
 
 

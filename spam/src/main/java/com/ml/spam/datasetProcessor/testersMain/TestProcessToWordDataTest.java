@@ -19,7 +19,13 @@ public class TestProcessToWordDataTest {
 
 
     public static void main(String[] args) {
-String[] mensaje = new String[]{
+
+        String[] mensajeCombinado = new String[]{
+                "Comprá abc123$ http://test.com 35kg promo@2024 😊 cuándo niño$ 2999 http://promo123.net 24hs $10off! casa123",
+                "spam"
+        };
+
+        String[] mensaje = new String[]{
         "Comprá comprate 2999 35kg oferta! $ $100 24hs http://promo123.com \uD83D\uDE0A ya yá",
          "spam"
 };
@@ -28,8 +34,9 @@ String[] mensaje = new String[]{
                 "spam"
         };
         String[] mensajeMixto2 = new String[]{
-                "23@abc# $10off!",
-                "spam"
+                "123@xyz# $45sale! 😊 http://test.com abc123$ 50kg! promo@2024",
+
+        "spam"
         };
         String[] mensajeTextSymbol = new String[]{
                 "\"@ño niño$ piñ@ta sueño! casa123 año2024 día1\"\n",
@@ -52,8 +59,7 @@ String[] mensaje = new String[]{
             List<String[]> rawRows = new ArrayList<>();
 
             rawRows.add(
-                    mensajeMixto2
-            );
+mensajeCombinado            );
 
 
             //Mostrar lexemerepository en dictionary

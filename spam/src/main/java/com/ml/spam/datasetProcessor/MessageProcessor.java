@@ -164,7 +164,17 @@ public class MessageProcessor {
 
 
     private static void processTextSymbolToken(String token, List<WordData> wordDataList, String label) {
-        // Paso 1: Detectar si el token es una URL
+        // Paso 1: Verificar si contiene '@' o es un correo electrónico
+        if (token.contains("@")) {
+            if (TextUtils.isWebEmail(token)) {
+                wordDataList.add(new WordData("webemail", label)); // Asignar como correo electrónico
+            } else {
+                wordDataList.add(new WordData("@", label)); // Asignar como símbolo '@'
+            }
+            return; // Detener procesamiento adicional si contiene '@'
+        }
+
+        // Paso 2: Detectar si el token es una URL
         if (TextUtils.isWebAddress(token)) {
             String lowerCaseToken = token.toLowerCase(); // Convertir a minúsculas
             System.out.println("[DEBUG] Dirección web detectada dentro de TEXT_SYMBOL: " + lowerCaseToken);
@@ -172,7 +182,7 @@ public class MessageProcessor {
             return; // Detener procesamiento adicional
         }
 
-        // Paso 2: Separar texto y símbolos
+        // Paso 3: Separar texto y símbolos
         String wordPart = token.replaceAll("[^\\p{L}áéíóúÁÉÍÓÚñÑ]", ""); // Extraer letras
         String symbolPart = token.replaceAll("[\\p{L}áéíóúÁÉÍÓÚñÑ]", ""); // Extraer símbolos
 
@@ -273,15 +283,25 @@ public class MessageProcessor {
 
 
     private static void processTextNumSymbolToken(String token, List<WordData> wordDataList, String label) {
-        // Paso 1: Detectar si el token es una URL
+        // Paso 1: Verificar si contiene '@' o es un correo electrónico
+        if (token.contains("@")) {
+            if (TextUtils.isWebEmail(token)) {
+                wordDataList.add(new WordData("webemail", label)); // Asignar como correo electrónico
+            } else {
+                wordDataList.add(new WordData("@", label)); // Asignar como símbolo '@'
+            }
+            return; // Detener procesamiento adicional si contiene '@'
+        }
+
+        // Paso 2: Detectar si el token es una URL
         if (TextUtils.isWebAddress(token)) {
             String lowerCaseToken = token.toLowerCase(); // Convertir a minúsculas
             System.out.println("[DEBUG] Dirección web detectada: " + lowerCaseToken);
             wordDataList.add(new WordData("webaddress", label)); // Asignar categoría directamente
-            return; // Omitir procesamiento adicional
+            return; // Detener procesamiento adicional
         }
 
-        // Paso 2: Continuar con el procesamiento estándar para otros tokens
+        // Paso 3: Continuar con el procesamiento estándar para otros tokens
         String[] components = TextUtils.splitRareSymbolsAndNumbers(token);
         for (String component : components) {
             if (component.isEmpty()) {

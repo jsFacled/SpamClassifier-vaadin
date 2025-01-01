@@ -281,4 +281,13 @@ public class TextUtils {
         // Retornar la fila normalizada como válida
         return new RowValidationResult(true, message, label);
     }
+
+    public static boolean isWebEmail(String token) {
+        if (token == null || token.isEmpty()) {
+            return false;
+        }
+        String emailRegex = "^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$";
+        return token.matches(emailRegex);
+    }
+
 }

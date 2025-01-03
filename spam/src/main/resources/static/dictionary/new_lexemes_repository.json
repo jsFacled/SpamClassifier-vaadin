@@ -1,0 +1,154 @@
+{
+  "oneChar": {
+    "lexvowel": ["á", "é", "í", "ó", "ú", "a", "e", "i", "o", "u"],
+    "lexconsonant": ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "z", "ç", "ñ"],
+    "excl": ["?", "¿", "!", "¡"],
+    "lexsym": ["&", "#", "~", "/", ":", ";", "|", "\\", "_", "-", "·"],
+    "mathop": ["+", "-", "*", "/", "=", "%", "^", "**", "/", "<", ">"]
+  },
+  "twoChars": {
+    "excl": [".."],
+    "lexsym": ["<>"],
+    "mathop": ["**", "//", "-=", "+=", "<=", ">=", "!=", "=="],
+    "lexpron": ["él", "me", "mi", "mí", "te", "ti", "tú", "tu", "yo"],
+    "lexdet": ["la","lo","su","un"],
+    "lexadv": ["ni", "no", "sí"],
+    "lexprep": ["de","en"],
+    "lexverbaux": ["ha","he"],
+    "lexuni": ["kg", "m2","ml", "gs", "cm", "mm", "km", "ft", "in", "oz", "lb","ha", "cl", "dl", "qt", "pt", "yd"],
+    "numdim": ["cm", "m2","kg", "mm", "km"],
+    "numcal": ["hs"],
+    "numcod": ["id"],
+    "numurl": ["io"],
+    "numip": ["ip"]
+
+
+  },
+
+  "threeChars": {
+    "excl": [
+      "...",
+      "???",
+      "!!!",
+      "?!?",
+      "¡!?",
+      "¡?!"
+    ],
+    "lexpron": [
+      "mis",
+      "nos",
+      "tus"
+    ],
+    "lexdet": [
+      "esa",
+      "ese",
+      "las",
+      "los",
+      "sus",
+      "una",
+      "uno"
+    ],
+    "lexadv": [
+      "así",
+      "muy"
+    ],
+    "lexprep": [
+      "con",
+      "del",
+      "por"
+    ],
+    "lexconj": [
+      "que"
+    ],
+    "lexverbaux": [
+      "fue",
+      "fui",
+      "hay"
+    ],
+    "lexdim": [
+      "pie",
+      "rod"
+    ],
+    "lexcal": [
+      "mes",
+      "ano",
+      "año"
+    ],
+    "lexmon": [
+      "yen",
+      "won"
+    ],
+    "numcal": [
+      "min"
+    ],
+    "nummon": [
+      "won"
+    ],
+    "numcod": [
+      "ref",
+      "sku",
+      "usr",
+      "reg",
+      "act"
+    ],
+    "numurl": [
+      "www",
+      "com",
+      "net",
+      "org",
+      "edu",
+      "gov",
+      "mil",
+      "dev",
+      "web",
+      "app"
+    ],
+    "numtel": [
+      "tel",
+      "cel",
+      "fax"
+    ],
+    "numip": [
+      "red"
+    ],
+    "lexcantidad": [
+      "mil"
+    ],
+    "lexvalioso": [
+      "vip"
+    ]
+  },
+
+  "fourChars": {
+
+
+  },
+  "fiveChars": {
+
+
+  },
+  "sixChars": {
+
+
+  },
+  "sevenChars": {
+
+
+  },
+  "eightChars": {
+
+
+  },
+  "nineChars": {
+
+
+  },
+  "tenChars": {
+
+
+  },
+  "overTenChars": {
+
+
+  }
+}

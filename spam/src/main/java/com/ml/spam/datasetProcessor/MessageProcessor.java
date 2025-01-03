@@ -278,7 +278,8 @@ public class MessageProcessor {
         String[] parts = TextUtils.splitNumberAndText(token);
         String numberPart = parts[0];
         String textPart = parts[1];
-
+        System.out.println("[DEBUG  processNumText ] numberPart : <" +numberPart+ ">");
+        System.out.println("[DEBUG  processNumText ] numberPart : <" +textPart+ ">");
         // Paso 2: Verificar si la parte de texto está categorizada
         String subCategory = findSubcategoryForToken(textPart);
 

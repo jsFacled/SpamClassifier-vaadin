@@ -91,39 +91,33 @@ public class TextUtils {
         if (isOneDigit(token)) {
             return classifyTokenByOneDigit(token);
         }
-
-        if (isNumTextToken(token)) {
-            return TokenType.NUM_TEXT; // Detecta tokens como 5m2 o 10km
-        }
-
         if (isTextNumSymbolToken(token)) {
-            return TokenType.TEXT_NUM_SYMBOL; // Token con texto, números y símbolos
+            return TokenType.TEXT_NUM_SYMBOL; // Token tiene texto, números y símbolos mezclados
         }
-
-        if (isEmoji(token)) {
-            return TokenType.SYMBOL; // Token es un emoji
+        if (isWebEmail(token)) {
+            return TokenType.TEXT_NUM_SYMBOL; // Clasifica correos como texto+número+símbolo
         }
-
+        if (isWebAddress(token)) {
+            return TokenType.TEXT_SYMBOL; // Clasifica URLs como texto+símbolo
+        }
         if (isSymbolToken(token)) {
             return TokenType.SYMBOL; // Token es un símbolo
         }
-
         if (isNumericToken(token)) {
             return TokenType.NUM; // Token es un número puro
         }
-
         if (isTextToken(token)) {
             return TokenType.TEXT; // Token es texto alfabético puro
         }
-
         if (isTextSymbolToken(token)) {
-            return TokenType.TEXT_SYMBOL; // Token con texto y símbolos raros
+            return TokenType.TEXT_SYMBOL; // Token contiene texto y símbolos raros
         }
-
+        if (isNumTextToken(token)) {
+            return TokenType.NUM_TEXT; // Token contiene números y texto mezclados
+        }
         if (isNumSymbolToken(token)) {
-            return TokenType.NUM_SYMBOL; // Token con números y símbolos
+            return TokenType.NUM_SYMBOL; // Token contiene números y símbolos
         }
-
         return TokenType.UNASSIGNED; // Token no clasificable
     }
 
@@ -151,8 +145,9 @@ public class TextUtils {
     }
 
     public static boolean isNumTextToken(String token) {
-        return token.matches("\\d+[a-zA-Z]+|[a-zA-Z]+\\d+");
+        return token.matches("(?=.*\\d)(?=.*[a-zA-Z]).*");
     }
+
 
     public static boolean isTextNumSymbolToken(String token) {
         // Verifica si el token contiene letras, números y símbolos al mismo tiempo
@@ -183,10 +178,16 @@ public class TextUtils {
 
 
     public static String[] splitNumberAndText(String token) {
-        String numberPart = token.replaceAll("[^0-9]", "");
-        String textPart = token.replaceAll("[0-9]", "");
-        return new String[]{numberPart, textPart};
+        String[] parts = token.split("(?<=\\d)(?=\\D)|(?<=\\D)(?=\\d)");
+        if (parts.length > 2) {
+            return new String[]{parts[0], String.join("", Arrays.copyOfRange(parts, 1, parts.length))};
+        } else if (parts.length == 2) {
+            return parts;
+        } else {
+            return new String[]{token, ""}; // Retorna el token completo si no se puede dividir
+        }
     }
+
 
     public static String[] splitRareSymbolsAndNumbers(String token) {
         // Inicializar lista para componentes procesados

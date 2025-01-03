@@ -89,7 +89,7 @@ public class TestProcessToWordDataTest {
                 "spam"
         };
         String[] mensajeCombinado = new String[]{
-                "toto@gmail.com chacha@ Comprá abc123$ http://test.com 35kg promo@2024 😊 cuándo niño$ 2999 http://promo123.net 24hs $10off! casa123",
+                "toto@gmail.com chacha@ Comprá abc123$ http://test.com 35kg promo@2024 😊 cuándo niño$ 2999 http://promo123.net 24hs $10off! ",
                 "spam"
         };
 
@@ -119,6 +119,11 @@ public class TestProcessToWordDataTest {
                 "5m2, 10km, 48litros",
                 "spam"
         };
+        String[] m = new String[]{
+                "8cm2 7cm3",
+                "spam"
+        };
+
         try {
             // Inicializar el Service
             SpamDictionaryService dictionaryService = new SpamDictionaryService();
@@ -132,7 +137,8 @@ public class TestProcessToWordDataTest {
             List<String[]> rawRows = new ArrayList<>();
 
             rawRows.add(
-                    mensajeNumText
+                    m
+                    //mensajeNumText
                     //mensajeCombinado
                     // mensajeExaustivo
             );

@@ -23,7 +23,7 @@
     "nummon": ["pesos", "dolares", "libras", "yenes", "reales", "francos", "rublos", "rupias", "yuanes", "centavos", "soles", "colones", "quetzales", "bolivares", "guaranies", "birr", "ringgit", "won"],
     "numstat": ["promedio", "calificacion", "tasa", "porcentaje", "indice", "frecuencia", "proporcion", "media", "desviacion", "varianza", "rango", "mediana", "moda", "percentil", "cuartil", "tendencia", "crecimiento", "reduccion", "distribucion"],
     "numcod": ["ref", "codigo", "sku", "id", "usr", "reg", "act", "prod", "serie", "clave", "etiqueta", "lote", "ticket", "pedido", "registro", "licencia", "factura", "producto", "referencia", "guia"],
-    "numurl": ["http", "https", "www", "com", "net", "org", "edu", "gov", "mil", "io", "dev", "site", "online", "link", "click", "blog", "page", "web", "cloud", "app"],
+    "numurl": ["http", "https", "www", "com", "net", "org", "edu", "gov", "mil", "io", "dev", "site", "online", "link", "blog", "page", "web", "cloud", "app"],
     "numtel": ["tel", "movil", "fijo", "cel", "extension", "linea", "contacto", "llamada", "numero", "whatsapp", "fax"],
     "numip": ["ip", "direccion", "red", "host", "dominio", "subred", "gateway", "enrutador", "proxy", "servidor"]
   },
@@ -35,18 +35,40 @@
     "hamemoji": [
       "😊", "😂", "👍", "👏", "🎂", "🍰", "🎶", "📚", "🖋️", "💡", "🌟", "📅"
     ],
+    "lexbeneficio": ["beneficio", "beneficios"],
+    "lexgana": ["gana","ganador", "ganancias", "ganar"],
     "lexcompra": ["compra", "comprar", "comprate", "comprarás", "comprando", "comprador", "compradores"],
     "lexahorro": ["ahorra", "ahorrar", "ahorro"],
     "lexurgencia": ["urgente", "pronto", "inmediato", "último", "ahora", "ya"],
-    "lexcantidad": ["mil", "millón", "billón", "miles", "millones"],
+    "lexcantidad": ["mil", "millon", "billon", "miles", "millones"],
     "lexpromocion": ["promoción", "promocional", "rebaja", "rebajas", "rebajado", "oferta", "descuento"],
-    "lexfinanzas": ["banco", "bancario", "dinero", "finanzas", "inversión", "préstamo", "crédito", "hipoteca"],
+    "lexfinanza": ["banco", "bancario", "dinero", "cheque", "cheques","finanzas", "financiamiento","inversión", "invertir","invierte","prestamo", "credito", "hipoteca", "negocio"],
     "lexsuscripcion": ["suscribirse", "suscripción", "suscriptores", "membresía"],
-    "lexalerta": ["alerta", "aviso", "notificación", "advertencia"],
-    "lexexito": ["éxito", "ganador", "triunfo", "fortuna", "victoria"],
-    "lexgarantia": ["garantía", "garantizado", "garantizada", "asegurado", "seguro", "segura"],
-    "lexgratuito": ["gratis", "gratuito", "gratuita", "sin costo"],
+    "lexalerta": ["alerta", "aviso", "notificacion", "advertencia", "notificaciones", "notificar"],
+    "lexexito": ["éxito", "triunfo", "fortuna", "victoria"],
+    "lexpremio": ["premio", "premios","ganador", "recompensa", "loteria", "sorteo"],
+    "lexgarantia": ["garantía", "garantizado", "garantizada", "asegurado", "seguro", "segura", "reembolsable", "reembolsado", "reembolsar", "reembolso"],
+    "lexcosto": ["costo", "precio", "tarifa", "valor", "importe"],
+    "lexgratuito": ["gratis", "gratuito", "gratuita"],
     "lexvalioso": ["valioso", "importante", "único", "única", "exclusivo", "vip"],
-    "lexproducto": ["producto", "colección", "artículo", "item"]
-  }
+    "lexproducto": ["producto", "colección", "artículo", "item"],
+    "lexingreso": ["ingreso", "ingresos"],
+    "lexlimitado": ["limitada", "limitado", "limitados", "limitadas", "limitando"],
+    "lexaprobacion": ["aprobado", "aprobada", "aprobación", "aprobando"],
+    "lexincremento": ["aumente", "incremento", "mejora", "potencial", "crecimiento", "multiplique", "multiplicacion","multiplicar","amplíe"],
+    "lexseguridad": ["autenticacion", "autentificacion", "autorizacion", "autorizado", "validacion", "seguridad", "proteccion", "privacidad", "privada", "privado","verifica", "verificar"],
+    "lexaccionesweb": ["click", "clic","visita", "visitar","abre", "descarga", "accede", "explora"],
+    "lexcomunicacion": ["consulta", "consultas", "contacto", "pregunta", "respuesta", "ayuda", "asistencia"],
+    "lexriqueza": ["enriquecer", "enriquecerse", "enriquezca", "riqueza", "prosperidad", "fortuna", "abundancia"],
+    "lexsuperlativos": ["fabulos", "fabuloso", "increíble", "maravilloso", "espectacular", "asombroso", "extraordinario"],
+    "lexcelebracion": ["felicidades", "felicitaciones", "enhorabuena", "celebración", "congratulación"],
+    "lexmejora": ["mejor", "mejora", "mejore", "optimizacion", "avance", "perfeccion", "progreso"],
+    "lexpoder": ["poderoso", "potencia", "potencial", "fortaleza", "capacidad", "energía"],
+    "lexprueba": ["probar", "prueba", "ensayo", "intento", "experimentar"]
+
+
+
+
+
+}
 }

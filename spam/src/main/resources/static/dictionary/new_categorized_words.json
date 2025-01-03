@@ -1,0 +1,67 @@
+{
+  "muy_fuertemente_asociadas": [
+    [
+      "$", "€","accion", "bitcoin", "aquí", "correo", "criptomoneda", "cupon", "descuento",
+      "dinero", "extra", "rapido", "exclusivo", "lexgana","herencia", "lexingreso",
+      "lexlimitado", "lexcantidad", "lexpromocion", "oportunidad", "lexpremio", "publicidad",
+      "regalo", "seguro", "lexsuscripcion", "tarjeta", "lexurgencia", "viagra", "acceso",
+      "activacion", "actualizacion", "algoritmo", "amigo", "amor", "anuncio", "lexaprobacion",
+      "apuesta", "asistencia", "asombroso", "atencion", "lexincremento", "lexseguridad", "bancarrota",
+      "belleza", "blackjack", "bono", "casino", "certificado", "cierre", "lexaccionesweb",
+      "cliente", "compare", "confidencial", "lexcomunicacion", "contraseña", "lexcosto", "criptografia",
+      "cuenta", "cura", "diagnostico", "dieta", "dominios", "donacion", "eliminar", "empleo", "encuentra",
+      "encuentros", "engaño","lexriqueza", "estado", "estafa", "estimado", "expira", "lexsuperlativos",
+      "lexcelebracion", "final", "flash", "formulario", "fraude", "guardar", "hacer",
+      "increible", "informacion", "instantaneo", "instrucciónes", "interes", "intoduccion",
+      "irrepetible", "irresistible", "jefe", "juega", "juego", "legal", "levita", "libertad",
+      "llamada", "loteria", "lexalerta", "lexbeneficio","lexcompra", "lexexito", "lexfinanza", "lexgarantia",
+      "lexgratuito", "lexmon", "lexproducto", "lexvalor", "lujo", "magia", "marketing", "medicamento",
+      "lexmejora", "mentira", "milagro", "millonario", "oficial", "unica", "participe", "personal",
+      "personalizado", "pierda", "planear", "lexpoder", "lexprueba", "problema", "procesa", "prohibir",
+      "prosperidad", "proteccion", "rapidez", "rebaja", "rendimientos", "resultado", "revulociona", "riesgo",
+      "riqueza", "rolex", "rapido", "salud", "secreto", "seleccion", "sistema", "sorteo", "spam", "suerte",
+      "testimonios", "trampa", "vacaciones", "webaddress"
+    ]
+
+  ],
+
+  "moderadamente_asociadas": [
+    [
+       "Ahorro",
+      "Envío",
+      "Servicio",
+      "Tienda",
+      "Venta",
+      "descargar",
+      "empresa",
+       "hoy",
+
+      "instrucciones",
+      "intereses",
+        "mañana",
+      "natural",
+      "pronto",
+      "recuperación",
+      "registrarse", "restaurada", "salva", "salvar",
+       "suspendida", "trabajo"
+    ]
+
+  ],
+  "debilmente_asociadas": [
+    [
+      "Archivo",
+      "Ayuda", "Bienvenido",
+      "Comunicación", "Confirmación", "Documento", "Evento", "Gracias", "Hola",
+       "Notificación", "Recordatorio", "Reunión", "Revisión",
+       "Soporte",   "aceptación",
+      "actividad", "actuación", "actuar",
+      "esfuerzo",
+     "existencias",
+     "introducción",
+       "renovar", "resultados",
+      "solicitud", "solución", "tiempo", "verificación", "vida",
+      "vista"
+    ]
+
+  ]
+}

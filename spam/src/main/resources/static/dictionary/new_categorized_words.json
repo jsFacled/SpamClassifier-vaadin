@@ -1,37 +1,47 @@
 {
-  "fuertementeAsociadas": [
-      "$", "€","accion", "bitcoin", "aquí", "correo", "criptomoneda", "cupon", "descuento",
-      "dinero", "extra", "rapido", "exclusivo", "herencia","oportunidad","publicidad", "anuncio",
-      "regalo", "seguro","tarjeta","viagra", "acceso", "activacion", "actualizacion", "algoritmo", "amigo", "amor",
-      "apuesta", "asistencia", "asombroso", "atencion", "bancarrota", "belleza", "blackjack", "bono", "casino",
-      "cuenta", "cura", "diagnostico", "dieta", "dominios", "donacion", "eliminar", "empleo", "encuentra",
-      "encuentros", "engaño", "estafa", "estimado", "expira", "final", "flash", "formulario", "fraude",
-      "increible", "instantaneo", "instrucciónes", "interes", "certificado", "cierre",
-      "irrepetible", "irresistible", "jefe", "juega", "juego", "legal", "levita", "libertad","personal",
-      "llamada", "loteria","cliente", "compare", "confidencial", "contraseña","criptografia",
-      "personalizado", "pierda", "planear",  "problema", "procesa", "prohibir", "prosperidad", "proteccion",
-      "rapidez", "rebaja", "rendimientos", "resultado", "revoluciona", "riesgo", "guardar", "hacer",
-      "riqueza", "rolex", "rapido", "salud", "secreto", "seleccion", "sistema", "sorteo", "spam", "suerte",
-      "testimonios", "trampa", "vacaciones","mentira", "milagro", "millonario", "oficial", "unica", "participe",
-      "webaddress",
-      "lexriqueza","lexsuperlativos","lexcelebracion","lexpoder", "lexprueba", "lexaccionesweb", "lexurgencia",
-      "lexaprobacion", "lexsuscripcion", "lexincremento", "lexseguridad", "lexgana", "lexingreso", "lexlimitado",
-      "lexcantidad", "lexpromocion","lexpremio", "lexcomunicacion", "lexcosto", "lexalerta", "lexbeneficio",
-      "lexcompra", "lexexito", "lexfinanza", "lexgarantia", "lexgratuito", "lexmon", "lexproducto", "lexvalor",
-      "lujo", "magia", "marketing", "medicamento", "lexmejora",
-      "hoy","descargar", "pronto"
-  ],
+    "spamWords": {
+        "fuertementeAsociadas": [
+        "$","€", "accion", "bitcoin","rapido", "exclusivo", "herencia", "oportunidad", "publicidad",
+        "anuncio", "regalo", "seguro", "tarjeta", "viagra", "acceso", "activacion", "actualizacion",
+        "algoritmo", "amigo", "amor", "apuesta", "asistencia", "asombroso", "atencion", "bancarrota",
+        "belleza", "blackjack", "bono", "casino", "cuenta", "cura", "diagnostico", "dieta", "dominios", "donacion",
+        "eliminar", "empleo", "encuentra", "encuentros", "engaño", "estafa", "estimado", "expira",
+        "final", "flash", "formulario", "fraude", "increible", "instantaneo", "instrucciónes", "interes",
+        "certificado", "cierre", "irrepetible", "irresistible", "jefe", "juega", "juego", "legal",
+        "levita", "libertad", "llamada", "loteria", "cliente", "compare", "confidencial",
+        "contraseña", "criptografia", "personalizado", "pierda", "planear", "problema", "procesa", "prohibir",
+        "prosperidad", "proteccion", "rapidez", "rebaja", "rendimientos", "revoluciona", "riesgo",
+        "guardar", "riqueza", "rolex", "salud", "secreto", "seleccion",
+        "sorteo", "spam", "suerte", "testimonios", "trampa", "vacaciones", "mentira",
+        "milagro", "millonario", "oficial", "unica", "participe", "webaddress",
+        "lexriqueza", "lexsuperlativos", "lexcelebracion", "lexpoder", "lexprueba", "lexaccionesweb",
+        "lexurgencia", "lexaprobacion", "lexsuscripcion", "lexincremento", "lexseguridad", "lexgana",
+        "lexingreso", "lexlimitado", "lexcantidad", "lexpromocion", "lexpremio", "lexcomunicacion",
+        "lexcosto", "lexalerta", "lexbeneficio", "lexcompra", "lexexito", "lexfinanza", "verificacion",
+        "lexgarantia", "lexgratuito", "lexmon", "lexproducto", "lexvalor", "lujo","recuperacion",
+        "magia", "marketing", "medicamento", "lexmejora", "hoy", "descargar", "pronto","fortuna", "abundancia",
+        "promoción","descuento", "rebaja","alerta","notificacion","seguro","garantía"
+        ],
 
-  "moderadamenteAsociadas": [
-      "ahorro", "envío", "servicio", "tienda", "venta", "informacion", "estado", "verificacion",
-      "notificacion", "empresa", "instrucciones", "intereses", "recuperacion", "registrarse",
-      "restaurada", "salva", "salvar", "suspendida", "trabajo"
-  ],
-  "debilmenteAsociadas": [
-      "archivo", "ayuda", "bienvenido", "comunicacion", "confirmacion", "documento", "evento", "gracias",
-      "hola", "recordatorio", "reunion", "revision", "soporte", "aceptacion", "actividad", "actuacion",
-      "actuar", "esfuerzo", "existencias", "introduccion", "renovar", "resultados", "solicitud",
-      "solucion", "vista", "natural"
+        "moderadamenteAsociadas": [
+        "ahorro", "envío", "servicio", "tienda", "venta", "informacion", "estado", "notificacion", "empresa",
+        "instrucciones", "intereses",  "registrarse", "restaurada", "salva", "salvar", "suspendida", "trabajo",
+            "personal", "sistema", "resultado", "hacer"
+        ],
+        "debilmenteAsociadas": [
+        "archivo", "ayuda", "bienvenido", "comunicacion", "confirmacion", "documento", "evento", "gracias",
+        "hola", "recordatorio", "reunion", "revision", "soporte", "aceptacion", "actividad", "actuacion",
+        "actuar", "esfuerzo", "existencias", "introduccion", "renovar", "resultados", "solicitud",
+        "solucion", "vista", "natural"
+        ]
+},
+    "rareSymbols": [
+        "@", "lexsym", "excl"
+    ],
+    "stopWords": [
+        "hamemoji","lexverbaux","lexconj","lexprep","lexadv","lexdet","lexpron","lexvocals","lexuni","lexdim", "lexcal","numdim", "numcal","todo", "todos", "mas", "tan", "tanto", "que"
+    ],
+    "unassignedWords": ["numcod", "numtel", "numip", "unknownemoji" ]
 
-  ]
+
 }

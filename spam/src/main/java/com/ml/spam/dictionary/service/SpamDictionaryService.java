@@ -3,7 +3,7 @@ package com.ml.spam.dictionary.service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ml.spam.datasetProcessor.MessageProcessor;
-import com.ml.spam.dictionary.models.LexemeRepositoryCategories;
+import com.ml.spam.dictionary.models.CharSize;
 import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.models.WordCategory;
 import com.ml.spam.dictionary.models.WordData;
@@ -215,11 +215,11 @@ public class SpamDictionaryService {
             JsonUtils.validateLexemeJsonStructure(lexemeJson);
 
             // Convertir el JSON a un mapa categorizado con la estructura correcta
-            Map<LexemeRepositoryCategories, Map<String, Set<String>>> lexemesMap = JsonUtils.jsonToStructuredLexemeMap(lexemeJson);
+            Map<CharSize, Map<String, Set<String>>> lexemesMap = JsonUtils.jsonToStructuredLexemeMap(lexemeJson);
 
             // [DEBUG] Imprimir el contenido del mapa de lexemas
             System.out.println("[DEBUG] Mapa de lexemas generados:");
-            for (Map.Entry<LexemeRepositoryCategories, Map<String, Set<String>>> entry : lexemesMap.entrySet()) {
+            for (Map.Entry<CharSize, Map<String, Set<String>>> entry : lexemesMap.entrySet()) {
                 System.out.println("Categoría: " + entry.getKey());
                 Map<String, Set<String>> subCategories = entry.getValue();
                 for (Map.Entry<String, Set<String>> subEntry : subCategories.entrySet()) {
@@ -318,7 +318,7 @@ public class SpamDictionaryService {
 
         // 5. Obtener recursos necesarios para el procesamiento
         Map<String, SpamDictionary.Pair> accentPairs = dictionary.getAccentPairs();
-        Map<LexemeRepositoryCategories, Map<String, Set<String>>> lexemeRepository = dictionary.getLexemesRepository();
+        Map<CharSize, Map<String, Set<String>>> lexemeRepository = dictionary.getLexemesRepository();
 
         // 6. Procesar las filas válidas para obtener listas de WordData
         List<List<WordData>> processedWordData = MessageProcessor.processToWordData(validRows, accentPairs, lexemeRepository);
@@ -530,7 +530,7 @@ public class SpamDictionaryService {
 
     public void displayLexemeRepository() {
         System.out.println("\n========= Contenido del Lexeme Repository =========\n");
-        Map<LexemeRepositoryCategories, Map<String, Set<String>>> lexemeRepository = dictionary.getLexemesRepository();
+        Map<CharSize, Map<String, Set<String>>> lexemeRepository = dictionary.getLexemesRepository();
 
         if (lexemeRepository == null || lexemeRepository.isEmpty()) {
             System.out.println("El repositorio de lexemas está vacío o no inicializado.");
@@ -620,7 +620,7 @@ public class SpamDictionaryService {
         return this.dictionary;
     }
 
-    public Map<LexemeRepositoryCategories, Map<String, Set<String>>> getLexemesRepository() {
+    public Map<CharSize, Map<String, Set<String>>> getLexemesRepository() {
         return dictionary.getLexemesRepository();
     }
 

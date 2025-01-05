@@ -8,13 +8,12 @@ public class SpamDictionary {
 
     // Palabras categorizadas organizadas por categoría
     private final Map<WordCategory, Map<String, WordData>> categorizedWords = new HashMap<>();
-    // Mapa de pares acentuados/no acentuados para búsquedas rápidas
 
+    // Mapa de pares acentuados/no acentuados para búsquedas rápidas
     private final Map<String, Pair> accentPairs = new HashMap<>();
 
-
-    // Lista de lexemas organizados por categoría
-    private final Map<LexemeRepositoryCategories, Map<String, Set<String>>> lexemesRepository = new HashMap<>();
+    // Repositorio de lexemas organizado por CharSize
+    private final Map<CharSize, Map<String, Set<String>>> lexemeRepository = new HashMap<>();
 
     /**
      * Constructor privado para inicializar el Singleton.
@@ -26,11 +25,10 @@ public class SpamDictionary {
             categorizedWords.put(category, new HashMap<>());
         }
 
-        // Inicializa lexemesRepository con las categorías de LexemeRepositoryCategories y subcategorías vacías
-        for (LexemeRepositoryCategories category : LexemeRepositoryCategories.values()) {
-            lexemesRepository.put(category, new HashMap<>()); // Cada categoría tendrá un mapa de subcategorías
+        // Inicializa lexemeRepository con CharSize y subcategorías vacías
+        for (CharSize charSize : CharSize.values()) {
+            lexemeRepository.put(charSize, new HashMap<>());
         }
-
     }
 
     /**
@@ -101,13 +99,7 @@ public class SpamDictionary {
     public Pair getAccentPair(String accentedWord) {
         return accentPairs.get(accentedWord);
     }
-    /**
-     * Agrega un nuevo par acentuado/no acentuado al mapa de accentPairs.
-     *
-     * @param accentedWord La palabra acentuada como clave.
-     * @param nonAccented La versión no acentuada de la palabra.
-     * @param category La categoría asociada a la palabra.
-     */
+
     public void addAccentPair(String accentedWord, String nonAccented, WordCategory category) {
         if (accentedWord == null || nonAccented == null || category == null) {
             throw new IllegalArgumentException("Los valores para accentedWord, nonAccented y category no pueden ser nulos.");
@@ -115,86 +107,53 @@ public class SpamDictionary {
         accentPairs.put(accentedWord, new Pair(nonAccented, category));
     }
 
-
     public void initializeAccentPairs(Map<String, Pair> pairs) {
         accentPairs.clear();
         accentPairs.putAll(pairs);
     }
 
     // ============================
-    // Métodos para LexemesRepository
+    // Métodos para LexemeRepository
     // ============================
 
-    public Map<LexemeRepositoryCategories, Map<String, Set<String>>> getLexemesRepository() {
-        return lexemesRepository;
-    }
-    public Map<String, Set<String>> getSubcategories(LexemeRepositoryCategories category) {
-        return lexemesRepository.get(category);
-    }
-    public Set<String> getLexemesBySubcategory(LexemeRepositoryCategories category, String subcategory) {
-        return lexemesRepository.getOrDefault(category, new HashMap<>()).getOrDefault(subcategory, new HashSet<>());
-    }
-    public void addSubcategory(LexemeRepositoryCategories category, String subcategory) {
-        lexemesRepository.computeIfAbsent(category, k -> new HashMap<>()).putIfAbsent(subcategory, new HashSet<>());
-    }
-    public Set<String> getLexemesByCategory(LexemeRepositoryCategories category) {
-        Map<String, Set<String>> subcategories = lexemesRepository.get(category);
-
-        if (subcategories == null) {
-            return Collections.emptySet();
-        }
-
-        // Combina todos los conjuntos de lexemas en un solo conjunto
-        Set<String> combinedLexemes = new HashSet<>();
-        for (Set<String> lexemes : subcategories.values()) {
-            combinedLexemes.addAll(lexemes);
-        }
-
-        return combinedLexemes;
+    public Map<CharSize, Map<String, Set<String>>> getLexemeRepository() {
+        return lexemeRepository;
     }
 
-
-    public void addLexeme(LexemeRepositoryCategories category, String subcategory, String lexeme) {
-        lexemesRepository.computeIfAbsent(category, k -> new HashMap<>())
-                .computeIfAbsent(subcategory, k -> new HashSet<>())
-                .add(lexeme);
+    public Map<String, Set<String>> getLexemesByCharSize(CharSize charSize) {
+        return lexemeRepository.getOrDefault(charSize, new HashMap<>());
     }
 
-    public void initializeLexemes(Map<LexemeRepositoryCategories, Map<String, Set<String>>> lexemes) {
-        lexemesRepository.clear();
-        lexemesRepository.putAll(lexemes);
+    public Set<String> getLexElements(CharSize charSize, String lexeme) {
+        return lexemeRepository.getOrDefault(charSize, new HashMap<>())
+                .getOrDefault(lexeme, new HashSet<>());
     }
 
-
-
-    public void clearLexemesRepository() {
-        for (LexemeRepositoryCategories category : LexemeRepositoryCategories.values()) {
-            lexemesRepository.get(category).clear();
-        }
+    public void addLexElement(CharSize charSize, String lexeme, String lexElement) {
+        lexemeRepository.computeIfAbsent(charSize, k -> new HashMap<>())
+                .computeIfAbsent(lexeme, k -> new HashSet<>())
+                .add(lexElement);
     }
 
-    //Buscar un Lexema en Subcategorías
-    public boolean containsLexemeInSubCategory(LexemeRepositoryCategories category, String lexeme) {
-        return lexemesRepository.getOrDefault(category, new HashMap<>())
-                .values()
-                .stream()
-                .anyMatch(set -> set.contains(lexeme));
-    }
-//    Buscar un Token en Todo el Repositorio
-    public boolean containsLexeme(String lexeme) {
-        return lexemesRepository.values().stream()
-                .flatMap(subcategoryMap -> subcategoryMap.values().stream())
-                .anyMatch(set -> set.contains(lexeme));
+    public void initializeLexemeRepository(Map<CharSize, Map<String, Set<String>>> newRepository) {
+        lexemeRepository.clear();
+        lexemeRepository.putAll(newRepository);
     }
 
-    public boolean containsWord(String token) {
-        // todo metodo a implementar cuando se realice el update
-        return true;
+    public void clearLexemeRepository() {
+        lexemeRepository.clear();
     }
 
-    public Map<WordCategory, Map<String, WordData>> getAllCategorizedWords() {
-        // Retorna un mapa inmutable para proteger la integridad de los datos internos
-        return Collections.unmodifiableMap(categorizedWords);
+    public boolean containsLexElement(CharSize charSize, String lexeme, String lexElement) {
+        return lexemeRepository.getOrDefault(charSize, new HashMap<>())
+                .getOrDefault(lexeme, new HashSet<>())
+                .contains(lexElement);
+    }
+
+    public boolean containsLexElementInRepository(String lexElement) {
+        return lexemeRepository.values().stream()
+                .flatMap(groupMap -> groupMap.values().stream())
+                .anyMatch(elements -> elements.contains(lexElement));
     }
 
     // ============================
@@ -202,5 +161,4 @@ public class SpamDictionary {
     // ============================
 
     public record Pair(String nonAccented, WordCategory category) {}
-
 }

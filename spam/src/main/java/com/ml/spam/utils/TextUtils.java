@@ -88,7 +88,7 @@ public class TextUtils {
 
 
     public static TokenType classifyToken(String token) {
-        if (isOneDigit(token)) {
+        if (isOneChar(token)) {
             return classifyTokenByOneDigit(token);
         }
         if (isTextNumSymbolToken(token)) {
@@ -121,7 +121,7 @@ public class TextUtils {
         return TokenType.UNASSIGNED; // Token no clasificable
     }
 
-    public static boolean isOneDigit(String token) {
+    public static boolean isOneChar(String token) {
         return token.length() == 1;    }
 
     public static boolean isTextToken(String token) {

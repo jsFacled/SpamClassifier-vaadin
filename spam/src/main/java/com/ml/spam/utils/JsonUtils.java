@@ -1,7 +1,7 @@
 package com.ml.spam.utils;
 
 import com.ml.spam.dictionary.models.FrequencyKey;
-import com.ml.spam.dictionary.models.LexemeRepositoryCategories;
+import com.ml.spam.dictionary.models.CharSize;
 import com.ml.spam.dictionary.models.WordCategory;
 import com.ml.spam.dictionary.models.WordData;
 import org.json.JSONArray;
@@ -157,7 +157,7 @@ public class JsonUtils {
      * // LEXEMES
      */
     public static void validateLexemeJsonStructure(JSONObject jsonObject) {
-        for (LexemeRepositoryCategories category : LexemeRepositoryCategories.values()) {
+        for (CharSize category : CharSize.values()) {
             if (!jsonObject.has(category.getJsonKey())) {
                 throw new IllegalArgumentException(
                         "Validación fallida: Falta la categoría principal '" + category.getJsonKey() + "' en el JSON proporcionado."
@@ -167,12 +167,12 @@ public class JsonUtils {
         System.out.println("[INFO] Todas las categorías principales están presentes en el JSON.");
     }
 
-    public static Map<LexemeRepositoryCategories, Set<String>> jsonToLexemeMap(JSONObject jsonObject) {
+    public static Map<CharSize, Set<String>> jsonToLexemeMap(JSONObject jsonObject) {
         // Mapa donde se almacenarán los lexemas clasificados por categoría
-        Map<LexemeRepositoryCategories, Set<String>> lexemesMap = new HashMap<>();
+        Map<CharSize, Set<String>> lexemesMap = new HashMap<>();
 
-        // Iterar sobre todas las categorías del enum LexemeRepositoryCategories
-        for (LexemeRepositoryCategories category : LexemeRepositoryCategories.values()) {
+        // Iterar sobre todas las categorías del enum CharSize
+        for (CharSize category : CharSize.values()) {
             System.out.println("Procesando categoría: " + category.getJsonKey());
 
             // Obtener el objeto JSON asociado a la categoría
@@ -206,12 +206,12 @@ public class JsonUtils {
         // Retornar el mapa con las categorías y sus lexemas
         return lexemesMap;
     }
-    public static Map<LexemeRepositoryCategories, Map<String, Set<String>>> jsonToStructuredLexemeMap(JSONObject jsonObject) {
+    public static Map<CharSize, Map<String, Set<String>>> jsonToStructuredLexemeMap(JSONObject jsonObject) {
         // Mapa donde se almacenarán los lexemas organizados por categoría y subcategoría
-        Map<LexemeRepositoryCategories, Map<String, Set<String>>> lexemesMap = new HashMap<>();
+        Map<CharSize, Map<String, Set<String>>> lexemesMap = new HashMap<>();
 
-        // Iterar sobre todas las categorías del enum LexemeRepositoryCategories
-        for (LexemeRepositoryCategories category : LexemeRepositoryCategories.values()) {
+        // Iterar sobre todas las categorías del enum CharSize
+        for (CharSize category : CharSize.values()) {
             System.out.println("Procesando categoría: " + category.getJsonKey());
 
             // Obtener el objeto JSON asociado a la categoría

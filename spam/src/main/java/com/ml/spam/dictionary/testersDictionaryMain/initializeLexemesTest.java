@@ -1,9 +1,8 @@
 package com.ml.spam.dictionary.testersDictionaryMain;
 
 import com.ml.spam.config.FilePathsConfig;
-import com.ml.spam.dictionary.models.LexemeRepositoryCategories;
+import com.ml.spam.dictionary.models.CharSize;
 import com.ml.spam.dictionary.models.SpamDictionary;
-import com.ml.spam.dictionary.reports.DictionarySummaryReport;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
 
 import java.util.Map;
@@ -34,7 +33,7 @@ displayLexemesReportInThisTest();
         System.out.println("\n=== Reporte de Lexemas ===");
 
         // Iterar sobre las categorías principales
-        for (LexemeRepositoryCategories category : LexemeRepositoryCategories.values()) {
+        for (CharSize category : CharSize.values()) {
             Map<String, Set<String>> subCategoryMap = dictionary.getLexemesRepository().get(category);
 
             if (subCategoryMap == null || subCategoryMap.isEmpty()) {

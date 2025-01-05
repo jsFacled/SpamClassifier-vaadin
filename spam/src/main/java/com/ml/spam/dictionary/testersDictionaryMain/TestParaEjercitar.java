@@ -1,8 +1,7 @@
 package com.ml.spam.dictionary.testersDictionaryMain;
 
-import com.helger.commons.collection.map.MapEntry;
 import com.ml.spam.config.FilePathsConfig;
-import com.ml.spam.dictionary.models.LexemeRepositoryCategories;
+import com.ml.spam.dictionary.models.CharSize;
 import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.models.WordCategory;
 import com.ml.spam.dictionary.models.WordData;
@@ -18,7 +17,7 @@ public class TestParaEjercitar {
 
     private static final Map<WordCategory, Map<String, WordData>> categorizedWords = new HashMap<>();
     private static final Map<String, SpamDictionary.Pair> accentPairs = new HashMap<>();
-    private static Map<LexemeRepositoryCategories, Map<String, Set<String>>> lexRepo = new HashMap<>();
+    private static Map<CharSize, Map<String, Set<String>>> lexRepo = new HashMap<>();
 
     public static void main(String[] args) throws IOException {
         SpamDictionaryService service = new SpamDictionaryService();

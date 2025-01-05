@@ -1,6 +1,6 @@
 package com.ml.spam.dictionary.reports;
 
-import com.ml.spam.dictionary.models.LexemeRepositoryCategories;
+import com.ml.spam.dictionary.models.CharSize;
 import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.models.WordCategory;
 import com.ml.spam.dictionary.models.WordData;
@@ -91,7 +91,7 @@ public class DictionarySummaryReport {
         System.out.println("\n=== Reporte de Lexemas ===");
 
         // Iterar sobre las categorías
-        for (LexemeRepositoryCategories category : LexemeRepositoryCategories.values()) {
+        for (CharSize category : CharSize.values()) {
             Map<String, Set<String>> subcategories = dictionary.getLexemesRepository().get(category);
 
             if (subcategories == null || subcategories.isEmpty()) {
@@ -149,10 +149,10 @@ public class DictionarySummaryReport {
         System.out.println("\nAccent Pairs Count: " + accentPairs.size());
 
         // Mostrar la cantidad de lexemas por categoría y subcategoría
-        Map<LexemeRepositoryCategories, Map<String, Set<String>>> lexemesRepository = dictionary.getLexemesRepository();
+        Map<CharSize, Map<String, Set<String>>> lexemesRepository = dictionary.getLexemesRepository();
         System.out.println("\nLexeme Categories:");
-        for (Map.Entry<LexemeRepositoryCategories, Map<String, Set<String>>> entry : lexemesRepository.entrySet()) {
-            LexemeRepositoryCategories category = entry.getKey();
+        for (Map.Entry<CharSize, Map<String, Set<String>>> entry : lexemesRepository.entrySet()) {
+            CharSize category = entry.getKey();
             Map<String, Set<String>> subcategories = entry.getValue();
 
             System.out.printf(" - %s -> Total Subcategories: %d%n", category.name(), subcategories.size());

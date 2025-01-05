@@ -11,14 +11,14 @@ import java.util.*;
 public class MessageProcessor {
 
     private static Map<String, SpamDictionary.Pair> accentPairs;
-    private static Map<LexemeRepositoryCategories, Map<String, Set<String>>> lexemeRepository;
+    private static Map<CharSize, Map<String, Set<String>>> lexemeRepository;
 
 
     //Recibe los mensajes, accentpairs y repositorio de lexemas.
     public static List<List<WordData>> processToWordData(
             List<String[]> rawRows,
             Map<String, SpamDictionary.Pair> accentPairs,
-            Map<LexemeRepositoryCategories, Map<String, Set<String>>> lexemeRepository) {
+            Map<CharSize, Map<String, Set<String>>> lexemeRepository) {
 
         // Validar entrada de List rawRows
         if (rawRows == null || rawRows.isEmpty()) {
@@ -69,7 +69,7 @@ public class MessageProcessor {
             TokenType tokenType = TokenType.UNASSIGNED;
 
             // Subpaso 4.1: Procesar Clasificar el token
-            if (TextUtils.isOneDigit(token)) {
+            if (TextUtils.isOneChar(token)) {
                 tokenType = TextUtils.classifyTokenByOneDigit(token);
                 processTokenByOneDigit(token, tokenType, wordDataList, label);
                 displayTokenInConsole(token, tokenType);
@@ -128,12 +128,19 @@ public class MessageProcessor {
             case NUM -> processNumToken(token, wordDataList, label);
         }
     }
+    private static void processTokenByOneChar(String token, List<WordData> wordDataList, String label)  {
+        if(TextUtils.isNumTextToken(token)){
+            processNumToken(token, wordDataList,label);
+        }else {
+            findSubcategoryForToken(token);
+        }
 
+    }
 
     // Métodos auxiliares para cada tipo de token
 
     private static void processNumSymbolToken(String token, List<WordData> wordDataList, String label) {
-        Map<String, Set<String>> textLexemes = lexemeRepository.get(LexemeRepositoryCategories.TEXT_LEXEMES);
+        Map<String, Set<String>> textLexemes = lexemeRepository.get(CharSize.TEXT_LEXEMES);
 
         // Divide números y símbolos para categorizarlos por separado
         String[] parts = token.split("(?<=\\d)(?=\\W)|(?<=\\W)(?=\\d)");
@@ -228,7 +235,7 @@ public class MessageProcessor {
     }
 
     private static String findSubcategoryForToken(String token) {
-        for (Map.Entry<LexemeRepositoryCategories, Map<String, Set<String>>> categoryEntry : lexemeRepository.entrySet()) {
+        for (Map.Entry<CharSize, Map<String, Set<String>>> categoryEntry : lexemeRepository.entrySet()) {
             Map<String, Set<String>> subCategories = categoryEntry.getValue();
 
             for (Map.Entry<String, Set<String>> subCategoryEntry : subCategories.entrySet()) {
@@ -348,7 +355,7 @@ public class MessageProcessor {
 
 
     private static void processCharToken(String token, List<WordData> wordDataList, String label) {
-        Map<String, Set<String>> textLexemes = lexemeRepository.get(LexemeRepositoryCategories.TEXT_LEXEMES);
+        Map<String, Set<String>> textLexemes = lexemeRepository.get(CharSize.TEXT_LEXEMES);
 if (TextUtils.isTextToken(token)) {
     if (textLexemes != null) {
         // Verificar si el token pertenece a lexvowel
@@ -375,10 +382,10 @@ if (TextUtils.isTextToken(token)) {
         // Elimina comillas y caracteres irrelevantes
         token = token.replace("\"", "");
 
-        Map<String, Set<String>> textLexemes = lexemeRepository.get(LexemeRepositoryCategories.TEXT_LEXEMES);
-        Map<String, Set<String>> contextualLexemes = lexemeRepository.get(LexemeRepositoryCategories.CONTEXTUAL_LEXEMES);
+        Map<String, Set<String>> textLexemes = lexemeRepository.get(CharSize.TEXT_LEXEMES);
+        Map<String, Set<String>> contextualLexemes = lexemeRepository.get(CharSize.CONTEXTUAL_LEXEMES);
 
-        if (TextUtils.isOneDigit(token)) {
+        if (TextUtils.isOneChar(token)) {
             // Procesar dígitos únicos
             if (TextUtils.isNumericToken(token)) {
                 wordDataList.add(new WordData("numlow", label));
@@ -410,7 +417,7 @@ if (TextUtils.isTextToken(token)) {
 
     private static void processEmojiToken(String token, List<WordData> wordDataList, String label) {
         Map<String, Set<String>> contextualLexemes
-                = lexemeRepository. get(LexemeRepositoryCategories.CONTEXTUAL_LEXEMES);
+                = lexemeRepository. get(CharSize.CONTEXTUAL_LEXEMES);
         if (contextualLexemes != null) {
             if (contextualLexemes.getOrDefault("spamemoji", Collections.emptySet()).contains(token)) {
                 wordDataList.add(new WordData("spamemoji", label));
@@ -427,7 +434,7 @@ if (TextUtils.isTextToken(token)) {
     }
 
     private static void processAnySymbolToken(String token, List<WordData> wordDataList, String label) {
-        Map<String, Set<String>> textLexemes = lexemeRepository.get(LexemeRepositoryCategories.TEXT_LEXEMES);
+        Map<String, Set<String>> textLexemes = lexemeRepository.get(CharSize.TEXT_LEXEMES);
 
         boolean isExcl = textLexemes != null && textLexemes.getOrDefault("excl", Collections.emptySet()).contains(token);
         boolean isLexsym = textLexemes != null && textLexemes.getOrDefault("lexsym", Collections.emptySet()).contains(token);
@@ -483,7 +490,7 @@ if (TextUtils.isTextToken(token)) {
     }
 
     private static String getSubcategoryForToken(String token) {
-        for (Map.Entry<LexemeRepositoryCategories, Map<String, Set<String>>> categoryEntry : lexemeRepository.entrySet()) {
+        for (Map.Entry<CharSize, Map<String, Set<String>>> categoryEntry : lexemeRepository.entrySet()) {
             Map<String, Set<String>> subCategories = categoryEntry.getValue();
 
             for (Map.Entry<String, Set<String>> subCategoryEntry : subCategories.entrySet()) {

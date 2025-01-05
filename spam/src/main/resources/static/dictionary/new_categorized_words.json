@@ -47,7 +47,7 @@
     "stopWords": [
         "hamemoji", "lexauxiliaryverbs", "lexconjunctions", "lexprepositions", "lexadverbs", "lexdeterminers",
         "lexpronouns", "lexvowel", "lexunits", "lexdimensions", "lexcalendar", "numdimensions", "numcalendar",
-        "todo", "todos", "mas", "tan", "tanto", "que"
+        "todo", "todos", "mas", "tan", "tanto"
     ],
     "unassignedWords": ["numcodes", "numtel", "numnetworking", "unknownemoji"]
 }

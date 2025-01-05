@@ -1,0 +1,912 @@
+{
+  "1Chars": {
+    "lexvowel": [
+      "á",
+      "é",
+      "í",
+      "ó",
+      "ú",
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "lexconsonant": [
+      "b",
+      "c",
+      "d",
+      "f",
+      "g",
+      "h",
+      "j",
+      "k",
+      "l",
+      "m",
+      "n",
+      "p",
+      "q",
+      "r",
+      "s",
+      "t",
+      "v",
+      "w",
+      "x",
+      "z",
+      "ç",
+      "ñ"
+    ],
+    "lexexclamations": [
+      "?",
+      "¿",
+      "!",
+      "¡"
+    ],
+    "lexsymbols": [
+      "&",
+      "#",
+      "~",
+      "/",
+      ":",
+      ";",
+      "|",
+      "\\",
+      "_",
+      "-",
+      "·"
+    ],
+    "mathop": [
+      "+",
+      "-",
+      "*",
+      "/",
+      "=",
+      "%",
+      "^",
+      "<",
+      ">"
+    ],
+    "spamemoji": [
+      "🔥",
+      "🎉",
+      "✨",
+      "🚨",
+      "💥",
+      "🎁",
+      "🛑",
+      "💰",
+      "💵",
+      "💎",
+      "💳",
+      "💲",
+      "😘",
+      "😉",
+      "🌹",
+      "🏆",
+      "🥇",
+      "✅"
+    ],
+    "hamemoji": [
+      "😊",
+      "😂",
+      "👍",
+      "👏",
+      "🎂",
+      "🍰",
+      "🎶",
+      "📚",
+      "💡",
+      "🌟",
+      "📅"
+    ]
+  },
+  "2Chars": {
+    "lexexclamations": [
+      ".."
+    ],
+    "lexsymbols": [
+      "<>"
+    ],
+    "mathop": [
+      "**",
+      "//",
+      "-=",
+      "+=",
+      "<=",
+      ">=",
+      "!=",
+      "=="
+    ],
+    "lexpronouns": [
+      "él",
+      "me",
+      "mi",
+      "mí",
+      "te",
+      "ti",
+      "tú",
+      "tu",
+      "yo"
+    ],
+    "lexdeterminers": [
+      "la",
+      "lo",
+      "su",
+      "un"
+    ],
+    "lexadverbs": [
+      "ni",
+      "no",
+      "sí"
+    ],
+    "lexprepositions": [
+      "de",
+      "en"
+    ],
+    "lexauxiliaryverbs": [
+      "ha",
+      "he"
+    ],
+    "lexunits": [
+      "kg",
+      "m2",
+      "ml",
+      "gs",
+      "cm",
+      "mm",
+      "km",
+      "ft",
+      "in",
+      "oz",
+      "lb",
+      "ha",
+      "cl",
+      "dl",
+      "qt",
+      "pt",
+      "yd"
+    ],
+    "numdimensions": [
+      "cm",
+      "m2",
+      "kg",
+      "mm",
+      "km"
+    ],
+    "numcalendar": [
+      "hs"
+    ],
+    "numcodes": [
+      "id"
+    ],
+    "numurls": [
+      "io"
+    ],
+    "numnetworking": [
+      "ip"
+    ],
+    "spamemoji": [
+      "❤️",
+      "✔️"
+    ],
+    "hamemoji": [
+      "🖋️"
+    ]
+  },
+  "3Chars": {
+    "lexexclamations": [
+      "...",
+      "???",
+      "!!!",
+      "?!?",
+      "¡!?",
+      "¡?!"
+    ],
+    "lexpronouns": [
+      "mis",
+      "nos",
+      "tus"
+    ],
+    "lexdeterminers": [
+      "esa",
+      "ese",
+      "las",
+      "los",
+      "sus",
+      "una",
+      "uno"
+    ],
+    "lexadverbs": [
+      "así",
+      "muy"
+    ],
+    "lexprepositions": [
+      "con",
+      "del",
+      "por"
+    ],
+    "lexconjunctions": [
+      "que"
+    ],
+    "lexauxiliaryverbs": [
+      "fue",
+      "fui",
+      "hay"
+    ],
+    "lexdimensions": [
+      "pie",
+      "rod"
+    ],
+    "lexcalendar": [
+      "mes",
+      "ano",
+      "año"
+    ],
+    "lexcurrencies": [
+      "yen",
+      "won"
+    ],
+    "numcalendar": [
+      "min"
+    ],
+    "numcurrencies": [
+      "won"
+    ],
+    "numcodes": [
+      "ref",
+      "sku",
+      "usr",
+      "reg",
+      "act"
+    ],
+    "numurls": [
+      "www",
+      "com",
+      "net",
+      "org",
+      "edu",
+      "gov",
+      "mil",
+      "dev",
+      "web",
+      "app"
+    ],
+    "numtelecom": [
+      "tel",
+      "cel",
+      "fax"
+    ],
+    "numnetworking": [
+      "red"
+    ],
+    "lexquantities": [
+      "mil"
+    ]
+  },
+  "4Chars": {
+    "lexpronouns": [
+      "ella"
+    ],
+    "lexdeterminers": [
+      "esas",
+      "esos",
+      "esta",
+      "este",
+      "unas",
+      "unos"
+    ],
+    "lexadverbs": [
+      "algo",
+      "cómo"
+    ],
+    "lexprepositions": [
+      "para"
+    ],
+    "lexconjunctions": [
+      "pero"
+    ],
+    "lexauxiliaryverbs": [
+      "será"
+    ],
+    "lexdimensions": [
+      "kilo"
+    ],
+    "lexcalendar": [
+      "mayo"
+    ],
+    "lexcurrencies": [
+      "euro",
+      "peso",
+      "real",
+      "yuan",
+      "lira"
+    ],
+    "numdimensions": [
+      "pies"
+    ],
+    "numcalendar": [
+      "anos",
+      "dias",
+      "eras",
+      "mayo"
+    ],
+    "numcurrencies": [
+      "birr"
+    ],
+    "numstatistics": [
+      "tasa",
+      "moda"
+    ],
+    "numcodes": [
+      "prod",
+      "lote",
+      "guia"
+    ],
+    "numurls": [
+      "http",
+      "site",
+      "link",
+      "blog",
+      "page"
+    ],
+    "numtelecom": [
+      "fijo"
+    ],
+    "numnetworking": [
+      "host"
+    ],
+    "lexproducts": [
+      "item"
+    ],
+    "lexwebactions": [
+      "abre"
+    ]
+  },
+  "5Chars": {
+    "lexpronouns": [
+      "ellas",
+      "ellos",
+      "quien"
+    ],
+    "lexdeterminers": [
+      "estas",
+      "estos"
+    ],
+    "lexadverbs": [
+      "dónde"
+    ],
+    "lexprepositions": [
+      "entre",
+      "sobre",
+      "hasta"
+    ],
+    "lexauxiliaryverbs": [
+      "fuera",
+      "había",
+      "hemos",
+      "tiene"
+    ],
+    "lexdimensions": [
+      "metro",
+      "litro",
+      "gramo",
+      "galon",
+      "yarda"
+    ],
+    "lexcalendar": [
+      "enero",
+      "marzo",
+      "abril",
+      "junio",
+      "julio",
+      "lunes",
+      "siglo"
+    ],
+    "lexcurrencies": [
+      "dolar",
+      "libra",
+      "rupia",
+      "rublo",
+      "dinar",
+      "zloty",
+      "soles"
+    ],
+    "numdimensions": [
+      "onzas"
+    ],
+    "numcalendar": [
+      "meses",
+      "horas",
+      "lunes",
+      "enero",
+      "marzo",
+      "abril",
+      "junio",
+      "julio"
+    ],
+    "numcurrencies": [
+      "pesos",
+      "yenes",
+      "soles"
+    ],
+    "numstatistics": [
+      "media",
+      "rango"
+    ],
+    "numcodes": [
+      "serie",
+      "clave"
+    ],
+    "numurls": [
+      "https",
+      "cloud"
+    ],
+    "numtelecom": [
+      "movil",
+      "linea"
+    ],
+    "numnetworking": [
+      "proxy"
+    ],
+    "lexquantities": [
+      "miles"
+    ],
+    "lexalerts": [
+      "aviso"
+    ],
+    "lexvaluable": [
+      "único",
+      "única"
+    ],
+    "lexcommunication": [
+      "ayuda"
+    ]
+  },
+  "6Chars": {
+    "lexadverbs": [
+      "aunque",
+      "cuándo"
+    ],
+    "lexconjunctions": [
+      "aunque",
+      "porque"
+    ],
+    "lexauxiliaryverbs": [
+      "fueron",
+      "habían",
+      "tienen"
+    ],
+    "lexdimensions": [
+      "cadena"
+    ],
+    "lexcalendar": [
+      "agosto",
+      "martes",
+      "jueves",
+      "sabado",
+      "semana",
+      "decada"
+    ],
+    "lexcurrencies": [
+      "franco",
+      "corona",
+      "shekel"
+    ],
+    "numdimensions": [
+      "litros",
+      "yardas",
+      "libras",
+      "gramos"
+    ],
+    "numcalendar": [
+      "siglos",
+      "epocas",
+      "lapsos",
+      "martes",
+      "jueves",
+      "sabado",
+      "agosto"
+    ],
+    "numcurrencies": [
+      "libras",
+      "reales",
+      "rublos",
+      "rupias",
+      "yuanes"
+    ],
+    "numstatistics": [
+      "indice"
+    ],
+    "numcodes": [
+      "codigo",
+      "ticket",
+      "pedido"
+    ],
+    "numurls": [
+      "online"
+    ],
+    "numtelecom": [
+      "numero"
+    ],
+    "numnetworking": [
+      "subred"
+    ],
+    "lexquantities": [
+      "billon"
+    ],
+    "lexfinance": [
+      "cheque"
+    ],
+    "lexguarantees": [
+      "segura"
+    ],
+    "lexgrowth": [
+      "amplíe"
+    ],
+    "lexwebactions": [
+      "visita",
+      "accede"
+    ],
+    "leximprovements": [
+      "avance"
+    ],
+    "lextests": [
+      "ensayo"
+    ]
+  },
+  "7Chars": {
+    "lexpronouns": [
+      "quienes"
+    ],
+    "lexdeterminers": [
+      "algunas",
+      "algunos"
+    ],
+    "lexdimensions": [
+      "pulgada",
+      "milibar"
+    ],
+    "lexcalendar": [
+      "febrero",
+      "octubre",
+      "viernes",
+      "domingo",
+      "milenio",
+      "festivo",
+      "jornada"
+    ],
+    "lexcurrencies": [
+      "ringgit",
+      "colones"
+    ],
+    "numdimensions": [
+      "galones"
+    ],
+    "numcalendar": [
+      "semanas",
+      "decadas",
+      "minutos",
+      "viernes",
+      "domingo",
+      "febrero",
+      "octubre"
+    ],
+    "numcurrencies": [
+      "dolares",
+      "francos",
+      "colones",
+      "ringgit"
+    ],
+    "numstatistics": [
+      "mediana",
+      "cuartil"
+    ],
+    "numcodes": [
+      "factura"
+    ],
+    "numtelecom": [
+      "llamada"
+    ],
+    "numnetworking": [
+      "dominio",
+      "gateway"
+    ],
+    "lexfinance": [
+      "cheques",
+      "negocio"
+    ],
+    "lexsuccess": [
+      "triunfo"
+    ],
+    "lexcosts": [
+      "importe"
+    ],
+    "lexvaluable": [
+      "valioso"
+    ],
+    "lexincome": [
+      "ingreso"
+    ],
+    "lexsecurity": [
+      "privada",
+      "privado"
+    ],
+    "lexwebactions": [
+      "visitar",
+      "explora"
+    ],
+    "lexsuperlatives": [
+      "fabulos"
+    ],
+    "lexpower": [
+      "energía"
+    ],
+    "lextests": [
+      "intento"
+    ]
+  },
+  "8Chars": {
+    "lexpronouns": [
+      "nosotros"
+    ],
+    "lexdimensions": [
+      "tonelada"
+    ],
+    "lexcalendar": [
+      "quincena",
+      "bisiesto"
+    ],
+    "numdimensions": [
+      "pulgadas"
+    ],
+    "numcalendar": [
+      "segundos",
+      "quincena",
+      "milenios",
+      "periodos",
+      "jornadas"
+    ],
+    "numcurrencies": [
+      "centavos"
+    ],
+    "numstatistics": [
+      "promedio",
+      "varianza"
+    ],
+    "numcodes": [
+      "etiqueta",
+      "registro",
+      "licencia",
+      "producto"
+    ],
+    "numtelecom": [
+      "contacto",
+      "whatsapp"
+    ],
+    "numnetworking": [
+      "servidor"
+    ],
+    "lexpromotions": [
+      "rebajado"
+    ],
+    "lexfinance": [
+      "bancario",
+      "finanzas",
+      "hipoteca"
+    ],
+    "lexsuccess": [
+      "victoria"
+    ],
+    "lexfree": [
+      "gratuita"
+    ],
+    "lexapproval": [
+      "aprobada"
+    ],
+    "lexcommunication": [
+      "pregunta"
+    ],
+    "leximprovements": [
+      "progreso"
+    ],
+    "lexpower": [
+      "potencia"
+    ]
+  },
+  "9Chars": {
+    "lexdimensions": [
+      "mililitro",
+      "milimetro",
+      "decametro",
+      "nanometro"
+    ],
+    "lexcalendar": [
+      "noviembre",
+      "diciembre",
+      "miercoles",
+      "intervalo"
+    ],
+    "lexcurrencies": [
+      "bolivares"
+    ],
+    "numdimensions": [
+      "toneladas",
+      "hectareas"
+    ],
+    "numcalendar": [
+      "miercoles",
+      "noviembre",
+      "diciembre"
+    ],
+    "numcurrencies": [
+      "quetzales",
+      "bolivares",
+      "guaranies"
+    ],
+    "numstatistics": [
+      "percentil",
+      "tendencia",
+      "reduccion"
+    ],
+    "numtelecom": [
+      "extension"
+    ],
+    "numnetworking": [
+      "direccion",
+      "enrutador"
+    ],
+    "lexbenefits": [
+      "beneficio"
+    ],
+    "lexpurchases": [
+      "comprarás",
+      "comprando",
+      "comprador"
+    ],
+    "lexsubscriptions": [
+      "membresía"
+    ],
+    "lexalerts": [
+      "notificar"
+    ],
+    "lexguarantees": [
+      "asegurado",
+      "reembolso"
+    ],
+    "lexproducts": [
+      "colección"
+    ],
+    "lexlimited": [
+      "limitados",
+      "limitadas",
+      "limitando"
+    ],
+    "lexapproval": [
+      "aprobando"
+    ],
+    "lexgrowth": [
+      "potencial"
+    ],
+    "lexsuperlatives": [
+      "asombroso"
+    ],
+    "lexpower": [
+      "fortaleza",
+      "capacidad"
+    ]
+  },
+  "10Chars": {
+    "lexdimensions": [
+      "centimetro",
+      "hectometro",
+      "micrometro"
+    ],
+    "lexcalendar": [
+      "septiembre"
+    ],
+    "numdimensions": [
+      "decimetros",
+      "mililitros"
+    ],
+    "numcalendar": [
+      "fracciones",
+      "intervalos",
+      "septiembre"
+    ],
+    "numstatistics": [
+      "porcentaje",
+      "frecuencia",
+      "proporcion",
+      "desviacion"
+    ],
+    "numcodes": [
+      "referencia"
+    ],
+    "lexbenefits": [
+      "beneficios"
+    ],
+    "lexguarantees": [
+      "reembolsar"
+    ],
+    "lexvaluable": [
+      "importante"
+    ],
+    "lexgrowth": [
+      "incremento"
+    ],
+    "lexsecurity": [
+      "autorizado",
+      "validacion",
+      "proteccion",
+      "privacidad"
+    ],
+    "lexcommunication": [
+      "asistencia"
+    ],
+    "lexwealth": [
+      "enriquecer",
+      "enriquezca"
+    ],
+    "leximprovements": [
+      "perfeccion"
+    ]
+  },
+  "overTenChars": {
+    "lexdimensions": [
+      "hectopascal"
+    ],
+    "numdimensions": [
+      "centimetros cubicos",
+      "metros cubicos",
+      "kilometros cuadrados"
+    ],
+    "numstatistics": [
+      "calificacion",
+      "crecimiento",
+      "distribucion"
+    ],
+    "lexpurchases": [
+      "compradores"
+    ],
+    "lexpromotions": [
+      "promocional"
+    ],
+    "lexfinance": [
+      "financiamiento"
+    ],
+    "lexsubscriptions": [
+      "suscriptores"
+    ],
+    "lexguarantees": [
+      "garantizado",
+      "garantizada",
+      "reembolsable",
+      "reembolsado"
+    ],
+    "lexgrowth": [
+      "crecimiento",
+      "multiplicacion",
+      "multiplicar"
+    ],
+    "lexsecurity": [
+      "autentificacion"
+    ],
+    "lexwealth": [
+      "enriquecerse"
+    ],
+    "lexsuperlatives": [
+      "extraordinario"
+    ],
+    "lexcelebrations": [
+      "enhorabuena",
+      "celebración",
+      "congratulación"
+    ],
+    "leximprovements": [
+      "optimizacion"
+    ],
+    "lextests": [
+      "experimentar"
+    ]
+  }
+}

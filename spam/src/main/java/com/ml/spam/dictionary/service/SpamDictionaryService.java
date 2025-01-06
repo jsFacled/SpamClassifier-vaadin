@@ -154,7 +154,7 @@ public class SpamDictionaryService {
             initializeLexemes(lexemePath);
 
             System.out.println("\n[INFO] Diccionario inicializado correctamente.");
-            displayCategorizedWordsInDictionary();
+           // displayCategorizedWordsInDictionary();
         } catch (Exception e) {
             throw new RuntimeException("Error al inicializar el diccionario: " + e.getMessage(), e);
         }
@@ -218,17 +218,20 @@ public class SpamDictionaryService {
             Map<CharSize, Map<String, Set<String>>> lexemesMap = JsonUtils.jsonToStructuredLexemeMap(lexemeJson);
 
             // [DEBUG] Imprimir el contenido del mapa de lexemas
+           /*
             System.out.println("[DEBUG] Mapa de lexemas generados:");
             for (Map.Entry<CharSize, Map<String, Set<String>>> entry : lexemesMap.entrySet()) {
                 System.out.println("Categoría: " + entry.getKey());
                 Map<String, Set<String>> subCategories = entry.getValue();
                 for (Map.Entry<String, Set<String>> subEntry : subCategories.entrySet()) {
-                    System.out.println(" Subcategoría: " + subEntry.getKey());
+                   System.out.println(" Subcategoría: " + subEntry.getKey());
                     for (String lexeme : subEntry.getValue()) {
                         System.out.println("   - " + lexeme);
                     }
                 }
             }
+
+            */
 
             // Transferir los lexemas al repositorio
             dictionary.initializeLexemeRepository(lexemesMap);

@@ -221,7 +221,7 @@ public class JsonUtils {
 
                 // Iterar sobre las claves de las subcategorías
                 for (String subCategory : subCategories.keySet()) {
-                    System.out.println("  Subcategoría encontrada: " + subCategory);
+                   // System.out.println("  Subcategoría encontrada: " + subCategory);
 
                     // Obtener el array de lexemas de la subcategoría
                     JSONArray lexemeArray = subCategories.optJSONArray(subCategory);

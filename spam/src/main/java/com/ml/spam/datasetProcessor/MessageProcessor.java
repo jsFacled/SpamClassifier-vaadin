@@ -67,8 +67,14 @@ public class MessageProcessor {
         for (String token : tokens) {
             // Inicializar tokenType
             TokenType tokenType = TokenType.UNASSIGNED;
+                // Subpaso 4.1: Procesar Clasificar el token
+                tokenType = TextUtils.classifyToken(token);
+                // Subpaso 4.2: Procesar según la clasificación del token
+                processAllTokenSizes(token, tokenType, wordDataList, label);
+                displayTokenInConsole(token,tokenType);
 
-            // Subpaso 4.1: Procesar Clasificar el token
+
+          /*  // Subpaso 4.1: Procesar Clasificar el token
             if (TextUtils.isOneChar(token)) {
                 tokenType = TextUtils.classifyTokenByOneDigit(token);
                 processTokenByOneDigit(token, tokenType, wordDataList, label);
@@ -79,6 +85,8 @@ public class MessageProcessor {
                 processAllTokenSizes(token, tokenType, wordDataList, label);
                 displayTokenInConsole(token,tokenType);
             }
+
+           */
         }
 
         // Paso 5: Retornar la lista de WordData procesada

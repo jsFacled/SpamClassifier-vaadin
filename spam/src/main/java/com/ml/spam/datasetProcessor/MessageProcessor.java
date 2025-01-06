@@ -257,8 +257,6 @@ public class MessageProcessor {
         return null; // Retorna null si no se encuentra
     }
 
-
-
     private static void processAccentedWord(String token, List<WordData> wordDataList, String label) {
         System.out.println("[DEBUG] Verificando token en lexemesRepository: " + token);
 
@@ -289,29 +287,45 @@ public class MessageProcessor {
 
 
     private static void processNumTextToken(String token, List<WordData> wordDataList, String label) {
-        // Paso 1: Separar el token en números y texto
+        // Dividir el token en dos partes
         String[] parts = TextUtils.splitNumberAndText(token);
-        String numberPart = parts[0];
-        String textPart = parts[1];
-        System.out.println("[DEBUG  processNumText ] numberPart : <" +numberPart+ ">");
-        System.out.println("[DEBUG  processNumText ] numberPart : <" +textPart+ ">");
-        // Paso 2: Verificar si la parte de texto está categorizada
-        String subCategory = findSubcategoryForToken(textPart);
+        String firstPart = parts[0];
+        String secondPart = parts[1];
 
-        if (subCategory != null) {
-            // Clasificar el token completo si la parte textual está categorizada
-            wordDataList.add(new WordData(subCategory, label));
-        } else {
-            // Paso 3: Procesar las partes por separado si la parte textual no está categorizada
-            if (!numberPart.isEmpty()) {
-                processNumToken(numberPart, wordDataList, label);
-            }
-            if (!textPart.isEmpty()) {
-                processTextToken(textPart, wordDataList, label);
+        System.out.println("[DEBUG processNumText ] firstPart : <" + firstPart + ">");
+        System.out.println("[DEBUG processNumText ] secondPart : <" + secondPart + ">");
+
+        // Clasificar partes
+        String numberPart = null;
+        String textPart = null;
+
+        if (firstPart.matches("\\d+")) { // Si es un número
+            numberPart = firstPart;
+            textPart = secondPart; // La otra parte es texto
+        } else if (secondPart.matches("\\d+")) { // Si la segunda parte es un número
+            numberPart = secondPart;
+            textPart = firstPart; // La otra parte es texto
+        }
+
+        // Priorizar textPart si está en lexemeRepository
+        if (textPart != null && !textPart.isEmpty()) {
+            String subCategory = findSubcategoryForToken(textPart);
+            if (subCategory != null) {
+                wordDataList.add(new WordData(subCategory, label));
+                return; // Ignorar numberPart si textPart está categorizado
             }
         }
-    }
 
+        // Procesar numberPart si está presente
+        if (numberPart != null && !numberPart.isEmpty()) {
+            processNumToken(numberPart, wordDataList, label);
+        }
+
+        // Procesar textPart como texto genérico si no está en lexemeRepository
+        if (textPart != null && !textPart.isEmpty()) {
+            wordDataList.add(new WordData(textPart, label));
+        }
+    }
 
 
 
@@ -363,71 +377,124 @@ public class MessageProcessor {
 
 
     private static void processCharToken(String token, List<WordData> wordDataList, String label) {
-     /*
-        Map<String, Set<String>> textLexemes = lexemeRepository.get(CharSize.TEXT_LEXEMES);
-if (TextUtils.isTextToken(token)) {
-    if (textLexemes != null) {
-        // Verificar si el token pertenece a lexvowel
-        Set<String> lexVowel = textLexemes.get("lexvowel");
-        if (lexVowel != null && lexVowel.contains(token)) {
-            wordDataList.add(new WordData("lexvowel", label)); // Clasificar como vocal
-            return;
-        }
+        // Obtener las subcategorías de ONE_CHAR en lexemeRepository
+        Map<String, Set<String>> subCategories = lexemeRepository.get(CharSize.ONE_CHAR);
 
-        // Verificar si el token pertenece a lexconsonant
-        Set<String> lexConsonant = textLexemes.get("lexconsonant");
-        if (lexConsonant != null && lexConsonant.contains(token)) {
-            wordDataList.add(new WordData("lexconsonant", label)); // Clasificar como consonante
-            return;
-        }
-    }
+        // Buscar token en las subcategorías
+        String subCategory = subCategories.entrySet().stream()
+                .filter(entry -> entry.getValue().contains(token))
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElse(null);
 
-
-    // Si no pertenece a ninguna categoría, devolver el token directamente
-    wordDataList.add(new WordData(token, label));
-
-  }
-*/
-    }
-
-    private static void processSymbolToken(String token, List<WordData> wordDataList, String label) {
-     /*
-        // Elimina comillas y caracteres irrelevantes
-        token = token.replace("\"", "");
-
-        Map<String, Set<String>> textLexemes = lexemeRepository.get(CharSize.TEXT_LEXEMES);
-        Map<String, Set<String>> contextualLexemes = lexemeRepository.get(CharSize.CONTEXTUAL_LEXEMES);
-
-        if (TextUtils.isOneChar(token)) {
-            // Procesar dígitos únicos
-            if (TextUtils.isNumericToken(token)) {
-                wordDataList.add(new WordData("numlow", label));
-            } else if (TextUtils.isCharToken(token)) {
-                Set<String> lexVowel = textLexemes != null ? textLexemes.get("lexvowel") : Collections.emptySet();
-                Set<String> lexConsonant = textLexemes != null ? textLexemes.get("lexconsonant") : Collections.emptySet();
-
-                if (lexVowel.contains(token)) {
-                    wordDataList.add(new WordData("lexvowel", label));
-                } else if (lexConsonant.contains(token)) {
-                    wordDataList.add(new WordData("lexconsonant", label));
-                } else {
-                    wordDataList.add(new WordData(token, label));
-                }
-            } else if (TextUtils.isSymbolToken(token)) {
-                processAnySymbolToken(token, wordDataList, label);
-            } else {
-                wordDataList.add(new WordData(token, label));
-            }
+        // Si se encuentra, asignar la subcategoría
+        if (subCategory != null) {
+            wordDataList.add(new WordData(subCategory, label));
         } else {
-            // Procesar símbolos de más de un dígito, incluidos emojis
-            if (TextUtils.isEmoji(token)) {
-                processEmojiToken(token, wordDataList, label);
-            } else {
-                processAnySymbolToken(token, wordDataList, label);
+            // Token no categorizado
+            wordDataList.add(new WordData(token, label));
+        }
+    }
+
+
+    /**
+     * Procesa un token clasificado como SYMBOL, verificando si contiene emojis o pertenece a otras subcategorías.
+     *
+     * - Si el token contiene emojis:
+     *   Se divide en emojis individuales y se verifica si pertenecen a las categorías `spamemoji` o `hamemoji` en el `lexemeRepository`.
+     * - Si el token no contiene emojis:
+     *   Se busca en las subcategorías correspondientes según su tamaño en `lexemeRepository`.
+     *
+     * @param token El token a procesar.
+     * @param wordDataList La lista donde se almacenarán los resultados del procesamiento en forma de objetos WordData.
+     * @param label La etiqueta asociada al mensaje que contiene el token (e.g., spam/ham).
+     */
+    private static void processSymbolToken(String token, List<WordData> wordDataList, String label) {
+        // Caso 1: Si el token contiene emojis
+        if (TextUtils.containsEmoji(token)) {
+            List<String> emojis = extractCompleteEmojis(token);
+            for (String emoji : emojis) {
+                String emojiCategory = lexemeRepository.get(CharSize.ONE_CHAR).entrySet().stream()
+                        .filter(entry -> entry.getKey().equals("spamemoji") || entry.getKey().equals("hamemoji"))
+                        .filter(entry -> entry.getValue().contains(emoji))
+                        .map(Map.Entry::getKey)
+                        .findFirst()
+                        .orElse("unknownemoji");
+
+                if ("unknownemoji".equals(emojiCategory)) {
+                    System.err.println("[WARN] Emoji no reconocido: " + emoji);
+                }
+
+                wordDataList.add(new WordData(emojiCategory, label));
+            }
+            return; // Finalizar después de procesar emojis
+        }
+
+        // Caso 2: Procesar otros símbolos
+        Map<String, Set<String>> subCategories = lexemeRepository.get(determineCharSize(token));
+        String subCategory = subCategories.entrySet().stream()
+                .filter(entry -> entry.getValue().contains(token))
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElse(null);
+
+        if (subCategory != null) {
+            wordDataList.add(new WordData(subCategory, label));
+        } else {
+            wordDataList.add(new WordData(token, label)); // Token no categorizado
+        }
+    }
+
+
+
+    /**
+     * Extrae emojis completos de un token, construyendo secuencias válidas de puntos de código.
+     *
+     * - Los emojis se validan contra las categorías `spamemoji` y `hamemoji` en `lexemeRepository`.
+     * - Si un emoji no es reconocido, se registra un mensaje de advertencia.
+     * - Evita acumulaciones innecesarias limitando la longitud de las secuencias a procesar.
+     *
+     * @param token El token que potencialmente contiene emojis.
+     * @return Una lista de emojis completos extraídos del token.
+     */
+    private static List<String> extractCompleteEmojis(String token) {
+        List<String> emojis = new ArrayList<>();
+        int[] codePoints = token.codePoints().toArray();
+        StringBuilder emojiBuilder = new StringBuilder();
+
+        for (int codePoint : codePoints) {
+            emojiBuilder.append(new String(Character.toChars(codePoint)));
+            String candidate = emojiBuilder.toString();
+
+            // Verificar si es un emoji completo
+            boolean isEmoji = lexemeRepository.get(CharSize.ONE_CHAR).getOrDefault("spamemoji", Set.of()).contains(candidate) ||
+                    lexemeRepository.get(CharSize.ONE_CHAR).getOrDefault("hamemoji", Set.of()).contains(candidate);
+
+            if (isEmoji) {
+                emojis.add(candidate);
+                emojiBuilder.setLength(0); // Reiniciar para el próximo emoji
+            } else if (emojiBuilder.length() > 2) { // Limitar acumulación
+                emojiBuilder.setLength(0);
             }
         }
-    */
+
+        // Verificar si hay un emoji incompleto al final
+        if (emojiBuilder.length() > 0) {
+            System.err.println("[WARN] Emoji parcial no reconocido: " + emojiBuilder);
+        }
+
+        return emojis;
     }
+
+
+    // Método mejorado para dividir emojis
+    private static List<String> splitEmojis(String token) {
+        List<String> emojis = new ArrayList<>();
+        token.codePoints().forEach(codePoint -> emojis.add(new String(Character.toChars(codePoint))));
+        return emojis;
+    }
+
+
 
 
     private static void processEmojiToken(String token, List<WordData> wordDataList, String label) {
@@ -492,6 +559,22 @@ if (TextUtils.isTextToken(token)) {
                 .anyMatch(set -> set.contains(token)); // Verificar si el token está en alguno de los conjuntos
     }
 
+
+    // Método auxiliar para determinar el tamaño de carácter
+    private static CharSize determineCharSize(String token) {
+        int length = token.length();
+        if (length == 1) return CharSize.ONE_CHAR;
+        if (length == 2) return CharSize.TWO_CHARS;
+        if (length == 3) return CharSize.THREE_CHARS;
+        if (length == 4) return CharSize.FOUR_CHARS;
+        if (length == 5) return CharSize.FIVE_CHARS;
+        if (length == 6) return CharSize.SIX_CHARS;
+        if (length == 7) return CharSize.SEVEN_CHARS;
+        if (length == 8) return CharSize.EIGHT_CHARS;
+        if (length == 9) return CharSize.NINE_CHARS;
+        if (length == 10) return CharSize.TEN_CHARS;
+        return CharSize.OVER_TEN_CHARS;
+    }
     private static String getTokenIfIsInLexemeRepository(String token) {
         String lexeme = getSubcategoryForToken(token);
         System.out.println("Estamos en getTokenIfIsInLexemeRepository: "+lexeme);

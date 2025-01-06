@@ -167,6 +167,10 @@ public class TextUtils {
         return token.matches("[^\\p{L}\\d]+");
     }
 
+    public static boolean containsEmoji(String token) {
+        return token.codePoints().anyMatch(Character::isSupplementaryCodePoint);
+    }
+
 
     public static boolean isEmoji(String token) {
         if (token == null || token.isEmpty()) {

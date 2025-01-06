@@ -116,11 +116,16 @@ public class TestProcessToWordDataTest {
         };
 
         String[] mensajeNumText = new String[]{
-                "5m2, 10km, 48litros",
+                "5m2 8meses, 48litros pesos25000",
+                "spam"
+        };// 10km, 48litros pesos25000"
+        String[] mEmojis = new String[]{
+                "❤️ \uD83D\uDD25\uD83D\uDD25 +++ ❤\uFE0F\uD83C\uDF89 == \uD83D\uDE0A\uD83D\uDC8E !!! ??? $100 !! @@@ ***\n",
                 "spam"
         };
+
         String[] m = new String[]{
-                "8cm2 7cm3",
+                "hola CHAU 123despuesdelnumero antesdelnumero456",
                 "spam"
         };
 
@@ -138,7 +143,6 @@ public class TestProcessToWordDataTest {
 
             rawRows.add(
                     m
-                    //mensajeNumText
                     //mensajeCombinado
                     // mensajeExaustivo
             );

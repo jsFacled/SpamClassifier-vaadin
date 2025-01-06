@@ -1,5 +1,5 @@
 {
-  "1Chars": {
+  "oneChar": {
     "lexvowel": [
       "á",
       "é",
@@ -100,7 +100,7 @@
       "📅"
     ]
   },
-  "2Chars": {
+  "twoChars": {
     "lexexclamations": [
       ".."
     ],
@@ -193,7 +193,7 @@
       "🖋️"
     ]
   },
-  "3Chars": {
+  "threeChars": {
     "lexexclamations": [
       "...",
       "???",
@@ -283,7 +283,7 @@
       "mil"
     ]
   },
-  "4Chars": {
+  "fourChars": {
     "lexpronouns": [
       "ella"
     ],
@@ -362,7 +362,7 @@
       "abre"
     ]
   },
-  "5Chars": {
+  "fiveChars": {
     "lexpronouns": [
       "ellas",
       "ellos",
@@ -462,7 +462,7 @@
       "ayuda"
     ]
   },
-  "6Chars": {
+  "sixChars": {
     "lexadverbs": [
       "aunque",
       "cuándo"
@@ -554,7 +554,7 @@
       "ensayo"
     ]
   },
-  "7Chars": {
+  "sevenChars": {
     "lexpronouns": [
       "quienes"
     ],
@@ -645,7 +645,7 @@
       "intento"
     ]
   },
-  "8Chars": {
+  "eightChars": {
     "lexpronouns": [
       "nosotros"
     ],
@@ -713,7 +713,7 @@
       "potencia"
     ]
   },
-  "9Chars": {
+  "nineChars": {
     "lexdimensions": [
       "mililitro",
       "milimetro",
@@ -795,7 +795,7 @@
       "capacidad"
     ]
   },
-  "10Chars": {
+  "tenChars": {
     "lexdimensions": [
       "centimetro",
       "hectometro",

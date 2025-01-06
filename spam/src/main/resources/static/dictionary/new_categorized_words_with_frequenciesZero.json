@@ -1,0 +1,1178 @@
+{
+  "moderateSpamWord" : {
+    "ahorrar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ahorro" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "aprobación" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "aprobado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "artículo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "consulta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "consultas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "contacto" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "costo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "empresa" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "envío" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "estado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ganancias" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "hacer" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "informacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ingresos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "instrucciones" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "intereses" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "invertir" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "invierte" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexalerts" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexcelebrations" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexfinance" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexfree" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexgrowth" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexguarantees" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "leximprovements" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexlimited" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexpromotions" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexsecurity" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexsubscriptions" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexsuccess" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexsuperlatives" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexvaluable" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexwealth" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexwebactions" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "notificacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "personal" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "poderoso" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "potencial" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "probar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "producto" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "prueba" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "registrarse" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "respuesta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "restaurada" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "resultado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "salva" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "salvar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "servicio" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "sistema" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "suspendida" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "tienda" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "trabajo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "venta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    }
+  },
+  "rareSymbols" : {
+    "@" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexexclamations" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexsymbols" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    }
+  },
+  "stopWords" : {
+    "hamemoji" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexadverbs" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexauxiliaryverbs" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexcalendar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexconjunctions" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexdeterminers" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexdimensions" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexprepositions" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexpronouns" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexunits" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexvowel" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "mas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "numcalendar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "numdimensions" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "tan" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "tanto" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "todo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "todos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    }
+  },
+  "strongSpamWord" : {
+    "$" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "abundancia" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "acceso" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "accion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "activacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "actualizacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "advertencia" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ahora" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ahorra" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "alerta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "algoritmo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "amigo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "amor" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "anuncio" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "apuesta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "asegurado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "asistencia" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "asombroso" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "atencion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "aumente" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "autenticacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "autorizacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "bancarrota" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "banco" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "belleza" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "bitcoin" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "blackjack" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "bono" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "casino" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "certificado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "cierre" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "clic" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "click" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "cliente" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "compare" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "compra" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "comprar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "comprate" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "confidencial" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "contraseña" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "credito" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "criptografia" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "cuenta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "cura" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "descarga" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "descargar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "descuento" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "diagnostico" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "dieta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "dinero" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "dominios" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "donacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "eliminar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "empleo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "encuentra" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "encuentros" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "engaño" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "espectacular" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "estafa" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "estimado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "exclusivo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "expira" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "fabuloso" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "felicidades" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "felicitaciones" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "final" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "flash" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "formulario" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "fortuna" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "fraude" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ganador" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "garantizado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "garantía" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "gratis" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "gratuito" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "guardar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "herencia" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "hoy" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "increible" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "increíble" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "inmediato" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "instantaneo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "instrucciónes" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "interes" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "inversión" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "irrepetible" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "irresistible" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "jefe" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "juega" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "juego" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "legal" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "levita" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexbenefits" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexcurrencies" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexpurchases" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexvaluable" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "libertad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "limitada" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "limitado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "llamada" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "loteria" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lujo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "magia" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "maravilloso" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "marketing" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "medicamento" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "mejor" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "mejora" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "mejore" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "mentira" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "milagro" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "millon" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "millonario" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "millones" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "multiplique" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "notificacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "notificaciones" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "oferta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "oficial" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "oportunidad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "participe" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "personalizado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "pierda" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "planear" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "precio" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "premio" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "premios" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "prestamo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "problema" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "procesa" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "prohibir" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "promoción" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "pronto" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "prosperidad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "proteccion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "publicidad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "rapidez" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "rapido" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "rebaja" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "rebajas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "recompensa" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "recuperacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "reembolso" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "regalo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "rendimientos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "revoluciona" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "riesgo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "riqueza" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "rolex" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "salud" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "secreto" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "seguridad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "seguro" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "seleccion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "sorteo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "spam" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "suerte" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "suscribirse" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "suscripción" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "tarifa" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "tarjeta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "testimonios" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "trampa" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "unica" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "urgente" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "vacaciones" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "valor" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "verifica" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "verificacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "verificar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "viagra" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "vip" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "webaddress" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ya" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "éxito" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "último" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "€" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    }
+  },
+  "unassignedWords" : {
+    "numcodes" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "numnetworking" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "numtel" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "unknownemoji" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    }
+  },
+  "weakSpamWord" : {
+    "aceptacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "actividad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "actuacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "actuar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "archivo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ayuda" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "bienvenido" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "comunicacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "confirmacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "documento" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "esfuerzo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "evento" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "existencias" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "gracias" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "hola" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "introduccion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexapproval" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexcommunication" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexcosts" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexincome" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexpower" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexproducts" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexquantities" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lextests" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "natural" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "recordatorio" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "renovar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "resultados" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "reunion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "revision" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "solicitud" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "solucion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "soporte" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "vista" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    }
+  }
+}

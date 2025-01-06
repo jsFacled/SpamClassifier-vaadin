@@ -400,11 +400,16 @@ public class SpamDictionaryService {
      * @return La categoría correspondiente (SPAM_WORDS o UNASSIGNED_WORDS).
      */
     private WordCategory determineCategoryByFrequency(WordData wordData) {
+        /*
         if (wordData.getSpamFrequency() > wordData.getHamFrequency()) {
             return WordCategory.SPAM_WORDS;
         } else {
             return WordCategory.UNASSIGNED_WORDS;
         }
+        *
+         */
+
+        return null;
     }
 
     private void updateExistingWordFrequencies(String token, WordData wordData) {
@@ -598,7 +603,8 @@ public class SpamDictionaryService {
 
     // Verifica si la palabra pertenece a la categoría SPAM_WORDS
     public boolean isSpamWord(String word) {
-        return dictionary.getCategory(WordCategory.SPAM_WORDS).containsKey(word.toLowerCase());
+        //return dictionary.getCategory(WordCategory.SPAM_WORDS).containsKey(word.toLowerCase());
+        return false;
     }
 
     // Verifica si la palabra pertenece a la categoría STOP_WORDS

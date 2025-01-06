@@ -140,7 +140,7 @@ public class MessageProcessor {
     // Métodos auxiliares para cada tipo de token
 
     private static void processNumSymbolToken(String token, List<WordData> wordDataList, String label) {
-        Map<String, Set<String>> textLexemes = lexemeRepository.get(CharSize.TEXT_LEXEMES);
+//Map<String, Set<String>> textLexemes = lexemeRepository.get(CharSize.TEXT_LEXEMES);
 
         // Divide números y símbolos para categorizarlos por separado
         String[] parts = token.split("(?<=\\d)(?=\\W)|(?<=\\W)(?=\\d)");
@@ -355,6 +355,7 @@ public class MessageProcessor {
 
 
     private static void processCharToken(String token, List<WordData> wordDataList, String label) {
+     /*
         Map<String, Set<String>> textLexemes = lexemeRepository.get(CharSize.TEXT_LEXEMES);
 if (TextUtils.isTextToken(token)) {
     if (textLexemes != null) {
@@ -373,12 +374,16 @@ if (TextUtils.isTextToken(token)) {
         }
     }
 
+
     // Si no pertenece a ninguna categoría, devolver el token directamente
     wordDataList.add(new WordData(token, label));
-}
-}
+
+  }
+*/
+    }
 
     private static void processSymbolToken(String token, List<WordData> wordDataList, String label) {
+     /*
         // Elimina comillas y caracteres irrelevantes
         token = token.replace("\"", "");
 
@@ -413,9 +418,12 @@ if (TextUtils.isTextToken(token)) {
                 processAnySymbolToken(token, wordDataList, label);
             }
         }
+    */
     }
 
+
     private static void processEmojiToken(String token, List<WordData> wordDataList, String label) {
+       /*
         Map<String, Set<String>> contextualLexemes
                 = lexemeRepository. get(CharSize.CONTEXTUAL_LEXEMES);
         if (contextualLexemes != null) {
@@ -431,10 +439,12 @@ if (TextUtils.isTextToken(token)) {
             // Si el repositorio de lexemas no está inicializado, devuelve el token
             wordDataList.add(new WordData(token, label));
         }
+
+        */
     }
 
     private static void processAnySymbolToken(String token, List<WordData> wordDataList, String label) {
-        Map<String, Set<String>> textLexemes = lexemeRepository.get(CharSize.TEXT_LEXEMES);
+    /*   Map<String, Set<String>> textLexemes = lexemeRepository.get(CharSize.TEXT_LEXEMES);
 
         boolean isExcl = textLexemes != null && textLexemes.getOrDefault("excl", Collections.emptySet()).contains(token);
         boolean isLexsym = textLexemes != null && textLexemes.getOrDefault("lexsym", Collections.emptySet()).contains(token);
@@ -449,7 +459,9 @@ if (TextUtils.isTextToken(token)) {
         } else {
             wordDataList.add(new WordData(token, label));
         }
+    */
     }
+
 
 
 

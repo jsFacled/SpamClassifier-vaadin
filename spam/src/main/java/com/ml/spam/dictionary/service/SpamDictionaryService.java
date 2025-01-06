@@ -231,7 +231,7 @@ public class SpamDictionaryService {
             }
 
             // Transferir los lexemas al repositorio
-            dictionary.initializeLexemes(lexemesMap);
+            dictionary.initializeLexemeRepository(lexemesMap);
 
             System.out.println("[INFO] Lexemas inicializados correctamente.");
         } catch (Exception e) {

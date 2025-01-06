@@ -1,6 +1,6 @@
 {
-    "spamWords": {
-        "fuertementeAsociadas": [
+
+   "strongSpamWord": [
             "$", "€", "accion", "bitcoin", "rapido", "exclusivo", "herencia", "oportunidad", "publicidad", "anuncio",
             "regalo", "seguro", "tarjeta", "viagra", "acceso", "activacion", "actualizacion", "algoritmo", "amigo",
             "amor", "apuesta", "asistencia", "asombroso", "atencion", "bancarrota", "belleza", "blackjack", "bono",
@@ -23,7 +23,7 @@
             "maravilloso", "espectacular", "felicidades", "felicitaciones", "mejor", "mejora", "mejore",
             "lexbenefits", "lexpurchases", "lexcurrencies", "lexvaluable", "ahora", "ya"
         ],
-        "moderadamenteAsociadas": [
+   "moderateSpamWord": [
             "ahorro", "envío", "servicio", "tienda", "venta", "informacion", "estado", "notificacion", "empresa",
             "instrucciones", "intereses", "registrarse", "restaurada", "salva", "salvar", "suspendida", "trabajo",
             "personal", "sistema", "resultado", "hacer", "contacto", "consulta", "ahorrar",
@@ -33,14 +33,14 @@
             "leximprovements", "poderoso", "potencial", "probar", "prueba", "lexpromotions", "invertir", "invierte",
             "lexfinance", "ganancias"
         ],
-        "debilmenteAsociadas": [
+   "weakSpamWord": [
             "archivo", "ayuda", "bienvenido", "comunicacion", "confirmacion", "documento", "evento", "gracias",
             "hola", "recordatorio", "reunion", "revision", "soporte", "aceptacion", "actividad", "actuacion",
             "actuar", "esfuerzo", "existencias", "introduccion", "renovar", "resultados", "solicitud",
             "solucion", "vista", "natural", "lexcosts", "lexproducts", "lexincome", "lexapproval", "lexcommunication",
             "lexpower", "lextests", "lexquantities"
-        ]
-    },
+        ],
+
     "rareSymbols": [
         "@", "lexsymbols", "lexexclamations"
     ],

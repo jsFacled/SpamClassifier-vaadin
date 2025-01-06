@@ -1,18 +1,34 @@
 package com.ml.spam.dictionary.models;
-
 public enum WordCategory {
-    SPAM_WORDS("spamWords"),          // Palabras relacionadas con spam
-    RARE_SYMBOLS("rareSymbols"),      // Símbolos raros
-    STOP_WORDS("stopWords"),          // Palabras irrelevantes
-    UNASSIGNED_WORDS("unassignedWords"); // Palabras nuevas NO ASIGNADAS TODAVÍA
+    STRONG_SPAM_WORD("strongSpamWord", 3),
+    MODERATE_SPAM_WORD("moderateSpamWord", 2),
+    WEAK_SPAM_WORD("weakSpamWord", 1),
+    STOP_WORD("stopWord", 0),
+    RARE_SYMBOL("rareSymbol", 0.5),
+    UNASSIGNED_WORD("unassignedWord", 0);
 
     private final String jsonKey;
+    private final double weight;
 
-    WordCategory(String jsonKey) {
+    WordCategory(String jsonKey, double weight) {
         this.jsonKey = jsonKey;
+        this.weight = weight;
     }
 
     public String getJsonKey() {
         return jsonKey;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public static WordCategory fromJsonKey(String key) {
+        for (WordCategory category : values()) {
+            if (category.jsonKey.equalsIgnoreCase(key)) {
+                return category;
+            }
+        }
+        throw new IllegalArgumentException("Invalid WordCategory key: " + key);
     }
 }

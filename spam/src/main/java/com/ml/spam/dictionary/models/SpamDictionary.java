@@ -82,6 +82,18 @@ public class SpamDictionary {
         return true; // Todas las frecuencias están en cero
     }
 
+    public boolean containsWord(String token) {
+        // Buscar solo en las palabras categorizadas
+        for (Map<String, WordData> category : categorizedWords.values()) {
+            if (category.containsKey(token)) {
+                return true;
+            }
+        }
+        // Si no se encuentra, retorna false
+        return false;
+    }
+
+
     public void clearDictionary() {
         for (WordCategory category : WordCategory.values()) {
             categorizedWords.get(category).clear();
@@ -154,6 +166,14 @@ public class SpamDictionary {
         return lexemeRepository.values().stream()
                 .flatMap(groupMap -> groupMap.values().stream())
                 .anyMatch(elements -> elements.contains(lexElement));
+    }
+
+    public Map<CharSize, Map<String, Set<String>>> getLexemesRepository() {
+        return lexemeRepository;
+    }
+
+    public Map<WordCategory, Map<String, WordData>> getAllCategorizedWords() {
+return categorizedWords;
     }
 
     // ============================

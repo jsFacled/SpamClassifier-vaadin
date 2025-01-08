@@ -123,9 +123,10 @@ public class TestProcessToWordDataTest {
                 "❤️ \uD83D\uDD25\uD83D\uDD25 +++ ❤\uFE0F\uD83C\uDF89 == \uD83D\uDE0A\uD83D\uDC8E !!! ??? $100 !! @@@ ***\n",
                 "spam"
         };
+        String[] mensajeLinks = {"facu@gmail.com http://test.com http://promo123.net", "spam"};
 
         String[] m = new String[]{
-                "hola CHAU 123despuesdelnumero antesdelnumero456",
+                "25hs",
                 "spam"
         };
 
@@ -142,9 +143,10 @@ public class TestProcessToWordDataTest {
             List<String[]> rawRows = new ArrayList<>();
 
             rawRows.add(
-                    m
+                    //m
+                    //mensajeLinks
                     //mensajeCombinado
-                    // mensajeExaustivo
+                     mensajeExaustivo
             );
 
 

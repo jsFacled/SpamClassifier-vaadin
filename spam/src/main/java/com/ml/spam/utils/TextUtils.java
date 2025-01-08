@@ -171,7 +171,15 @@ public class TextUtils {
         return token.codePoints().anyMatch(Character::isSupplementaryCodePoint);
     }
 
-
+    /**
+     * Verifica si un token es un horario en formato HH:MM o H:MM.
+     *
+     * @param token El token a verificar.
+     * @return true si el token es un horario, false en caso contrario.
+     */
+    public static boolean isTime(String token) {
+        return token.matches("^\\d{1,2}:\\d{2}$");
+    }
     public static boolean isEmoji(String token) {
         if (token == null || token.isEmpty()) {
             return false;

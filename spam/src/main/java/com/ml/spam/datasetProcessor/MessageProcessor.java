@@ -150,6 +150,12 @@ public class MessageProcessor {
     private static void processNumSymbolToken(String token, List<WordData> wordDataList, String label) {
 //Map<String, Set<String>> textLexemes = lexemeRepository.get(CharSize.TEXT_LEXEMES);
 
+        // Verificar si el token es un horario
+        if (TextUtils.isTime(token)) {
+            wordDataList.add(new WordData("numcalendar", label));
+            return; // Clasificado como horario, salir temprano
+        }
+
         // Divide números y símbolos para categorizarlos por separado
         String[] parts = token.split("(?<=\\d)(?=\\W)|(?<=\\W)(?=\\d)");
         System.out.println("El split de numSymbol es parts: "+Arrays.toString(parts));
@@ -204,11 +210,8 @@ public class MessageProcessor {
         // Procesar la parte de texto
         if (!wordPart.isEmpty()) {
             String subCategory = findSubcategoryForToken(wordPart); // Buscar subcategoría en lexemesRepository
-            if (subCategory != null) {
-                wordDataList.add(new WordData(subCategory, label)); // Asignar subcategoría
-            } else {
-                wordDataList.add(new WordData(wordPart, label)); // Asignar texto directamente
-            }
+            // Asignar texto directamente
+            wordDataList.add(new WordData(Objects.requireNonNullElse(subCategory, wordPart), label)); // Asignar subcategoría
         }
 
         // Procesar la parte de símbolos
@@ -216,11 +219,8 @@ public class MessageProcessor {
             for (char symbol : symbolPart.toCharArray()) {
                 String symbolStr = String.valueOf(symbol);
                 String subCategory = findSubcategoryForToken(symbolStr); // Buscar subcategoría en lexemesRepository
-                if (subCategory != null) {
-                    wordDataList.add(new WordData(subCategory, label)); // Asignar subcategoría
-                } else {
-                    wordDataList.add(new WordData(symbolStr, label)); // Asignar símbolo directamente
-                }
+                // Asignar símbolo directamente
+                wordDataList.add(new WordData(Objects.requireNonNullElse(subCategory, symbolStr), label)); // Asignar subcategoría
             }
         }
     }
@@ -359,11 +359,8 @@ public class MessageProcessor {
                 for (char symbol : component.toCharArray()) {
                     String symbolStr = String.valueOf(symbol);
                     String subCategory = findSubcategoryForToken(symbolStr);
-                    if (subCategory != null) {
-                        wordDataList.add(new WordData(subCategory, label)); // Asignar subcategoría
-                    } else {
-                        wordDataList.add(new WordData(symbolStr, label)); // Asignar directamente
-                    }
+                    // Asignar directamente
+                    wordDataList.add(new WordData(Objects.requireNonNullElse(subCategory, symbolStr), label)); // Asignar subcategoría
                 }
             } else if (TextUtils.isTextToken(component)) {
                 processTextToken(component, wordDataList, label);
@@ -399,7 +396,6 @@ public class MessageProcessor {
 
     /**
      * Procesa un token clasificado como SYMBOL, verificando si contiene emojis o pertenece a otras subcategorías.
-     *
      * - Si el token contiene emojis:
      *   Se divide en emojis individuales y se verifica si pertenecen a las categorías `spamemoji` o `hamemoji` en el `lexemeRepository`.
      * - Si el token no contiene emojis:
@@ -438,18 +434,14 @@ public class MessageProcessor {
                 .findFirst()
                 .orElse(null);
 
-        if (subCategory != null) {
-            wordDataList.add(new WordData(subCategory, label));
-        } else {
-            wordDataList.add(new WordData(token, label)); // Token no categorizado
-        }
+        // Token no categorizado
+        wordDataList.add(new WordData(Objects.requireNonNullElse(subCategory, token), label));
     }
 
 
 
     /**
      * Extrae emojis completos de un token, construyendo secuencias válidas de puntos de código.
-     *
      * - Los emojis se validan contra las categorías `spamemoji` y `hamemoji` en `lexemeRepository`.
      * - Si un emoji no es reconocido, se registra un mensaje de advertencia.
      * - Evita acumulaciones innecesarias limitando la longitud de las secuencias a procesar.
@@ -479,7 +471,7 @@ public class MessageProcessor {
         }
 
         // Verificar si hay un emoji incompleto al final
-        if (emojiBuilder.length() > 0) {
+        if (!emojiBuilder.isEmpty()) {
             System.err.println("[WARN] Emoji parcial no reconocido: " + emojiBuilder);
         }
 
@@ -487,7 +479,7 @@ public class MessageProcessor {
     }
 
 
-    // Método mejorado para dividir emojis
+    // Métod mejorado para dividir emojis
     private static List<String> splitEmojis(String token) {
         List<String> emojis = new ArrayList<>();
         token.codePoints().forEach(codePoint -> emojis.add(new String(Character.toChars(codePoint))));
@@ -560,7 +552,7 @@ public class MessageProcessor {
     }
 
 
-    // Método auxiliar para determinar el tamaño de carácter
+    // Métod auxiliar para determinar el tamaño de carácter
     private static CharSize determineCharSize(String token) {
         int length = token.length();
         if (length == 1) return CharSize.ONE_CHAR;
@@ -663,7 +655,7 @@ public class MessageProcessor {
                 continue;
             }
 
-            // Crear y agregar el ProcessedMessage usando el método auxiliar
+            // Crear y agregar el ProcessedMessage usando el métod auxiliar
             processedMessages.add(createProcessedMessage(row));
         }
 
@@ -672,7 +664,7 @@ public class MessageProcessor {
 
 
 
-    @Deprecated    // Método auxiliar para procesar una fila en un ProcessedMessage
+    @Deprecated    // Métod auxiliar para procesar una fila en un ProcessedMessage
     private static ProcessedMessage createProcessedMessage(String[] row) {
         String message = row[0].trim(); // Mensaje
         String label = row[1].trim();   // Etiqueta

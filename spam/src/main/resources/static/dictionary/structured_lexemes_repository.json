@@ -9,7 +9,6 @@
       "a",
       "e",
       "i",
-      "o",
       "u"
     ],
     "lexconsonant": [
@@ -36,6 +35,10 @@
       "ç",
       "ñ"
     ],
+    "lexconjunctions": [
+      "y",
+      "o"
+    ],
     "lexexclamations": [
       "?",
       "¿",
@@ -43,17 +46,7 @@
       "¡"
     ],
     "lexsymbols": [
-      "&",
-      "#",
-      "~",
-      "/",
-      ":",
-      ";",
-      "|",
-      "\\",
-      "_",
-      "-",
-      "·"
+      "&", "#", "~", "/", ":", ";", "|", "\\", "_", "-", "·", ".","(" ,")"
     ],
     "mathop": [
       "+",
@@ -103,8 +96,10 @@
       "🖋️"
     ]
   },
-  "twoChars":{
-    "spamemoji": [ "❤️" ],
+  "twoChars": {
+    "spamemoji": [
+      "❤️"
+    ],
     "lexexclamations": [
       ".."
     ],
@@ -121,16 +116,7 @@
       "!=",
       "=="
     ],
-    "lexpronouns": [
-      "él",
-      "me",
-      "mi",
-      "mí",
-      "te",
-      "ti",
-      "tú",
-      "tu",
-      "yo"
+    "lexpronouns": [ "él", "me", "se", "mi", "mí", "te", "ti", "tú", "tu", "yo"
     ],
     "lexdeterminers": [
       "la",
@@ -170,26 +156,25 @@
       "pt",
       "yd"
     ],
-    "numdimensions": [
+    "lexcalendar": [
+      "hs", "lu", "ma", "vi", "sa", "do", "am", "pm"
+    ],
+    "lexdimensions": [
       "cm",
       "m2",
       "kg",
       "mm",
       "km"
     ],
-    "numcalendar": [
-      "hs"
-    ],
-    "numcodes": [
+    "lexcodes": [
       "id"
     ],
-    "numurls": [
+    "lexurls": [
       "io"
     ],
-    "numnetworking": [
+    "lexnetworking": [
       "ip"
     ]
-
   },
   "threeChars": {
     "lexexclamations": [
@@ -224,7 +209,7 @@
       "por"
     ],
     "lexconjunctions": [
-      "que"
+      "que","mas"
     ],
     "lexauxiliaryverbs": [
       "fue",
@@ -236,28 +221,38 @@
       "rod"
     ],
     "lexcalendar": [
+      "min",
+      "mie",
+      "jue",
       "mes",
       "ano",
-      "año"
+      "año",
+      "ene",
+      "feb",
+      "mar",
+      "abr",
+      "may",
+      "jun",
+      "jul",
+      "ago",
+      "sep",
+      "oct",
+      "nov",
+      "dic"
     ],
     "lexcurrencies": [
       "yen",
       "won"
     ],
-    "numcalendar": [
-      "min"
-    ],
-    "numcurrencies": [
-      "won"
-    ],
-    "numcodes": [
+
+    "lexcodes": [
       "ref",
       "sku",
       "usr",
       "reg",
       "act"
     ],
-    "numurls": [
+    "lexurls": [
       "www",
       "com",
       "net",
@@ -269,12 +264,12 @@
       "web",
       "app"
     ],
-    "numtelecom": [
+    "lextelecom": [
       "tel",
       "cel",
       "fax"
     ],
-    "numnetworking": [
+    "lexnetworking": [
       "red"
     ],
     "lexquantities": [
@@ -307,50 +302,43 @@
       "será"
     ],
     "lexdimensions": [
-      "kilo"
-    ],
-    "lexcalendar": [
-      "mayo"
+      "kilo",
+      "pies"
     ],
     "lexcurrencies": [
       "euro",
       "peso",
       "real",
       "yuan",
-      "lira"
+      "lira",
+      "birr"
     ],
-    "numdimensions": [
-      "pies"
-    ],
-    "numcalendar": [
+    "lexcalendar": [
       "anos",
       "dias",
       "eras",
       "mayo"
     ],
-    "numcurrencies": [
-      "birr"
-    ],
-    "numstatistics": [
+    "lexstatistics": [
       "tasa",
       "moda"
     ],
-    "numcodes": [
+    "lexcodes": [
       "prod",
       "lote",
       "guia"
     ],
-    "numurls": [
+    "lexurls": [
       "http",
       "site",
       "link",
       "blog",
       "page"
     ],
-    "numtelecom": [
+    "lextelecom": [
       "fijo"
     ],
-    "numnetworking": [
+    "lexnetworking": [
       "host"
     ],
     "lexproducts": [
@@ -361,10 +349,7 @@
     ]
   },
   "fiveChars": {
-    "lexpronouns": [
-      "ellas",
-      "ellos",
-      "quien"
+    "lexpronouns": [ "ellas", "ellos", "quien", "usted"
     ],
     "lexdeterminers": [
       "estas",
@@ -389,7 +374,7 @@
       "litro",
       "gramo",
       "galon",
-      "yarda"
+      "yarda", "onzas"
     ],
     "lexcalendar": [
       "enero",
@@ -398,21 +383,7 @@
       "junio",
       "julio",
       "lunes",
-      "siglo"
-    ],
-    "lexcurrencies": [
-      "dolar",
-      "libra",
-      "rupia",
-      "rublo",
-      "dinar",
-      "zloty",
-      "soles"
-    ],
-    "numdimensions": [
-      "onzas"
-    ],
-    "numcalendar": [
+      "siglo",
       "meses",
       "horas",
       "lunes",
@@ -422,28 +393,35 @@
       "junio",
       "julio"
     ],
-    "numcurrencies": [
+    "lexcurrencies": [
+      "dolar",
+      "libra",
+      "rupia",
+      "rublo",
+      "dinar",
+      "zloty",
+      "soles",
       "pesos",
       "yenes",
       "soles"
     ],
-    "numstatistics": [
+    "lexstatistics": [
       "media",
       "rango"
     ],
-    "numcodes": [
+    "lexcodes": [
       "serie",
       "clave"
     ],
-    "numurls": [
+    "lexurls": [
       "https",
       "cloud"
     ],
-    "numtelecom": [
+    "lextelecom": [
       "movil",
       "linea"
     ],
-    "numnetworking": [
+    "lexnetworking": [
       "proxy"
     ],
     "lexquantities": [
@@ -475,9 +453,18 @@
       "tienen"
     ],
     "lexdimensions": [
-      "cadena"
+      "litros",
+      "yardas",
+      "libras",
+      "gramos", "cadena","cubico","metros"
     ],
     "lexcalendar": [
+      "siglos",
+      "epocas",
+      "lapsos",
+      "martes",
+      "jueves",
+      "sabado",
       "agosto",
       "martes",
       "jueves",
@@ -486,47 +473,29 @@
       "decada"
     ],
     "lexcurrencies": [
-      "franco",
-      "corona",
-      "shekel"
-    ],
-    "numdimensions": [
-      "litros",
-      "yardas",
-      "libras",
-      "gramos"
-    ],
-    "numcalendar": [
-      "siglos",
-      "epocas",
-      "lapsos",
-      "martes",
-      "jueves",
-      "sabado",
-      "agosto"
-    ],
-    "numcurrencies": [
       "libras",
       "reales",
       "rublos",
       "rupias",
-      "yuanes"
+      "yuanes", "franco",
+      "corona",
+      "shekel"
     ],
-    "numstatistics": [
+    "lexstatistics": [
       "indice"
     ],
-    "numcodes": [
+    "lexcodes": [
       "codigo",
       "ticket",
       "pedido"
     ],
-    "numurls": [
+    "lexurls": [
       "online"
     ],
-    "numtelecom": [
-      "numero"
+    "lextelecom": [
+      "lexero"
     ],
-    "numnetworking": [
+    "lexnetworking": [
       "subred"
     ],
     "lexquantities": [
@@ -561,11 +530,17 @@
       "algunos"
     ],
     "lexdimensions": [
-      "pulgada",
-      "milibar"
+      "galones", "pulgada",
+      "milibar","cubicos"
     ],
     "lexcalendar": [
+      "semanas",
+      "decadas",
+      "minutos",
+      "viernes",
+      "domingo",
       "febrero",
+      "octubre", "febrero",
       "octubre",
       "viernes",
       "domingo",
@@ -574,38 +549,23 @@
       "jornada"
     ],
     "lexcurrencies": [
-      "ringgit",
-      "colones"
-    ],
-    "numdimensions": [
-      "galones"
-    ],
-    "numcalendar": [
-      "semanas",
-      "decadas",
-      "minutos",
-      "viernes",
-      "domingo",
-      "febrero",
-      "octubre"
-    ],
-    "numcurrencies": [
       "dolares",
       "francos",
       "colones",
-      "ringgit"
+      "ringgit", "ringgit",
+      "colones"
     ],
-    "numstatistics": [
+    "lexstatistics": [
       "mediana",
       "cuartil"
     ],
-    "numcodes": [
+    "lexcodes": [
       "factura"
     ],
-    "numtelecom": [
+    "lextelecom": [
       "llamada"
     ],
-    "numnetworking": [
+    "lexnetworking": [
       "dominio",
       "gateway"
     ],
@@ -648,40 +608,32 @@
       "nosotros"
     ],
     "lexdimensions": [
-      "tonelada"
+      "pulgadas", "tonelada"
     ],
     "lexcalendar": [
-      "quincena",
-      "bisiesto"
-    ],
-    "numdimensions": [
-      "pulgadas"
-    ],
-    "numcalendar": [
       "segundos",
       "quincena",
       "milenios",
       "periodos",
-      "jornadas"
+      "jornadas", "quincena",
+      "bisiesto"
     ],
-    "numcurrencies": [
+    "lexcurrencies": [
       "centavos"
     ],
-    "numstatistics": [
+    "lexstatistics": [
       "promedio",
       "varianza"
     ],
-    "numcodes": [
+    "lexcodes": [
       "etiqueta",
       "registro",
       "licencia",
       "producto"
     ],
-    "numtelecom": [
-      "contacto",
-      "whatsapp"
+    "lextelecom": [ "whatsapp"
     ],
-    "numnetworking": [
+    "lexnetworking": [
       "servidor"
     ],
     "lexpromotions": [
@@ -713,53 +665,31 @@
   },
   "nineChars": {
     "lexdimensions": [
-      "mililitro",
+      "toneladas",
+      "hectareas", "mililitro",
       "milimetro",
       "decametro",
       "nanometro"
     ],
     "lexcalendar": [
-      "noviembre",
-      "diciembre",
-      "miercoles",
-      "intervalo"
+      "miercoles", "noviembre", "diciembre", "noviembre", "diciembre", "miercoles", "intervalo", "setiembre"
     ],
     "lexcurrencies": [
-      "bolivares"
+      "quetzales", "bolivares", "guaranies", "bolivares"
     ],
-    "numdimensions": [
-      "toneladas",
-      "hectareas"
+    "lexstatistics": [
+      "percentil", "tendencia", "reduccion"
     ],
-    "numcalendar": [
-      "miercoles",
-      "noviembre",
-      "diciembre"
+    "lextelecom": [ "extension", "contactos"
     ],
-    "numcurrencies": [
-      "quetzales",
-      "bolivares",
-      "guaranies"
-    ],
-    "numstatistics": [
-      "percentil",
-      "tendencia",
-      "reduccion"
-    ],
-    "numtelecom": [
-      "extension"
-    ],
-    "numnetworking": [
-      "direccion",
-      "enrutador"
+    "lexnetworking": [
+      "direccion", "enrutador"
     ],
     "lexbenefits": [
       "beneficio"
     ],
     "lexpurchases": [
-      "comprarás",
-      "comprando",
-      "comprador"
+      "comprarás", "comprando", "comprador"
     ],
     "lexsubscriptions": [
       "membresía"
@@ -797,27 +727,25 @@
     "lexdimensions": [
       "centimetro",
       "hectometro",
-      "micrometro"
+      "micrometro",
+      "decimetros",
+      "mililitros",
+      "kilometros"
     ],
     "lexcalendar": [
-      "septiembre"
-    ],
-    "numdimensions": [
-      "decimetros",
-      "mililitros"
-    ],
-    "numcalendar": [
       "fracciones",
       "intervalos",
-      "septiembre"
+      "septiembre",
+      "",
+      "lexdimensions"
     ],
-    "numstatistics": [
+    "lexstatistics": [
       "porcentaje",
       "frecuencia",
       "proporcion",
       "desviacion"
     ],
-    "numcodes": [
+    "lexcodes": [
       "referencia"
     ],
     "lexbenefits": [
@@ -851,14 +779,10 @@
   },
   "overTenChars": {
     "lexdimensions": [
+      "centimetros ",
       "hectopascal"
     ],
-    "numdimensions": [
-      "centimetros cubicos",
-      "metros cubicos",
-      "kilometros cuadrados"
-    ],
-    "numstatistics": [
+    "lexstatistics": [
       "calificacion",
       "crecimiento",
       "distribucion"

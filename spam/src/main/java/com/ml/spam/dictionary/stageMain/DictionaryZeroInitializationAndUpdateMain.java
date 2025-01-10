@@ -8,6 +8,8 @@ import java.io.IOException;
 
 public class DictionaryZeroInitializationAndUpdateMain {
     private static final String catWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
+    private static final String newCatWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
+
     private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
     private static final String  lexemePath=FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
 
@@ -15,6 +17,9 @@ public class DictionaryZeroInitializationAndUpdateMain {
     private static final String testCatWords = "static/dictionary/test_catWord_zero.json";
 
     public static void main(String[] args) throws IOException {
+        //Inicia temporizador para calcular el tiempo de procesamiento total
+        long startUpdate = System.nanoTime();
+
         SpamDictionaryService service = new SpamDictionaryService();
 
         System.out.println("===  /  /   /   /   /   /   /   /   /   /   ===  Etapa 2: Actualización del Diccionario  === /  /   /   /   /   /   /   /   /   /   === \n");
@@ -32,7 +37,7 @@ public class DictionaryZeroInitializationAndUpdateMain {
         System.out.println("[ STAGE 1 ]* * * * * Inicializando dictionary   .    .   .  .  .  . . . . . . . . . \n");
 
         // Inicializar el diccionario desde el JSON
-        service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(testCatWords, accentPairsPath, lexemePath);
+        service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(newCatWordsPath, accentPairsPath, lexemePath);
 
         // Mostrar los Map de SpamDictionary para chequear que se haya inicializado correctamente
         service.displayCategorizedWordsInDictionary();
@@ -56,6 +61,10 @@ public class DictionaryZeroInitializationAndUpdateMain {
         // Mostrar el informe del diccionario actualizado
         DictionarySummaryReport.displaySummaryReport(service);
 
+
+
+        long endUpdate = System.nanoTime();
+        System.out.printf("Tiempo de actualización del diccionario: %.2f ms%n", (endUpdate - startUpdate) / 1_000_000.0);
 
     }
 

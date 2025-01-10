@@ -403,17 +403,24 @@ public class SpamDictionaryService {
      * @return La categoría correspondiente (SPAM_WORDS o UNASSIGNED_WORDS).
      */
     private WordCategory determineCategoryByFrequency(WordData wordData) {
-        /*
-        if (wordData.getSpamFrequency() > wordData.getHamFrequency()) {
-            return WordCategory.SPAM_WORDS;
+        int spamFrequency = wordData.getSpamFrequency();
+        int hamFrequency = wordData.getHamFrequency();
+
+        if (spamFrequency > hamFrequency) {
+            // Clasificar como STRONG, MODERATE o WEAK según la frecuencia de spam
+            if (spamFrequency > 5) {
+                return WordCategory.STRONG_SPAM_WORD;
+            } else if (spamFrequency > 2) {
+                return WordCategory.MODERATE_SPAM_WORD;
+            } else {
+                return WordCategory.WEAK_SPAM_WORD;
+            }
         } else {
+            // Clasificar como UNASSIGNED_WORDS si ham es mayor o igual
             return WordCategory.UNASSIGNED_WORDS;
         }
-        *
-         */
-
-        return null;
     }
+
 
     private void updateExistingWordFrequencies(String token, WordData wordData) {
         // Buscar en todas las categorías y actualizar las frecuencias existentes

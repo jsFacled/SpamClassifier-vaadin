@@ -1,4 +1,14 @@
 {
+  "hamIndicators" : {
+    "lexinformative" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexpositive" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    }
+  },
   "moderateSpamWord" : {
     "ahorrar" : {
       "hamFrequency" : 0,
@@ -84,6 +94,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
+    "lexactions" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "lexalerts" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -137,6 +151,10 @@
       "spamFrequency" : 0
     },
     "lexsuperlatives" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexurgency" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -224,6 +242,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
+    "unete" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "venta" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -261,6 +283,10 @@
       "spamFrequency" : 0
     },
     "lexcalendar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexcodes" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -390,10 +416,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "asistencia" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
-    },
     "asombroso" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -462,6 +484,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
+    "como" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "compare" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -503,10 +529,6 @@
       "spamFrequency" : 0
     },
     "descuento" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
-    },
-    "diagnostico" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -914,10 +936,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "salud" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
-    },
     "secreto" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -1066,15 +1084,15 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "ayuda" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
-    },
     "bienvenido" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
     "comunicacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "confirma" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -1095,6 +1113,10 @@
       "spamFrequency" : 0
     },
     "existencias" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "experiencia" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -1119,6 +1141,14 @@
       "spamFrequency" : 0
     },
     "lexcosts" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexhealth" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexhelp" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -1178,7 +1208,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "soporte" : {
+    "tiempo" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },

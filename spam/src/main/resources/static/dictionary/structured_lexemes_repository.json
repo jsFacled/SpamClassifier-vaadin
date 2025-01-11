@@ -134,9 +134,7 @@
       "no",
       "sí"
     ],
-    "lexprepositions": [
-      "de",
-      "en"
+    "lexprepositions": [ "de", "en", "al"
     ],
     "lexauxiliaryverbs": [
       "ha",
@@ -182,6 +180,10 @@
     ]
   },
   "threeChars": {
+    "lexpositive": [
+      "paz",
+      "sol"
+    ],
     "lexexclamations": [
       "...",
       "???",
@@ -216,10 +218,7 @@
     "lexconjunctions": [
       "que","mas"
     ],
-    "lexauxiliaryverbs": [
-      "fue",
-      "fui",
-      "hay"
+    "lexauxiliaryverbs": [ "fue", "fui", "hay", "ser"
     ],
     "lexdimensions": [
       "pie",
@@ -285,6 +284,11 @@
           ]
   },
   "fourChars": {
+    "lexevents": ["cita"],
+    "lexpositive": [
+      "vive","amor","fiel"
+
+    ],
     "lexpurchase": ["pago","paga"],
 
     "lexmotivational": [
@@ -313,7 +317,7 @@
       "pero"
     ],
     "lexauxiliaryverbs": [
-      "será"
+      "será", "sera", "sido"
     ],
     "lexdimensions": [
       "kilo",
@@ -363,6 +367,20 @@
     ]
   },
   "fiveChars": {
+    "lexhealth": [
+      "salud"
+    ],
+    "lexhelp": [ "ayuda"
+         ],
+
+    "lexactions": ["unete"],
+    "lexpromotions": [
+      "cupon"
+    ],
+    "lexdocuments": ["lista"],
+
+    "lexpositive": [ "feliz", "firma", "gusto","listo","ideas"
+         ],
     "lexneutral": ["verte", "vidas", "vuelo","favor"
 
     ],
@@ -460,6 +478,19 @@
     ]
   },
   "sixChars": {
+    "lexhealth": [
+      "medica"
+    ],
+
+
+    "lexteam": ["equipo"],
+
+    "lexdocuments": ["recibo","lista"],
+
+    "lexevents": ["taller"],
+    "lexpositive": [
+      "amable", "sueños","amigos", "valida","unirte","juntos"
+    ],
     "lexneutral": ["activo", "cambios", "agrega", "apoyo"
 
     ],
@@ -478,13 +509,10 @@
     "lexauxiliaryverbs": [
       "fueron",
       "habían",
-      "tienen"
+      "tienen","siendo"
     ],
     "lexdimensions": [
-      "litros",
-      "yardas",
-      "libras",
-      "gramos", "cadena","cubico","metros"
+      "litros", "yardas", "libras", "gramos", "cadena","cubico","metros"
     ],
     "lexcalendar": [
       "siglos",
@@ -498,7 +526,8 @@
       "jueves",
       "sabado",
       "semana",
-      "decada"
+      "decada",
+      "manana", "mañana"
     ],
     "lexcurrencies": [
       "libras",
@@ -547,9 +576,27 @@
     ],
     "lextests": [
       "ensayo"
-    ]
+    ],
+    "lexprofile": ["perfil"]
   },
   "sevenChars": {
+    "lexhealth": ["terapia","cuidado"
+    ],
+    "lexhelp": [ "soporte", "socorro"
+    ],
+
+    "lexurgency": ["proxima"],
+    "lexqualities": [
+      "lealtad"
+    ],
+    "lexfuture": ["llegara"],
+
+    "lexissues": ["reclamo"],
+
+    "lexcontextual": ["virtual","temporal","proyecto"],
+    "lexpositive": [
+      "alegria", "cordial", "gracias", "lealtad", "sincera", "fiestas", "valioso"
+    ],
     "lexneutral": ["adjunto", "atendido", "enviado", "recibido"
 
     ],
@@ -646,8 +693,19 @@
     ]
   },
   "eightChars": {
+    "lexhealth": [
+      "hospital",
+      "paciente"
+    ],
+    "lexqualities": [
+      "brevedad", "claridad"
+     ],
+    "lexcontextual": ["temporal","proyecto"],
     "lexneutral": ["activada", "renovada", "reserva"
 
+    ],
+    "lexpositive": [ "contento", "disfruta", "voluntad","responde","recuerda", "postular","interesa", "gustaria",
+      "ayudanos", "necesito", "mejorar"
     ],
     "lexconfirmations": [
       "aceptada",
@@ -659,7 +717,7 @@
 
     "lexpurchase": ["comprate"],
     "lexmotivational": [
-      "marcaras"
+      "marcaras","transforma"
     ],
     "lexpronouns": [
       "nosotros"
@@ -721,6 +779,19 @@
     ]
   },
   "nineChars": {
+    "lexhealth": ["bienestar"
+         ],
+    "lexhelp": [ "colaborar"
+    ],
+    "lexqualities": [
+     "confianza", "paciencia"
+    ],
+    "lexprocesses": ["procesada"],
+
+    "lexpositive": [
+      "esperanza","fidelidad","felicidad","valoramos"
+
+    ],
     "lexaccountactions": [
       "actualiza"
     ],
@@ -784,6 +855,23 @@
     ]
   },
   "tenChars": {
+    "lexhealth": ["enfermedad", "prevencion"
+    ],
+    "lexhelp": [ "asistencia"
+    ],
+
+    "lexmotivational": [ "transforma"
+    ],
+    "lexqualities": [ "sinceridad","honestidad"
+    ],
+
+    "lexcelebrations": ["cumpleanos", "cumpleaños"],
+
+    "lexapologies": ["lamentamos"],
+
+    "lexpositive": [
+     "motivación"
+    ],
     "lexconfirmations": [
       "actualizada"
     ],
@@ -842,6 +930,18 @@
     ]
   },
   "overTenChars": {
+    "lexhealth": [ "tratamiento", "diagnostico"
+    ],
+    "lexqualities": [
+      "creatividad",
+      "responsabilidad",
+      "paciencia"
+    ],
+    "lexfeedback": ["comentarios"],
+
+    "lexpositive": [
+      "agradecemos", "satisfacción", "felicitaciones", "enhorabuena", "prosperidad", "tranquilidad","preferirnos"
+    ],
     "lexaccountactions": [
       "actualización"
     ],

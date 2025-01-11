@@ -3,14 +3,14 @@
    "strongSpamWord": [
             "$", "€", "accion", "bitcoin", "rapido", "exclusivo", "herencia", "oportunidad", "publicidad", "anuncio",
             "regalo", "seguro", "tarjeta", "viagra", "acceso", "activacion", "actualizacion", "algoritmo", "amigo",
-            "amor", "apuesta", "asistencia", "asombroso", "atencion", "bancarrota", "belleza", "blackjack", "bono",
-            "casino", "cuenta", "cura", "diagnostico", "dieta", "dominios", "donacion", "eliminar", "empleo",
+            "amor", "apuesta", "asombroso", "atencion", "bancarrota", "belleza", "blackjack", "bono",
+            "casino", "cuenta", "cura", "dieta", "dominios", "donacion", "eliminar", "empleo",
             "encuentra", "encuentros", "engaño", "estafa", "estimado", "expira", "final", "flash", "formulario",
             "fraude", "increible", "instantaneo", "instrucciónes", "interes", "certificado", "cierre", "irrepetible",
             "irresistible", "jefe", "juega", "juego", "legal", "levita", "libertad", "llamada", "loteria", "cliente",
             "compare", "confidencial", "contraseña", "criptografia", "personalizado", "pierda", "planear", "problema",
             "procesa", "prohibir", "prosperidad", "proteccion", "rapidez", "rebaja", "rendimientos", "revoluciona",
-            "riesgo", "guardar", "riqueza", "rolex", "salud", "secreto", "seleccion", "sorteo", "spam", "suerte",
+            "riesgo", "guardar", "riqueza", "rolex", "secreto", "seleccion", "sorteo", "spam", "suerte",
             "testimonios", "trampa", "vacaciones", "mentira", "milagro", "millonario", "oficial", "unica", "participe",
             "webaddress", "verificacion", "lujo", "recuperacion", "magia", "marketing", "medicamento", "hoy", "descargar",
             "pronto", "fortuna", "abundancia", "promoción", "descuento", "rebaja", "alerta", "notificacion", "seguro",
@@ -21,7 +21,7 @@
             "vip", "limitada", "limitado", "aumente", "multiplique", "autenticacion", "autorizacion", "seguridad",
             "verifica", "verificar", "click", "clic", "descarga", "riqueza", "prosperidad", "fabuloso", "increíble",
             "maravilloso", "espectacular", "felicidades", "felicitaciones", "mejor", "mejora", "mejore",
-            "lexbenefits", "lexpurchases", "lexcurrencies", "lexvaluable", "ahora", "ya"
+            "lexbenefits", "lexpurchases", "lexcurrencies", "lexvaluable", "ahora", "ya","como"
         ],
    "moderateSpamWord": [
             "ahorro", "envío", "servicio", "tienda", "venta", "informacion", "estado", "notificacion", "empresa",
@@ -31,14 +31,14 @@
             "producto", "artículo", "ingresos", "lexlimited", "aprobado", "aprobación", "lexgrowth",
             "lexsecurity", "lexwebactions", "consultas", "respuesta", "lexwealth", "lexsuperlatives", "lexcelebrations",
             "leximprovements", "poderoso", "potencial", "probar", "prueba", "lexpromotions", "invertir", "invierte",
-            "lexfinance", "ganancias", "lexmotivational", "compras"
+            "lexfinance", "ganancias", "lexmotivational", "compras","unete","lexurgency","lexactions"
         ],
    "weakSpamWord": [
-            "archivo", "ayuda", "bienvenido", "comunicacion", "confirmacion", "documento", "evento", "gracias",
-            "hola", "recordatorio", "reunion", "revision", "soporte", "aceptacion", "actividad", "actuacion",
+            "archivo", "bienvenido", "comunicacion", "confirmacion", "documento", "evento", "gracias",
+            "hola", "recordatorio", "reunion", "revision", "aceptacion", "actividad", "actuacion",
             "actuar", "esfuerzo", "existencias", "introduccion", "renovar", "resultados", "solicitud",
             "solucion", "vista", "natural", "lexcosts", "lexproducts", "lexincome", "lexapproval", "lexcommunication",
-            "lexpower", "lextests", "lexquantities","lexpurchase"
+            "lexpower", "lextests", "lexquantities","lexpurchase","tiempo", "confirma","lexhelp","experiencia","lexhealth"
         ],
 
     "rareSymbols": [

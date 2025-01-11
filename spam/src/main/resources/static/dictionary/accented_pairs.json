@@ -4,7 +4,7 @@
   "más": { "nonAccented": "mas", "category": "STOP_WORDS" },
   "sé": { "nonAccented": "se", "category": "STOP_WORDS" },
   "dé": { "nonAccented": "de", "category": "STOP_WORDS" },
-  "sí": { "nonAccented": "si", "category": "STOP_WORDS" },
+
   "vé": { "nonAccented": "ve", "category": "STOP_WORDS" },
   "qué": { "nonAccented": "que", "category": "STOP_WORDS" },
   "cuándo": { "nonAccented": "cuando", "category": "STOP_WORDS" },

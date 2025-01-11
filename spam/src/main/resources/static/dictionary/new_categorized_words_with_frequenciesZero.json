@@ -20,6 +20,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
+    "compras" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "consulta" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -109,6 +113,10 @@
       "spamFrequency" : 0
     },
     "lexlimited" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexmotivational" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -240,6 +248,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
+    "lexaccountactions" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "lexadverbs" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -261,6 +273,10 @@
       "spamFrequency" : 0
     },
     "lexdimensions" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexneutral" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -451,14 +467,6 @@
       "spamFrequency" : 0
     },
     "compra" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
-    },
-    "comprar" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
-    },
-    "comprate" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -1123,6 +1131,10 @@
       "spamFrequency" : 0
     },
     "lexproducts" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lexpurchase" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },

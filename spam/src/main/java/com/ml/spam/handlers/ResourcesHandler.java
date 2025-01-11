@@ -75,7 +75,7 @@ public class ResourcesHandler {
 
         // Paso 2: Resolver ruta
         Path absolutePath = resolvePath(relativePath);
-        System.out.println("\n [Info LoadCsvFile] >> Ruta absoluta resuelta: " + absolutePath + "\n");
+      //  System.out.println("\n [Info LoadCsvFile] >> Ruta absoluta resuelta: " + absolutePath + "\n");
 
         // Paso 3: Abrir archivo y leer
         try (BufferedReader reader = new BufferedReader(new FileReader(absolutePath.toFile()))) {
@@ -97,7 +97,7 @@ public class ResourcesHandler {
 
             // Leer y procesar las líneas restantes
             while (line != null) {
-                System.out.println("Procesando línea: " + line);
+              //  System.out.println("Procesando línea: " + line);
                 String[] columns = line.split(delimiter);
 
                 // Normalizar las columnas eliminando espacios extra
@@ -108,7 +108,7 @@ public class ResourcesHandler {
                 // Validar y agregar fila
                 if (columns.length == 2 && CsvUtils.isValidRow(columns)) {
                     rawRows.add(columns); // Agregar la fila válida a la lista
-                    System.out.println("[Info LoadCsvFile] >> Fila válida agregada: " + String.join(" | ", columns));
+                   // System.out.println("[Info LoadCsvFile] >> Fila válida agregada: " + String.join(" | ", columns));
                 } else {
 
                     // Intentar rescatar la fila
@@ -262,6 +262,36 @@ public class ResourcesHandler {
         } catch (IOException e) {
             throw new RuntimeException("Error al guardar el archivo JSON: " + relativePath, e);
         }
+    }
+
+    /**
+     * Genera una ruta de archivo única dentro de `resources/static`.
+     *
+     * @param relativePath Ruta relativa base dentro de `resources/static`.
+     * @return Ruta única del archivo como una String.
+     */
+    public String getUniqueFilePath(String relativePath) {
+        Path basePath = resolvePath(relativePath); // Resolver la ruta base
+        File file = basePath.toFile();
+
+        String baseName = basePath.toString();
+        String extension = "";
+
+        // Separar nombre base y extensión
+        int dotIndex = baseName.lastIndexOf(".");
+        if (dotIndex > 0) {
+            baseName = baseName.substring(0, dotIndex);
+            extension = baseName.substring(dotIndex);
+        }
+
+        // Incrementar el sufijo numérico hasta encontrar un nombre único
+        int count = 1;
+        while (file.exists()) {
+            file = new File(baseName + "_" + count + extension);
+            count++;
+        }
+
+        return file.getAbsolutePath();
     }
 
     // Método para guardar un archivo JSON

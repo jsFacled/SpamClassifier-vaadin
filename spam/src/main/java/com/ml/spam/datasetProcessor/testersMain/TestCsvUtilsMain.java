@@ -47,7 +47,7 @@ public class TestCsvUtilsMain {
      * Prueba a través del ResourcesHandler para cargar el archivo y procesarlo.
      */
     private static void testResourcesHandler() {
-        String relativePath = FilePathsConfig.TEST_CSV_DATA_PATH;
+        String relativePath = FilePathsConfig.PRUEBA_CSV_DATA_PATH;
 
         try {
             ResourcesHandler handler = new ResourcesHandler();

@@ -97,6 +97,9 @@
     ]
   },
   "twoChars": {
+    "lexconjunctions": [
+      "si"
+    ],
     "spamemoji": [
       "❤️"
     ],
@@ -122,8 +125,10 @@
       "la",
       "lo",
       "su",
-      "un"
+      "un",
+      "el"
     ],
+
     "lexadverbs": [
       "ni",
       "no",
@@ -274,9 +279,18 @@
     ],
     "lexquantities": [
       "mil"
-    ]
+    ],
+    "lexmotivational": [
+      "haz"
+          ]
   },
   "fourChars": {
+    "lexpurchase": ["pago","paga"],
+
+    "lexmotivational": [
+      "marca",
+      "hazte"
+    ],
     "lexpronouns": [
       "ella"
     ],
@@ -349,6 +363,13 @@
     ]
   },
   "fiveChars": {
+    "lexneutral": ["verte", "vidas", "vuelo","favor"
+
+    ],
+    "lexaccountactions": [
+      "revisa"
+    ],
+    "lexpurchase": ["pagar", "pagos"],
     "lexpronouns": [ "ellas", "ellos", "quien", "usted"
     ],
     "lexdeterminers": [
@@ -439,6 +460,13 @@
     ]
   },
   "sixChars": {
+    "lexneutral": ["activo", "cambios", "agrega", "apoyo"
+
+    ],
+    "lexaccountactions": [
+      "ajusta"
+    ],
+    "lexpurchase": ["cotiza","pagado","pagada"],
     "lexadverbs": [
       "aunque",
       "cuándo"
@@ -522,6 +550,20 @@
     ]
   },
   "sevenChars": {
+    "lexneutral": ["adjunto", "atendido", "enviado", "recibido"
+
+    ],
+    "lexconfirmations": [
+      "aceptado",
+      "activo",
+      "recibido",
+      "enviado"
+    ],
+    "lexaccountactions": [
+      "verifica",
+      "configura"
+    ],
+    "lexpurchase": ["cotizar","comprar","pagando"],
     "lexpronouns": [
       "quienes"
     ],
@@ -604,6 +646,21 @@
     ]
   },
   "eightChars": {
+    "lexneutral": ["activada", "renovada", "reserva"
+
+    ],
+    "lexconfirmations": [
+      "aceptada",
+      "activada",
+      "renovada",
+      "confirmada",
+      "actualiza"
+    ],
+
+    "lexpurchase": ["comprate"],
+    "lexmotivational": [
+      "marcaras"
+    ],
     "lexpronouns": [
       "nosotros"
     ],
@@ -664,6 +721,9 @@
     ]
   },
   "nineChars": {
+    "lexaccountactions": [
+      "actualiza"
+    ],
     "lexdimensions": [
       "toneladas",
       "hectareas", "mililitro",
@@ -702,7 +762,7 @@
       "reembolso"
     ],
     "lexproducts": [
-      "colección"
+      "coleccion"
     ],
     "lexlimited": [
       "limitados",
@@ -724,6 +784,10 @@
     ]
   },
   "tenChars": {
+    "lexconfirmations": [
+      "actualizada"
+    ],
+
     "lexdimensions": [
       "centimetro",
       "hectometro",
@@ -778,6 +842,9 @@
     ]
   },
   "overTenChars": {
+    "lexaccountactions": [
+      "actualización"
+    ],
     "lexdimensions": [
       "centimetros ",
       "hectopascal"

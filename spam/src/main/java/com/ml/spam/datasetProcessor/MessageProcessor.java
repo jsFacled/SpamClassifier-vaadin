@@ -58,7 +58,7 @@ public class MessageProcessor {
 
         // Paso 2: Tokenización básica del mensaje
         List<String> tokens = TextUtils.splitMessageAndLowercase(message);
-        displayTokenListInConsole(tokens);
+        //isplayTokenListInConsole(tokens);
 
         // Paso 3: Inicializar la lista de WordData
         List<WordData> wordDataList = new ArrayList<>();
@@ -71,7 +71,7 @@ public class MessageProcessor {
                 tokenType = TextUtils.classifyToken(token);
                 // Subpaso 4.2: Procesar según la clasificación del token
                 processAllTokenSizes(token, tokenType, wordDataList, label);
-                displayTokenInConsole(token,tokenType);
+               // displayTokenInConsole(token,tokenType);
 
 
           /*  // Subpaso 4.1: Procesar Clasificar el token
@@ -226,11 +226,11 @@ public class MessageProcessor {
     }
 
     private static void processTextToken(String token, List<WordData> wordDataList, String label) {
-        System.out.println("[DEBUG] Procesando token: " + token);
+      //  System.out.println("[DEBUG] Procesando token: " + token);
 
         if (TextUtils.hasAccent(token)) {
             processAccentedWord(token, wordDataList, label);
-            System.out.println("[DEBUG] Token tiene acento: " + token);
+        //    System.out.println("[DEBUG] Token tiene acento: " + token);
         } else {
             // Busca la subcategoría directamente
             String subCategory = findSubcategoryForToken(token);

@@ -10,8 +10,8 @@ public class DictionaryZeroInitializationAndUpdateTest {
     private static final String catWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
     private static final String lexemesPath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
     private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
-private static final String testMessagesFilePath = FilePathsConfig.TEST_CSV_DATA_PATH;
-    private static final String messagesProcessedFilePath = FilePathsConfig.TEST_CSV_ESPAÑOL_DATA_PATH;
+private static final String testMessagesFilePath = FilePathsConfig.PRUEBA_CSV_DATA_PATH;
+    private static final String messagesProcessedFilePath = FilePathsConfig.TEST_MESSAGES_CSV_ESPAÑOL_DATA_PATH;
 private static final String prueba_catWords = "static/dictionary/test_catWord_zero.json";
     public static void main(String[] args) throws IOException {
         SpamDictionaryService service = new SpamDictionaryService();

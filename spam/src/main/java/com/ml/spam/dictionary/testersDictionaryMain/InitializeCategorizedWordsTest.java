@@ -5,7 +5,7 @@ import com.ml.spam.dictionary.service.SpamDictionaryService;
 
 public class InitializeCategorizedWordsTest {
 
-    private static final String categorizedWordsJsonPath = FilePathsConfig.TEST_CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
+    private static final String categorizedWordsJsonPath = FilePathsConfig.CATEGORIZED_WORDS_BASE_JSON_PATH;
 
     public static void main(String[] args) {
         SpamDictionaryService service = new SpamDictionaryService();

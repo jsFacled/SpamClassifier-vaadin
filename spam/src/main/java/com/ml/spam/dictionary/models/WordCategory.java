@@ -5,6 +5,7 @@ public enum WordCategory {
     WEAK_SPAM_WORD("weakSpamWord", 1),
     STOP_WORDS("stopWords", 0),
     RARE_SYMBOLS("rareSymbols", 0.5),
+    HAM_INDICATORS("hamIndicators", 0.5),
     UNASSIGNED_WORDS("unassignedWords", 0);
 
     private final String jsonKey;

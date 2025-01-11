@@ -12,6 +12,7 @@ import com.ml.spam.handlers.ResourcesHandler;
 import com.ml.spam.utils.JsonUtils;
 import com.ml.spam.utils.TextUtils;
 import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -84,6 +85,34 @@ public class SpamDictionaryService {
         }
     }
 
+    /**
+     * Exporta el contenido actualizado de categorizedWords a un archivo JSON.
+     *
+     * @param relativePath Ruta donde se guardará el archivo actualizado.
+     */
+
+    public void exportUpdatedCategorizedWords(String relativePath) {
+        try {
+            // Obtener el estado actual de categorizedWords
+            Map<WordCategory, Map<String, WordData>> categorizedWordsMap = dictionary.getCategorizedWords();
+
+            // Convertir el mapa a JSON
+            JSONObject outputJson = JsonUtils.categorizedWordsToJson(categorizedWordsMap);
+
+            // Obtener una ruta única desde el ResourcesHandler
+            String uniquePath = resourcesHandler.getUniqueFilePath(relativePath);
+
+            // Guardar el JSON en la ruta única
+            resourcesHandler.saveJson(outputJson, uniquePath);
+
+            System.out.println("[INFO] Archivo actualizado exportado exitosamente a: " + uniquePath);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al exportar categorizedWords actualizado: " + e.getMessage(), e);
+        }
+    }
+
+
+
 
     /**
      * Crea un diccionario desde un archivo JSON con palabras organizadas por categoría.
@@ -144,6 +173,7 @@ public class SpamDictionaryService {
     //Inicializa solamente si las frecuencias están en cero
     ////Importante!!:No Carga los Pares Acentuados ya que no intervienen en esta etapa
 
+
     /**
      * Inicializa el diccionario solo si las frecuencias están en cero.
      */
@@ -155,6 +185,19 @@ public class SpamDictionaryService {
 
             System.out.println("\n[INFO] Diccionario inicializado correctamente.");
            // displayCategorizedWordsInDictionary();
+        } catch (Exception e) {
+            throw new RuntimeException("Error al inicializar el diccionario: " + e.getMessage(), e);
+        }
+    }
+
+    public void initializeDictionaryFromJson(String catWordsPath, String pairsFilePath, String lexemePath) {
+        try {
+            initializeCategorizedWordsFromJsonPath(catWordsPath);
+            initializeAccentPairs(pairsFilePath);
+            initializeLexemes(lexemePath);
+
+            System.out.println("\n[INFO] Diccionario inicializado correctamente.");
+            // displayCategorizedWordsInDictionary();
         } catch (Exception e) {
             throw new RuntimeException("Error al inicializar el diccionario: " + e.getMessage(), e);
         }
@@ -242,14 +285,11 @@ public class SpamDictionaryService {
         }
     }
 
-    public JSONObject loadJson(String filePath){
-        // Cargar el JSON desde el archivo
-        return resourcesHandler.loadJson(filePath);
-    }
-    public void initializeCategorizedWordsFromJsonPath(String filePath) {
+
+    public void initializeCategorizedWordsFromJsonPath(String catWordsfilePath) {
         try {
             // Cargar el JSON desde el archivo
-            JSONObject jsonObject = resourcesHandler.loadJson(filePath);
+            JSONObject jsonObject = resourcesHandler.loadJson(catWordsfilePath);
 
             // Validar la estructura del JSON
             JsonUtils.validateWordCategoryJsonStructure(jsonObject);
@@ -300,9 +340,9 @@ public class SpamDictionaryService {
     }
 
 
-    public void updateDictionary(String csvFilePath) throws IOException {
+    public void updateDictionary(String csvMessagesFilePath) throws IOException {
         // 1. Obtener filas crudas del archivo CSV utilizando el ResourcesHandler
-        List<String[]> rawRows = resourcesHandler.loadCsvFile(csvFilePath);
+        List<String[]> rawRows = resourcesHandler.loadCsvFile(csvMessagesFilePath);
 
         // 2. Validar que las filas no estén vacías
         if (rawRows == null || rawRows.isEmpty()) {
@@ -329,7 +369,7 @@ public class SpamDictionaryService {
         // 7. Actualizar el diccionario con los datos procesados
         updateDictionaryFromProcessedWordData(processedWordData);
 
-        System.out.println("Diccionario actualizado correctamente con datos del archivo: " + csvFilePath);
+        System.out.println("Diccionario actualizado correctamente con datos del archivo: " + csvMessagesFilePath);
     }
 
 

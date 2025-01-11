@@ -126,7 +126,7 @@ public class TestProcessToWordDataTest {
         String[] mensajeLinks = {"facu@gmail.com http://test.com http://promo123.net", "spam"};
 
         String[] m = new String[]{
-                "25hs",
+                ": a",
                 "spam"
         };
 
@@ -143,10 +143,10 @@ public class TestProcessToWordDataTest {
             List<String[]> rawRows = new ArrayList<>();
 
             rawRows.add(
-                    //m
+                    m
                     //mensajeLinks
                     //mensajeCombinado
-                     mensajeExaustivo
+                    //mensajeExaustivo
             );
 
 

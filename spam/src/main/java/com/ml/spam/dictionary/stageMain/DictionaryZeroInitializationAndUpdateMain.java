@@ -7,14 +7,18 @@ import com.ml.spam.dictionary.service.SpamDictionaryService;
 import java.io.IOException;
 
 public class DictionaryZeroInitializationAndUpdateMain {
-    private static final String catWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
     private static final String newCatWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
 
     private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
     private static final String  lexemePath=FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
 
-    private static final String testMessagesFilePath = FilePathsConfig.TEST_CSV_DATA_PATH;
-    private static final String testCatWords = "static/dictionary/test_catWord_zero.json";
+    private static final String mensajesPruebaFilePath = FilePathsConfig.PRUEBA_CSV_DATA_PATH;
+    private static final String TestMessagesFilePath = FilePathsConfig.TEST_MESSAGES_CSV_ESPAÑOL_DATA_PATH;
+    private static final String TrainMessagesFilePath = FilePathsConfig.TRAIN_MESSAGES_CSV_ESPAÑOL_DATA_PATH;
+
+//Nombre del archivo que se generará al exportar categorizedWords.
+// No sobreescribe. Si existe se incrementará un número.
+    String baseOutputPath = "static/dictionary/updatedCategorizedWords.json";
 
     public static void main(String[] args) throws IOException {
         //Inicia temporizador para calcular el tiempo de procesamiento total
@@ -48,8 +52,8 @@ public class DictionaryZeroInitializationAndUpdateMain {
 
 
 
-        // Solicitar la actualización del diccionario al service
-        service.updateDictionary(testMessagesFilePath);
+        // Solicitar la actualización del diccionario al service Desde un set de Mensajes
+        service.updateDictionary(TestMessagesFilePath);
         System.out.println(" *  *  *  *  *  //  //  //  //  //  //  // //  //  //  Actualización finalizada ! ! ! ! !\n");
 
 
@@ -62,6 +66,9 @@ public class DictionaryZeroInitializationAndUpdateMain {
         DictionarySummaryReport.displaySummaryReport(service);
 
 
+        //Exportación del diccionario actualizado
+        String baseOutputPath = "static/dictionary/updatedCategorizedWords.json";
+        service.exportUpdatedCategorizedWords(baseOutputPath);
 
         long endUpdate = System.nanoTime();
         System.out.printf("Tiempo de actualización del diccionario: %.2f ms%n", (endUpdate - startUpdate) / 1_000_000.0);

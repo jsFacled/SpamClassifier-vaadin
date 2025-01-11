@@ -16,7 +16,7 @@ public class InitializationAndTokenProcessingTestMain {
     private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
     private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
 
-    private static final String testMessagesFilePath = FilePathsConfig.TEST_CSV_DATA_PATH;
+    private static final String testMessagesFilePath = FilePathsConfig.PRUEBA_CSV_DATA_PATH;
 
     public static void main(String[] args) {
         try {

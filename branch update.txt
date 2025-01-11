@@ -1,3 +1,7 @@
 En este branch se trabajará toda la actualización del diccionario.
 Se correrá la inicialización desde categorizedWords con frecuencias en cero y se irán leyendo los mensajes
 para ir actualizando las frecuencias.
+
+>> Primero se leerán los mensajes y se actualizará el categorizedWordsOnly, para redistribuir algunas palabras.
+>> Luego se pasará al update exclusivamente.
+

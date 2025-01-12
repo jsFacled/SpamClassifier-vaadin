@@ -19,6 +19,9 @@ public class BaseDictionaryBuilderMain {
     private static final String EXPORT_JSON_PATH = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
 
     public static void main(String[] args) {
+        // Inicia temporizador para calcular el tiempo de procesamiento total
+        long startUpdate = System.nanoTime();
+
         SpamDictionaryService service = new SpamDictionaryService();
 
         System.out.println("=== Etapa 1 - Iniciando la Construcción de la Estructura del Diccionario Base ===\n");
@@ -34,6 +37,8 @@ public class BaseDictionaryBuilderMain {
 
         System.out.println("=== Proceso de Construcción del Diccionario Base Finalizado ===");
         System.out.println(" * Se ha persistido categorizedWords y se a rellenado el Spamdictionary ===");
+        long endUpdate = System.nanoTime();
+        System.out.printf("Tiempo de creación del diccionario: %.2f ms%n", (endUpdate - startUpdate) / 1_000_000.0);
 
     }
 }

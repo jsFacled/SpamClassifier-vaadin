@@ -180,6 +180,10 @@
     ]
   },
   "threeChars": {
+    "lexspamgreetings": [ "hey"
+    ],
+    "lexspamreetings": [ "soy"
+    ],
     "lexpositive": [
       "paz",
       "sol"
@@ -284,93 +288,62 @@
           ]
   },
   "fourChars": {
+    "lexspamgreetings": [ "hola"
+    ],
     "lexevents": ["cita"],
-    "lexpositive": [
-      "vive","amor","fiel"
-
+    "lexpositive": [ "vive","amor","fiel"
     ],
     "lexpurchase": ["pago","paga"],
-
-    "lexmotivational": [
-      "marca",
-      "hazte"
+    "lexmotivational": [ "marca", "hazte"
     ],
-    "lexpronouns": [
-      "ella"
+    "lexpronouns": [ "ella"
     ],
-    "lexdeterminers": [
-      "esas",
-      "esos",
-      "esta",
-      "este",
-      "unas",
-      "unos"
+    "lexdeterminers": [ "esas", "esos", "esta", "este", "unas", "unos"
     ],
-    "lexadverbs": [
-      "algo",
-      "cómo"
+    "lexadverbs": [ "algo", "cómo"
     ],
-    "lexprepositions": [
-      "para"
+    "lexprepositions": [ "para"
     ],
-    "lexconjunctions": [
-      "pero"
+    "lexconjunctions": [ "pero"
     ],
-    "lexauxiliaryverbs": [
-      "será", "sera", "sido"
+    "lexauxiliaryverbs": [ "será", "sera", "sido"
     ],
-    "lexdimensions": [
-      "kilo",
-      "pies"
+    "lexdimensions": [ "kilo", "pies"
     ],
-    "lexcurrencies": [
-      "euro",
-      "peso",
-      "real",
-      "yuan",
-      "lira",
-      "birr"
+    "lexcurrencies": [ "euro", "peso", "real", "yuan", "lira", "birr"
     ],
-    "lexcalendar": [
-      "anos",
-      "dias",
-      "eras",
-      "mayo"
+    "lexcalendar": [ "anos", "años","dias", "eras", "mayo", "anual"
     ],
-    "lexstatistics": [
-      "tasa",
-      "moda"
+    "lexstatistics": [ "tasa", "moda"
     ],
     "lexcodes": [
       "prod",
       "lote",
       "guia"
     ],
-    "lexurls": [
-      "http",
-      "site",
-      "link",
-      "blog",
-      "page"
+    "lexurls": [ "http", "site", "link", "blog", "page"
     ],
-    "lextelecom": [
-      "fijo"
+    "lextelecom": [ "fijo"
     ],
-    "lexnetworking": [
-      "host"
+    "lexnetworking": [ "host"
     ],
-    "lexproducts": [
-      "item"
+    "lexproducts": [ "item"
     ],
-    "lexwebactions": [
-      "abre"
+    "lexwebactions": [ "abre"
     ]
   },
   "fiveChars": {
+    "lexspamgreetings": [ "hello"
+    ],
+    "lexchoices": [ "elige"
+    ],
+
+    "lexnotifications": [ "aviso", "evita", "orden"
+     ],
     "lexhealth": [
       "salud"
     ],
-    "lexhelp": [ "ayuda"
+    "lexhelp": [ "ayuda","apoyo"
          ],
 
     "lexactions": ["unete"],
@@ -381,8 +354,7 @@
 
     "lexpositive": [ "feliz", "firma", "gusto","listo","ideas"
          ],
-    "lexneutral": ["verte", "vidas", "vuelo","favor"
-
+    "lexneutral": ["verte", "vidas", "vuelo","favor","bordo","nueva"
     ],
     "lexaccountactions": [
       "revisa"
@@ -430,7 +402,7 @@
       "marzo",
       "abril",
       "junio",
-      "julio"
+      "julio", "fecha"
     ],
     "lexcurrencies": [
       "dolar",
@@ -472,62 +444,56 @@
     "lexvaluable": [
       "único",
       "única"
-    ],
-    "lexcommunication": [
-      "ayuda"
     ]
+
+
   },
   "sixChars": {
-    "lexhealth": [
-      "medica"
+    "lexchoices": [
+
+
+      "decide"
     ],
 
 
-    "lexteam": ["equipo"],
+    "lexnotifications": ["alerta","agenda"
+    ],
 
-    "lexdocuments": ["recibo","lista"],
+    "lexhelp": [ "ayudan"
+    ],
+    "lexactions": ["conoce", "asiste"
+    ],
+    "lexhealth": [ "medica"
+    ],
 
-    "lexevents": ["taller"],
+
+    "lexteam": ["equipo"
+    ],
+
+    "lexdocuments": ["recibo"
+    ],
+
+    "lexevents": ["taller"
+    ],
     "lexpositive": [
-      "amable", "sueños","amigos", "valida","unirte","juntos"
+      "amable", "sueños","amigos", "valida","unirte","juntos", "cambia"
     ],
-    "lexneutral": ["activo", "cambios", "agrega", "apoyo"
-
+    "lexneutral": ["activo",  "agrega", "activa","aporte","camino","boleta", "nuevos","regalo"
     ],
-    "lexaccountactions": [
-      "ajusta"
+    "lexaccountactions": [ "ajusta"
     ],
     "lexpurchase": ["cotiza","pagado","pagada"],
-    "lexadverbs": [
-      "aunque",
-      "cuándo"
+    "lexadverbs": [ "aunque", "cuándo"
     ],
-    "lexconjunctions": [
-      "aunque",
-      "porque"
+    "lexconjunctions": [ "aunque", "porque"
     ],
-    "lexauxiliaryverbs": [
-      "fueron",
-      "habían",
-      "tienen","siendo"
+    "lexauxiliaryverbs": [ "fueron", "habían", "tienen","siendo"
     ],
     "lexdimensions": [
       "litros", "yardas", "libras", "gramos", "cadena","cubico","metros"
     ],
-    "lexcalendar": [
-      "siglos",
-      "epocas",
-      "lapsos",
-      "martes",
-      "jueves",
-      "sabado",
-      "agosto",
-      "martes",
-      "jueves",
-      "sabado",
-      "semana",
-      "decada",
-      "manana", "mañana"
+    "lexcalendar": [ "siglos", "epocas", "lapsos", "martes", "jueves", "sabado", "agosto", "martes",
+      "jueves", "sabado", "semana", "decada", "manana", "mañana"
     ],
     "lexcurrencies": [
       "libras",
@@ -580,14 +546,22 @@
     "lexprofile": ["perfil"]
   },
   "sevenChars": {
+    "lexspaminformation": [ "informe"
+    ],
+
+    "lexnotifications": ["informa","mensaje","anuncio"
+    ],
+    "lexprofile": ["estamos"
+    ],
+    "lexevents": ["conmigo"
+    ],
     "lexhealth": ["terapia","cuidado"
     ],
-    "lexhelp": [ "soporte", "socorro"
+    "lexhelp": [ "soporte", "socorro", "ayudame"
     ],
 
     "lexurgency": ["proxima"],
-    "lexqualities": [
-      "lealtad"
+    "lexqualities": [ "lealtad"
     ],
     "lexfuture": ["llegara"],
 
@@ -597,8 +571,7 @@
     "lexpositive": [
       "alegria", "cordial", "gracias", "lealtad", "sincera", "fiestas", "valioso"
     ],
-    "lexneutral": ["adjunto", "atendido", "enviado", "recibido"
-
+    "lexneutral": ["adjunto", "atendido", "enviado", "cambios"
     ],
     "lexconfirmations": [
       "aceptado",
@@ -622,27 +595,10 @@
       "galones", "pulgada",
       "milibar","cubicos"
     ],
-    "lexcalendar": [
-      "semanas",
-      "decadas",
-      "minutos",
-      "viernes",
-      "domingo",
-      "febrero",
-      "octubre", "febrero",
-      "octubre",
-      "viernes",
-      "domingo",
-      "milenio",
-      "festivo",
-      "jornada"
+    "lexcalendar": [ "mensual", "semanas", "decadas", "minutos", "viernes", "domingo", "febrero",
+      "octubre", "febrero", "octubre", "viernes", "domingo", "milenio", "festivo", "jornada"
     ],
-    "lexcurrencies": [
-      "dolares",
-      "francos",
-      "colones",
-      "ringgit", "ringgit",
-      "colones"
+    "lexcurrencies": [ "dolares", "francos", "colones", "ringgit", "ringgit", "colones"
     ],
     "lexstatistics": [
       "mediana",
@@ -693,6 +649,16 @@
     ]
   },
   "eightChars": {
+    "lexinformative": [ "informar"
+    ],
+    "lexchoices": [
+      "prefiere"
+    ],
+
+    "lexnotifications": ["informar","detalles", "confirma"
+    ],
+    "lexfeedback": [ "encuesta"
+    ],
     "lexhealth": [
       "hospital",
       "paciente"
@@ -705,7 +671,7 @@
 
     ],
     "lexpositive": [ "contento", "disfruta", "voluntad","responde","recuerda", "postular","interesa", "gustaria",
-      "ayudanos", "necesito", "mejorar"
+      "ayudanos", "mejorar"
     ],
     "lexconfirmations": [
       "aceptada",
@@ -776,9 +742,24 @@
     ],
     "lexpower": [
       "potencia"
+    ],
+    "lexhelp":["ayudanos","necesito"
+
     ]
+
   },
   "nineChars": {
+    "lexchoices": ["preferido","elegirnos"
+    ],
+    "lexspaminformation": ["informado"
+    ],
+
+    "lexnotifications": ["notificar", "recibiras"
+    ],
+    "lexfuture": ["esperamos"],
+    "lexconfirmations": [
+      "procesada"
+    ],
     "lexhealth": ["bienestar"
          ],
     "lexhelp": [ "colaborar"
@@ -786,7 +767,7 @@
     "lexqualities": [
      "confianza", "paciencia"
     ],
-    "lexprocesses": ["procesada"],
+
 
     "lexpositive": [
       "esperanza","fidelidad","felicidad","valoramos"
@@ -855,6 +836,17 @@
     ]
   },
   "tenChars": {
+    "lexinformative": [ "informarte",   "informamos",
+      "informar"
+    ],
+
+    "lexchoices": ["selecciona","preferencia", "preferencias", "preferido"
+    ],
+
+    "lexnotifications": ["actualizar"
+    ],
+    "lexprofile": ["disponible"
+    ],
     "lexhealth": ["enfermedad", "prevencion"
     ],
     "lexhelp": [ "asistencia"
@@ -930,41 +922,41 @@
     ]
   },
   "overTenChars": {
+    "lexchoices": ["preferencia", "preferencias",
+    ],
+    "lexspaminformation": ["informativo"
+    ],
+    "lexsuccess": [
+      "exitosamente"
+    ],
+    "lexnotifications": ["notificacion","recordatorio"
+    ],
+    "lexevents": ["aniversario"
+    ],
+    "lexfuture": ["contactaremos"
+    ],
     "lexhealth": [ "tratamiento", "diagnostico"
     ],
-    "lexqualities": [
-      "creatividad",
-      "responsabilidad",
-      "paciencia"
+    "lexqualities": [ "creatividad", "responsabilidad", "paciencia"
     ],
     "lexfeedback": ["comentarios"],
 
     "lexpositive": [
       "agradecemos", "satisfacción", "felicitaciones", "enhorabuena", "prosperidad", "tranquilidad","preferirnos"
     ],
-    "lexaccountactions": [
-      "actualización"
+    "lexaccountactions": [ "actualización"
     ],
-    "lexdimensions": [
-      "centimetros ",
-      "hectopascal"
+    "lexdimensions": [ "centimetros ", "hectopascal"
     ],
-    "lexstatistics": [
-      "calificacion",
-      "crecimiento",
-      "distribucion"
+    "lexstatistics": [ "calificacion", "crecimiento", "distribucion"
     ],
-    "lexpurchases": [
-      "compradores"
+    "lexpurchases": [ "compradores"
     ],
-    "lexpromotions": [
-      "promocional"
+    "lexpromotions": [ "promocional"
     ],
-    "lexfinance": [
-      "financiamiento"
+    "lexfinance": [ "financiamiento"
     ],
-    "lexsubscriptions": [
-      "suscriptores"
+    "lexsubscriptions": [ "suscriptores"
     ],
     "lexguarantees": [
       "garantizado",

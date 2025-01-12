@@ -17,7 +17,7 @@
             "garantía", "precio", "tarifa", "valor", "ahorra", "urgente", "inmediato", "último", "compra",
             "millon", "millones", "oferta", "rebajas", "banco", "dinero", "credito", "prestamo", "inversión",
             "suscribirse", "suscripción", "advertencia", "notificaciones", "éxito", "fortuna", "premio", "premios", "ganador",
-            "recompensa", "loteria", "sorteo", "garantizado", "asegurado", "reembolso", "gratis", "gratuito", "exclusivo",
+            "recompensa", "loteria","garantizado", "asegurado", "reembolso", "gratis", "gratuito", "exclusivo",
             "vip", "limitada", "limitado", "aumente", "multiplique", "autenticacion", "autorizacion", "seguridad",
             "verifica", "verificar", "click", "clic", "descarga", "riqueza", "prosperidad", "fabuloso", "increíble",
             "maravilloso", "espectacular", "felicidades", "felicitaciones", "mejor", "mejora", "mejore",
@@ -27,28 +27,33 @@
             "ahorro", "envío", "servicio", "tienda", "venta", "informacion", "estado", "notificacion", "empresa",
             "instrucciones", "intereses", "registrarse", "restaurada", "salva", "salvar", "suspendida", "trabajo",
             "personal", "sistema", "resultado", "hacer", "contacto", "consulta", "ahorrar",
-            "lexsubscriptions", "lexalerts", "lexsuccess", "lexguarantees", "costo", "lexfree", "lexvaluable",
-            "producto", "artículo", "ingresos", "lexlimited", "aprobado", "aprobación", "lexgrowth",
+            "lexsubscriptions", "lexalerts", "lexguarantees", "costo", "lexfree", "lexvaluable",
+            "producto", "artículo", "ingresos", "lexlimited", "aprobado", "lexgrowth",
             "lexsecurity", "lexwebactions", "consultas", "respuesta", "lexwealth", "lexsuperlatives", "lexcelebrations",
             "leximprovements", "poderoso", "potencial", "probar", "prueba", "lexpromotions", "invertir", "invierte",
-            "lexfinance", "ganancias", "lexmotivational", "compras","unete","lexurgency","lexactions"
+            "lexfinance", "ganancias", "lexmotivational", "compras","unete","lexactions"
         ],
    "weakSpamWord": [
             "archivo", "bienvenido", "comunicacion", "confirmacion", "documento", "evento", "gracias",
-            "hola", "recordatorio", "reunion", "revision", "aceptacion", "actividad", "actuacion",
+            "lexspamgreetings", "recordatorio", "reunion", "revision", "aceptacion", "actividad", "actuacion",
             "actuar", "esfuerzo", "existencias", "introduccion", "renovar", "resultados", "solicitud",
             "solucion", "vista", "natural", "lexcosts", "lexproducts", "lexincome", "lexapproval", "lexcommunication",
-            "lexpower", "lextests", "lexquantities","lexpurchase","tiempo", "confirma","lexhelp","experiencia","lexhealth"
-        ],
+            "lexpower", "lextests", "lexquantities","lexpurchase","tiempo", "confirma","experiencia",
+            "lexhealth", "antes","numero", "completa","lexurgency","lexspaminformation","recibir","pendiente",
+            "seguridad"
+   ],
 
     "rareSymbols": [
-        "@", "lexsymbols", "lexexclamations"
+        "@", "lexsymbols", "lexexclamations","unknownemoji"
     ],
     "stopWords": [
         "hamemoji", "lexauxiliaryverbs", "lexconjunctions", "lexprepositions", "lexadverbs", "lexdeterminers",
         "lexpronouns", "lexvowel", "lexunits", "lexdimensions", "lexcalendar", "numdimensions", "numcalendar",
         "todo", "todos", "mas", "tan", "tanto","lexaccountactions", "lexneutral","lexcodes"
     ],
-    "hamIndicators": ["lexpositive","lexinformative"],
-    "unassignedWords": ["numcodes", "numtel", "numnetworking", "unknownemoji"]
+    "hamIndicators": ["lexpositive","lexinformative","lexconfirmations","lexteam","lexdocuments","lexfeedback",
+                      "lexprofile","lexfuture","lexcontextual","lexevents","lexapologies","lexevents","lexhelp",
+                      "lexissues","lexnotifications","lexchoices", "lexsuccess"
+    ],
+    "unassignedWords": []
 }

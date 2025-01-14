@@ -31,7 +31,7 @@
             "producto", "artículo", "ingresos", "lexlimited", "aprobado", "lexgrowth",
             "lexsecurity", "lexwebactions", "consultas", "respuesta", "lexwealth", "lexsuperlatives", "lexcelebrations",
             "leximprovements", "poderoso", "potencial", "probar", "prueba", "lexpromotions", "invertir", "invierte",
-            "lexfinance", "ganancias", "lexmotivational", "compras","unete","lexactions"
+            "lexfinance", "ganancias", "lexmotivational", "compras","unete","lexactions","lexspamreetings"
         ],
    "weakSpamWord": [
             "archivo", "bienvenido", "comunicacion", "confirmacion", "documento", "evento", "gracias",
@@ -40,7 +40,7 @@
             "solucion", "vista", "natural", "lexcosts", "lexproducts", "lexincome", "lexapproval", "lexcommunication",
             "lexpower", "lextests", "lexquantities","lexpurchase","tiempo", "confirma","experiencia",
             "lexhealth", "antes","numero", "completa","lexurgency","lexspaminformation","recibir","pendiente",
-            "seguridad"
+            "seguridad","lexurgentrequests","lexcontact","lexsector"
    ],
 
     "rareSymbols": [
@@ -48,12 +48,14 @@
     ],
     "stopWords": [
         "hamemoji", "lexauxiliaryverbs", "lexconjunctions", "lexprepositions", "lexadverbs", "lexdeterminers",
-        "lexpronouns", "lexvowel", "lexunits", "lexdimensions", "lexcalendar", "numdimensions", "numcalendar",
-        "todo", "todos", "mas", "tan", "tanto","lexaccountactions", "lexneutral","lexcodes"
+        "lexpronouns", "lexvowel", "lexunits", "lexdimensions", "lexcalendar","todo", "todos", "mas", "tan",
+        "tanto","lexaccountactions", "lexneutral","lexcodes"
     ],
-    "hamIndicators": ["lexpositive","lexinformative","lexconfirmations","lexteam","lexdocuments","lexfeedback",
-                      "lexprofile","lexfuture","lexcontextual","lexevents","lexapologies","lexevents","lexhelp",
-                      "lexissues","lexnotifications","lexchoices", "lexsuccess"
+    "hamIndicators": [
+      "lexpositive","lexinformative","lexconfirmations","lexteam","lexdocuments","lexfeedback", "lexprofile",
+      "lexfuture","lexcontextual","lexevents","lexapologies","lexevents","lexhelp", "lexissues","lexnotifications",
+      "lexchoices", "lexsuccess","lexeducation","lextravel", "lexrequests","lexguidelines","lexcommunity","lexfamily",
+      "lexwork","lexfrequency"
     ],
     "unassignedWords": []
 }

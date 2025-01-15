@@ -245,6 +245,75 @@ public class ResourcesHandler {
         }
     }
 
+
+    ///////////////////////////////////////////////////
+    public void saveJson(JSONObject jsonObject, String relativePath) {
+        try {
+            Path path = resolvePath(relativePath);
+            Files.createDirectories(path.getParent()); // Crear directorios si no existen
+
+            // Debug para inspeccionar el contenido original
+            System.out.println("[DEBUG] JSONObject original: " + jsonObject.toString(4));
+
+            // Sanitizar claves y valores del JSONObject
+            JSONObject sanitizedJson = sanitizeJsonObject(jsonObject);
+
+            // Convertir a Map ordenado para Jackson
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.enable(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS); // Ordenar claves
+            String jsonString = mapper.writerWithDefaultPrettyPrinter()
+                    .writeValueAsString(sanitizedJson.toMap());
+
+            // Escribir el archivo con codificación UTF-8
+            Files.writeString(path, jsonString, StandardCharsets.UTF_8);
+            System.out.println("[INFO] JSON guardado correctamente en: " + path);
+        } catch (IOException e) {
+            throw new RuntimeException("Error al guardar el archivo JSON: " + relativePath, e);
+        }
+    }
+
+    /**
+     * Sanitiza el contenido de un JSONObject, incluyendo claves y valores.
+     */
+    private JSONObject sanitizeJsonObject(JSONObject jsonObject) {
+        JSONObject sanitizedJson = new JSONObject();
+        for (String key : jsonObject.keySet()) {
+            // Sanitizar la clave
+            String sanitizedKey = sanitizeString(key);
+
+            // Obtener y procesar el valor
+            Object value = jsonObject.get(key);
+            if (value instanceof JSONObject) {
+                // Recursión para sub-objetos
+                sanitizedJson.put(sanitizedKey, sanitizeJsonObject((JSONObject) value));
+            } else if (value instanceof String) {
+                // Sanitizar cadenas
+                sanitizedJson.put(sanitizedKey, sanitizeString((String) value));
+            } else {
+                // Otros valores (números, booleanos, etc.)
+                sanitizedJson.put(sanitizedKey, value);
+            }
+        }
+        return sanitizedJson;
+    }
+
+    /**
+     * Elimina caracteres no válidos para UTF-8 de una cadena.
+     */
+    private String sanitizeString(String input) {
+        if (input == null) {
+            return null;
+        }
+        return input.replaceAll("[^\\x20-\\x7E]", ""); // Reemplazar caracteres no imprimibles
+    }
+
+///////////////////////////////////////////////////////////////////////////////////
+
+
+
+    /*
+//----------------------------------------------------------------------------
+///  ----------------- SaveJson que funciona correctamente --------------------
     //Se agrega jackson para guardar json con palabras ordenadas.
     public void saveJson(JSONObject jsonObject, String relativePath) {
         try {
@@ -264,6 +333,36 @@ public class ResourcesHandler {
         }
     }
 
+*/
+    /*
+    // Se agrega Jackson para guardar JSON con palabras ordenadas.
+    public void saveJson(JSONObject jsonObject, String relativePath) {
+        try {
+            Path path = resolvePath(relativePath);
+            Files.createDirectories(path.getParent()); // Crear directorios si no existen
+
+            // Convertir JSONObject a un Map para usar Jackson
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.enable(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS); // Ordenar claves
+
+            // Generar el JSON como String
+            String jsonString = mapper.writerWithDefaultPrettyPrinter()
+                    .writeValueAsString(jsonObject.toMap());
+
+            // Normalizar contenido para evitar caracteres no mapeables
+            String sanitizedContent = jsonString.replaceAll("[^\\x20-\\x7E]", "");
+
+            // Escribir el archivo en UTF-8
+            Files.writeString(path, sanitizedContent, StandardCharsets.UTF_8);
+            System.out.println("JSON guardado en: " + path);
+        } catch (IOException e) {
+            throw new RuntimeException("Error al guardar el archivo JSON: " + relativePath, e);
+        }
+    }
+*/
+
+
+
     /**
      * Genera una ruta de archivo única dentro de `resources/static`.
      *
@@ -277,22 +376,24 @@ public class ResourcesHandler {
         String baseName = basePath.toString();
         String extension = "";
 
-        // Separar nombre base y extensión
+        // Separar nombre base y extensión correctamente
         int dotIndex = baseName.lastIndexOf(".");
         if (dotIndex > 0) {
-            baseName = baseName.substring(0, dotIndex);
-            extension = baseName.substring(dotIndex);
+            extension = baseName.substring(dotIndex); // Extraer extensión incluyendo el punto
+            baseName = baseName.substring(0, dotIndex); // Nombre base sin la extensión
         }
 
         // Incrementar el sufijo numérico hasta encontrar un nombre único
         int count = 1;
         while (file.exists()) {
             file = new File(baseName + "_" + count + extension);
+            System.out.println("[DEBUG] Generando archivo único: " + file.getAbsolutePath()); // Mensaje de depuración
             count++;
         }
 
         return file.getAbsolutePath();
     }
+
 
     // Método para guardar un archivo JSON
     public void saveJsonViejo(JSONObject jsonObject, String relativePath) {
@@ -311,8 +412,11 @@ public class ResourcesHandler {
         List<String[]> rows = new ArrayList<>();
 
         try {
+            // Resolver el path absoluto
+            Path absolutePath = resolvePath(txtFilePath);
+
             // Leer el contenido del archivo como un String
-            String content = loadResourceAsString(txtFilePath);
+            String content = Files.readString(absolutePath, StandardCharsets.UTF_8);
 
             // Dividir contenido por las triples comillas
             String[] blocks = content.split("\"\"\"");
@@ -323,7 +427,7 @@ public class ResourcesHandler {
                 }
             }
         } catch (Exception e) {
-            throw new RuntimeException("Error al leer el archivo TXT: " + e.getMessage(), e);
+            throw new RuntimeException("Error al leer el archivo TXT: " + txtFilePath, e);
         }
 
         return rows;

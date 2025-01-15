@@ -7,13 +7,13 @@ import java.io.IOException;
 
 public class UpdateDictionaryFromTripleQuotesTxtMain {
     // Nombre del archivo TXT a procesar
-    private static final String inputTxtFilePath = "path/to/your/triple-quotes-file.txt";
+    private static final String inputTxtFilePath = "static/datasets/correos-spam-fac.txt";
     // Nombre del archivo que se generará al exportar categorizedWords.
     // No sobreescribe. Si existe se incrementará un número.
     private static final String baseOutputPath = FilePathsConfig.BASE_OUTPUT_JSON_PATH;
 
     //Elementos del Dictionary
-    private static final String updatedCatWordsPath = "static/dictionary/updatedCategorizedWords.json";
+    private static final String updatedCatWordsPath = "static/dictionary/updatedCategorizedWords_1.json";
     private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
     private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
 
@@ -45,8 +45,9 @@ public class UpdateDictionaryFromTripleQuotesTxtMain {
             // Exporta el diccionario actualizado a un archivo JSON
             service.exportUpdatedCategorizedWords(baseOutputPath);
 
+
             // Mostrar el contenido final del diccionario
-            service.displayCategorizedWordsInDictionary();
+           // service.displayCategorizedWordsInDictionary();
 
             long endTime = System.nanoTime();
             System.out.printf("Proceso completado en %.2f ms%n", (endTime - startTime) / 1_000_000.0);

@@ -1,4 +1,102 @@
 ﻿“””
+Conversación abierta; 1 mensaje no leído
+
+
+Ir al contenido
+Cómo usar Gmail con lectores de pantalla
+in:spam 
+31 de 33
+Noticias increíbles - Edición de diciembre
+Correo basura
+Jory at Font Awesome <jory@em.m.fontawesome.com>
+17 dic 2024, 1:59 p.m.
+para mí
+
+
+¿Por qué está en la carpeta Spam este mensaje? Es similar a mensajes que se identificaron como spam en el pasado.
+Denunciar que no es spam
+ 
+Fuente Impresionante
+ 
+
+
+ 
+¡Felices fiestas, amigos!
+
+
+Ha sido un fin de año muy movido en Awesome HQ y queríamos compartir lo último con los más destacados... ¡es decir, tú! Estas son las últimas noticias de Font Awesome and Friends™:
+
+
+ 
+
+
+ 
+Calendario de Adviento de lo (Web) Genial
+Acabamos de lanzar una versión alfa del primer componente Web Awesome Pro: wa-page . Ya está disponible para todos los patrocinadores. No solo eso, sino que lanzaremos una nueva parte de Web Awesome cada semana. No es demasiado tarde para respaldar el proyecto.
+
+
+ 
+
+
+ 
+Analizando lo Impresionante
+¿Cuál es el estado de la web en 2024? ¡Ayúdanos a descubrirlo respondiendo a Survey Awesome antes del 20 de diciembre!
+
+
+ 
+
+
+ 
+Descuento Diciembre
+Aumentaremos los precios de Font Awesome en 2025. Pero durante el resto del mes, puedes mantener cualquiera de nuestros planes Font Awesome Pro a nuestros precios con descuento actuales . Esto es válido durante la vigencia de tu suscripción.
+
+
+ 
+
+
+ 
+Profundizando en el Duotono
+Recientemente lanzamos versiones de dos tonos de TODOS los estilos de íconos para los suscriptores de Pro. Duplica las capas, duplica la diversión.
+
+
+ 
+• • •
+ 
+Como siempre, gracias por ponerle lo mejor a Font (y Web ) (y Eleventy ) ¡Genial! Estamos ansiosos por compartir lo que tenemos planeado para 2025.
+
+
+ 
+Hasta el año que viene,
+Jory y los envoltorios de regalos profesionales de Font Awesome.
+
+
+ 
+• • •
+ 
+PD: Si buscas escuchar algo increíble esta temporada, ¡mira los últimos episodios de Podcast Awesome !
+
+
+ 
+Fuente Impresionante
+
+
+Font Awesome
+307 S. Main St. | Suite 202
+Bentonville, AR 72712, EE. UU.
+
+
+ 
+Estás suscrito a la lista de correo de Font Awesome. Cancelar suscripción
+
+
+
+
+“””
+
+
+
+
+“””
 Te han hackeado (gg@hotmail.com)
 gg@hotmail.com
 ​

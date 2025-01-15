@@ -3,10 +3,7 @@ package com.ml.spam.dictionary.service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ml.spam.datasetProcessor.MessageProcessor;
-import com.ml.spam.dictionary.models.CharSize;
-import com.ml.spam.dictionary.models.SpamDictionary;
-import com.ml.spam.dictionary.models.WordCategory;
-import com.ml.spam.dictionary.models.WordData;
+import com.ml.spam.dictionary.models.*;
 import com.ml.spam.dictionary.reports.DictionarySummaryReport;
 import com.ml.spam.handlers.ResourcesHandler;
 import com.ml.spam.utils.JsonUtils;
@@ -504,18 +501,17 @@ public void updateDictionaryFromProcessedWordData(List<List<WordData>> processed
         int hamFrequency = wordData.getHamFrequency();
 
         if (spamFrequency > hamFrequency) {
-            // Clasificar como STRONG, MODERATE o WEAK según la frecuencia de spam
-            if (spamFrequency > 5) {
+            if (spamFrequency >= CategoryFrequencyThresholds.STRONG_SPAM_MIN.getValue()) {
                 return WordCategory.STRONG_SPAM_WORD;
-            } else if (spamFrequency > 2) {
+            } else if (spamFrequency >= CategoryFrequencyThresholds.MODERATE_SPAM_MIN.getValue() &&
+                    spamFrequency <= CategoryFrequencyThresholds.MODERATE_SPAM_MAX.getValue()) {
                 return WordCategory.MODERATE_SPAM_WORD;
-            } else {
+            } else if (spamFrequency >= CategoryFrequencyThresholds.WEAK_SPAM_MIN.getValue() &&
+                    spamFrequency <= CategoryFrequencyThresholds.WEAK_SPAM_MAX.getValue()) {
                 return WordCategory.WEAK_SPAM_WORD;
             }
-        } else {
-            // Clasificar como UNASSIGNED_WORDS si ham es mayor o igual
-            return WordCategory.UNASSIGNED_WORDS;
         }
+        return WordCategory.UNASSIGNED_WORDS;
     }
 
 

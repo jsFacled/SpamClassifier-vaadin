@@ -391,8 +391,44 @@ public class SpamDictionaryService {
 
         System.out.println("Diccionario actualizado correctamente con datos del archivo TXT: " + txtFilePath);
     }
+////////////////////////////////////////////
+public void updateDictionaryFromProcessedWordData(List<List<WordData>> processedData) {
+    // Estructura temporal para consolidar frecuencias
+    Map<String, WordData> tempWordMap = new HashMap<>();
+
+    // Consolidar frecuencias en el mapa temporal
+    for (List<WordData> wordList : processedData) {
+        for (WordData wordData : wordList) {
+            String token = wordData.getWord().trim();
+
+            if (token.isEmpty()) continue; // Ignorar palabras vacías
+
+            tempWordMap.merge(token, wordData, (existing, newData) -> {
+                existing.incrementSpamFrequency(newData.getSpamFrequency());
+                existing.incrementHamFrequency(newData.getHamFrequency());
+                return existing;
+            });
+        }
+    }
+
+    // Asignar palabras al diccionario después de consolidar
+    for (Map.Entry<String, WordData> entry : tempWordMap.entrySet()) {
+        String token = entry.getKey();
+        WordData wordData = entry.getValue();
+
+        // Determinar la categoría final basada en frecuencias totales
+        WordCategory category = determineCategoryByFrequency(wordData);
+
+        // Actualizar el diccionario con la palabra categorizada
+        dictionary.addWordWithFrequencies(category, token, wordData.getSpamFrequency(), wordData.getHamFrequency());
+    }
+}
 
 
+
+
+    ///////////////////////////////////////////////
+/*
     public void updateDictionaryFromProcessedWordData(List<List<WordData>> processedData) {
         // Aplanar la estructura de las palabras
         List<WordData> flattenedWordData = processedData.stream()
@@ -453,6 +489,7 @@ public class SpamDictionaryService {
         }
     }
 
+ */
 
     /**
      * Determina la categoría de la palabra en función de las frecuencias de spam y ham:

@@ -126,7 +126,7 @@ public class TestProcessToWordDataTest {
         String[] mensajeLinks = {"facu@gmail.com http://test.com http://promo123.net", "spam"};
 
         String[] m = new String[]{
-                ": a",
+                "2147483650",
                 "spam"
         };
 

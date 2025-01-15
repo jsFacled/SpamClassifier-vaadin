@@ -13,7 +13,6 @@ public class MessageProcessor {
     private static Map<String, SpamDictionary.Pair> accentPairs;
     private static Map<CharSize, Map<String, Set<String>>> lexemeRepository;
 
-
     //Recibe los mensajes, accentpairs y repositorio de lexemas.
     public static List<List<WordData>> processToWordData(
             List<String[]> rawRows,
@@ -177,9 +176,18 @@ public class MessageProcessor {
     }
 
     private static void processNumToken(String token, List<WordData> wordDataList, String label) {
-        int number = Integer.parseInt(token);
-        String numCategory = number > 999 ? "numhigh" : "numlow";
-        wordDataList.add(new WordData(numCategory, label));
+        if (token.length() > 18) { // Si el número es demasiado largo
+            wordDataList.add(new WordData("numsuperhigh", label));
+            return;
+        }
+
+        try {
+            int number = Integer.parseInt(token);
+            String numCategory = number > 1000000 ? "numhigh" : "numlow";
+            wordDataList.add(new WordData(numCategory, label));
+        } catch (NumberFormatException e) {
+            wordDataList.add(new WordData("invalidNumber", label));
+        }
     }
 
 

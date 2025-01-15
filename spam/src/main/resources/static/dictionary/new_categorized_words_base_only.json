@@ -49,7 +49,7 @@
     "stopWords": [
         "hamemoji", "lexauxiliaryverbs", "lexconjunctions", "lexprepositions", "lexadverbs", "lexdeterminers",
         "lexpronouns", "lexvowel", "lexunits", "lexdimensions", "lexcalendar","todo", "todos", "mas", "tan",
-        "tanto","lexaccountactions", "lexneutral","lexcodes"
+        "tanto","lexaccountactions", "lexneutral","lexcodes","numsuperhigh"
     ],
     "hamIndicators": [
       "lexpositive","lexinformative","lexconfirmations","lexteam","lexdocuments","lexfeedback", "lexprofile",

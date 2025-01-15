@@ -17,5 +17,6 @@ public class FilePathsConfig {
     public static final String CORREOS_SPAM_FAC_TXT_PATH = "static/datasets/correos-spam-fac.txt";
 
 
+    public static final String BASE_OUTPUT_JSON_PATH = "static/dictionary/updatedCategorizedWords.json";
 
 }

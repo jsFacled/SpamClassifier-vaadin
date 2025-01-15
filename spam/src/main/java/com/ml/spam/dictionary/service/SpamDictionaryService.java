@@ -372,6 +372,26 @@ public class SpamDictionaryService {
         System.out.println("Diccionario actualizado correctamente con datos del archivo: " + csvMessagesFilePath);
     }
 
+    public void updateDictionaryFromTxt(String txtFilePath, String label) throws IOException {
+        // Leer filas desde el archivo TXT
+        List<String[]> rawRows = resourcesHandler.loadTxtFileAsRows(txtFilePath, label);
+
+        // Validar filas y procesarlas
+        if (rawRows == null || rawRows.isEmpty()) {
+            throw new IllegalArgumentException("El archivo TXT no contiene datos válidos.");
+        }
+
+        // Procesar filas usando el MessageProcessor
+        Map<String, SpamDictionary.Pair> accentPairs = dictionary.getAccentPairs();
+        Map<CharSize, Map<String, Set<String>>> lexemeRepository = dictionary.getLexemesRepository();
+        List<List<WordData>> processedWordData = MessageProcessor.processToWordData(rawRows, accentPairs, lexemeRepository);
+
+        // Actualizar el diccionario con los datos procesados
+        updateDictionaryFromProcessedWordData(processedWordData);
+
+        System.out.println("Diccionario actualizado correctamente con datos del archivo TXT: " + txtFilePath);
+    }
+
 
     public void updateDictionaryFromProcessedWordData(List<List<WordData>> processedData) {
         // Aplanar la estructura de las palabras

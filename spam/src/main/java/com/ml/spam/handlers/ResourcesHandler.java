@@ -306,4 +306,28 @@ public class ResourcesHandler {
         }
     }
 
+    //Recibe el path y el label ya que los archivos txt solamente tienen mensaje sin label.
+    public List<String[]> loadTxtFileAsRows(String txtFilePath, String label) {
+        List<String[]> rows = new ArrayList<>();
+
+        try {
+            // Leer el contenido del archivo como un String
+            String content = loadResourceAsString(txtFilePath);
+
+            // Dividir contenido por las triples comillas
+            String[] blocks = content.split("\"\"\"");
+            for (String block : blocks) {
+                String message = block.trim();
+                if (!message.isEmpty()) {
+                    rows.add(new String[]{message, label});
+                }
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Error al leer el archivo TXT: " + e.getMessage(), e);
+        }
+
+        return rows;
+    }
+
+
 }

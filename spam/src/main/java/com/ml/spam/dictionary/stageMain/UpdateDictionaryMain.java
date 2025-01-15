@@ -9,7 +9,7 @@ import java.io.IOException;
 public class UpdateDictionaryMain {
     // Nombre del archivo que se generará al exportar categorizedWords.
     // No sobreescribe. Si existe se incrementará un número.
-    private static final String baseOutputPath = "static/dictionary/updatedCategorizedWords.json";
+    private static final String baseOutputPath = FilePathsConfig.BASE_OUTPUT_JSON_PATH;
 
     //Elementos del Dictionary
     private static final String updatedCatWordsPath = "static/dictionary/updatedCategorizedWords.json";

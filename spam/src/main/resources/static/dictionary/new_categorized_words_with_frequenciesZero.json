@@ -110,7 +110,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "artículo" : {
+    "artculo" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -138,7 +138,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "envío" : {
+    "envo" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -410,6 +410,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
+    "numsuperhigh" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "tan" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -428,6 +432,10 @@
     }
   },
   "strongSpamWord" : {
+    "" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "$" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -576,7 +584,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "contraseña" : {
+    "contrasea" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -640,7 +648,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "engaño" : {
+    "engao" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -700,11 +708,11 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "garantizado" : {
+    "garanta" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "garantía" : {
+    "garantizado" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -728,11 +736,11 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "increible" : {
+    "increble" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "increíble" : {
+    "increible" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -744,7 +752,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "instrucciónes" : {
+    "instruccines" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -752,7 +760,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "inversión" : {
+    "inversin" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -817,6 +825,10 @@
       "spamFrequency" : 0
     },
     "loteria" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ltimo" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -940,7 +952,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "promoción" : {
+    "promocin" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -1044,7 +1056,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "suscripción" : {
+    "suscripcin" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -1104,19 +1116,11 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
+    "xito" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "ya" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
-    },
-    "éxito" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
-    },
-    "último" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
-    },
-    "€" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     }

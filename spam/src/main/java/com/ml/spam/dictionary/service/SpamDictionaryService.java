@@ -413,11 +413,16 @@ public void updateDictionaryFromProcessedWordData(List<List<WordData>> processed
         String token = entry.getKey();
         WordData wordData = entry.getValue();
 
-        // Determinar la categoría final basada en frecuencias totales
-        WordCategory category = determineCategoryByFrequency(wordData);
+        // Verificar si la palabra ya existe en el diccionario
+        if (dictionary.containsWord(token)) {
+            updateExistingWordFrequencies(token, wordData);
+        } else {
+            // Determinar la categoría final basada en frecuencias totales
+            WordCategory category = determineCategoryByFrequency(wordData);
 
-        // Actualizar el diccionario con la palabra categorizada
-        dictionary.addWordWithFrequencies(category, token, wordData.getSpamFrequency(), wordData.getHamFrequency());
+            // Actualizar el diccionario con la palabra categorizada
+            dictionary.addWordWithFrequencies(category, token, wordData.getSpamFrequency(), wordData.getHamFrequency());
+        }
     }
 }
 

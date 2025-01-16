@@ -1,12 +1,292 @@
 {
   "hamIndicators" : {
+    "accionistas" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "actualizaciones" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "acuerdo" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "antes" : {
+      "hamFrequency" : 4,
+      "spamFrequency" : 2
+    },
+    "apadrinando" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "apoya" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 1
+    },
+    "aprobado" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "aqui" : {
+      "hamFrequency" : 18,
+      "spamFrequency" : 15
+    },
+    "asesorarte" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "atencion" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 0
+    },
+    "autorizacion" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 0
+    },
+    "banco" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 1
+    },
+    "bienvenido" : {
+      "hamFrequency" : 8,
+      "spamFrequency" : 0
+    },
+    "borrador" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "cafe" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "causa" : {
+      "hamFrequency" : 4,
+      "spamFrequency" : 1
+    },
+    "celular" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "cenar" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 0
+    },
+    "certificado" : {
+      "hamFrequency" : 4,
+      "spamFrequency" : 0
+    },
+    "cierre" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "cliente" : {
+      "hamFrequency" : 6,
+      "spamFrequency" : 0
+    },
+    "club" : {
+      "hamFrequency" : 4,
+      "spamFrequency" : 3
+    },
+    "comparte" : {
+      "hamFrequency" : 5,
+      "spamFrequency" : 3
+    },
+    "completa" : {
+      "hamFrequency" : 5,
+      "spamFrequency" : 1
+    },
+    "compra" : {
+      "hamFrequency" : 12,
+      "spamFrequency" : 7
+    },
+    "compromiso" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "comunicacion" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "confidencialidad" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "confirmacion" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "confirmamos" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "constructivos" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "construyamos" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "consulta" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "consultas" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 0
+    },
+    "contacto" : {
+      "hamFrequency" : 4,
+      "spamFrequency" : 1
+    },
+    "continuar" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 1
+    },
+    "contrasena" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "coordinemos" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "corte" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 1
+    },
+    "costo" : {
+      "hamFrequency" : 3,
+      "spamFrequency" : 0
+    },
+    "crecer" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "cuenta" : {
+      "hamFrequency" : 18,
+      "spamFrequency" : 12
+    },
+    "debito" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "deseamos" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "digital" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "documento" : {
+      "hamFrequency" : 4,
+      "spamFrequency" : 2
+    },
+    "donacion" : {
+      "hamFrequency" : 5,
+      "spamFrequency" : 0
+    },
+    "empleado" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "es" : {
+      "hamFrequency" : 24,
+      "spamFrequency" : 5
+    },
+    "estado" : {
+      "hamFrequency" : 8,
+      "spamFrequency" : 0
+    },
+    "evento" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "exito" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 1
+    },
+    "experiencia" : {
+      "hamFrequency" : 5,
+      "spamFrequency" : 3
+    },
+    "extendida" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "favorito" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 0
+    },
+    "felicidades" : {
+      "hamFrequency" : 14,
+      "spamFrequency" : 3
+    },
+    "fuiste" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "hacen" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "infancia" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 0
+    },
+    "informacion" : {
+      "hamFrequency" : 7,
+      "spamFrequency" : 3
+    },
+    "interes" : {
+      "hamFrequency" : 5,
+      "spamFrequency" : 2
+    },
+    "lexaccountactions" : {
+      "hamFrequency" : 4,
+      "spamFrequency" : 3
+    },
+    "lexactions" : {
+      "hamFrequency" : 18,
+      "spamFrequency" : 11
+    },
     "lexapologies" : {
       "hamFrequency" : 7,
+      "spamFrequency" : 0
+    },
+    "lexapproval" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "lexauxiliaryverbs" : {
+      "hamFrequency" : 7,
+      "spamFrequency" : 1
+    },
+    "lexbenefits" : {
+      "hamFrequency" : 3,
+      "spamFrequency" : 2
+    },
+    "lexcalendar" : {
+      "hamFrequency" : 24,
+      "spamFrequency" : 23
+    },
+    "lexcelebrations" : {
+      "hamFrequency" : 10,
       "spamFrequency" : 0
     },
     "lexchoices" : {
       "hamFrequency" : 25,
       "spamFrequency" : 4
+    },
+    "lexcodes" : {
+      "hamFrequency" : 6,
+      "spamFrequency" : 2
+    },
+    "lexcommunication" : {
+      "hamFrequency" : 12,
+      "spamFrequency" : 3
     },
     "lexcommunity" : {
       "hamFrequency" : 5,
@@ -15,6 +295,14 @@
     "lexconfirmations" : {
       "hamFrequency" : 40,
       "spamFrequency" : 0
+    },
+    "lexconjunctions" : {
+      "hamFrequency" : 80,
+      "spamFrequency" : 58
+    },
+    "lexcontact" : {
+      "hamFrequency" : 3,
+      "spamFrequency" : 2
     },
     "lexcontextual" : {
       "hamFrequency" : 24,
@@ -32,6 +320,10 @@
       "hamFrequency" : 42,
       "spamFrequency" : 6
     },
+    "lexexclamations" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
     "lexfamily" : {
       "hamFrequency" : 4,
       "spamFrequency" : 0
@@ -48,9 +340,17 @@
       "hamFrequency" : 14,
       "spamFrequency" : 0
     },
+    "lexguarantees" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 1
+    },
     "lexguidelines" : {
       "hamFrequency" : 12,
       "spamFrequency" : 0
+    },
+    "lexhealth" : {
+      "hamFrequency" : 11,
+      "spamFrequency" : 10
     },
     "lexhelp" : {
       "hamFrequency" : 23,
@@ -64,6 +364,10 @@
       "hamFrequency" : 5,
       "spamFrequency" : 0
     },
+    "lexneutral" : {
+      "hamFrequency" : 14,
+      "spamFrequency" : 4
+    },
     "lexnotifications" : {
       "hamFrequency" : 61,
       "spamFrequency" : 9
@@ -76,13 +380,37 @@
       "hamFrequency" : 26,
       "spamFrequency" : 0
     },
-    "lexrequests" : {
+    "lexpronouns" : {
+      "hamFrequency" : 86,
+      "spamFrequency" : 55
+    },
+    "lexpurchase" : {
+      "hamFrequency" : 35,
+      "spamFrequency" : 8
+    },
+    "lexqualities" : {
+      "hamFrequency" : 7,
+      "spamFrequency" : 3
+    },
+    "lexsecurity" : {
+      "hamFrequency" : 9,
+      "spamFrequency" : 0
+    },
+    "lexspamgreetings" : {
+      "hamFrequency" : 39,
+      "spamFrequency" : 15
+    },
+    "lexsubscriptions" : {
       "hamFrequency" : 6,
-      "spamFrequency" : 18
+      "spamFrequency" : 0
     },
     "lexsuccess" : {
       "hamFrequency" : 9,
       "spamFrequency" : 0
+    },
+    "lexsymbols" : {
+      "hamFrequency" : 8,
+      "spamFrequency" : 3
     },
     "lexteam" : {
       "hamFrequency" : 10,
@@ -92,23 +420,223 @@
       "hamFrequency" : 3,
       "spamFrequency" : 0
     },
+    "lexunits" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "lexurgency" : {
+      "hamFrequency" : 4,
+      "spamFrequency" : 3
+    },
+    "lexurgentrequests" : {
+      "hamFrequency" : 12,
+      "spamFrequency" : 10
+    },
+    "lexvowel" : {
+      "hamFrequency" : 17,
+      "spamFrequency" : 8
+    },
     "lexwork" : {
       "hamFrequency" : 3,
       "spamFrequency" : 0
+    },
+    "maravilloso" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 0
+    },
+    "mejor" : {
+      "hamFrequency" : 8,
+      "spamFrequency" : 3
+    },
+    "millon" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 0
+    },
+    "mora" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "nino" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 1
+    },
+    "nomina" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 1
+    },
+    "nuevas" : {
+      "hamFrequency" : 3,
+      "spamFrequency" : 1
+    },
+    "numero" : {
+      "hamFrequency" : 5,
+      "spamFrequency" : 2
+    },
+    "oficial" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 0
+    },
+    "olvides" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "opinion" : {
+      "hamFrequency" : 8,
+      "spamFrequency" : 1
+    },
+    "parte" : {
+      "hamFrequency" : 7,
+      "spamFrequency" : 1
+    },
+    "participacion" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "pendiente" : {
+      "hamFrequency" : 5,
+      "spamFrequency" : 2
+    },
+    "preaprobado" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "probar" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 0
+    },
+    "problema" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 0
+    },
+    "pronto" : {
+      "hamFrequency" : 10,
+      "spamFrequency" : 0
+    },
+    "prospero" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "reclama" : {
+      "hamFrequency" : 6,
+      "spamFrequency" : 2
+    },
+    "resultados" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 1
+    },
+    "reunion" : {
+      "hamFrequency" : 6,
+      "spamFrequency" : 0
+    },
+    "revision" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "salva" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "satisfaccion" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "seguridad" : {
+      "hamFrequency" : 5,
+      "spamFrequency" : 2
+    },
+    "selecto" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "servicio" : {
+      "hamFrequency" : 7,
+      "spamFrequency" : 5
+    },
+    "siguiente" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "solicita" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 0
+    },
+    "solicitud" : {
+      "hamFrequency" : 6,
+      "spamFrequency" : 1
+    },
+    "sugerencias" : {
+      "hamFrequency" : 4,
+      "spamFrequency" : 0
+    },
+    "suscripcion" : {
+      "hamFrequency" : 6,
+      "spamFrequency" : 4
+    },
+    "tanto" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 0
+    },
+    "tarjeta" : {
+      "hamFrequency" : 3,
+      "spamFrequency" : 0
+    },
+    "tiempo" : {
+      "hamFrequency" : 5,
+      "spamFrequency" : 4
+    },
+    "todas" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 0
+    },
+    "todo" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 0
+    },
+    "todos" : {
+      "hamFrequency" : 3,
+      "spamFrequency" : 0
+    },
+    "transacciones" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "tributario" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "vacante" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "valiosos" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 0
+    },
+    "ya" : {
+      "hamFrequency" : 12,
+      "spamFrequency" : 1
     }
   },
   "moderateSpamWord" : {
-    "ahorrar" : {
+    "acceso" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 3
+      "spamFrequency" : 6
+    },
+    "acumula" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 5
     },
     "ahorro" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "aprobado" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
+    "aprende" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 8
+    },
+    "aprovecha" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 13
     },
     "artculo" : {
       "hamFrequency" : 0,
@@ -124,7 +652,11 @@
     },
     "baja" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 17
+      "spamFrequency" : 12
+    },
+    "cabello" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 6
     },
     "card" : {
       "hamFrequency" : 1,
@@ -134,31 +666,55 @@
       "hamFrequency" : 0,
       "spamFrequency" : 10
     },
+    "como" : {
+      "hamFrequency" : 4,
+      "spamFrequency" : 9
+    },
     "compras" : {
       "hamFrequency" : 1,
       "spamFrequency" : 10
     },
-    "consulta" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
+    "concurso" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 6
     },
-    "consultas" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "contacto" : {
-      "hamFrequency" : 4,
-      "spamFrequency" : 1
-    },
-    "costo" : {
-      "hamFrequency" : 3,
-      "spamFrequency" : 3
+    "cuerpo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 7
     },
     "curso" : {
       "hamFrequency" : 0,
       "spamFrequency" : 5
     },
     "desarrolla" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 5
+    },
+    "descarga" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 11
+    },
+    "descargar" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 7
+    },
+    "descubre" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 14
+    },
+    "descuento" : {
+      "hamFrequency" : 3,
+      "spamFrequency" : 14
+    },
+    "descuentos" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 6
+    },
+    "desde" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 13
+    },
+    "despierta" : {
       "hamFrequency" : 0,
       "spamFrequency" : 5
     },
@@ -170,9 +726,17 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "estado" : {
-      "hamFrequency" : 8,
-      "spamFrequency" : 0
+    "exclusivos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 5
+    },
+    "extra" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 9
+    },
+    "fondo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 5
     },
     "fotos" : {
       "hamFrequency" : 0,
@@ -182,77 +746,61 @@
       "hamFrequency" : 0,
       "spamFrequency" : 6
     },
-    "ganancias" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
+    "genera" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 6
     },
     "gift" : {
       "hamFrequency" : 1,
       "spamFrequency" : 5
     },
-    "hacer" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "has" : {
       "hamFrequency" : 4,
       "spamFrequency" : 12
+    },
+    "hogar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 5
+    },
+    "hoy" : {
+      "hamFrequency" : 5,
+      "spamFrequency" : 12
+    },
+    "identidad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 5
+    },
+    "increible" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 9
     },
     "increibles" : {
       "hamFrequency" : 0,
       "spamFrequency" : 5
     },
-    "informacion" : {
-      "hamFrequency" : 7,
-      "spamFrequency" : 3
-    },
     "ingresos" : {
       "hamFrequency" : 1,
       "spamFrequency" : 6
     },
-    "instrucciones" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "intereses" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 4
-    },
-    "invertir" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "invierte" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 16
-    },
-    "lexactions" : {
-      "hamFrequency" : 18,
-      "spamFrequency" : 11
+      "spamFrequency" : 14
     },
     "lexalerts" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "lexcelebrations" : {
-      "hamFrequency" : 10,
-      "spamFrequency" : 0
+    "lexcodes" : {
+      "hamFrequency" : 21,
+      "spamFrequency" : 28
+    },
+    "lexcurrencies" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 13
     },
     "lexfinance" : {
       "hamFrequency" : 2,
       "spamFrequency" : 7
-    },
-    "lexfree" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "lexgrowth" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
-    "lexguarantees" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 1
     },
     "leximprovements" : {
       "hamFrequency" : 0,
@@ -262,33 +810,29 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "lexmotivational" : {
-      "hamFrequency" : 4,
-      "spamFrequency" : 37
+    "lexpower" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 5
     },
     "lexpromotions" : {
       "hamFrequency" : 5,
       "spamFrequency" : 17
     },
-    "lexsecurity" : {
-      "hamFrequency" : 9,
-      "spamFrequency" : 0
+    "lexrequests" : {
+      "hamFrequency" : 6,
+      "spamFrequency" : 18
     },
-    "lexspamreetings" : {
+    "lexsector" : {
       "hamFrequency" : 3,
-      "spamFrequency" : 7
+      "spamFrequency" : 9
     },
     "lexstatistics" : {
       "hamFrequency" : 0,
       "spamFrequency" : 6
     },
-    "lexsubscriptions" : {
+    "lexurls" : {
       "hamFrequency" : 6,
-      "spamFrequency" : 0
-    },
-    "lexsuperlatives" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
+      "spamFrequency" : 14
     },
     "lexvaluable" : {
       "hamFrequency" : 0,
@@ -298,11 +842,19 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "lexwebactions" : {
-      "hamFrequency" : 6,
-      "spamFrequency" : 10
+    "mirada" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 5
     },
     "multiplica" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 5
+    },
+    "natural" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 5
+    },
+    "noticias" : {
       "hamFrequency" : 0,
       "spamFrequency" : 5
     },
@@ -315,20 +867,52 @@
       "spamFrequency" : 28
     },
     "nuestras" : {
-      "hamFrequency" : 6,
-      "spamFrequency" : 26
+      "hamFrequency" : 5,
+      "spamFrequency" : 19
     },
-    "nuestro" : {
-      "hamFrequency" : 32,
-      "spamFrequency" : 89
+    "nuestros" : {
+      "hamFrequency" : 12,
+      "spamFrequency" : 18
     },
     "numlow" : {
-      "hamFrequency" : 6,
-      "spamFrequency" : 21
+      "hamFrequency" : 3,
+      "spamFrequency" : 15
+    },
+    "oferta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 7
+    },
+    "ofertas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 7
+    },
+    "oportunidad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 6
+    },
+    "participa" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 5
+    },
+    "participando" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 6
+    },
+    "pastillas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 5
     },
     "personal" : {
       "hamFrequency" : 1,
       "spamFrequency" : 7
+    },
+    "pierdas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 14
+    },
+    "pierde" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 6
     },
     "poderoso" : {
       "hamFrequency" : 0,
@@ -338,9 +922,9 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "probar" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
+    "premios" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 5
     },
     "producto" : {
       "hamFrequency" : 0,
@@ -350,9 +934,25 @@
       "hamFrequency" : 1,
       "spamFrequency" : 8
     },
+    "protege" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 8
+    },
     "prueba" : {
       "hamFrequency" : 1,
       "spamFrequency" : 9
+    },
+    "puntos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 6
+    },
+    "recibe" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 10
+    },
+    "recibir" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 5
     },
     "recompensas" : {
       "hamFrequency" : 1,
@@ -378,25 +978,33 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "salva" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
-    },
     "salvar" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "servicio" : {
-      "hamFrequency" : 7,
+    "seguro" : {
+      "hamFrequency" : 3,
+      "spamFrequency" : 14
+    },
+    "sexual" : {
+      "hamFrequency" : 0,
       "spamFrequency" : 5
     },
-    "sistema" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 3
+    "sin" : {
+      "hamFrequency" : 3,
+      "spamFrequency" : 15
     },
     "solo" : {
       "hamFrequency" : 1,
       "spamFrequency" : 8
+    },
+    "sorteo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 7
+    },
+    "suplemento" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 9
     },
     "suspendida" : {
       "hamFrequency" : 0,
@@ -406,9 +1014,9 @@
       "hamFrequency" : 0,
       "spamFrequency" : 6
     },
-    "trabajo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
+    "todo" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 8
     },
     "ultimas" : {
       "hamFrequency" : 0,
@@ -418,6 +1026,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
+    "usa" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 5
+    },
     "venta" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -426,7 +1038,23 @@
       "hamFrequency" : 0,
       "spamFrequency" : 8
     },
+    "verificar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 11
+    },
+    "viaje" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 8
+    },
+    "vida" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 9
+    },
     "video" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 6
+    },
+    "videos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 6
     }
@@ -467,8 +1095,8 @@
       "spamFrequency" : 14
     },
     "lexcalendar" : {
-      "hamFrequency" : 28,
-      "spamFrequency" : 30
+      "hamFrequency" : 4,
+      "spamFrequency" : 7
     },
     "lexcodes" : {
       "hamFrequency" : 27,
@@ -479,8 +1107,8 @@
       "spamFrequency" : 70
     },
     "lexdeterminers" : {
-      "hamFrequency" : 247,
-      "spamFrequency" : 314
+      "hamFrequency" : 49,
+      "spamFrequency" : 51
     },
     "lexdimensions" : {
       "hamFrequency" : 0,
@@ -491,8 +1119,8 @@
       "spamFrequency" : 16
     },
     "lexprepositions" : {
-      "hamFrequency" : 421,
-      "spamFrequency" : 551
+      "hamFrequency" : 75,
+      "spamFrequency" : 104
     },
     "lexpronouns" : {
       "hamFrequency" : 435,
@@ -540,14 +1168,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "abundancia" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "acceso" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
     "accion" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -568,10 +1188,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "ahorra" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 1
-    },
     "alerta" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -580,10 +1196,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "amigo" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 2
-    },
     "amor" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -591,6 +1203,10 @@
     "anuncio" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
+    },
+    "aprovecha" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 16
     },
     "apuesta" : {
       "hamFrequency" : 0,
@@ -604,10 +1220,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "atencion" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
     "aumente" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -616,44 +1228,20 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "autorizacion" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
+    "baja" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 17
     },
     "bancarrota" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "banco" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 1
-    },
-    "belleza" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
-    "bitcoin" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "blackjack" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "bono" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "casino" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 0
-    },
-    "certificado" : {
-      "hamFrequency" : 4,
-      "spamFrequency" : 0
-    },
-    "cierre" : {
-      "hamFrequency" : 2,
       "spamFrequency" : 0
     },
     "clic" : {
@@ -664,21 +1252,9 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "cliente" : {
-      "hamFrequency" : 6,
-      "spamFrequency" : 0
-    },
-    "como" : {
-      "hamFrequency" : 4,
-      "spamFrequency" : 9
-    },
     "compare" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
-    },
-    "compra" : {
-      "hamFrequency" : 12,
-      "spamFrequency" : 7
     },
     "confidencial" : {
       "hamFrequency" : 0,
@@ -688,37 +1264,13 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "credito" : {
-      "hamFrequency" : 6,
-      "spamFrequency" : 6
-    },
     "criptografia" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "cuenta" : {
-      "hamFrequency" : 18,
-      "spamFrequency" : 12
-    },
     "cura" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
-    },
-    "descarga" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 11
-    },
-    "descargar" : {
-      "hamFrequency" : 3,
-      "spamFrequency" : 7
-    },
-    "descuento" : {
-      "hamFrequency" : 3,
-      "spamFrequency" : 14
-    },
-    "dieta" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
     },
     "dinero" : {
       "hamFrequency" : 1,
@@ -728,10 +1280,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "donacion" : {
-      "hamFrequency" : 5,
-      "spamFrequency" : 0
-    },
     "eliminar" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -739,10 +1287,6 @@
     "empleo" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
-    },
-    "encuentra" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 4
     },
     "encuentros" : {
       "hamFrequency" : 0,
@@ -764,21 +1308,9 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "exclusivo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
-    "expira" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "fabuloso" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
-    },
-    "felicidades" : {
-      "hamFrequency" : 14,
-      "spamFrequency" : 3
     },
     "felicitaciones" : {
       "hamFrequency" : 0,
@@ -788,17 +1320,9 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "flash" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "formulario" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
-    },
-    "fortuna" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
     },
     "fraude" : {
       "hamFrequency" : 0,
@@ -824,29 +1348,13 @@
       "hamFrequency" : 1,
       "spamFrequency" : 31
     },
-    "gratuito" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "guardar" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "herencia" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "hoy" : {
-      "hamFrequency" : 5,
-      "spamFrequency" : 12
-    },
     "increble" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
-    },
-    "increible" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 9
     },
     "inmediato" : {
       "hamFrequency" : 0,
@@ -860,13 +1368,13 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "interes" : {
-      "hamFrequency" : 5,
-      "spamFrequency" : 2
-    },
     "inversin" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
+    },
+    "invierte" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 16
     },
     "irrepetible" : {
       "hamFrequency" : 0,
@@ -884,10 +1392,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "juego" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 4
-    },
     "legal" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -896,19 +1400,23 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "lexbenefits" : {
-      "hamFrequency" : 3,
-      "spamFrequency" : 2
-    },
     "lexcurrencies" : {
       "hamFrequency" : 0,
       "spamFrequency" : 16
     },
-    "lexpurchases" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
+    "lexdeterminers" : {
+      "hamFrequency" : 247,
+      "spamFrequency" : 314
     },
-    "lexvaluable" : {
+    "lexmotivational" : {
+      "hamFrequency" : 4,
+      "spamFrequency" : 37
+    },
+    "lexprepositions" : {
+      "hamFrequency" : 421,
+      "spamFrequency" : 551
+    },
+    "lexpurchases" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -920,17 +1428,9 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "limitado" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "llamada" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
-    },
-    "loteria" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
     },
     "ltimo" : {
       "hamFrequency" : 0,
@@ -944,10 +1444,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "maravilloso" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
     "marketing" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -955,14 +1451,6 @@
     "medicamento" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
-    },
-    "mejor" : {
-      "hamFrequency" : 8,
-      "spamFrequency" : 3
-    },
-    "mejora" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 5
     },
     "mejore" : {
       "hamFrequency" : 0,
@@ -976,14 +1464,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "millon" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "millonario" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "millones" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -992,25 +1472,21 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "notificacion" : {
+    "nuestras" : {
+      "hamFrequency" : 6,
+      "spamFrequency" : 26
+    },
+    "nuestro" : {
+      "hamFrequency" : 32,
+      "spamFrequency" : 89
+    },
+    "numlow" : {
+      "hamFrequency" : 6,
+      "spamFrequency" : 21
+    },
+    "obten" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 0
-    },
-    "notificaciones" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 1
-    },
-    "oferta" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 7
-    },
-    "oficial" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "oportunidad" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
+      "spamFrequency" : 39
     },
     "participe" : {
       "hamFrequency" : 0,
@@ -1024,28 +1500,12 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
+    "pierdas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 17
+    },
     "planear" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 0
-    },
-    "precio" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
-    "premio" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 3
-    },
-    "premios" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "prestamo" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 2
-    },
-    "problema" : {
-      "hamFrequency" : 1,
       "spamFrequency" : 0
     },
     "procesa" : {
@@ -1058,10 +1518,6 @@
     },
     "promocin" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 0
-    },
-    "pronto" : {
-      "hamFrequency" : 10,
       "spamFrequency" : 0
     },
     "prosperidad" : {
@@ -1080,21 +1536,9 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "rapido" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "rebaja" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
-    },
-    "rebajas" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 4
-    },
-    "recompensa" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
     },
     "recuperacion" : {
       "hamFrequency" : 0,
@@ -1116,10 +1560,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "riesgo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "riqueza" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -1128,33 +1568,13 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "secreto" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
-    "seguridad" : {
-      "hamFrequency" : 5,
-      "spamFrequency" : 2
-    },
-    "seguro" : {
-      "hamFrequency" : 3,
-      "spamFrequency" : 14
-    },
     "seleccion" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "sorteo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 7
-    },
     "spam" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
-    },
-    "suerte" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 2
     },
     "suscribirse" : {
       "hamFrequency" : 0,
@@ -1168,10 +1588,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "tarjeta" : {
-      "hamFrequency" : 3,
-      "spamFrequency" : 0
-    },
     "testimonios" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -1179,10 +1595,6 @@
     "trampa" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
-    },
-    "unica" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
     },
     "urgente" : {
       "hamFrequency" : 0,
@@ -1200,21 +1612,9 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "verificacion" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "verificar" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 11
-    },
     "viagra" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
-    },
-    "vip" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
     },
     "webaddress" : {
       "hamFrequency" : 0,
@@ -1223,10 +1623,6 @@
     "xito" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
-    },
-    "ya" : {
-      "hamFrequency" : 12,
-      "spamFrequency" : 1
     }
   },
   "unassignedWords" : {
@@ -1242,9 +1638,9 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "abdominales" : {
+    "abundancia" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 3
+      "spamFrequency" : 1
     },
     "acaban" : {
       "hamFrequency" : 0,
@@ -1253,10 +1649,6 @@
     "acceder" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "accionistas" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
     },
     "acero" : {
       "hamFrequency" : 0,
@@ -1270,25 +1662,17 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "actual" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
+    "actividad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
     },
-    "actualizaciones" : {
+    "actual" : {
       "hamFrequency" : 2,
       "spamFrequency" : 0
     },
     "actualizado" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
-    },
-    "acuerdo" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
-    },
-    "acumula" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
     },
     "adicional" : {
       "hamFrequency" : 2,
@@ -1354,6 +1738,14 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
+    "ahorra" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 1
+    },
+    "ahorrar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "ahorros" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -1382,6 +1774,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
+    "amigo" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 2
+    },
     "amistoso" : {
       "hamFrequency" : 2,
       "spamFrequency" : 0
@@ -1406,10 +1802,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "apadrinando" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
-    },
     "aparato" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -1418,17 +1810,9 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "apoya" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 1
-    },
     "apreciamos" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
-    },
-    "aprende" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 8
     },
     "aprender" : {
       "hamFrequency" : 0,
@@ -1450,6 +1834,10 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
+    "archivo" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 1
+    },
     "area" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -1461,10 +1849,6 @@
     "arribara" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
-    },
-    "arte" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
     },
     "articulos" : {
       "hamFrequency" : 0,
@@ -1488,11 +1872,7 @@
     },
     "asesor" : {
       "hamFrequency" : 1,
-      "spamFrequency" : 3
-    },
-    "asesorarte" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
+      "spamFrequency" : 2
     },
     "asesoria" : {
       "hamFrequency" : 1,
@@ -1508,7 +1888,7 @@
     },
     "atrae" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "automaticamente" : {
       "hamFrequency" : 1,
@@ -1528,7 +1908,7 @@
     },
     "bajo" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "balance" : {
       "hamFrequency" : 2,
@@ -1560,6 +1940,10 @@
     },
     "beca" : {
       "hamFrequency" : 2,
+      "spamFrequency" : 1
+    },
+    "belleza" : {
+      "hamFrequency" : 0,
       "spamFrequency" : 1
     },
     "bendiciones" : {
@@ -1596,19 +1980,19 @@
     },
     "boletos" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "bonificado" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "bonos" : {
+    "bono" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "borrador" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
+    "bonos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
     },
     "breve" : {
       "hamFrequency" : 2,
@@ -1634,17 +2018,9 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "cabello" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
     "cachorros" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "cada" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 4
     },
     "caduque" : {
       "hamFrequency" : 0,
@@ -1652,10 +2028,6 @@
     },
     "caf" : {
       "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "cafe" : {
-      "hamFrequency" : 2,
       "spamFrequency" : 0
     },
     "calientes" : {
@@ -1689,10 +2061,6 @@
     "cancelado" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
-    },
-    "canjea" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 4
     },
     "canjeables" : {
       "hamFrequency" : 0,
@@ -1738,10 +2106,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "causa" : {
-      "hamFrequency" : 4,
-      "spamFrequency" : 1
-    },
     "causado" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
@@ -1753,10 +2117,6 @@
     "cedula" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "celular" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
     },
     "cena" : {
       "hamFrequency" : 0,
@@ -1772,11 +2132,11 @@
     },
     "cerebro" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "cero" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "cerradas" : {
       "hamFrequency" : 1,
@@ -1808,7 +2168,7 @@
     },
     "citas" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "ciudad" : {
       "hamFrequency" : 0,
@@ -1820,15 +2180,11 @@
     },
     "claves" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "clima" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
-    },
-    "club" : {
-      "hamFrequency" : 4,
-      "spamFrequency" : 3
     },
     "coach" : {
       "hamFrequency" : 0,
@@ -1866,10 +2222,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "comparte" : {
-      "hamFrequency" : 5,
-      "spamFrequency" : 3
-    },
     "compartido" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
@@ -1880,7 +2232,7 @@
     },
     "compartir" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "compatibles" : {
       "hamFrequency" : 0,
@@ -1892,10 +2244,6 @@
     },
     "comprometidos" : {
       "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "compromiso" : {
-      "hamFrequency" : 2,
       "spamFrequency" : 0
     },
     "comprueba" : {
@@ -1916,15 +2264,11 @@
     },
     "concierto" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "concursa" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "concurso" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
     },
     "conducir" : {
       "hamFrequency" : 0,
@@ -1934,16 +2278,8 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "confidencialidad" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
-    },
     "confirmado" : {
       "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "confirmamos" : {
-      "hamFrequency" : 2,
       "spamFrequency" : 0
     },
     "confirmes" : {
@@ -1966,23 +2302,11 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "consola" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
     "constantes" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "constructivos" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
-    },
     "construir" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
-    },
-    "construyamos" : {
       "hamFrequency" : 2,
       "spamFrequency" : 0
     },
@@ -1994,21 +2318,13 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "contenido" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 4
-    },
     "contestando" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
     "continuar" : {
-      "hamFrequency" : 2,
+      "hamFrequency" : 1,
       "spamFrequency" : 1
-    },
-    "contrasena" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
     },
     "contratar" : {
       "hamFrequency" : 1,
@@ -2034,29 +2350,21 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "coordinemos" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
-    },
-    "copia" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
     "correos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
     "corte" : {
-      "hamFrequency" : 2,
+      "hamFrequency" : 1,
       "spamFrequency" : 1
     },
     "cortesia" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "crecer" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
+    "costo" : {
+      "hamFrequency" : 3,
+      "spamFrequency" : 3
     },
     "creciendo" : {
       "hamFrequency" : 1,
@@ -2064,7 +2372,11 @@
     },
     "crediticio" : {
       "hamFrequency" : 1,
-      "spamFrequency" : 3
+      "spamFrequency" : 2
+    },
+    "credito" : {
+      "hamFrequency" : 6,
+      "spamFrequency" : 6
     },
     "creditos" : {
       "hamFrequency" : 0,
@@ -2073,10 +2385,6 @@
     "crema" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "criptomonedas" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
     },
     "crush" : {
       "hamFrequency" : 0,
@@ -2089,10 +2397,6 @@
     "cuentame" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
-    },
-    "cuerpo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 7
     },
     "cuida" : {
       "hamFrequency" : 0,
@@ -2116,7 +2420,7 @@
     },
     "cursos" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "cyber" : {
       "hamFrequency" : 0,
@@ -2133,10 +2437,6 @@
     "debe" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "debito" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
     },
     "deliciosas" : {
       "hamFrequency" : 0,
@@ -2164,7 +2464,7 @@
     },
     "deposito" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "des" : {
       "hamFrequency" : 1,
@@ -2202,14 +2502,6 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "desde" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 13
-    },
-    "deseamos" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
-    },
     "desempeno" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
@@ -2224,7 +2516,7 @@
     },
     "desintoxica" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "desnudas" : {
       "hamFrequency" : 0,
@@ -2244,7 +2536,7 @@
     },
     "destaca" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "detalle" : {
       "hamFrequency" : 0,
@@ -2272,7 +2564,7 @@
     },
     "diarios" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "dibuja" : {
       "hamFrequency" : 0,
@@ -2281,10 +2573,6 @@
     "diferencia" : {
       "hamFrequency" : 2,
       "spamFrequency" : 2
-    },
-    "digital" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
     },
     "digitalmente" : {
       "hamFrequency" : 1,
@@ -2320,7 +2608,7 @@
     },
     "divertidas" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "divertidisimos" : {
       "hamFrequency" : 0,
@@ -2337,10 +2625,6 @@
     "domicilio" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
-    },
-    "domina" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
     },
     "dona" : {
       "hamFrequency" : 1,
@@ -2374,14 +2658,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "ebook" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
-    "edad" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 4
-    },
     "educacion" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -2400,7 +2676,7 @@
     },
     "ejercicios" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "ejercita" : {
       "hamFrequency" : 0,
@@ -2413,10 +2689,6 @@
     "electronico" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
-    },
-    "elimina" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
     },
     "ello" : {
       "hamFrequency" : 1,
@@ -2442,10 +2714,6 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "empleado" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
-    },
     "empresariales" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -2468,7 +2736,7 @@
     },
     "energia" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "ensaladas" : {
       "hamFrequency" : 0,
@@ -2530,10 +2798,6 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "es" : {
-      "hamFrequency" : 24,
-      "spamFrequency" : 5
-    },
     "escanea" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -2576,7 +2840,7 @@
     },
     "estilo" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "estimula" : {
       "hamFrequency" : 0,
@@ -2632,7 +2896,11 @@
     },
     "expertos" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
+    },
+    "expira" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
     },
     "expirara" : {
       "hamFrequency" : 2,
@@ -2654,10 +2922,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "extendida" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
-    },
     "extendido" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
@@ -2669,10 +2933,6 @@
     "extiende" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "extra" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 9
     },
     "extrano" : {
       "hamFrequency" : 1,
@@ -2712,11 +2972,7 @@
     },
     "fama" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
-    "familia" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 4
+      "spamFrequency" : 1
     },
     "familiar" : {
       "hamFrequency" : 0,
@@ -2725,10 +2981,6 @@
     "favorablemente" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
-    },
-    "favorita" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
     },
     "favorito" : {
       "hamFrequency" : 1,
@@ -2744,7 +2996,7 @@
     },
     "financia" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "firmalo" : {
       "hamFrequency" : 1,
@@ -2764,11 +3016,11 @@
     },
     "fitness" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
-    "fondo" : {
+    "flash" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 5
+      "spamFrequency" : 1
     },
     "fondos" : {
       "hamFrequency" : 0,
@@ -2787,6 +3039,10 @@
       "spamFrequency" : 1
     },
     "fortalece" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "fortuna" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -2810,10 +3066,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "fuiste" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
-    },
     "funciones" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
@@ -2826,10 +3078,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "futuro" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 5
-    },
     "gamer" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -2837,10 +3085,6 @@
     "gastes" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "genera" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 6
     },
     "generado" : {
       "hamFrequency" : 2,
@@ -2864,7 +3108,11 @@
     },
     "grasa" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
+    },
+    "gratuito" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
     },
     "gruesas" : {
       "hamFrequency" : 0,
@@ -2880,7 +3128,7 @@
     },
     "guinness" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "guitarra" : {
       "hamFrequency" : 0,
@@ -2900,11 +3148,11 @@
     },
     "hablar" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
-    "hacen" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
+    "hacer" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
     },
     "hagamos" : {
       "hamFrequency" : 1,
@@ -2930,6 +3178,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
+    "herencia" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "herramientas" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -2938,21 +3190,9 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "hogar" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
     "ideal" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "identidad" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "identificacion" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
     },
     "ilimitado" : {
       "hamFrequency" : 0,
@@ -2960,11 +3200,11 @@
     },
     "imagen" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "imagenes" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "impactante" : {
       "hamFrequency" : 0,
@@ -3062,6 +3302,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
+    "instrucciones" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "instructivo" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -3102,6 +3346,10 @@
       "hamFrequency" : 1,
       "spamFrequency" : 1
     },
+    "invertir" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "invitamos" : {
       "hamFrequency" : 2,
       "spamFrequency" : 0
@@ -3112,7 +3360,7 @@
     },
     "iphone" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "irse" : {
       "hamFrequency" : 0,
@@ -3132,11 +3380,7 @@
     },
     "jubilacion" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
-    "juegos" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
+      "spamFrequency" : 1
     },
     "jugos" : {
       "hamFrequency" : 0,
@@ -3202,17 +3446,53 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
+    "lexadverbs" : {
+      "hamFrequency" : 3,
+      "spamFrequency" : 3
+    },
+    "lexconjunctions" : {
+      "hamFrequency" : 11,
+      "spamFrequency" : 12
+    },
     "lexconsonant" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "lexqualities" : {
+    "lexcontact" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 2
+    },
+    "lexfree" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "lexhealth" : {
       "hamFrequency" : 7,
-      "spamFrequency" : 3
+      "spamFrequency" : 8
+    },
+    "lexincome" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "lexproducts" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "lexsuperlatives" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "lexsymbols" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 1
     },
     "lextelecom" : {
       "hamFrequency" : 4,
       "spamFrequency" : 4
+    },
+    "lextests" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
     },
     "libera" : {
       "hamFrequency" : 0,
@@ -3234,6 +3514,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
+    "limitado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "limite" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
@@ -3244,7 +3528,7 @@
     },
     "liquidacion" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "listos" : {
       "hamFrequency" : 2,
@@ -3278,6 +3562,10 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
+    "loteria" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "lugar" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
@@ -3304,7 +3592,7 @@
     },
     "manten" : {
       "hamFrequency" : 1,
-      "spamFrequency" : 3
+      "spamFrequency" : 2
     },
     "mantendremos" : {
       "hamFrequency" : 1,
@@ -3320,7 +3608,7 @@
     },
     "maquillaje" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "marcar" : {
       "hamFrequency" : 1,
@@ -3370,10 +3658,6 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "mega" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
     "mejorada" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
@@ -3385,10 +3669,6 @@
     "mejores" : {
       "hamFrequency" : 1,
       "spamFrequency" : 1
-    },
-    "memes" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 4
     },
     "memoria" : {
       "hamFrequency" : 0,
@@ -3438,17 +3718,13 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "millas" : {
+    "millonario" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 3
+      "spamFrequency" : 1
     },
     "minuto" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
-    "mismo" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 5
+      "spamFrequency" : 1
     },
     "mitad" : {
       "hamFrequency" : 0,
@@ -3464,10 +3740,6 @@
     },
     "monitorea" : {
       "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "mora" : {
-      "hamFrequency" : 2,
       "spamFrequency" : 0
     },
     "motivacional" : {
@@ -3498,10 +3770,6 @@
       "hamFrequency" : 2,
       "spamFrequency" : 0
     },
-    "muestra" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
     "muestras" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -3520,7 +3788,7 @@
     },
     "mystery" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "naturales" : {
       "hamFrequency" : 0,
@@ -3555,7 +3823,7 @@
       "spamFrequency" : 1
     },
     "nino" : {
-      "hamFrequency" : 2,
+      "hamFrequency" : 1,
       "spamFrequency" : 1
     },
     "noble" : {
@@ -3571,27 +3839,19 @@
       "spamFrequency" : 1
     },
     "nomina" : {
-      "hamFrequency" : 2,
+      "hamFrequency" : 1,
       "spamFrequency" : 1
     },
     "nominado" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "noticias" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "novedades" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
+    "notificaciones" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 1
     },
     "novo" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "nuevas" : {
-      "hamFrequency" : 3,
       "spamFrequency" : 1
     },
     "nuevo" : {
@@ -3626,17 +3886,13 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "olvides" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
-    },
     "opcion" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
     "opciones" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "operacion" : {
       "hamFrequency" : 0,
@@ -3650,13 +3906,9 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "opinion" : {
-      "hamFrequency" : 8,
-      "spamFrequency" : 1
-    },
     "opiniones" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "optimicemos" : {
       "hamFrequency" : 1,
@@ -3686,10 +3938,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "pantalla" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 4
-    },
     "paquete" : {
       "hamFrequency" : 6,
       "spamFrequency" : 1
@@ -3705,22 +3953,6 @@
     "pariente" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "parte" : {
-      "hamFrequency" : 7,
-      "spamFrequency" : 1
-    },
-    "participa" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "participacion" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
-    },
-    "participando" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
     },
     "participar" : {
       "hamFrequency" : 1,
@@ -3762,17 +3994,13 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "pastillas" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
     "patrimonio" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
     "pedidos" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "pelicula" : {
       "hamFrequency" : 0,
@@ -3829,10 +4057,6 @@
     "pide" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "pierde" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
     },
     "pin" : {
       "hamFrequency" : 1,
@@ -3922,24 +4146,16 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "postula" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
     "postulacion" : {
       "hamFrequency" : 2,
       "spamFrequency" : 0
     },
     "postulate" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "potenciemos" : {
       "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "preaprobado" : {
-      "hamFrequency" : 2,
       "spamFrequency" : 0
     },
     "precios" : {
@@ -3953,6 +4169,10 @@
     "premiere" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
+    },
+    "premio" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 3
     },
     "prepara" : {
       "hamFrequency" : 0,
@@ -3979,6 +4199,14 @@
       "spamFrequency" : 0
     },
     "presentarte" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "prestamo" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 2
+    },
+    "prestamos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -4026,17 +4254,13 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "productos" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 5
-    },
     "profesional" : {
       "hamFrequency" : 1,
       "spamFrequency" : 1
     },
     "promociones" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "promovido" : {
       "hamFrequency" : 1,
@@ -4045,14 +4269,6 @@
     "propuesta" : {
       "hamFrequency" : 1,
       "spamFrequency" : 1
-    },
-    "prospero" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
-    },
-    "protege" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
     },
     "proteger" : {
       "hamFrequency" : 0,
@@ -4076,7 +4292,7 @@
     },
     "proximo" : {
       "hamFrequency" : 1,
-      "spamFrequency" : 3
+      "spamFrequency" : 2
     },
     "proximos" : {
       "hamFrequency" : 1,
@@ -4084,7 +4300,7 @@
     },
     "publico" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "puede" : {
       "hamFrequency" : 1,
@@ -4120,13 +4336,17 @@
     },
     "quema" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "queria" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
     "queridos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "rapido" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -4144,7 +4364,7 @@
     },
     "reality" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "realiza" : {
       "hamFrequency" : 1,
@@ -4152,7 +4372,7 @@
     },
     "realza" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "recargos" : {
       "hamFrequency" : 1,
@@ -4186,10 +4406,6 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "reclama" : {
-      "hamFrequency" : 6,
-      "spamFrequency" : 2
-    },
     "recogerlo" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
@@ -4206,6 +4422,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
+    "recompensa" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "reconfirma" : {
       "hamFrequency" : 2,
       "spamFrequency" : 2
@@ -4217,10 +4437,6 @@
     "reconocido" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "record" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 4
     },
     "recordamos" : {
       "hamFrequency" : 1,
@@ -4236,7 +4452,7 @@
     },
     "reduce" : {
       "hamFrequency" : 1,
-      "spamFrequency" : 3
+      "spamFrequency" : 2
     },
     "referenciando" : {
       "hamFrequency" : 0,
@@ -4256,11 +4472,11 @@
     },
     "refinanciamiento" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "refuerza" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "refugio" : {
       "hamFrequency" : 1,
@@ -4272,7 +4488,7 @@
     },
     "regalos" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "registra" : {
       "hamFrequency" : 1,
@@ -4318,10 +4534,6 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "resalta" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
     "reservado" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
@@ -4366,10 +4578,6 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "reto" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 4
-    },
     "retraso" : {
       "hamFrequency" : 2,
       "spamFrequency" : 0
@@ -4407,6 +4615,10 @@
       "spamFrequency" : 1
     },
     "rico" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "riesgo" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -4474,10 +4686,6 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "satisfaccion" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
-    },
     "satisfacerte" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
@@ -4506,10 +4714,6 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "selecto" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
-    },
     "selfie" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -4528,7 +4732,7 @@
     },
     "sere" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "seres" : {
       "hamFrequency" : 0,
@@ -4546,17 +4750,13 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "sexual" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
     "shampoo" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
     "shopper" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "show" : {
       "hamFrequency" : 0,
@@ -4570,13 +4770,13 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "siguiente" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
-    },
     "simulacro" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
+    },
+    "sistema" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 3
     },
     "sixpack" : {
       "hamFrequency" : 0,
@@ -4618,10 +4818,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "sorprende" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 4
-    },
     "sorprendete" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -4662,9 +4858,9 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "sugerencias" : {
-      "hamFrequency" : 4,
-      "spamFrequency" : 0
+    "suerte" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 2
     },
     "sumate" : {
       "hamFrequency" : 1,
@@ -4681,18 +4877,6 @@
     "supermercado" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "suplemento" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 9
-    },
-    "suscribete" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 4
-    },
-    "suscripcion" : {
-      "hamFrequency" : 6,
-      "spamFrequency" : 4
     },
     "suspension" : {
       "hamFrequency" : 0,
@@ -4744,7 +4928,7 @@
     },
     "temporada" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "temporalmente" : {
       "hamFrequency" : 0,
@@ -4854,6 +5038,10 @@
       "hamFrequency" : 2,
       "spamFrequency" : 1
     },
+    "trabajo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "tracking" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
@@ -4862,16 +5050,8 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "transacciones" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
-    },
     "transfer" : {
       "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "tributario" : {
-      "hamFrequency" : 2,
       "spamFrequency" : 0
     },
     "triple" : {
@@ -4904,7 +5084,7 @@
     },
     "unifica" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "universidad" : {
       "hamFrequency" : 1,
@@ -4918,25 +5098,13 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "usa" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
     "usando" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "usuario" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
     "utiles" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "vacante" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
     },
     "vacantes" : {
       "hamFrequency" : 1,
@@ -4945,10 +5113,6 @@
     "vale" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "valiosos" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
     },
     "vecina" : {
       "hamFrequency" : 1,
@@ -4994,6 +5158,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
+    "verificacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "verificada" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
@@ -5006,25 +5174,13 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "viaje" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 8
-    },
     "viajero" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "vida" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 9
-    },
     "videojuegos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "videos" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
     },
     "viejo" : {
       "hamFrequency" : 0,
@@ -5052,7 +5208,7 @@
     },
     "vitaminas" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "voluntarios" : {
       "hamFrequency" : 1,
@@ -5072,7 +5228,7 @@
     },
     "x1" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
+      "spamFrequency" : 1
     },
     "yoga" : {
       "hamFrequency" : 1,
@@ -5080,6 +5236,10 @@
     }
   },
   "weakSpamWord" : {
+    "abdominales" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
     "acciones" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -5092,10 +5252,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "actividad" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "actuacion" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -5103,6 +5259,10 @@
     "actuar" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
+    },
+    "acumula" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
     },
     "adelgaza" : {
       "hamFrequency" : 0,
@@ -5124,12 +5284,12 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "ahorrar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
     "animales" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
-    "antes" : {
-      "hamFrequency" : 4,
       "spamFrequency" : 2
     },
     "antiedad" : {
@@ -5140,23 +5300,23 @@
       "hamFrequency" : 1,
       "spamFrequency" : 4
     },
-    "aprovecha" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 16
-    },
     "aprovechar" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "aqui" : {
-      "hamFrequency" : 18,
-      "spamFrequency" : 15
-    },
-    "archivo" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 1
-    },
     "arrugas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "arte" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
+    "asesor" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 3
+    },
+    "atrae" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -5164,23 +5324,63 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
+    "bajo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "belleza" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
     "bienes" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
-    "bienvenido" : {
-      "hamFrequency" : 8,
-      "spamFrequency" : 0
+    "bitcoin" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "boletin" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
+    },
+    "boletos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "bono" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "cada" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
+    },
+    "canjea" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
     },
     "canjealos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
     "cerca" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "cerebro" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "cero" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "citas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "claves" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -5200,25 +5400,29 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "completa" : {
-      "hamFrequency" : 5,
-      "spamFrequency" : 1
+    "compartir" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
-    "comunicacion" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
+    "concierto" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "confirma" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "confirmacion" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
-    },
     "conocimientos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
+    },
+    "consola" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
+    "contenido" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
     },
     "contigo" : {
       "hamFrequency" : 2,
@@ -5232,11 +5436,31 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "copia" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
     "corre" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "crediticio" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 3
+    },
+    "credito" : {
+      "hamFrequency" : 4,
+      "spamFrequency" : 6
+    },
     "criptomoneda" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "criptomonedas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
+    "cursos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -5248,23 +5472,47 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "descubre" : {
+    "deposito" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 14
+      "spamFrequency" : 2
+    },
+    "descargar" : {
+      "hamFrequency" : 3,
+      "spamFrequency" : 7
     },
     "descuentos" : {
       "hamFrequency" : 1,
-      "spamFrequency" : 6
+      "spamFrequency" : 3
+    },
+    "desintoxica" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "despierta" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 5
+      "spamFrequency" : 3
+    },
+    "destaca" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "diarias" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "diarios" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "dieta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
     "diversion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "divertidas" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -5280,11 +5528,35 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "documento" : {
-      "hamFrequency" : 4,
-      "spamFrequency" : 2
+    "domina" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
     },
     "duermes" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "ebook" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
+    "edad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
+    },
+    "ejercicios" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "elimina" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
+    "encuentra" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 4
+    },
+    "energia" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -5316,29 +5588,57 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "evento" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
+    "estilo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "exclusivo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
     },
     "exclusivos" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 5
+      "spamFrequency" : 3
     },
     "existencias" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "experiencia" : {
-      "hamFrequency" : 5,
-      "spamFrequency" : 3
-    },
     "experto" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "expertos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "fama" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "familia" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 4
+    },
+    "favorita" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
     "fin" : {
       "hamFrequency" : 1,
       "spamFrequency" : 5
+    },
+    "financia" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "fitness" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "fondo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
     },
     "forma" : {
       "hamFrequency" : 1,
@@ -5347,6 +5647,14 @@
     "foto" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
+    },
+    "futuro" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 5
+    },
+    "ganancias" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
     },
     "ganar" : {
       "hamFrequency" : 0,
@@ -5380,7 +5688,19 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "grasa" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "guinness" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
     "habilidades" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "hablar" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -5396,7 +5716,27 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "hogar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
+    },
+    "identidad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
+    },
+    "identificacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
     "idioma" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "imagen" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "imagenes" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -5404,89 +5744,89 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "intereses" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 4
+    },
     "introduccion" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "lexapproval" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
+    "invertir" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
-    "lexcommunication" : {
-      "hamFrequency" : 12,
+    "iphone" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "jubilacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "juego" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
+    },
+    "juegos" : {
+      "hamFrequency" : 0,
       "spamFrequency" : 3
     },
-    "lexcontact" : {
-      "hamFrequency" : 3,
-      "spamFrequency" : 2
+    "lexadverbs" : {
+      "hamFrequency" : 15,
+      "spamFrequency" : 18
+    },
+    "lexcalendar" : {
+      "hamFrequency" : 28,
+      "spamFrequency" : 30
     },
     "lexcosts" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "lexhealth" : {
-      "hamFrequency" : 11,
-      "spamFrequency" : 10
-    },
-    "lexincome" : {
+    "lexgrowth" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 1
+      "spamFrequency" : 3
     },
     "lexnetworking" : {
       "hamFrequency" : 1,
       "spamFrequency" : 3
     },
-    "lexpower" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "lexproducts" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "lexpurchase" : {
-      "hamFrequency" : 35,
-      "spamFrequency" : 8
-    },
     "lexquantities" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
-    },
-    "lexsector" : {
-      "hamFrequency" : 3,
-      "spamFrequency" : 9
-    },
-    "lexspamgreetings" : {
-      "hamFrequency" : 39,
-      "spamFrequency" : 15
     },
     "lexspaminformation" : {
       "hamFrequency" : 1,
       "spamFrequency" : 4
     },
-    "lextests" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "lexurgency" : {
-      "hamFrequency" : 4,
-      "spamFrequency" : 3
-    },
-    "lexurgentrequests" : {
-      "hamFrequency" : 12,
-      "spamFrequency" : 10
+    "lexspamreetings" : {
+      "hamFrequency" : 3,
+      "spamFrequency" : 7
     },
     "lexurls" : {
       "hamFrequency" : 6,
-      "spamFrequency" : 14
+      "spamFrequency" : 10
+    },
+    "lexwebactions" : {
+      "hamFrequency" : 6,
+      "spamFrequency" : 10
     },
     "libido" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "liquidacion" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
     "luce" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
+    },
+    "manten" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 3
     },
     "mantente" : {
       "hamFrequency" : 0,
@@ -5496,9 +5836,25 @@
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
+    "maquillaje" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
     "mayores" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
+    },
+    "mega" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
+    "mejora" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 5
+    },
+    "memes" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
     },
     "mente" : {
       "hamFrequency" : 0,
@@ -5516,21 +5872,41 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "millas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
+    "minuto" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
     "mira" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
     "mirada" : {
       "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
+    "mismo" : {
+      "hamFrequency" : 1,
       "spamFrequency" : 5
     },
     "monetiza" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "muestra" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
     "musculos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
+    },
+    "mystery" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "naranja" : {
       "hamFrequency" : 0,
@@ -5538,33 +5914,37 @@
     },
     "natural" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 5
+      "spamFrequency" : 4
     },
     "necesitas" : {
       "hamFrequency" : 1,
       "spamFrequency" : 2
     },
-    "nuestros" : {
-      "hamFrequency" : 12,
-      "spamFrequency" : 18
-    },
-    "numero" : {
-      "hamFrequency" : 5,
-      "spamFrequency" : 2
-    },
-    "obten" : {
+    "noticias" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 39
+      "spamFrequency" : 4
+    },
+    "novedades" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
+    "nuestros" : {
+      "hamFrequency" : 11,
+      "spamFrequency" : 15
     },
     "obtener" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "ofertas" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 7
-    },
     "ojos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "opciones" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "opiniones" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -5572,12 +5952,24 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "pantalla" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
+    },
     "pareja" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
-    "pendiente" : {
-      "hamFrequency" : 5,
+    "participa" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
+    },
+    "pastillas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
+    },
+    "pedidos" : {
+      "hamFrequency" : 0,
       "spamFrequency" : 2
     },
     "perder" : {
@@ -5600,11 +5992,19 @@
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
-    "pierdas" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 17
-    },
     "planes" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "postula" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
+    "postulate" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "precio" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -5612,9 +6012,17 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "premio" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 3
+    },
     "premium" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
+    },
+    "prestamo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "prestamos" : {
       "hamFrequency" : 0,
@@ -5632,6 +6040,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "productos" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 5
+    },
     "profundidad" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -5640,9 +6052,21 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "promociones" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "proximo" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 3
+    },
+    "publico" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
     "puntos" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 6
+      "spamFrequency" : 4
     },
     "pymes" : {
       "hamFrequency" : 0,
@@ -5651,6 +6075,10 @@
     "qr" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
+    },
+    "quema" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "quiero" : {
       "hamFrequency" : 1,
@@ -5672,9 +6100,17 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
-    "recibe" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 10
+    "reality" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "realza" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "rebajas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
     },
     "recibir" : {
       "hamFrequency" : 1,
@@ -5684,9 +6120,29 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "record" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 4
+    },
     "recordatorio" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
+    },
+    "reduce" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 3
+    },
+    "refinanciamiento" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "refuerza" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "regalos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "rejuvenece" : {
       "hamFrequency" : 0,
@@ -5700,25 +6156,21 @@
       "hamFrequency" : 2,
       "spamFrequency" : 3
     },
+    "resalta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
     "resistencia" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
-    },
-    "resultados" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 1
     },
     "retiro" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "reunion" : {
-      "hamFrequency" : 6,
-      "spamFrequency" : 0
-    },
-    "revision" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
+    "reto" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
     },
     "revolucionario" : {
       "hamFrequency" : 0,
@@ -5732,25 +6184,37 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "secreto" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
     "secretos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
-    },
-    "seguridad" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
     },
     "seleccionado" : {
       "hamFrequency" : 2,
       "spamFrequency" : 4
     },
+    "sere" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
     "set" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "sin" : {
-      "hamFrequency" : 3,
-      "spamFrequency" : 15
+    "sexual" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
+    },
+    "shopper" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "sistema" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 3
     },
     "sitio" : {
       "hamFrequency" : 1,
@@ -5759,10 +6223,6 @@
     "software" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
-    },
-    "solicitud" : {
-      "hamFrequency" : 6,
-      "spamFrequency" : 1
     },
     "solteras" : {
       "hamFrequency" : 0,
@@ -5780,6 +6240,14 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "sorprende" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
+    },
+    "suscribete" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
+    },
     "suscribiendote" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -5788,8 +6256,16 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "temporada" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
     "tiempo" : {
-      "hamFrequency" : 5,
+      "hamFrequency" : 2,
+      "spamFrequency" : 4
+    },
+    "tienda" : {
+      "hamFrequency" : 0,
       "spamFrequency" : 4
     },
     "tonifica" : {
@@ -5799,6 +6275,10 @@
     "trabaja" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
+    },
+    "trabajo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "ultima" : {
       "hamFrequency" : 0,
@@ -5812,11 +6292,31 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "unica" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
+    "unifica" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "usa" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
+    },
+    "usuario" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
     "verifiques" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
     "viajes" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "vip" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -5828,7 +6328,15 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
+    "vitaminas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
     "wallpaper" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "x1" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     }

@@ -28,6 +28,9 @@ public class SpamDictionaryService {
     private final SpamDictionary dictionary;
     private final ResourcesHandler resourcesHandler;
 
+    // Atributo para registrar movimientos
+    private List<String> movementLog = new ArrayList<>();
+
     public SpamDictionaryService() {
         this.resourcesHandler = new ResourcesHandler();
         this.dictionary = SpamDictionary.getInstance();
@@ -111,37 +114,6 @@ public class SpamDictionaryService {
 
 
 
-    /**
-     * Crea un diccionario desde un archivo JSON con palabras organizadas por categoría.
-     * Cada palabra se inicializa con frecuencia en cero.
-     *
-     * @param resourcePath Ruta relativa del archivo JSON en los recursos.
-     */
-    public void createCategorizedWordsFromJson(String resourcePath) {
-        try {
-            // Leer JSON desde el handler
-            JSONObject jsonObject = resourcesHandler.loadJson(resourcePath);
-
-            // Validar la estructura del JSON. Deben estar las Categorías.
-            JsonUtils.validateWordCategoryJsonStructure(jsonObject);
-
-            // Transformar el JSON en un mapa
-            Map<WordCategory, List<String>> categoryMap = JsonUtils.jsonToCategoryMap(jsonObject);
-
-            // Limpieza y normalización de palabras en todas las categorías
-            Map<WordCategory, List<String>> cleanedCategoryMap = cleanCategoryMap(categoryMap);
-
-            // Inicializar el diccionario
-            dictionary.clearDictionary();
-
-            // Procesar cada categoría y sus palabras limpias
-            cleanedCategoryMap.forEach(dictionary::initializeWordsWithZeroFrequency);
-
-            System.out.println("Diccionario creado desde palabras en el archivo: " + resourcePath);
-        } catch (Exception e) {
-            throw new RuntimeException("Error al crear el diccionario desde palabras: " + e.getMessage(), e);
-        }
-    }
 
 
 
@@ -311,7 +283,7 @@ public class SpamDictionaryService {
                 }
             }
 
-            System.out.println("\n [INFO] Diccionario inicializado correctamente desde el archivo JSON.");
+            System.out.println("\n [INFO initialization] Diccionario inicializado correctamente desde el archivo JSON.\n");
         } catch (Exception e) {
             throw new RuntimeException("Error al inicializar el diccionario: " + e.getMessage(), e);
         }
@@ -364,7 +336,7 @@ public class SpamDictionaryService {
         List<List<WordData>> processedWordData = MessageProcessor.processToWordData(validRows, accentPairs, lexemeRepository);
 
         // 7. Actualizar el diccionario con los datos procesados
-        updateDictionaryFromProcessedWordData(processedWordData);
+        updateDictionaryFromProcessedWordDataViejoMio(processedWordData);
 
         System.out.println("Diccionario actualizado correctamente con datos del archivo: " + csvMessagesFilePath);
     }
@@ -384,12 +356,14 @@ public class SpamDictionaryService {
         List<List<WordData>> processedWordData = MessageProcessor.processToWordData(rawRows, accentPairs, lexemeRepository);
 
         // Actualizar el diccionario con los datos procesados
-        updateDictionaryFromProcessedWordData(processedWordData);
+        updateDictionaryFromProcessedWordDataViejoMio(processedWordData);
 
         System.out.println("Diccionario actualizado correctamente con datos del archivo TXT: " + txtFilePath);
     }
-////////////////////////////////////////////
-public void updateDictionaryFromProcessedWordData(List<List<WordData>> processedData) {
+
+
+    ///////////////////////////////////////
+    public void updateDictionaryFromProcessedWordDataViejo(List<List<WordData>> processedData) {
     // Estructura temporal para consolidar frecuencias
     Map<String, WordData> tempWordMap = new HashMap<>();
 
@@ -425,11 +399,10 @@ public void updateDictionaryFromProcessedWordData(List<List<WordData>> processed
         }
     }
 }
+////////////////////////////////////////////
 
 
 
-
-    ///////////////////////////////////////////////
 /*
     public void updateDictionaryFromProcessedWordData(List<List<WordData>> processedData) {
         // Aplanar la estructura de las palabras
@@ -532,6 +505,7 @@ public void updateDictionaryFromProcessedWordData(List<List<WordData>> processed
             }
         }
     }
+
 
     //----------------------Metod auxiliar para update
    // public void Viejo______updateDictionaryFromProcessedWordData(List<List<WordData>> processedData) {
@@ -709,27 +683,8 @@ public void updateDictionaryFromProcessedWordData(List<List<WordData>> processed
         System.out.println("=== Report Generation Complete ===");
     }
 
-    // Verifica si la palabra pertenece a la categoría SPAM_WORDS
-    public boolean isSpamWord(String word) {
-        //return dictionary.getCategory(WordCategory.SPAM_WORDS).containsKey(word.toLowerCase());
-        return false;
-    }
 
-    // Verifica si la palabra pertenece a la categoría STOP_WORDS
-    public boolean isStopWord(String word) {
-        return dictionary.getCategory(WordCategory.STOP_WORDS).containsKey(word.toLowerCase());
-    }
 
-    // Determina si la palabra pertenece a la categoría RARE_SYMBOLS
-    public boolean containsRareSymbols(String word) {
-        Map<String, WordData> rareSymbols = dictionary.getCategory(WordCategory.RARE_SYMBOLS);
-        for (char c : word.toCharArray()) {
-            if (rareSymbols.containsKey(String.valueOf(c))) {
-                return true;
-            }
-        }
-        return false;
-    }
     public SpamDictionary getDictionary() {
         return this.dictionary;
     }
@@ -743,5 +698,388 @@ public void updateDictionaryFromProcessedWordData(List<List<WordData>> processed
     }
 
 
+    /**----------------------------------------------------------
+     * ------------- REASIGNACIÓN DE PALABRAS --------------------
+     * ---------------------------------------------------------*/
+    public void reassignWordsFromUpdatedJson() {
+        String word = null; // Declarar la variable fuera del try-catch
+        WordCategory currentCategory = null; // Declarar la variable fuera del try-catch
 
-}
+        try {
+            // Obtener las palabras categorizadas del diccionario
+            Map<WordCategory, Map<String, WordData>> categoryMapMap = dictionary.getAllCategorizedWords();
+
+            if (categoryMapMap == null || categoryMapMap.isEmpty()) {
+                System.err.println("[ERROR] El diccionario categorizado está vacío o no se inicializó correctamente.");
+                return;
+            }
+
+            // Iterar por cada categoría y palabra
+            for (Map.Entry<WordCategory, Map<String, WordData>> categoryEntry : categoryMapMap.entrySet()) {
+                currentCategory = categoryEntry.getKey();
+
+                // Saltar categorías que no deben modificarse
+                if (currentCategory == WordCategory.RARE_SYMBOLS || currentCategory == WordCategory.STOP_WORDS) {
+                    System.out.printf("[INFO protection!! ] La categoría '%s' está protegida y no se modificará.%n", currentCategory.getJsonKey());
+                    continue;
+                }
+
+                Map<String, WordData> words = categoryEntry.getValue();
+
+                if (words == null || words.isEmpty()) {
+                    System.out.printf("[WARNING] La categoría '%s' no contiene palabras.%n", currentCategory.getJsonKey());
+                    continue;
+                }
+
+                for (Map.Entry<String, WordData> wordEntry : new HashMap<>(words).entrySet()) {
+                    word = wordEntry.getKey();
+                    WordData wordData = wordEntry.getValue();
+
+                    // Validar palabra y frecuencias
+                    if (word == null || wordData == null || wordData.getSpamFrequency() < 0 || wordData.getHamFrequency() < 0) {
+                        System.err.printf("[ERROR] Palabra o frecuencias inválidas en '%s'. Ignorando.%n", word);
+                        continue;
+                    }
+
+                    // Eliminar palabras con frecuencias cero
+                    if (wordData.getSpamFrequency() == 0 && wordData.getHamFrequency() == 0) {
+                        words.remove(word);
+                        System.out.printf("[INFO] Palabra '%s' eliminada por frecuencias cero.%n", word);
+                        continue;
+                    }
+
+                    // Determinar nueva categoría
+                    WordCategory newCategory = determineCategoryByDifference(wordData.getSpamFrequency(), wordData.getHamFrequency());
+
+                    // Reasignar si la categoría cambia
+                    if (!currentCategory.equals(newCategory)) {
+                        moveWordToCategory(word, wordData, currentCategory, newCategory, categoryMapMap);
+                    }
+                }
+            }
+
+            System.out.println("[INFO] Reasignación de palabras completada.\n");
+            System.out.printf("[INFO] Total de palabras movidas: %d%n", movementLog.size());
+        } catch (Exception e) {
+            System.err.printf("[ERROR] Falló al procesar palabra '%s' en categoría '%s': %s%n",
+                    word, currentCategory != null ? currentCategory.getJsonKey() : "desconocida", e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    private WordCategory determineCategoryByDifference(int spamFrequency, int hamFrequency) {
+        int difference = spamFrequency - hamFrequency;
+
+        if (difference >= CategoryFrequencyThresholds.STRONG_SPAM_MIN.getValue()) {
+            return WordCategory.STRONG_SPAM_WORD;
+        } else if (difference >= CategoryFrequencyThresholds.MODERATE_SPAM_MIN.getValue() &&
+                difference <= CategoryFrequencyThresholds.MODERATE_SPAM_MAX.getValue()) {
+            return WordCategory.MODERATE_SPAM_WORD;
+        } else if (difference >= CategoryFrequencyThresholds.WEAK_SPAM_MIN.getValue() &&
+                difference <= CategoryFrequencyThresholds.WEAK_SPAM_MAX.getValue()) {
+            return WordCategory.WEAK_SPAM_WORD;
+        } else if (hamFrequency > spamFrequency) {
+            return WordCategory.HAM_INDICATORS;
+        } else {
+            return WordCategory.UNASSIGNED_WORDS;
+        }
+    }
+
+    private void moveWordToCategory(String word, WordData wordData,
+                                    WordCategory currentCategory, WordCategory newCategory,
+                                    Map<WordCategory, Map<String, WordData>> categoryMapMap) {
+        if (!categoryMapMap.containsKey(currentCategory)) {
+            System.err.printf("[ERROR] La categoría actual '%s' no existe para la palabra '%s'.%n",
+                    currentCategory.getJsonKey(), word);
+            return;
+        }
+
+        if (!categoryMapMap.containsKey(newCategory)) {
+            categoryMapMap.put(newCategory, new HashMap<>()); // Inicializa la nueva categoría si no existe
+        }
+
+        // Eliminar de la categoría actual
+        categoryMapMap.get(currentCategory).remove(word);
+
+        // Agregar a la nueva categoría
+        categoryMapMap.get(newCategory).put(word, wordData);
+
+        // Registrar el movimiento
+        String logEntry = String.format("La palabra '%s' en categoría '%s' se movió a '%s'.",
+                word, currentCategory.getJsonKey(), newCategory.getJsonKey());
+        movementLog.add(logEntry);
+
+        System.out.println("[INFO] " + logEntry);
+    }
+
+
+    /*
+    ---------------------------------------PRUEBAS---------------------------------------
+    ------------------------------------------------------------------------------------
+     */
+
+    /**
+     * Crea un diccionario desde un archivo JSON con palabras organizadas por categoría.
+     * Cada palabra se inicializa con frecuencia en cero.
+     *
+     * @param resourcePath Ruta relativa del archivo JSON en los recursos.
+     */
+    public void createCategorizedWordsFromJson(String resourcePath) {
+        try {
+            // Leer JSON desde el handler
+            JSONObject jsonObject = resourcesHandler.loadJson(resourcePath);
+
+            // Validar la estructura del JSON. Deben estar las Categorías.
+            JsonUtils.validateWordCategoryJsonStructure(jsonObject);
+
+            // Transformar el JSON en un mapa
+            Map<WordCategory, List<String>> categoryMap = JsonUtils.jsonToCategoryMap(jsonObject);
+
+            // Limpieza y normalización de palabras en todas las categorías
+            Map<WordCategory, List<String>> cleanedCategoryMap = cleanCategoryMap(categoryMap);
+
+            // Inicializar el diccionario
+            dictionary.clearDictionary();
+
+            // Procesar cada categoría y sus palabras limpias
+            cleanedCategoryMap.forEach(dictionary::initializeWordsWithZeroFrequency);
+
+            System.out.println("Diccionario creado desde palabras en el archivo: " + resourcePath);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al crear el diccionario desde palabras: " + e.getMessage(), e);
+        }
+    }
+
+
+    /*
+    public void updateDictionaryFromProcessedWordData(List<List<WordData>> processedData) {
+        // Estructura temporal para consolidar frecuencias
+        Map<String, WordData> tempWordMap = new HashMap<>();
+
+        // Consolidar frecuencias en el mapa temporal
+        for (List<WordData> wordList : processedData) {
+            for (WordData wordData : wordList) {
+                String token = wordData.getWord().trim();
+
+                if (token.isEmpty()) continue; // Ignorar palabras vacías
+
+                tempWordMap.merge(token, wordData, (existing, newData) -> {
+                    existing.incrementSpamFrequency(newData.getSpamFrequency());
+                    existing.incrementHamFrequency(newData.getHamFrequency());
+                    return existing;
+                });
+            }
+        }
+
+        // Asignar palabras al diccionario después de consolidar
+        for (Map.Entry<String, WordData> entry : tempWordMap.entrySet()) {
+            String token = entry.getKey();
+            WordData wordData = entry.getValue();
+
+            // Verificar si la palabra ya existe en el diccionario
+            if (dictionary.containsWord(token)) {
+                // Buscar y eliminar la palabra de su categoría actual
+                for (WordCategory category : WordCategory.values()) {
+                    Map<String, WordData> categoryWords = dictionary.getCategory(category);
+                    if (categoryWords.containsKey(token)) {
+                        categoryWords.remove(token);
+                        break; // Salir tras encontrar la palabra
+                    }
+                }
+
+                // Actualizar las frecuencias en el diccionario
+                updateExistingWordFrequencies(token, wordData);
+            } else {
+                // Determinar la categoría final basada en frecuencias totales
+                WordCategory category = determineCategoryByFrequency(wordData);
+
+                // Actualizar el diccionario con la palabra categorizada
+                dictionary.addWordWithFrequencies(category, token, wordData.getSpamFrequency(), wordData.getHamFrequency());
+            }
+        }
+    }
+*/
+
+
+
+
+    ///////////////////////////Actualizacion del diccionario: update Main////////////////////////////////////////////////
+    public void updateDictionaryFromProcessedWordData(List<List<WordData>> processedData) {
+        // Estructura temporal para consolidar frecuencias
+        Map<String, WordData> tempWordMap = new HashMap<>();
+
+        // Consolidar frecuencias en el mapa temporal
+        consolidateFrequencies(processedData, tempWordMap);
+
+        // Iterar por cada palabra consolidada
+        for (Map.Entry<String, WordData> entry : tempWordMap.entrySet()) {
+            String token = entry.getKey();
+            WordData wordData = entry.getValue();
+
+            // Verificar si la palabra pertenece a categorías protegidas
+            if (isProtectedCategory(token)) {
+                System.out.printf("[INFO] Palabra '%s' en categoría protegida no será modificada.%n", token);
+                continue;
+            }
+
+            // Actualizar o reasignar palabra
+            updateOrReassignWord(token, wordData);
+        }
+    }
+
+    private void consolidateFrequencies(List<List<WordData>> processedData, Map<String, WordData> tempWordMap) {
+        for (List<WordData> wordList : processedData) {
+            for (WordData wordData : wordList) {
+                String token = wordData.getWord().trim();
+                if (token.isEmpty()) continue; // Ignorar palabras vacías
+
+                tempWordMap.merge(token, wordData, (existing, newData) -> {
+                    existing.incrementSpamFrequency(newData.getSpamFrequency());
+                    existing.incrementHamFrequency(newData.getHamFrequency());
+                    return existing;
+                });
+            }
+        }
+    }
+    private boolean isProtectedCategory(String token) {
+        for (WordCategory category : List.of(WordCategory.RARE_SYMBOLS, WordCategory.STOP_WORDS)) {
+            if (dictionary.getCategory(category).containsKey(token)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    private void updateOrReassignWord(String token, WordData wordData) {
+        WordCategory currentCategory = null;
+
+        // Buscar la categoría actual de la palabra
+        for (WordCategory category : WordCategory.values()) {
+            if (dictionary.getCategory(category).containsKey(token)) {
+                currentCategory = category;
+                break;
+            }
+        }
+
+        // Determinar la categoría final
+        WordCategory newCategory = determineCategoryByFrequency(wordData);
+
+        if (currentCategory != null) {
+            if (!currentCategory.equals(newCategory)) {
+                // Mover la palabra si la categoría cambia
+                moveWordToCategory(token, wordData, currentCategory, newCategory, dictionary.getCategorizedWords());
+            } else {
+                // Actualizar frecuencias en la misma categoría
+                updateExistingWordFrequencies(token, wordData);
+            }
+        } else {
+            // Palabra nueva: agregar directamente
+            dictionary.addWordWithFrequencies(newCategory, token, wordData.getSpamFrequency(), wordData.getHamFrequency());
+        }
+    }
+
+
+    //////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+    ///////-----///////////
+    public void updateDictionaryFromProcessedWordDataViejoMio(List<List<WordData>> processedData) {
+
+        // Estructura temporal para consolidar frecuencias
+        Map<String, WordData> tempWordMap = new HashMap<>();
+
+        // Consolidar frecuencias en el mapa temporal
+        for (List<WordData> wordList : processedData) {
+            for (WordData wordData : wordList) {
+                String token = wordData.getWord().trim();
+
+                if (token.isEmpty()) continue; // Ignorar palabras vacías
+
+                tempWordMap.merge(token, wordData, (existing, newData) -> {
+                    existing.incrementSpamFrequency(newData.getSpamFrequency());
+                    existing.incrementHamFrequency(newData.getHamFrequency());
+                    return existing;
+                });
+            }
+        }
+
+        // Asignar palabras al diccionario después de consolidar
+        for (Map.Entry<String, WordData> entry : tempWordMap.entrySet()) {
+            String token = entry.getKey();
+            WordData wordData = entry.getValue();
+
+            // Verificar si la palabra ya existe en el diccionario
+            if (dictionary.containsWord(token)) {
+                updateExistingWordFrequenciesMio(token, wordData);
+            } else {
+                // Determinar la categoría final basada en frecuencias totales
+                WordCategory category = determineCategoryByFrequency(wordData);
+
+                // Actualizar el diccionario con la palabra categorizada
+                dictionary.addWordWithFrequencies(category, token, wordData.getSpamFrequency(), wordData.getHamFrequency());
+            }
+        }//palabra asignada
+
+
+    }
+
+    private void updateExistingWordFrequenciesMio(String token, WordData wordData) {
+        // 1 - Iterar sobre todas las categorías en el diccionario
+        for (WordCategory category : WordCategory.values()) {
+            // Obtener las palabras en la categoría actual
+            Map<String, WordData> categoryWords = dictionary.getCategory(category);
+
+            // 2 - Verificar si el token está en esta categoría
+            if (categoryWords.containsKey(token)) {
+                // a. Extraer la palabra existente
+                WordData existingWord = categoryWords.get(token);
+
+                // b. Verificar si la categoría es protegida
+                if (category == WordCategory.RARE_SYMBOLS || category == WordCategory.STOP_WORDS) {
+                    System.out.printf("[INFO] La categoría '%s' está protegida. Solo se actualizarán las frecuencias.%n", category.getJsonKey());
+
+                    // Actualizar frecuencias sin cambiar de categoría
+                    existingWord.incrementSpamFrequency(wordData.getSpamFrequency());
+                    existingWord.incrementHamFrequency(wordData.getHamFrequency());
+                    break;
+                }
+
+                // c. Incrementar las frecuencias de ham y spam
+                existingWord.incrementSpamFrequency(wordData.getSpamFrequency());
+                existingWord.incrementHamFrequency(wordData.getHamFrequency());
+
+                // d. Calcular las nuevas frecuencias totales
+                int newSpamFreq = existingWord.getSpamFrequency();
+                int newHamFreq = existingWord.getHamFrequency();
+
+                // e. Determinar la categoría actualizada
+                WordCategory updatedCategory = determineCategoryByDifference(newSpamFreq, newHamFreq);
+
+                // f. Comparar la categoría anterior con la actualizada
+                if (updatedCategory != category) {
+                    // 1. Eliminar el token de su categoría actual
+                    categoryWords.remove(token); // Remueve el token directamente
+
+                    // 2. Agregar el token a la nueva categoría
+                    dictionary.addWordWithFrequencies(updatedCategory, token, newSpamFreq, newHamFreq);
+                }
+
+                // Finalizar el bucle, ya que el token fue procesado
+                break;
+            }
+        }
+
+        // 3 - Si la palabra no estaba en ninguna categoría, determinar la categoría y agregarla
+        WordCategory newCategory = determineCategoryByDifference(wordData.getSpamFrequency(), wordData.getHamFrequency());
+        dictionary.addWordWithFrequencies(newCategory, token, wordData.getSpamFrequency(), wordData.getHamFrequency());
+    }
+
+    ////////////////-----------///////////////////
+}//end

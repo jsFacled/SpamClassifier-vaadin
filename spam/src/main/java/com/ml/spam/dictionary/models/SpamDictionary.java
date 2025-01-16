@@ -8,10 +8,8 @@ public class SpamDictionary {
 
     // Palabras categorizadas organizadas por categoría
     private final Map<WordCategory, Map<String, WordData>> categorizedWords = new HashMap<>();
-
     // Mapa de pares acentuados/no acentuados para búsquedas rápidas
     private final Map<String, Pair> accentPairs = new HashMap<>();
-
     // Repositorio de lexemas organizado por CharSize
     private final Map<CharSize, Map<String, Set<String>>> lexemeRepository = new HashMap<>();
 
@@ -63,9 +61,28 @@ public class SpamDictionary {
         categorizedWords.get(category).putIfAbsent(word, new WordData(word));
     }
 
+/*
+    //Supuestamente agrega palabras pero primero las borra si está presente.
+    public void addWordWithFrequencies(WordCategory category, String word, int spamFrequency, int hamFrequency) {
+        // Eliminar la palabra de todas las categorías si ya existe
+        for (WordCategory existingCategory : categorizedWords.keySet()) {
+            if (categorizedWords.get(existingCategory).containsKey(word)) {
+                categorizedWords.get(existingCategory).remove(word);
+                break; // Salir del bucle tras encontrar la palabra
+            }
+        }
+
+        // Agregar la palabra a la nueva categoría
+        categorizedWords.get(category).put(word, new WordData(word, spamFrequency, hamFrequency));
+    }
+*/
     public void addWordWithFrequencies(WordCategory category, String word, int spamFrequency, int hamFrequency) {
         categorizedWords.get(category).putIfAbsent(word, new WordData(word, spamFrequency, hamFrequency));
     }
+
+  //////////////////////////////////////////////////////////////////////////////////////
+
+
 
     public void initializeWordsWithZeroFrequency(WordCategory category, Iterable<String> words) {
         words.forEach(word -> addWord(category, word));

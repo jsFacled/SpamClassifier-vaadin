@@ -253,7 +253,7 @@ public class ResourcesHandler {
             Files.createDirectories(path.getParent()); // Crear directorios si no existen
 
             // Debug para inspeccionar el contenido original
-            System.out.println("[DEBUG] JSONObject original: " + jsonObject.toString(4));
+            //System.out.println("[DEBUG] JSONObject original: " + jsonObject.toString(4));
 
             // Sanitizar claves y valores del JSONObject
             JSONObject sanitizedJson = sanitizeJsonObject(jsonObject);

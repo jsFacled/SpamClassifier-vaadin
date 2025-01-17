@@ -84,10 +84,6 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "lexaccountactions" : {
-      "hamFrequency" : 4,
-      "spamFrequency" : 3
-    },
     "lexactions" : {
       "hamFrequency" : 7,
       "spamFrequency" : 3
@@ -96,10 +92,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "lexauxiliaryverbs" : {
-      "hamFrequency" : 7,
-      "spamFrequency" : 1
-    },
     "lexcelebrations" : {
       "hamFrequency" : 2,
       "spamFrequency" : 0
@@ -107,10 +99,6 @@
     "lexchoices" : {
       "hamFrequency" : 7,
       "spamFrequency" : 0
-    },
-    "lexcodes" : {
-      "hamFrequency" : 6,
-      "spamFrequency" : 2
     },
     "lexcommunication" : {
       "hamFrequency" : 2,
@@ -142,10 +130,6 @@
     },
     "lexevents" : {
       "hamFrequency" : 9,
-      "spamFrequency" : 0
-    },
-    "lexexclamations" : {
-      "hamFrequency" : 2,
       "spamFrequency" : 0
     },
     "lexfamily" : {
@@ -188,10 +172,6 @@
       "hamFrequency" : 3,
       "spamFrequency" : 2
     },
-    "lexneutral" : {
-      "hamFrequency" : 14,
-      "spamFrequency" : 4
-    },
     "lexnotifications" : {
       "hamFrequency" : 9,
       "spamFrequency" : 0
@@ -203,10 +183,6 @@
     "lexprofile" : {
       "hamFrequency" : 3,
       "spamFrequency" : 0
-    },
-    "lexpronouns" : {
-      "hamFrequency" : 86,
-      "spamFrequency" : 55
     },
     "lexpurchase" : {
       "hamFrequency" : 7,
@@ -244,17 +220,9 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "lexunits" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 0
-    },
     "lexurgentrequests" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
-    },
-    "lexvowel" : {
-      "hamFrequency" : 17,
-      "spamFrequency" : 8
     },
     "lexwork" : {
       "hamFrequency" : 0,
@@ -300,20 +268,12 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "tanto" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
     "tarjeta" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
     "tiempo" : {
       "hamFrequency" : 3,
-      "spamFrequency" : 0
-    },
-    "todo" : {
-      "hamFrequency" : 1,
       "spamFrequency" : 0
     },
     "ya" : {
@@ -835,10 +795,6 @@
     "levita" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
-    },
-    "lexprepositions" : {
-      "hamFrequency" : 75,
-      "spamFrequency" : 104
     },
     "lexpurchases" : {
       "hamFrequency" : 0,
@@ -1846,17 +1802,9 @@
       "hamFrequency" : 2,
       "spamFrequency" : 1
     },
-    "lexadverbs" : {
-      "hamFrequency" : 3,
-      "spamFrequency" : 3
-    },
     "lexbenefits" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "lexconjunctions" : {
-      "hamFrequency" : 11,
-      "spamFrequency" : 12
     },
     "lexfinance" : {
       "hamFrequency" : 1,
@@ -1868,10 +1816,6 @@
     },
     "lexqualities" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "lexsymbols" : {
-      "hamFrequency" : 1,
       "spamFrequency" : 1
     },
     "lextelecom" : {
@@ -2660,10 +2604,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "lexcalendar" : {
-      "hamFrequency" : 4,
-      "spamFrequency" : 7
-    },
     "lexcosts" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
@@ -2671,10 +2611,6 @@
     "lexcurrencies" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
-    },
-    "lexdeterminers" : {
-      "hamFrequency" : 49,
-      "spamFrequency" : 51
     },
     "lexincome" : {
       "hamFrequency" : 0,

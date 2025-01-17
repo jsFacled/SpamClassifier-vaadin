@@ -5,6 +5,8 @@ import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.models.WordCategory;
 import com.ml.spam.dictionary.models.WordData;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
+import com.ml.spam.handlers.ResourcesHandler;
+import org.json.JSONObject;
 
 import java.util.Map;
 import java.util.Set;
@@ -60,6 +62,7 @@ import java.util.Set;
  * @version 1.0
  */
 public class DictionarySummaryReport {
+
 
     public static void displaySummaryReport(SpamDictionaryService service) {
         System.out.println("\n=== Dictionary Summary Report ===");
@@ -186,4 +189,37 @@ public class DictionarySummaryReport {
         System.out.println("=== End of Full Report ===\n");
     }
 
-}
+    public static void displayCategorizedWordsSummaryFromFile(String resourcePath, ResourcesHandler handler) {
+        System.out.println("\n=== Categorized Words Summary Report (From File) ===");
+
+        try {
+            // Usar ResourcesHandler para cargar el archivo JSON
+            JSONObject jsonObject = handler.loadJson(resourcePath);
+
+            int totalWords = 0; // Contador para el total de palabras
+
+            // Iterar sobre las categorías en el JSON
+            for (WordCategory category : WordCategory.values()) {
+                String categoryKey = category.getJsonKey();
+                JSONObject categoryJson = jsonObject.optJSONObject(categoryKey);
+
+                if (categoryJson == null) {
+                    System.out.printf("Category: %s -> No words found.%n", category.name());
+                    continue;
+                }
+
+                int wordCount = categoryJson.length(); // Número de palabras en la categoría
+                totalWords += wordCount;
+
+                System.out.printf("Category: %s -> Number of words: %d%n", category.name(), wordCount);
+            }
+
+            // Resumen adicional
+            System.out.printf("\nTotal Categories: %d%n", WordCategory.values().length);
+            System.out.printf("Total Words in Categorized Words: %d%n", totalWords);
+            System.out.println("=== End of Summary ===\n");
+
+        } catch (Exception e) {
+            System.err.println("[ERROR] Error reading or processing the JSON file: " + e.getMessage());
+        }
+    }}

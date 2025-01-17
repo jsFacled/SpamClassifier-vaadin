@@ -1031,54 +1031,48 @@ public class SpamDictionaryService {
     }
 
     private void updateExistingWordFrequenciesMio(String token, WordData wordData) {
-        // 1 - Iterar sobre todas las categorías en el diccionario
+        // Consolidar frecuencias y revisar categorías
         for (WordCategory category : WordCategory.values()) {
-            // Obtener las palabras en la categoría actual
             Map<String, WordData> categoryWords = dictionary.getCategory(category);
 
-            // 2 - Verificar si el token está en esta categoría
+            // Si la palabra ya está en una categoría
             if (categoryWords.containsKey(token)) {
-                // a. Extraer la palabra existente
                 WordData existingWord = categoryWords.get(token);
 
-                // b. Verificar si la categoría es protegida
-                if (category == WordCategory.RARE_SYMBOLS || category == WordCategory.STOP_WORDS) {
-                    System.out.printf("[INFO] La categoría '%s' está protegida. Solo se actualizarán las frecuencias.%n", category.getJsonKey());
-
-                    // Actualizar frecuencias sin cambiar de categoría
-                    existingWord.incrementSpamFrequency(wordData.getSpamFrequency());
-                    existingWord.incrementHamFrequency(wordData.getHamFrequency());
-                    break;
-                }
-
-                // c. Incrementar las frecuencias de ham y spam
+                // Actualizar frecuencias
                 existingWord.incrementSpamFrequency(wordData.getSpamFrequency());
                 existingWord.incrementHamFrequency(wordData.getHamFrequency());
 
-                // d. Calcular las nuevas frecuencias totales
-                int newSpamFreq = existingWord.getSpamFrequency();
-                int newHamFreq = existingWord.getHamFrequency();
-
-                // e. Determinar la categoría actualizada
-                WordCategory updatedCategory = determineCategoryByDifference(newSpamFreq, newHamFreq);
-
-                // f. Comparar la categoría anterior con la actualizada
-                if (updatedCategory != category) {
-                    // 1. Eliminar el token de su categoría actual
-                    categoryWords.remove(token); // Remueve el token directamente
-
-                    // 2. Agregar el token a la nueva categoría
-                    dictionary.addWordWithFrequencies(updatedCategory, token, newSpamFreq, newHamFreq);
+                // Si la categoría es protegida, no se mueve la palabra
+                if (category == WordCategory.RARE_SYMBOLS || category == WordCategory.STOP_WORDS) {
+                    System.out.printf("[INFO] La palabra '%s' permanece en la categoría protegida '%s'.%n", token, category.getJsonKey());
+                    return; // Salir del flujo para palabras protegidas
                 }
 
-                // Finalizar el bucle, ya que el token fue procesado
-                break;
+                // Recalcular la categoría basada en las nuevas frecuencias
+                WordCategory updatedCategory = determineCategoryByDifference(
+                        existingWord.getSpamFrequency(),
+                        existingWord.getHamFrequency()
+                );
+
+                // Si la categoría cambia, reasignar la palabra
+                if (updatedCategory != category) {
+                    categoryWords.remove(token); // Eliminar de la categoría actual
+                    dictionary.addWordWithFrequencies(updatedCategory, token,
+                            existingWord.getSpamFrequency(), existingWord.getHamFrequency());
+                    System.out.printf("[INFO] La palabra '%s' se movió de '%s' a '%s'.%n", token, category.getJsonKey(), updatedCategory.getJsonKey());
+                }
+                return; // Salir del flujo tras procesar la palabra
             }
         }
 
-        // 3 - Si la palabra no estaba en ninguna categoría, determinar la categoría y agregarla
-        WordCategory newCategory = determineCategoryByDifference(wordData.getSpamFrequency(), wordData.getHamFrequency());
-        dictionary.addWordWithFrequencies(newCategory, token, wordData.getSpamFrequency(), wordData.getHamFrequency());
+        // Si la palabra no estaba en ninguna categoría, calcular su categoría inicial
+        WordCategory newCategory = determineCategoryByDifference(
+                wordData.getSpamFrequency(), wordData.getHamFrequency()
+        );
+        dictionary.addWordWithFrequencies(newCategory, token,
+                wordData.getSpamFrequency(), wordData.getHamFrequency());
+        System.out.printf("[INFO] La palabra '%s' se agregó a la categoría '%s'.%n", token, newCategory.getJsonKey());
     }
 
     ////////////////-----------///////////////////

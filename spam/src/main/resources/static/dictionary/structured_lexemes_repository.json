@@ -46,8 +46,7 @@
       "¡"
     ],
     "lexsymbols": [
-      "&", "#", "~", "/", ":", ";", "|", "\\", "_", "-", "·", ".","(" ,")"
-    ],
+      "&", "#", "~", "/", ":", ";", "|", "\\", "_", "-", "·", ".","(" ,")","(*)", "->", "[", "]"  ],
     "mathop": [
       "+",
       "-",
@@ -97,6 +96,7 @@
     ]
   },
   "twoChars": {
+    "lexactions": [ "ve"],
     "lexconjunctions": [
       "si"
     ],
@@ -180,6 +180,7 @@
     ]
   },
   "threeChars": {
+    "lexactions": [ "leer"],
     "lexspamgreetings": [ "hey"
     ],
     "lexspamreetings": [ "soy"
@@ -210,10 +211,7 @@
       "una",
       "uno"
     ],
-    "lexadverbs": [
-      "así",
-      "muy"
-    ],
+    "lexadverbs": [ "así", "muy","tan"    ],
     "lexprepositions": [
       "con",
       "del",
@@ -288,6 +286,7 @@
           ]
   },
   "fourChars": {
+    "lexoffers": [ "bono"],
     "lexurgentrequests": [ "hara" ],
     "lexfamily": ["mama"],
     "lexcontextual": ["caso"],
@@ -301,8 +300,7 @@
     ],
     "lexpronouns": [ "ella","eres"
     ],
-    "lexdeterminers": [ "esas", "esos", "esta", "este", "unas", "unos"
-    ],
+    "lexdeterminers": [ "esas", "esos", "esta", "este", "unas", "unos","todo" ],
     "lexadverbs": [ "algo", "cómo"
     ],
     "lexprepositions": [ "para"
@@ -336,6 +334,12 @@
     ]
   },
   "fiveChars": {
+    "lexoffers": ["bonos"],
+    "lexspamalerts": ["vital"],
+    "lexexclusive": ["elite", "unico"],
+    "lexmarketing": ["promo"],
+    "lexfinance": [ "saldo"
+    ],
 
     "lexurgentrequests": [
       "ahora",
@@ -371,29 +375,23 @@
     "lexhelp": [ "ayuda","apoyo"
          ],
 
-    "lexactions": ["unete","sigan"],
+    "lexactions": ["unete","sigan","click","obten"],
     "lexpromotions": [
       "cupon"
     ],
     "lexdocuments": ["lista"],
 
-    "lexpositive": [ "feliz", "firma", "gusto","listo","ideas"
+    "lexpositive": [ "feliz", "firma", "gusto","listo","ideas","salva"
          ],
-    "lexneutral": ["verte", "vidas", "vuelo","favor","bordo","nueva"
-    ],
+    "lexneutral": ["verte", "vidas", "vuelo","favor","bordo","nueva","ambos", "antes" ],
     "lexaccountactions": [
       "revisa"
     ],
     "lexpurchase": ["pagar", "pagos"],
     "lexpronouns": [ "ellas", "ellos", "quien", "usted"
     ],
-    "lexdeterminers": [
-      "estas",
-      "estos"
-    ],
-    "lexadverbs": [
-      "dónde"
-    ],
+    "lexdeterminers": [ "estas", "estos","todos" ],
+    "lexadverbs": [ "dónde","tanto"  ],
     "lexprepositions": [
       "entre",
       "sobre",
@@ -470,6 +468,9 @@
 
   },
   "sixChars": {
+    "lexoffers": [ "rebaja"],
+    "lexbanking": [ "cuotas",  "seguro"],
+    "lexeducation": ["crecer" ],
     "lexfrequency": ["diario"],
     "lexguidelines": ["normas","reglas"],
 
@@ -491,8 +492,7 @@
 
     "lexhelp": [ "ayudan"
     ],
-    "lexactions": ["conoce", "asiste"
-    ],
+    "lexactions": ["conoce", "asiste", "acceda", "acepta" ],
     "lexhealth": [ "medica","dental"
     ],
 
@@ -502,13 +502,11 @@
 
     "lexdocuments": ["recibo" ],
 
-    "lexevents": ["taller"
-    ],
+    "lexevents": ["taller","evento" ],
     "lexpositive": [
       "amable", "sueños","amigos", "valida","unirte","juntos", "cambia"
     ],
-    "lexneutral": ["activo",  "agrega", "activa","aporte","camino","boleta", "nuevos","regalo"
-    ],
+    "lexneutral": ["activo",  "agrega", "activa","aporte","camino","boleta", "nuevos","regalo","alguna"  ],
     "lexaccountactions": [ "ajusta"
     ],
     "lexpurchase": ["cotiza","pagado","pagada"],
@@ -553,9 +551,7 @@
     "lexquantities": [
       "billon"
     ],
-    "lexfinance": [
-      "cheque"
-    ],
+    "lexfinance": [ "debito","nomina", "cheque","ahorro","bancos", "ahorra"     ],
     "lexguarantees": [
       "segura"
     ],
@@ -573,6 +569,14 @@
     "lexprofile": ["perfil"]
   },
   "sevenChars": {
+    "lexcommunication": ["enlaces"],
+    "lexbanking": [ "credito"],
+    "lexspamalerts": ["crucial", "urgente"],
+    "lexexclusive": [ "premium" ],
+    "lexactions": [ "acceder", "aplicar","activar"],
+    "lexeducation": [ "importa"],
+    "lexfeedback": ["reunion", "opinion"
+    ],
     "lexurgentrequests": [ "urgente" ],
     "lexsector": ["mercado"
     ],
@@ -613,11 +617,7 @@
     ],
     "lexneutral": ["adjunto", "atendido", "enviado", "cambios"
     ],
-    "lexconfirmations": [
-      "aceptado",
-      "activo",
-      "recibido",
-      "enviado"
+    "lexconfirmations": [ "acuerdo", "aceptado", "activo", "recibido", "enviado"
     ],
     "lexaccountactions": [
       "verifica",
@@ -654,10 +654,7 @@
       "dominio",
       "gateway"
     ],
-    "lexfinance": [
-      "cheques",
-      "negocio"
-    ],
+    "lexfinance": [ "cheques", "negocio","precios","ahorros", "credito"   ],
     "lexsuccess": [
       "triunfo"
     ],
@@ -687,6 +684,13 @@
     ]
   },
   "eightChars": {
+    "lexcommunication": ["mensajes"],
+    "lexbanking": [ "vigente","prestamo"],
+    "lexspamalerts": ["atencion"],
+    "lexexclusive": ["platinum","especial"],
+    "lexmarketing": ["promocin","campañas", "anuncios", "branding" ],
+    "lexcourtesy": ["amistoso","amigable", "atencion"],
+    "lexevents": [ "revision" ],
 
     "lexguidelines": [ "politica", "terminos"],
 
@@ -701,7 +705,7 @@
 
     "lextravel":["equipaje"],
     "lexfeedback": ["consejos","encuesta","feedback"],
-    "lexactions": ["comienza"],
+    "lexactions": ["comienza","procesar", "adquiere", "procesar"],
     "lexinformative": [ "informar","horarios"
     ],
     "lexchoices": [
@@ -721,14 +725,9 @@
 
     ],
     "lexpositive": [ "contento", "disfruta", "voluntad","responde","recuerda", "postular","interesa", "gustaria",
-      "ayudanos", "mejorar","confiar"
+      "ayudanos", "mejorar","confiar","prospero"
     ],
-    "lexconfirmations": [
-      "aceptada",
-      "activada",
-      "renovada",
-      "confirmada",
-      "actualiza"
+    "lexconfirmations": ["aprobado", "aceptada", "activada", "renovada", "confirmada", "actualiza"
     ],
     "lexpurchase": ["comprate"],
     "lexmotivational": [
@@ -768,11 +767,7 @@
     ],
     "lexpromotions": [ "rebajado","especial"
     ],
-    "lexfinance": [
-      "bancario",
-      "finanzas",
-      "hipoteca"
-    ],
+    "lexfinance": [ "donacion", "bancario", "finanzas", "hipoteca", "tarjetas" ],
     "lexsuccess": [
       "victoria"
     ],
@@ -797,6 +792,12 @@
 
   },
   "nineChars": {
+    "lexoffers": ["promocion",  "descuento"],
+    "lexexclusive": [ "exclusivo" ],
+    "lexactions": [ "completar", "confirmar","solicitar"],
+    "lexfinance": [ "cobertura", "reintegro","afiliadas", "afiliados" ],
+    "lexmarketing": ["marketing"],
+    "lexsuccess": ["resultado"  ],
     "lexfrequency": ["frecuente"],
     "lexguidelines": [ "politicas" ],
     "lexurgentrequests": [ "inmediato","prioridad" ],
@@ -805,7 +806,7 @@
     ],
     "lexevents": ["seminario"
     ],
-    "lexfeedback": ["cuentanos"],
+    "lexfeedback": ["cuentanos","consultas"],
     "lexrequests": [ "solicitar", "proveenos"
     ],
     "lexchoices": ["preferido","elegirnos"
@@ -895,14 +896,18 @@
     ]
   },
   "tenChars": {
+    "lexoffers": [ "descuentos"],
+    "lexmarketing": ["publicidad" ],
+    "lexfinance": [ "tributario"
+    ],
     "lexguidelines": [ "requisitos" ],
 
     "lexurgentrequests": ["importante"],
     "lexsector": ["financiero","tecnología"
     ],
     "lexcommunity": ["voluntario"],
-    "lexfeedback": ["compartelo","escríbenos","opina"],
-    "lexrequests": [ "requerimos", "comunicate","informanos","respondeme","detallanos"
+    "lexfeedback": ["compartelo","escríbenos","asesorarte"],
+    "lexrequests": ["requerimos", "comunicate","informanos","respondeme","detallanos"
     ],
     "lexcontextual": ["comunidad"],
 
@@ -932,10 +937,7 @@
     "lexapologies": ["lamentamos"],
 
     "lexpositive": [
-     "motivación","encantaria"
-    ],
-    "lexconfirmations": [
-      "actualizada"
+     "motivación","encantaria", "bienvenido"
     ],
 
     "lexdimensions": [
@@ -988,6 +990,14 @@
     ]
   },
   "overTenChars": {
+    "lexcommunication": ["correoelectronico"],
+    "lexoffers": [ "bonificacion"],
+    "lexspamalerts": ["advertencia",  "notificacion"],
+    "lexexclusive": [ "personalizado" ],
+    "lexactions": [ "administrar"],
+    "lexcourtesy": ["apadrinando"],
+    "lexconfirmations": [ "actualizada","confirmamos", "preaprobado"
+    ],
     "lexguidelines": ["condiciones","directrices"],
     "lexsector": ["empresarial","inversiones"
     ],
@@ -1007,18 +1017,18 @@
     ],
     "lexnotifications": ["notificacion","recordatorio"
     ],
-    "lexevents": ["aniversario", "reservacion"
-    ],
+    "lexevents": ["aniversario", "reservacion", "constructivos", "construyamos"  ],
     "lexfuture": ["contactaremos"
     ],
     "lexhealth": [ "tratamiento", "diagnostico"
     ],
     "lexqualities": [ "creatividad", "responsabilidad", "paciencia"
     ],
-    "lexfeedback": ["comentarios","responderemos"],
+    "lexfeedback": ["comentarios","responderemos", "coordinemos", "sugerencias"
+    ],
 
-    "lexpositive": [
-      "agradecemos", "satisfacción", "felicitaciones", "enhorabuena", "prosperidad", "tranquilidad","preferirnos"
+    "lexpositive": [ "agradecemos", "satisfacción", "felicitaciones", "enhorabuena", "prosperidad", "tranquilidad",
+      "preferirnos","satisfaccion","felicidades"
     ],
     "lexaccountactions": [ "actualización"
     ],
@@ -1030,8 +1040,7 @@
     ],
     "lexpromotions": [ "promocional"
     ],
-    "lexfinance": [ "financiamiento"
-    ],
+    "lexfinance": [ "financiamiento","financiacion" ],
     "lexsubscriptions": [ "suscriptores"
     ],
     "lexguarantees": [

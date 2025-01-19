@@ -46,12 +46,12 @@
    ],
 
     "rareSymbols": [
-        "@", "lexsymbols", "lexexclamations","unknownemoji"
+        "@", "","lexsymbols", "lexexclamations","unknownemoji"
     ],
     "stopWords": [
         "hamemoji", "lexauxiliaryverbs", "lexconjunctions", "lexprepositions", "lexadverbs", "lexdeterminers",
-        "lexpronouns", "lexvowel", "lexunits", "lexdimensions", "lexcalendar","todo", "todos", "mas", "tan",
-        "tanto","lexaccountactions", "lexneutral","lexcodes","numsuperhigh"
+        "lexpronouns", "lexvowel", "lexunits", "lexdimensions", "lexcalendar", "tanto","lexaccountactions",
+        "lexneutral","lexcodes","numsuperhigh"
     ],
     "hamIndicators": [
       "lexpositive","lexinformative","lexconfirmations","lexteam","lexfeedback", "lexprofile",

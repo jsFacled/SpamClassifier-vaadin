@@ -247,6 +247,27 @@ public class JsonUtils {
         // Retornar el mapa con las categorías, subcategorías y sus lexemas
         return lexemesMap;
     }
+    public static Set<String> extractUniqueLexemesFromStructuredRepository(JSONObject jsonObject) {
+        Set<String> uniqueLexemes = new HashSet<>();
+
+        for (CharSize charSize : CharSize.values()) {
+            JSONObject charSizeJson = jsonObject.optJSONObject(charSize.getJsonKey());
+            if (charSizeJson == null) continue;
+
+            for (String subcategory : charSizeJson.keySet()) {
+                JSONArray wordsArray = charSizeJson.optJSONArray(subcategory);
+                if (wordsArray == null) continue;
+
+                for (int i = 0; i < wordsArray.length(); i++) {
+                    String word = wordsArray.optString(i, "").trim();
+                    if (!word.isEmpty()) {
+                        uniqueLexemes.add(word);
+                    }
+                }
+            }
+        }
+        return uniqueLexemes;
+    }
 
 
 

@@ -6,8 +6,12 @@ import com.ml.spam.dictionary.models.WordCategory;
 import com.ml.spam.dictionary.models.WordData;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
 import com.ml.spam.handlers.ResourcesHandler;
+import com.ml.spam.utils.JsonUtils;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -222,4 +226,48 @@ public class DictionarySummaryReport {
         } catch (Exception e) {
             System.err.println("[ERROR] Error reading or processing the JSON file: " + e.getMessage());
         }
-    }}
+    }
+
+
+    public static void displayLexemesRepositorySummaryFromFile(String jsonFilePath, ResourcesHandler handler) {
+        System.out.println("\n=== Lexemes Repository Summary Report ===");
+
+        try {
+            // Cargar el archivo JSON
+            JSONObject jsonObject = handler.loadJson(jsonFilePath);
+
+            // Mapa para almacenar lexemes únicos con su conteo
+            Map<String, Integer> lexemeWordCount = new HashMap<>();
+
+            // Recorrer el Charsize
+            for (CharSize charSize : CharSize.values()) {
+                JSONObject charSizeJson = jsonObject.optJSONObject(charSize.getJsonKey());
+                if (charSizeJson == null) continue;
+
+                // Recorrer cada lexeme en el Charsize
+                for (String lexeme : charSizeJson.keySet()) {
+                    JSONArray wordsArray = charSizeJson.optJSONArray(lexeme);
+                    if (wordsArray == null) continue;
+
+                    // Contar las palabras en el lexeme actual
+                    int wordCount = wordsArray.length();
+
+                    // Actualizar el mapa acumulado
+                    lexemeWordCount.merge(lexeme, wordCount, Integer::sum);
+                }
+            }
+
+            // Mostrar el resumen de lexemes únicos
+            System.out.printf("Total Unique Lexemes: %d%n", lexemeWordCount.size());
+            lexemeWordCount.forEach((lexeme, count) ->
+                    System.out.printf("Lexeme: %s -> Count: %d%n", lexeme, count)
+            );
+
+            System.out.println("=== End of Summary ===\n");
+
+        } catch (Exception e) {
+            System.err.println("[ERROR] Error reading or processing the JSON file: " + e.getMessage());
+        }
+    }
+
+}//end

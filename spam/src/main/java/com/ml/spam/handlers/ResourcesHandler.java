@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.ml.spam.utils.CsvUtils;
 import com.ml.spam.utils.JsonUtils;
+import com.ml.spam.utils.ValidationResult;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.*;
@@ -13,6 +15,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 /**
  * ResourcesHandler:
  * Clase responsable de manejar la interacción con los recursos externos del sistema,
@@ -433,5 +438,79 @@ public class ResourcesHandler {
         return rows;
     }
 
+
+    public void loadStructuredLexemesJsonAndExportUniqueLexemes(String inputFilePath, String outputFilePath) {
+        try {
+            // Cargar el archivo JSON estructurado desde el repositorio de lexemas
+            JSONObject structuredLexemesJson = loadJson(inputFilePath);
+
+            // Extraer los lexemas únicos del JSON estructurado
+            Set<String> uniqueLexemes = JsonUtils.extractUniqueLexemesFromStructuredLexemes(structuredLexemesJson);
+
+            // Crear el JSON de salida con los lexemas únicos
+            JSONObject outputJson = new JSONObject();
+            outputJson.put("lexemes", uniqueLexemes); // Cambio clave para reflejar lexemas
+
+            // Guardar el archivo JSON de salida
+            saveJson(outputJson, outputFilePath);
+            System.out.println("[INFO] Exportación exitosa de lexemas únicos a: " + outputFilePath);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al cargar y exportar lexemas únicos desde lexemas estructurados.", e);
+        }
+    }
+
+    public void exportLexemesWithWords(String inputFilePath, String outputFilePath) {
+        try {
+            // Cargar el archivo JSON estructurado desde el repositorio de lexemas
+            JSONObject structuredLexemesJson = loadJson(inputFilePath);
+
+            // Extraer los lexemes y sus palabras sin la estructura de CharSize
+            Map<String, List<String>> lexemesWithWords = JsonUtils.getLexemesWithWordsFromStructuredLexemes(structuredLexemesJson);
+
+            // Crear el JSON de salida
+            JSONObject outputJson = new JSONObject();
+            lexemesWithWords.forEach(outputJson::put);
+
+            // Guardar el archivo JSON de salida
+            saveJson(outputJson, outputFilePath);
+            System.out.println("[INFO] Exportación exitosa de lexemes con palabras a: " + outputFilePath);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al exportar lexemes con palabras desde lexemas estructurados.", e);
+        }
+    }
+
+
+
+    public void loadStructuredLexemesJsonAndExportLexemesWithWords(String inputFilePath, String outputFilePath) {
+        validateAndProcessStructuredLexemes(inputFilePath);
+
+        JSONObject jsonObject = loadJson(inputFilePath);
+        Map<String, List<String>> lexemesWithWords = JsonUtils.getLexemesWithWordsFromStructuredLexemes(jsonObject);
+
+        JSONObject outputJson = new JSONObject(lexemesWithWords);
+        saveJson(outputJson, outputFilePath);
+
+        System.out.println("[INFO] Exportación de lexemas con palabras exitosa a: " + outputFilePath);
+    }
+
+    public ValidationResult validateAndProcessStructuredLexemes(String filePath) {
+        try {
+            JSONObject jsonObject = loadJson(filePath);
+            return JsonUtils.validateStructuredLexemesRepository(jsonObject);
+        } catch (Exception e) {
+            throw new RuntimeException("Error durante la validación del archivo JSON: " + e.getMessage(), e);
+        }
+    }
+
+    public void removeInvalidDuplicatesByCharSize(String filePath) {
+        try {
+            JSONObject jsonObject = loadJson(filePath);
+            JsonUtils.removeInvalidDuplicatesByCharSize(jsonObject);
+            saveJson(jsonObject, filePath);
+            System.out.println("[INFO] Duplicados inválidos eliminados y JSON actualizado.");
+        } catch (Exception e) {
+            throw new RuntimeException("Error al eliminar duplicados inválidos: " + e.getMessage(), e);
+        }
+    }
 
 }

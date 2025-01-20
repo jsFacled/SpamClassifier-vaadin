@@ -233,29 +233,11 @@ public class DictionarySummaryReport {
         System.out.println("\n=== Lexemes Repository Summary Report ===");
 
         try {
-            // Cargar el archivo JSON
-            JSONObject jsonObject = handler.loadJson(jsonFilePath);
+            // Cargar el archivo JSON estructurado
+            JSONObject structuredLexemesJson = handler.loadJson(jsonFilePath);
 
-            // Mapa para almacenar lexemes únicos con su conteo
-            Map<String, Integer> lexemeWordCount = new HashMap<>();
-
-            // Recorrer el Charsize
-            for (CharSize charSize : CharSize.values()) {
-                JSONObject charSizeJson = jsonObject.optJSONObject(charSize.getJsonKey());
-                if (charSizeJson == null) continue;
-
-                // Recorrer cada lexeme en el Charsize
-                for (String lexeme : charSizeJson.keySet()) {
-                    JSONArray wordsArray = charSizeJson.optJSONArray(lexeme);
-                    if (wordsArray == null) continue;
-
-                    // Contar las palabras en el lexeme actual
-                    int wordCount = wordsArray.length();
-
-                    // Actualizar el mapa acumulado
-                    lexemeWordCount.merge(lexeme, wordCount, Integer::sum);
-                }
-            }
+            // Obtener el mapa de lexemes únicos con sus conteos desde JsonUtils
+            Map<String, Integer> lexemeWordCount = JsonUtils.getLexemeWordCountFromStructuredLexemes(structuredLexemesJson);
 
             // Mostrar el resumen de lexemes únicos
             System.out.printf("Total Unique Lexemes: %d%n", lexemeWordCount.size());
@@ -264,7 +246,6 @@ public class DictionarySummaryReport {
             );
 
             System.out.println("=== End of Summary ===\n");
-
         } catch (Exception e) {
             System.err.println("[ERROR] Error reading or processing the JSON file: " + e.getMessage());
         }

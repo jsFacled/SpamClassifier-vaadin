@@ -9,6 +9,7 @@ import org.json.JSONObject;
 
 import java.text.Normalizer;
 import java.util.*;
+import java.util.function.BiConsumer;
 import java.util.regex.Pattern;
 
 public class JsonUtils {
@@ -247,28 +248,154 @@ public class JsonUtils {
         // Retornar el mapa con las categorías, subcategorías y sus lexemas
         return lexemesMap;
     }
-    public static Set<String> extractUniqueLexemesFromStructuredRepository(JSONObject jsonObject) {
+    // Método genérico para procesar lexemes
+    private static void processStructuredLexemes(
+            JSONObject jsonObject,
+            BiConsumer<String, JSONArray> lexemeProcessor
+    ) {
+        for (CharSize charSize : CharSize.values()) {
+            JSONObject charSizeJson = jsonObject.optJSONObject(charSize.getJsonKey());
+            if (charSizeJson == null) continue;
+
+            for (String lexeme : charSizeJson.keySet()) {
+                JSONArray wordsArray = charSizeJson.optJSONArray(lexeme);
+                lexemeProcessor.accept(lexeme, wordsArray);
+            }
+        }
+    }
+
+    // Extraer lexemas únicos
+    public static Set<String> extractUniqueLexemesFromStructuredLexemes(JSONObject jsonObject) {
         Set<String> uniqueLexemes = new HashSet<>();
+
+        processStructuredLexemes(jsonObject, (lexeme, wordsArray) -> {
+            if (lexeme != null && !lexeme.trim().isEmpty()) {
+                uniqueLexemes.add(lexeme.trim());
+            }
+        });
+
+        return uniqueLexemes;
+    }
+
+    // Contar palabras por lexema
+    public static Map<String, Integer> getLexemeWordCountFromStructuredLexemes(JSONObject jsonObject) {
+        Map<String, Integer> lexemeWordCount = new HashMap<>();
+
+        processStructuredLexemes(jsonObject, (lexeme, wordsArray) -> {
+            if (wordsArray != null) {
+                lexemeWordCount.merge(lexeme, wordsArray.length(), Integer::sum);
+            }
+        });
+
+        return lexemeWordCount;
+    }
+
+    // Obtener lexemas con sus palabras
+    public static Map<String, List<String>> getLexemesWithWordsFromStructuredLexemes(JSONObject jsonObject) {
+        Map<String, List<String>> lexemesWithWords = new HashMap<>();
 
         for (CharSize charSize : CharSize.values()) {
             JSONObject charSizeJson = jsonObject.optJSONObject(charSize.getJsonKey());
             if (charSizeJson == null) continue;
 
-            for (String subcategory : charSizeJson.keySet()) {
-                JSONArray wordsArray = charSizeJson.optJSONArray(subcategory);
+            for (String lexeme : charSizeJson.keySet()) {
+                JSONArray wordsArray = charSizeJson.optJSONArray(lexeme);
                 if (wordsArray == null) continue;
 
+                List<String> wordsList = new ArrayList<>();
                 for (int i = 0; i < wordsArray.length(); i++) {
                     String word = wordsArray.optString(i, "").trim();
                     if (!word.isEmpty()) {
-                        uniqueLexemes.add(word);
+                        wordsList.add(word);
+                    }
+                }
+
+                lexemesWithWords.merge(lexeme, wordsList, (existing, newWords) -> {
+                    existing.addAll(newWords);
+                    return existing;
+                });
+            }
+        }
+        return lexemesWithWords;
+    }
+
+
+    public static ValidationResult validateStructuredLexemesRepository(JSONObject jsonObject) {
+        Set<String> uniqueWords = new HashSet<>();
+        Set<String> duplicateWords = new HashSet<>();
+        boolean isValidStructure = true;
+        List<String> errors = new ArrayList<>();
+
+        for (CharSize charSize : CharSize.values()) {
+            JSONObject charSizeJson = jsonObject.optJSONObject(charSize.getJsonKey());
+            if (charSizeJson == null) {
+                errors.add("CharSize '" + charSize.getJsonKey() + "' está ausente o no es un objeto válido.");
+                isValidStructure = false;
+                continue;
+            }
+
+            for (String lexeme : charSizeJson.keySet()) {
+                JSONArray wordsArray = charSizeJson.optJSONArray(lexeme);
+                if (wordsArray == null) {
+                    errors.add("Lexeme '" + lexeme + "' en CharSize '" + charSize.getJsonKey() + "' no contiene un arreglo de palabras.");
+                    isValidStructure = false;
+                    continue;
+                }
+
+                for (int i = 0; i < wordsArray.length(); i++) {
+                    String word = wordsArray.optString(i, "").trim();
+                    if (word.isEmpty()) {
+                        errors.add("Palabra vacía o inválida encontrada en lexeme '" + lexeme + "' dentro de CharSize '" + charSize.getJsonKey() + "'.");
+                        isValidStructure = false;
+                    } else if (!uniqueWords.add(word)) {
+                        duplicateWords.add(word);
                     }
                 }
             }
         }
-        return uniqueLexemes;
+
+        if (!errors.isEmpty()) {
+            System.err.println("[ERROR] Problemas detectados en la validación:");
+            errors.forEach(System.err::println);
+        }
+
+        return new ValidationResult(isValidStructure, duplicateWords);
     }
 
 
+
+    public static void removeInvalidDuplicatesByCharSize(JSONObject jsonObject) {
+        for (CharSize charSize : CharSize.values()) {
+            JSONObject charSizeJson = jsonObject.optJSONObject(charSize.getJsonKey());
+            if (charSizeJson == null) continue;
+
+            int expectedSize = charSize.getSize();
+
+            for (String lexeme : charSizeJson.keySet()) {
+                JSONArray wordsArray = charSizeJson.optJSONArray(lexeme);
+                if (wordsArray == null) continue;
+
+                JSONArray validWordsArray = new JSONArray();
+                List<String> removedWords = new ArrayList<>();
+
+                for (int i = 0; i < wordsArray.length(); i++) {
+                    String word = wordsArray.optString(i, "").trim();
+                    if (!word.isEmpty() && (expectedSize == -1 || word.length() == expectedSize)) {
+                        validWordsArray.put(word);
+                    } else {
+                        removedWords.add(word);
+                    }
+                }
+
+                charSizeJson.put(lexeme, validWordsArray);
+
+                if (!removedWords.isEmpty()) {
+                    System.out.println("[INFO] Palabras eliminadas del lexema '" + lexeme + "' en CharSize '"
+                            + charSize.getJsonKey() + "': " + removedWords);
+                }
+            }
+        }
+        System.out.println("[INFO] Proceso de eliminación de duplicados completado.");
+    }
 
 }

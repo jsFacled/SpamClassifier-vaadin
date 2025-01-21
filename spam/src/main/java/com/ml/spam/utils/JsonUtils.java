@@ -398,4 +398,28 @@ public class JsonUtils {
         System.out.println("[INFO] Proceso de eliminación de duplicados completado.");
     }
 
+
+    public static Map<String, List<String>> extractCategorizedWords(JSONObject jsonObject) {
+        Map<String, List<String>> categorizedWords = new HashMap<>();
+
+        for (WordCategory category : WordCategory.values()) {
+            String categoryKey = category.getJsonKey();
+            if (jsonObject.has(categoryKey)) {
+                Object value = jsonObject.get(categoryKey);
+                if (value instanceof JSONObject) {
+                    // Si es un JSONObject, extraer las claves como palabras
+                    JSONObject categoryObject = (JSONObject) value;
+                    List<String> words = new ArrayList<>(categoryObject.keySet());
+                    categorizedWords.put(categoryKey, words);
+                } else {
+                    System.out.println("[WARN] El valor de " + categoryKey + " no es un JSONObject.");
+                }
+            } else {
+                System.out.println("[WARN] Categoría no encontrada en el JSON: " + categoryKey);
+            }
+        }
+
+        return categorizedWords;
+    }
+
 }

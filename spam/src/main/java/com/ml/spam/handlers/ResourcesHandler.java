@@ -513,4 +513,32 @@ public class ResourcesHandler {
         }
     }
 
+
+    public void extractAndSaveCategorizedWordOnly(String inputFilePath, String outputDirectory) {
+        try {
+            // Cargar el JSON desde el archivo de entrada
+            JSONObject jsonObject = loadJson(inputFilePath);
+
+            // Validar la estructura del JSON
+            JsonUtils.validateWordCategoryJsonStructure(jsonObject);
+
+            // Extraer palabras categorizadas
+            Map<String, List<String>> categorizedWords = JsonUtils.extractCategorizedWords(jsonObject);
+
+            // Crear un JSONObject para la salida
+            JSONObject outputJson = new JSONObject(categorizedWords);
+
+            // Generar una ruta de archivo única para el archivo de salida
+            String baseFileName = "updated_categorized_words_base_only.json";
+            String uniqueOutputPath = getUniqueFilePath(baseFileName);
+
+            // Guardar el JSON resultante
+            saveJson(outputJson, uniqueOutputPath);
+
+            System.out.println("[INFO] Exportación de palabras categorizadas exitosa a: " + uniqueOutputPath);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al extraer y guardar palabras categorizadas: " + e.getMessage(), e);
+        }
+    }
+
 }

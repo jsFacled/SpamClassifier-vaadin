@@ -8110,3 +8110,23 @@
     }
   }
 }
+----------------------------
+
+
+6. **"webaddress"**: **`lexwebactions`** - Relacionado con direcciones y enlaces web.
+"lexlimited" : {
+"hamFrequency" : 0,
+"spamFrequency" : 0
+},
+--------------
+
+"unknownemoji" : {
+"hamFrequency" : 0,
+"spamFrequency" : 0
+}
+-------------------
+"lexpurchases" : {
+"hamFrequency" : 0,
+"spamFrequency" : 0
+},
+-------------------

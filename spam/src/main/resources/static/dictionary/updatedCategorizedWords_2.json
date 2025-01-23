@@ -1,5 +1,9 @@
 {
   "hamIndicators" : {
+    "confirmada" : {
+      "hamFrequency" : 5,
+      "spamFrequency" : 0
+    },
     "lexapologies" : {
       "hamFrequency" : 7,
       "spamFrequency" : 0
@@ -9,24 +13,24 @@
       "spamFrequency" : 0
     },
     "lexcelebrations" : {
-      "hamFrequency" : 10,
-      "spamFrequency" : 3
+      "hamFrequency" : 27,
+      "spamFrequency" : 7
     },
     "lexchoices" : {
       "hamFrequency" : 25,
       "spamFrequency" : 8
     },
     "lexconfirmations" : {
-      "hamFrequency" : 59,
-      "spamFrequency" : 31
+      "hamFrequency" : 35,
+      "spamFrequency" : 24
+    },
+    "lexcontextual" : {
+      "hamFrequency" : 31,
+      "spamFrequency" : 27
     },
     "lexcourtesy" : {
-      "hamFrequency" : 6,
-      "spamFrequency" : 5
-    },
-    "lexdaily" : {
-      "hamFrequency" : 38,
-      "spamFrequency" : 24
+      "hamFrequency" : 71,
+      "spamFrequency" : 14
     },
     "lexeducation" : {
       "hamFrequency" : 7,
@@ -53,8 +57,12 @@
       "spamFrequency" : 3
     },
     "lexhelp" : {
-      "hamFrequency" : 28,
-      "spamFrequency" : 24
+      "hamFrequency" : 45,
+      "spamFrequency" : 31
+    },
+    "leximprovements" : {
+      "hamFrequency" : 7,
+      "spamFrequency" : 5
     },
     "lexissues" : {
       "hamFrequency" : 14,
@@ -65,12 +73,12 @@
       "spamFrequency" : 0
     },
     "lexplanning" : {
-      "hamFrequency" : 3,
-      "spamFrequency" : 0
+      "hamFrequency" : 12,
+      "spamFrequency" : 8
     },
     "lexpositive" : {
-      "hamFrequency" : 253,
-      "spamFrequency" : 82
+      "hamFrequency" : 151,
+      "spamFrequency" : 90
     },
     "lexprofile" : {
       "hamFrequency" : 26,
@@ -81,16 +89,12 @@
       "spamFrequency" : 27
     },
     "lexqualities" : {
-      "hamFrequency" : 14,
+      "hamFrequency" : 17,
       "spamFrequency" : 9
     },
     "lexspamgreetings" : {
       "hamFrequency" : 39,
       "spamFrequency" : 20
-    },
-    "lexsubscriptions" : {
-      "hamFrequency" : 6,
-      "spamFrequency" : 3
     },
     "lexsuccess" : {
       "hamFrequency" : 13,
@@ -101,31 +105,43 @@
       "spamFrequency" : 5
     },
     "lextracking" : {
-      "hamFrequency" : 4,
-      "spamFrequency" : 0
+      "hamFrequency" : 11,
+      "spamFrequency" : 4
     },
     "lextravel" : {
       "hamFrequency" : 7,
       "spamFrequency" : 1
     },
-    "lexurgency" : {
-      "hamFrequency" : 4,
-      "spamFrequency" : 3
+    "lexurgentrequests" : {
+      "hamFrequency" : 17,
+      "spamFrequency" : 10
     },
     "lexvaluable" : {
-      "hamFrequency" : 10,
-      "spamFrequency" : 9
+      "hamFrequency" : 12,
+      "spamFrequency" : 10
     },
     "lexwork" : {
       "hamFrequency" : 11,
       "spamFrequency" : 1
     },
-    "selecto" : {
-      "hamFrequency" : 2,
+    "reserva" : {
+      "hamFrequency" : 8,
       "spamFrequency" : 0
+    },
+    "revisa" : {
+      "hamFrequency" : 11,
+      "spamFrequency" : 1
     }
   },
   "moderateSpamWord" : {
+    " " : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 6
+    },
+    "?" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 5
+    },
     "acredite" : {
       "hamFrequency" : 0,
       "spamFrequency" : 8
@@ -178,7 +194,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 14
     },
-
+    "ahorro" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "ai" : {
       "hamFrequency" : 0,
       "spamFrequency" : 5
@@ -239,8 +258,11 @@
       "hamFrequency" : 0,
       "spamFrequency" : 6
     },
-
-    "aqu" : {
+    "aprobado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "aqu?" : {
       "hamFrequency" : 0,
       "spamFrequency" : 6
     },
@@ -252,7 +274,14 @@
       "hamFrequency" : 0,
       "spamFrequency" : 8
     },
-
+    "art?culo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 6
+    },
+    "artculo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "asegura" : {
       "hamFrequency" : 0,
       "spamFrequency" : 6
@@ -344,10 +373,6 @@
     "bien" : {
       "hamFrequency" : 0,
       "spamFrequency" : 11
-    },
-    "bienvenida" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 13
     },
     "black" : {
       "hamFrequency" : 0,
@@ -485,6 +510,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 6
     },
+    "comunidad" : {
+      "hamFrequency" : 3,
+      "spamFrequency" : 13
+    },
     "comunidades" : {
       "hamFrequency" : 0,
       "spamFrequency" : 9
@@ -525,7 +554,10 @@
       "hamFrequency" : 2,
       "spamFrequency" : 9
     },
-
+    "consultas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "consumo" : {
       "hamFrequency" : 0,
       "spamFrequency" : 11
@@ -577,10 +609,6 @@
     "crees" : {
       "hamFrequency" : 0,
       "spamFrequency" : 9
-    },
-    "criptomonedas" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 7
     },
     "cual" : {
       "hamFrequency" : 0,
@@ -730,7 +758,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 5
     },
-    "direccin" : {
+    "direcci?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 5
     },
@@ -762,7 +790,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 8
     },
-    "distribucin" : {
+    "distribuci?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 7
     },
@@ -806,7 +834,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 7
     },
-    "electrnico" : {
+    "electr?nico" : {
       "hamFrequency" : 0,
       "spamFrequency" : 10
     },
@@ -854,7 +882,10 @@
       "hamFrequency" : 7,
       "spamFrequency" : 16
     },
-
+    "envo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "er" : {
       "hamFrequency" : 0,
       "spamFrequency" : 8
@@ -1119,14 +1150,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 5
     },
-    "increible" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 10
-    },
-    "increibles" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
     "incumplimiento" : {
       "hamFrequency" : 0,
       "spamFrequency" : 8
@@ -1143,7 +1166,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 8
     },
-    "informacin" : {
+    "informaci?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 10
     },
@@ -1162,6 +1185,10 @@
     "instagram" : {
       "hamFrequency" : 0,
       "spamFrequency" : 11
+    },
+    "instrucciones" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
     },
     "intercambio" : {
       "hamFrequency" : 0,
@@ -1219,16 +1246,12 @@
       "hamFrequency" : 3,
       "spamFrequency" : 8
     },
-    "lexcommunity" : {
-      "hamFrequency" : 12,
-      "spamFrequency" : 18
-    },
     "lexcontact" : {
       "hamFrequency" : 3,
       "spamFrequency" : 16
     },
     "lexdocuments" : {
-      "hamFrequency" : 31,
+      "hamFrequency" : 30,
       "spamFrequency" : 42
     },
     "lexfree" : {
@@ -1236,16 +1259,20 @@
       "spamFrequency" : 14
     },
     "lexfrequency" : {
-      "hamFrequency" : 7,
-      "spamFrequency" : 18
+      "hamFrequency" : 11,
+      "spamFrequency" : 23
     },
-    "lexlimited" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
+    "lexgrowth" : {
+      "hamFrequency" : 3,
+      "spamFrequency" : 12
     },
     "lexpower" : {
       "hamFrequency" : 0,
       "spamFrequency" : 7
+    },
+    "lexquantities" : {
+      "hamFrequency" : 5,
+      "spamFrequency" : 15
     },
     "lexspaminformation" : {
       "hamFrequency" : 1,
@@ -1255,7 +1282,14 @@
       "hamFrequency" : 3,
       "spamFrequency" : 9
     },
-
+    "lexurgency" : {
+      "hamFrequency" : 4,
+      "spamFrequency" : 13
+    },
+    "lexwealth" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "liberte" : {
       "hamFrequency" : 0,
       "spamFrequency" : 6
@@ -1376,7 +1410,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 5
     },
-    "n" : {
+    "n?" : {
       "hamFrequency" : 0,
       "spamFrequency" : 8
     },
@@ -1408,7 +1442,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 11
     },
-
+    "notificacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "novedades" : {
       "hamFrequency" : 0,
       "spamFrequency" : 8
@@ -1521,10 +1558,6 @@
       "hamFrequency" : 7,
       "spamFrequency" : 15
     },
-    "participa" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
     "participando" : {
       "hamFrequency" : 0,
       "spamFrequency" : 6
@@ -1617,7 +1650,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 7
     },
-
+    "poderoso" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "podes" : {
       "hamFrequency" : 0,
       "spamFrequency" : 11
@@ -1630,7 +1666,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 11
     },
-
+    "potencial" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "preferida" : {
       "hamFrequency" : 0,
       "spamFrequency" : 5
@@ -1659,7 +1698,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 5
     },
-
+    "probar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "problemas" : {
       "hamFrequency" : 1,
       "spamFrequency" : 14
@@ -1672,7 +1714,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 5
     },
-
+    "producto" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "profesionales" : {
       "hamFrequency" : 0,
       "spamFrequency" : 5
@@ -1681,7 +1726,7 @@
       "hamFrequency" : 1,
       "spamFrequency" : 11
     },
-    "promocin" : {
+    "promoci?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 13
     },
@@ -1789,7 +1834,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 9
     },
-
+    "registrarse" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "reintegros" : {
       "hamFrequency" : 0,
       "spamFrequency" : 11
@@ -1801,10 +1849,6 @@
     "remains" : {
       "hamFrequency" : 0,
       "spamFrequency" : 5
-    },
-    "rendimiento" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
     },
     "republica" : {
       "hamFrequency" : 0,
@@ -1830,7 +1874,14 @@
       "hamFrequency" : 0,
       "spamFrequency" : 5
     },
-
+    "restaurada" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "resultado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "resumen" : {
       "hamFrequency" : 1,
       "spamFrequency" : 10
@@ -1855,7 +1906,14 @@
       "hamFrequency" : 0,
       "spamFrequency" : 6
     },
-
+    "salva" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "salvar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "salvo" : {
       "hamFrequency" : 0,
       "spamFrequency" : 8
@@ -2004,16 +2062,19 @@
       "hamFrequency" : 0,
       "spamFrequency" : 9
     },
-    "suscripcin" : {
+    "suscripci?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 5
     },
-
+    "suspendida" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "teatros" : {
       "hamFrequency" : 0,
       "spamFrequency" : 9
     },
-    "telfono" : {
+    "tel?fono" : {
       "hamFrequency" : 0,
       "spamFrequency" : 5
     },
@@ -2053,7 +2114,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 5
     },
-
+    "trabajo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "transparente" : {
       "hamFrequency" : 0,
       "spamFrequency" : 8
@@ -2066,26 +2130,25 @@
       "hamFrequency" : 0,
       "spamFrequency" : 8
     },
-    "ultima" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
     "ultimas" : {
       "hamFrequency" : 0,
       "spamFrequency" : 10
-    },
-    "ultimo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
     },
     "ultimos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 5
     },
-
+    "unete" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "unicamente" : {
       "hamFrequency" : 0,
       "spamFrequency" : 6
+    },
+    "unidos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 10
     },
     "unsubscribe" : {
       "hamFrequency" : 0,
@@ -2193,6 +2256,10 @@
     }
   },
   "rareSymbols" : {
+    "" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "@" : {
       "hamFrequency" : 0,
       "spamFrequency" : 70
@@ -2202,8 +2269,8 @@
       "spamFrequency" : 434
     },
     "lexsymbols" : {
-      "hamFrequency" : 9,
-      "spamFrequency" : 2372
+      "hamFrequency" : 7,
+      "spamFrequency" : 2072
     },
     "unknownemoji" : {
       "hamFrequency" : 0,
@@ -2211,68 +2278,92 @@
     }
   },
   "stopWords" : {
-    "hamemoji": {
-      "hamFrequency": 0,
-      "spamFrequency": 1
+    "hamemoji" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
     },
-    "lexaccountactions": {
-      "hamFrequency": 20,
-      "spamFrequency": 12
+    "lexaccountactions" : {
+      "hamFrequency" : 11,
+      "spamFrequency" : 6
     },
-    "lexadverbs": {
-      "hamFrequency": 19,
-      "spamFrequency": 391
+    "lexadverbs" : {
+      "hamFrequency" : 20,
+      "spamFrequency" : 351
     },
-    "lexauxiliaryverbs": {
-      "hamFrequency": 81,
-      "spamFrequency": 162
+    "lexauxiliaryverbs" : {
+      "hamFrequency" : 119,
+      "spamFrequency" : 174
     },
-    "lexcalendar": {
-      "hamFrequency": 29,
-      "spamFrequency": 365
+    "lexcalendar" : {
+      "hamFrequency" : 28,
+      "spamFrequency" : 360
     },
-    "lexcodes": {
-      "hamFrequency": 27,
-      "spamFrequency": 80
+    "lexcodes" : {
+      "hamFrequency" : 27,
+      "spamFrequency" : 80
     },
-    "lexconjunctions": {
-      "hamFrequency": 91,
-      "spamFrequency": 1302
+    "lexconjunctions" : {
+      "hamFrequency" : 91,
+      "spamFrequency" : 1302
     },
-    "lexdeterminers": {
-      "hamFrequency": 253,
-      "spamFrequency": 2314
+    "lexdeterminers" : {
+      "hamFrequency" : 253,
+      "spamFrequency" : 2314
     },
-    "lexdimensions": {
-      "hamFrequency": 0,
-      "spamFrequency": 2
+    "lexdimensions" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
-    "lexneutral": {
-      "hamFrequency": 120,
-      "spamFrequency": 85
+    "lexneutral" : {
+      "hamFrequency" : 98,
+      "spamFrequency" : 74
     },
-    "lexprepositions": {
-      "hamFrequency": 421,
-      "spamFrequency": 4010
+    "lexprepositions" : {
+      "hamFrequency" : 421,
+      "spamFrequency" : 4010
     },
-    "lexpronouns": {
-      "hamFrequency": 435,
-      "spamFrequency": 969
+    "lexpronouns" : {
+      "hamFrequency" : 435,
+      "spamFrequency" : 969
     },
-    "lexunits": {
-      "hamFrequency": 38,
-      "spamFrequency": 70
+    "lexunits" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 58
     },
-    "lexvowel": {
-      "hamFrequency": 72,
-      "spamFrequency": 618
+    "lexvowel" : {
+      "hamFrequency" : 72,
+      "spamFrequency" : 618
     },
-    "numsuperhigh": {
-      "hamFrequency": 0,
-      "spamFrequency": 0
+    "numsuperhigh" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "tanto" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
     }
   },
   "strongSpamWord" : {
+    " " : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 28
+    },
+    "?" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 15
+    },
+    "? " : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 528
+    },
+    "??" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 15
+    },
+    "???" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 143
+    },
     "abierta" : {
       "hamFrequency" : 0,
       "spamFrequency" : 56
@@ -2281,7 +2372,38 @@
       "hamFrequency" : 0,
       "spamFrequency" : 43
     },
-
+    "accion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "actualizacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "advertencia" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ahora" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ahorra" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "alerta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "amigo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "amor" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "and" : {
       "hamFrequency" : 0,
       "spamFrequency" : 18
@@ -2290,12 +2412,18 @@
       "hamFrequency" : 0,
       "spamFrequency" : 23
     },
-
+    "anuncio" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "aprovecha" : {
       "hamFrequency" : 0,
       "spamFrequency" : 22
     },
-
+    "apuesta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "aqui" : {
       "hamFrequency" : 18,
       "spamFrequency" : 45
@@ -2312,12 +2440,30 @@
       "hamFrequency" : 0,
       "spamFrequency" : 15
     },
-
+    "asegurado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "asombroso" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "atencion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "aumente" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "baja" : {
       "hamFrequency" : 0,
       "spamFrequency" : 38
     },
-
+    "bancarrota" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "banco" : {
       "hamFrequency" : 2,
       "spamFrequency" : 56
@@ -2330,12 +2476,18 @@
       "hamFrequency" : 0,
       "spamFrequency" : 71
     },
-
+    "blackjack" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "bloqueo" : {
       "hamFrequency" : 0,
       "spamFrequency" : 19
     },
-
+    "bono" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "caba" : {
       "hamFrequency" : 0,
       "spamFrequency" : 17
@@ -2352,21 +2504,34 @@
       "hamFrequency" : 0,
       "spamFrequency" : 21
     },
-
+    "casino" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "certificado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "clic" : {
       "hamFrequency" : 1,
       "spamFrequency" : 45
     },
-
+    "click" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "comerciales" : {
       "hamFrequency" : 0,
       "spamFrequency" : 19
     },
     "como" : {
-      "hamFrequency" : 4,
-      "spamFrequency" : 106
+      "hamFrequency" : 8,
+      "spamFrequency" : 152
     },
-
+    "compare" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "complicaciones" : {
       "hamFrequency" : 0,
       "spamFrequency" : 16
@@ -2383,7 +2548,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 85
     },
-
+    "contrasea" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "conversacion" : {
       "hamFrequency" : 0,
       "spamFrequency" : 59
@@ -2392,7 +2560,14 @@
       "hamFrequency" : 0,
       "spamFrequency" : 25
     },
-
+    "credito" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "criptografia" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "cualquier" : {
       "hamFrequency" : 0,
       "spamFrequency" : 42
@@ -2401,8 +2576,11 @@
       "hamFrequency" : 0,
       "spamFrequency" : 19
     },
-
-    "das" : {
+    "cura" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "d?as" : {
       "hamFrequency" : 0,
       "spamFrequency" : 29
     },
@@ -2422,7 +2600,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 15
     },
-
+    "descuento" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "desde" : {
       "hamFrequency" : 0,
       "spamFrequency" : 42
@@ -2435,7 +2616,14 @@
       "hamFrequency" : 1,
       "spamFrequency" : 22
     },
-
+    "dominios" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "donacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "durante" : {
       "hamFrequency" : 0,
       "spamFrequency" : 22
@@ -2448,12 +2636,22 @@
       "hamFrequency" : 1,
       "spamFrequency" : 26
     },
-
+    "eliminar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "email" : {
       "hamFrequency" : 0,
       "spamFrequency" : 16
     },
-
+    "encuentros" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "engao" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "es" : {
       "hamFrequency" : 24,
       "spamFrequency" : 152
@@ -2462,22 +2660,46 @@
       "hamFrequency" : 0,
       "spamFrequency" : 18
     },
-
+    "espectacular" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "estafa" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "estar" : {
       "hamFrequency" : 0,
       "spamFrequency" : 15
     },
-
+    "estimado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "exclusivas" : {
       "hamFrequency" : 0,
       "spamFrequency" : 15
     },
-
+    "exclusivo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "externo" : {
       "hamFrequency" : 0,
       "spamFrequency" : 26
     },
-
+    "fabuloso" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "felicidades" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "felicitaciones" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "fin" : {
       "hamFrequency" : 1,
       "spamFrequency" : 20
@@ -2490,7 +2712,14 @@
       "hamFrequency" : 1,
       "spamFrequency" : 34
     },
-
+    "formulario" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "fraude" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "futuro" : {
       "hamFrequency" : 1,
       "spamFrequency" : 22
@@ -2499,7 +2728,18 @@
       "hamFrequency" : 0,
       "spamFrequency" : 65
     },
-
+    "ganador" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "garanta" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "garantizado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "gcba" : {
       "hamFrequency" : 0,
       "spamFrequency" : 26
@@ -2544,12 +2784,30 @@
       "hamFrequency" : 0,
       "spamFrequency" : 20
     },
-
+    "increble" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "increible" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "informacion" : {
       "hamFrequency" : 7,
       "spamFrequency" : 100
     },
-
+    "inmediato" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "instantaneo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "instruccines" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "interes" : {
       "hamFrequency" : 5,
       "spamFrequency" : 22
@@ -2558,7 +2816,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 16
     },
-
+    "inversin" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "invierte" : {
       "hamFrequency" : 0,
       "spamFrequency" : 16
@@ -2567,31 +2828,49 @@
       "hamFrequency" : 0,
       "spamFrequency" : 57
     },
-
+    "irrepetible" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "irresistible" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "jefe" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "lectores" : {
       "hamFrequency" : 0,
       "spamFrequency" : 57
+    },
+    "leer" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 31
     },
     "leido" : {
       "hamFrequency" : 0,
       "spamFrequency" : 30
     },
-
+    "levita" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "lexactions" : {
       "hamFrequency" : 50,
-      "spamFrequency" : 178
+      "spamFrequency" : 150
     },
     "lexbanking" : {
-      "hamFrequency" : 10,
-      "spamFrequency" : 138
+      "hamFrequency" : 4,
+      "spamFrequency" : 96
     },
     "lexbenefits" : {
       "hamFrequency" : 3,
       "spamFrequency" : 29
     },
     "lexcommunication" : {
-      "hamFrequency" : 30,
-      "spamFrequency" : 196
+      "hamFrequency" : 20,
+      "spamFrequency" : 191
     },
     "lexconsonant" : {
       "hamFrequency" : 0,
@@ -2599,15 +2878,19 @@
     },
     "lexcurrencies" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 40
+      "spamFrequency" : 49
+    },
+    "lexdaily" : {
+      "hamFrequency" : 36,
+      "spamFrequency" : 88
     },
     "lexexclusive" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 40
+      "hamFrequency" : 5,
+      "spamFrequency" : 61
     },
     "lexfinance" : {
-      "hamFrequency" : 27,
-      "spamFrequency" : 101
+      "hamFrequency" : 33,
+      "spamFrequency" : 127
     },
     "lexguidelines" : {
       "hamFrequency" : 12,
@@ -2615,31 +2898,27 @@
     },
     "lexhealth" : {
       "hamFrequency" : 11,
-      "spamFrequency" : 29
+      "spamFrequency" : 30
     },
     "lexmarketing" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 27
+      "spamFrequency" : 30
     },
     "lexmotivational" : {
-      "hamFrequency" : 4,
-      "spamFrequency" : 66
+      "hamFrequency" : 3,
+      "spamFrequency" : 41
     },
     "lexnetworking" : {
       "hamFrequency" : 1,
       "spamFrequency" : 46
     },
     "lexnotifications" : {
-      "hamFrequency" : 64,
-      "spamFrequency" : 164
-    },
-    "lexoffers" : {
-      "hamFrequency" : 4,
-      "spamFrequency" : 110
+      "hamFrequency" : 60,
+      "spamFrequency" : 160
     },
     "lexpromotions" : {
-      "hamFrequency" : 5,
-      "spamFrequency" : 29
+      "hamFrequency" : 11,
+      "spamFrequency" : 128
     },
     "lexpurchases" : {
       "hamFrequency" : 0,
@@ -2654,24 +2933,24 @@
       "spamFrequency" : 40
     },
     "lexsecurity" : {
-      "hamFrequency" : 12,
-      "spamFrequency" : 30
+      "hamFrequency" : 20,
+      "spamFrequency" : 35
     },
     "lexstatistics" : {
       "hamFrequency" : 2,
-      "spamFrequency" : 20
+      "spamFrequency" : 19
+    },
+    "lexsubscriptions" : {
+      "hamFrequency" : 12,
+      "spamFrequency" : 32
     },
     "lextelecom" : {
       "hamFrequency" : 4,
       "spamFrequency" : 59
     },
-    "lexurgentrequests" : {
-      "hamFrequency" : 21,
-      "spamFrequency" : 96
-    },
     "lexurls" : {
-      "hamFrequency" : 6,
-      "spamFrequency" : 72
+      "hamFrequency" : 4,
+      "spamFrequency" : 63
     },
     "lexwebactions" : {
       "hamFrequency" : 6,
@@ -2681,22 +2960,70 @@
       "hamFrequency" : 0,
       "spamFrequency" : 33
     },
-
-    "mathop" : {
+    "libertad" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 39
+      "spamFrequency" : 0
     },
-
+    "limitada" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "limitado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "llamada" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "ltimo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "lujo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "m?s" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 17
+    },
+    "marca" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 27
+    },
+    "marketing" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "mathop" : {
+      "hamFrequency" : 2,
+      "spamFrequency" : 339
+    },
+    "medicamento" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "medio" : {
       "hamFrequency" : 1,
       "spamFrequency" : 18
     },
-
+    "mejore" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "mentira" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "miembros" : {
       "hamFrequency" : 0,
       "spamFrequency" : 19
     },
-
+    "milagro" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "ministerio" : {
       "hamFrequency" : 0,
       "spamFrequency" : 26
@@ -2709,11 +3036,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 22
     },
-    "ms" : {
+    "multiplique" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 17
+      "spamFrequency" : 0
     },
-
     "necesidades" : {
       "hamFrequency" : 0,
       "spamFrequency" : 16
@@ -2762,7 +3088,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 45
     },
-
+    "oficial" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "opciones" : {
       "hamFrequency" : 0,
       "spamFrequency" : 26
@@ -2783,7 +3112,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 34
     },
-
+    "participe" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "pasado" : {
       "hamFrequency" : 0,
       "spamFrequency" : 22
@@ -2800,17 +3132,26 @@
       "hamFrequency" : 1,
       "spamFrequency" : 32
     },
-
+    "personalizado" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "personas" : {
       "hamFrequency" : 0,
       "spamFrequency" : 22
     },
-
+    "pierda" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "pierdas" : {
       "hamFrequency" : 0,
       "spamFrequency" : 19
     },
-
+    "planear" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "podra" : {
       "hamFrequency" : 0,
       "spamFrequency" : 19
@@ -2823,22 +3164,50 @@
       "hamFrequency" : 0,
       "spamFrequency" : 17
     },
-
+    "prestamo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "prestamos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 36
     },
-
+    "procesa" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "productos" : {
       "hamFrequency" : 1,
       "spamFrequency" : 38
     },
-
+    "prohibir" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "promocin" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "promociones" : {
       "hamFrequency" : 0,
       "spamFrequency" : 42
     },
-
+    "pronto" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "prosperidad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "proteccion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "publicidad" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "puede" : {
       "hamFrequency" : 1,
       "spamFrequency" : 17
@@ -2859,12 +3228,18 @@
       "hamFrequency" : 0,
       "spamFrequency" : 24
     },
-
+    "rebaja" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "recibir" : {
       "hamFrequency" : 1,
       "spamFrequency" : 58
     },
-
+    "recuperacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "reddit" : {
       "hamFrequency" : 0,
       "spamFrequency" : 33
@@ -2873,12 +3248,38 @@
       "hamFrequency" : 0,
       "spamFrequency" : 22
     },
-
+    "reembolso" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "regalo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "rendimientos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "responde" : {
+      "hamFrequency" : 3,
+      "spamFrequency" : 22
+    },
     "retiro" : {
       "hamFrequency" : 0,
       "spamFrequency" : 22
     },
-
+    "revoluciona" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "riqueza" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "rolex" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "sea" : {
       "hamFrequency" : 0,
       "spamFrequency" : 17
@@ -2887,7 +3288,14 @@
       "hamFrequency" : 5,
       "spamFrequency" : 26
     },
-
+    "seguro" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "seleccion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "sender" : {
       "hamFrequency" : 0,
       "spamFrequency" : 15
@@ -2912,10 +3320,13 @@
       "hamFrequency" : 0,
       "spamFrequency" : 20
     },
-
-    "suscripcion" : {
-      "hamFrequency" : 6,
-      "spamFrequency" : 29
+    "suscribirse" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "suscripcin" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
     },
     "tambien" : {
       "hamFrequency" : 0,
@@ -2929,7 +3340,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 22
     },
-
+    "testimonios" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "the" : {
       "hamFrequency" : 0,
       "spamFrequency" : 17
@@ -2954,12 +3368,18 @@
       "hamFrequency" : 0,
       "spamFrequency" : 21
     },
-
+    "trampa" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "traves" : {
       "hamFrequency" : 0,
       "spamFrequency" : 27
     },
-
+    "urgente" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "usar" : {
       "hamFrequency" : 0,
       "spamFrequency" : 40
@@ -2972,17 +3392,35 @@
       "hamFrequency" : 0,
       "spamFrequency" : 43
     },
-
+    "vacaciones" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "ver" : {
       "hamFrequency" : 0,
       "spamFrequency" : 39
     },
-
+    "verifica" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "viagra" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "vigente" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 16
+    },
+    "webaddress" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "webemail" : {
       "hamFrequency" : 0,
       "spamFrequency" : 76
     },
-    "webaddress" : {
+    "xito" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
@@ -2991,8 +3429,11 @@
       "spamFrequency" : 30
     }
   },
-
-    "unassignedWords" : {
+  "unassignedWords" : {
+    " ???" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "!!" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -3006,6 +3447,26 @@
       "spamFrequency" : 1
     },
     "------" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "?" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "?ltima" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "?minent" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "?nicos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "?xito" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -3073,6 +3534,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
+    "ac?" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "acaban" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -3104,6 +3569,10 @@
     "acelere" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
+    },
+    "aceptado" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 0
     },
     "aceptar" : {
       "hamFrequency" : 0,
@@ -3141,7 +3610,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "activacin" : {
+    "activaci?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -3405,7 +3874,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "antiintrusin" : {
+    "antiintrusi?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -3433,7 +3902,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "aplicarn" : {
+    "aplicar?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -3585,6 +4054,10 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
+    "atendido" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 0
+    },
     "atlas" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -3605,7 +4078,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "autenticacin" : {
+    "autenticaci?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -3614,6 +4087,14 @@
       "spamFrequency" : 1
     },
     "autogestion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "autom?tica" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "autom?ticamente" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -3641,14 +4122,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "automtica" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "automticamente" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "autonoma" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -3669,7 +4142,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "aydanos" : {
+    "ay?danos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -3682,6 +4155,10 @@
       "spamFrequency" : 1
     },
     "ayudarlo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "b?sico" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -3821,7 +4298,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "boletn" : {
+    "bolet?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -3869,10 +4346,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "bsico" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "bueno" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -3894,6 +4367,14 @@
       "spamFrequency" : 1
     },
     "busto" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "c?digo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "c?mara" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -3934,10 +4415,6 @@
       "spamFrequency" : 1
     },
     "calculo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "calendario" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -4049,6 +4526,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
+    "cat?logo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "catalanointhe" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -4066,14 +4547,6 @@
       "spamFrequency" : 1
     },
     "categoriza" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "catlogo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "cdigo" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -4185,10 +4658,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "cmara" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "coach" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -4293,11 +4762,11 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "compaa" : {
+    "compa??a" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "compaas" : {
+    "compa??as" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -4349,7 +4818,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "compr" : {
+    "compr?" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -4713,6 +5182,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
+    "cu?l" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "cuadro" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -4730,10 +5203,6 @@
       "spamFrequency" : 1
     },
     "cuida" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "cul" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -4762,6 +5231,10 @@
       "spamFrequency" : 1
     },
     "d9j" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "d?nde" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -4949,7 +5422,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "descubr" : {
+    "descubr?" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -5181,15 +5654,15 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
+    "diversi?n" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "diversidad" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
     "diversificar" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "diversin" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -5309,7 +5782,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "educacin" : {
+    "educaci?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -5385,7 +5858,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "emisin" : {
+    "emisi?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -5525,15 +5998,15 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
+    "espa?olas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "espana" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
     "espanol" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "espaolas" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -5581,7 +6054,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "estada" : {
+    "estad?a" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -5616,10 +6089,6 @@
     "estoy" : {
       "hamFrequency" : 2,
       "spamFrequency" : 3
-    },
-    "estrategia" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
     },
     "estreno" : {
       "hamFrequency" : 0,
@@ -5681,7 +6150,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "excluda" : {
+    "exclu?da" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -5745,7 +6214,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "exposicin" : {
+    "exposici?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -5806,6 +6275,10 @@
       "spamFrequency" : 1
     },
     "extreme" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "f?cil" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -5871,10 +6344,6 @@
     },
     "favorito" : {
       "hamFrequency" : 1,
-      "spamFrequency" : 1
-    },
-    "fcil" : {
-      "hamFrequency" : 0,
       "spamFrequency" : 1
     },
     "ferrie" : {
@@ -6169,7 +6638,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "gua" : {
+    "gu?a" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -6381,7 +6850,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "identit" : {
+    "identit?" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -6417,7 +6886,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "implementacin" : {
+    "implementaci?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -6585,7 +7054,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "inscripcin" : {
+    "inscripci?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -6613,7 +7082,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "instalacin" : {
+    "instalaci?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -6634,10 +7103,6 @@
       "spamFrequency" : 1
     },
     "instintivo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "instrucciones" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -6785,10 +7250,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "itinerario" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "itnext" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -6897,6 +7358,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
+    "l?nea" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "lab" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -6985,6 +7450,10 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
+    "lexcommunity" : {
+      "hamFrequency" : 12,
+      "spamFrequency" : 13
+    },
     "lexconstraints" : {
       "hamFrequency" : 3,
       "spamFrequency" : 0
@@ -7006,11 +7475,11 @@
       "spamFrequency" : 14
     },
     "lexinstructions" : {
-      "hamFrequency" : 8,
-      "spamFrequency" : 9
+      "hamFrequency" : 13,
+      "spamFrequency" : 13
     },
     "lexlegal" : {
-      "hamFrequency" : 2,
+      "hamFrequency" : 3,
       "spamFrequency" : 0
     },
     "lexpersonal" : {
@@ -7157,10 +7626,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "lnea" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "locales" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -7189,10 +7654,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "ltima" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "lucirse" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -7210,6 +7671,22 @@
       "spamFrequency" : 1
     },
     "lwjb" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "m?gica" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "m?nimo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "m?sica" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "m?vil" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -7321,10 +7798,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "medicamentos" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "medicos" : {
       "hamFrequency" : 2,
       "spamFrequency" : 2
@@ -7345,7 +7818,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "membresa" : {
+    "membres?a" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -7405,15 +7878,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "meta" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 2
-    },
     "metaai" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "mgica" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -7445,10 +7910,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "minent" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "mirando" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -7458,10 +7919,6 @@
       "spamFrequency" : 1
     },
     "misericordioso" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "mnimo" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -7521,10 +7978,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "msica" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "muestras" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -7538,10 +7991,6 @@
       "spamFrequency" : 1
     },
     "museum" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "mvil" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -7598,10 +8047,6 @@
       "spamFrequency" : 1
     },
     "nguyenalexander" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "nicos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -7789,7 +8234,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "olvid" : {
+    "olvid?" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -7902,6 +8347,10 @@
       "spamFrequency" : 1
     },
     "over" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "pa?ses" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -8061,10 +8510,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "personalizada" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "personalizar" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -8177,10 +8622,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "play" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "plus" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -8217,7 +8658,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "polica" : {
+    "polic?a" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -8290,6 +8731,10 @@
       "spamFrequency" : 0
     },
     "pozo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "pr?stamos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -8497,7 +8942,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "proteccin" : {
+    "protecci?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -8511,10 +8956,6 @@
     },
     "proximos" : {
       "hamFrequency" : 1,
-      "spamFrequency" : 1
-    },
-    "prstamos" : {
-      "hamFrequency" : 0,
       "spamFrequency" : 1
     },
     "prudencia" : {
@@ -8618,6 +9059,10 @@
       "spamFrequency" : 1
     },
     "qwant" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "r?pido" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -9133,10 +9578,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "rpido" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "rutas" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -9149,11 +9590,11 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "sabados" : {
+    "sab?as" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "sabas" : {
+    "sabados" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -9325,7 +9766,7 @@
       "hamFrequency" : 4,
       "spamFrequency" : 0
     },
-    "sesin" : {
+    "sesi?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -9681,6 +10122,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
+    "t?rminos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "tablas" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -9705,7 +10150,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "tambin" : {
+    "tambi?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -9749,7 +10194,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "telefnica" : {
+    "telef?nica" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -9774,6 +10219,10 @@
       "spamFrequency" : 1
     },
     "temprano" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "ten?s" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -9808,10 +10257,6 @@
     "tengas" : {
       "hamFrequency" : 2,
       "spamFrequency" : 3
-    },
-    "tens" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
     },
     "teorias" : {
       "hamFrequency" : 0,
@@ -9901,7 +10346,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "todava" : {
+    "todav?a" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -10002,10 +10447,6 @@
       "spamFrequency" : 1
     },
     "trivia" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "trminos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -10417,10 +10858,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "xito" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "xu" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -10463,10 +10900,21 @@
     }
   },
   "weakSpamWord" : {
-
+    " " : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
     "$" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
+    },
+    "?" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
+    },
+    "?ltimas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "abajo" : {
       "hamFrequency" : 0,
@@ -10512,7 +10960,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
-
+    "aceptacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "acercar" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -10537,7 +10988,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
-
+    "actuacion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "actuales" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
@@ -10546,8 +11000,11 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-
-    "acumul" : {
+    "actuar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "acumul?" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -10559,7 +11016,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "adems" : {
+    "adem?s" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
@@ -10703,7 +11160,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-
+    "antes" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "antiedad" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -10716,7 +11176,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
-    "aplicacin" : {
+    "aplicaci?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -10820,10 +11280,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "aumentar" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 4
-    },
     "australia" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -10888,12 +11344,15 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
-
-    "biometra" : {
+    "bienvenido" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
+    "biom?tricos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
-    "biomtricos" : {
+    "biometr?a" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
@@ -10913,7 +11372,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "bonificacin" : {
+    "bonificaci?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
@@ -10957,11 +11416,15 @@
       "hamFrequency" : 1,
       "spamFrequency" : 3
     },
+    "c?mo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
     "cadenas" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "caf" : {
+    "caf?" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
@@ -11052,10 +11515,6 @@
     "casi" : {
       "hamFrequency" : 1,
       "spamFrequency" : 4
-    },
-    "casino" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
     },
     "categoria" : {
       "hamFrequency" : 0,
@@ -11165,7 +11624,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "codificacin" : {
+    "codificaci?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -11233,7 +11692,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-
+    "completa" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "compliance" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
@@ -11266,7 +11728,10 @@
       "hamFrequency" : 2,
       "spamFrequency" : 4
     },
-
+    "confirma" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "conformidad" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
@@ -11283,7 +11748,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "consegu" : {
+    "consegu?" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -11351,7 +11816,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "contratacin" : {
+    "contrataci?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -11423,7 +11888,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
-    "crdito" : {
+    "cr?dito" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
@@ -11448,10 +11913,6 @@
       "spamFrequency" : 3
     },
     "creditos" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
-    "criptomoneda" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -11491,7 +11952,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "currculum" : {
+    "curr?culum" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
@@ -11499,7 +11960,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "da" : {
+    "d?a" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
@@ -11763,7 +12224,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-
+    "documento" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "documentos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
@@ -11779,10 +12243,6 @@
     "donaire" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
-    },
-    "donde" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 3
     },
     "donore" : {
       "hamFrequency" : 0,
@@ -11868,15 +12328,11 @@
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
-    "eleg" : {
+    "eleg?" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
     "elegir" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
-    "elimina" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
@@ -12036,6 +12492,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
+    "est?s" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
     "estaba" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
@@ -12068,10 +12528,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
-    "ests" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "estudio" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
@@ -12084,7 +12540,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
-
+    "evento" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "exactamente" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -12101,15 +12560,14 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "exclusiva" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 4
-    },
     "existen" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-
+    "existencias" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "expandirse" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -12342,7 +12800,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
-
+    "gracias" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "gracioso" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -12416,6 +12877,10 @@
       "spamFrequency" : 3
     },
     "hayas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "hazte" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -12531,6 +12996,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
+    "increibles" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
     "individual" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
@@ -12611,6 +13080,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
+    "inter?s" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
     "interesantes" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -12630,10 +13103,6 @@
     "internacionales" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
-    },
-    "inters" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
     },
     "interview" : {
       "hamFrequency" : 0,
@@ -12755,15 +13224,11 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "lexcontextual" : {
-      "hamFrequency" : 38,
-      "spamFrequency" : 42
-    },
     "lexcosts" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
-    "lexgrowth" : {
+    "lexgames" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
@@ -12771,17 +13236,13 @@
       "hamFrequency" : 2,
       "spamFrequency" : 6
     },
-    "leximprovements" : {
+    "lexlimited" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
     "lexproducts" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
-    },
-    "lexquantities" : {
-      "hamFrequency" : 3,
-      "spamFrequency" : 6
     },
     "leyes" : {
       "hamFrequency" : 0,
@@ -12791,15 +13252,11 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "libert" : {
+    "libert?" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
     "libido" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
-    "limitado" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -12850,10 +13307,6 @@
     "louis" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
-    },
-    "ltimas" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
     },
     "luce" : {
       "hamFrequency" : 0,
@@ -13187,7 +13640,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "obten" : {
+    "obten?" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -13291,6 +13744,14 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
+    "p?rrafo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
+    "pa?s" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
     "packs" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -13339,10 +13800,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "pas" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "pasar" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
@@ -13359,7 +13816,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "pedaggicos" : {
+    "pedag?gicos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -13387,7 +13844,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-
+    "pendiente" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "pensamientos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -13544,7 +14004,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
-    "presentacin" : {
+    "presentaci?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -13644,10 +14104,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "prrafo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
     "publicados" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -13692,7 +14148,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
-    "qu" : {
+    "qu?" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
@@ -13739,6 +14195,10 @@
     "raskreddit" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
+    },
+    "re?rse" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "reactivate" : {
       "hamFrequency" : 0,
@@ -13820,7 +14280,10 @@
       "hamFrequency" : 1,
       "spamFrequency" : 4
     },
-
+    "recordatorio" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "recurso" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -13857,7 +14320,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "reflexin" : {
+    "reflexi?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -13913,7 +14376,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-
+    "renovar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "report" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -13931,10 +14397,6 @@
       "spamFrequency" : 4
     },
     "requieren" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
-    "rerse" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -13970,7 +14432,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-
+    "resultados" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "resulten" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -13979,7 +14444,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
-
+    "reunion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "revelar" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -13988,7 +14456,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-
+    "revision" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
+    },
     "revista" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -14573,6 +15044,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
+    "v?deos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
     "validez" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -14592,10 +15067,6 @@
     "vcpu" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
-    },
-    "vdeos" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
     },
     "vea" : {
       "hamFrequency" : 0,
@@ -14681,7 +15152,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
-    "visin" : {
+    "visi?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -14697,7 +15168,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
-    "visualizacin" : {
+    "visualizaci?n" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },

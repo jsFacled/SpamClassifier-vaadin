@@ -1,5 +1,9 @@
 package com.ml.spam.handlers;
 
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.json.JsonWriteFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.ml.spam.utils.CsvUtils;
@@ -264,8 +268,14 @@ public class ResourcesHandler {
             JSONObject sanitizedJson = sanitizeJsonObject(jsonObject);
 
             // Convertir a Map ordenado para Jackson
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.enable(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS); // Ordenar claves
+            //ObjectMapper mapper = new ObjectMapper();
+            // opción con JsonFactory:
+            JsonFactory jf = new JsonFactory();
+            jf.enable(JsonParser.Feature.ALLOW_UNQUOTED_CONTROL_CHARS);
+            ObjectMapper mapper = new ObjectMapper(jf);
+// ... resto de la configuración y uso ...
+            mapper.getFactory().configure(JsonWriteFeature.ESCAPE_NON_ASCII.mappedFeature(), false);
+            mapper.enable(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS);
             String jsonString = mapper.writerWithDefaultPrettyPrinter()
                     .writeValueAsString(sanitizedJson.toMap());
 
@@ -309,7 +319,17 @@ public class ResourcesHandler {
         if (input == null) {
             return null;
         }
-        return input.replaceAll("[^\\x20-\\x7E]", ""); // Reemplazar caracteres no imprimibles
+        //return input.replaceAll("[^\\x20-\\x7E]", ""); // Reemplazar caracteres no imprimibles
+       // return input.replaceAll("\\s", " ").replaceAll("[^\\x20-\\x7E]", "");
+        // Reemplazar espacios no estándar por espacios normales
+        //return input.replaceAll("[\\u200B-\\u200D\\uFEFF\\u202F\\u200C]", " ")
+          //      .replaceAll("[^\\x20-\\x7E]", ""); // Mantener la eliminación de otros caracteres no imprimibles
+
+        // Solo normalizar espacios no estándar, dejando otros caracteres Unicode intactos
+       // return input.replaceAll("[\\u200B-\\u200D\\uFEFF\\u202F\\u200C]", " ");
+        // Manejar más tipos de caracteres problemáticos
+        return input.replaceAll("[\\u0000-\\u001F\\u007F-\\u009F\\u200B-\\u200D\\uFEFF\\u202F\\u200C]", " ")
+                .replaceAll("[^\\x00-\\x7F]", "?"); // Reemplazar caracteres no ASCII con '?'
     }
 
 ///////////////////////////////////////////////////////////////////////////////////

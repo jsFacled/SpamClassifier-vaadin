@@ -99,6 +99,11 @@ public class SpamDictionaryService {
             // Convertir el mapa a JSON
             JSONObject outputJson = JsonUtils.categorizedWordsToJson(categorizedWordsMap);
 
+            //Salida en consola solamente para pruebas
+            System.out.println("[PRUEBA en Service.export] Se muestra categorizeWordsMap en formato json:"+outputJson);
+            System.out.println("[PRUEBA en Service.export] Fin de muestra categorizeWordsMap en formato json.-------------");
+
+
             // Obtener una ruta única desde el ResourcesHandler
             String uniquePath = resourcesHandler.getUniqueFilePath(relativePath);
 
@@ -357,7 +362,7 @@ public class SpamDictionaryService {
 
         // Actualizar el diccionario con los datos procesados
         updateDictionaryFromProcessedWordDataViejoMio(processedWordData);
-
+        //updateDictionaryFromProcessedWordData(processedWordData);
         System.out.println("Diccionario actualizado correctamente con datos del archivo TXT: " + txtFilePath);
     }
 
@@ -494,6 +499,11 @@ public class SpamDictionaryService {
 
 
     private void updateExistingWordFrequencies(String token, WordData wordData) {
+        // Validación: ignorar tokens vacíos o nulos
+        if (token == null || token.trim().isEmpty()) {
+            System.out.printf("[DEBUG] Ignorando token vacío o nulo al actualizar frecuencias: '%s'%n", token);
+            return;
+        }
         // Buscar en todas las categorías y actualizar las frecuencias existentes
         for (WordCategory category : WordCategory.values()) {
             Map<String, WordData> categoryWords = dictionary.getCategory(category);
@@ -916,6 +926,11 @@ public class SpamDictionaryService {
             String token = entry.getKey();
             WordData wordData = entry.getValue();
 
+            // Validación: ignorar tokens vacíos o nulos
+            if (token == null || token.trim().isEmpty()) {
+                System.out.printf("[DEBUG] Ignorando token vacío o nulo: '%s'%n", token);
+                continue;
+            }
             // Verificar si la palabra pertenece a categorías protegidas
             if (isProtectedCategory(token)) {
                 System.out.printf("[INFO] Palabra '%s' en categoría protegida no será modificada.%n", token);
@@ -931,8 +946,14 @@ public class SpamDictionaryService {
         for (List<WordData> wordList : processedData) {
             for (WordData wordData : wordList) {
                 String token = wordData.getWord().trim();
-                if (token.isEmpty()) continue; // Ignorar palabras vacías
 
+                // Validación: ignorar tokens vacíos o nulos
+                if (token == null || token.trim().isEmpty()) {
+                    System.out.printf("[DEBUG] Ignorando token vacío o nulo durante consolidación: '%s'%n", token);
+                    continue;
+                }
+
+                // Consolidar frecuencias
                 tempWordMap.merge(token, wordData, (existing, newData) -> {
                     existing.incrementSpamFrequency(newData.getSpamFrequency());
                     existing.incrementHamFrequency(newData.getHamFrequency());
@@ -950,6 +971,12 @@ public class SpamDictionaryService {
         return false;
     }
     private void updateOrReassignWord(String token, WordData wordData) {
+        // Validación: ignorar tokens vacíos o nulos
+        if (token == null || token.trim().isEmpty()) {
+            System.out.printf("[DEBUG] Ignorando token vacío o nulo al actualizar o reasignar: '%s'%n", token);
+            return;
+        }
+
         WordCategory currentCategory = null;
 
         // Buscar la categoría actual de la palabra
@@ -1015,6 +1042,11 @@ public class SpamDictionaryService {
             String token = entry.getKey();
             WordData wordData = entry.getValue();
 
+            // Validación: ignorar tokens vacíos o nulos
+            if (token == null || token.trim().isEmpty()) {
+                System.out.printf("[DEBUG] Ignorando token vacío o nulo: '%s'%n", token);
+                continue;
+            }
             // Verificar si la palabra ya existe en el diccionario
             if (dictionary.containsWord(token)) {
                 updateExistingWordFrequenciesMio(token, wordData);

@@ -7,7 +7,7 @@ public class MainDisplayLexemesRepositorySummaryFromFile {
 
     public static void main(String[] args) {
         ResourcesHandler handler = new ResourcesHandler();
-        String resourcePath = "static/dictionary/structured_lexemes_repository.json";
+        String resourcePath = "static/dictionary/base/structured_lexemes_repository.json";
 
         DictionarySummaryReport.displayLexemesRepositorySummaryFromFile(resourcePath, handler);
     }

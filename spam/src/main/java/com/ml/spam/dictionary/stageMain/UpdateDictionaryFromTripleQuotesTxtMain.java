@@ -41,6 +41,13 @@ public class UpdateDictionaryFromTripleQuotesTxtMain {
             // Actualiza el diccionario utilizando el archivo TXT con triples comillas
             service.updateDictionaryFromTxt(inputTxtFilePath, messageLabel);
 
+            System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////////////////////");
+
+            service.displayCategorizedWordsInDictionary();
+            System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////////////////////");
+
+
+
             System.out.println("[ STAGE 3 ] Exportando diccionario actualizado...");
             // Exporta el diccionario actualizado a un archivo JSON
             service.exportUpdatedCategorizedWords(baseOutputPath);

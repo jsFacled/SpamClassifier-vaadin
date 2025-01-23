@@ -199,6 +199,7 @@
     "lexwebactions" : [ "visita", "accede" ]
   },
   "sevenChars" : {
+    "leximprovements" : [ "mejorar" ],
     "lexcourtesy" : [ "gracias" ],
     "lexmotivational" : [ "aumente"],
     "lexlimited" : [  "limitan" ,"limitas"],
@@ -225,7 +226,7 @@
     "lexemotion" : [ "mereces", "lamento", "meditar", "refugio" ],
     "lexenvironment" : [ "arboles", "plantar" ],
     "lexevents" : [ "conmigo" ],
-    "lexexclusive" : [ "premium" ,"riqueza" ],
+    "lexexclusive" : [ "premium","riqueza","selecto"],
     "lexfamily" : [ "hermano", "hermana" ],
     "lexfeedback" : [ "opinion" ],
     "lexfinance" : [ "apuesta","balance", "cheques", "negocio", "precios", "ahorros", "credito", "demorar" ],
@@ -324,7 +325,7 @@
     "lexstatistics" : [ "promedio", "varianza" ],
     "lexsuccess" : [ "victoria" ],
     "lextelecom" : [ "whatsapp" ],
-    "lextracking" : [ "tracking" ],
+    "lextracking" : [ "tracking", "recibido"],
     "lextravel" : [ "equipaje" ],
     "lexvaluable" : [ "valiosos", "valiosas" ],
     "lexwork" : [ "dentista", "despacho" ]

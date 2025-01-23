@@ -59,12 +59,14 @@ public class TextUtils {
         if (message == null || message.trim().isEmpty()) {
             return Collections.emptyList();
         }
-        // Normalizar mensaje: eliminar comillas y dividir por espacios
-        return List.of(message.toLowerCase()
-                .replaceAll("[\"']", "") // Elimina comillas dobles y simples
-                .replace(",", "") // Opcional: elimina comas
-                .trim()
-                .split("\\s+"));
+        // Normalizar mensaje: eliminar comillas, dividir por espacios y filtrar tokens vacíos
+        return Arrays.stream(message.toLowerCase()
+                        .replaceAll("[\"']", "") // Elimina comillas dobles y simples
+                        .replace(",", "") // Opcional: elimina comas
+                        .trim()
+                        .split("\\s+")) // Divide por espacios
+                .filter(token -> !token.isEmpty()) // Filtra cadenas vacías
+                .toList();
     }
 
 
@@ -88,6 +90,10 @@ public class TextUtils {
 
 
     public static TokenType classifyToken(String token) {
+        if (token == null || token.trim().isEmpty()) {
+            return null;
+        }
+
         if (isOneChar(token)) {
             return classifyTokenByOneDigit(token);
         }

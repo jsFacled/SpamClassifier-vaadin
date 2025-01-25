@@ -41,9 +41,9 @@ public class UpdateDictionaryFromTripleQuotesTxtMain {
             // Actualiza el diccionario utilizando el archivo TXT con triples comillas
             service.updateDictionaryFromTxt(inputTxtFilePath, messageLabel);
 
-            System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////////////////////");
 
-            service.displayCategorizedWordsInDictionary();
+            System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////////////////////");
+            //service.displayCategorizedWordsInDictionary();
             System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////////////////////");
 
 
@@ -53,8 +53,11 @@ public class UpdateDictionaryFromTripleQuotesTxtMain {
             service.exportUpdatedCategorizedWords(baseOutputPath);
 
 
+            System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////////////////////");
             // Mostrar el contenido final del diccionario
-           // service.displayCategorizedWordsInDictionary();
+           //service.displayCategorizedWordsInDictionary();
+            System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////////////////////");
+
 
             long endTime = System.nanoTime();
             System.out.printf("Proceso completado en %.2f ms%n", (endTime - startTime) / 1_000_000.0);

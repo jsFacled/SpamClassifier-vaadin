@@ -17,6 +17,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -261,26 +262,34 @@ public class ResourcesHandler {
             Path path = resolvePath(relativePath);
             Files.createDirectories(path.getParent()); // Crear directorios si no existen
 
-            // Debug para inspeccionar el contenido original
+            // Depuración para verificar contenido original
             //System.out.println("[DEBUG] JSONObject original: " + jsonObject.toString(4));
 
-            // Sanitizar claves y valores del JSONObject
+            // Sanitiza el contenido del JSON
             JSONObject sanitizedJson = sanitizeJsonObject(jsonObject);
 
-            // Convertir a Map ordenado para Jackson
-            //ObjectMapper mapper = new ObjectMapper();
-            // opción con JsonFactory:
-            JsonFactory jf = new JsonFactory();
-            jf.enable(JsonParser.Feature.ALLOW_UNQUOTED_CONTROL_CHARS);
-            ObjectMapper mapper = new ObjectMapper(jf);
-// ... resto de la configuración y uso ...
+            // Configuración de Jackson
+            ObjectMapper mapper = new ObjectMapper();
+
+            // Permitir caracteres Unicode y evitar escapes innecesarios
             mapper.getFactory().configure(JsonWriteFeature.ESCAPE_NON_ASCII.mappedFeature(), false);
+
+            // Ordena las claves del JSON para mayor legibilidad
             mapper.enable(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS);
+
+            // Convierte a JSON formateado
             String jsonString = mapper.writerWithDefaultPrettyPrinter()
                     .writeValueAsString(sanitizedJson.toMap());
 
-            // Escribir el archivo con codificación UTF-8
+            // Guarda el archivo JSON con codificación UTF-8
             Files.writeString(path, jsonString, StandardCharsets.UTF_8);
+
+            System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////////////////////");
+
+          //  System.out.println("[DEBUG jsonObject] JSON original: " + jsonObject.toString(4));
+          //  System.out.println("[DEBUG sanitizedJson] JSON sanitizado: " + sanitizedJson.toString(4));
+            System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////////////////////");
+
             System.out.println("[INFO] JSON guardado correctamente en: " + path);
         } catch (IOException e) {
             throw new RuntimeException("Error al guardar el archivo JSON: " + relativePath, e);
@@ -293,19 +302,21 @@ public class ResourcesHandler {
     private JSONObject sanitizeJsonObject(JSONObject jsonObject) {
         JSONObject sanitizedJson = new JSONObject();
         for (String key : jsonObject.keySet()) {
-            // Sanitizar la clave
             String sanitizedKey = sanitizeString(key);
 
-            // Obtener y procesar el valor
+            // Verifica si la clave se convierte en algo importante como `$`
+            if (sanitizedKey.equals("invalid_key")) {
+                System.out.println("[WARNING] Clave problemática encontrada y omitida: " + key);
+                continue;
+            }
+
+            // Procesa recursivamente los valores
             Object value = jsonObject.get(key);
             if (value instanceof JSONObject) {
-                // Recursión para sub-objetos
                 sanitizedJson.put(sanitizedKey, sanitizeJsonObject((JSONObject) value));
             } else if (value instanceof String) {
-                // Sanitizar cadenas
                 sanitizedJson.put(sanitizedKey, sanitizeString((String) value));
             } else {
-                // Otros valores (números, booleanos, etc.)
                 sanitizedJson.put(sanitizedKey, value);
             }
         }
@@ -319,17 +330,17 @@ public class ResourcesHandler {
         if (input == null) {
             return null;
         }
-        //return input.replaceAll("[^\\x20-\\x7E]", ""); // Reemplazar caracteres no imprimibles
-       // return input.replaceAll("\\s", " ").replaceAll("[^\\x20-\\x7E]", "");
-        // Reemplazar espacios no estándar por espacios normales
-        //return input.replaceAll("[\\u200B-\\u200D\\uFEFF\\u202F\\u200C]", " ")
-          //      .replaceAll("[^\\x20-\\x7E]", ""); // Mantener la eliminación de otros caracteres no imprimibles
 
-        // Solo normalizar espacios no estándar, dejando otros caracteres Unicode intactos
-       // return input.replaceAll("[\\u200B-\\u200D\\uFEFF\\u202F\\u200C]", " ");
-        // Manejar más tipos de caracteres problemáticos
-        return input.replaceAll("[\\u0000-\\u001F\\u007F-\\u009F\\u200B-\\u200D\\uFEFF\\u202F\\u200C]", " ")
-                .replaceAll("[^\\x00-\\x7F]", "?"); // Reemplazar caracteres no ASCII con '?'
+        // Normaliza la cadena para manejar combinaciones Unicode
+        String normalized = Normalizer.normalize(input, Normalizer.Form.NFC);
+
+        // Elimina caracteres de control invisibles que no deberían aparecer
+        normalized = normalized.replaceAll("[\\u0000-\\u001F\\u007F-\\u009F\\u200B-\\u200D\\uFEFF\\u202F\\u200C]", " ");
+
+        // Permite caracteres Unicode válidos, incluyendo símbolos y puntuaciones
+        normalized = normalized.replaceAll("[^\\p{L}\\p{N}\\p{P}\\p{Z}\\p{Sc}\\p{Sm}\\p{So}\\s]", "").trim();
+
+        return normalized.isEmpty() ? "invalid_key" : normalized;
     }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -444,17 +455,19 @@ public class ResourcesHandler {
             String content = Files.readString(absolutePath, StandardCharsets.UTF_8);
 
             // Dividir contenido por las triples comillas
+            int totalMessages=0;
             String[] blocks = content.split("\"\"\"");
             for (String block : blocks) {
                 String message = block.trim();
                 if (!message.isEmpty()) {
                     rows.add(new String[]{message, label});
+                    totalMessages++;
                 }
             }
+            System.out.println("[INFO * * * In LoadtxtfilaAsRows * * * ] Cantidad de mensajes obtenidos: "+ totalMessages);
         } catch (Exception e) {
             throw new RuntimeException("Error al leer el archivo TXT: " + txtFilePath, e);
         }
-
         return rows;
     }
 

@@ -53,7 +53,7 @@ public class DictionaryZeroInitializationAndUpdateMain {
 
 
         // Solicitar la actualización del diccionario al service Desde un set de Mensajes
-        service.updateDictionary(TestMessagesFilePath);
+        service.updateDictionaryFromCsvMessages(TestMessagesFilePath);
         System.out.println(" *  *  *  *  *  //  //  //  //  //  //  // //  //  //  Actualización finalizada ! ! ! ! !\n");
 
 

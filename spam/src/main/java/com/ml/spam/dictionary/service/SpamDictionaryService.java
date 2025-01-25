@@ -100,8 +100,8 @@ public class SpamDictionaryService {
             JSONObject outputJson = JsonUtils.categorizedWordsToJson(categorizedWordsMap);
 
             //Salida en consola solamente para pruebas
-            System.out.println("[PRUEBA en Service.export] Se muestra categorizeWordsMap en formato json:"+outputJson);
-            System.out.println("[PRUEBA en Service.export] Fin de muestra categorizeWordsMap en formato json.-------------");
+         //   System.out.println("[PRUEBA en Service.export] Se muestra categorizeWordsMap en formato json:"+outputJson);
+         //   System.out.println("[PRUEBA en Service.export] Fin de muestra categorizeWordsMap en formato json.-------------");
 
 
             // Obtener una ruta única desde el ResourcesHandler
@@ -314,7 +314,7 @@ public class SpamDictionaryService {
     }
 
 
-    public void updateDictionary(String csvMessagesFilePath) throws IOException {
+    public void updateDictionaryFromCsvMessages(String csvMessagesFilePath) throws IOException {
         // 1. Obtener filas crudas del archivo CSV utilizando el ResourcesHandler
         List<String[]> rawRows = resourcesHandler.loadCsvFile(csvMessagesFilePath);
 
@@ -346,6 +346,7 @@ public class SpamDictionaryService {
         System.out.println("Diccionario actualizado correctamente con datos del archivo: " + csvMessagesFilePath);
     }
 
+    //Los txt son mensajes sin label, por lo tanto se indicará si los mensajes son spam o ham.
     public void updateDictionaryFromTxt(String txtFilePath, String label) throws IOException {
         // Leer filas desde el archivo TXT
         List<String[]> rawRows = resourcesHandler.loadTxtFileAsRows(txtFilePath, label);
@@ -712,8 +713,8 @@ public class SpamDictionaryService {
      * ------------- REASIGNACIÓN DE PALABRAS --------------------
      * ---------------------------------------------------------*/
     public void reassignWordsFromUpdatedJson() {
-        String word = null; // Declarar la variable fuera del try-catch
-        WordCategory currentCategory = null; // Declarar la variable fuera del try-catch
+        String word = null;
+        WordCategory currentCategory = null;
 
         try {
             // Obtener las palabras categorizadas del diccionario

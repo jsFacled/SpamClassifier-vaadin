@@ -43,7 +43,7 @@ public class UpdateDictionaryMain {
         System.out.println("\n[ STAGE 2 ]* * * * * Solicitando Actualización    .    .   .  .  .  . . . . . . . . . \n");
 
         // Solicitar la actualización del diccionario al service Desde un set de Mensajes
-        service.updateDictionary(CleanedTrainMessagesFilePath);
+        service.updateDictionaryFromCsvMessages(CleanedTrainMessagesFilePath);
         System.out.println(" *  *  *  *  *  //  //  //  //  //  //  // //  //  //  Actualización finalizada ! ! ! ! !\n");
 
         System.out.println("\n [ REPORT  ] * * * * * Reporte   .    .   .  .  .  . . . . . . . . . \n");

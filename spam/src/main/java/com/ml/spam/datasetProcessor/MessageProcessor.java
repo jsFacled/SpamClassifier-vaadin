@@ -7,11 +7,16 @@ import com.ml.spam.utils.CsvUtils;
 import com.ml.spam.utils.TextUtils;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class MessageProcessor {
 
     private static Map<String, SpamDictionary.Pair> accentPairs;
     private static Map<CharSize, Map<String, Set<String>>> lexemeRepository;
+
+    private static List<WordData> unknownEmojiList = new ArrayList<>();
+
 
     //Recibe los mensajes, accentpairs y repositorio de lexemas.
     public static List<List<WordData>> processToWordData(
@@ -33,7 +38,11 @@ public class MessageProcessor {
         MessageProcessor.lexemeRepository = lexemeRepository;
 
         // Iterar sobre las filas rawRows [mensaje, label]
+        int messageNumber=0;
         for (String[] row : rawRows) {
+            messageNumber++;
+            System.out.println("[\nINFO * * * In processToWordData * * * ] Se procesa el mensaje número: "+ messageNumber+" .\n");
+
             // Validar mensaje y etiqueta: Tratar también las filas no válidas
             if (TextUtils.isValidMessageAndLabel(row)) {
                 // Tokenizar el mensaje (palabras y símbolos raros) y agregar a validRows
@@ -57,20 +66,24 @@ public class MessageProcessor {
 
         // Paso 2: Tokenización básica del mensaje
         List<String> tokens = TextUtils.splitMessageAndLowercase(message);
-        //isplayTokenListInConsole(tokens);
+        displayTokenListInConsole(tokens);
 
         // Paso 3: Inicializar la lista de WordData
         List<WordData> wordDataList = new ArrayList<>();
 
         // Paso 4: Recorrer la lista de tokens y procesar cada uno
         for (String token : tokens) {
-            // Inicializar tokenType
-            TokenType tokenType = TokenType.UNASSIGNED;
-                // Subpaso 4.1: Procesar Clasificar el token
-                tokenType = TextUtils.classifyToken(token);
+            // Ignorar tokens vacíos o con solo caracteres de espacio
+            if (token == null || token.trim().isEmpty()) {
+                continue; // Salta al siguiente token
+            }
+
+
+                // Subpaso 4.1: Inicializar TokeenType y Clasificar el token
+            TokenType tokenType = TextUtils.classifyToken(token);
                 // Subpaso 4.2: Procesar según la clasificación del token
                 processAllTokenSizes(token, tokenType, wordDataList, label);
-               // displayTokenInConsole(token,tokenType);
+              displayTokenInConsole(token,tokenType);
 
 
           /*  // Subpaso 4.1: Procesar Clasificar el token
@@ -127,22 +140,6 @@ public class MessageProcessor {
         }
     }
 
-    private static void processTokenByOneDigit(String token, TokenType tokenType, List<WordData> wordDataList, String label)  {
-        switch (tokenType){
-            //buscar token en lexemerepository
-            case CHAR  -> processCharToken(token, wordDataList, label);
-            case SYMBOL -> processSymbolToken(token,wordDataList,label);
-            case NUM -> processNumToken(token, wordDataList, label);
-        }
-    }
-    private static void processTokenByOneChar(String token, List<WordData> wordDataList, String label)  {
-        if(TextUtils.isNumTextToken(token)){
-            processNumToken(token, wordDataList,label);
-        }else {
-            findSubcategoryForToken(token);
-        }
-
-    }
 
     // Métodos auxiliares para cada tipo de token
 
@@ -165,7 +162,9 @@ public class MessageProcessor {
             switch (t){
                 //buscar token en lexemerepository
                 case CHAR  -> processCharToken(part, wordDataList, label);
-                case SYMBOL -> processAnySymbolToken(part,wordDataList,label);
+                //case SYMBOL -> processAnySymbolToken(part,wordDataList,label);
+                case SYMBOL -> processSymbolToken(part,wordDataList,label);
+
                 case NUM -> processNumToken(part, wordDataList, label);
                 case UNASSIGNED -> processUnassignedToken(part, wordDataList, label);
 
@@ -189,8 +188,6 @@ public class MessageProcessor {
             wordDataList.add(new WordData("invalidNumber", label));
         }
     }
-
-
 
     private static void processTextSymbolToken(String token, List<WordData> wordDataList, String label) {
         // Paso 1: Verificar si contiene '@' o es un correo electrónico
@@ -250,50 +247,6 @@ public class MessageProcessor {
         }
     }
 
-    private static String findSubcategoryForToken(String token) {
-        for (Map.Entry<CharSize, Map<String, Set<String>>> categoryEntry : lexemeRepository.entrySet()) {
-            Map<String, Set<String>> subCategories = categoryEntry.getValue();
-
-            for (Map.Entry<String, Set<String>> subCategoryEntry : subCategories.entrySet()) {
-                Set<String> words = subCategoryEntry.getValue();
-
-                if (words.contains(token)) {
-                    return subCategoryEntry.getKey(); // Retorna la subcategoría si se encuentra el token
-                }
-            }
-        }
-        return null; // Retorna null si no se encuentra
-    }
-
-    private static void processAccentedWord(String token, List<WordData> wordDataList, String label) {
-        System.out.println("[DEBUG] Verificando token en lexemesRepository: " + token);
-
-        // Paso 1: Intentar encontrar el token con tilde directamente en lexemesRepository
-        String subCategory = findSubcategoryForToken(token);
-        if (subCategory != null) {
-            System.out.println("[DEBUG] Token con tilde encontrado en lexemesRepository. Subcategoría: " + subCategory);
-            wordDataList.add(new WordData(subCategory, label));
-            return;
-        }
-
-        // Paso 2: Normalizar el token eliminando la tilde
-        String normalizedToken = TextUtils.removeAccents(token);
-        System.out.println("[DEBUG] Token con tilde no encontrado. Normalizado: " + token + " -> " + normalizedToken);
-
-        // Paso 3: Buscar el token normalizado en lexemesRepository
-        subCategory = findSubcategoryForToken(normalizedToken);
-        if (subCategory != null) {
-            System.out.println("[DEBUG] Token sin tilde encontrado en lexemesRepository. Subcategoría: " + subCategory);
-            wordDataList.add(new WordData(subCategory, label));
-        } else {
-            // Paso 4: Si no se encuentra, usar el token normalizado como valor final
-            System.out.println("[DEBUG] Token sin tilde no encontrado en lexemesRepository. Usando token sin tilde: " + normalizedToken);
-            wordDataList.add(new WordData(normalizedToken, label));
-        }
-    }
-
-
-
     private static void processNumTextToken(String token, List<WordData> wordDataList, String label) {
         // Dividir el token en dos partes
         String[] parts = TextUtils.splitNumberAndText(token);
@@ -334,8 +287,6 @@ public class MessageProcessor {
             wordDataList.add(new WordData(textPart, label));
         }
     }
-
-
 
     private static void processTextNumSymbolToken(String token, List<WordData> wordDataList, String label) {
         // Paso 1: Verificar si contiene '@' o es un correo electrónico
@@ -380,7 +331,6 @@ public class MessageProcessor {
         }
     }
 
-
     private static void processCharToken(String token, List<WordData> wordDataList, String label) {
         // Obtener las subcategorías de ONE_CHAR en lexemeRepository
         Map<String, Set<String>> subCategories = lexemeRepository.get(CharSize.ONE_CHAR);
@@ -401,56 +351,121 @@ public class MessageProcessor {
         }
     }
 
-
-    /**
-     * Procesa un token clasificado como SYMBOL, verificando si contiene emojis o pertenece a otras subcategorías.
-     * - Si el token contiene emojis:
-     *   Se divide en emojis individuales y se verifica si pertenecen a las categorías `spamemoji` o `hamemoji` en el `lexemeRepository`.
-     * - Si el token no contiene emojis:
-     *   Se busca en las subcategorías correspondientes según su tamaño en `lexemeRepository`.
-     *
-     * @param token El token a procesar.
-     * @param wordDataList La lista donde se almacenarán los resultados del procesamiento en forma de objetos WordData.
-     * @param label La etiqueta asociada al mensaje que contiene el token (e.g., spam/ham).
-     */
     private static void processSymbolToken(String token, List<WordData> wordDataList, String label) {
-        // Caso 1: Si el token contiene emojis
         if (TextUtils.containsEmoji(token)) {
-            List<String> emojis = extractCompleteEmojis(token);
-            for (String emoji : emojis) {
-                String emojiCategory = lexemeRepository.get(CharSize.ONE_CHAR).entrySet().stream()
-                        .filter(entry -> entry.getKey().equals("spamemoji") || entry.getKey().equals("hamemoji"))
-                        .filter(entry -> entry.getValue().contains(emoji))
-                        .map(Map.Entry::getKey)
-                        .findFirst()
-                        .orElse("unknownemoji");
+            processEmojiToken(token, wordDataList, label); // Delegar el manejo de emojis
+        } else {
+            processOtherSymbols(token, wordDataList, label);
+        }
+    }
 
-                if ("unknownemoji".equals(emojiCategory)) {
-                    System.err.println("[WARN] Emoji no reconocido: " + emoji);
-                }
+    private static void processEmojiToken(String token, List<WordData> wordDataList, String label) {
+        // Extraer los emojis válidos del token
+        List<String> emojis = extractCompleteEmojis(token);
 
-                wordDataList.add(new WordData(emojiCategory, label));
+        for (String emoji : emojis) {
+            if (isEmojiInRepository(emoji)) {
+                // Si el emoji es válido, agregarlo con la categoría genérica
+                wordDataList.add(new WordData("lexemeemojis", label));
+            } else {
+                // Si el emoji no es válido, manejarlo como "unknownemojis"
+                System.err.println("[WARN] Emoji no reconocido: " + emoji);
+                addOrUpdateUnknownEmoji(wordDataList, label);
             }
-            return; // Finalizar después de procesar emojis
+        }
+    }
+    private static boolean isEmojiInRepository(String emoji) {
+        return lexemeRepository.get(CharSize.ONE_CHAR).getOrDefault("lexemeemojis", Collections.emptySet()).contains(emoji) ||
+                lexemeRepository.get(CharSize.TWO_CHARS).getOrDefault("lexemeemojis", Collections.emptySet()).contains(emoji);
+    }
+
+
+    private static void addOrUpdateUnknownEmoji(List<WordData> wordDataList, String label) {
+        String unknownEmojiKey = "unknownemoji";
+
+        // Verificar si `unknownemoji` ya está en wordDataList
+        WordData unknownEmojiData = wordDataList.stream()
+                .filter(wordData -> unknownEmojiKey.equals(wordData.getWord()))
+                .findFirst()
+                .orElseGet(() -> {
+                    WordData newWordData = new WordData(unknownEmojiKey, 0, 0); // Frecuencias iniciales en 0
+                    wordDataList.add(newWordData); // Agregar si no existe
+                    return newWordData;
+                });
+
+        // Incrementar la frecuencia correspondiente
+        updateWordDataFrequency(unknownEmojiData, label);
+        System.out.println("[INFO] Frecuencia de 'unknownemoji' actualizada. Label: " + label);
+    }
+
+
+    private static String findSubcategoryForToken(String token) {
+        if (token == null || token.isEmpty()) {
+            return null; // Token inválido
         }
 
-        // Caso 2: Procesar otros símbolos
-        Map<String, Set<String>> subCategories = lexemeRepository.get(determineCharSize(token));
-        String subCategory = subCategories.entrySet().stream()
-                .filter(entry -> entry.getValue().contains(token))
-                .map(Map.Entry::getKey)
-                .findFirst()
-                .orElse(null);
+        int tokenLength = token.length();
+        CharSize charSize = getCharSize(tokenLength);
 
-        // Token no categorizado
-        wordDataList.add(new WordData(Objects.requireNonNullElse(subCategory, token), label));
+        // Buscar en la categoría específica
+        Map<String, Set<String>> subCategories = lexemeRepository.get(charSize);
+        if (subCategories != null) {
+            for (Map.Entry<String, Set<String>> subCategoryEntry : subCategories.entrySet()) {
+                Set<String> words = subCategoryEntry.getValue();
+                if (words.contains(token)) {
+                    return subCategoryEntry.getKey(); // Retorna la subcategoría si encuentra el token
+                }
+            }
+        }
+
+        return null; // Token no encontrado
+    }
+
+    private static CharSize getCharSize(int length) {
+        if (length > 10) {
+            return CharSize.OVER_TEN_CHARS;
+        }
+        for (CharSize charSize : CharSize.values()) {
+            if (charSize.getSize() == length) {
+                return charSize;
+            }
+        }
+        return null; // No debería suceder si el enum está completo
+    }
+
+
+    private static void processAccentedWord(String token, List<WordData> wordDataList, String label) {
+        System.out.println("[DEBUG] Verificando token en lexemesRepository: " + token);
+
+        // Paso 1: Intentar encontrar el token con tilde directamente en lexemesRepository
+        String subCategory = findSubcategoryForToken(token);
+        if (subCategory != null) {
+            System.out.println("[DEBUG] Token con tilde encontrado en lexemesRepository. Subcategoría: " + subCategory);
+            wordDataList.add(new WordData(subCategory, label));
+            return;
+        }
+
+        // Paso 2: Normalizar el token eliminando la tilde
+        String normalizedToken = TextUtils.removeAccents(token);
+        System.out.println("[DEBUG] Token con tilde no encontrado. Normalizado: " + token + " -> " + normalizedToken);
+
+        // Paso 3: Buscar el token normalizado en lexemesRepository
+        subCategory = findSubcategoryForToken(normalizedToken);
+        if (subCategory != null) {
+            System.out.println("[DEBUG] Token sin tilde encontrado en lexemesRepository. Subcategoría: " + subCategory);
+            wordDataList.add(new WordData(subCategory, label));
+        } else {
+            // Paso 4: Si no se encuentra, usar el token normalizado como valor final
+            System.out.println("[DEBUG] Token sin tilde no encontrado en lexemesRepository. Usando token sin tilde: " + normalizedToken);
+            wordDataList.add(new WordData(normalizedToken, label));
+        }
     }
 
 
 
     /**
      * Extrae emojis completos de un token, construyendo secuencias válidas de puntos de código.
-     * - Los emojis se validan contra las categorías `spamemoji` y `hamemoji` en `lexemeRepository`.
+     * - Los emojis se validan contra la categoría `lexemeemojis` en `oneChar` y `twoChars`.
      * - Si un emoji no es reconocido, se registra un mensaje de advertencia.
      * - Evita acumulaciones innecesarias limitando la longitud de las secuencias a procesar.
      *
@@ -462,30 +477,48 @@ public class MessageProcessor {
         int[] codePoints = token.codePoints().toArray();
         StringBuilder emojiBuilder = new StringBuilder();
 
+        // Preprocesar el repositorio de emojis para búsquedas rápidas
+        Set<String> validEmojis = new HashSet<>();
+        for (CharSize charSize : Arrays.asList(CharSize.ONE_CHAR, CharSize.TWO_CHARS)) {
+            validEmojis.addAll(
+                    lexemeRepository.getOrDefault(charSize, Collections.emptyMap())
+                            .getOrDefault("lexemeemojis", Collections.emptySet())
+            );
+        }
+
         for (int codePoint : codePoints) {
             emojiBuilder.append(new String(Character.toChars(codePoint)));
             String candidate = emojiBuilder.toString();
 
-            // Verificar si es un emoji completo
-            boolean isEmoji = lexemeRepository.get(CharSize.ONE_CHAR).getOrDefault("spamemoji", Set.of()).contains(candidate) ||
-                    lexemeRepository.get(CharSize.ONE_CHAR).getOrDefault("hamemoji", Set.of()).contains(candidate);
-
-            if (isEmoji) {
+            // Verificar si la secuencia acumulada es un emoji válido
+            if (validEmojis.contains(candidate)) {
                 emojis.add(candidate);
                 emojiBuilder.setLength(0); // Reiniciar para el próximo emoji
-            } else if (emojiBuilder.length() > 2) { // Limitar acumulación
+            } else if (emojiBuilder.length() > 4) { // Límite más flexible para secuencias largas
+                System.err.println("[WARN] Secuencia no válida como emoji: " + emojiBuilder);
                 emojiBuilder.setLength(0);
             }
         }
 
-        // Verificar si hay un emoji incompleto al final
+        // Manejar emojis parciales al final del token
         if (!emojiBuilder.isEmpty()) {
             System.err.println("[WARN] Emoji parcial no reconocido: " + emojiBuilder);
         }
 
+        System.out.println("[INFO] Emojis extraídos: " + emojis);
         return emojis;
     }
 
+    private static void processOtherSymbols(String token, List<WordData> wordDataList, String label) {
+        Map<String, Set<String>> subCategories = lexemeRepository.get(determineCharSize(token));
+        String subCategory = subCategories.entrySet().stream()
+                .filter(entry -> entry.getValue().contains(token))
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElse(null);
+
+        wordDataList.add(new WordData(Objects.requireNonNullElse(subCategory, token), label));
+    }
 
     // Métod mejorado para dividir emojis
     private static List<String> splitEmojis(String token) {
@@ -495,28 +528,6 @@ public class MessageProcessor {
     }
 
 
-
-
-    private static void processEmojiToken(String token, List<WordData> wordDataList, String label) {
-       /*
-        Map<String, Set<String>> contextualLexemes
-                = lexemeRepository. get(CharSize.CONTEXTUAL_LEXEMES);
-        if (contextualLexemes != null) {
-            if (contextualLexemes.getOrDefault("spamemoji", Collections.emptySet()).contains(token)) {
-                wordDataList.add(new WordData("spamemoji", label));
-            } else if (contextualLexemes.getOrDefault("hamemoji", Collections.emptySet()).contains(token)) {
-                wordDataList.add(new WordData("hamemoji", label));
-            } else {
-                // Si no pertenece a ninguna categoría conocida, devuelve el token
-                wordDataList.add(new WordData(token, label));
-            }
-        } else {
-            // Si el repositorio de lexemas no está inicializado, devuelve el token
-            wordDataList.add(new WordData(token, label));
-        }
-
-        */
-    }
 
     private static void processAnySymbolToken(String token, List<WordData> wordDataList, String label) {
     /*   Map<String, Set<String>> textLexemes = lexemeRepository.get(CharSize.TEXT_LEXEMES);
@@ -538,8 +549,6 @@ public class MessageProcessor {
     }
 
 
-
-
     private static void processUnassignedToken(String token, List<WordData> wordDataList, String label) {
         System.out.println("[INFO processUnassignedToken] Procesando UNASSIGNED token: " + "<< " + token + " >>");
 
@@ -551,12 +560,6 @@ public class MessageProcessor {
         } else {
             wordDataList.add(new WordData(token, label));
         }
-    }
-
-    private static boolean isInLexemeRepository(String token) {
-        return lexemeRepository != null && lexemeRepository.values().stream()
-                .flatMap(subCategoryMap -> subCategoryMap.values().stream()) // Iterar sobre los conjuntos dentro de las subcategorías
-                .anyMatch(set -> set.contains(token)); // Verificar si el token está en alguno de los conjuntos
     }
 
 
@@ -607,21 +610,17 @@ public class MessageProcessor {
         }
         return "UNKNOWN_CATEGORY"; // Retorna un valor predeterminado si no se encuentra
     }
-/*
-//Uso de api stram
-    private static String getSubcategoryForToken(String token) {
-        return lexemeRepository.entrySet().stream()
-                .flatMap(categoryEntry -> categoryEntry.getValue().entrySet().stream())
-                .filter(subCategoryEntry -> subCategoryEntry.getValue().contains(token))
-                .map(Map.Entry::getKey)
-                .findFirst()
-                .orElse("UNKNOWN_CATEGORY");
+
+    private static void displayTokenInConsole(String token, TokenType tokenType) {
+        System.out.println("\n [DEBUG * * * IN procesValidRow 4.1 * * * ] >>  token: [ " + token+ "] Es de tipo: "+tokenType + "\n");
+
     }
-*/
-    private static boolean isRareSymbol(String token) {
-        // Validar si es un símbolo raro
-        return false; // Implementar según lógica
+
+    private static void displayTokenListInConsole(List<String> tokens) {
+        System.out.println("\n [DEBUG * * * IN processValidRow] >> tokens List para clasificar : [ " + tokens+ " ]\n");
+
     }
+
 
 
     private static void createAndAddWordData(String word, String label, List<WordData> wordDataList) {
@@ -728,6 +727,9 @@ public class MessageProcessor {
     }
 
 
+
+
+
     /**
      * Convierte una línea CSV en un objeto LabeledMessage.
      *
@@ -743,14 +745,21 @@ public class MessageProcessor {
     }
 
 
-
-    private static void displayTokenInConsole(String token, TokenType tokenType) {
-        System.out.println("\n [DEBUG 4.1] >>  token: -" + token+ "- Es de tipo: "+tokenType + "\n");
+    private static void processTokenByOneDigit(String token, TokenType tokenType, List<WordData> wordDataList, String label)  {
+        switch (tokenType){
+            //buscar token en lexemerepository
+            case CHAR  -> processCharToken(token, wordDataList, label);
+            case SYMBOL -> processSymbolToken(token,wordDataList,label);
+            case NUM -> processNumToken(token, wordDataList, label);
+        }
+    }
+    private static void processTokenByOneChar(String token, List<WordData> wordDataList, String label)  {
+        if(TextUtils.isNumTextToken(token)){
+            processNumToken(token, wordDataList,label);
+        }else {
+            findSubcategoryForToken(token);
+        }
 
     }
 
-    private static void displayTokenListInConsole(List<String> tokens) {
-        System.out.println("\n [DEBUG] >> tokens List: " + tokens+ "\n");
-
-    }
 }//END MessageProcessor

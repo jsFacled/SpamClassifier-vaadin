@@ -20,7 +20,7 @@ public class testDictionaryUpdateMain {
         validateRawRows(testMessagesFilePath);
 
         // Solicitar la actualización del diccionario al service
-        service.updateDictionary(testMessagesFilePath);
+        service.updateDictionaryFromCsvMessages(testMessagesFilePath);
     }
 
     private static void validateRawRows(String csvFilePath) throws IOException {

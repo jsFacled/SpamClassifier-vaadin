@@ -134,14 +134,6 @@
     }
   },
   "moderateSpamWord" : {
-    " " : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
-    "?" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
     "acredite" : {
       "hamFrequency" : 0,
       "spamFrequency" : 8
@@ -262,7 +254,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "aqu?" : {
+    "aquí" : {
       "hamFrequency" : 0,
       "spamFrequency" : 6
     },
@@ -274,13 +266,13 @@
       "hamFrequency" : 0,
       "spamFrequency" : 8
     },
-    "art?culo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
     "artculo" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
+    },
+    "artículo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 6
     },
     "asegura" : {
       "hamFrequency" : 0,
@@ -758,7 +750,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 5
     },
-    "direcci?n" : {
+    "dirección" : {
       "hamFrequency" : 0,
       "spamFrequency" : 5
     },
@@ -790,7 +782,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 8
     },
-    "distribuci?n" : {
+    "distribución" : {
       "hamFrequency" : 0,
       "spamFrequency" : 7
     },
@@ -834,13 +826,13 @@
       "hamFrequency" : 0,
       "spamFrequency" : 7
     },
-    "electr?nico" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 10
-    },
     "electronicos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 7
+    },
+    "electrónico" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 10
     },
     "elias" : {
       "hamFrequency" : 0,
@@ -1166,7 +1158,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 8
     },
-    "informaci?n" : {
+    "información" : {
       "hamFrequency" : 0,
       "spamFrequency" : 10
     },
@@ -1253,6 +1245,10 @@
     "lexdocuments" : {
       "hamFrequency" : 30,
       "spamFrequency" : 42
+    },
+    "lexemeemojis" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 12
     },
     "lexfree" : {
       "hamFrequency" : 0,
@@ -1410,10 +1406,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 5
     },
-    "n?" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
     "native" : {
       "hamFrequency" : 0,
       "spamFrequency" : 7
@@ -1465,6 +1457,10 @@
     "nunca" : {
       "hamFrequency" : 0,
       "spamFrequency" : 5
+    },
+    "nº" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 8
     },
     "obligacion" : {
       "hamFrequency" : 0,
@@ -1726,7 +1722,7 @@
       "hamFrequency" : 1,
       "spamFrequency" : 11
     },
-    "promoci?n" : {
+    "promoción" : {
       "hamFrequency" : 0,
       "spamFrequency" : 13
     },
@@ -2018,10 +2014,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 7
     },
-    "spamemoji" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 12
-    },
     "spotify" : {
       "hamFrequency" : 0,
       "spamFrequency" : 8
@@ -2062,7 +2054,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 9
     },
-    "suscripci?n" : {
+    "suscripción" : {
       "hamFrequency" : 0,
       "spamFrequency" : 5
     },
@@ -2074,7 +2066,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 9
     },
-    "tel?fono" : {
+    "teléfono" : {
       "hamFrequency" : 0,
       "spamFrequency" : 5
     },
@@ -2253,24 +2245,32 @@
     "youtube" : {
       "hamFrequency" : 0,
       "spamFrequency" : 6
+    },
+    "©" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 7
+    },
+    "…" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 10
+    },
+    "→" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 5
     }
   },
   "rareSymbols" : {
-    "" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
-    },
     "@" : {
       "hamFrequency" : 0,
       "spamFrequency" : 70
     },
     "lexexclamations" : {
       "hamFrequency" : 25,
-      "spamFrequency" : 434
+      "spamFrequency" : 436
     },
     "lexsymbols" : {
       "hamFrequency" : 7,
-      "spamFrequency" : 2072
+      "spamFrequency" : 2235
     },
     "unknownemoji" : {
       "hamFrequency" : 0,
@@ -2344,25 +2344,9 @@
     }
   },
   "strongSpamWord" : {
-    " " : {
+    "$" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 28
-    },
-    "?" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 15
-    },
-    "? " : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 528
-    },
-    "??" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 15
-    },
-    "???" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 143
+      "spamFrequency" : 69
     },
     "abierta" : {
       "hamFrequency" : 0,
@@ -2580,10 +2564,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "d?as" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 29
-    },
     "datos" : {
       "hamFrequency" : 4,
       "spamFrequency" : 117
@@ -2627,6 +2607,10 @@
     "durante" : {
       "hamFrequency" : 0,
       "spamFrequency" : 22
+    },
+    "días" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 29
     },
     "educacion" : {
       "hamFrequency" : 0,
@@ -2984,10 +2968,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "m?s" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 17
-    },
     "marca" : {
       "hamFrequency" : 1,
       "spamFrequency" : 27
@@ -2998,7 +2978,7 @@
     },
     "mathop" : {
       "hamFrequency" : 2,
-      "spamFrequency" : 339
+      "spamFrequency" : 499
     },
     "medicamento" : {
       "hamFrequency" : 0,
@@ -3039,6 +3019,10 @@
     "multiplique" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
+    },
+    "más" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 17
     },
     "necesidades" : {
       "hamFrequency" : 0,
@@ -3427,18 +3411,54 @@
     "ya" : {
       "hamFrequency" : 12,
       "spamFrequency" : 30
+    },
+    "°" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 18
+    },
+    "“" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 16
+    },
+    "“””" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 143
+    },
+    "”" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 17
+    },
+    "•" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 34
+    },
+    "✔" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 15
     }
   },
   "unassignedWords" : {
-    " ???" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "!!" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
+    "%)" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "%." : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "(*)(" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "(**)" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "):" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -3447,26 +3467,6 @@
       "spamFrequency" : 1
     },
     "------" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "?" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "?ltima" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "?minent" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "?nicos" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "?xito" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -3531,10 +3531,6 @@
       "spamFrequency" : 1
     },
     "ac" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "ac?" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -3610,7 +3606,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "activaci?n" : {
+    "activación" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -3639,6 +3635,10 @@
       "spamFrequency" : 1
     },
     "acumulables" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "acá" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -3874,7 +3874,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "antiintrusi?n" : {
+    "antiintrusión" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -3902,7 +3902,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "aplicar?n" : {
+    "aplicarán" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -4078,7 +4078,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "autenticaci?n" : {
+    "autenticación" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -4087,14 +4087,6 @@
       "spamFrequency" : 1
     },
     "autogestion" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "autom?tica" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "autom?ticamente" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -4122,6 +4114,14 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
+    "automática" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "automáticamente" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "autonoma" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -4142,10 +4142,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "ay?danos" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "ayudado" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -4158,7 +4154,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "b?sico" : {
+    "ayúdanos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -4298,7 +4294,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "bolet?n" : {
+    "boletín" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -4370,11 +4366,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "c?digo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "c?mara" : {
+    "básico" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -4526,10 +4518,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "cat?logo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "catalanointhe" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -4547,6 +4535,10 @@
       "spamFrequency" : 1
     },
     "categoriza" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "catálogo" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -4762,14 +4754,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "compa??a" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "compa??as" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "companero" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -4787,6 +4771,14 @@
       "spamFrequency" : 0
     },
     "compatibles" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "compañía" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "compañías" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -4818,10 +4810,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "compr?" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "comprension" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
@@ -4847,6 +4835,10 @@
       "spamFrequency" : 1
     },
     "compruebalo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "comprá" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -5182,10 +5174,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "cu?l" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "cuadro" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -5230,11 +5218,19 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "d9j" : {
+    "cuál" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "d?nde" : {
+    "cámara" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "código" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "d9j" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -5422,10 +5418,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "descubr?" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "descubra" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -5443,6 +5435,10 @@
       "spamFrequency" : 1
     },
     "descubrirlo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "descubrí" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -5654,15 +5650,15 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "diversi?n" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "diversidad" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
     "diversificar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "diversión" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -5746,6 +5742,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
+    "dónde" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "east" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -5782,7 +5782,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "educaci?n" : {
+    "educación" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -5858,7 +5858,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "emisi?n" : {
+    "emisión" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -5998,15 +5998,15 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "espa?olas" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "espana" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
     "espanol" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "españolas" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -6054,10 +6054,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "estad?a" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "estadisticas" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -6065,6 +6061,10 @@
     "estado" : {
       "hamFrequency" : 8,
       "spamFrequency" : 8
+    },
+    "estadía" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
     },
     "estantes" : {
       "hamFrequency" : 0,
@@ -6150,11 +6150,11 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "exclu?da" : {
+    "excluidas" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "excluidas" : {
+    "excluída" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -6214,15 +6214,15 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "exposici?n" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "exposicion" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
     "exposiciones" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "exposición" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -6275,10 +6275,6 @@
       "spamFrequency" : 1
     },
     "extreme" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "f?cil" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -6534,6 +6530,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
+    "fácil" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "gamer" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -6638,10 +6638,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "gu?a" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "guardar" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -6667,6 +6663,10 @@
       "spamFrequency" : 1
     },
     "gustar" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "guía" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -6850,7 +6850,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "identit?" : {
+    "identité" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -6886,7 +6886,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "implementaci?n" : {
+    "implementación" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -7054,7 +7054,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "inscripci?n" : {
+    "inscripción" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -7082,7 +7082,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "instalaci?n" : {
+    "instalación" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -7355,10 +7355,6 @@
       "spamFrequency" : 1
     },
     "l7f0" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "l?nea" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -7674,19 +7670,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "m?gica" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "m?nimo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "m?sica" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "m?vil" : {
+    "línea" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -7818,7 +7802,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "membres?a" : {
+    "membresía" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -7995,6 +7979,22 @@
       "spamFrequency" : 1
     },
     "mwtx" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "mágica" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "mínimo" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "móvil" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "música" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -8234,7 +8234,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "olvid?" : {
+    "olvidó" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -8350,10 +8350,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "pa?ses" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "pacheco" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -8419,6 +8415,10 @@
       "spamFrequency" : 1
     },
     "patrocinadores" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "países" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -8658,11 +8658,11 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "polic?a" : {
+    "policia" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "policia" : {
+    "policía" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -8731,10 +8731,6 @@
       "spamFrequency" : 0
     },
     "pozo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "pr?stamos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -8942,7 +8938,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "protecci?n" : {
+    "protección" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -8959,6 +8955,10 @@
       "spamFrequency" : 1
     },
     "prudencia" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "préstamos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -9059,10 +9059,6 @@
       "spamFrequency" : 1
     },
     "qwant" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "r?pido" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -9590,7 +9586,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "sab?as" : {
+    "rápido" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -9607,6 +9603,10 @@
       "spamFrequency" : 2
     },
     "sabes" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "sabías" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -9766,7 +9766,7 @@
       "hamFrequency" : 4,
       "spamFrequency" : 0
     },
-    "sesi?n" : {
+    "sesión" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -10122,10 +10122,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "t?rminos" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "tablas" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -10150,7 +10146,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "tambi?n" : {
+    "también" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -10194,15 +10190,15 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "telef?nica" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "telefonico" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
     "telefonos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "telefónica" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -10219,10 +10215,6 @@
       "spamFrequency" : 1
     },
     "temprano" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "ten?s" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -10257,6 +10249,10 @@
     "tengas" : {
       "hamFrequency" : 2,
       "spamFrequency" : 3
+    },
+    "tenés" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
     },
     "teorias" : {
       "hamFrequency" : 0,
@@ -10346,11 +10342,11 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "todav?a" : {
+    "todavia" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "todavia" : {
+    "todavía" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -10471,6 +10467,10 @@
       "spamFrequency" : 1
     },
     "tuyos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "términos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -10897,22 +10897,58 @@
     "||" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
+    },
+    "º" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "éminent" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "éxito" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "última" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "únicos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "—" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "“””" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "™" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "⏰" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "⏳" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "♥" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "�" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
     }
   },
   "weakSpamWord" : {
-    " " : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
-    "$" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 4
-    },
-    "?" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 4
-    },
-    "?ltimas" : {
+    ")." : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -11004,19 +11040,19 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "acumul?" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "acumulable" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
+    },
+    "acumulá" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "adelgaza" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "adem?s" : {
+    "además" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
@@ -11176,13 +11212,13 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
-    "aplicaci?n" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "aplicaciones" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
+    },
+    "aplicación" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "aplicara" : {
       "hamFrequency" : 0,
@@ -11348,11 +11384,11 @@
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
-    "biom?tricos" : {
+    "biometría" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
-    "biometr?a" : {
+    "biométricos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
@@ -11372,7 +11408,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "bonificaci?n" : {
+    "bonificación" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
@@ -11416,15 +11452,11 @@
       "hamFrequency" : 1,
       "spamFrequency" : 3
     },
-    "c?mo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "cadenas" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "caf?" : {
+    "café" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
@@ -11624,13 +11656,13 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "codificaci?n" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "codificacion" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
+    },
+    "codificación" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "codificadores" : {
       "hamFrequency" : 0,
@@ -11748,13 +11780,13 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "consegu?" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "conseguir" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
+    },
+    "conseguí" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "consejo" : {
       "hamFrequency" : 0,
@@ -11816,7 +11848,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "contrataci?n" : {
+    "contratación" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -11888,10 +11920,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
-    "cr?dito" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
     "creacion" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
@@ -11919,6 +11947,10 @@
     "crud" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
+    },
+    "crédito" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
     },
     "cuales" : {
       "hamFrequency" : 0,
@@ -11952,7 +11984,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "curr?culum" : {
+    "currículum" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
@@ -11960,9 +11992,9 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "d?a" : {
+    "cómo" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 3
+      "spamFrequency" : 2
     },
     "daily" : {
       "hamFrequency" : 0,
@@ -12264,6 +12296,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "día" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
     "easy" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -12328,13 +12364,13 @@
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
-    "eleg?" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "elegir" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
+    },
+    "elegí" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "eliot" : {
       "hamFrequency" : 0,
@@ -12492,10 +12528,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
-    "est?s" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "estaba" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
@@ -12531,6 +12563,10 @@
     "estudio" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
+    },
+    "estás" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "europ" : {
       "hamFrequency" : 0,
@@ -13080,10 +13116,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
-    "inter?s" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "interesantes" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -13111,6 +13143,10 @@
     "interviniente" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
+    },
+    "interés" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "introduccion" : {
       "hamFrequency" : 0,
@@ -13252,7 +13288,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "libert?" : {
+    "liberté" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -13640,13 +13676,13 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "obten?" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "obtenga" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
+    },
+    "obtené" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "ocde" : {
       "hamFrequency" : 0,
@@ -13744,14 +13780,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
-    "p?rrafo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
-    "pa?s" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "packs" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -13808,6 +13836,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
+    "país" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
     "pb" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -13816,11 +13848,11 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "pedag?gicos" : {
+    "pedagogico" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "pedagogico" : {
+    "pedagógicos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -14004,11 +14036,11 @@
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
-    "presentaci?n" : {
+    "presentacion" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "presentacion" : {
+    "presentación" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -14144,11 +14176,11 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
-    "qr" : {
+    "párrafo" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 4
+      "spamFrequency" : 3
     },
-    "qu?" : {
+    "qr" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
@@ -14171,6 +14203,10 @@
     "quitara" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
+    },
+    "qué" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
     },
     "radiante" : {
       "hamFrequency" : 0,
@@ -14195,10 +14231,6 @@
     "raskreddit" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
-    },
-    "re?rse" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
     },
     "reactivate" : {
       "hamFrequency" : 0,
@@ -14320,7 +14352,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "reflexi?n" : {
+    "reflexión" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -14467,6 +14499,10 @@
     "revolucionario" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
+    },
+    "reírse" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "rhouseplants" : {
       "hamFrequency" : 0,
@@ -15044,10 +15080,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
-    "v?deos" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
     "validez" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -15152,11 +15184,11 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
-    "visi?n" : {
+    "vision" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
-    "vision" : {
+    "visión" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
@@ -15168,7 +15200,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
-    "visualizaci?n" : {
+    "visualización" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
@@ -15203,6 +15235,10 @@
     "vuitton" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
+    },
+    "vídeos" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
     },
     "wallpaper" : {
       "hamFrequency" : 0,
@@ -15239,6 +15275,30 @@
     "yourself" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
+    },
+    "últimas" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "–" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
+    },
+    "’" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
+    "┴" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "⚡" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
+    "✔" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 4
     }
   }
 }

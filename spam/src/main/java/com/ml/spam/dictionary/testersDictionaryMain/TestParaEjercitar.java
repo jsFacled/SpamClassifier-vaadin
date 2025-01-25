@@ -20,17 +20,6 @@ public class TestParaEjercitar {
     private static Map<CharSize, Map<String, Set<String>>> lexRepo = new HashMap<>();
 
     public static void main(String[] args) throws IOException {
-        SpamDictionaryService service = new SpamDictionaryService();
-
-        System.out.println("===  /  /   /   /   /   /   /   /   /   /   ===  Etapa 2: Actualización del Diccionario  === /  /   /   /   /   /   /   /   /   /   === \n");
-
-        // Inicializar el diccionario desde el JSON
-        service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(prueba_catWords, accentPairsPath, lexemesPath);
-
-lexRepo=service.getLexemesRepository();
-
-        System.out.println("""
-                * * * * * * *    * * * * * * * * * * * * *    * * * * * *  Aquí comienza el código para ejercitar  * * * * * * *    * * * * * *""");
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

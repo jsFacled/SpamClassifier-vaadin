@@ -38,7 +38,7 @@ private static final String prueba_catWords = "static/dictionary/test_catWord_ze
 
 
         // Solicitar la actualización del diccionario al service
-        service.updateDictionary(testMessagesFilePath);
+        service.updateDictionaryFromCsvMessages(testMessagesFilePath);
         System.out.println(" *  *  *  *  *  //  //  //  //  //  //  // //  //  //  Actualización finalizada ! ! ! ! !\n");
 
 

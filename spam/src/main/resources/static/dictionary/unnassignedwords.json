@@ -1,32 +1,69 @@
 {
 
 
-  "lexalerts": [
-    "error",
-    "embargo"
+  "lexadverbs": [
+
   ],
-  "lexexclusive": [
-    "exclusivamente",
-    "exclusivos",
-    "extra"
+  "lexnetworking": [
+
+
   ],
-  "lexwork": [
-    "empleo",
-    "empresas"
-  ],
-  "lexlocations": [
-    "estados",
-    "establecido"
-  ],
-  "lexqualities": [
-    "especialmente",
-    "efectivas",
-    "efecto",
-    "efectos"
-  ],
-  "lextracking": [
-    "encuentra",
-    "esto",
-    "expresa"
-  ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

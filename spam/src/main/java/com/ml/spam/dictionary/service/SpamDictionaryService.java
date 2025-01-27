@@ -1109,4 +1109,90 @@ public class SpamDictionaryService {
     }
 
     ////////////////-----------///////////////////
+
+
+
+
+    /////////////////////// Exportar categorized Words sin las frecuencias ///////////////////////////////
+    /**
+     * Exporta las palabras categorizadas sin frecuencias, delegando el manejo de archivos al ResourcesHandler.
+     * Omite palabras con ambas frecuencias en cero y genera un reporte de estas.
+     *
+     * @param outputPathBase Ruta base donde se guardará el archivo JSON sin frecuencias.
+     * @param reportPathBase Ruta base donde se guardará el reporte de palabras omitidas.
+     */
+    public void exportCategorizedWordsWithoutFrequencies(String outputPathBase, String reportPathBase) {
+        try {
+            // Transformar las palabras categorizadas a una estructura sin frecuencias
+            Map<String, List<String>> baseWords = transformCategorizedWordsToBaseWords();
+
+            // Generar el reporte de palabras omitidas
+            List<String> omittedWordsReport = generateOmittedWordsReport();
+
+            // Delegar la exportación y generación de rutas únicas al ResourcesHandler
+            resourcesHandler.saveCategorizedWordsOnlyAndReport(baseWords, omittedWordsReport, outputPathBase, reportPathBase);
+
+            System.out.println("[INFO] Exportación y reporte delegados exitosamente al ResourcesHandler.");
+        } catch (Exception e) {
+            throw new RuntimeException("Error al exportar palabras sin frecuencias: " + e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Transforma el diccionario categorizado en una estructura sin frecuencias,
+     * omitiendo palabras con ambas frecuencias en cero.
+     *
+     * @return Mapa categorizado con listas de palabras sin frecuencias.
+     */
+    private Map<String, List<String>> transformCategorizedWordsToBaseWords() {
+        Map<WordCategory, Map<String, WordData>> categorizedWords = dictionary.getCategorizedWords();
+        Map<String, List<String>> baseWords = new HashMap<>();
+
+        for (Map.Entry<WordCategory, Map<String, WordData>> entry : categorizedWords.entrySet()) {
+            WordCategory category = entry.getKey();
+            Map<String, WordData> words = entry.getValue();
+
+            // Filtrar palabras con frecuencias mayores a cero
+            List<String> filteredWords = words.values().stream()
+                    .filter(wordData -> wordData.getSpamFrequency() > 0 || wordData.getHamFrequency() > 0)
+                    .map(WordData::getWord)
+                    .toList();
+
+            if (!filteredWords.isEmpty()) {
+                baseWords.put(category.getJsonKey(), filteredWords);
+            }
+        }
+
+        return baseWords;
+    }
+
+    /**
+     * Genera un reporte de palabras omitidas (con ambas frecuencias en cero).
+     *
+     * @return Lista de líneas para el reporte.
+     */
+    private List<String> generateOmittedWordsReport() {
+        Map<WordCategory, Map<String, WordData>> categorizedWords = dictionary.getCategorizedWords();
+        List<String> omittedWordsReport = new ArrayList<>();
+
+        for (Map.Entry<WordCategory, Map<String, WordData>> entry : categorizedWords.entrySet()) {
+            WordCategory category = entry.getKey();
+            Map<String, WordData> words = entry.getValue();
+
+            words.values().stream()
+                    .filter(wordData -> wordData.getSpamFrequency() == 0 && wordData.getHamFrequency() == 0)
+                    .forEach(wordData -> omittedWordsReport.add(
+                            String.format("Palabra: '%s', Categoría: '%s'", wordData.getWord(), category.getJsonKey())));
+        }
+
+        return omittedWordsReport;
+    }
+
+
+
+
+
+
+
+
 }//end

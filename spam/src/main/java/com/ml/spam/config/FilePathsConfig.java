@@ -21,5 +21,6 @@ public class FilePathsConfig {
 
 
     public static final String BASE_OUTPUT_JSON_PATH = "static/dictionary/updatedCategorizedWords.json";
+    public static final String CATEGORIZED_WORDS_ONLY_BASE_JSON_PATH = "static/dictionary/updatedCategorizedWordsOnly.json";
 
 }

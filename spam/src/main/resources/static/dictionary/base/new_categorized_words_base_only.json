@@ -1,8 +1,7 @@
 {
 
    "strongSpamWord": [
-            "$", "accion", "bitcoin", "rapido", "herencia", "oportunidad", "publicidad", "anuncio",
-            "regalo","tarjeta", "viagra", "acceso", "activacion", "actualizacion", "algoritmo", "amigo",
+            "$",  "oportunidad", "tarjeta", "activacion", "algoritmo", "amigo",
             "amor", "apuesta", "asombroso", "atencion", "bancarrota", "belleza", "blackjack", "bono",
             "casino", "cuenta", "cura", "dieta", "dominios", "donacion", "eliminar", "empleo",
             "encuentra", "encuentros", "engaño", "estafa", "estimado", "expira", "final", "flash", "formulario",
@@ -27,12 +26,12 @@
    "moderateSpamWord": [
             "servicio", "tienda", "venta", "notificacion", "empresa",
              "intereses", "registrarse", "restaurada", "salva", "salvar", "suspendida", "trabajo",
-            "personal", "sistema", "resultado", "hacer", "contacto", "consulta", "ahorrar",
-            "lexsubscriptions", "lexalerts", "lexguarantees", "costo", "lexfree", "lexvaluable",
+            "personal", "sistema", "resultado",  "ahorrar",
+            "lexsubscriptions", "lexalerts", "lexguarantees", "lexfree", "lexvaluable",
             "producto", "ingresos", "lexlimited", "lexgrowth",
             "lexsecurity", "lexwebactions",  "respuesta", "lexwealth", "lexsuperlatives",
             "leximprovements", "poderoso", "potencial", "probar", "prueba", "lexpromotions", "invertir", "invierte",
-            "lexfinance", "ganancias", "lexmotivational", "compras","unete","lexactions","lexspamreetings",
+            "lexfinance", "lexmotivational", "compras","unete","lexactions","lexspamreetings",
             "lexguidelines", "lexrequests"
         ],
    "weakSpamWord": [
@@ -55,7 +54,7 @@
     ],
     "hamIndicators": [
       "lexpositive","lexinformative","lexconfirmations","lexteam","lexfeedback", "lexprofile",
-      "lexfuture","lexcontextual","lexapologies","lexevents", "lexissues",
+      "lexfuture","lexcontextual","lexevents", "lexissues",
       "lexchoices", "lexsuccess","lexeducation","lextravel","lexcommunity","lexfamily",
       "lexwork","lexfrequency", "lexcelebrations"
     ],

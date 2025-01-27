@@ -1,15 +1,11 @@
 package com.ml.spam.handlers;
 
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.json.JsonWriteFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.ml.spam.utils.CsvUtils;
 import com.ml.spam.utils.JsonUtils;
 import com.ml.spam.utils.ValidationResult;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.*;
@@ -571,6 +567,42 @@ public class ResourcesHandler {
             System.out.println("[INFO] Exportación de palabras categorizadas exitosa a: " + uniqueOutputPath);
         } catch (Exception e) {
             throw new RuntimeException("Error al extraer y guardar palabras categorizadas: " + e.getMessage(), e);
+        }
+    }
+
+
+    /**
+     * Guarda las palabras categorizadas sin frecuencias y genera un reporte de palabras omitidas.
+     * Si los archivos ya existen, se generarán nombres únicos con un sufijo (_1, _2, etc.).
+     *
+     * @param categorizedWords Palabras categorizadas sin frecuencias.
+     * @param omittedWordsReport Lista de palabras omitidas con sus categorías.
+     * @param outputPathBase Ruta base para el archivo JSON de palabras categorizadas.
+     * @param reportPathBase Ruta base para el archivo de reporte.
+     */
+    public void saveCategorizedWordsOnlyAndReport(
+            Map<String, List<String>> categorizedWords,
+            List<String> omittedWordsReport,
+            String outputPathBase,
+            String reportPathBase) {
+
+        try {
+            // Generar rutas únicas para los archivos
+            String uniqueOutputPath = getUniqueFilePath(outputPathBase);
+            String uniqueReportPath = getUniqueFilePath(reportPathBase);
+
+            // Guardar las palabras categorizadas como JSON
+            JSONObject jsonOutput = new JSONObject(categorizedWords);
+            saveJson(jsonOutput, uniqueOutputPath);
+
+            // Guardar el reporte de palabras omitidas
+            Path reportFilePath = resolvePath(uniqueReportPath);
+            Files.write(reportFilePath, omittedWordsReport, StandardCharsets.UTF_8);
+
+            System.out.println("[INFO] JSON exportado a: " + uniqueOutputPath);
+            System.out.println("[INFO] Reporte guardado en: " + uniqueReportPath);
+        } catch (IOException e) {
+            throw new RuntimeException("Error al guardar datos y reporte: " + e.getMessage(), e);
         }
     }
 

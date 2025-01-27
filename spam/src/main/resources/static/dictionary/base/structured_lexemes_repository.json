@@ -502,7 +502,7 @@
     "lexplanning": [ "estrategia","itinerario","calendario"],
     "lexevents" : [  "encuentros","conciertos","curriculos"],
     "lexstates" : [ "suspendida",  "suspendido"],
-    "lexapologies" : [ "lamentamos" ],
+
     "lexbenefits" : [ "beneficios" ],
     "lexcalendar" : [ "fracciones", "intervalos", "septiembre" ],
     "lexcelebrations" : [ "cumpleanos", "cumpleaños", "vacaciones"],
@@ -513,7 +513,7 @@
     "lexcontextual" : ["heladerias", "habitacion", "peluqueria" ],
     "lexdimensions" : [ "centimetro", "hectometro", "micrometro", "decimetros", "mililitros", "kilometros" ],
     "lexdocuments" : [ "curriculum","comunicado" ],
-    "lexemotion" : [ "encantados", "equilibrio", "meditacion" ],
+    "lexemotion" : [ "encantados", "equilibrio", "meditacion", "lamentamos"],
     "lexfeedback" : [ "compartelo", "escríbenos", "asesorarte", "testimonio"],
     "lexfinance" : ["reintegros", "crediticia","tributario", "accionista", "bancarrota"],
     "lexgrowth" : [ "multiplica","incremento" ],

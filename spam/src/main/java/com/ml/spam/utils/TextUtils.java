@@ -15,7 +15,7 @@ public class TextUtils {
     // Normalización de texto
 
     public static String normalize(String text) {
-        return text.toLowerCase().replaceAll("[^a-zA-Z0-9]", "");
+        return text.toLowerCase().replaceAll("[^a-zA-Z0-9.]", "");
     }
     // Valida si una fila es válida para el dataset
 

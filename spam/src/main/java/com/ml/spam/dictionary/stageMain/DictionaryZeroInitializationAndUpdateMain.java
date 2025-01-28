@@ -7,7 +7,7 @@ import com.ml.spam.dictionary.service.SpamDictionaryService;
 import java.io.IOException;
 
 public class DictionaryZeroInitializationAndUpdateMain {
-    private static final String newCatWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
+    private static final String newCatWordsFreqZeroPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
 
     private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
     private static final String  lexemePath=FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
@@ -41,7 +41,7 @@ public class DictionaryZeroInitializationAndUpdateMain {
         System.out.println("[ STAGE 1 ]* * * * * Inicializando dictionary   .    .   .  .  .  . . . . . . . . . \n");
 
         // Inicializar el diccionario desde el JSON
-        service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(newCatWordsPath, accentPairsPath, lexemePath);
+        service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(newCatWordsFreqZeroPath, accentPairsPath, lexemePath);
 
         // Mostrar los Map de SpamDictionary para chequear que se haya inicializado correctamente
         service.displayCategorizedWordsInDictionary();

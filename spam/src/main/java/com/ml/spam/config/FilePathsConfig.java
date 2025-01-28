@@ -3,7 +3,9 @@ package com.ml.spam.config;
 public class FilePathsConfig {
 
     // Rutas relativas dentro de 'src/main/resources/static/dictionary'
-    public static final String CATEGORIZED_WORDS_BASE_JSON_PATH = "static/dictionary/base/new_categorized_words_base_only.json";
+  //  public static final String CATEGORIZED_WORDS_BASE_JSON_PATH = "static/dictionary/base/new_categorized_words_base_only.json";
+    public static final String CATEGORIZED_WORDS_BASE_JSON_PATH = "static/dictionary/updatedCategorizedWordsOnly.json";
+
     public static final String CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH = "static/dictionary/new_categorized_words_with_frequenciesZero.json";
 
 

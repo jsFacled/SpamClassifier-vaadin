@@ -15,6 +15,7 @@ public class saveCategorizedWordsOnlyMain {
 
         service.initializeCategorizedWordsFromJsonPath(categorizedWordsPath);
  // service.displayCategorizedWordsInDictionary();
+
        service.exportCategorizedWordsWithoutFrequencies(
                 updatedCatWordsOnlyBasePathForExport,
                 "static/dictionary/omitted_words_report.txt"

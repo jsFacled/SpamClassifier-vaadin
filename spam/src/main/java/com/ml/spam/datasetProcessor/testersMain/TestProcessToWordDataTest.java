@@ -143,8 +143,8 @@ public class TestProcessToWordDataTest {
             List<String[]> rawRows = new ArrayList<>();
 
             rawRows.add(
-                    m
-                   // mensajeLinks
+                    //m
+                    mensajeLinks
                     //mensajeCombinado
                     //mensajeExaustivo
             );

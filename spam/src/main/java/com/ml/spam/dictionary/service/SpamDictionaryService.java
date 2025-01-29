@@ -1188,6 +1188,13 @@ public class SpamDictionaryService {
         return omittedWordsReport;
     }
 
+    public void addWordToLexemeRepository(String repositoryPath, String word, String category) {
+        resourcesHandler.addWordToLexemeRepository(repositoryPath, word, category);
+    }
+
+    public void updateLexemeRepositoryFromJsonList(String repositoryPath, String inputJsonPath) {
+        resourcesHandler.updateLexemeRepositoryFromJsonList(repositoryPath, inputJsonPath);
+    }
 
 
 

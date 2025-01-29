@@ -3,9 +3,12 @@ package com.ml.spam.handlers;
 import com.fasterxml.jackson.core.json.JsonWriteFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.ml.spam.dictionary.models.CharSize;
 import com.ml.spam.utils.CsvUtils;
 import com.ml.spam.utils.JsonUtils;
+import com.ml.spam.utils.TextUtils;
 import com.ml.spam.utils.ValidationResult;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.*;
@@ -606,4 +609,109 @@ public class ResourcesHandler {
         }
     }
 
-}
+
+    /**
+     * Actualiza el repositorio de lexemas desde un archivo JSON con múltiples categorías y palabras.
+     * Si una categoría dentro del CharSize no existe, se crea antes de agregar la palabra.
+     *
+     * @param lexemeRepositoryPath Ruta del archivo JSON del repositorio de lexemas.
+     * @param inputJsonListPath Ruta del archivo JSON con lexemas y palabras a agregar.
+     */
+    public void updateLexemeRepositoryFromJsonList(String lexemeRepositoryPath, String inputJsonListPath) {
+        try {
+            // Cargar los archivos JSON
+            JSONObject lexemeRepository = loadJson(lexemeRepositoryPath);
+            JSONObject inputJson = loadJson(inputJsonListPath);
+
+            // Iterar sobre cada categoría en el JSON de entrada
+            for (String lexeme : inputJson.keySet()) {
+                JSONArray wordsToAdd = inputJson.optJSONArray(lexeme);
+                if (wordsToAdd == null) continue;
+
+                for (int i = 0; i < wordsToAdd.length(); i++) {
+                    String word = wordsToAdd.getString(i);
+
+                    // Determinar el CharSize basado en la longitud de la palabra
+                    CharSize charSize = TextUtils.determineCharSize(word);
+
+                    // Verificar que el CharSize ya existe en el JSON (no lo creamos)
+                    if (!lexemeRepository.has(charSize.getJsonKey())) {
+                        throw new IllegalArgumentException("[ERROR] CharSize '" + charSize.getJsonKey() + "' no existe en el repositorio.");
+                    }
+
+                    // Obtener la categoría principal (CharSize)
+                    JSONObject charSizeJson = lexemeRepository.getJSONObject(charSize.getJsonKey());
+
+                    // Obtener o crear la subcategoría del lexeme
+                    JSONArray existingWords = charSizeJson.optJSONArray(lexeme);
+                    if (existingWords == null) {
+                        existingWords = new JSONArray();
+                        charSizeJson.put(lexeme, existingWords);
+                    }
+
+                    // Agregar la palabra si no está duplicada
+                    if (!existingWords.toList().contains(word)) {
+                        existingWords.put(word);
+                        System.out.println("[INFO] '" + word + "' agregado a '" + lexeme + "' en CharSize '" + charSize.getJsonKey() + "'.");
+                    }
+                }
+            }
+
+            // Guardar el repositorio actualizado
+            saveJson(lexemeRepository, lexemeRepositoryPath);
+            System.out.println("[INFO] Repositorio de lexemas actualizado desde " + inputJsonListPath);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al actualizar el repositorio de lexemas: " + e.getMessage(), e);
+        }
+    }
+
+
+    /**
+     * Agrega una palabra al repositorio de lexemas bajo una categoría específica.
+     * Si la categoría dentro del CharSize no existe, se crea antes de agregar la palabra.
+     *
+     * @param lexemeRepositoryPath Ruta del archivo JSON del repositorio de lexemas.
+     * @param word Palabra a agregar.
+     * @param category Categoría donde se agregará la palabra.
+     */
+    public void addWordToLexemeRepository(String lexemeRepositoryPath, String word, String category) {
+        try {
+            // Cargar el repositorio de lexemas
+            JSONObject lexemeRepository = loadJson(lexemeRepositoryPath);
+
+            // Determinar el CharSize según la longitud de la palabra
+            CharSize charSize = TextUtils.determineCharSize(word);
+
+            // Verificar que el CharSize ya existe en el JSON (no lo creamos)
+            if (!lexemeRepository.has(charSize.getJsonKey())) {
+                throw new IllegalArgumentException("[ERROR] CharSize '" + charSize.getJsonKey() + "' no existe en el repositorio.");
+            }
+
+            // Obtener la categoría principal (CharSize)
+            JSONObject charSizeJson = lexemeRepository.getJSONObject(charSize.getJsonKey());
+
+            // Obtener o crear la subcategoría del lexeme
+            JSONArray wordsArray = charSizeJson.optJSONArray(category);
+            if (wordsArray == null) {
+                wordsArray = new JSONArray();
+                charSizeJson.put(category, wordsArray);
+            }
+
+            // Agregar la palabra si no existe
+            if (!wordsArray.toList().contains(word)) {
+                wordsArray.put(word);
+                System.out.println("[INFO] Palabra '" + word + "' agregada a '" + category + "' en CharSize '" + charSize.getJsonKey() + "'.");
+            } else {
+                System.out.println("[INFO] La palabra '" + word + "' ya existe en '" + category + "'.");
+            }
+
+            // Guardar el repositorio actualizado
+            saveJson(lexemeRepository, lexemeRepositoryPath);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al agregar palabra al repositorio de lexemas: " + e.getMessage(), e);
+        }
+    }
+
+
+
+}//end

@@ -510,7 +510,7 @@ public class MessageProcessor {
     }
 
     private static void processOtherSymbols(String token, List<WordData> wordDataList, String label) {
-        Map<String, Set<String>> subCategories = lexemeRepository.get(determineCharSize(token));
+        Map<String, Set<String>> subCategories = lexemeRepository.get(TextUtils.determineCharSize(token));
         String subCategory = subCategories.entrySet().stream()
                 .filter(entry -> entry.getValue().contains(token))
                 .map(Map.Entry::getKey)
@@ -563,21 +563,8 @@ public class MessageProcessor {
     }
 
 
-    // Métod auxiliar para determinar el tamaño de carácter
-    private static CharSize determineCharSize(String token) {
-        int length = token.length();
-        if (length == 1) return CharSize.ONE_CHAR;
-        if (length == 2) return CharSize.TWO_CHARS;
-        if (length == 3) return CharSize.THREE_CHARS;
-        if (length == 4) return CharSize.FOUR_CHARS;
-        if (length == 5) return CharSize.FIVE_CHARS;
-        if (length == 6) return CharSize.SIX_CHARS;
-        if (length == 7) return CharSize.SEVEN_CHARS;
-        if (length == 8) return CharSize.EIGHT_CHARS;
-        if (length == 9) return CharSize.NINE_CHARS;
-        if (length == 10) return CharSize.TEN_CHARS;
-        return CharSize.OVER_TEN_CHARS;
-    }
+
+
     private static String getTokenIfIsInLexemeRepository(String token) {
         String lexeme = getSubcategoryForToken(token);
         System.out.println("Estamos en getTokenIfIsInLexemeRepository: "+lexeme);

@@ -1,6 +1,7 @@
 package com.ml.spam.utils;
 
 import com.ml.spam.datasetProcessor.models.RowValidationResult;
+import com.ml.spam.dictionary.models.CharSize;
 import com.ml.spam.dictionary.models.MessageLabel;
 import com.ml.spam.dictionary.models.TokenType;
 
@@ -315,6 +316,29 @@ public class TextUtils {
         }
         String emailRegex = "^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$";
         return token.matches(emailRegex);
+    }
+
+    /**
+     * Determina el CharSize según la longitud de la palabra.
+     *
+     * @param token Palabra a analizar.
+     * @return CharSize correspondiente.
+     */
+    public static CharSize determineCharSize(String token) {
+        int length = token.length();
+        return switch (length) {
+            case 1 -> CharSize.ONE_CHAR;
+            case 2 -> CharSize.TWO_CHARS;
+            case 3 -> CharSize.THREE_CHARS;
+            case 4 -> CharSize.FOUR_CHARS;
+            case 5 -> CharSize.FIVE_CHARS;
+            case 6 -> CharSize.SIX_CHARS;
+            case 7 -> CharSize.SEVEN_CHARS;
+            case 8 -> CharSize.EIGHT_CHARS;
+            case 9 -> CharSize.NINE_CHARS;
+            case 10 -> CharSize.TEN_CHARS;
+            default -> CharSize.OVER_TEN_CHARS;
+        };
     }
 
 }

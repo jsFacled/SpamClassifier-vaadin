@@ -1,68 +1,60 @@
 {
+  "lexfinance": [
+    "bbva",
+    "icbc",
+    "supervielle"
+  ],
+  "lexadverbs": [
+    "como",
+    "solo",
+    "tambien"
+  ],
+  "lexdeterminers": [
+    "cualquier",
+    "otros",
+    "the"
+  ],
+  "lexauxiliaryverbs": [
+    "es",
+    "estar",
+    "han",
+    "has",
+    "sea"
+  ],
+  "lexlocation": [
+    "gcba"
+  ],
   "lexactions": [
-    "mantenga",
-    "mantente",
-    "proveyo"
-  ],
-  "lexmedia": [
-    "medios"
-  ],
-  "leximprovements": [
-    "mejora"
-  ],
-  "lexguidelines": [
-    "normativa"
-  ],
-  "lexnotifications": [
-    "novedades"
-  ],
-  "lexoptions": [
-    "opcion"
-  ],
-  "lexhealth": [
-    "organo"
+    "hace",
+    "ir"
   ],
   "lexcomparisons": [
-    "parecidos"
+    "mas"
   ],
-  "lexsteps": [
-    "paso"
-  ],
-  "lexperformance": [
-    "performance",
-    "perplexity"
-  ],
-  "lexcustomization": [
-    "personalizadas",
-    "personalizados"
-  ],
-  "lexplanning": [
-    "plan"
+  "lexpronouns": [
+    "nuestra",
+    "nuestras",
+    "nuestro",
+    "nuestros"
   ],
   "lexbrands": [
-    "platzi"
+    "pdffiller"
   ],
-  "lexpossibilities": [
-    "posibilidad"
+  "lexsocial": [
+    "reddit",
+    "redusers"
   ],
-  "lexquestions": [
-    "preguntas"
+  "lexprepositions": [
+    "sin"
   ],
-  "lexpromotions": [
-    "promocion"
+  "lexsymbols": [
+    "°",
+    "•",
+    "✔"
   ],
-  "lexdistribution": [
-    "proporcionada"
-  ],
-  "lexproposals": [
-    "propuesta",
-    "propuestas"
-  ],
-  "lexpublication": [
-    "publica"
+  "lexpunctuation": [
+    "“",
+    "“””",
+    "”"
   ]
-
-
-
-
 }

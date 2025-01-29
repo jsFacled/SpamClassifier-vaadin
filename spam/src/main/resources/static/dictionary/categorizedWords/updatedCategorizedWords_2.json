@@ -156,94 +156,12 @@
       "spamFrequency" : 6
     },
 
-    "refiere" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 9
-    },
-    "remains" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "responsable" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 9
-    },
-    "rest" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "riu" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
-    "ro" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "same" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "segun" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 12
-    },
-    "sentido" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "sexual" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "shop" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 11
-    },
+
     "sistema" : {
       "hamFrequency" : 2,
       "spamFrequency" : 13
     },
-    "sitio" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 10
-    },
-    "sociales" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "sonnet" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "suscripción" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "teléfono" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "trusted" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
-    "unicamente" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
-    "unidos" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 10
-    },
-    "us" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 7
-    },
-    "view" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 7
-    }
+
   },
   "rareSymbols" : {
     "@" : {

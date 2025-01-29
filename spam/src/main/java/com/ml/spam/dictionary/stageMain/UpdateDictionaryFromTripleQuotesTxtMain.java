@@ -3,8 +3,6 @@ package com.ml.spam.dictionary.stageMain;
 import com.ml.spam.config.FilePathsConfig;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
 
-import java.io.IOException;
-
 public class UpdateDictionaryFromTripleQuotesTxtMain {
     // Nombre del archivo TXT a procesar
     private static final String inputTxtFilePath = "static/datasets/correos-spam-fac.txt";
@@ -13,7 +11,7 @@ public class UpdateDictionaryFromTripleQuotesTxtMain {
     private static final String baseOutputPath = FilePathsConfig.BASE_OUTPUT_JSON_PATH;
 
     //Elementos del Dictionary
-    private static final String updatedCatWordsPath = "static/dictionary/updatedCategorizedWords_1.json";
+    private static final String updatedCatWordsPath = "static/dictionary/categorizedWords/updatedCategorizedWords_1.json";
     private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
     private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
 

@@ -12,7 +12,7 @@ public class UpdateDictionaryMain {
     private static final String baseOutputPath = FilePathsConfig.BASE_OUTPUT_JSON_PATH;
 
     //Elementos del Dictionary
-    private static final String updatedCatWordsPath = "static/dictionary/updatedCategorizedWords.json";
+    private static final String updatedCatWordsPath = "static/dictionary/categorizedWords/updatedCategorizedWords.json";
     private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
     private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
 

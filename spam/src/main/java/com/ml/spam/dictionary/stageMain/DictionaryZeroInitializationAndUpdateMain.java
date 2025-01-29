@@ -18,7 +18,7 @@ public class DictionaryZeroInitializationAndUpdateMain {
 
 //Nombre del archivo que se generará al exportar categorizedWords.
 // No sobreescribe. Si existe se incrementará un número.
-    String baseOutputPath = "static/dictionary/updatedCategorizedWords.json";
+    String baseOutputPath = "static/dictionary/categorizedWords/updatedCategorizedWords.json";
 
     public static void main(String[] args) throws IOException {
         //Inicia temporizador para calcular el tiempo de procesamiento total
@@ -67,7 +67,7 @@ public class DictionaryZeroInitializationAndUpdateMain {
 
 
         //Exportación del diccionario actualizado
-        String baseOutputPath = "static/dictionary/updatedCategorizedWords.json";
+        String baseOutputPath = "static/dictionary/categorizedWords/updatedCategorizedWords.json";
         service.exportUpdatedCategorizedWords(baseOutputPath);
 
         long endUpdate = System.nanoTime();

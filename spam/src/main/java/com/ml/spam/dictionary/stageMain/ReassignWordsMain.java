@@ -4,7 +4,7 @@ import com.ml.spam.config.FilePathsConfig;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
 
 public class ReassignWordsMain {
-    private static final String updatedCatWordsPath = "static/dictionary/updatedCategorizedWords_2.json";
+    private static final String updatedCatWordsPath = "static/dictionary/categorizedWords/updatedCategorizedWords_2.json";
 
     public static void main(String[] args) {
         try {

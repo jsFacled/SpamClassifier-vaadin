@@ -672,9 +672,9 @@ public class ResourcesHandler {
      *
      * @param lexemeRepositoryPath Ruta del archivo JSON del repositorio de lexemas.
      * @param word Palabra a agregar.
-     * @param category Categoría donde se agregará la palabra.
+     * @param lexeme Categoría donde se agregará la palabra.
      */
-    public void addWordToLexemeRepository(String lexemeRepositoryPath, String word, String category) {
+    public void addWordToLexemeRepository(String lexemeRepositoryPath, String word, String lexeme) {
         try {
             // Cargar el repositorio de lexemas
             JSONObject lexemeRepository = loadJson(lexemeRepositoryPath);
@@ -691,18 +691,18 @@ public class ResourcesHandler {
             JSONObject charSizeJson = lexemeRepository.getJSONObject(charSize.getJsonKey());
 
             // Obtener o crear la subcategoría del lexeme
-            JSONArray wordsArray = charSizeJson.optJSONArray(category);
+            JSONArray wordsArray = charSizeJson.optJSONArray(lexeme);
             if (wordsArray == null) {
                 wordsArray = new JSONArray();
-                charSizeJson.put(category, wordsArray);
+                charSizeJson.put(lexeme, wordsArray);
             }
 
             // Agregar la palabra si no existe
             if (!wordsArray.toList().contains(word)) {
                 wordsArray.put(word);
-                System.out.println("[INFO] Palabra '" + word + "' agregada a '" + category + "' en CharSize '" + charSize.getJsonKey() + "'.");
+                System.out.println("[INFO] Palabra '" + word + "' agregada a '" + lexeme + "' en CharSize '" + charSize.getJsonKey() + "'.");
             } else {
-                System.out.println("[INFO] La palabra '" + word + "' ya existe en '" + category + "'.");
+                System.out.println("[INFO] La palabra '" + word + "' ya existe en '" + lexeme + "'.");
             }
 
             // Guardar el repositorio actualizado

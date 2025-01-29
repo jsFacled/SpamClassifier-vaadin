@@ -1,73 +1,6 @@
 {
   "hamIndicators" : {
-    "aceptado" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "ascendieron" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "atendido" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "compartido" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "compra" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
-    },
-    "comprension" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "confirmada" : {
-      "hamFrequency" : 5,
-      "spamFrequency" : 0
-    },
-    "conversar" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "cuenta" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
-    },
-    "despachado" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "devolucion" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "estado" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
-    },
-    "historial" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "informacion" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
-    },
-    "informamos" : {
-      "hamFrequency" : 3,
-      "spamFrequency" : 1
-    },
-    "informarte" : {
-      "hamFrequency" : 6,
-      "spamFrequency" : 2
-    },
-    "interes" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
-    },
+
     "lexcelebrations" : {
       "hamFrequency" : 27,
       "spamFrequency" : 7
@@ -128,308 +61,40 @@
       "hamFrequency" : 12,
       "spamFrequency" : 10
     },
-    "mejorando" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "monitorea" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "pases" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "planifiquemos" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "potenciemos" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "prioritario" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "recibimos" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "retroalimentacion" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "transfer" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    }
+
   },
   "moderateSpamWord" : {
     "ademas" : {
       "hamFrequency" : 0,
       "spamFrequency" : 9
     },
-    "administracion" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "agregar" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 14
-    },
-    "ai" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "alguno" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
-    "alta" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
-    "anade" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 7
-    },
-    "android" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
-    "ante" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "anular" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 11
-    },
+
     "aplicacion" : {
       "hamFrequency" : 1,
       "spamFrequency" : 12
     },
-    "aprende" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 10
-    },
-    "aprender" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
-    "aquí" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
-    "artículo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
-    "asegura" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
-    "at" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "automatico" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 6
-    },
-    "autoridades" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
-    "autoriza" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
-    "ca" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "cabello" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
-    "card" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 5
-    },
-    "carrera" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "cartera" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "casinos" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
-    "central" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
-    "claras" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
-    "clasificacion" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "coche" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "comentario" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "comisiones" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
-    "completo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
+
+
     "comunidad" : {
       "hamFrequency" : 3,
       "spamFrequency" : 13
     },
-    "comunidades" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 9
-    },
-    "configuracion" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
-    "conforme" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 10
-    },
+
     "consigue" : {
       "hamFrequency" : 0,
       "spamFrequency" : 13
     },
-    "contratacion" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 10
-    },
-    "contratado" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 7
-    },
-    "cosas" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "crees" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 9
-    },
-    "cual" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
-    "cuanto" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
-    "cuerpo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 7
-    },
+
     "cuit" : {
       "hamFrequency" : 0,
       "spamFrequency" : 13
     },
-    "cumplimiento" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
-    "cuyo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
+
     "dentro" : {
       "hamFrequency" : 0,
       "spamFrequency" : 14
     },
-    "desarrollador" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 7
-    },
-    "deseas" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
-    "deshabilitado" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
-    "despierta" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "destacada" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
-    "dirección" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "disposicion" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 7
-    },
-    "distribución" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 7
-    },
-    "electrónico" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 10
-    },
-    "emblue" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
-    "er" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
-    "estara" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 10
-    },
-    "facled" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "for" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
-    "guarda" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 10
-    },
-    "inferiores" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
-    "invalidNumber" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 12
-    },
+
     "lexemeemojis" : {
       "hamFrequency" : 0,
       "spamFrequency" : 12
@@ -490,102 +155,7 @@
       "hamFrequency" : 0,
       "spamFrequency" : 6
     },
-    "mantenga" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 7
-    },
-    "mantente" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
-    "medios" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "mejora" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 5
-    },
-    "normativa" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "novedades" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
-    "opcion" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "organo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
-    "parecidos" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
-    "paso" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 10
-    },
-    "performance" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "perplexity" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
-    "personalizadas" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "personalizados" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
-    "plan" : {
-      "hamFrequency" : 3,
-      "spamFrequency" : 9
-    },
-    "platzi" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 8
-    },
-    "posibilidad" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 11
-    },
-    "preguntas" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 7
-    },
-    "promoción" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 13
-    },
-    "proporcionada" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "propuesta" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 6
-    },
-    "propuestas" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
-    "proveyo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 7
-    },
-    "publica" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 11
-    },
+
     "refiere" : {
       "hamFrequency" : 0,
       "spamFrequency" : 9

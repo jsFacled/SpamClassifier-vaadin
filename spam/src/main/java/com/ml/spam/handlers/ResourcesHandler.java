@@ -618,6 +618,7 @@ public class ResourcesHandler {
      * @param inputJsonListPath Ruta del archivo JSON con lexemas y palabras a agregar.
      */
     public void updateLexemeRepositoryFromJsonList(String lexemeRepositoryPath, String inputJsonListPath) {
+
         try {
             // Cargar los archivos JSON
             JSONObject lexemeRepository = loadJson(lexemeRepositoryPath);

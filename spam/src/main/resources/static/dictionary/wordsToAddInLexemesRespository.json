@@ -1,0 +1,68 @@
+{
+  "lexactions": [
+    "mantenga",
+    "mantente",
+    "proveyo"
+  ],
+  "lexmedia": [
+    "medios"
+  ],
+  "leximprovements": [
+    "mejora"
+  ],
+  "lexguidelines": [
+    "normativa"
+  ],
+  "lexnotifications": [
+    "novedades"
+  ],
+  "lexoptions": [
+    "opcion"
+  ],
+  "lexhealth": [
+    "organo"
+  ],
+  "lexcomparisons": [
+    "parecidos"
+  ],
+  "lexsteps": [
+    "paso"
+  ],
+  "lexperformance": [
+    "performance",
+    "perplexity"
+  ],
+  "lexcustomization": [
+    "personalizadas",
+    "personalizados"
+  ],
+  "lexplanning": [
+    "plan"
+  ],
+  "lexbrands": [
+    "platzi"
+  ],
+  "lexpossibilities": [
+    "posibilidad"
+  ],
+  "lexquestions": [
+    "preguntas"
+  ],
+  "lexpromotions": [
+    "promocion"
+  ],
+  "lexdistribution": [
+    "proporcionada"
+  ],
+  "lexproposals": [
+    "propuesta",
+    "propuestas"
+  ],
+  "lexpublication": [
+    "publica"
+  ]
+
+
+
+
+}

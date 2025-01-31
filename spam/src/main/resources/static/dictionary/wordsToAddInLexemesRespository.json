@@ -1,60 +1,147 @@
 {
+  "lexqualities": [
+    "fabulosos"
+  ],
+  "lexease": [
+    "faciles",
+    "facilmente",
+    "facil"
+  ],
   "lexfinance": [
-    "bbva",
-    "icbc",
-    "supervielle"
+    "facturacion",
+    "fondos"
   ],
-  "lexadverbs": [
-    "como",
-    "solo",
-    "tambien"
+  "lexfailure": [
+    "fails"
   ],
-  "lexdeterminers": [
-    "cualquier",
-    "otros",
-    "the"
+  "lexfalsehood": [
+    "falsa",
+    "falsos"
   ],
-  "lexauxiliaryverbs": [
-    "es",
-    "estar",
-    "han",
-    "has",
-    "sea"
+  "lexfamily": [
+    "familiares"
   ],
-  "lexlocation": [
-    "gcba"
+  "lexdistance": [
+    "far"
   ],
-  "lexactions": [
-    "hace",
-    "ir"
+  "lexhealth": [
+    "farmacias",
+    "farmacity"
   ],
-  "lexcomparisons": [
-    "mas"
+  "lexadmiration": [
+    "fascinantes"
   ],
-  "lexpronouns": [
-    "nuestra",
-    "nuestras",
-    "nuestro",
-    "nuestros"
+  "lexpositivity": [
+    "favorable",
+    "favorablemente"
   ],
-  "lexbrands": [
-    "pdffiller"
+  "lexpreference": [
+    "favorite",
+    "favorito"
   ],
-  "lexsocial": [
-    "reddit",
-    "redusers"
+  "lexunknown": [
+    "ferrie",
+    "ferriechris",
+    "fgavin",
+    "fkwwo",
+    "frrmh"
   ],
-  "lexprepositions": [
-    "sin"
+  "lexcelebration": [
+    "fiesta"
+  ],
+  "lexqueue": [
+    "filas"
+  ],
+  "lexcompletion": [
+    "finaliza",
+    "finalizacion",
+    "finalizado",
+    "finalizamos"
+  ],
+  "lexlegal": [
+    "firmar"
+  ],
+  "lexphysical": [
+    "fisico"
+  ],
+  "lexdance": [
+    "flamenco"
+  ],
+  "lextechnology": [
+    "flash"
   ],
   "lexsymbols": [
-    "°",
-    "•",
-    "✔"
+    "flecha",
+    "flechas"
   ],
-  "lexpunctuation": [
-    "“",
-    "“””",
-    "”"
+  "lexflexibility": [
+    "flexible"
+  ],
+  "lexlocations": [
+    "floor",
+    "florida",
+    "fuenlabrada"
+  ],
+  "lextransportation": [
+    "flota",
+    "ford"
+  ],
+  "lextraining": [
+    "formaciones"
+  ],
+  "lexformality": [
+    "formal"
+  ],
+  "lexformats": [
+    "formatos"
+  ],
+  "lexscience": [
+    "formula",
+    "formulas"
+  ],
+  "lexstrength": [
+    "fuerte",
+    "fuertes",
+    "fuerza"
+  ],
+  "lexwealth": [
+    "fortuna"
+  ],
+  "lexdivision": [
+    "fracciona"
+  ],
+  "lexcosmetics": [
+    "fragancias"
+  ],
+  "lexwriting": [
+    "frase"
+  ],
+  "lexemployment": [
+    "freelancer"
+  ],
+  "lexfreshness": [
+    "fresh"
+  ],
+  "lextime": [
+    "friday"
+  ],
+  "lexfriendship": [
+    "friends"
+  ],
+  "lexanimals": [
+    "frogs"
+  ],
+  "lexsources": [
+    "fuentes"
+  ],
+  "lexfunctions": [
+    "funciones",
+    "functional"
+  ],
+  "lexknowledge": [
+    "fundamentos"
+  ],
+  "lexservices": [
+    "funerarios"
   ]
 }

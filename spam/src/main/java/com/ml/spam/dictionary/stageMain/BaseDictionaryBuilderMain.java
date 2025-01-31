@@ -15,7 +15,10 @@ import com.ml.spam.dictionary.service.SpamDictionaryService;
 public class BaseDictionaryBuilderMain {
 
     // Rutas para el JSON base y el archivo exportado
-    private static final String INITIAL_JSON_PATH = FilePathsConfig.CATEGORIZED_WORDS_BASE_JSON_PATH;
+  //  private static final String INITIAL_JSON_PATH = FilePathsConfig.CATEGORIZED_WORDS_BASE_JSON_PATH;
+  //  private static final String INITIAL_JSON_PATH = "static/dictionary/categorizedWords/updatedCategorizedWordsOnly_2.json";
+    private static final String INITIAL_JSON_PATH = "static/dictionary/categorizedWords/categorized_words_base_only2.json";
+
     private static final String EXPORT_JSON_PATH = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
 
     public static void main(String[] args) {

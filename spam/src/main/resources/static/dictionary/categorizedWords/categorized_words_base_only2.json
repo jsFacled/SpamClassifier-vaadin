@@ -1,0 +1,24 @@
+{
+
+   "strongSpamWord": [
+
+   ],
+   "moderateSpamWord": [
+
+        ],
+   "weakSpamWord": [
+            ],
+
+    "rareSymbols": [
+        "@", "","lexsymbols", "lexexclamations","unknownemojis"
+    ],
+    "stopWords": [
+        "lexauxiliaryverbs", "lexconjunctions", "lexprepositions", "lexadverbs", "lexdeterminers",
+        "lexpronouns", "lexvowel", "lexunits", "lexdimensions", "lexcalendar", "lexaccountactions",
+        "lexneutral","lexcodes","numsuperhigh"
+    ],
+    "hamIndicators": [
+
+    ],
+    "unassignedWords": []
+}

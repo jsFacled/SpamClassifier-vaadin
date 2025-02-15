@@ -1,10 +1,7 @@
 {
   "hamIndicators" : { },
   "moderateSpamWord" : {
-    "baja" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 5
-    },
+
     "lexentertainment" : {
       "hamFrequency" : 0,
       "spamFrequency" : 5
@@ -125,54 +122,7 @@
     }
   },
   "unassignedWords" : {
-    "aromaticas" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "cada" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "clic" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "contenido" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "dentro" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "desata" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "desde" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "desintoxica" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "diferencia" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 1
-    },
-    "digital" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "futuro" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "imagenes" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
+
     "lexaccumulation" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -735,7 +685,7 @@
     },
     "lexvaluable" : {
       "hamFrequency" : 1,
-      "spamFrequency" : 0
+      "spamFrequency" : 1
     },
     "lexvaluables" : {
       "hamFrequency" : 0,
@@ -760,253 +710,11 @@
     "lexworldrecords" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "manten" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "mantener" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "mathop" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 1
-    },
-    "mega" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "memes" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "minuto" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "mismo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "muestra" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "novo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "opciones" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "pantalla" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "pedidos" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "pensamientos" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "personal" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "positivos" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "postula" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "postulate" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "premiere" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "presume" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "probioticos" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "productos" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "promociones" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "proteger" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "proximo" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "publico" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "quema" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "reality" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "realza" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "recibir" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "record" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "reduce" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "refinanciamiento" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "refuerza" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "regalos" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "resalta" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "seguridad" : {
-      "hamFrequency" : 3,
-      "spamFrequency" : 1
-    },
-    "sere" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "shopper" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "siguiente" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "sistema" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "spa" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "tarjeta" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "temporada" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "tickets" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "tiempo" : {
-      "hamFrequency" : 3,
-      "spamFrequency" : 0
-    },
-    "todas" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "tonificado" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "top" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "total" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "unica" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "unifica" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "usuario" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "vitaminas" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "x1" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "ya" : {
-      "hamFrequency" : 3,
-      "spamFrequency" : 0
     }
+
   },
   "weakSpamWord" : {
-    "aprovecha" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
-    "descubre" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
-    "dinero" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
-    "fin" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
-    "gratis" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
-    "invierte" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
+
     "lexcomparisons" : {
       "hamFrequency" : 1,
       "spamFrequency" : 3
@@ -1082,30 +790,7 @@
     "lexwebactions" : {
       "hamFrequency" : 3,
       "spamFrequency" : 4
-    },
-    "manual" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
-    "marca" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 2
-    },
-    "ofertas" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
-    "pierdas" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
-    "profundidad" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
-    "puntos" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
     }
+
   }
 }

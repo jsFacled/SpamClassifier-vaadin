@@ -1,3 +1,16 @@
 {
-  "lexmarketing": ["sin", "solo"]
+  "lexcommunication": ["llamaremos", "pide"],
+  "lexmeasurement": ["medio"],
+  "lexfinance": ["millon"],
+  "lexmiracle": ["milagrosas", "milagroso"],
+  "lexwealth": ["millonario"],
+  "lextime": ["momento"],
+  "lexmovement": ["pasar"],
+  "lexprivacy": ["personales"],
+  "lexpossibility": ["podemos", "podríamos", "posible"],
+  "lexpriority": ["prioritariamente"],
+  "lexproblem": ["problema"],
+  "lexprocessing": ["procesando"],
+  "lexprofessional": ["profesional"],
+  "lexcapability": ["puede", "puedes"]
 }

@@ -111,24 +111,20 @@
     }
   },
   "strongSpamWord" : {
-    "gana" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 16
-    },
     "lexactions" : {
       "hamFrequency" : 19,
-      "spamFrequency" : 39
+      "spamFrequency" : 40
     },
     "lexfinance" : {
-      "hamFrequency" : 16,
-      "spamFrequency" : 19
+      "hamFrequency" : 15,
+      "spamFrequency" : 21
+    },
+    "lexrewards" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 16
     }
   },
   "unassignedWords" : {
-    "lexaccumulation" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "lexaction" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
@@ -170,7 +166,7 @@
       "spamFrequency" : 1
     },
     "lexbanking" : {
-      "hamFrequency" : 2,
+      "hamFrequency" : 4,
       "spamFrequency" : 2
     },
     "lexbeauty" : {
@@ -234,7 +230,7 @@
       "spamFrequency" : 1
     },
     "lexcommunication" : {
-      "hamFrequency" : 8,
+      "hamFrequency" : 7,
       "spamFrequency" : 1
     },
     "lexcommunity" : {
@@ -262,7 +258,7 @@
       "spamFrequency" : 1
     },
     "lexcontextual" : {
-      "hamFrequency" : 10,
+      "hamFrequency" : 9,
       "spamFrequency" : 5
     },
     "lexcontrol" : {
@@ -690,7 +686,7 @@
       "spamFrequency" : 1
     },
     "lextechnology" : {
-      "hamFrequency" : 4,
+      "hamFrequency" : 5,
       "spamFrequency" : 4
     },
     "lextelecom" : {
@@ -832,10 +828,6 @@
       "spamFrequency" : 2
     },
     "lexjob" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
-    "lexloans" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },

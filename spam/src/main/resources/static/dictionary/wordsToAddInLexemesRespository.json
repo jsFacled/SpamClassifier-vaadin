@@ -1,18 +1,5 @@
 {
-  "lexactions": [
-    "elegi",
-    "ingresa",
-    "iniciar"
-  ],
-  "lextechnology": [
-    "gbit"
-  ],
-
-  "leximages": [
-    "imgcopiajpg"
-  ],
-  "lexfinance": [
-    "interes"
+  "lexlegal": [
+    "ley"
   ]
-
 }

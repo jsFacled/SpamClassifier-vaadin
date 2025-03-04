@@ -1,34 +1,18 @@
 {
-  "lexmemory": ["olvido"],
-  "lexcodes": ["oogp", "pmb", "pte", "pto", "publicasipv"],
-  "lexlocation": ["paises"],
-  "lexthoughts": ["piensas"],
-  "lexsecurity": ["policia", "proteccion"],
-  "lexhealth": ["preexistencias"],
-  "lexexclusive": ["preferenciales"],
-  "lexconcern": ["preocuparte"],
-  "lexpreparation": ["prepara", "preparar"],
-  "lexapproval": ["preseleccionado"],
-  "lexpresence": ["presencia"],
-  "lexpresentation": ["presentado", "presentar", "presentara"],
-  "lexgovernment": ["presidencia"],
-  "lexbenefits": ["prestaciones"],
-  "lexservices": ["prestadores"],
-  "lextime": ["previa", "previos"],
-  "lexnames": ["prieto"],
-  "lexroyalty": ["principe"],
-  "lexexperience": ["principiantes"],
-  "lexpossibilities": ["probables"],
-  "lextests": ["probada", "probado"],
-  "lexwork": ["productividad"],
-  "lexprofessions": ["productor"],
-  "lexprofessional": ["profesionalidad", "profesor"],
-  "lexdepth": ["profundizando"],
-  "lextechnology": ["programacion"],
-  "lexprograms": ["programas"],
-  "lexprogress": ["progresado"],
-  "lexlegal": ["prohibida"],
-  "lexinstructions": ["prompting"],
-  "lexcommunication": ["propusiste"],
-  "lexfinance": ["prestamos"]
+  "lexactions": [
+    "elegi",
+    "ingresa",
+    "iniciar"
+  ],
+  "lextechnology": [
+    "gbit"
+  ],
+
+  "leximages": [
+    "imgcopiajpg"
+  ],
+  "lexfinance": [
+    "interes"
+  ]
+
 }

@@ -1,5 +1,28 @@
 {
-  "lexlegal": [
-    "ley"
+
+  "lexcommunity": [
+    "comunidad"
+  ],
+  "lexcodes": [
+    "cuit"
+  ],
+  "lexactions": [
+    "permita",
+    "permite",
+    "permiten",
+    "permitido", "agregar"
+  ],
+  "lexpersonal": [
+    "personalidad"
+  ],
+  "lexnegative": [
+    "perversion",
+    "pervertido"
+  ],
+  "lexthoughts": [
+    "piensan"
+  ],
+  "lexmovement": [
+    "voladores"
   ]
 }

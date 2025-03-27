@@ -7,13 +7,13 @@
 
 ### 📄 SpamDictionaryService.java
 - [x] Eliminar llamada a `initializeAccentPairs(...)`
-- [ ] Eliminar método `initializeAccentPairs(String path)`
-- [ ] Eliminar referencia a `accentPairsFilePath`
+- [x] Eliminar método `initializeAccentPairs(String path)`
+- [x] Eliminar referencia a `accentPairsFilePath`
 
 ### 📄 SpamDictionary.java
-- [ ] Eliminar campo `private Map<String, Pair> accentPairs`
-- [ ] Eliminar método `initializeAccentPairs(Map<String, Pair>)`
-- [ ] Eliminar método `getAccentPairs()`
+- [x] Eliminar campo `private Map<String, Pair> accentPairs`
+- [x] Eliminar método `initializeAccentPairs(Map<String, Pair>)`
+- [x] Eliminar método `getAccentPairs()`
 
 ### 📄 MessageProcessor.java
 - [ ] Eliminar campo `private static Map<String, Pair> accentPairs`

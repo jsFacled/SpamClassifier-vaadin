@@ -8,8 +8,7 @@ public class SpamDictionary {
 
     // Palabras categorizadas organizadas por categoría
     private final Map<WordCategory, Map<String, WordData>> categorizedWords = new HashMap<>();
-    // Mapa de pares acentuados/no acentuados para búsquedas rápidas
-    private final Map<String, Pair> accentPairs = new HashMap<>();
+
     // Repositorio de lexemas organizado por CharSize
     private final Map<CharSize, Map<String, Set<String>>> lexemeRepository = new HashMap<>();
 
@@ -121,25 +120,8 @@ public class SpamDictionary {
     // Métodos para Pares Acentuados
     // ============================
 
-    public Map<String, Pair> getAccentPairs() {
-        return accentPairs;
-    }
 
-    public Pair getAccentPair(String accentedWord) {
-        return accentPairs.get(accentedWord);
-    }
 
-    public void addAccentPair(String accentedWord, String nonAccented, WordCategory category) {
-        if (accentedWord == null || nonAccented == null || category == null) {
-            throw new IllegalArgumentException("Los valores para accentedWord, nonAccented y category no pueden ser nulos.");
-        }
-        accentPairs.put(accentedWord, new Pair(nonAccented, category));
-    }
-
-    public void initializeAccentPairs(Map<String, Pair> pairs) {
-        accentPairs.clear();
-        accentPairs.putAll(pairs);
-    }
 
     // ============================
     // Métodos para LexemeRepository
@@ -197,5 +179,4 @@ return categorizedWords;
     // Clase Interna: Pair
     // ============================
 
-    public record Pair(String nonAccented, WordCategory category) {}
-}
+   }

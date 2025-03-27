@@ -154,7 +154,7 @@ public class SpamDictionaryService {
     public void initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(String catWordsPath, String pairsFilePath, String lexemePath) {
         try {
             initializeCategorizedWordsZeroFrequencies(catWordsPath);
-            initializeAccentPairs(pairsFilePath);
+
             initializeLexemes(lexemePath);
 
             System.out.println("\n[INFO] Diccionario inicializado correctamente.");
@@ -167,7 +167,7 @@ public class SpamDictionaryService {
     public void initializeDictionaryFromJson(String catWordsPath, String pairsFilePath, String lexemePath) {
         try {
             initializeCategorizedWordsFromJsonPath(catWordsPath);
-            initializeAccentPairs(pairsFilePath);
+
             initializeLexemes(lexemePath);
 
             System.out.println("\n[INFO] Diccionario inicializado correctamente.");
@@ -190,39 +190,7 @@ public class SpamDictionaryService {
         System.out.println("[INFO] CATEGORIZED WORDS inicializados correctamente.");
     }
 
-    // Inicializa accentPairs desde el JSON de acentos
-    public void initializeAccentPairs(String accentPairsJsonPath) {
-        // Cargar el JSON desde ResourcesHandler
-        JSONObject accentJson = resourcesHandler.loadJson(accentPairsJsonPath);
 
-        // Mapa para almacenar los pares acentuados
-        Map<String, SpamDictionary.Pair> accentPairsMap = new HashMap<>();
-
-        // Iterar sobre las claves del JSON
-        for (String key : accentJson.keySet()) {
-            // Obtener el valor asociado a la clave (el par)
-            JSONObject pairObject = accentJson.getJSONObject(key);
-
-            // Extraer los valores correspondientes
-            String nonAccented = pairObject.getString("nonAccented");
-            String categoryStr = pairObject.getString("category");
-
-            // Validar y convertir la categoría
-            WordCategory category;
-            try {
-                category = WordCategory.valueOf(categoryStr.toUpperCase());
-            } catch (IllegalArgumentException e) {
-                throw new RuntimeException("Categoría inválida en JSON: " + categoryStr);
-            }
-
-            // Crear el par y agregarlo al mapa
-            SpamDictionary.Pair pair = new SpamDictionary.Pair(nonAccented, category);
-            accentPairsMap.put(key, pair);
-        }
-
-        // Inicializar el diccionario con los pares procesados
-        SpamDictionary.getInstance().initializeAccentPairs(accentPairsMap);
-    }
 
     public void initializeLexemes(String lexemePath) {
         try {
@@ -295,24 +263,6 @@ public class SpamDictionaryService {
     }
 
 
-    /**
-     * Carga los pares acentuados desde un archivo JSON.
-     * @param pairsFilePath Ruta del archivo JSON de pares acentuados.
-     * @return Lista de pares acentuados/no acentuados.
-     */
-    private List<SpamDictionary.Pair> loadAccentPairs(String pairsFilePath) {
-        try {
-            String jsonContent = resourcesHandler.loadResourceAsString(pairsFilePath);
-            ObjectMapper objectMapper = new ObjectMapper();
-            return objectMapper.readValue(
-                    jsonContent,
-                    new TypeReference<List<SpamDictionary.Pair>>() {}
-            );
-        } catch (IOException e) {
-            throw new RuntimeException("Error al cargar los pares acentuados: " + e.getMessage(), e);
-        }
-    }
-
 
     public void updateDictionaryFromCsvMessages(String csvMessagesFilePath) throws IOException {
         // 1. Obtener filas crudas del archivo CSV utilizando el ResourcesHandler
@@ -334,11 +284,11 @@ public class SpamDictionaryService {
         }
 
         // 5. Obtener recursos necesarios para el procesamiento
-        Map<String, SpamDictionary.Pair> accentPairs = dictionary.getAccentPairs();
+
         Map<CharSize, Map<String, Set<String>>> lexemeRepository = dictionary.getLexemesRepository();
 
         // 6. Procesar las filas válidas para obtener listas de WordData
-        List<List<WordData>> processedWordData = MessageProcessor.processToWordData(validRows, accentPairs, lexemeRepository);
+        List<List<WordData>> processedWordData = MessageProcessor.processToWordData(validRows,lexemeRepository);
 
         // 7. Actualizar el diccionario con los datos procesados
         updateDictionaryFromProcessedWordDataViejoMio(processedWordData);
@@ -357,9 +307,9 @@ public class SpamDictionaryService {
         }
 
         // Procesar filas usando el MessageProcessor
-        Map<String, SpamDictionary.Pair> accentPairs = dictionary.getAccentPairs();
+
         Map<CharSize, Map<String, Set<String>>> lexemeRepository = dictionary.getLexemesRepository();
-        List<List<WordData>> processedWordData = MessageProcessor.processToWordData(rawRows, accentPairs, lexemeRepository);
+        List<List<WordData>> processedWordData = MessageProcessor.processToWordData(rawRows,  lexemeRepository);
 
         // Actualizar el diccionario con los datos procesados
         updateDictionaryFromProcessedWordDataViejoMio(processedWordData);
@@ -416,8 +366,7 @@ public class SpamDictionaryService {
                 .flatMap(List::stream)
                 .toList();
 
-        // Convertir accentPairs a un mapa para búsquedas rápidas
-        Map<String, SpamDictionary.Pair> accentPairMap = dictionary.getAccentPairs();
+
 
         // Procesar cada WordData
         for (WordData wordData : flattenedWordData) {
@@ -671,21 +620,6 @@ public class SpamDictionaryService {
         }
     }
 
-    public void displayAccentPairsInDictionary() {
-        System.out.println("=== Mostrar accentPairs en SpamDictionary ===");
-        Map<String, SpamDictionary.Pair> accentPairs = SpamDictionary.getInstance().getAccentPairs();
-
-        if (accentPairs.isEmpty()) {
-            System.out.println("accentPairs está vacío.");
-        } else {
-            accentPairs.forEach((key, pair) -> {
-                System.out.println("Palabra acentuada: " + key +
-                        ", No acentuada: " + pair.nonAccented() +
-                        ", Categoría: " + pair.category());
-            });
-        }
-        System.out.println("=============================================\n");
-    }
 
 
     public void displayFullReport() {
@@ -704,9 +638,6 @@ public class SpamDictionaryService {
         return dictionary.getLexemesRepository();
     }
 
-    public Map<String, SpamDictionary.Pair> getAccentPairs() {
-        return dictionary.getAccentPairs();
-    }
 
 
     /**----------------------------------------------------------

@@ -1,28 +1,35 @@
 {
-
-  "lexcommunity": [
-    "comunidad"
+  "lexquestion": [
+    "cómo",
+    "cuándo",
+    "dónde",
+    "qué",
+    "cuál",
+    "quién"
   ],
-  "lexcodes": [
-    "cuit"
+  "contextualLexeme": [
+    "tú",
+    "mí",
+    "aún",
+    "él",
+    "éstos",
+    "ése",
+    "aquél"
   ],
-  "lexactions": [
-    "permita",
-    "permite",
-    "permiten",
-    "permitido", "agregar"
+  "lexemotion": [
+    "sí",
+    "sólo",
+    "yá"
   ],
-  "lexpersonal": [
-    "personalidad"
+  "lexinstruction": [
+    "dé",
+    "sé",
+    "úsalo",
+    "házlo",
+    "míra",
+    "gánate"
   ],
-  "lexnegative": [
-    "perversion",
-    "pervertido"
-  ],
-  "lexthoughts": [
-    "piensan"
-  ],
-  "lexmovement": [
-    "voladores"
+  "lexobject": [
+    "té"
   ]
 }

@@ -12,8 +12,7 @@ public class UpdateDictionaryFromTripleQuotesTxtMain {
 
     //Elementos del Dictionary
     private static final String updatedCatWordsPath = "static/dictionary/categorizedWords/updatedCategorizedWords_1.json";
-    private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
-    private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+   private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
 
     // Etiqueta para los mensajes (en este caso, spam)
     private static final String messageLabel = "spam";
@@ -29,7 +28,7 @@ public class UpdateDictionaryFromTripleQuotesTxtMain {
             SpamDictionaryService service = new SpamDictionaryService();
 
             System.out.println("[ STAGE 1 ] Inicializando el diccionario desde los datos previos...");
-            service.initializeDictionaryFromJson(updatedCatWordsPath,accentPairsPath,lexemePath
+            service.initializeDictionaryFromJson(updatedCatWordsPath,lexemePath
             );
 
             // Mostrar el contenido inicial del diccionario

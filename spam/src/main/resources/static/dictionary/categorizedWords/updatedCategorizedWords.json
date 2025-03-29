@@ -40,11 +40,11 @@
       "spamFrequency" : 0
     },
     "lexexclamations" : {
-      "hamFrequency" : 2,
+      "hamFrequency" : 0,
       "spamFrequency" : 0
     },
     "lexsymbols" : {
-      "hamFrequency" : 1,
+      "hamFrequency" : 0,
       "spamFrequency" : 0
     },
     "unknownemojis" : {
@@ -54,56 +54,56 @@
   },
   "stopWords" : {
     "lexaccountactions" : {
-      "hamFrequency" : 5,
-      "spamFrequency" : 2
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
     },
     "lexadverbs" : {
-      "hamFrequency" : 7,
-      "spamFrequency" : 4
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
     },
     "lexauxiliaryverbs" : {
-      "hamFrequency" : 12,
-      "spamFrequency" : 2
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
     },
     "lexcalendar" : {
-      "hamFrequency" : 4,
-      "spamFrequency" : 7
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
     },
     "lexcodes" : {
-      "hamFrequency" : 5,
-      "spamFrequency" : 2
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
     },
     "lexconjunctions" : {
-      "hamFrequency" : 10,
-      "spamFrequency" : 11
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
     },
     "lexdeterminers" : {
-      "hamFrequency" : 37,
-      "spamFrequency" : 41
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
     },
     "lexdimensions" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 1
+      "spamFrequency" : 0
     },
     "lexneutral" : {
-      "hamFrequency" : 9,
-      "spamFrequency" : 1
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
     },
     "lexprepositions" : {
-      "hamFrequency" : 75,
-      "spamFrequency" : 109
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
     },
     "lexpronouns" : {
-      "hamFrequency" : 110,
-      "spamFrequency" : 92
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
     },
     "lexunits" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
     "lexvowel" : {
-      "hamFrequency" : 17,
-      "spamFrequency" : 8
+      "hamFrequency" : 0,
+      "spamFrequency" : 0
     },
     "numsuperhigh" : {
       "hamFrequency" : 0,
@@ -310,7 +310,7 @@
       "spamFrequency" : 1
     },
     "lexdocuments" : {
-      "hamFrequency" : 8,
+      "hamFrequency" : 9,
       "spamFrequency" : 2
     },
     "lexemotion" : {
@@ -422,7 +422,7 @@
       "spamFrequency" : 1
     },
     "lexinformative" : {
-      "hamFrequency" : 4,
+      "hamFrequency" : 3,
       "spamFrequency" : 0
     },
     "lexinnovation" : {

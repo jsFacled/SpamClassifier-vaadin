@@ -9,7 +9,6 @@ public class TestClassifyToken {
 
 
     private static final String catWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
-    private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
     private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
 
 
@@ -24,7 +23,7 @@ public class TestClassifyToken {
             System.out.println("=== Inicializando Diccionarios Completos ===");
 
             // Inicializar diccionarios desde JSON
-            dictionaryService.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(catWordsPath, accentPairsPath, lexemePath);
+            dictionaryService.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(catWordsPath,lexemePath);
             System.out.println("=== Diccionarios Inicializados Correctamente ===\n");
 
             System.out.println(" -  -  -  -  -  -  -  -  -  -  -  -  -  - Iniciando Test de Clasificación-  -  -  -  -  -  -  -  -  -  -  -  -  - \n");

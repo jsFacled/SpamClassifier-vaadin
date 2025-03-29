@@ -9,8 +9,6 @@ public class FilePathsConfig {
     public static final String CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH = "static/dictionary/categorizedWords/new_categorized_words_with_frequenciesZero.json";
 
 
-    public static final String ACCENTED_PAIRS_JSON_PATH = "static/dictionary/accentedPairs/accented_pairs.json";
-
     public static final String LEXEMES_REPOSITORY_JSON_PATH = "static/dictionary/lexemesRepository/structured_lexemes_repository.json";
     public static final String LEXEMES_CATEGORIES_JSON_PATH = "static/dictionary/lexemesRepository/lexemes_categories.json";
     public static final String LEXEME_WORDS_BY_CATEGORY_JSON_PATH = "static/dictionary/lexemesRepository/lexeme_words_by_category.json";

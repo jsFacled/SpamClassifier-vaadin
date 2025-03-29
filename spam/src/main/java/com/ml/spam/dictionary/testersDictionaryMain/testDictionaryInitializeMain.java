@@ -8,7 +8,6 @@ import com.ml.spam.utils.JsonDebugHelper;
 public class testDictionaryInitializeMain {
 
     private static final String catWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
-    private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
     private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
     public static void main(String[] args) {
         SpamDictionaryService service = new SpamDictionaryService();
@@ -24,13 +23,12 @@ public class testDictionaryInitializeMain {
         service.displayJsonFileDictionary(catWordsPath);
 
         // Inicializar el diccionario desde el JSON
-        service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(catWordsPath,accentPairsPath, lexemePath);
+        service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(catWordsPath, lexemePath);
 
         // Mostrar los Map de SpamDictionary para chequear que se haya inicializado correctamente
         service.displayCategorizedWordsInDictionary();
 JsonDebugHelper.debugJsonLoad(catWordsPath, rh);
 
-        System.out.println(" - - - - - - - - - - - - - -  - Mostrando el accentpairs - - - - - - - - - - - - - -  -  ");
-service.displayAccentPairsInDictionary();
+
     }
 }

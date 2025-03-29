@@ -151,7 +151,7 @@ public class SpamDictionaryService {
     /**
      * Inicializa el diccionario solo si las frecuencias están en cero.
      */
-    public void initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(String catWordsPath, String pairsFilePath, String lexemePath) {
+    public void initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(String catWordsPath, String lexemePath) {
         try {
             initializeCategorizedWordsZeroFrequencies(catWordsPath);
 
@@ -164,7 +164,7 @@ public class SpamDictionaryService {
         }
     }
 
-    public void initializeDictionaryFromJson(String catWordsPath, String pairsFilePath, String lexemePath) {
+    public void initializeDictionaryFromJson(String catWordsPath, String lexemePath) {
         try {
             initializeCategorizedWordsFromJsonPath(catWordsPath);
 
@@ -291,8 +291,8 @@ public class SpamDictionaryService {
         List<List<WordData>> processedWordData = MessageProcessor.processToWordData(validRows,lexemeRepository);
 
         // 7. Actualizar el diccionario con los datos procesados
-        updateDictionaryFromProcessedWordDataViejoMio(processedWordData);
-
+        //updateDictionaryFromProcessedWordDataViejoMio(processedWordData);
+updateDictionaryFromProcessedWordData(processedWordData);
         System.out.println("Diccionario actualizado correctamente con datos del archivo: " + csvMessagesFilePath);
     }
 
@@ -312,7 +312,9 @@ public class SpamDictionaryService {
         List<List<WordData>> processedWordData = MessageProcessor.processToWordData(rawRows,  lexemeRepository);
 
         // Actualizar el diccionario con los datos procesados
-        updateDictionaryFromProcessedWordDataViejoMio(processedWordData);
+        //updateDictionaryFromProcessedWordDataViejoMio(processedWordData);
+        updateDictionaryFromProcessedWordData(processedWordData);
+
         //updateDictionaryFromProcessedWordData(processedWordData);
         System.out.println("Diccionario actualizado correctamente con datos del archivo TXT: " + txtFilePath);
     }

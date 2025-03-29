@@ -13,8 +13,7 @@ public class UpdateDictionaryMain {
 
     //Elementos del Dictionary
     private static final String updatedCatWordsPath = "static/dictionary/categorizedWords/updatedCategorizedWords.json";
-    private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
-    private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+   private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
 
     private static final String TestMessagesFilePath = FilePathsConfig.TEST_MESSAGES_CSV_ESPAÑOL_DATA_PATH;
     private static final String TrainMessagesFilePath = FilePathsConfig.TRAIN_MESSAGES_CSV_ESPAÑOL_DATA_PATH;
@@ -35,7 +34,7 @@ public class UpdateDictionaryMain {
         System.out.println("[ STAGE 1 ]* * * * * Inicializando dictionary desde archivo actualizado   .    .   .  .  .  . . . . . . . . . \n");
 
         // Inicializar el diccionario desde el JSON actualizado
-        service.initializeDictionaryFromJson(updatedCatWordsPath, accentPairsPath, lexemePath);
+        service.initializeDictionaryFromJson(updatedCatWordsPath, lexemePath);
 
         // Mostrar los Map de SpamDictionary para chequear que se haya inicializado correctamente
         service.displayCategorizedWordsInDictionary();

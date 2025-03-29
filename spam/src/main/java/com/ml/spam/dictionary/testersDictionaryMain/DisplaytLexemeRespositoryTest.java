@@ -14,7 +14,6 @@ public class DisplaytLexemeRespositoryTest {
 static String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
 static String lexemePathSinResolve = "spam/src/main/resources/static/dictionary/lexemes_repository.json";
 static String catwords = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
-static String accented = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
 
         public static void main(String[] args) {
             System.out.println("=== Inicializando Diccionario Completo ===");
@@ -29,7 +28,7 @@ static String accented = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
             // Inicializar el diccionario completo
             dictionaryService.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(
                     catwords, // Ruta al archivo de palabras categorizadas
-                    accented,     // Ruta al archivo de pares acentuados
+
                     lexemePath// Ruta al archivo del repositorio de lexemas
             );
 

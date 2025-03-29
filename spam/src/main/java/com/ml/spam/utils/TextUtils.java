@@ -281,7 +281,7 @@ public class TextUtils {
     public static List<String> cleanWords(List<String> words) {
         return words.stream()
                 .map(TextUtils::normalize)
-                .filter(word -> word != null && !word.isEmpty())
+                .filter(word -> !word.isEmpty())
                 .toList();
     }
 

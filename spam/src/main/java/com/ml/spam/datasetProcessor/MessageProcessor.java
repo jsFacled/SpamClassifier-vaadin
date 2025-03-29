@@ -12,16 +12,14 @@ import java.util.stream.Stream;
 
 public class MessageProcessor {
 
-    private static Map<String, SpamDictionary.Pair> accentPairs;
     private static Map<CharSize, Map<String, Set<String>>> lexemeRepository;
-
     private static List<WordData> unknownEmojiList = new ArrayList<>();
 
 
-    //Recibe los mensajes, accentpairs y repositorio de lexemas.
+    //Recibe los mensajes y repositorio de lexemas.
     public static List<List<WordData>> processToWordData(
             List<String[]> rawRows,
-            Map<String, SpamDictionary.Pair> accentPairs,
+
             Map<CharSize, Map<String, Set<String>>> lexemeRepository) {
 
         // Validar entrada de List rawRows
@@ -34,7 +32,7 @@ public class MessageProcessor {
         List<String[]> invalidRows = new ArrayList<>();
 
         // Asignar valores a las variables estáticas del dictionary
-        MessageProcessor.accentPairs = accentPairs;
+
         MessageProcessor.lexemeRepository = lexemeRepository;
 
         // Iterar sobre las filas rawRows [mensaje, label]
@@ -85,20 +83,6 @@ public class MessageProcessor {
                 processAllTokenSizes(token, tokenType, wordDataList, label);
               displayTokenInConsole(token,tokenType);
 
-
-          /*  // Subpaso 4.1: Procesar Clasificar el token
-            if (TextUtils.isOneChar(token)) {
-                tokenType = TextUtils.classifyTokenByOneDigit(token);
-                processTokenByOneDigit(token, tokenType, wordDataList, label);
-                displayTokenInConsole(token, tokenType);
-            } else {
-                tokenType = TextUtils.classifyToken(token);
-                // Subpaso 4.2: Procesar según la clasificación del token
-                processAllTokenSizes(token, tokenType, wordDataList, label);
-                displayTokenInConsole(token,tokenType);
-            }
-
-           */
         }
 
         // Paso 5: Retornar la lista de WordData procesada
@@ -231,7 +215,6 @@ public class MessageProcessor {
     }
 
     private static void processTextToken(String token, List<WordData> wordDataList, String label) {
-      //  System.out.println("[DEBUG] Procesando token: " + token);
 
         if (TextUtils.hasAccent(token)) {
             processAccentedWord(token, wordDataList, label);
@@ -435,7 +418,7 @@ public class MessageProcessor {
 
 
     private static void processAccentedWord(String token, List<WordData> wordDataList, String label) {
-        System.out.println("[DEBUG] Verificando token en lexemesRepository: " + token);
+        System.out.println("[DEBUG] Verificando token con tilde en lexemesRepository: " + token);
 
         // Paso 1: Intentar encontrar el token con tilde directamente en lexemesRepository
         String subCategory = findSubcategoryForToken(token);
@@ -572,15 +555,6 @@ public class MessageProcessor {
          }
 
 
-    private static String getAccentPairCategory(String token) {
-        // Obtener categoría del par acentuado
-        return "ACCENT_PAIR_CATEGORY"; // Implementar según lógica
-    }
-
-    private static boolean isInTextLexemeRepo(String token) {
-        // Validar si está en el repositorio de lexemas
-        return false; // Implementar según lógica
-    }
 
     private static String getSubcategoryForToken(String token) {
         for (Map.Entry<CharSize, Map<String, Set<String>>> categoryEntry : lexemeRepository.entrySet()) {

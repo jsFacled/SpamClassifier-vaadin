@@ -10,11 +10,11 @@ import com.ml.spam.dictionary.models.WordData;
 import java.io.IOException;
 import java.util.List;
 
+//Es el primer update que recibe el diccionario.
 public class InitializationAndTokenProcessingTestMain {
 
     private static final String catWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
-    private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
-    private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+   private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
 
     private static final String testMessagesFilePath = FilePathsConfig.PRUEBA_CSV_DATA_PATH;
 
@@ -25,7 +25,7 @@ public class InitializationAndTokenProcessingTestMain {
 
             // Etapa 1: Inicializar el diccionario
             System.out.println("[ STAGE 1 ] Inicializando diccionario desde JSON...");
-            service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(catWordsPath, accentPairsPath, lexemePath);
+            service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(catWordsPath,  lexemePath);
 
             // Mostrar el estado inicial del diccionario
             System.out.println("[INFO] Diccionario inicializado:");
@@ -54,7 +54,7 @@ public class InitializationAndTokenProcessingTestMain {
             // Etapa 3: Tokenizar y procesar mensajes
             System.out.println("\n[ STAGE 3 ] Tokenizando y procesando mensajes...");
             List<List<WordData>> processedWordData = MessageProcessor.processToWordData(validRows,
-                    service.getAccentPairs(), service.getLexemesRepository());
+                   service.getLexemesRepository());
             System.out.println("[INFO] Número de listas de WordData generadas: " + processedWordData.size());
 
             // Etapa 4: Actualizar el diccionario

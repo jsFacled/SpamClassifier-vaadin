@@ -151,9 +151,6 @@ public class DictionarySummaryReport {
             }
         }
 
-        // Mostrar la cantidad de Accent Pairs
-        Map<String, SpamDictionary.Pair> accentPairs = dictionary.getAccentPairs();
-        System.out.println("\nAccent Pairs Count: " + accentPairs.size());
 
         // Mostrar la cantidad de lexemas por categoría y subcategoría
         Map<CharSize, Map<String, Set<String>>> lexemesRepository = dictionary.getLexemesRepository();

@@ -14,8 +14,7 @@ import java.util.Map;
 public class TestProcessToWordDataTest {
 
     private static final String catWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
-    private static final String accentPairsPath = FilePathsConfig.ACCENTED_PAIRS_JSON_PATH;
-    private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+   private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
 
 
     public static void main(String[] args) {
@@ -136,7 +135,7 @@ public class TestProcessToWordDataTest {
             System.out.println("=== Inicializando Diccionarios Completos ===");
 
             // Inicializar diccionarios desde JSON
-            dictionaryService.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(catWordsPath, accentPairsPath, lexemePath);
+            dictionaryService.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(catWordsPath, lexemePath);
             System.out.println("=== Diccionarios Inicializados Correctamente ===");
 
             // Simulación de datos crudos (rawRows) en formato [mensaje, etiqueta]
@@ -165,7 +164,7 @@ public class TestProcessToWordDataTest {
             // Procesar las filas crudas con acceso a los diccionarios
             List<List<WordData>> processedData = MessageProcessor.processToWordData(
                     rawRows,
-                    dictionaryService.getAccentPairs(),
+
                     dictionaryService.getLexemesRepository()
             );
 
@@ -198,15 +197,5 @@ public class TestProcessToWordDataTest {
 
     }
 
-    private static void displayAccentPairs(Map<String, SpamDictionary.Pair> accentPairs) {
-        System.out.println("\n[DEBUG] Contenido de accentPairs:");
-        if (accentPairs == null || accentPairs.isEmpty()) {
-            System.out.println("El mapa de accentPairs está vacío o no ha sido inicializado.");
-        } else {
-            for (Map.Entry<String, SpamDictionary.Pair> entry : accentPairs.entrySet()) {
-                System.out.println(" - Palabra con acento: " + entry.getKey() + ", Sin acento: "
-                        + entry.getValue().nonAccented() + ", Categoría: " + entry.getValue().category());
-            }
-        }
-    }
+
 }

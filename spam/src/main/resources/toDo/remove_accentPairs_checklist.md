@@ -16,17 +16,11 @@
 - [x] Eliminar método `getAccentPairs()`
 
 ### 📄 MessageProcessor.java
-- [ ] Eliminar campo `private static Map<String, Pair> accentPairs`
-- [ ] Eliminar línea `MessageProcessor.accentPairs = ...`
-- [ ] Eliminar método `isInAccentPairs(String token)`
-- [ ] Eliminar cualquier `if (isInAccentPairs(...))` o similar
+- [x] Eliminar campo `private static Map<String, Pair> accentPairs`
+- [x] Eliminar línea `MessageProcessor.accentPairs = ...`
+- [x] Eliminar método `isInAccentPairs(String token)`
+- [x] Eliminar cualquier `if (isInAccentPairs(...))` o similar
 
-### 📄 ResourcesHandler.java
-- [ ] Eliminar método `loadAccentPairs(...)` si existiera
-- [ ] Eliminar uso de `accentPairs` en métodos de carga de JSON
-
-### 📄 JsonUtils.java
-- [ ] Eliminar validaciones relacionadas con accentPairs (si las hay)
 
 ## 📝 Documentación
 - [ ] Actualizar README o documentación técnica eliminando referencias a `accentPairs`

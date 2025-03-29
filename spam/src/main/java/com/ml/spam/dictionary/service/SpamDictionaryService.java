@@ -424,28 +424,46 @@ updateDictionaryFromProcessedWordData(processedWordData);
  */
 
     /**
-     * Determina la categoría de la palabra en función de las frecuencias de spam y ham:
-     * - Si la frecuencia de spam es mayor que la de ham, se clasifica como SPAM_WORDS.
-     * - Si la frecuencia de ham es mayor o igual a la de spam, se clasifica como UNASSIGNED_WORDS.
-     *
-     * @param wordData Objeto WordData que contiene las frecuencias de spam y ham.
-     * @return La categoría correspondiente (SPAM_WORDS o UNASSIGNED_WORDS).
+     * Determina la categoría de una palabra según sus frecuencias ham y spam.
+     * Se basa en los umbrales definidos en el enum CategoryFrequencyThresholds.
      */
     private WordCategory determineCategoryByFrequency(WordData wordData) {
-        int spamFrequency = wordData.getSpamFrequency();
-        int hamFrequency = wordData.getHamFrequency();
+        int ham = wordData.getHamFrequency();
+        int spam = wordData.getSpamFrequency();
+        int total = ham + spam;
 
-        if (spamFrequency > hamFrequency) {
-            if (spamFrequency >= CategoryFrequencyThresholds.STRONG_SPAM_MIN.getValue()) {
-                return WordCategory.STRONG_SPAM_WORD;
-            } else if (spamFrequency >= CategoryFrequencyThresholds.MODERATE_SPAM_MIN.getValue() &&
-                    spamFrequency <= CategoryFrequencyThresholds.MODERATE_SPAM_MAX.getValue()) {
-                return WordCategory.MODERATE_SPAM_WORD;
-            } else if (spamFrequency >= CategoryFrequencyThresholds.WEAK_SPAM_MIN.getValue() &&
-                    spamFrequency <= CategoryFrequencyThresholds.WEAK_SPAM_MAX.getValue()) {
-                return WordCategory.WEAK_SPAM_WORD;
-            }
+        // Si no hay apariciones, no se puede clasificar
+        if (total == 0) return WordCategory.UNASSIGNED_WORDS;
+
+        // Calcular la proporción de ham sobre el total
+        double hamRatio = (double) ham / total;
+
+        // Evaluar cada categoría según sus umbrales y proporciones
+        if (spam >= CategoryFrequencyThresholds.STRONG_SPAM.getMinFrequency()
+                && hamRatio >= CategoryFrequencyThresholds.STRONG_SPAM.getMinHamRatio()
+                && hamRatio <= CategoryFrequencyThresholds.STRONG_SPAM.getMaxHamRatio()) {
+            return WordCategory.STRONG_SPAM_WORD;
         }
+
+        if (spam >= CategoryFrequencyThresholds.MODERATE_SPAM.getMinFrequency()
+                && spam <= CategoryFrequencyThresholds.MODERATE_SPAM.getMinFrequency() + 9
+                && hamRatio >= CategoryFrequencyThresholds.MODERATE_SPAM.getMinHamRatio()
+                && hamRatio <= CategoryFrequencyThresholds.MODERATE_SPAM.getMaxHamRatio()) {
+            return WordCategory.MODERATE_SPAM_WORD;
+        }
+
+        if (spam >= CategoryFrequencyThresholds.WEAK_SPAM.getMinFrequency()
+                && spam <= CategoryFrequencyThresholds.WEAK_SPAM.getMinFrequency() + 2
+                && hamRatio >= CategoryFrequencyThresholds.WEAK_SPAM.getMinHamRatio()
+                && hamRatio <= CategoryFrequencyThresholds.WEAK_SPAM.getMaxHamRatio()) {
+            return WordCategory.WEAK_SPAM_WORD;
+        }
+
+        if (hamRatio >= CategoryFrequencyThresholds.HAM_INDICATOR.getMinHamRatio()) {
+            return WordCategory.HAM_INDICATORS;
+        }
+
+        // Si no cumple ninguna condición, se clasifica como no asignada
         return WordCategory.UNASSIGNED_WORDS;
     }
 

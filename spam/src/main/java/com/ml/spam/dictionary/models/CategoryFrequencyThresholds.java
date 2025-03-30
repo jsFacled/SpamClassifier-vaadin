@@ -1,47 +1,34 @@
 package com.ml.spam.dictionary.models;
 
 /**
- * Define los umbrales mínimos de frecuencia absoluta y los rangos porcentuales
- * de proporción ham/total para asignar una categoría a una palabra.
+ * Define los umbrales de frecuencia y proporción ham/spam
+ * para determinar la categoría de una palabra.
  */
 public enum CategoryFrequencyThresholds {
 
-    /**
-     * Palabras fuertemente asociadas al spam: aparecen al menos 15 veces
-     * y tienen proporción de ham muy baja.
-     */
-    STRONG_SPAM(15, 0.0, 0.25),
+    STRONG_SPAM(15, Integer.MAX_VALUE, 0.0, 0.25),
+    MODERATE_SPAM(5, 14, 0.26, 0.50),
+    WEAK_SPAM(2, 4, 0.51, 0.74),
+    HAM_INDICATOR(0, Integer.MAX_VALUE, 0.75, 1.0);
 
-    /**
-     * Palabras moderadamente asociadas al spam: aparecen entre 5 y 14 veces
-     * y no superan 49% de presencia ham.
-     */
-    MODERATE_SPAM(5, 0.0, 0.49),
+    private final int minFrequency;
+    private final int maxFrequency;
+    private final double minHamRatio;
+    private final double maxHamRatio;
 
-    /**
-     * Palabras débilmente asociadas al spam: al menos 2 apariciones y
-     * proporción ham menor al 75%.
-     */
-    WEAK_SPAM(2, 0.0, 0.74),
-
-    /**
-     * Palabras indicadoras de ham: no se exige frecuencia mínima,
-     * pero sí que 75% o más de sus apariciones sean ham.
-     */
-    HAM_INDICATOR(0, 0.75, 1.0);
-
-    private final int minFrequency;     // Frecuencia mínima absoluta
-    private final double minHamRatio;  // Proporción mínima de ham
-    private final double maxHamRatio;  // Proporción máxima de ham
-
-    CategoryFrequencyThresholds(int minFrequency, double minHamRatio, double maxHamRatio) {
+    CategoryFrequencyThresholds(int minFrequency, int maxFrequency, double minHamRatio, double maxHamRatio) {
         this.minFrequency = minFrequency;
+        this.maxFrequency = maxFrequency;
         this.minHamRatio = minHamRatio;
         this.maxHamRatio = maxHamRatio;
     }
 
     public int getMinFrequency() {
         return minFrequency;
+    }
+
+    public int getMaxFrequency() {
+        return maxFrequency;
     }
 
     public double getMinHamRatio() {

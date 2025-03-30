@@ -423,37 +423,32 @@ updateDictionaryFromProcessedWordData(processedWordData);
 
  */
 
-    /**
-     * Determina la categoría de una palabra según sus frecuencias ham y spam.
-     * Se basa en los umbrales definidos en el enum CategoryFrequencyThresholds.
-     */
     private WordCategory determineCategoryByFrequency(WordData wordData) {
         int ham = wordData.getHamFrequency();
         int spam = wordData.getSpamFrequency();
         int total = ham + spam;
 
-        // Si no hay apariciones, no se puede clasificar
         if (total == 0) return WordCategory.UNASSIGNED_WORDS;
 
-        // Calcular la proporción de ham sobre el total
         double hamRatio = (double) ham / total;
 
-        // Evaluar cada categoría según sus umbrales y proporciones
+        // Verifica contra cada categoría de mayor a menor spam
         if (spam >= CategoryFrequencyThresholds.STRONG_SPAM.getMinFrequency()
+                && spam <= CategoryFrequencyThresholds.STRONG_SPAM.getMaxFrequency()
                 && hamRatio >= CategoryFrequencyThresholds.STRONG_SPAM.getMinHamRatio()
                 && hamRatio <= CategoryFrequencyThresholds.STRONG_SPAM.getMaxHamRatio()) {
             return WordCategory.STRONG_SPAM_WORD;
         }
 
         if (spam >= CategoryFrequencyThresholds.MODERATE_SPAM.getMinFrequency()
-                && spam <= CategoryFrequencyThresholds.MODERATE_SPAM.getMinFrequency() + 9
+                && spam <= CategoryFrequencyThresholds.MODERATE_SPAM.getMaxFrequency()
                 && hamRatio >= CategoryFrequencyThresholds.MODERATE_SPAM.getMinHamRatio()
                 && hamRatio <= CategoryFrequencyThresholds.MODERATE_SPAM.getMaxHamRatio()) {
             return WordCategory.MODERATE_SPAM_WORD;
         }
 
         if (spam >= CategoryFrequencyThresholds.WEAK_SPAM.getMinFrequency()
-                && spam <= CategoryFrequencyThresholds.WEAK_SPAM.getMinFrequency() + 2
+                && spam <= CategoryFrequencyThresholds.WEAK_SPAM.getMaxFrequency()
                 && hamRatio >= CategoryFrequencyThresholds.WEAK_SPAM.getMinHamRatio()
                 && hamRatio <= CategoryFrequencyThresholds.WEAK_SPAM.getMaxHamRatio()) {
             return WordCategory.WEAK_SPAM_WORD;
@@ -463,7 +458,6 @@ updateDictionaryFromProcessedWordData(processedWordData);
             return WordCategory.HAM_INDICATORS;
         }
 
-        // Si no cumple ninguna condición, se clasifica como no asignada
         return WordCategory.UNASSIGNED_WORDS;
     }
 
@@ -729,22 +723,36 @@ updateDictionaryFromProcessedWordData(processedWordData);
         }
     }
 
+    /**
+     * Determina la categoría de una palabra según la diferencia absoluta entre frecuencias spam y ham.
+     * Utiliza los umbrales definidos en CategoryFrequencyThresholds.
+     */
     private WordCategory determineCategoryByDifference(int spamFrequency, int hamFrequency) {
         int difference = spamFrequency - hamFrequency;
 
-        if (difference >= CategoryFrequencyThresholds.STRONG_SPAM_MIN.getValue()) {
+        // STRONG_SPAM: diferencia mayor o igual al mínimo
+        if (difference >= CategoryFrequencyThresholds.STRONG_SPAM.getMinFrequency()) {
             return WordCategory.STRONG_SPAM_WORD;
-        } else if (difference >= CategoryFrequencyThresholds.MODERATE_SPAM_MIN.getValue() &&
-                difference <= CategoryFrequencyThresholds.MODERATE_SPAM_MAX.getValue()) {
-            return WordCategory.MODERATE_SPAM_WORD;
-        } else if (difference >= CategoryFrequencyThresholds.WEAK_SPAM_MIN.getValue() &&
-                difference <= CategoryFrequencyThresholds.WEAK_SPAM_MAX.getValue()) {
-            return WordCategory.WEAK_SPAM_WORD;
-        } else if (hamFrequency > spamFrequency) {
-            return WordCategory.HAM_INDICATORS;
-        } else {
-            return WordCategory.UNASSIGNED_WORDS;
         }
+
+        // MODERATE_SPAM: diferencia entre el mínimo de moderate y el máximo de moderate
+        if (difference >= CategoryFrequencyThresholds.MODERATE_SPAM.getMinFrequency()
+                && difference < CategoryFrequencyThresholds.STRONG_SPAM.getMinFrequency()) {
+            return WordCategory.MODERATE_SPAM_WORD;
+        }
+
+        // WEAK_SPAM: diferencia entre el mínimo de weak y el máximo de weak
+        if (difference >= CategoryFrequencyThresholds.WEAK_SPAM.getMinFrequency()) {
+            return WordCategory.WEAK_SPAM_WORD;
+        }
+
+        // HAM_INDICATOR: si hay más ham que spam
+        if (hamFrequency > spamFrequency) {
+            return WordCategory.HAM_INDICATORS;
+        }
+
+        // Si no cumple ninguna condición, queda sin asignar
+        return WordCategory.UNASSIGNED_WORDS;
     }
 
     private void moveWordToCategory(String word, WordData wordData,
@@ -900,7 +908,7 @@ updateDictionaryFromProcessedWordData(processedWordData);
                 String token = wordData.getWord().trim();
 
                 // Validación: ignorar tokens vacíos o nulos
-                if (token == null || token.trim().isEmpty()) {
+                if (token.trim().isEmpty()) {
                     System.out.printf("[DEBUG] Ignorando token vacío o nulo durante consolidación: '%s'%n", token);
                     continue;
                 }
@@ -968,51 +976,6 @@ updateDictionaryFromProcessedWordData(processedWordData);
 
 
 
-    ///////-----///////////
-    public void updateDictionaryFromProcessedWordDataViejoMio(List<List<WordData>> processedData) {
-
-        // Estructura temporal para consolidar frecuencias
-        Map<String, WordData> tempWordMap = new HashMap<>();
-
-        // Consolidar frecuencias en el mapa temporal
-        for (List<WordData> wordList : processedData) {
-            for (WordData wordData : wordList) {
-                String token = wordData.getWord().trim();
-
-                if (token.isEmpty()) continue; // Ignorar palabras vacías
-
-                tempWordMap.merge(token, wordData, (existing, newData) -> {
-                    existing.incrementSpamFrequency(newData.getSpamFrequency());
-                    existing.incrementHamFrequency(newData.getHamFrequency());
-                    return existing;
-                });
-            }
-        }
-
-        // Asignar palabras al diccionario después de consolidar
-        for (Map.Entry<String, WordData> entry : tempWordMap.entrySet()) {
-            String token = entry.getKey();
-            WordData wordData = entry.getValue();
-
-            // Validación: ignorar tokens vacíos o nulos
-            if (token == null || token.trim().isEmpty()) {
-                System.out.printf("[DEBUG] Ignorando token vacío o nulo: '%s'%n", token);
-                continue;
-            }
-            // Verificar si la palabra ya existe en el diccionario
-            if (dictionary.containsWord(token)) {
-                updateExistingWordFrequenciesMio(token, wordData);
-            } else {
-                // Determinar la categoría final basada en frecuencias totales
-                WordCategory category = determineCategoryByFrequency(wordData);
-
-                // Actualizar el diccionario con la palabra categorizada
-                dictionary.addWordWithFrequencies(category, token, wordData.getSpamFrequency(), wordData.getHamFrequency());
-            }
-        }//palabra asignada
-
-
-    }
 
     private void updateExistingWordFrequenciesMio(String token, WordData wordData) {
         // Consolidar frecuencias y revisar categorías

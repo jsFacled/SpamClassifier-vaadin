@@ -510,28 +510,6 @@ public class MessageProcessor {
         return emojis;
     }
 
-
-
-    private static void processAnySymbolToken(String token, List<WordData> wordDataList, String label) {
-    /*   Map<String, Set<String>> textLexemes = lexemeRepository.get(CharSize.TEXT_LEXEMES);
-
-        boolean isExcl = textLexemes != null && textLexemes.getOrDefault("excl", Collections.emptySet()).contains(token);
-        boolean isLexsym = textLexemes != null && textLexemes.getOrDefault("lexsym", Collections.emptySet()).contains(token);
-        boolean isMathop = textLexemes != null && textLexemes.getOrDefault("mathop", Collections.emptySet()).contains(token);
-
-        if (isExcl) {
-            wordDataList.add(new WordData("excl", label));
-        } else if (isLexsym) {
-            wordDataList.add(new WordData("lexsym", label));
-        } else if (isMathop) {
-            wordDataList.add(new WordData("mathop", label));
-        } else {
-            wordDataList.add(new WordData(token, label));
-        }
-    */
-    }
-
-
     private static void processUnassignedToken(String token, List<WordData> wordDataList, String label) {
         System.out.println("[INFO processUnassignedToken] Procesando UNASSIGNED token: " + "<< " + token + " >>");
 
@@ -547,31 +525,6 @@ public class MessageProcessor {
 
 
 
-
-    private static String getTokenIfIsInLexemeRepository(String token) {
-        String lexeme = getSubcategoryForToken(token);
-        System.out.println("Estamos en getTokenIfIsInLexemeRepository: "+lexeme);
-       return lexeme;
-         }
-
-
-
-    private static String getSubcategoryForToken(String token) {
-        for (Map.Entry<CharSize, Map<String, Set<String>>> categoryEntry : lexemeRepository.entrySet()) {
-            Map<String, Set<String>> subCategories = categoryEntry.getValue();
-
-            for (Map.Entry<String, Set<String>> subCategoryEntry : subCategories.entrySet()) {
-                String subCategory = subCategoryEntry.getKey();
-                Set<String> words = subCategoryEntry.getValue();
-
-                if (words.contains(token)) {
-                    return subCategory; // Retorna la subcategoría si se encuentra el token
-                }
-            }
-        }
-        return "UNKNOWN_CATEGORY"; // Retorna un valor predeterminado si no se encuentra
-    }
-
     private static void displayTokenInConsole(String token, TokenType tokenType) {
         System.out.println("\n [DEBUG * * * IN procesValidRow 4.1 * * * ] >>  token: [ " + token+ "] Es de tipo: "+tokenType + "\n");
 
@@ -582,18 +535,6 @@ public class MessageProcessor {
 
     }
 
-
-
-    private static void createAndAddWordData(String word, String label, List<WordData> wordDataList) {
-    WordData wordData = new WordData(word); // Crear un objeto WordData
-    updateWordDataFrequency(wordData, label); // Actualizar la frecuencia según el label (spam/ham)
-    wordDataList.add(wordData); // Agregar a la lista wordDataList
-}
-
-
-
-
-
     private static void updateWordDataFrequency(WordData wordData, String label) {
         if (MessageLabel.SPAM.getKey().equalsIgnoreCase(label)) {
             wordData.incrementSpamFrequency(1);
@@ -601,8 +542,6 @@ public class MessageProcessor {
             wordData.incrementHamFrequency(1);
         }
     }
-
-
 
 
     @Deprecated
@@ -705,22 +644,5 @@ public class MessageProcessor {
         return new LabeledMessage(message, label);
     }
 
-
-    private static void processTokenByOneDigit(String token, TokenType tokenType, List<WordData> wordDataList, String label)  {
-        switch (tokenType){
-            //buscar token en lexemerepository
-            case CHAR  -> processCharToken(token, wordDataList, label);
-            case SYMBOL -> processSymbolToken(token,wordDataList,label);
-            case NUM -> processNumToken(token, wordDataList, label);
-        }
-    }
-    private static void processTokenByOneChar(String token, List<WordData> wordDataList, String label)  {
-        if(TextUtils.isNumTextToken(token)){
-            processNumToken(token, wordDataList,label);
-        }else {
-            findSubcategoryForToken(token);
-        }
-
-    }
 
 }//END MessageProcessor

@@ -320,54 +320,6 @@ updateDictionaryFromProcessedWordData(processedWordData);
     }
 
 
-
-
-/*
-    public void updateDictionaryFromProcessedWordData(List<List<WordData>> processedData) {
-        // Aplanar la estructura de las palabras
-        List<WordData> flattenedWordData = processedData.stream()
-                .flatMap(List::stream)
-                .toList();
-
-        for (WordData wordData : flattenedWordData) {
-            String token = wordData.getWord().trim();
-
-            if (token.isEmpty()) {
-                System.err.println("Palabra vacía encontrada. Se omite.");
-                continue;
-            }
-
-            // Verificar si el token ya está en el diccionario (tal cual viene de MessageProcessor)
-            if (dictionary.containsWord(token)) {
-                updateExistingWordFrequencies(token, wordData);
-                continue;
-            }
-
-            // Si tiene tilde y no está en el diccionario, probar sin tilde
-            if (TextUtils.hasAccent(token)) {
-                String tokenWithoutAccent = TextUtils.removeAccents(token);
-
-                if (dictionary.containsWord(tokenWithoutAccent)) {
-                    updateExistingWordFrequencies(tokenWithoutAccent, wordData);
-                    continue;
-                }
-
-                // Si tampoco está sin tilde, se agrega la versión sin tilde como nueva palabra
-                WordCategory category = determineCategoryByFrequency(wordData);
-                dictionary.addWordWithFrequencies(
-                        category, tokenWithoutAccent, wordData.getSpamFrequency(), wordData.getHamFrequency()
-                );
-            } else {
-                // Palabra sin tilde que no estaba en el diccionario
-                WordCategory category = determineCategoryByFrequency(wordData);
-                dictionary.addWordWithFrequencies(
-                        category, token, wordData.getSpamFrequency(), wordData.getHamFrequency()
-                );
-            }
-        }
-    }
-*/
-
     private WordCategory determineCategoryByFrequency(WordData wordData) {
         int ham = wordData.getHamFrequency();
         int spam = wordData.getSpamFrequency();
@@ -424,34 +376,6 @@ updateDictionaryFromProcessedWordData(processedWordData);
             }
         }
     }
-
-
-    //----------------------Metod auxiliar para update
-   // public void Viejo______updateDictionaryFromProcessedWordData(List<List<WordData>> processedData) {
-
-        // Aplanar la estructura
-     //   List<WordData> flattenedWordData = processedData.stream()
-     //           .flatMap(List::stream)
-     //           .toList();
-
-        // Actualizar el diccionario
-       // for (WordData wordData : flattenedWordData) {
-      //      WordCategory category = determineCategory(wordData.getWord()); // Determinar categoría
-
-       //     dictionary.getCategory(category).merge(
-      //              wordData.getWord(),
-       //             wordData,
-        //            (existing, newData) -> {
-        //                existing.incrementSpamFrequency(newData.getSpamFrequency());
-        //                existing.incrementHamFrequency(newData.getHamFrequency());
-         //               return existing;
-                 //   }
-       //     );
-       // }
-    //}
-
-
-
 
 
     /*

@@ -60,13 +60,13 @@ public class TextUtils {
         if (message == null || message.trim().isEmpty()) {
             return Collections.emptyList();
         }
-        // Normalizar mensaje: eliminar comillas, dividir por espacios y filtrar tokens vacíos
+
+        // Elimina ", ', ,, ; — conserva :, /, .
         return Arrays.stream(message.toLowerCase()
-                        .replaceAll("[\"']", "") // Elimina comillas dobles y simples
-                        .replace(",", "") // Opcional: elimina comas
+                        .replaceAll("[\"',;]", "") // <- acá se eliminan solo los signos deseados
                         .trim()
-                        .split("\\s+")) // Divide por espacios
-                .filter(token -> !token.isEmpty()) // Filtra cadenas vacías
+                        .split("\\s+"))           // divide solo por espacios
+                .filter(token -> !token.isEmpty())
                 .toList();
     }
 
@@ -162,7 +162,9 @@ public class TextUtils {
     }
 
     public static boolean isWebAddress(String token) {
-        return token.toLowerCase().matches("^(http|https)://.*\\.(com|net|org|edu|gov|mil|io|dev|site|online)$");
+        if (token == null || token.isEmpty()) return false;
+
+        return token.toLowerCase().matches("^(http|https)://[\\w\\-\\.]+(/[\\w\\-\\.\\-/]*)?$");
     }
 
     public static boolean isCharToken(String token) {

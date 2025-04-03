@@ -198,9 +198,8 @@ public class MessageProcessor {
 
         // Procesar la parte de texto
         if (!wordPart.isEmpty()) {
-            String subCategory = findSubcategoryForToken(wordPart); // Buscar subcategoría en lexemesRepository
-            // Asignar texto directamente
-            wordDataList.add(new WordData(Objects.requireNonNullElse(subCategory, wordPart), label)); // Asignar subcategoría
+           processTextToken(wordPart,wordDataList, label);  // Usa el flujo correcto de normalización
+
         }
 
         // Procesar la parte de símbolos

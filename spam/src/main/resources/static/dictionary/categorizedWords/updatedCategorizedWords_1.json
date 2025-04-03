@@ -1,9 +1,5 @@
 {
   "hamIndicators" : {
-    "café" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
     "lexability" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
@@ -566,7 +562,7 @@
     },
     "lexcommerce" : {
       "hamFrequency" : 12,
-      "spamFrequency" : 73
+      "spamFrequency" : 75
     },
     "lexcurrencies" : {
       "hamFrequency" : 0,
@@ -578,7 +574,7 @@
     },
     "lexentertainment" : {
       "hamFrequency" : 2,
-      "spamFrequency" : 35
+      "spamFrequency" : 34
     },
     "lexexclusive" : {
       "hamFrequency" : 4,
@@ -629,14 +625,6 @@
     "$" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
-    },
-    "agrégalos" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "aprovéchala" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
     },
     "lexacquisition" : {
       "hamFrequency" : 0,
@@ -887,7 +875,7 @@
       "spamFrequency" : 1
     },
     "lexdaily" : {
-      "hamFrequency" : 38,
+      "hamFrequency" : 39,
       "spamFrequency" : 18
     },
     "lexdating" : {
@@ -1312,7 +1300,7 @@
     },
     "lexmusic" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 1
+      "spamFrequency" : 2
     },
     "lexmystery" : {
       "hamFrequency" : 0,

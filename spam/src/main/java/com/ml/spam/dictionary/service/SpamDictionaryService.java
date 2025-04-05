@@ -320,39 +320,29 @@ updateDictionaryFromProcessedWordData(processedWordData);
     }
 
 
-    private WordCategory determineCategoryByFrequency(WordData wordData) {
-        int ham = wordData.getHamFrequency();
-        int spam = wordData.getSpamFrequency();
-        int total = ham + spam;
+    private WordCategory determineCategoryByFrequency(WordData data) {
+        int spam = data.getSpamFrequency();
+        int ham = data.getHamFrequency();
 
-        if (total == 0) return WordCategory.UNASSIGNED_WORDS;
+        for (CategoryFrequencyThresholds t : CategoryFrequencyThresholds.values()) {
+            boolean hamInRange = ham >= t.getMinHam() && ham <= t.getMaxHam();
+            boolean spamInRange = spam >= t.getMinSpam() && spam <= t.getMaxSpam();
 
-        double hamRatio = (double) ham / total;
+            if (!hamInRange || !spamInRange) continue;
 
-        // Verifica contra cada categoría de mayor a menor spam
-        if (spam >= CategoryFrequencyThresholds.STRONG_SPAM.getMinFrequency()
-                && spam <= CategoryFrequencyThresholds.STRONG_SPAM.getMaxFrequency()
-                && hamRatio >= CategoryFrequencyThresholds.STRONG_SPAM.getMinHamRatio()
-                && hamRatio <= CategoryFrequencyThresholds.STRONG_SPAM.getMaxHamRatio()) {
-            return WordCategory.STRONG_SPAM_WORD;
-        }
-
-        if (spam >= CategoryFrequencyThresholds.MODERATE_SPAM.getMinFrequency()
-                && spam <= CategoryFrequencyThresholds.MODERATE_SPAM.getMaxFrequency()
-                && hamRatio >= CategoryFrequencyThresholds.MODERATE_SPAM.getMinHamRatio()
-                && hamRatio <= CategoryFrequencyThresholds.MODERATE_SPAM.getMaxHamRatio()) {
-            return WordCategory.MODERATE_SPAM_WORD;
-        }
-
-        if (spam >= CategoryFrequencyThresholds.WEAK_SPAM.getMinFrequency()
-                && spam <= CategoryFrequencyThresholds.WEAK_SPAM.getMaxFrequency()
-                && hamRatio >= CategoryFrequencyThresholds.WEAK_SPAM.getMinHamRatio()
-                && hamRatio <= CategoryFrequencyThresholds.WEAK_SPAM.getMaxHamRatio()) {
-            return WordCategory.WEAK_SPAM_WORD;
-        }
-
-        if (hamRatio >= CategoryFrequencyThresholds.HAM_INDICATOR.getMinHamRatio()) {
-            return WordCategory.HAM_INDICATORS;
+            switch (t) {
+                case HAM_INDICATOR:
+                    if (((double) ham / (spam + 1)) >= t.getRatio()) return WordCategory.HAM_INDICATORS;
+                    break;
+                case STRONG_SPAM:
+                    return WordCategory.STRONG_SPAM_WORD;
+                case MODERATE_SPAM:
+                    if (((double) spam / (ham + 1)) >= t.getRatio()) return WordCategory.MODERATE_SPAM_WORD;
+                    break;
+                case WEAK_SPAM:
+                    if (ham > 0 && ((double) spam / ham) >= t.getRatio()) return WordCategory.WEAK_SPAM_WORD;
+                    break;
+            }
         }
 
         return WordCategory.UNASSIGNED_WORDS;
@@ -574,7 +564,7 @@ updateDictionaryFromProcessedWordData(processedWordData);
                     }
 
                     // Determinar nueva categoría
-                    WordCategory newCategory = determineCategoryByDifference(wordData.getSpamFrequency(), wordData.getHamFrequency());
+                    WordCategory newCategory = determineCategoryByFrequency(wordData);
 
                     // Reasignar si la categoría cambia
                     if (!currentCategory.equals(newCategory)) {
@@ -592,37 +582,6 @@ updateDictionaryFromProcessedWordData(processedWordData);
         }
     }
 
-    /**
-     * Determina la categoría de una palabra según la diferencia absoluta entre frecuencias spam y ham.
-     * Utiliza los umbrales definidos en CategoryFrequencyThresholds.
-     */
-    private WordCategory determineCategoryByDifference(int spamFrequency, int hamFrequency) {
-        int difference = spamFrequency - hamFrequency;
-
-        // STRONG_SPAM: diferencia mayor o igual al mínimo
-        if (difference >= CategoryFrequencyThresholds.STRONG_SPAM.getMinFrequency()) {
-            return WordCategory.STRONG_SPAM_WORD;
-        }
-
-        // MODERATE_SPAM: diferencia entre el mínimo de moderate y el máximo de moderate
-        if (difference >= CategoryFrequencyThresholds.MODERATE_SPAM.getMinFrequency()
-                && difference < CategoryFrequencyThresholds.STRONG_SPAM.getMinFrequency()) {
-            return WordCategory.MODERATE_SPAM_WORD;
-        }
-
-        // WEAK_SPAM: diferencia entre el mínimo de weak y el máximo de weak
-        if (difference >= CategoryFrequencyThresholds.WEAK_SPAM.getMinFrequency()) {
-            return WordCategory.WEAK_SPAM_WORD;
-        }
-
-        // HAM_INDICATOR: si hay más ham que spam
-        if (hamFrequency > spamFrequency) {
-            return WordCategory.HAM_INDICATORS;
-        }
-
-        // Si no cumple ninguna condición, queda sin asignar
-        return WordCategory.UNASSIGNED_WORDS;
-    }
 
     private void moveWordToCategory(String word, WordData wordData,
                                     WordCategory currentCategory, WordCategory newCategory,
@@ -847,50 +806,6 @@ updateDictionaryFromProcessedWordData(processedWordData);
 
 
 
-    private void updateExistingWordFrequenciesMio(String token, WordData wordData) {
-        // Consolidar frecuencias y revisar categorías
-        for (WordCategory category : WordCategory.values()) {
-            Map<String, WordData> categoryWords = dictionary.getCategory(category);
-
-            // Si la palabra ya está en una categoría
-            if (categoryWords.containsKey(token)) {
-                WordData existingWord = categoryWords.get(token);
-
-                // Actualizar frecuencias
-                existingWord.incrementSpamFrequency(wordData.getSpamFrequency());
-                existingWord.incrementHamFrequency(wordData.getHamFrequency());
-
-                // Si la categoría es protegida, no se mueve la palabra
-                if (category == WordCategory.RARE_SYMBOLS || category == WordCategory.STOP_WORDS) {
-                    System.out.printf("[INFO] La palabra '%s' permanece en la categoría protegida '%s'.%n", token, category.getJsonKey());
-                    return; // Salir del flujo para palabras protegidas
-                }
-
-                // Recalcular la categoría basada en las nuevas frecuencias
-                WordCategory updatedCategory = determineCategoryByDifference(
-                        existingWord.getSpamFrequency(),
-                        existingWord.getHamFrequency()
-                );
-
-                // Si la categoría cambia, reasignar la palabra
-                if (updatedCategory != category) {
-                    categoryWords.remove(token); // Eliminar de la categoría actual
-                    dictionary.addWordWithFrequencies(updatedCategory, token,
-                            existingWord.getSpamFrequency(), existingWord.getHamFrequency());
-                    System.out.printf("[INFO] La palabra '%s' se movió de '%s' a '%s'.%n", token, category.getJsonKey(), updatedCategory.getJsonKey());
-                }
-                return; // Salir del flujo tras procesar la palabra
-            }
-        }
-
-        // Si la palabra no estaba en ninguna categoría, calcular su categoría inicial
-        WordCategory newCategory = determineCategoryByDifference(
-                wordData.getSpamFrequency(), wordData.getHamFrequency()
-        );
-        dictionary.addWordWithFrequencies(newCategory, token,
-                wordData.getSpamFrequency(), wordData.getHamFrequency());
-        System.out.printf("[INFO] La palabra '%s' se agregó a la categoría '%s'.%n", token, newCategory.getJsonKey());
-    }
 
     ////////////////-----------///////////////////
 

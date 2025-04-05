@@ -1,35 +1,58 @@
 {
-  "lexquestion": [
-    "cómo",
-    "cuándo",
-    "dónde",
-    "qué",
-    "cuál",
-    "quién"
-  ],
-  "contextualLexeme": [
-    "tú",
-    "mí",
-    "aún",
-    "él",
-    "éstos",
-    "ése",
-    "aquél"
-  ],
-  "lexemotion": [
-    "sí",
-    "sólo",
-    "yá"
-  ],
-  "lexinstruction": [
-    "dé",
-    "sé",
-    "úsalo",
-    "házlo",
-    "míra",
-    "gánate"
-  ],
-  "lexobject": [
-    "té"
-  ]
+  "lextraining": ["entrena", "formaciones", "ejercicios"],
+  "lexrestriction": ["restricciones", "excepto", "excluida", "excluidas"],
+  "lexcommunication": ["responda", "responderme", "respuesta","explicar", "explique", "explicaciones","expresan", "cliche", "expressed"],
+  "lexexpansion": ["extendido", "extendimos"],
+  "lexcontextual": ["exterior", "externas","enfocada","libera", "libres","liberte"],
+  "lexjustice": ["justo"],
+  "lexsecurity": ["falsa", "falsos"],
+  "lexdocuments": ["fichero"],
+
+
+  "lextracking": ["seguir", "siga", "siguiendo"],
+  "lexconstraints": ["forzado"],
+  "lextechnology": ["interfaz", "boton"],
+  "lexmeasurement": ["largas", "larga", "largo"],
+  "lexfunctionality": ["funciones", "functional"],
+  "lexgifts": ["regalamos","regalas" ],
+  "lexcommunity": ["conjuntamente"],
+  "lexguarantees": ["garantizar"],
+  "lexguidelines": ["guias", "guia", "conozca","practica", "practices","practicas"],
+  "lexinstructions": ["introducir", "introduccion","apunto", "prepara", "preparar"],
+  "lexcalendar": ["navidad", "navidadjpg","periodo"],
+  "lexactions": ["maneja","manejas","deja","hazte"],
+  "lexoperations": ["implementacion", "implementar", "implementing"],
+  "lexhighlight": ["importantes", "esenciales"],
+  "lexsector": ["industrial"],
+  "lexsuggestion": ["idea"],
+  "lexlimited": ["limita", "limitaciones", "limitedtime"],
+  "lexbanking": ["prestamos"],
+  "lexhospitality": ["alojamiento"],
+  "lexemotion": ["magia", "magicamente"],
+  "lexchannels": ["mensajeria", "telegram"],
+  "lexemail": ["message"],
+  "lexusers": ["members"],
+  "lexdevices": ["moviles"],
+  "lexrequirements": ["cumplir", "debe","necesario", "necesita", "necesites"],
+  "lexfeedback": ["opinando", "opiniones"],
+  "lexcompany": ["entidades", "organismo", "organizations"],
+  "lexbranding": ["original"],
+  "lexpersonal": ["alguien", "gente"],
+
+  "lexprofessionals": ["practitioners"],
+  "lexnews": ["periodico","publiquen"],
+  "leximprovement": ["avanzaras", "progresado"],
+  "lexpublication": ["eissn", "publicadas"],
+
+  "lexconcepts": ["raices","realidad","realidades", "realmente"],
+
+  "lexstatus": ["rechazado", "rechazan", "rechazarian"],
+  "lextrust": ["fiable", "reliable"],
+  "lexconditions": ["requeridas", "requerido", "requiriera"],
+  "lexverification": ["revisado", "revisando"],
+
+
+
+
+
 }

@@ -6,36 +6,28 @@ package com.ml.spam.dictionary.models;
  */
 public enum CategoryFrequencyThresholds {
 
-    STRONG_SPAM(15, Integer.MAX_VALUE, 0.0, 0.40),
-    MODERATE_SPAM(5, 14, 0.41, 0.60),
-    WEAK_SPAM(2, 4, 0.61, 0.74),
-    HAM_INDICATOR(1, Integer.MAX_VALUE, 0.75, 1.0);  // ahora requiere al menos 1 ham
+    HAM_INDICATOR(5, Integer.MAX_VALUE, 0, 2, 5.0),
+    STRONG_SPAM(0, 0, 5, Integer.MAX_VALUE, Double.POSITIVE_INFINITY),
+    MODERATE_SPAM(0, 2, 4, Integer.MAX_VALUE, 4.0),
+    WEAK_SPAM(1, Integer.MAX_VALUE, 3, Integer.MAX_VALUE, 1.5);
 
-    private final int minFrequency;
-    private final int maxFrequency;
-    private final double minHamRatio;
-    private final double maxHamRatio;
+    private final int minHam;
+    private final int maxHam;
+    private final int minSpam;
+    private final int maxSpam;
+    private final double ratio;
 
-    CategoryFrequencyThresholds(int minFrequency, int maxFrequency, double minHamRatio, double maxHamRatio) {
-        this.minFrequency = minFrequency;
-        this.maxFrequency = maxFrequency;
-        this.minHamRatio = minHamRatio;
-        this.maxHamRatio = maxHamRatio;
+    CategoryFrequencyThresholds(int minHam, int maxHam, int minSpam, int maxSpam, double ratio) {
+        this.minHam = minHam;
+        this.maxHam = maxHam;
+        this.minSpam = minSpam;
+        this.maxSpam = maxSpam;
+        this.ratio = ratio;
     }
 
-    public int getMinFrequency() {
-        return minFrequency;
-    }
-
-    public int getMaxFrequency() {
-        return maxFrequency;
-    }
-
-    public double getMinHamRatio() {
-        return minHamRatio;
-    }
-
-    public double getMaxHamRatio() {
-        return maxHamRatio;
-    }
+    public int getMinHam() { return minHam; }
+    public int getMaxHam() { return maxHam; }
+    public int getMinSpam() { return minSpam; }
+    public int getMaxSpam() { return maxSpam; }
+    public double getRatio() { return ratio; }
 }

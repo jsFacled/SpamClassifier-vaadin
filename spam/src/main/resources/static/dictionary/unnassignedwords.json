@@ -1,5 +1,8 @@
 {
+  "eliminar":"lexeliminar",
 
-
+    "reasignaciones": {
+      "lexreasignado": ["palabra1", "palabra2", "palabraN"]
+    }
 
 }

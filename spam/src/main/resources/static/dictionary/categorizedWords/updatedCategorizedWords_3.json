@@ -1638,78 +1638,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
-    "lexcollaboration" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
-    "lexcollection" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "lexcombination" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
-    "lexcomfort" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "lexcoming" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
-    "lexcommitment" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
-    "lexcompany" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
-    "lexcompensation" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "lexcompetition" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "lexcompetitions" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "lexcompetitiveness" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "lexcomplexity" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
-    "lexcomponents" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
-    "lexcomputing" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
-    "lexconcepts" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
-    "lexconcern" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "lexconditionals" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "lexconnectivity" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
+
+
+
+
     "lexconsideration" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3

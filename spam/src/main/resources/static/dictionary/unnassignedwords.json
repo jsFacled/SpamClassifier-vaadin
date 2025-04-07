@@ -1,8 +1,9 @@
 {
-  "eliminar":"lexeliminar",
+  "lexcombination" : {
+    "hamFrequency" : 0,
+    "spamFrequency" : 3
+  },
+  "lexcombination" : [ "combinable" ],
 
-    "reasignaciones": {
-      "lexreasignado": ["palabra1", "palabra2", "palabraN"]
-    }
 
 }

@@ -1,47 +1,4 @@
 {
-  "lexelectronics": ["battery", "batteries"],
-  "lexspirituality": ["creemos", "cree","belief", "beliefs"],
-  "lexproducts": ["beverage", "beverages"],
-  "lexfinancial": ["bill", "billed", "billing", "bills"],
-  "lexobjects": ["pila"],
-
-  "lexfinance": ["pospago"],
-  "lexfood" : [ "jugos", "tea","jugo"],
-
-  "lexsecurity": ["perimetral"],
-  "lexbusiness": ["sucursal"],
-  "lexbrand": ["original", "logo"],
-  "lexactions": ["alterar","llevate","llaman","rompe", "romper","trae"],
-  "lexmemory": ["capacidades"],
-  "lexcommunication": ["llama", "llamar", "llamada","emitidas", "emision"],
-  "lexmedia": ["difundir"],
-  "lexwellness": ["velas"],
-  "lexpersonal": ["cuida"],
-  "lexrisk": ["descuidado"],
-  "lexevents": ["celebracion","bodas", "pascuas", "fiesta","fiestas","cumpleanos", "cumpleaños", "vacaciones"],
-  "lexcontextual": ["pues", "ocasionados"],
-  "lexcommunity": ["genero"],
-  "lexemotion": ["congratulacion","tranquilo","felicidades", "felicitaciones", "enhorabuena"],
-  "lexpets": ["mascota"],
-  "lexdocuments": ["certificados", "certificado"],
-  "lexlegal": ["certificacion"],
-  "lexdifficulty": ["escollos"],
-  "lexfamily": ["infancia"],
-  "lexchoices": ["elegi", "elegir"],
-  "lexhygiene": ["limpieza"],
-  "lexclassification": [
-    "categoria",
-    "clasificacion",
-    "tipo",
-    "grupo","grupos",
-    "clase","clases",
-    "orden",
-    "jerarquia",
-    "taxonomia",
-    "catalogacion",
-    "rubrica","tipos"
-  ],
-  "lexnotifications": ["limpieza"]
 
 
 }

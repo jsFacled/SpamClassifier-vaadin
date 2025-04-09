@@ -1,9 +1,15 @@
 {
-  "lexcombination" : {
-    "hamFrequency" : 0,
-    "spamFrequency" : 3
-  },
   "lexcombination" : [ "combinable" ],
-
+  "lexcrime" : [ "robos" ],
+  "lexdestruction" : [ "destruir", "destruiria" ],
+  "lexdisasters" : [ "desastres", "inundaciones", "tsunami" ],
+  "lexdiversity" : [ "diversidad", "diversificar" ],
+  "lexdivision" : [ "divide", "fracciona" ],
+  "lexexploitation" : [ "explotan" ],
+  "lexfarewell" : [ "despedida" ],
+  "lexlight" : [ "luz" ],
+  "lexloose" : [ "suelto" ],
+  "lexfood": ["menu"],
+  "lexpriority" : [ "prioritariamente" ],
 
 }

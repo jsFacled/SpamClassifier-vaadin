@@ -11,6 +11,7 @@
   "lexloose" : [ "suelto" ],
   "lexfood": ["menu"],
   "lexpriority" : [ "prioritariamente" ],
-  "lexrecording" : [ "grabado" ]
+  "lexrecording" : [ "grabado" ],
+  "lextouch" : [ "tocar" ],
 
 }

@@ -6,10 +6,10 @@ package com.ml.spam.dictionary.models;
  */
 public enum CategoryFrequencyThresholds {
 
-    HAM_INDICATOR(5, Integer.MAX_VALUE, 0, 2, 5.0),
-    STRONG_SPAM(0, 0, 5, Integer.MAX_VALUE, Double.POSITIVE_INFINITY),
+    HAM_INDICATOR(3, Integer.MAX_VALUE, 0, 2, 3.0),
+    STRONG_SPAM(0, 0, 8, Integer.MAX_VALUE, Double.POSITIVE_INFINITY),
     MODERATE_SPAM(0, 2, 4, Integer.MAX_VALUE, 4.0),
-    WEAK_SPAM(1, Integer.MAX_VALUE, 3, Integer.MAX_VALUE, 1.5);
+    WEAK_SPAM(0, Integer.MAX_VALUE, 2, Integer.MAX_VALUE, 1.5);
 
     private final int minHam;
     private final int maxHam;

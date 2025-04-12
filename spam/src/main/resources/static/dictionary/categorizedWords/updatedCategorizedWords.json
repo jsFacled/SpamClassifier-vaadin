@@ -26,6 +26,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
+    "lexfood" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 6
+    },
     "lexmedia" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
@@ -131,10 +135,6 @@
     "lexentertainment" : {
       "hamFrequency" : 0,
       "spamFrequency" : 9
-    },
-    "lexfood" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
     }
   },
   "unassignedWords" : {
@@ -230,14 +230,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "lexconcepts" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
-    "lexconfidence" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
     "lexconfidentiality" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
@@ -249,10 +241,6 @@
     "lexconsulting" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "lexcontent" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
     },
     "lexcontextual" : {
       "hamFrequency" : 9,
@@ -273,10 +261,6 @@
     "lexdaily" : {
       "hamFrequency" : 8,
       "spamFrequency" : 7
-    },
-    "lexdefense" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
     },
     "lexdesign" : {
       "hamFrequency" : 0,
@@ -322,10 +306,6 @@
       "hamFrequency" : 17,
       "spamFrequency" : 3
     },
-    "lexexercise" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "lexexpansion" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -346,10 +326,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "lexfavorites" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "lexfeedback" : {
       "hamFrequency" : 9,
       "spamFrequency" : 2
@@ -366,21 +342,9 @@
       "hamFrequency" : 1,
       "spamFrequency" : 1
     },
-    "lexgames" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 3
-    },
     "lexgaming" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "lexgeneral" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
-    "lexgifts" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
     },
     "lexgreetings" : {
       "hamFrequency" : 9,
@@ -434,17 +398,13 @@
       "hamFrequency" : 2,
       "spamFrequency" : 0
     },
-    "lexjob" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "lexlegal" : {
       "hamFrequency" : 1,
       "spamFrequency" : 1
     },
-    "lexleisure" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
+    "lexlocation" : {
+      "hamFrequency" : 3,
+      "spamFrequency" : 5
     },
     "lexmarketing" : {
       "hamFrequency" : 0,
@@ -497,10 +457,6 @@
     "lexpackages" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
-    },
-    "lexpersuasion" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
     },
     "lexphysical" : {
       "hamFrequency" : 0,
@@ -578,17 +534,9 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "lexretails" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "lexrisk" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "lexseasons" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
     },
     "lexsector" : {
       "hamFrequency" : 2,
@@ -630,10 +578,6 @@
       "hamFrequency" : 5,
       "spamFrequency" : 1
     },
-    "lexsuperlatives" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "lexsystems" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
@@ -674,10 +618,6 @@
       "hamFrequency" : 3,
       "spamFrequency" : 2
     },
-    "lexurgency" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
     "lexurgentrequests" : {
       "hamFrequency" : 2,
       "spamFrequency" : 0
@@ -689,10 +629,6 @@
     "lexvaluable" : {
       "hamFrequency" : 1,
       "spamFrequency" : 1
-    },
-    "lexvisuals" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
     },
     "lexwaiting" : {
       "hamFrequency" : 2,
@@ -714,6 +650,10 @@
       "hamFrequency" : 1,
       "spamFrequency" : 1
     },
+    "numlow" : {
+      "hamFrequency" : 3,
+      "spamFrequency" : 5
+    },
     "score" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -728,25 +668,85 @@
       "hamFrequency" : 1,
       "spamFrequency" : 3
     },
+    "lexconcepts" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "lexconfidence" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
+    "lexcontent" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
+    "lexdefense" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
     "lexexclusive" : {
       "hamFrequency" : 1,
       "spamFrequency" : 5
+    },
+    "lexexercise" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "lexfavorites" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "lexgames" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
+    "lexgeneral" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "lexgifts" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "lexhealth" : {
       "hamFrequency" : 4,
       "spamFrequency" : 11
     },
-    "lexlocation" : {
-      "hamFrequency" : 3,
-      "spamFrequency" : 5
+    "lexjob" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "lexleisure" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "lexpersuasion" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     },
     "lexpromotions" : {
       "hamFrequency" : 3,
       "spamFrequency" : 6
     },
-    "numlow" : {
-      "hamFrequency" : 3,
-      "spamFrequency" : 5
+    "lexretails" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "lexseasons" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "lexsuperlatives" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "lexurgency" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
+    "lexvisuals" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
     }
   }
 }

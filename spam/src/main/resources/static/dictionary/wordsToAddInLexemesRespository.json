@@ -1,27 +1,4 @@
 {
 
-  "lextravel": ["arrivals"],
-  "lexlocation": ["avenida", "avenue"],
-  "lexfinance": ["transacciones", "transfer", "transfiere"],
-  "lexbusiness": ["into"],
-  "lexsecurity": ["transparencia","desbloqueada"],
-  "lexhealth": ["tratar"],
-  "lexpersuasion": ["truco", "trucos"],
-  "lexinstallation": ["desinstalare"],
-  "lexcommunity": ["unen", "unido"],
-  "lexsuperlatives": ["inigualable","guinness"],
-  "lexconstraints": ["ilimitada"],
-   "lexunsubscribe": ["desincribirse"],
-  "lexwebactions": ["visitarnos", "visite", "visites", "verlo", "viendo","subimos", "subirlo", "up"],
-  "lexnegative": ["inutiles"],
-  "lexexclusive": ["joya"],
-  "lextechnology": ["versiones", "virtuales"],
-  "lexalerts": ["victima"],
-    "lexrisk": ["disparo"],
-  "lexleisure": ["spa", "velas"],
-  "lexemotion": ["wish"],
-  "lexrequests": ["retiremos"],
-  "lexsystems": ["workloads"]
-
 
 }

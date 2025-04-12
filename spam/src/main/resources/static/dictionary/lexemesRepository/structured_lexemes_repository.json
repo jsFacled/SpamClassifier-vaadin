@@ -411,8 +411,8 @@
     "lexwriting" : [ "frase" ]
   },
   "fourChars" : {
-    "lexabbreviation" : [ "gral" ],
-    "lexabbreviations" : [ "tnms", "sept", "vcpu" ],
+
+    "lexabbreviations" : [ "gral","tnms", "sept", "vcpu" ],
     "lexactions" : [ "haga", "stop", "hace", "clic", "baja", "usar", "unir", "deja", "trae", "irse", "join" ],
     "lexaddition" : [ "suma" ],
     "lexadverbs" : [ "algo", "como", "solo" ],

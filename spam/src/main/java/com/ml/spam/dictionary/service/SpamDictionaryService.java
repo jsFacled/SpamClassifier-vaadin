@@ -340,7 +340,7 @@ updateDictionaryFromProcessedWordData(processedWordData);
                     if (((double) spam / (ham + 1)) >= t.getRatio()) return WordCategory.MODERATE_SPAM_WORD;
                     break;
                 case WEAK_SPAM:
-                    if (ham > 0 && ((double) spam / ham) >= t.getRatio()) return WordCategory.WEAK_SPAM_WORD;
+                    if (((double) spam / (ham + 1)) >= t.getRatio()) return WordCategory.WEAK_SPAM_WORD;
                     break;
             }
         }

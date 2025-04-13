@@ -6,7 +6,8 @@ public enum MetaTokenType {
     META_WEBIMAGE("meta_webimage"),
     META_DOCUMENTFILE("meta_documentfile"),
     META_NUMBERSTRING("meta_numberstring"),
-    META_ENCODEDDATA("meta_encodeddata");
+    META_ENCODEDDATA("meta_encodeddata"),
+    META_UNKNOWNEMOJIS("meta_unknownemojis");
 
     private final String word;
 

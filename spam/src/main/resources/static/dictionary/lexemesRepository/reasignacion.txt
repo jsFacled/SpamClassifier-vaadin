@@ -1,0 +1,22 @@
+{
+  "eliminar": [
+    "", "",
+    "", "",
+
+  ],
+  "reasignaciones": {
+
+
+
+
+  }
+}
+❗ Los siguientes lexemas se conservan porque sus palabras no tienen destino válido único:
+
+lexloose ("suelto")
+
+lexfood ("menu") ← ya está correctamente asignado
+
+lextouch ("tocar")
+
+¿Querés que siga con lexabbreviation, lexanimals, lexenvironment, lexscanning o alguno más de la lista que mencionaste?

@@ -1,48 +1,13 @@
 {
 
    "strongSpamWord": [
-            "$",  "oportunidad", "tarjeta", "activacion", "algoritmo", "amigo",
-            "amor", "apuesta", "asombroso", "atencion", "bancarrota", "belleza", "blackjack", "bono",
-            "casino", "cuenta", "cura", "dieta", "dominios", "donacion", "eliminar", "empleo",
-            "encuentra", "encuentros", "engaño", "estafa", "estimado", "expira", "final", "flash", "formulario",
-            "fraude", "increible", "instantaneo", "instrucciónes", "interes", "certificado", "cierre", "irrepetible",
-            "irresistible", "jefe", "juega", "juego", "legal", "levita", "libertad", "llamada", "loteria", "cliente",
-            "compare", "confidencial", "contraseña", "criptografia", "personalizado", "pierda", "planear", "problema",
-            "procesa", "prohibir", "proteccion", "rapidez", "rendimientos", "revoluciona",
-            "riesgo", "guardar", "rolex", "secreto", "seleccion", "sorteo", "spam", "suerte",
-            "testimonios", "trampa", "vacaciones", "mentira", "milagro", "millonario", "oficial", "unica", "participe",
-            "webaddress", "verificacion", "lujo", "recuperacion", "magia", "marketing", "medicamento", "hoy", "descargar",
-            "pronto", "abundancia", "promoción", "descuento", "rebaja", "alerta","seguro",
-            "garantía", "precio", "tarifa", "valor", "ahorra", "urgente", "inmediato", "último", "compra",
-            "millon", "millones", "oferta", "rebajas", "banco", "dinero", "credito", "prestamo", "inversión",
-            "suscribirse", "suscripción", "advertencia", "notificaciones", "éxito", "fortuna", "premio", "premios",
-            "recompensa","garantizado", "asegurado", "reembolso", "gratis", "gratuito", "exclusivo",
-            "vip", "limitada", "limitado", "aumente", "multiplique", "autenticacion", "autorizacion",
-            "verifica", "verificar", "click", "clic", "descarga", "riqueza", "prosperidad", "fabuloso", "increíble",
-            "maravilloso", "espectacular", "felicidades", "felicitaciones", "mejor", "mejora", "mejore",
-            "lexbenefits", "lexpurchases", "lexcurrencies", "ahora", "ya","como","lexnotifications",
-            "numlow", "ganador", "nuestras", "nuestro"
+
    ],
    "moderateSpamWord": [
-            "servicio", "tienda", "venta", "notificacion", "empresa",
-             "intereses", "registrarse", "restaurada", "salva", "salvar", "suspendida", "trabajo",
-            "personal", "sistema", "resultado",  "ahorrar",
-            "lexsubscriptions", "lexalerts", "lexguarantees", "lexfree", "lexvaluable",
-            "producto", "ingresos", "lexlimited", "lexgrowth",
-            "lexsecurity", "lexwebactions",  "respuesta", "lexwealth", "lexsuperlatives",
-            "leximprovements", "poderoso", "potencial", "probar", "prueba", "lexpromotions", "invertir", "invierte",
-            "lexfinance", "lexmotivational", "compras","unete","lexactions","lexspamreetings",
-            "lexguidelines", "lexrequests"
+
         ],
    "weakSpamWord": [
-            "archivo", "bienvenido", "comunicacion", "confirmacion", "documento", "evento", "gracias",
-            "lexspamgreetings", "recordatorio", "reunion", "revision", "aceptacion", "actividad", "actuacion",
-            "actuar", "esfuerzo", "existencias", "introduccion", "renovar", "resultados", "solicitud",
-            "solucion", "vista", "natural", "lexcosts", "lexproducts", "lexincome", "lexapproval", "lexcommunication",
-            "lexpower", "lextests", "lexquantities","lexpurchase","tiempo", "confirma","experiencia",
-            "lexhealth", "antes","numero", "completa","lexurgency","lexspaminformation","recibir","pendiente",
-            "seguridad","lexurgentrequests","lexcontact","lexsector","lexdocuments", "informacion"
-   ],
+            ],
 
     "rareSymbols": [
         "@", "","lexsymbols", "lexexclamations","unknownemojis"
@@ -53,10 +18,7 @@
         "lexneutral","lexcodes","numsuperhigh"
     ],
     "hamIndicators": [
-      "lexpositive","lexinformative","lexconfirmations","lexteam","lexfeedback", "lexprofile",
-      "lexfuture","lexcontextual","lexevents", "lexissues",
-      "lexchoices", "lexsuccess","lexeducation","lextravel","lexcommunity","lexfamily",
-      "lexwork","lexfrequency", "lexcelebrations"
+
     ],
-    "unassignedWords": ["lexhelp", "estado"]
+    "unassignedWords": []
 }

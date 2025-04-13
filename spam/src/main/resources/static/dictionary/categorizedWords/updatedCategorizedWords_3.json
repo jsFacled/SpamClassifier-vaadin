@@ -85,10 +85,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 6
     },
-    "lexconfidentiality" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 4
-    },
     "lexconfirmation" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
@@ -252,10 +248,6 @@
     "lexhumor" : {
       "hamFrequency" : 0,
       "spamFrequency" : 6
-    },
-    "leximages" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 4
     },
     "leximpact" : {
       "hamFrequency" : 0,
@@ -537,10 +529,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 6
     },
-    "lexspecialization" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 4
-    },
     "lexsports" : {
       "hamFrequency" : 0,
       "spamFrequency" : 7
@@ -606,10 +594,6 @@
       "spamFrequency" : 6
     },
     "lexwater" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 4
-    },
-    "wwwmallicbccomar" : {
       "hamFrequency" : 0,
       "spamFrequency" : 4
     }
@@ -698,10 +682,6 @@
     "contextualLexeme" : {
       "hamFrequency" : 0,
       "spamFrequency" : 10
-    },
-    "invalidNumber" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 12
     },
     "lexabbreviations" : {
       "hamFrequency" : 0,
@@ -853,7 +833,7 @@
     },
     "lexcontextual" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 107
+      "spamFrequency" : 106
     },
     "lexcontrol" : {
       "hamFrequency" : 0,
@@ -1125,7 +1105,7 @@
     },
     "lexmanagement" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 14
+      "spamFrequency" : 13
     },
     "lexmarketing" : {
       "hamFrequency" : 0,
@@ -1173,7 +1153,7 @@
     },
     "lexnetworking" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 165
+      "spamFrequency" : 159
     },
     "lexnews" : {
       "hamFrequency" : 0,
@@ -1373,7 +1353,7 @@
     },
     "lexspecifications" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 12
+      "spamFrequency" : 11
     },
     "lexspeed" : {
       "hamFrequency" : 0,
@@ -1425,7 +1405,7 @@
     },
     "lextechnology" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 379
+      "spamFrequency" : 378
     },
     "lextelecom" : {
       "hamFrequency" : 0,
@@ -1457,7 +1437,7 @@
     },
     "lexunknown" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 33
+      "spamFrequency" : 31
     },
     "lexurgency" : {
       "hamFrequency" : 0,
@@ -1521,7 +1501,23 @@
     },
     "mathop" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 427
+      "spamFrequency" : 422
+    },
+    "meta_encodeddata" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 26
+    },
+    "meta_webaddress" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 23
+    },
+    "meta_webemail" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 76
+    },
+    "meta_webimage" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 14
     },
     "numcalendar" : {
       "hamFrequency" : 0,
@@ -1529,19 +1525,11 @@
     },
     "numhigh" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 16
+      "spamFrequency" : 14
     },
     "numlow" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 1197
-    },
-    "webaddress" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 15
-    },
-    "webemail" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 76
+      "spamFrequency" : 1194
     },
     "✔" : {
       "hamFrequency" : 0,
@@ -1554,10 +1542,6 @@
       "spamFrequency" : 1
     },
     "ab" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "abhimuralidharanabhimuralidharaninios" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -1658,6 +1642,10 @@
       "spamFrequency" : 1
     },
     "intiman" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "invalidNumber" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -1769,10 +1757,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "lexpriority" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
     "lexprocess" : {
       "hamFrequency" : 2,
       "spamFrequency" : 0
@@ -1841,10 +1825,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "rcasualconversation" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "rdigitalart" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -1905,22 +1885,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "wwwbeneficiosicbccomar" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "wwwcasadelaudiocom" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "wwwicbccomarpersonastycicbcclub" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "wwwperfumeriaspigmentocomar" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "“””" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -1938,10 +1902,6 @@
     "estatutos" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
-    },
-    "historiadeinstagramfrasefeliznavidadminimalistadoradopng" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
     },
     "is" : {
       "hamFrequency" : 0,
@@ -2039,6 +1999,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
+    "leximages" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
     "lexinnovation" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
@@ -2127,6 +2091,10 @@
       "hamFrequency" : 3,
       "spamFrequency" : 9
     },
+    "lexspecialization" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 2
+    },
     "lexspirituality" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -2147,6 +2115,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 3
     },
+    "meta_numberstring" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 3
+    },
     "oficiales" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
@@ -2156,10 +2128,6 @@
       "spamFrequency" : 2
     },
     "teraserver" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 2
-    },
-    "textodelparrafopng" : {
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },

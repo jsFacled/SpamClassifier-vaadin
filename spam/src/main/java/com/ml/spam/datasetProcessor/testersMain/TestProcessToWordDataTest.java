@@ -97,7 +97,7 @@ public class TestProcessToWordDataTest {
                 "spam"
         };
         String[] mensajeMixto = new String[]{
-                "http://promo123.com abc123$ 50kg! promo@2024 23@abc# $10off!",
+                "restricciones y el costo de la membresía ingresá en www.icbc.com.ar/personas/tyc-icbc-club. abc123$ 50kg! $123456789112233 promo@2024 23@abc# $10off!",
                 "spam"
         };
         String[] mensajeMixto2 = new String[]{
@@ -122,7 +122,7 @@ public class TestProcessToWordDataTest {
                 "❤️ \uD83D\uDD25\uD83D\uDD25 +++ ❤\uFE0F\uD83C\uDF89 == \uD83D\uDE0A\uD83D\uDC8E !!! ??? $100 !! @@@ ***\n",
                 "spam"
         };
-        String[] mensajeLinks = {"facu@gmail.com http://test.com http://promo123.net", "spam"};
+        String[] mensajeLinks = {"facu@gmail.com http://test.com http://promo123.net imagenjpg.jpg", "spam"};
 
         String[] m = new String[]{
                 "n º",
@@ -143,7 +143,8 @@ public class TestProcessToWordDataTest {
 
             rawRows.add(
                     //m
-                    mensajeLinks
+                    mensajeMixto
+                   // mensajeLinks
                     //mensajeCombinado
                     //mensajeExaustivo
             );

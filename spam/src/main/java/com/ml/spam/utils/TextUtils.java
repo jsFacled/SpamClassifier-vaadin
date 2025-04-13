@@ -3,6 +3,7 @@ package com.ml.spam.utils;
 import com.ml.spam.datasetProcessor.models.RowValidationResult;
 import com.ml.spam.dictionary.models.CharSize;
 import com.ml.spam.dictionary.models.MessageLabel;
+import com.ml.spam.dictionary.models.MetaTokenType;
 import com.ml.spam.dictionary.models.TokenType;
 
 import java.text.Normalizer;
@@ -164,8 +165,17 @@ public class TextUtils {
     public static boolean isWebAddress(String token) {
         if (token == null || token.isEmpty()) return false;
 
-        return token.toLowerCase().matches("^(http|https)://[\\w\\-\\.]+(/[\\w\\-\\.\\-/]*)?$");
+        // Si termina en punto, lo quita para chequear
+        if (token.endsWith(".")) {
+            token = token.substring(0, token.length() - 1);
+        }
+
+        token = token.toLowerCase();
+
+        return token.matches("^(http|https)://[\\w\\-\\.]+(/[\\w\\-\\.\\-/]*)?$")
+                || token.matches("^www\\.[\\w\\-]+(\\.[\\w\\-]+)+(/[\\w\\-]+)*$");
     }
+
 
     public static boolean isCharToken(String token) {
         return token.length() == 1 && Character.isLetter(token.charAt(0));
@@ -342,5 +352,30 @@ public class TextUtils {
             default -> CharSize.OVER_TEN_CHARS;
         };
     }
+
+    public static MetaTokenType getMetaTokenType(String token) {
+        if (token == null || token.isEmpty()) return null;
+
+        // Meta: Web Address
+        if (isWebAddress(token)) return MetaTokenType.META_WEBADDRESS;
+
+        // Meta: Web Email
+        if (isWebEmail(token)) return MetaTokenType.META_WEBEMAIL;
+
+        // Meta: Web Image
+        if (token.toLowerCase().matches(".*\\.(png|jpg|jpeg|gif|webp)$")) return MetaTokenType.META_WEBIMAGE;
+
+        // Meta: Document File
+        if (token.toLowerCase().matches(".*\\.(pdf|docx?|xlsx?|pptx?)$")) return MetaTokenType.META_DOCUMENTFILE;
+
+        // Meta: Encoded data (base64-like)
+        if (token.matches("^[A-Za-z0-9+/=]{16,}$")) return MetaTokenType.META_ENCODEDDATA;
+
+        // Meta: Long numeric string
+        if (token.matches("^\\d{10,}$")) return MetaTokenType.META_NUMBERSTRING;
+
+        return null; // No es meta
+    }
+
 
 }

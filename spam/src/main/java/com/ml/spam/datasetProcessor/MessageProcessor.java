@@ -76,18 +76,26 @@ public class MessageProcessor {
                 continue; // Salta al siguiente token
             }
 
+            // Subpaso 4.0: Chequear si es un MetaToken
+            MetaTokenType metaType = TextUtils.getMetaTokenType(token);
+            if (metaType != null) {
+                System.out.println("[META DETECTADO] " + token + " -> " + metaType.getWord());
+                wordDataList.add(new WordData(metaType.getWord(), label));
+                continue; // Saltea procesamiento normal
+            }
 
-                // Subpaso 4.1: Inicializar TokeenType y Clasificar el token
+            // Subpaso 4.1: Inicializar TokenType y clasificar
             TokenType tokenType = TextUtils.classifyToken(token);
-                // Subpaso 4.2: Procesar según la clasificación del token
-                processAllTokenSizes(token, tokenType, wordDataList, label);
-              displayTokenInConsole(token,tokenType);
 
+            // Subpaso 4.2: Procesar según la clasificación del token
+            processAllTokenSizes(token, tokenType, wordDataList, label);
+            displayTokenInConsole(token, tokenType);
         }
 
         // Paso 5: Retornar la lista de WordData procesada
         return wordDataList;
     }
+
 
     private static void processAllTokenSizes(String token, TokenType tokenType, List<WordData> wordDataList, String label) {
         switch (tokenType) {

@@ -221,7 +221,7 @@
   },
   "fiveChars" : {
     "contextualLexeme" : [ "éstos", "aquél" ],
-    "lexaccountactions" : [ ],
+
     "lexachievement" : [ "logre" ],
     "lexaction" : [ "hacen", "start" ],
     "lexactions" : [ "unete", "pedir", "hagas", "hacer", "envia", "envio", "dejar", "crear", "hagan", "tomar", "salir", "unete", "sigan", "click", "obten", "anade", "abras", "abres", "abrir", "acabo", "haces", "pongo", "corre", "elegi", "trata", "hazte", "rompe", "viene", "salga" ],

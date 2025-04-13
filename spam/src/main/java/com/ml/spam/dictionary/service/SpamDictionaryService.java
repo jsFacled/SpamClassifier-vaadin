@@ -721,7 +721,8 @@ updateDictionaryFromProcessedWordData(processedWordData);
             }
             // Verificar si la palabra pertenece a categorías protegidas
             if (isProtectedCategory(token)) {
-                System.out.printf("[INFO] Palabra '%s' en categoría protegida no será modificada.%n", token);
+                updateExistingWordFrequencies(token, wordData); //
+                System.out.printf("[INFO] Palabra '%s' en categoría protegida: solo se actualiza frecuencia.%n", token);
                 continue;
             }
 
@@ -760,7 +761,7 @@ updateDictionaryFromProcessedWordData(processedWordData);
     }
 
     private void updateOrReassignWord(String token, WordData wordData) {
-        // Validación: ignorar tokens vacíos o nulos
+        // Validación de token vacío o nulo
         if (token == null || token.trim().isEmpty()) {
             System.out.printf("[DEBUG] Ignorando token vacío o nulo al actualizar o reasignar: '%s'%n", token);
             return;
@@ -768,7 +769,7 @@ updateDictionaryFromProcessedWordData(processedWordData);
 
         WordCategory currentCategory = null;
 
-        // Buscar la categoría actual de la palabra
+        // Buscar la categoría actual del token
         for (WordCategory category : WordCategory.values()) {
             if (dictionary.getCategory(category).containsKey(token)) {
                 currentCategory = category;
@@ -776,21 +777,31 @@ updateDictionaryFromProcessedWordData(processedWordData);
             }
         }
 
-        // Determinar la categoría final
+        // Determinar la nueva categoría en base a las frecuencias
         WordCategory newCategory = determineCategoryByFrequency(wordData);
 
-        if (currentCategory != null) {
-            if (!currentCategory.equals(newCategory)) {
-                // Mover la palabra si la categoría cambia
-                moveWordToCategory(token, wordData, currentCategory, newCategory, dictionary.getCategorizedWords());
-            } else {
-                // Actualizar frecuencias en la misma categoría
-                updateExistingWordFrequencies(token, wordData);
-            }
-        } else {
-            // Palabra nueva: agregar directamente
-            dictionary.addWordWithFrequencies(newCategory, token, wordData.getSpamFrequency(), wordData.getHamFrequency());
+        // 1. Si la palabra ya existe y está en categoría protegida (no mover, solo actualizar)
+        if (currentCategory != null && List.of(WordCategory.RARE_SYMBOLS, WordCategory.STOP_WORDS).contains(currentCategory)) {
+            updateExistingWordFrequencies(token, wordData);
+            System.out.printf("[INFO] Token '%s' en categoría protegida '%s' → solo se actualiza frecuencia.%n", token, currentCategory);
+            return;
         }
+
+        // 2. Si existe y cambia de categoría → actualizar primero, luego mover
+        if (currentCategory != null && !currentCategory.equals(newCategory)) {
+            updateExistingWordFrequencies(token, wordData);
+            moveWordToCategory(token, dictionary.getCategory(currentCategory).get(token), currentCategory, newCategory, dictionary.getCategorizedWords());
+            return;
+        }
+
+        // 3. Si existe y se mantiene en misma categoría → solo sumar frecuencias
+        if (currentCategory != null) {
+            updateExistingWordFrequencies(token, wordData);
+            return;
+        }
+
+        // 4. Si no existía → agregar nuevo WordData al diccionario con su categoría calculada
+        dictionary.addWordWithFrequencies(newCategory, token, wordData.getSpamFrequency(), wordData.getHamFrequency());
     }
 
 

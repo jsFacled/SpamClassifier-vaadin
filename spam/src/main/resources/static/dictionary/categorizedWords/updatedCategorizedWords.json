@@ -93,11 +93,11 @@
       "spamFrequency" : 0
     },
     "lexexclamations" : {
-      "hamFrequency" : 0,
+      "hamFrequency" : 2,
       "spamFrequency" : 0
     },
     "lexsymbols" : {
-      "hamFrequency" : 0,
+      "hamFrequency" : 1,
       "spamFrequency" : 0
     },
     "unknownemojis" : {
@@ -106,57 +106,53 @@
     }
   },
   "stopWords" : {
-    "lexaccountactions" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
-    },
     "lexadverbs" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
+      "hamFrequency" : 7,
+      "spamFrequency" : 4
     },
     "lexauxiliaryverbs" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
+      "hamFrequency" : 12,
+      "spamFrequency" : 2
     },
     "lexcalendar" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
+      "hamFrequency" : 4,
+      "spamFrequency" : 7
     },
     "lexcodes" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
+      "hamFrequency" : 5,
+      "spamFrequency" : 2
     },
     "lexconjunctions" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
+      "hamFrequency" : 10,
+      "spamFrequency" : 11
     },
     "lexdeterminers" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
+      "hamFrequency" : 37,
+      "spamFrequency" : 41
     },
     "lexdimensions" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 0
+      "spamFrequency" : 1
     },
     "lexneutral" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
+      "hamFrequency" : 9,
+      "spamFrequency" : 1
     },
     "lexprepositions" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
+      "hamFrequency" : 75,
+      "spamFrequency" : 109
     },
     "lexpronouns" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
+      "hamFrequency" : 110,
+      "spamFrequency" : 92
     },
     "lexunits" : {
       "hamFrequency" : 0,
       "spamFrequency" : 0
     },
     "lexvowel" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 0
+      "hamFrequency" : 17,
+      "spamFrequency" : 8
     },
     "numsuperhigh" : {
       "hamFrequency" : 0,
@@ -177,6 +173,10 @@
     "escanea" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
+    },
+    "lexaccountactions" : {
+      "hamFrequency" : 5,
+      "spamFrequency" : 2
     },
     "lexaction" : {
       "hamFrequency" : 1,

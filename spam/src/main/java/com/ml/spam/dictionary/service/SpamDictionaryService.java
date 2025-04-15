@@ -332,15 +332,23 @@ updateDictionaryFromProcessedWordData(processedWordData);
 
             switch (t) {
                 case HAM_INDICATOR:
-                    if (((double) ham / (spam + 1)) >= t.getRatio()) return WordCategory.HAM_INDICATORS;
+                    if (((double) ham / (spam + 1)) >= t.getRatio())
+                        return WordCategory.HAM_INDICATORS;
                     break;
                 case STRONG_SPAM:
                     return WordCategory.STRONG_SPAM_WORD;
                 case MODERATE_SPAM:
-                    if (((double) spam / (ham + 1)) >= t.getRatio()) return WordCategory.MODERATE_SPAM_WORD;
+                    if (((double) spam / (ham + 1)) >= t.getRatio())
+                        return WordCategory.MODERATE_SPAM_WORD;
                     break;
                 case WEAK_SPAM:
-                    if (((double) spam / (ham + 1)) >= t.getRatio()) return WordCategory.WEAK_SPAM_WORD;
+                    if (((double) spam / (ham + 1)) >= t.getRatio())
+                        return WordCategory.WEAK_SPAM_WORD;
+                    break;
+                case NEUTRAL_BALANCED:
+                    double ratio = (double) spam / (ham + 1);
+                    if (ratio >= 1 / t.getRatio() && ratio <= t.getRatio())
+                        return WordCategory.NEUTRAL_BALANCED_WORD;
                     break;
             }
         }

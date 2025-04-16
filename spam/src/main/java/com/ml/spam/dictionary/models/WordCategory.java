@@ -7,22 +7,31 @@ public enum WordCategory {
     HAM_INDICATORS("hamIndicators", 0.5),
     STOP_WORDS("stopWords", 0),
     RARE_SYMBOLS("rareSymbols", 0.5),
-    NEUTRAL_BALANCED_WORD("neutralBalancedWords", 0.0),  // Nueva categoría
+    NEUTRAL_BALANCED_WORD("neutralBalancedWords", 0.0), // Nueva categoría
     UNASSIGNED_WORDS("unassignedWords", 0);
 
-    private final String name;
+    private final String jsonKey;
     private final double weight;
 
-    WordCategory(String name, double weight) {
-        this.name = name;
+    WordCategory(String jsonKey, double weight) {
+        this.jsonKey = jsonKey;
         this.weight = weight;
     }
 
-    public String getName() {
-        return name;
+    public String getJsonKey() {
+        return jsonKey;
     }
 
     public double getWeight() {
         return weight;
+    }
+
+    public static WordCategory fromJsonKey(String key) {
+        for (WordCategory category : values()) {
+            if (category.jsonKey.equalsIgnoreCase(key)) {
+                return category;
+            }
+        }
+        throw new IllegalArgumentException("Invalid WordCategory key: " + key);
     }
 }

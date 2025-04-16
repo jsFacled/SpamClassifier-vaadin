@@ -1,3 +1,7 @@
 {
+  "lexlegal": ["estatutos", "oficiales"],
+  "lexreflection": ["reflexion"],
+  "lexclothing": ["ropa"],
+  "lexunknown": ["teraserver"]
 
 }

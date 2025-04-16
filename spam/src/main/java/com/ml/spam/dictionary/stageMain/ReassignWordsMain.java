@@ -4,7 +4,11 @@ import com.ml.spam.config.FilePathsConfig;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
 
 public class ReassignWordsMain {
+    // Archivo de entrada: diccionario previamente actualizado
     private static final String updatedCatWordsPath = "static/dictionary/categorizedWords/updatedCategorizedWords_2.json";
+
+    // Archivo de salida definitivo: con reasignaciones manuales ya incorporadas
+    private static final String finalOutputPath = "static/dictionary/categorizedWords/finalCategorizedWords.json";
 
     public static void main(String[] args) {
         try {
@@ -20,12 +24,10 @@ public class ReassignWordsMain {
             service.initializeCategorizedWordsFromJsonPath(updatedCatWordsPath);
 
             System.out.println("[ STAGE 2 ] Reasignando palabras según sus frecuencias...");
-            // Reasignar palabras basándose en el archivo JSON actualizado
             service.reassignWordsFromUpdatedJson();
 
-            System.out.println("[ STAGE 3 ] Exportando diccionario reasignado...");
-            // Exporta el diccionario reasignado
-            service.exportUpdatedCategorizedWords(FilePathsConfig.BASE_OUTPUT_JSON_PATH);
+            System.out.println("[ STAGE 3 ] Exportando diccionario reasignado como archivo final...");
+            service.exportUpdatedCategorizedWords(finalOutputPath);
 
             long endTime = System.nanoTime();
             System.out.printf("\nProceso completado en %.2f ms%n", (endTime - startTime) / 1_000_000.0);

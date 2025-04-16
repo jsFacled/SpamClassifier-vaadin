@@ -1,0 +1,2 @@
+Ya tengo el diccionario.
+En esta etapa se elabora la estructura del Dataset.

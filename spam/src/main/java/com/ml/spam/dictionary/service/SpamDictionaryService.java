@@ -117,11 +117,6 @@ public class SpamDictionaryService {
     }
 
 
-
-
-
-
-
     private Map<WordCategory, List<String>> cleanCategoryMap(Map<WordCategory, List<String>> categoryMap) {
         Map<WordCategory, List<String>> cleanedMap = new HashMap<>();
 
@@ -189,7 +184,6 @@ public class SpamDictionaryService {
 
         System.out.println("[INFO] CATEGORIZED WORDS inicializados correctamente.");
     }
-
 
 
     public void initializeLexemes(String lexemePath) {
@@ -263,7 +257,6 @@ public class SpamDictionaryService {
     }
 
 
-
     public void updateDictionaryFromCsvMessages(String csvMessagesFilePath) throws IOException {
         // 1. Obtener filas crudas del archivo CSV utilizando el ResourcesHandler
         List<String[]> rawRows = resourcesHandler.loadCsvFile(csvMessagesFilePath);
@@ -319,42 +312,6 @@ updateDictionaryFromProcessedWordData(processedWordData);
         System.out.println("Diccionario actualizado correctamente con datos del archivo TXT: " + txtFilePath);
     }
 
-
-    private WordCategory determineCategoryByFrequency(WordData data) {
-        int spam = data.getSpamFrequency();
-        int ham = data.getHamFrequency();
-
-        for (CategoryFrequencyThresholds t : CategoryFrequencyThresholds.values()) {
-            boolean hamInRange = ham >= t.getMinHam() && ham <= t.getMaxHam();
-            boolean spamInRange = spam >= t.getMinSpam() && spam <= t.getMaxSpam();
-
-            if (!hamInRange || !spamInRange) continue;
-
-            switch (t) {
-                case HAM_INDICATOR:
-                    if (((double) ham / (spam + 1)) >= t.getRatio())
-                        return WordCategory.HAM_INDICATORS;
-                    break;
-                case STRONG_SPAM:
-                    return WordCategory.STRONG_SPAM_WORD;
-                case MODERATE_SPAM:
-                    if (((double) spam / (ham + 1)) >= t.getRatio())
-                        return WordCategory.MODERATE_SPAM_WORD;
-                    break;
-                case WEAK_SPAM:
-                    if (((double) spam / (ham + 1)) >= t.getRatio())
-                        return WordCategory.WEAK_SPAM_WORD;
-                    break;
-                case NEUTRAL_BALANCED:
-                    double ratio = (double) spam / (ham + 1);
-                    if (ratio >= 1 / t.getRatio() && ratio <= t.getRatio())
-                        return WordCategory.NEUTRAL_BALANCED_WORD;
-                    break;
-            }
-        }
-
-        return WordCategory.UNASSIGNED_WORDS;
-    }
 
 
     private void updateExistingWordFrequencies(String token, WordData wordData) {
@@ -524,12 +481,13 @@ updateDictionaryFromProcessedWordData(processedWordData);
     /**----------------------------------------------------------
      * ------------- REASIGNACIÓN DE PALABRAS --------------------
      * ---------------------------------------------------------*/
+
+
     public void reassignWordsFromUpdatedJson() {
         String word = null;
         WordCategory currentCategory = null;
 
         try {
-            // Obtener las palabras categorizadas del diccionario
             Map<WordCategory, Map<String, WordData>> categoryMapMap = dictionary.getAllCategorizedWords();
 
             if (categoryMapMap == null || categoryMapMap.isEmpty()) {
@@ -537,57 +495,95 @@ updateDictionaryFromProcessedWordData(processedWordData);
                 return;
             }
 
-            // Iterar por cada categoría y palabra
             for (Map.Entry<WordCategory, Map<String, WordData>> categoryEntry : categoryMapMap.entrySet()) {
                 currentCategory = categoryEntry.getKey();
 
-                // Saltar categorías que no deben modificarse
                 if (currentCategory == WordCategory.RARE_SYMBOLS || currentCategory == WordCategory.STOP_WORDS) {
-                    System.out.printf("[INFO protection!! ] La categoría '%s' está protegida y no se modificará.%n", currentCategory.getJsonKey());
+                    System.out.printf("[INFO] La categoría '%s' está protegida y no se modificará.%n", currentCategory.getJsonKey());
                     continue;
                 }
 
                 Map<String, WordData> words = categoryEntry.getValue();
-
-                if (words == null || words.isEmpty()) {
-                    System.out.printf("[WARNING] La categoría '%s' no contiene palabras.%n", currentCategory.getJsonKey());
-                    continue;
-                }
+                if (words == null || words.isEmpty()) continue;
 
                 for (Map.Entry<String, WordData> wordEntry : new HashMap<>(words).entrySet()) {
                     word = wordEntry.getKey();
                     WordData wordData = wordEntry.getValue();
 
-                    // Validar palabra y frecuencias
                     if (word == null || wordData == null || wordData.getSpamFrequency() < 0 || wordData.getHamFrequency() < 0) {
-                        System.err.printf("[ERROR] Palabra o frecuencias inválidas en '%s'. Ignorando.%n", word);
+                        System.err.printf("[ERROR] Palabra o frecuencias inválidas en '%s'.%n", word);
                         continue;
                     }
 
-                    // Eliminar palabras con frecuencias cero
                     if (wordData.getSpamFrequency() == 0 && wordData.getHamFrequency() == 0) {
                         words.remove(word);
                         System.out.printf("[INFO] Palabra '%s' eliminada por frecuencias cero.%n", word);
                         continue;
                     }
 
-                    // Determinar nueva categoría
-                    WordCategory newCategory = determineCategoryByFrequency(wordData);
+                    WordCategory newCategory = determineCategory(wordData);
 
-                    // Reasignar si la categoría cambia
                     if (!currentCategory.equals(newCategory)) {
                         moveWordToCategory(word, wordData, currentCategory, newCategory, categoryMapMap);
                     }
                 }
             }
 
-            System.out.println("[INFO] Reasignación de palabras completada.\n");
+            System.out.println("[INFO] Reasignación de palabras completada.");
             System.out.printf("[INFO] Total de palabras movidas: %d%n", movementLog.size());
+
         } catch (Exception e) {
             System.err.printf("[ERROR] Falló al procesar palabra '%s' en categoría '%s': %s%n",
                     word, currentCategory != null ? currentCategory.getJsonKey() : "desconocida", e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    public WordCategory determineCategory(WordData wordData) {
+        int hamFreq = wordData.getHamFrequency();
+        int spamFreq = wordData.getSpamFrequency();
+        int total = hamFreq + spamFreq;
+
+        if (hamFreq <= 2 && spamFreq <= 2) {
+            return WordCategory.UNASSIGNED_WORDS; // Paso 1: muy pocas apariciones
+        }
+
+        if (spamFreq == 0 && hamFreq > 2) {
+            return WordCategory.HAM_INDICATORS; // Paso 2: solo ham
+        }
+
+        if (hamFreq == 0 && spamFreq > 2) { // Paso 3: solo spam
+            if (spamFreq >= 15) return WordCategory.STRONG_SPAM_WORD;
+            if (spamFreq >= 8)  return WordCategory.MODERATE_SPAM_WORD;
+            return WordCategory.WEAK_SPAM_WORD;
+        }
+
+        double spamRatio = spamFreq * 1.0 / total;
+        double hamRatio = hamFreq * 1.0 / total;
+        double spamToHam = spamFreq * 1.0 / (hamFreq + 1);
+        double hamToSpam = hamFreq * 1.0 / (spamFreq + 1);
+
+        if (Math.abs(spamRatio - hamRatio) <= 0.15) {
+            return WordCategory.NEUTRAL_BALANCED_WORD; // Paso 4: proporciones similares
+        }
+
+        if (hamRatio >= 0.70) {
+            return WordCategory.HAM_INDICATORS; // Paso 5: predominio ham
+        }
+
+        if (spamRatio >= 0.85 && spamToHam >= 3.0 && spamFreq >= 8) {
+            return WordCategory.STRONG_SPAM_WORD; // Paso 6.1: spam fuerte
+        }
+
+        if (spamRatio >= 0.66 && spamToHam >= 2.0) {
+            return WordCategory.MODERATE_SPAM_WORD; // Paso 6.2: spam moderado
+        }
+
+        if (spamRatio >= 0.50 && spamToHam >= 1.2) {
+            return WordCategory.WEAK_SPAM_WORD; // Paso 6.3: spam débil
+        }
+
+        return WordCategory.NEUTRAL_BALANCED_WORD; // Paso 7: por descarte
     }
 
 
@@ -786,7 +782,7 @@ updateDictionaryFromProcessedWordData(processedWordData);
         }
 
         // Determinar la nueva categoría en base a las frecuencias
-        WordCategory newCategory = determineCategoryByFrequency(wordData);
+        WordCategory newCategory = determineCategory(wordData);
 
         // 1. Si la palabra ya existe y está en categoría protegida (no mover, solo actualizar)
         if (currentCategory != null && List.of(WordCategory.RARE_SYMBOLS, WordCategory.STOP_WORDS).contains(currentCategory)) {

@@ -6,11 +6,11 @@ package com.ml.spam.dictionary.models;
  */
 public enum CategoryFrequencyThresholds {
 
-    HAM_INDICATOR(3, Integer.MAX_VALUE, 0, 60, 1.3),
     STRONG_SPAM(0, 0, 8, Integer.MAX_VALUE, Double.POSITIVE_INFINITY),
-    MODERATE_SPAM(0, 2, 4, Integer.MAX_VALUE, 4.0),
+    MODERATE_SPAM(1, 2, 4, Integer.MAX_VALUE, 4.0),
+    NEUTRAL_BALANCED(2, Integer.MAX_VALUE, 2, Integer.MAX_VALUE, 1.25),
     WEAK_SPAM(0, Integer.MAX_VALUE, 2, Integer.MAX_VALUE, 1.5),
-    NEUTRAL_BALANCED(2, Integer.MAX_VALUE, 2, Integer.MAX_VALUE, 1.5);  // Nueva categoría
+    HAM_INDICATOR(3, Integer.MAX_VALUE, 0, 60, 1.3);  // Restaurado límite superior de spam
 
     private final int minHam;
     private final int maxHam;

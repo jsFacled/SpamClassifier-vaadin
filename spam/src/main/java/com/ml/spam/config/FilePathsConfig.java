@@ -18,9 +18,11 @@ public class FilePathsConfig {
     public static final String TEST_MESSAGES_CSV_ESPAÑOL_DATA_PATH = "static/datasets/test-mensajesEspañol.csv";
     public static final String TRAIN_MESSAGES_CSV_ESPAÑOL_DATA_PATH = "static/datasets/train-mensajesEspañol.csv";
     public static final String CORREOS_SPAM_FAC_TXT_PATH = "static/datasets/correos-spam-fac.txt";
+    public static final String CLEANED_TRAIN_MESSAGES_CSV_PATH = "static/datasets/train-mensajesEspañol_cleaned.csv";
 
 
-    public static final String BASE_OUTPUT_JSON_PATH = "static/dictionary/categorizedWords/updatedCategorizedWords.json";
     public static final String CATEGORIZED_WORDS_ONLY_BASE_JSON_PATH = "static/dictionary/categorizedWords/updatedCategorizedWordsOnly.json";
+    public static final String BASE_OUTPUT_JSON_PATH = "static/dictionary/categorizedWords/updatedCategorizedWords.json";
+    public static final String DICTIONARY_METADATA_JSON_PATH = "static/dictionary/categorizedWords/dictionary_metadata.json";
 
 }

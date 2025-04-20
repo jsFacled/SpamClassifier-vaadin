@@ -1,9 +1,8 @@
 package com.ml.spam.utils;
 
-import com.ml.spam.dictionary.models.FrequencyKey;
-import com.ml.spam.dictionary.models.CharSize;
-import com.ml.spam.dictionary.models.WordCategory;
-import com.ml.spam.dictionary.models.WordData;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ml.spam.dictionary.models.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -420,6 +419,70 @@ public class JsonUtils {
         }
 
         return categorizedWords;
+    }
+
+    public static JSONObject spamDictionaryMetadataToJson(SpamDictionaryMetadata metadata) {
+        JSONObject json = new JSONObject();
+
+        // Metadatos globales
+        json.put("totalInstances", metadata.getTotalInstances());
+        json.put("totalHam", metadata.getTotalHam());
+        json.put("totalSpam", metadata.getTotalSpam());
+        json.put("totalDatasetsProcessed", metadata.getTotalDatasetsProcessed());
+
+        // Nuevo campo: nombre del archivo de diccionario exportado
+        json.put("exportedDictionaryFileName", metadata.getExportedDictionaryFileName());
+
+        // Detalle de datasets
+        JSONArray datasetArray = new JSONArray();
+        for (DatasetMetadata d : metadata.getDatasetDetails()) {
+            JSONObject dJson = new JSONObject();
+            dJson.put("id", d.getId());
+            dJson.put("instances", d.getInstances());
+            dJson.put("ham", d.getHam());
+            dJson.put("spam", d.getSpam());
+            dJson.put("timestamp", d.getTimestamp());
+            datasetArray.put(dJson);
+        }
+
+        json.put("datasetDetails", datasetArray);
+
+        return json;
+    }
+
+    public static SpamDictionaryMetadata jsonToSpamDictionaryMetadata(JSONObject json) {
+        // Lógica para mapear el JSON al objeto SpamDictionaryMetadata
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.readValue(json.toString(), SpamDictionaryMetadata.class);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException("Error al convertir JSON a SpamDictionaryMetadata: " + e.getMessage(), e);
+        }
+    }
+
+    public static void validateMetadataJsonStructure(JSONObject json) {
+        if (json == null) {
+            throw new IllegalArgumentException("El JSON de metadatos es nulo.");
+        }
+
+        List<String> requiredFields = Arrays.asList(
+                "totalDatasetsProcessed",
+                "totalInstances",
+                "totalHam",
+                "totalSpam",
+                "datasetDetails",
+                "exportedDictionaryFileName"
+        );
+
+        for (String field : requiredFields) {
+            if (!json.has(field)) {
+                throw new IllegalArgumentException("Falta el campo obligatorio en metadata JSON: " + field);
+            }
+        }
+
+        if (!json.get("datasetDetails").toString().startsWith("[")) {
+            throw new IllegalArgumentException("El campo 'datasetDetails' debe ser un arreglo JSON.");
+        }
     }
 
 }

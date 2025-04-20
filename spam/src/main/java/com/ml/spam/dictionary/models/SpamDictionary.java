@@ -12,6 +12,8 @@ public class SpamDictionary {
     // Repositorio de lexemas organizado por CharSize
     private final Map<CharSize, Map<String, Set<String>>> lexemeRepository = new HashMap<>();
 
+    private final SpamDictionaryMetadata metadata = new SpamDictionaryMetadata();
+
     /**
      * Constructor privado para inicializar el Singleton.
      * Inicializa los mapas vacíos pero con sus estructuras.
@@ -176,7 +178,21 @@ return categorizedWords;
     }
 
     // ============================
-    // Clase Interna: Pair
+    // Metadata
     // ============================
+    public SpamDictionaryMetadata getMetadata() {
+        return metadata;
+    }
+    public void setMetadata(SpamDictionaryMetadata metadata) {
+        if (metadata != null) {
+            this.metadata.setDatasetDetails(metadata.getDatasetDetails());
+            this.metadata.setTotalSpam(metadata.getTotalSpam());
+            this.metadata.setTotalHam(metadata.getTotalHam());
+            this.metadata.setTotalInstances(metadata.getTotalInstances());
+            this.metadata.setTotalDatasetsProcessed(metadata.getTotalDatasetsProcessed());
+            this.metadata.setExportedDictionaryFileName(metadata.getExportedDictionaryFileName());
+        }
+    }
+
 
    }

@@ -1,7 +1,5 @@
 package com.ml.spam.dictionary.service;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ml.spam.datasetProcessor.MessageProcessor;
 import com.ml.spam.dictionary.models.*;
 import com.ml.spam.dictionary.reports.DictionarySummaryReport;
@@ -159,11 +157,11 @@ public class SpamDictionaryService {
         }
     }
 
-    public void initializeDictionaryFromJson(String catWordsPath, String lexemePath) {
+    public void initializeDictionaryFromJson(String catWordsPath, String lexemePath, String metadataPath) {
         try {
             initializeCategorizedWordsFromJsonPath(catWordsPath);
-
             initializeLexemes(lexemePath);
+            initializeMetadata(metadataPath);
 
             System.out.println("\n[INFO] Diccionario inicializado correctamente.");
             // displayCategorizedWordsInDictionary();
@@ -221,6 +219,24 @@ public class SpamDictionaryService {
         }
     }
 
+    public void initializeMetadata(String metadataPath) {
+        try {
+            System.out.println("[INFO] Iniciando carga de metadata desde: " + metadataPath);
+
+            JSONObject metadataJson = resourcesHandler.loadJson(metadataPath);
+            JsonUtils.validateMetadataJsonStructure(metadataJson);
+
+            // Convertir el JSON a un objeto SpamDictionaryMetadata
+            SpamDictionaryMetadata metadata = JsonUtils.jsonToSpamDictionaryMetadata(metadataJson);
+
+            // Cargar el objeto en el diccionario
+            dictionary.setMetadata(metadata);
+
+            System.out.println("[INFO] Metadata inicializado correctamente.");
+        } catch (Exception e) {
+            throw new RuntimeException("Error al inicializar los metadatos: " + e.getMessage(), e);
+        }
+    }
 
     public void initializeCategorizedWordsFromJsonPath(String catWordsfilePath) {
         try {
@@ -277,15 +293,23 @@ public class SpamDictionaryService {
         }
 
         // 5. Obtener recursos necesarios para el procesamiento
-
         Map<CharSize, Map<String, Set<String>>> lexemeRepository = dictionary.getLexemesRepository();
 
         // 6. Procesar las filas válidas para obtener listas de WordData
-        List<List<WordData>> processedWordData = MessageProcessor.processToWordData(validRows,lexemeRepository);
+        List<List<WordData>> processedWordData = MessageProcessor.processToWordData(validRows, lexemeRepository);
 
-        // 7. Actualizar el diccionario con los datos procesados
+        // 7. Actualizar contadores en el metadata
+      /*  for (String[] row : validRows) {
+            if (TextUtils.isSpamRow(row)) {
+                SpamDictionary.getInstance().getMetadata().incrementSpam();
+            } else {
+                SpamDictionary.getInstance().getMetadata().incrementHam();
+            }
+        }
+*/
+        // 8. Actualizar el diccionario con los datos procesados
+        updateDictionaryFromProcessedWordData(processedWordData);
 
-updateDictionaryFromProcessedWordData(processedWordData);
         System.out.println("Diccionario actualizado correctamente con datos del archivo: " + csvMessagesFilePath);
     }
 
@@ -294,21 +318,34 @@ updateDictionaryFromProcessedWordData(processedWordData);
         // Leer filas desde el archivo TXT
         List<String[]> rawRows = resourcesHandler.loadTxtFileAsRows(txtFilePath, label);
 
-        // Validar filas y procesarlas
         if (rawRows == null || rawRows.isEmpty()) {
             throw new IllegalArgumentException("El archivo TXT no contiene datos válidos.");
         }
 
-        // Procesar filas usando el MessageProcessor
-
+        // Obtener repositorio de lexemas
         Map<CharSize, Map<String, Set<String>>> lexemeRepository = dictionary.getLexemesRepository();
-        List<List<WordData>> processedWordData = MessageProcessor.processToWordData(rawRows,  lexemeRepository);
 
-        // Actualizar el diccionario con los datos procesados
+        // Procesar a listas de WordData
+        List<List<WordData>> processedWordData = MessageProcessor.processToWordData(rawRows, lexemeRepository);
 
+        // Contabilizar en metadatos según etiqueta
+        if (label.equalsIgnoreCase("spam")) {
+            for (List<WordData> message : processedWordData) {
+                for (WordData wd : message) {
+                    SpamDictionary.getInstance().getMetadata().incrementSpam();
+                }
+            }
+        } else if (label.equalsIgnoreCase("ham")) {
+            for (List<WordData> message : processedWordData) {
+                for (WordData wd : message) {
+                    SpamDictionary.getInstance().getMetadata().incrementHam();
+                }
+            }
+        }
+
+        // Actualizar el diccionario
         updateDictionaryFromProcessedWordData(processedWordData);
 
-        //updateDictionaryFromProcessedWordData(processedWordData);
         System.out.println("Diccionario actualizado correctamente con datos del archivo TXT: " + txtFilePath);
     }
 
@@ -910,7 +947,30 @@ updateDictionaryFromProcessedWordData(processedWordData);
         resourcesHandler.updateLexemeRepositoryFromJsonList(repositoryPath, inputJsonPath);
     }
 
+    ///////////////////////////////////////////////////////////
+    // ********* Metadata del SpamDictionary ******************
+    ///////////////////////////////////////////////////////////
+    public void exportMetadataJson(String relativePath, String exportedDictionaryPath) {
+        try {
+            // Obtener el objeto metadata directamente
+            SpamDictionaryMetadata metadata = SpamDictionary.getInstance().getMetadata();
 
+            // Extraer solamente el nombre del archivo del diccionario exportado para agregarlo al campo correspondiente del metadata
+            String fileName = exportedDictionaryPath.substring(exportedDictionaryPath.lastIndexOf("/") + 1);
+            metadata.setExportedDictionaryFileName(fileName);
+
+            // Convertir a JSONObject manualmente
+            JSONObject json = JsonUtils.spamDictionaryMetadataToJson(metadata);
+
+            // Generar path único y guardar usando el handler
+            String uniquePath = resourcesHandler.getUniqueFilePath(relativePath);
+            resourcesHandler.saveJson(json, uniquePath);
+
+            System.out.println("[INFO] Metadatos exportados exitosamente a: " + uniquePath);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al exportar metadatos: " + e.getMessage(), e);
+        }
+    }
 
 
 

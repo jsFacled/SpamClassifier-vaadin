@@ -1,60 +1,58 @@
 package com.ml.spam.dictionary.stageMain;
 
 import com.ml.spam.config.FilePathsConfig;
+import com.ml.spam.dictionary.models.DatasetMetadata;
+import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
 
 public class UpdateDictionaryFromTripleQuotesTxtMain {
-    // Nombre del archivo TXT a procesar
+
     private static final String inputTxtFilePath = "static/datasets/correos-spam-fac.txt";
-    // Nombre del archivo que se generará al exportar categorizedWords.
-    // No sobreescribe. Si existe se incrementará un número.
     private static final String baseOutputPath = FilePathsConfig.BASE_OUTPUT_JSON_PATH;
 
-    //Elementos del Dictionary
     private static final String updatedCatWordsPath = "static/dictionary/categorizedWords/updatedCategorizedWords_1.json";
-   private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+    private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+    private static final String dictionaryMetadataJsonPath = FilePathsConfig.DICTIONARY_METADATA_JSON_PATH;
 
-    // Etiqueta para los mensajes (en este caso, spam)
     private static final String messageLabel = "spam";
 
     public static void main(String[] args) {
         try {
-            // Inicia temporizador para calcular el tiempo de procesamiento
             long startTime = System.nanoTime();
-
             System.out.println("=== INICIANDO PROCESO DE ACTUALIZACIÓN DEL DICCIONARIO DESDE TXT ===");
 
-            // Inicializa el servicio de diccionario
             SpamDictionaryService service = new SpamDictionaryService();
 
-            System.out.println("[ STAGE 1 ] Inicializando el diccionario desde los datos previos...");
-            service.initializeDictionaryFromJson(updatedCatWordsPath,lexemePath
-            );
+            System.out.println("[ STAGE 1 ] Inicializando el diccionario...");
+            service.initializeDictionaryFromJson(updatedCatWordsPath, lexemePath, dictionaryMetadataJsonPath);
 
-            // Mostrar el contenido inicial del diccionario
-           //service.displayCategorizedWordsInDictionary();
+            int previousSpam = SpamDictionary.getInstance().getMetadata().getTotalSpam();
+            int previousHam = SpamDictionary.getInstance().getMetadata().getTotalHam();
+            int previousTotal = previousSpam + previousHam;
 
-            System.out.println("[ STAGE 2 ] Procesando mensajes desde archivo TXT...");
-            // Actualiza el diccionario utilizando el archivo TXT con triples comillas
+            System.out.println("[ STAGE 2 ] Procesando archivo TXT...");
             service.updateDictionaryFromTxt(inputTxtFilePath, messageLabel);
 
+            int newSpam = SpamDictionary.getInstance().getMetadata().getTotalSpam() - previousSpam;
+            int newHam = SpamDictionary.getInstance().getMetadata().getTotalHam() - previousHam;
+            int newTotal = newSpam + newHam;
 
-            System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////////////////////");
-            //service.displayCategorizedWordsInDictionary();
-            System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////////////////////");
+            String datasetFileName = inputTxtFilePath.substring(inputTxtFilePath.lastIndexOf("/") + 1);
+            String timestamp = java.time.LocalDateTime.now().toString();
 
+            SpamDictionary.getInstance().getMetadata().addDataset(new DatasetMetadata(
+                    datasetFileName,
+                    newTotal,
+                    newHam,
+                    newSpam,
+                    timestamp
+            ));
 
+            SpamDictionary.getInstance().getMetadata().incrementDatasetsProcessed();
 
-            System.out.println("[ STAGE 3 ] Exportando diccionario actualizado...");
-            // Exporta el diccionario actualizado a un archivo JSON
+            System.out.println("[ STAGE 3 ] Exportando...");
             service.exportUpdatedCategorizedWords(baseOutputPath);
-
-
-            System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////////////////////");
-            // Mostrar el contenido final del diccionario
-           //service.displayCategorizedWordsInDictionary();
-            System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////////////////////");
-
+            service.exportMetadataJson(dictionaryMetadataJsonPath, baseOutputPath);
 
             long endTime = System.nanoTime();
             System.out.printf("Proceso completado en %.2f ms%n", (endTime - startTime) / 1_000_000.0);

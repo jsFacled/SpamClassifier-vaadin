@@ -1,0 +1,20 @@
+{
+  "datasetDetails" : [ {
+    "ham" : 109,
+    "id" : "test-mensajesEspañol.csv",
+    "instances" : 209,
+    "spam" : 100,
+    "timestamp" : "2025-04-19T21:31:33.051327800"
+  }, {
+    "ham" : 0,
+    "id" : "correos-spam-fac.txt",
+    "instances" : 27660,
+    "spam" : 27660,
+    "timestamp" : "2025-04-20T09:00:58.294830600"
+  } ],
+  "exportedDictionaryFileName" : "updatedCategorizedWords.json",
+  "totalDatasetsProcessed" : 3,
+  "totalHam" : 109,
+  "totalInstances" : 27869,
+  "totalSpam" : 27760
+}

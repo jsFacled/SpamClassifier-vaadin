@@ -1,60 +1,72 @@
 package com.ml.spam.dictionary.stageMain;
 
 import com.ml.spam.config.FilePathsConfig;
+import com.ml.spam.dictionary.models.DatasetMetadata;
 import com.ml.spam.dictionary.reports.DictionarySummaryReport;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
+import com.ml.spam.dictionary.models.SpamDictionary;
 
 import java.io.IOException;
 
 public class UpdateDictionaryMain {
-    // Nombre del archivo que se generará al exportar categorizedWords.
-    // No sobreescribe. Si existe se incrementará un número.
+
     private static final String baseOutputPath = FilePathsConfig.BASE_OUTPUT_JSON_PATH;
+    private static final String dictionaryMetadataJsonPath = FilePathsConfig.DICTIONARY_METADATA_JSON_PATH;
 
-    //Elementos del Dictionary
-    private static final String updatedCatWordsPath = "static/dictionary/categorizedWords/updatedCategorizedWords.json";
-   private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
-
-    private static final String TestMessagesFilePath = FilePathsConfig.TEST_MESSAGES_CSV_ESPAÑOL_DATA_PATH;
-    private static final String TrainMessagesFilePath = FilePathsConfig.TRAIN_MESSAGES_CSV_ESPAÑOL_DATA_PATH;
-    private static final String CleanedTrainMessagesFilePath = "static/datasets/train-mensajesEspañol_cleaned.csv";
-
-
-
-
+    private static final String updatedCatWordsPath = "static/dictionary/categorizedWords/updatedCategorizedWords.json";;
+    private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+    private static final String cleanedTrainMessagesPath = FilePathsConfig.CLEANED_TRAIN_MESSAGES_CSV_PATH;
 
     public static void main(String[] args) throws IOException {
-        // Inicia temporizador para calcular el tiempo de procesamiento total
         long startUpdate = System.nanoTime();
-
         SpamDictionaryService service = new SpamDictionaryService();
 
-        System.out.println("===  /  /   /   /   /   /   /   /   /   /   ===  Etapa 2: Actualización del Diccionario desde archivo actualizado === /  /   /   /   /   /   /   /   /   /   === \n");
+        System.out.println("=== Etapa 2: Actualización del Diccionario desde archivo actualizado ===\n");
 
-        System.out.println("[ STAGE 1 ]* * * * * Inicializando dictionary desde archivo actualizado   .    .   .  .  .  . . . . . . . . . \n");
-
-        // Inicializar el diccionario desde el JSON actualizado
-        service.initializeDictionaryFromJson(updatedCatWordsPath, lexemePath);
-
-        // Mostrar los Map de SpamDictionary para chequear que se haya inicializado correctamente
+        // Inicialización
+        System.out.println("[ STAGE 1 ] Inicializando diccionario desde archivo actualizado...\n");
+        service.initializeDictionaryFromJson(updatedCatWordsPath, lexemePath, dictionaryMetadataJsonPath);
         service.displayCategorizedWordsInDictionary();
 
-        System.out.println("\n[ STAGE 2 ]* * * * * Solicitando Actualización    .    .   .  .  .  . . . . . . . . . \n");
+        // Guardar valores antes de actualizar
+        int previousSpam = SpamDictionary.getInstance().getMetadata().getTotalSpam();
+        int previousHam = SpamDictionary.getInstance().getMetadata().getTotalHam();
 
-        // Solicitar la actualización del diccionario al service Desde un set de Mensajes
-        service.updateDictionaryFromCsvMessages(CleanedTrainMessagesFilePath);
-        System.out.println(" *  *  *  *  *  //  //  //  //  //  //  // //  //  //  Actualización finalizada ! ! ! ! !\n");
+        // Actualizar con los nuevos mensajes
+        System.out.println("\n[ STAGE 2 ] Procesando mensajes del dataset...\n");
+        service.updateDictionaryFromCsvMessages(cleanedTrainMessagesPath);
+        System.out.println("Actualización finalizada.\n");
 
-        System.out.println("\n [ REPORT  ] * * * * * Reporte   .    .   .  .  .  . . . . . . . . . \n");
-        // Mostrar SpamDictionary actualizado
+        // Calcular diferencias
+        int updatedSpam = SpamDictionary.getInstance().getMetadata().getTotalSpam();
+        int updatedHam = SpamDictionary.getInstance().getMetadata().getTotalHam();
+
+        int newSpam = updatedSpam - previousSpam;
+        int newHam = updatedHam - previousHam;
+        int newTotal = newSpam + newHam;
+
+        // Registrar el nuevo dataset
+        String datasetFileName = cleanedTrainMessagesPath.substring(cleanedTrainMessagesPath.lastIndexOf("/") + 1);
+        String timestamp = java.time.LocalDateTime.now().toString();
+
+        DatasetMetadata dataset = new DatasetMetadata(
+                datasetFileName,
+                newTotal,
+                newHam,
+                newSpam,
+                timestamp
+        );
+        SpamDictionary.getInstance().getMetadata().addDataset(dataset);
+
+        // Mostrar y exportar
+        System.out.println("\n[ REPORT ] Diccionario actualizado:\n");
         service.displayCategorizedWordsInDictionary();
 
-        System.out.println("\n [ REPORT  ] * * * * * Reporte   .    .   .  .  .  . . . . . . . . . \n");
-        // Mostrar el informe del diccionario actualizado
+        System.out.println("\n[ REPORT ] Resumen del diccionario:\n");
         DictionarySummaryReport.displaySummaryReport(service);
 
-        // Exportación del diccionario actualizado
         service.exportUpdatedCategorizedWords(baseOutputPath);
+        service.exportMetadataJson(dictionaryMetadataJsonPath, baseOutputPath);
 
         long endUpdate = System.nanoTime();
         System.out.printf("Tiempo de actualización del diccionario: %.2f ms%n", (endUpdate - startUpdate) / 1_000_000.0);

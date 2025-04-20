@@ -7,6 +7,10 @@ public class DatasetMetadata {
     private int spam;
     private String timestamp;
 
+    public DatasetMetadata() {
+        // Necesario para la deserialización con Jackson
+    }
+
     public DatasetMetadata(String id, int instances, int ham, int spam, String timestamp) {
         this.id = id;
         this.instances = instances;

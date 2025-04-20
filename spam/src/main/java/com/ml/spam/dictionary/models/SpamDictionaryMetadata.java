@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SpamDictionaryMetadata {
+    private String exportedDictionaryFileName;
     private int totalInstances = 0;
     private int totalHam = 0;
     private int totalSpam = 0;
@@ -44,4 +45,39 @@ public class SpamDictionaryMetadata {
     public List<DatasetMetadata> getDatasetDetails() {
         return datasetDetails;
     }
+
+
+    public String getExportedDictionaryFileName() {
+        return exportedDictionaryFileName;
+    }
+
+    public void setExportedDictionaryFileName(String fileName) {
+        this.exportedDictionaryFileName = fileName;
+    }
+    public void incrementDatasetsProcessed() {
+        totalDatasetsProcessed++;
+    }
+    public void setTotalSpam(int totalSpam) {
+        this.totalSpam = totalSpam;
+    }
+
+    public void setTotalHam(int totalHam) {
+        this.totalHam = totalHam;
+    }
+
+    public void setTotalInstances(int totalInstances) {
+        this.totalInstances = totalInstances;
+    }
+
+    public void setTotalDatasetsProcessed(int totalDatasetsProcessed) {
+        this.totalDatasetsProcessed = totalDatasetsProcessed;
+    }
+
+    public void setDatasetDetails(List<DatasetMetadata> datasetDetails) {
+        this.datasetDetails.clear();
+        if (datasetDetails != null) {
+            this.datasetDetails.addAll(datasetDetails);
+        }
+    }
+
 }

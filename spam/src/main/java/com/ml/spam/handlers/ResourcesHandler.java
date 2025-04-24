@@ -21,6 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * ResourcesHandler:
@@ -227,33 +229,37 @@ public class ResourcesHandler {
     }
 
 
-    public JSONObject loadJsonViejo(String resourcePath) {
-        // Intenta cargar un recurso JSON desde el classpath
-        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(resourcePath)) {
-            // Verifica si el archivo existe en el classpath
-            if (inputStream == null) {
-                throw new RuntimeException("Archivo no encontrado en el classpath: " + resourcePath);
-            }
-
-            // Lee todo el contenido del archivo como una cadena (UTF-8 para evitar problemas de codificación)
-            String content = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
-
-            // Crea un JSONObject a partir del contenido del archivo
-            JSONObject jsonObject = new JSONObject(content);
-
-            // Aplica la normalización de claves y valores (elimina acentos)
-            // Se utiliza el método de JsonUtils para mantener la lógica centralizada
-            JSONObject normalizedJson = JsonUtils.normalizeJson(jsonObject);
-
-            // Retorna el JSON normalizado
-            return normalizedJson;
-
-        } catch (IOException e) {
-            // Si ocurre un error al leer el archivo, lanza una excepción personalizada con información adicional
-            throw new RuntimeException("Error al leer el archivo JSON desde el classpath: " + resourcePath, e);
+    /**
+     * Extrae mensajes completos de un archivo TXT, separados por triple comillas (""" o “”“),
+     * y para cada mensaje agrega el label indicado como segunda columna.
+     *
+     * Ejemplo de retorno: [mensaje, label]
+     */
+    public List<String[]> extractMessagesAndAddLabelFromTxt(String txtFilePath, String label) throws Exception {
+        List<String[]> rows = new ArrayList<>();
+        List<String> mensajes = loadTxtFileAsMessages(txtFilePath); // Método robusto para triple comillas
+        for (String msg : mensajes) {
+            rows.add(new String[] {msg, label});
         }
+        return rows;
     }
+    // Este método lee mensajes separados por triple comillas (de cualquier tipo)
+    public List<String> loadTxtFileAsMessages(String txtFilePath) throws Exception {
+        String content = Files.readString(Paths.get(txtFilePath));
+        List<String> messages = new ArrayList<>();
 
+        // Expresión regular para triple comillas estándar y tipográficas
+        Pattern pattern = Pattern.compile("(?m)^[\"“”]{3}\\s*$([\\s\\S]*?)(?=^[\"“”]{3}\\s*$|\\z)", Pattern.MULTILINE);
+        Matcher matcher = pattern.matcher(content);
+
+        while (matcher.find()) {
+            String message = matcher.group(1).trim();
+            if (!message.isEmpty()) {
+                messages.add(message);
+            }
+        }
+        return messages;
+    }
 
     ///////////////////////////////////////////////////
     public void saveJson(JSONObject jsonObject, String relativePath) {
@@ -442,34 +448,6 @@ public class ResourcesHandler {
         }
     }
 
-    //Recibe el path y el label ya que los archivos txt solamente tienen mensaje sin label.
-    public List<String[]> loadTxtFileAsRows(String txtFilePath, String label) {
-        List<String[]> rows = new ArrayList<>();
-
-        try {
-            // Resolver el path absoluto
-            Path absolutePath = resolvePath(txtFilePath);
-
-            // Leer el contenido del archivo como un String
-            String content = Files.readString(absolutePath, StandardCharsets.UTF_8);
-            // Reemplazar comillas tipográficas por comillas rectas
-            content = content.replace("“””", "\"\"\"").replace("“", "\"").replace("”", "\"");
-            // Dividir contenido por las triples comillas
-            int totalMessages=0;
-            String[] blocks = content.split("\"\"\"");
-            for (String block : blocks) {
-                String message = block.trim();
-                if (!message.isEmpty()) {
-                    rows.add(new String[]{message, label});
-                    totalMessages++;
-                }
-            }
-            System.out.println("[INFO * * * In LoadtxtfilaAsRows * * * ] Cantidad de mensajes obtenidos: "+ totalMessages);
-        } catch (Exception e) {
-            throw new RuntimeException("Error al leer el archivo TXT: " + txtFilePath, e);
-        }
-        return rows;
-    }
 
 
     public void loadStructuredLexemesJsonAndExportUniqueLexemes(String inputFilePath, String outputFilePath) {
@@ -712,6 +690,36 @@ public class ResourcesHandler {
         } catch (Exception e) {
             throw new RuntimeException("Error al agregar palabra al repositorio de lexemas: " + e.getMessage(), e);
         }
+    }
+
+    //Recibe el path y el label ya que los archivos txt solamente tienen mensaje sin label.
+    //Es para archivos tipo csv pero en formato .txt
+    public List<String[]> loadTxtFileAsRows(String txtFilePath, String label) {
+        List<String[]> rows = new ArrayList<>();
+
+        try {
+            // Resolver el path absoluto
+            Path absolutePath = resolvePath(txtFilePath);
+
+            // Leer el contenido del archivo como un String
+            String content = Files.readString(absolutePath, StandardCharsets.UTF_8);
+            // Reemplazar comillas tipográficas por comillas rectas
+            content = content.replace("“””", "\"\"\"").replace("“", "\"").replace("”", "\"");
+            // Dividir contenido por las triples comillas
+            int totalMessages=0;
+            String[] blocks = content.split("\"\"\"");
+            for (String block : blocks) {
+                String message = block.trim();
+                if (!message.isEmpty()) {
+                    rows.add(new String[]{message, label});
+                    totalMessages++;
+                }
+            }
+            System.out.println("[INFO * * * In LoadtxtfilaAsRows * * * ] Cantidad de mensajes obtenidos: "+ totalMessages);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al leer el archivo TXT: " + txtFilePath, e);
+        }
+        return rows;
     }
 
 

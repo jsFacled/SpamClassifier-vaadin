@@ -315,10 +315,9 @@ public class SpamDictionaryService {
 
     //Los txt son mensajes sin label, por lo tanto se indicará si los mensajes son spam o ham.
     public void updateDictionaryFromTxt(String txtFilePath, String label) throws IOException {
-        // Leer filas desde el archivo TXT
-        List<String[]> rawRows = resourcesHandler.loadTxtFileAsRows(txtFilePath, label);
+        List<String[]> labeledMessages = resourcesHandler.extractMessagesAndAddLabelFromTxt(txtFilePath, label);
 
-        if (rawRows == null || rawRows.isEmpty()) {
+        if (labeledMessages == null || labeledMessages.isEmpty()) {
             throw new IllegalArgumentException("El archivo TXT no contiene datos válidos.");
         }
 
@@ -326,7 +325,7 @@ public class SpamDictionaryService {
         Map<CharSize, Map<String, Set<String>>> lexemeRepository = dictionary.getLexemesRepository();
 
         // Procesar a listas de WordData
-        List<List<WordData>> processedWordData = MessageProcessor.processToWordData(rawRows, lexemeRepository);
+        List<List<WordData>> processedWordData = MessageProcessor.processToWordData(labeledMessages, lexemeRepository);
 
         // Contabilizar en metadatos según etiqueta
         if (label.equalsIgnoreCase("spam")) {

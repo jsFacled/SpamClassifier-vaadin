@@ -13,6 +13,7 @@ public class UpdateDictionaryFromTripleQuotesTxtMain {
     private static final String updatedCatWordsPath = "static/dictionary/categorizedWords/updatedCategorizedWords_1.json";
     private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
     private static final String dictionaryMetadataJsonPath = FilePathsConfig.DICTIONARY_METADATA_JSON_PATH;
+    private static final String dictionaryMetadataJsonPath2 = "F:\\JAVA GENERAL\\MACHINE LEARNING JAVA\\Código-ejemplos-intellij\\Clasificador Spam\\SpamClassifier-vaadin\\spam\\src\\main\\resources\\static\\dictionary\\categorizedWords\\dictionary_metadata_1.json";
 
     private static final String messageLabel = "spam";
 
@@ -24,7 +25,7 @@ public class UpdateDictionaryFromTripleQuotesTxtMain {
             SpamDictionaryService service = new SpamDictionaryService();
 
             System.out.println("[ STAGE 1 ] Inicializando el diccionario...");
-            service.initializeDictionaryFromJson(updatedCatWordsPath, lexemePath, dictionaryMetadataJsonPath);
+            service.initializeDictionaryFromJson(updatedCatWordsPath, lexemePath, dictionaryMetadataJsonPath2);
 
             int previousSpam = SpamDictionary.getInstance().getMetadata().getTotalSpam();
             int previousHam = SpamDictionary.getInstance().getMetadata().getTotalHam();

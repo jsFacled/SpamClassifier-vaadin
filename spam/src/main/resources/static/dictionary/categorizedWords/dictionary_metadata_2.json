@@ -4,17 +4,23 @@
     "id" : "test-mensajesEspañol.csv",
     "instances" : 209,
     "spam" : 100,
-    "timestamp" : "2025-04-19T21:31:33.051327800"
+    "timestamp" : "2025-04-24T10:42:51.688631200"
+  }, {
+    "ham" : 402,
+    "id" : "train-mensajesEspañol_cleaned.csv",
+    "instances" : 851,
+    "spam" : 449,
+    "timestamp" : "2025-04-24T10:45:12.487511900"
   }, {
     "ham" : 0,
     "id" : "correos-spam-fac.txt",
-    "instances" : 27660,
-    "spam" : 27660,
-    "timestamp" : "2025-04-20T09:00:58.294830600"
+    "instances" : 144,
+    "spam" : 144,
+    "timestamp" : "2025-04-24T17:25:03.366947800"
   } ],
   "exportedDictionaryFileName" : "updatedCategorizedWords.json",
-  "totalDatasetsProcessed" : 3,
-  "totalHam" : 109,
-  "totalInstances" : 27869,
-  "totalSpam" : 27760
+  "totalDatasetsProcessed" : 4,
+  "totalHam" : 511,
+  "totalInstances" : 1276,
+  "totalSpam" : 693
 }

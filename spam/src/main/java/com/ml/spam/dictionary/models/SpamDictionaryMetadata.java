@@ -11,6 +11,16 @@ public class SpamDictionaryMetadata {
     private int totalDatasetsProcessed = 0;
     private final List<DatasetMetadata> datasetDetails = new ArrayList<>();
 
+    public void addSpam(int n) {
+        this.totalSpam += n;
+        this.totalInstances += n;
+    }
+
+    public void addHam(int n) {
+        this.totalHam += n;
+        this.totalInstances += n;
+    }
+
     public void incrementHam() {
         totalHam++;
         totalInstances++;
@@ -79,5 +89,9 @@ public class SpamDictionaryMetadata {
             this.datasetDetails.addAll(datasetDetails);
         }
     }
+    public void addInstances(int n) {
+        this.totalInstances += n;
+    }
+
 
 }

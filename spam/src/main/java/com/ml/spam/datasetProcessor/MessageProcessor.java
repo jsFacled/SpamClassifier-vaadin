@@ -46,13 +46,7 @@ public class MessageProcessor {
                 // Tokenizar el mensaje (palabras y símbolos raros) y agregar a validRows
                 wordDataLists.add(processValidRow(row));
 
-                // Agregar los metadatos
-                String label = row[1].trim().toUpperCase();
-                if (label.equals("SPAM")) {
-                    SpamDictionary.getInstance().getMetadata().incrementSpam();
-                } else if (label.equals("HAM")) {
-                    SpamDictionary.getInstance().getMetadata().incrementHam();
-                }
+
             } else {
                 invalidRows.add(row);
                 System.err.println("Fila no válida encontrada: " + Arrays.toString(row));

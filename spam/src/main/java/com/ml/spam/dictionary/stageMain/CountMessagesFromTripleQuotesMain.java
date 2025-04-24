@@ -14,22 +14,26 @@ import java.util.regex.Pattern;
 
 public class CountMessagesFromTripleQuotesMain {
 
+    private static final String inputTxtFilePath = "F:\\JAVA GENERAL\\MACHINE LEARNING JAVA\\Código-ejemplos-intellij\\Clasificador Spam\\SpamClassifier-vaadin\\spam\\src\\main\\resources\\static\\datasets\\correos-spam-fac.txt"; // Cambiá según tu archivo
     private static final String inputTxtFilePath1 = "F:\\JAVA GENERAL\\MACHINE LEARNING JAVA\\Código-ejemplos-intellij\\Clasificador Spam\\SpamClassifier-vaadin\\spam\\src\\main\\resources\\static\\datasets\\mensajes_pruebas_triple_cuotes.txt"; // Cambiá según tu archivo
     private static final String inputTxtFilePath2 = "F:\\JAVA GENERAL\\MACHINE LEARNING JAVA\\Código-ejemplos-intellij\\Clasificador Spam\\SpamClassifier-vaadin\\spam\\src\\main\\resources\\static\\datasets\\mensajes_pruebas_triple_cuotes2.txt"; // Cambiá según tu archivo
     private static final String label = "spam"; // o "ham"
 
     public static void main(String[] args) throws IOException {
 
-        String content = Files.readString(Paths.get(inputTxtFilePath1));
+        String content = Files.readString(Paths.get(inputTxtFilePath));
 
         List<String> mensajes = extractMessages(content);
 
         System.out.println("Cantidad de mensajes: " + mensajes.size());
-        for (int i = 0; i < mensajes.size(); i++) {
+
+        //Mostrar el contenido completo de cada mensaje
+    /*   for (int i = 0; i < mensajes.size(); i++) {
             System.out.println("MENSAJE #" + (i + 1) + ":");
             System.out.println(mensajes.get(i));
             System.out.println("------------------------");
         }
+    */
     }
 
     // Método modular para extraer todos los mensajes como lista

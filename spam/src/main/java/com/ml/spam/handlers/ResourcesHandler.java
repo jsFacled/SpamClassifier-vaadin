@@ -245,7 +245,12 @@ public class ResourcesHandler {
     }
     // Este método lee mensajes separados por triple comillas (de cualquier tipo)
     public List<String> loadTxtFileAsMessages(String txtFilePath) throws Exception {
-        String content = Files.readString(Paths.get(txtFilePath));
+       // Path absolutePath = resolvePath(relativePath);
+      //  String content = Files.readString(Paths.get(txtFilePath));
+
+        Path absolutePath = resolvePath(txtFilePath);
+        String content = Files.readString(absolutePath);
+
         List<String> messages = new ArrayList<>();
 
         // Expresión regular para triple comillas estándar y tipográficas

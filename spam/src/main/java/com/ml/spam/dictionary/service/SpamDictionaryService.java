@@ -314,12 +314,13 @@ public class SpamDictionaryService {
     }
 
     //Los txt son mensajes sin label, por lo tanto se indicará si los mensajes son spam o ham.
-    public void updateDictionaryFromTxt(String txtFilePath, String label) throws IOException {
+    public void updateDictionaryFromTxt(String txtFilePath, String label) throws Exception {
         List<String[]> labeledMessages = resourcesHandler.extractMessagesAndAddLabelFromTxt(txtFilePath, label);
 
         if (labeledMessages == null || labeledMessages.isEmpty()) {
             throw new IllegalArgumentException("El archivo TXT no contiene datos válidos.");
         }
+
 
         // Obtener repositorio de lexemas
         Map<CharSize, Map<String, Set<String>>> lexemeRepository = dictionary.getLexemesRepository();
@@ -329,18 +330,13 @@ public class SpamDictionaryService {
 
         // Contabilizar en metadatos según etiqueta
         if (label.equalsIgnoreCase("spam")) {
-            for (List<WordData> message : processedWordData) {
-                for (WordData wd : message) {
-                    SpamDictionary.getInstance().getMetadata().incrementSpam();
-                }
-            }
+            System.out.println("[ %%%%%%%%%%%%% DEBUG mensajes triplecuot ] : labeledMessages.size() = " + labeledMessages.size());
+            System.out.println("[%%%%%%%%%%%%% DEBUG mensajes triplecuot ]: processedWordData.size() = " + processedWordData.size());
+            SpamDictionary.getInstance().getMetadata().addSpam(processedWordData.size());
         } else if (label.equalsIgnoreCase("ham")) {
-            for (List<WordData> message : processedWordData) {
-                for (WordData wd : message) {
-                    SpamDictionary.getInstance().getMetadata().incrementHam();
-                }
-            }
+            SpamDictionary.getInstance().getMetadata().addHam(processedWordData.size());
         }
+
 
         // Actualizar el diccionario
         updateDictionaryFromProcessedWordData(processedWordData);

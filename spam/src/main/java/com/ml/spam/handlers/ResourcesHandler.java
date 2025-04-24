@@ -452,7 +452,8 @@ public class ResourcesHandler {
 
             // Leer el contenido del archivo como un String
             String content = Files.readString(absolutePath, StandardCharsets.UTF_8);
-
+            // Reemplazar comillas tipográficas por comillas rectas
+            content = content.replace("“””", "\"\"\"").replace("“", "\"").replace("”", "\"");
             // Dividir contenido por las triples comillas
             int totalMessages=0;
             String[] blocks = content.split("\"\"\"");

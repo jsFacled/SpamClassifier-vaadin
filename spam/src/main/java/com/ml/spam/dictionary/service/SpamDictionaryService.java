@@ -298,15 +298,22 @@ public class SpamDictionaryService {
         // 6. Procesar las filas válidas para obtener listas de WordData
         List<List<WordData>> processedWordData = MessageProcessor.processToWordData(validRows, lexemeRepository);
 
-        // 7. Actualizar contadores en el metadata
-      /*  for (String[] row : validRows) {
-            if (TextUtils.isSpamRow(row)) {
-                SpamDictionary.getInstance().getMetadata().incrementSpam();
-            } else {
-                SpamDictionary.getInstance().getMetadata().incrementHam();
+        // 7. Contar spam y ham antes de actualizar el diccionario y sumarlos al metadata
+        int spamCount = 0;
+        int hamCount = 0;
+        for (String[] row : validRows) {
+            if (row.length > 1) {
+                String label = row[1].trim().toLowerCase();
+                if (label.equals("spam")) spamCount++;
+                else if (label.equals("ham")) hamCount++;
             }
         }
-*/
+        SpamDictionary.getInstance().getMetadata().addSpam(spamCount);
+        SpamDictionary.getInstance().getMetadata().addHam(hamCount);
+
+        // También sumar la cantidad total de instancias
+        SpamDictionary.getInstance().getMetadata().addInstances(validRows.size());
+
         // 8. Actualizar el diccionario con los datos procesados
         updateDictionaryFromProcessedWordData(processedWordData);
 

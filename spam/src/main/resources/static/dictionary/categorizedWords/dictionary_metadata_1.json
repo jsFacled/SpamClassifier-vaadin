@@ -4,17 +4,17 @@
     "id" : "test-mensajesEspañol.csv",
     "instances" : 209,
     "spam" : 100,
-    "timestamp" : "2025-04-24T10:42:51.688631200"
+    "timestamp" : "2025-04-26T08:30:35.517292200"
   }, {
     "ham" : 402,
     "id" : "train-mensajesEspañol_cleaned.csv",
     "instances" : 851,
     "spam" : 449,
-    "timestamp" : "2025-04-24T10:45:12.487511900"
+    "timestamp" : "2025-04-26T08:31:23.677810400"
   } ],
   "exportedDictionaryFileName" : "updatedCategorizedWords.json",
   "totalDatasetsProcessed" : 2,
   "totalHam" : 511,
-  "totalInstances" : 1060,
+  "totalInstances" : 2120,
   "totalSpam" : 549
 }

@@ -49,7 +49,6 @@ public class UpdateDictionaryFromTripleQuotesTxtMain {
                     timestamp
             ));
 
-            SpamDictionary.getInstance().getMetadata().incrementDatasetsProcessed();
 
             System.out.println("[ STAGE 3 ] Exportando...");
             service.exportUpdatedCategorizedWords(baseOutputPath);

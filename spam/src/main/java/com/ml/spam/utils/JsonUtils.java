@@ -425,13 +425,13 @@ public class JsonUtils {
         JSONObject json = new JSONObject();
 
         // Metadatos globales
+        json.put("exportedDictionaryFileName", metadata.getExportedDictionaryFileName());
         json.put("totalInstances", metadata.getTotalInstances());
         json.put("totalHam", metadata.getTotalHam());
         json.put("totalSpam", metadata.getTotalSpam());
         json.put("totalDatasetsProcessed", metadata.getTotalDatasetsProcessed());
 
-        // Nuevo campo: nombre del archivo de diccionario exportado
-        json.put("exportedDictionaryFileName", metadata.getExportedDictionaryFileName());
+
 
         // Detalle de datasets
         JSONArray datasetArray = new JSONArray();

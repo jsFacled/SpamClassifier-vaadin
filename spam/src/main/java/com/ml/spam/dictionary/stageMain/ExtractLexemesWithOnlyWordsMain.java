@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
-public class ExtractLexemesMain {
+public class ExtractLexemesWithOnlyWordsMain {
 
     private static final String INPUT_PATH = "F:\\JAVA GENERAL\\MACHINE LEARNING JAVA\\Código-ejemplos-intellij\\Clasificador Spam\\SpamClassifier-vaadin\\spam\\src\\main\\resources\\static\\dictionary\\lexemesRepository\\structured_lexemes_repository.json";
     private static final String OUTPUT_PATH = "lexemes_with_words.json";

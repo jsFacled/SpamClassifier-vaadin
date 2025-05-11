@@ -1,97 +1,51 @@
 package com.ml.spam.datasetProcessor.utils;
 
-import com.ml.spam.datasetProcessor.models.DatasetRow;
 import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.models.WordCategory;
 import com.ml.spam.dictionary.models.WordData;
 
-import java.util.*;
+import java.util.List;
+import java.util.Set;
 
 public class DatasetFeatureCalculator {
 
-    private static final List<String> STRONG_SPAM_WORDS = List.of(
-            // completar con tus 43 palabras elegidas
-            //"gratis", "promocion", "oferta", /* etc */
-    );
-
-    public static List<DatasetRow> createDatasetFromProcessedWordData(
-            List<List<WordData>> allMessages,
-            List<String[]> rawRows,
-            SpamDictionary dictionary) {
-
-        List<DatasetRow> rows = new ArrayList<>();
-
-        for (int i = 0; i < allMessages.size(); i++) {
-            List<WordData> message = allMessages.get(i);
-            String label = rawRows.get(i)[1];
-
-            DatasetRow row = calculateFeaturesForMessage(message, label, dictionary);
-            rows.add(row);
-        }
-
-        return rows;
+    public static long calculateFrequency(String word, List<WordData> tokens) {
+        return tokens.stream().filter(w -> w.getWord().equals(word)).count();
     }
 
-    public static DatasetRow calculateFeaturesForMessage(
-            List<WordData> messageWords,
-            String label,
-            SpamDictionary dictionary) {
+    public static double calculateRelativeFreqNorm(long freq, int totalTokens, int lexemeSize) {
+        if (lexemeSize <= 0 || totalTokens <= 0) return 0.0;
+        return (freq / (double) totalTokens) / lexemeSize;
+    }
 
-        Map<String, Double> featureMap = new LinkedHashMap<>();
-        int totalTokens = messageWords.size();
-        Set<String> uniqueWords = new HashSet<>();
+    public static double calculateWeight(String word, SpamDictionary dictionary) {
+        var data = dictionary.getWordData(word);
+        return (data != null) ? data.getCategory().getWeight() : 0.0;
+    }
 
-        // --- Features por palabra (strongSpamWord) ---
-        for (String word : STRONG_SPAM_WORDS) {
-            long freq = messageWords.stream().filter(w -> w.getWord().equals(word)).count();
-            double relFreq = totalTokens > 0 ? (double) freq / totalTokens : 0;
+    public static double calculatePolarity(String word, SpamDictionary dictionary) {
+        var data = dictionary.getWordData(word);
+        if (data == null) return 0.0;
 
-            int weight = dictionary.getWeightForWord(word); // debe implementarse si no está
-            WordData globalData = dictionary.getWordData(word);
-            double polarity = globalData != null
-                    ? (globalData.getSpamFrequency() - globalData.getHamFrequency()) * 1.0
-                    / (globalData.getSpamFrequency() + globalData.getHamFrequency() + 1)
-                    : 0;
+        int spam = data.getSpamFrequency();
+        int ham = data.getHamFrequency();
+        return (spam - ham) * 1.0 / (spam + ham + 1);
+    }
 
-            featureMap.put("freq_" + word, (double) freq);
-            featureMap.put("relative_freq_" + word, relFreq);
-            featureMap.put("weight_" + word, (double) weight);
-            featureMap.put("polarity_" + word, polarity);
-        }
+    public static double calculateLexicalDiversity(int unique, int total) {
+        return total > 0 ? unique * 1.0 / total : 0.0;
+    }
 
-        // --- Features globales ---
-        Map<WordCategory, Long> categoryCounts = messageWords.stream()
-                .collect(Collectors.groupingBy(WordData::getCategory, Collectors.counting()));
-
-        for (WordCategory category : WordCategory.values()) {
-            if (categoryCounts.containsKey(category)) {
-                long count = categoryCounts.get(category);
-                double ratio = totalTokens > 0 ? count * 1.0 / totalTokens : 0;
-
-                featureMap.put("count_" + category.getJsonKey(), (double) count);
-                featureMap.put("ratio_" + category.getJsonKey(), ratio);
-            } else {
-                featureMap.put("count_" + category.getJsonKey(), 0.0);
-                featureMap.put("ratio_" + category.getJsonKey(), 0.0);
-            }
-        }
-
-        // --- Otros globales ---
-        for (WordData wd : messageWords) uniqueWords.add(wd.getWord());
-
-        featureMap.put("longitud_mensaje", (double) totalTokens);
-        featureMap.put("lexical_diversity", totalTokens > 0 ? uniqueWords.size() * 1.0 / totalTokens : 0);
-
-        double netWeightedScore = messageWords.stream()
-                .filter(w -> w.getCategory() != WordCategory.STRONG_SPAM_WORD)
+    public static double calculateNetWeightedScore(List<WordData> tokens, SpamDictionary dictionary, List<String> strongSpamWords) {
+        return tokens.stream()
+                .filter(w -> !strongSpamWords.contains(w.getWord()))
                 .mapToDouble(w -> dictionary.getWeightForCategory(w.getCategory()))
                 .sum();
+    }
 
-        featureMap.put("net_weighted_score", netWeightedScore);
-
-        // --- Label ---
-        featureMap.put("label", label.equalsIgnoreCase("spam") ? 1.0 : 0.0);
-
-        return new DatasetRow(featureMap);
+    public static double encodeLabel(String label) {
+        if (label.equalsIgnoreCase("spam")) return 1.0;
+        if (label.equalsIgnoreCase("ham")) return 0.0;
+        throw new IllegalArgumentException("Etiqueta no reconocida: " + label);
     }
 }

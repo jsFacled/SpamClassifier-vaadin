@@ -1,10 +1,11 @@
 package com.ml.spam.datasetProcessor.models;
+
 public enum DatasetColumnName {
     // Features por palabra strongSpamWord (prefijo + palabra dinámica)
-    FREQ("freq_"),                  // Ej: freq_lexactions
-    RELATIVE_FREQ("relative_freq_"),// Ej: relative_freq_lexactions
-    WEIGHT("weight_"),              // Ej: weight_lexactions
-    POLARITY("polarity_"),          // Ej: polarity_lexactions
+    FREQ("freq_"),                        // Ej: freq_lexactions
+    RELATIVE_FREQ_NORM("relativeFreqNorm_"), // Ej: relativeFreqNorm_lexactions
+    WEIGHT("weight_"),                   // Ej: weight_lexactions
+    POLARITY("polarity_"),               // Ej: polarity_lexactions
 
     // Features globales (nombres fijos)
     COUNT_MODERATE_SPAM_WORDS("count_moderateSpamWords"),

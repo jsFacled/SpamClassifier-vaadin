@@ -243,7 +243,8 @@ public class ResourcesHandler {
         }
         return rows;
     }
-    // Este método lee mensajes separados por triple comillas (de cualquier tipo)
+
+   // Este método lee mensajes separados por triple comillas (de cualquier tipo)
     public List<String> loadTxtFileAsMessages(String txtFilePath) throws Exception {
        // Path absolutePath = resolvePath(relativePath);
       //  String content = Files.readString(Paths.get(txtFilePath));
@@ -727,6 +728,35 @@ public class ResourcesHandler {
         return rows;
     }
 
+
+    //////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////// Para implementar en futuras correcciones //////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * Carga un corpus desde un archivo CSV (con etiquetas) o TXT (sin etiquetas, requiere label externo).
+     *
+     * @param path Ruta relativa al archivo.
+     * @param format Formato del archivo: "csv" o "txt".
+     * @param labelIfTxt Etiqueta a aplicar a los mensajes si es un archivo TXT (ej. "spam" o "ham").
+     * @return Lista de arreglos [mensaje, label].
+     */
+    public List<String[]> loadCorpusRows(String path, String format, String labelIfTxt) throws IOException {
+        if ("csv".equalsIgnoreCase(format)) {
+            List<String[]> rawRows = loadCsvFile(path);
+            return rawRows.stream()
+                    .filter(TextUtils::isRawRow)
+                    .toList();
+        } else if ("txt".equalsIgnoreCase(format)) {
+            try {
+                return extractMessagesAndAddLabelFromTxt(path, labelIfTxt);
+            } catch (Exception e) {
+                throw new IOException("Error procesando archivo TXT: " + e.getMessage(), e);
+            }
+        } else {
+            throw new IllegalArgumentException("Formato no soportado: " + format);
+        }
+    }
 
 
 }//end

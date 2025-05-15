@@ -18,11 +18,13 @@ public class DatasetGenerationMain {
             System.out.println("=== Etapa 4: Generación del Dataset de Entrenamiento ===");
 
             DatasetGeneratorService generator = new DatasetGeneratorService();
-            generator.generateDatasetFromCsvMessages(
+            generator.generateDatasetFromCorpus(
                     updatedCatWordsPath,
                     lexemePath,
                     metadataPath,
                     inputCsvPath,
+                    "csv",     // nuevo parámetro
+                    null,      // label no necesario para csv
                     outputDatasetPath
             );
 

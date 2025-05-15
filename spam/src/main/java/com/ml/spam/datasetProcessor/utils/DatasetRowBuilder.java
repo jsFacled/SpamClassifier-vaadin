@@ -36,7 +36,7 @@ public class DatasetRowBuilder {
             long freq = DatasetFeatureCalculator.calculateFrequency(word, messageTokens);
             int lexemeSize = metadata.getWordCountForLexeme(word);
             double relFreqNorm = DatasetFeatureCalculator.calculateRelativeFreqNorm(freq, totalTokens, lexemeSize);
-            int weight = DatasetFeatureCalculator.calculateWeight(word, dictionary);
+            double weight = DatasetFeatureCalculator.calculateWeight(word, dictionary);
             double polarity = DatasetFeatureCalculator.calculatePolarity(word, dictionary);
 
             features.put("freq_" + word, (double) freq);

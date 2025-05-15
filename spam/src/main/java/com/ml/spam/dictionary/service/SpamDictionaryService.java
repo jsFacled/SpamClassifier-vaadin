@@ -515,6 +515,9 @@ public class SpamDictionaryService {
         return dictionary.getLexemesRepository();
     }
 
+    public Map<WordCategory, Map<String, WordData>> getCategorizedWords() { return dictionary.getCategorizedWords();
+    }
+
 
 
     /**----------------------------------------------------------

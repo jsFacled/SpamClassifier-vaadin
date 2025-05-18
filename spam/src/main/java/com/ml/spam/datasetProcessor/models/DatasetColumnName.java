@@ -4,7 +4,6 @@ public enum DatasetColumnName {
     // Features por palabra strongSpamWord (prefijo + palabra dinámica)
     FREQ("freq_"),                        // Ej: freq_lexactions
     RELATIVE_FREQ_NORM("relativeFreqNorm_"), // Ej: relativeFreqNorm_lexactions
-    WEIGHT("weight_"),                   // Ej: weight_lexactions
     POLARITY("polarity_"),               // Ej: polarity_lexactions
 
     // Features globales (nombres fijos)

@@ -11,6 +11,7 @@ public class DatasetGenerationMain {
     private static final String metadataPath = FilePathsConfig.DICTIONARY_METADATA_JSON_PATH;
     private static final String inputCsvPath = FilePathsConfig.CLEANED_TRAIN_MESSAGES_CSV_PATH;
     private static final String outputDatasetPath = "static/dataset/generated_dataset.csv";
+    private static final String lexemeMetadataPath = "lexeme_words_detailed.json";
 
     public static void main(String[] args) {
         try {
@@ -25,7 +26,8 @@ public class DatasetGenerationMain {
                     inputCsvPath,
                     "csv",     // nuevo parámetro
                     null,      // label no necesario para csv
-                    outputDatasetPath
+                    outputDatasetPath,
+                    lexemeMetadataPath
             );
 
             long end = System.nanoTime();

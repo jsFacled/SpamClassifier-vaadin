@@ -11,11 +11,9 @@ public class DatasetSchema {
     private final int columnCount;
 
     public DatasetSchema(Set<String> strongSpamWords) {
-        // Ordenar las palabras clave
         this.strongSpamWordsOrdered = new ArrayList<>(strongSpamWords);
         Collections.sort(this.strongSpamWordsOrdered);
 
-        // Construir header completo
         this.columnNamesOrdered = buildFullColumnHeader(strongSpamWordsOrdered);
         this.columnCount = columnNamesOrdered.size();
     }
@@ -26,7 +24,6 @@ public class DatasetSchema {
         for (String word : strongWords) {
             header.add(DatasetColumnName.FREQ.get() + word);
             header.add(DatasetColumnName.RELATIVE_FREQ_NORM.get() + word);
-            header.add(DatasetColumnName.WEIGHT.get() + word);
             header.add(DatasetColumnName.POLARITY.get() + word);
         }
 
@@ -36,13 +33,18 @@ public class DatasetSchema {
             }
         }
 
+        System.out.println("=== DEBUG HEADER BUILD en DatasetSchema - inicio ===");
+        for (String word : strongWords) {
+            System.out.println("-> Añadiendo columnas para palabra: [" + word + "]");
+        }
+        System.out.println("=== DEBUG HEADER BUILD - header finalizado ===");
+
         return header;
     }
 
     private boolean isPerWordFeature(DatasetColumnName col) {
         return col == DatasetColumnName.FREQ
                 || col == DatasetColumnName.RELATIVE_FREQ_NORM
-                || col == DatasetColumnName.WEIGHT
                 || col == DatasetColumnName.POLARITY;
     }
 
@@ -50,7 +52,7 @@ public class DatasetSchema {
         return columnNamesOrdered;
     }
 
-    public List<String> getStrongSpamWords() {
+    public List<String> getStrongSpamWordsOrdered() {
         return strongSpamWordsOrdered;
     }
 
@@ -96,5 +98,4 @@ public class DatasetSchema {
 
         return sb.toString();
     }
-
 }

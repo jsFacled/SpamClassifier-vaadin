@@ -19,8 +19,12 @@ public class DatasetFeatureCalculator {
     }
 
     public static double calculateWeight(String word, SpamDictionary dictionary) {
-        var data = dictionary.getWordData(word);
-        return (data != null) ? data.getCategory().getWeight() : 0.0;
+        for (WordCategory category : WordCategory.values()) {
+            if (dictionary.getCategory(category).containsKey(word)) {
+                return category.getWeight();
+            }
+        }
+        return 0.0;
     }
 
     public static double calculatePolarity(String word, SpamDictionary dictionary) {
@@ -36,10 +40,19 @@ public class DatasetFeatureCalculator {
         return total > 0 ? unique * 1.0 / total : 0.0;
     }
 
-    public static double calculateNetWeightedScore(List<WordData> tokens, SpamDictionary dictionary, List<String> strongSpamWords) {
+    public static double calculateNetWeightedScore(List<WordData> tokens, SpamDictionary dictionary) {
+        Set<String> strongWords = dictionary.getCategory(WordCategory.STRONG_SPAM_WORD).keySet();
+
         return tokens.stream()
-                .filter(w -> !strongSpamWords.contains(w.getWord()))
-                .mapToDouble(w -> dictionary.getWeightForCategory(w.getCategory()))
+                .filter(w -> !strongWords.contains(w.getWord()))
+                .mapToDouble(w -> {
+                    for (WordCategory category : WordCategory.values()) {
+                        if (dictionary.getCategory(category).containsKey(w.getWord())) {
+                            return category.getWeight();
+                        }
+                    }
+                    return 0.0;
+                })
                 .sum();
     }
 

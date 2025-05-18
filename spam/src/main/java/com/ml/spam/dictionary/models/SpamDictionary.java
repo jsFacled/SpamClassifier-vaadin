@@ -45,6 +45,20 @@ public class SpamDictionary {
     public Map<WordCategory, Map<String, WordData>> getCategorizedWords() {
         return categorizedWords;
     }
+    /**
+     * Devuelve el WordData asociado a una palabra, sin importar su categoría.
+     * Si la palabra no está en ninguna categoría, retorna null.
+     */
+    public WordData getWordData(String word) {
+        for (WordCategory category : categorizedWords.keySet()) {
+            Map<String, WordData> words = categorizedWords.get(category);
+            if (words.containsKey(word)) {
+                return words.get(word);
+            }
+        }
+        return null;
+    }
+
 
     public Map<WordCategory, Integer> getCategoryCounts() {
         Map<WordCategory, Integer> categoryCounts = new HashMap<>();

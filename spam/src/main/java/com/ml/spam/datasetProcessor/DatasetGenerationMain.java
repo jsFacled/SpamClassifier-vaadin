@@ -11,13 +11,13 @@ public class DatasetGenerationMain {
     private static final String metadataPath = FilePathsConfig.DICTIONARY_METADATA_JSON_PATH;
     private static final String lexemeMetadataPath = "static/dictionary/lexemesRepository/lexeme_words_detailed.json";
 
-    private static final String inputCsvPath = FilePathsConfig.CLEANED_TRAIN_MESSAGES_CSV_PATH;
-   // private static final String inputCsvPath = FilePathsConfig.TEST_MESSAGES_CSV_ESPAÑOL_DATA_PATH;
-    //private static final String inputCsvPath = FilePathsConfig.CORREOS_SPAM_FAC_TXT_PATH;
+   // private static final String inputCsvPath = FilePathsConfig.CLEANED_TRAIN_MESSAGES_CSV_PATH;
+  // private static final String inputCsvPath = FilePathsConfig.TEST_MESSAGES_CSV_ESPAÑOL_DATA_PATH;
+    private static final String inputCsvPath = FilePathsConfig.CORREOS_SPAM_FAC_TXT_PATH;
 
-    private static final String outputDatasetPath = "generated_dataset_train.csv";
-    //private static final String outputDatasetPath = "generated_dataset_test.csv";
-    //private static final String outputDatasetPath = "generated_dataset_comillas.csv";
+  // private static final String outputDatasetPath = "generated_dataset_train.csv";
+   // private static final String outputDatasetPath = "generated_dataset_test.csv";
+    private static final String outputDatasetPath = "generated_dataset_comillas.csv";
 
 
 
@@ -32,8 +32,8 @@ public class DatasetGenerationMain {
                     lexemePath,
                     metadataPath,
                     inputCsvPath,
-                    "csv",     // nuevo parámetro
-                    null,      // label no necesario para csv
+                    "txt",     // indicar si es "txt" para triple comillas o "csv"
+                    "spam",      // label no necesario para csv
                     outputDatasetPath,
                     lexemeMetadataPath
             );

@@ -6,12 +6,20 @@ import com.ml.spam.datasetProcessor.services.DatasetGeneratorService;
 
 public class DatasetGenerationMain {
 
-    private static final String updatedCatWordsPath = "static/dictionary/categorizedWords/updatedCategorizedWords.json";
+    private static final String updatedCatWordsPath = "static/dictionary/categorizedWords/finalCategorizedWords.json";
     private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
     private static final String metadataPath = FilePathsConfig.DICTIONARY_METADATA_JSON_PATH;
+    private static final String lexemeMetadataPath = "static/dictionary/lexemesRepository/lexeme_words_detailed.json";
+
     private static final String inputCsvPath = FilePathsConfig.CLEANED_TRAIN_MESSAGES_CSV_PATH;
-    private static final String outputDatasetPath = "static/dataset/generated_dataset.csv";
-    private static final String lexemeMetadataPath = "lexeme_words_detailed.json";
+   // private static final String inputCsvPath = FilePathsConfig.TEST_MESSAGES_CSV_ESPAÑOL_DATA_PATH;
+    //private static final String inputCsvPath = FilePathsConfig.CORREOS_SPAM_FAC_TXT_PATH;
+
+    private static final String outputDatasetPath = "generated_dataset_train.csv";
+    //private static final String outputDatasetPath = "generated_dataset_test.csv";
+    //private static final String outputDatasetPath = "generated_dataset_comillas.csv";
+
+
 
     public static void main(String[] args) {
         try {

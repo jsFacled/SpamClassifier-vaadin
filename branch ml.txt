@@ -1,0 +1,2 @@
+Corresponde a la Etapa 5: ENTRENAMIENTO del modelo
+Ya tengo confeccionado el diccionario completo y los datasets con datos numéricos float.

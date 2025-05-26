@@ -74,6 +74,19 @@
 			<artifactId>json</artifactId>
 			<version>20240303</version>
 		</dependency>
+
+		<!-- Dependencia para explorar datasets y analizarlos -->
+		<dependency>
+			<groupId>tech.tablesaw</groupId>
+			<artifactId>tablesaw-core</artifactId>
+			<version>0.43.1</version>
+		</dependency>
+		<dependency>
+			<groupId>tech.tablesaw</groupId>
+			<artifactId>tablesaw-jsplot</artifactId>
+			<version>0.43.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>

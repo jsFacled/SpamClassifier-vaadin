@@ -165,7 +165,7 @@
   },
   "lexcalendar" : {
     "count" : 87,
-    "words" : [ "abr", "abril", "ago", "agosto", "am", "ano", "anos", "año", "años", "bisiesto", "decada", "decadas", "dias", "dic", "diciembre", "do", "dom", "domingo", "ene", "enero", "epocas", "eras", "feb", "febrero", "fecha", "festivo", "fracciones", "horas", "hs", "intervalo", "intervalos", "jornada", "jornadas", "jue", "jueves", "jul", "julio", "jun", "junio", "lapsos", "lu", "lun", "lunes", "ma", "manana", "mar", "martes", "marzo", "may", "mayo", "mañana", "mes", "meses", "mie", "miercoles", "milenio", "milenios", "min", "minutos", "navidad", "navidadjpg", "nov", "november", "noviembre", "oct", "octubre", "periodo", "periodos", "pm", "previo", "primero", "quincena", "sa", "sabado", "sabados", "segundos", "semana", "semanales", "semanas", "sep", "septiembre", "setiembre", "siglo", "siglos", "vi", "vie", "viernes" ]
+    "words" : [ "abr", "abril", "ago", "agosto", "am", "ano", "anos", "año", "años", "bisiesto", "decada", "decadas", "dias", "dic", "diciembre", "do", "dom", "domingo", "ene", "enero", "epocas", "eras", "feb", "febrero", "fecha", "festivo", "fracciones","hora", "horas", "hs", "intervalo", "intervalos", "jornada", "jornadas", "jue", "jueves", "jul", "julio", "jun", "junio", "lapsos", "lu", "lun", "lunes", "ma", "manana", "mar", "martes", "marzo", "may", "mayo", "mañana", "mes", "meses", "mie", "miercoles", "milenio", "milenios", "min", "minutos", "navidad", "navidadjpg", "nov", "november", "noviembre", "oct", "octubre", "periodo", "periodos", "pm", "previo", "primero", "quincena", "sa", "sabado", "sabados", "segundos", "semana", "semanales", "semanas", "sep", "septiembre", "setiembre", "siglo", "siglos", "vi", "vie", "viernes" ]
   },
   "lexcalls" : {
     "count" : 3,
@@ -379,18 +379,12 @@
     "count" : 2,
     "words" : [ "ars", "euros" ]
   },
-  "lexcurriculum" : {
-    "count" : 1,
-    "words" : [ "curriculum" ]
-  },
+
   "lexcustomization" : {
     "count" : 6,
     "words" : [ "adaptarlos", "personaliza", "personalizadas", "personalizados", "personalizar", "personalmente" ]
   },
-  "lexcv" : {
-    "count" : 1,
-    "words" : [ "curriculum" ]
-  },
+
   "lexdaily" : {
     "count" : 34,
     "words" : [ "actual", "ahora", "almuerzo", "beca", "boda", "caf", "cafe", "cena", "charla", "clima", "cotidianas", "des", "desayuno", "dia", "dona", "ello", "estare", "habitual", "hoy", "listos", "nda", "noche", "pin", "proximas", "reunion", "ruta", "rutina", "rutinas", "sede", "tarde", "tarea", "taxi", "trabajo", "yoga" ]
@@ -407,10 +401,7 @@
     "count" : 2,
     "words" : [ "fechas", "feriados" ]
   },
-  "lexdatetime" : {
-    "count" : 1,
-    "words" : [ "hora" ]
-  },
+
   "lexdecision" : {
     "count" : 11,
     "words" : [ "aprueba", "consideraremos", "decision", "decisiones", "detalle", "determinara", "determine", "manejo", "oponerse", "parecer", "termina" ]

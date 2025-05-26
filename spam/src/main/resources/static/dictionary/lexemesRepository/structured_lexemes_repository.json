@@ -441,7 +441,7 @@
     "lexcurrencies" : [ "euro", "peso", "real", "yuan", "lira", "birr", "doge" ],
     "lexdaily" : [ "cena", "cafe", "beca", "boda", "dona", "ello", "ruta", "sede", "taxi", "yoga" ],
     "lexdata" : [ "data" ],
-    "lexdatetime" : [ "hora" ],
+
     "lexdesign" : [ "font" ],
     "lexdeterminers" : [ "otra", "otro", "esas", "esos", "esta", "este", "unas", "unos", "todo", "cuyo" ],
     "lexdimensions" : [ "kilo", "pies" ],
@@ -1475,9 +1475,9 @@
     "lexcontributions" : [ "contribuye" ],
     "lexcosmetics" : [ "delineador", "fragancias" ],
     "lexcreation" : [ "creaciones" ],
-    "lexcurriculum" : [ "curriculum" ],
+
     "lexcustomization" : [ "adaptarlos" ],
-    "lexcv" : [ "curriculum" ],
+
     "lexdaily" : [ "cotidianas" ],
     "lexdecision" : [ "decisiones" ],
     "lexdefinition" : [ "definicion" ],

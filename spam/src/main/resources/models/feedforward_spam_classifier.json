@@ -1,1 +1,1 @@
-{"layers":[{"layerType":"INPUT","width":57},{"layerType":"FULLY_CONNECTED","width":30,"activation":"TANH"},{"layerType":"FULLY_CONNECTED","width":15,"activation":"TANH"},{"layerType":"OUTPUT","width":1,"activation":"SIGMOID"}],"lossFunction":"CROSS_ENTROPY","networkType":"FEEDFORWARD"}
+{"layers":[{"layerType":"INPUT","width":461},{"layerType":"FULLY_CONNECTED","width":30,"activation":"TANH"},{"layerType":"FULLY_CONNECTED","width":15,"activation":"TANH"},{"layerType":"OUTPUT","width":1,"activation":"SIGMOID"}],"lossFunction":"CROSS_ENTROPY","networkType":"FEEDFORWARD"}

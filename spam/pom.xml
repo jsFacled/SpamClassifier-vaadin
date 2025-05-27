@@ -77,14 +77,19 @@
 
 		<!-- Dependencia para explorar datasets y analizarlos -->
 		<dependency>
-			<groupId>tech.tablesaw</groupId>
-			<artifactId>tablesaw-core</artifactId>
-			<version>0.43.1</version>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+			<version>21-ea+24</version>
 		</dependency>
 		<dependency>
-			<groupId>tech.tablesaw</groupId>
-			<artifactId>tablesaw-jsplot</artifactId>
-			<version>0.43.1</version>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-fxml</artifactId>
+			<version>21-ea+24</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-media</artifactId>
+			<version>21-ea+24</version>
 		</dependency>
 
 	</dependencies>

@@ -20,12 +20,6 @@ public class DatasetInspectorUI extends Application {
 
         Label archivoLabel = new Label("No hay archivo cargado");
         Button cargarBtn = new Button("Seleccionar CSV");
-
-        ComboBox<String> col1Combo = new ComboBox<>();
-        ComboBox<String> col2Combo = new ComboBox<>();
-        col1Combo.setPromptText("Seleccionar columna 1");
-        col2Combo.setPromptText("Seleccionar columna 2");
-
         Button resumenBtn = new Button("Mostrar resumen");
         Button histogramaBtn = new Button("Mostrar histograma");
         Button boxplotBtn = new Button("Mostrar boxplot");
@@ -34,6 +28,13 @@ public class DatasetInspectorUI extends Application {
         Button headBtn = new Button("Ver primeras filas");
         Button tiposBtn = new Button("Ver tipos de datos");
         Button describeBtn = new Button("Describir datos");
+        Button uniqueBtn = new Button("Valores únicos");
+        Button valueCountsBtn = new Button("Conteo por categoría");
+
+        ComboBox<String> col1Combo = new ComboBox<>();
+        ComboBox<String> col2Combo = new ComboBox<>();
+        col1Combo.setPromptText("Seleccionar columna 1");
+        col2Combo.setPromptText("Seleccionar columna 2");
 
         cargarBtn.setOnAction(e -> {
             FileChooser fileChooser = new FileChooser();
@@ -97,15 +98,11 @@ public class DatasetInspectorUI extends Application {
                     String[] headers = reader.readLine().split(",");
 
                     StringBuilder sbH = new StringBuilder();
-                    for (String col : headers) {
-                        sbH.append(col).append("\t");
-                    }
+                    for (String col : headers) sbH.append(col).append("\t");
                     sbH.append("\n\nTotal: ").append(headers.length);
 
                     StringBuilder sbV = new StringBuilder();
-                    for (String col : headers) {
-                        sbV.append("- ").append(col).append("\n");
-                    }
+                    for (String col : headers) sbV.append("- ").append(col).append("\n");
                     sbV.append("\nTotal: ").append(headers.length);
 
                     TabPane tabPane = new TabPane();
@@ -134,21 +131,38 @@ public class DatasetInspectorUI extends Application {
         headBtn.setOnAction(e -> {
             try {
                 if (csvPath != null) {
+                    TextInputDialog inputDialog = new TextInputDialog("10");
+                    inputDialog.setTitle("Filas a mostrar");
+                    inputDialog.setHeaderText("¿Cuántas filas querés ver?");
+                    inputDialog.setContentText("Cantidad:");
+                    Optional<String> result = inputDialog.showAndWait();
+                    int cantidad = result.map(s -> {
+                        try { return Integer.parseInt(s); } catch (Exception e1) { return 10; }
+                    }).orElse(10);
+
                     BufferedReader reader = new BufferedReader(new FileReader(csvPath));
-                    String header = reader.readLine();
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(header).append("\n");
-                    for (int i = 0; i < 10; i++) {
+                    String[] headers = reader.readLine().split(",");
+                    List<String[]> rows = new ArrayList<>();
+                    for (int i = 0; i < cantidad; i++) {
                         String line = reader.readLine();
                         if (line == null) break;
-                        sb.append(line).append("\n");
+                        rows.add(line.split(",", -1));
+                    }
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < headers.length; i++) {
+                        sb.append(headers[i]).append("\t");
+                        for (String[] row : rows) {
+                            if (i < row.length) sb.append(row[i]).append("\t");
+                            else sb.append("\t");
+                        }
+                        sb.append("\n");
                     }
                     TextArea ta = new TextArea(sb.toString());
                     ta.setWrapText(false);
                     ta.setEditable(false);
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Primeras filas");
-                    alert.setHeaderText("df.head(10)");
+                    alert.setHeaderText("df.head(" + cantidad + ")");
                     alert.getDialogPane().setContent(ta);
                     alert.setResizable(true);
                     alert.getDialogPane().setPrefSize(700, 400);
@@ -227,15 +241,73 @@ public class DatasetInspectorUI extends Application {
             }
         });
 
+        uniqueBtn.setOnAction(e -> {
+            String col = col1Combo.getValue();
+            if (csvPath != null && col != null) {
+                try (BufferedReader reader = new BufferedReader(new FileReader(csvPath))) {
+                    String[] headers = reader.readLine().split(",");
+                    int colIndex = Arrays.asList(headers).indexOf(col);
+                    Set<String> valores = new LinkedHashSet<>();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        String[] parts = line.split(",", -1);
+                        if (colIndex < parts.length) valores.add(parts[colIndex]);
+                    }
+                    TextArea ta = new TextArea(String.join("\n", valores));
+                    ta.setWrapText(false); ta.setEditable(false);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Valores únicos");
+                    alert.setHeaderText("df[\"" + col + "\"].unique()");
+                    alert.getDialogPane().setContent(ta);
+                    alert.setResizable(true);
+                    alert.getDialogPane().setPrefSize(400, 400);
+                    alert.showAndWait();
+                } catch (Exception ex) { ex.printStackTrace(); }
+            }
+        });
+
+        valueCountsBtn.setOnAction(e -> {
+            String col = col1Combo.getValue();
+            if (csvPath != null && col != null) {
+                try (BufferedReader reader = new BufferedReader(new FileReader(csvPath))) {
+                    String[] headers = reader.readLine().split(",");
+                    int colIndex = Arrays.asList(headers).indexOf(col);
+                    Map<String, Integer> conteo = new HashMap<>();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        String[] parts = line.split(",", -1);
+                        if (colIndex < parts.length) {
+                            conteo.put(parts[colIndex], conteo.getOrDefault(parts[colIndex], 0) + 1);
+                        }
+                    }
+                    StringBuilder sb = new StringBuilder();
+                    conteo.entrySet().stream()
+                            .sorted((a, b) -> Integer.compare(b.getValue(), a.getValue()))
+                            .forEach(e2 -> sb.append(e2.getKey()).append(": ").append(e2.getValue()).append("\n"));
+                    TextArea ta = new TextArea(sb.toString());
+                    ta.setWrapText(false); ta.setEditable(false);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Conteo por categoría");
+                    alert.setHeaderText("df[\"" + col + "\"].value_counts()");
+                    alert.getDialogPane().setContent(ta);
+                    alert.setResizable(true);
+                    alert.getDialogPane().setPrefSize(400, 400);
+                    alert.showAndWait();
+                } catch (Exception ex) { ex.printStackTrace(); }
+            }
+        });
+
         VBox root = new VBox(10,
                 cargarBtn, archivoLabel,
                 col1Combo, col2Combo,
                 resumenBtn, histogramaBtn,
                 boxplotBtn, correlacionBtn,
                 verColumnasBtn, headBtn,
-                tiposBtn, describeBtn
+                tiposBtn, describeBtn,
+                uniqueBtn, valueCountsBtn
         );
-        Scene scene = new Scene(root, 400, 650);
+
+        Scene scene = new Scene(root, 400, 700);
         stage.setScene(scene);
         stage.show();
     }

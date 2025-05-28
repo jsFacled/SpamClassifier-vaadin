@@ -1,7 +1,5 @@
 package com.ml.spam.analysis;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.*;
@@ -41,6 +39,7 @@ public class DatasetInspector {
             missingValuesPerColumn.forEach((k, v) -> System.out.println(" - " + k + ": " + v));
 
             ChartLauncher.launchResumen(missingValuesPerColumn);
+
         }
     }
 
@@ -101,44 +100,8 @@ public class DatasetInspector {
             sumDenY += dy * dy;
         }
 
-        if (sumDenX == 0 || sumDenY == 0) {
-            String msg = String.format("No se puede calcular la correlación: la columna '%s' o '%s' no tiene variación.", col1, col2);
-            System.out.println(msg);
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Correlación no calculable");
-            alert.setHeaderText(null);
-            alert.setContentText(msg);
-            alert.showAndWait();
-            return;
-        }
-
         double r = sumNum / Math.sqrt(sumDenX * sumDenY);
         System.out.printf(">> Correlación de Pearson entre '%s' y '%s': %.4f\n", col1, col2, r);
-
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Resultado de la correlación");
-        alert.setHeaderText(null);
-        alert.setContentText(String.format("Correlación de Pearson entre '%s' y '%s': %.4f", col1, col2, r));
-        alert.showAndWait();
-    }
-
-    public static void mostrarColumnas(String path) throws Exception {
-        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
-            String headerLine = reader.readLine();
-            if (headerLine == null) throw new Exception("El archivo está vacío.");
-            String[] columnas = headerLine.split(",");
-            StringBuilder sb = new StringBuilder();
-            for (String col : columnas) {
-                sb.append("- ").append(col).append("\n");
-            }
-            sb.append("\nTotal de columnas: ").append(columnas.length);
-
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Columnas del archivo");
-            alert.setHeaderText("Encabezados detectados");
-            alert.setContentText(sb.toString());
-            alert.showAndWait();
-        }
     }
 
     public static Map<String, Integer> getMissingValuesPerColumn() {

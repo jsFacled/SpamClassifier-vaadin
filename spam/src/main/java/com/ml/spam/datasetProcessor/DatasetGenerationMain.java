@@ -17,7 +17,7 @@ public class DatasetGenerationMain {
 
   // private static final String outputDatasetPath = "generated_dataset_train.csv";
    // private static final String outputDatasetPath = "generated_dataset_test.csv";
-    private static final String outputDatasetPath = "generated_dataset_comillas.csv";
+    private static final String outputDatasetPath = "generated_dataset_comillas_spam.csv";
 
 
 

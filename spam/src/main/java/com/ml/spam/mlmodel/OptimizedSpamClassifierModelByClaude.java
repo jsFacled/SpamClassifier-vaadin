@@ -28,7 +28,7 @@ public class OptimizedSpamClassifierModelByClaude {
                     "spam/src/main/resources/static/mlDatasets/generated_dataset_test.csv",
                     numInputs, numOutputs, true);
             DataSet<MLDataItem> spamOnlySet = DataSets.readCsv(
-                    "spam/src/main/resources/static/mlDatasets/generated_dataset_comillas.csv",
+                    "spam/src/main/resources/static/mlDatasets/generated_dataset_comillas_spam.csv",
                     numInputs, numOutputs, true);
 
             // CRÍTICO: Aplicar normalización para datos dispersos

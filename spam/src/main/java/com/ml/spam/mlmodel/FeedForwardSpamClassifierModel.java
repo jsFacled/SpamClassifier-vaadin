@@ -20,7 +20,7 @@ public class FeedForwardSpamClassifierModel {
 
             DataSet<MLDataItem> trainingSet = DataSets.readCsv("spam/src/main/resources/static/mlDatasets/generated_dataset_train.csv", numInputs, numOutputs, true);
             DataSet<MLDataItem> testSet = DataSets.readCsv("spam/src/main/resources/static/mlDatasets/generated_dataset_test.csv", numInputs, numOutputs, true);
-            DataSet<MLDataItem> spamOnlySet = DataSets.readCsv("spam/src/main/resources/static/mlDatasets/generated_dataset_comillas.csv", numInputs, numOutputs, true);
+            DataSet<MLDataItem> spamOnlySet = DataSets.readCsv("spam/src/main/resources/static/mlDatasets/generated_dataset_comillas_spam.csv", numInputs, numOutputs, true);
 
             //MaxScaler scaler = new MaxScaler(trainingSet);
            // scaler.apply(trainingSet);

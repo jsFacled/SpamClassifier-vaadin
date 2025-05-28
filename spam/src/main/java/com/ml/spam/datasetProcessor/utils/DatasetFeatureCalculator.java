@@ -14,6 +14,12 @@ public class DatasetFeatureCalculator {
     }
 
     public static double calculateRelativeFreqNorm(long freq, int totalTokens, int lexemeSize) {
+//Para debug
+        System.out.println("<<<<<<---------------<<<<<<<<<<<<<<<<<<<<<<------------------------<<<<<<<<<<<<<<<<<<<<<<<");
+        System.out.println("freq es: "+freq+"<< totaltokens es: "+totalTokens+ " <<<<<<<<<<< lexemeSize es: "+lexemeSize+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        System.out.println("<<<<<<---------------<<<<<<<<<<<<<<<<<<<<<<------------------------<<<<<<<<<<<<<<<<<<<<<<<");
+//fin debug
+
         if (lexemeSize <= 0 || totalTokens <= 0) return 0.0;
         return (freq / (double) totalTokens) / lexemeSize;
     }

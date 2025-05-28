@@ -10,13 +10,25 @@ public class DatasetInspector {
     private static int totalRows = 0;
     private static String[] headers;
 
+    private static Map<String, Integer> nonNumericPerColumn = new LinkedHashMap<>();
+
+    private static Set<String> nonZeroValuesPerColumn = new HashSet<>();
+
     public static void mostrarResumenGeneral(String path) throws Exception {
+        missingValuesPerColumn.clear();
+        nonNumericPerColumn.clear();
+        nonZeroValuesPerColumn.clear();
+        totalRows = 0;
+
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
             String headerLine = reader.readLine();
             if (headerLine == null) throw new Exception("El archivo está vacío.");
 
             headers = headerLine.split(",");
-            for (String h : headers) missingValuesPerColumn.put(h, 0);
+            for (String h : headers) {
+                missingValuesPerColumn.put(h, 0);
+                nonNumericPerColumn.put(h, 0);
+            }
 
             String line;
             while ((line = reader.readLine()) != null) {
@@ -24,11 +36,20 @@ public class DatasetInspector {
                 totalRows++;
 
                 for (int i = 0; i < headers.length; i++) {
-                    if (i >= parts.length || parts[i].trim().isEmpty()
-                            || parts[i].equalsIgnoreCase("NaN")
-                            || parts[i].equalsIgnoreCase("null")) {
-                        String colName = headers[i];
+                    String value = (i < parts.length) ? parts[i].trim() : "";
+                    String colName = headers[i];
+
+                    if (value.isEmpty() || value.equalsIgnoreCase("NaN") || value.equalsIgnoreCase("null")) {
                         missingValuesPerColumn.put(colName, missingValuesPerColumn.get(colName) + 1);
+                    } else {
+                        try {
+                            float num = Float.parseFloat(value);
+                            if (num != 0.0f) {
+                                nonZeroValuesPerColumn.add(colName);
+                            }
+                        } catch (NumberFormatException e) {
+                            nonNumericPerColumn.put(colName, nonNumericPerColumn.get(colName) + 1);
+                        }
                     }
                 }
             }
@@ -38,8 +59,43 @@ public class DatasetInspector {
             System.out.println(">> Valores faltantes por columna:");
             missingValuesPerColumn.forEach((k, v) -> System.out.println(" - " + k + ": " + v));
 
-            ChartLauncher.launchResumen(missingValuesPerColumn);
+            System.out.println(">> Valores no numéricos por columna:");
+            nonNumericPerColumn.forEach((k, v) -> {
+                if (v > 0) System.out.println(" - " + k + ": " + v);
+            });
 
+            List<String> columnasTodoCero = new ArrayList<>();
+            for (String col : headers) {
+                if (!nonZeroValuesPerColumn.contains(col)) {
+                    columnasTodoCero.add(col);
+                }
+            }
+
+            System.out.println(">> Columnas con solo ceros: " + columnasTodoCero.size());
+            if (!columnasTodoCero.isEmpty()) {
+                System.out.println("Columnas con solo ceros:");
+                columnasTodoCero.forEach(col -> System.out.println(" - " + col));
+            }
+
+            StringBuilder resumen = new StringBuilder();
+            resumen.append("Total de filas: ").append(totalRows).append("\n");
+            resumen.append("Total de columnas: ").append(headers.length).append("\n");
+
+            if (missingValuesPerColumn.values().stream().allMatch(v -> v == 0)) {
+                resumen.append("No hay valores faltantes.\n");
+            } else {
+                resumen.append("Hay valores faltantes.\n");
+            }
+
+            if (columnasTodoCero.isEmpty()) {
+                resumen.append("Todas las columnas contienen al menos un valor distinto de cero.\n");
+            } else {
+                resumen.append("Hay columnas con solo ceros: ").append(columnasTodoCero.size()).append("\n");
+                resumen.append("Columnas:\n");
+                columnasTodoCero.forEach(col -> resumen.append(" - ").append(col).append("\n"));
+            }
+
+            ChartLauncher.launchResumenConTexto(missingValuesPerColumn, resumen.toString());
         }
     }
 

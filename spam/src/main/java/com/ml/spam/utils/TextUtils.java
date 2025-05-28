@@ -17,8 +17,9 @@ public class TextUtils {
     // Normalización de texto
 
     public static String normalize(String text) {
-        return text.toLowerCase().replaceAll("[^a-zA-Z0-9.]", "");
+        return text.toLowerCase().replaceAll("[^a-z0-9@$_✔]", "");
     }
+
     // Valida si una fila es válida para el dataset
 
     public static boolean isRawRow(String[] row) {

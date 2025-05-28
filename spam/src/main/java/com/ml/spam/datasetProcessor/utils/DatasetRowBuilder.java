@@ -70,6 +70,15 @@ public class DatasetRowBuilder {
                 String word = column.substring(DatasetColumnName.RELATIVE_FREQ_NORM.get().length());
                 long freq = freqMap.getOrDefault(word, 0L);
                 int lexemeSize = metadata.getWordCountForLexeme(word);
+                if (lexemeSize <= 0) lexemeSize = 1;
+                //<<<<<<<<<<<<<< Para realizar pruebas<<<<<<<<<<<<<<<<<<<<
+                if (word.equals("$")) {
+                    System.out.println(">>> freq_$ = " + freq +" <<<<<<<<<<<<<<");
+                    System.out.println(">>> totalTokens = " + totalTokens +" <<<<<<<<<<<<<<");
+                    System.out.println(">>> lexemeSize_$ = " + lexemeSize +" <<<<<<<<<<<<<<");
+                }
+                //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
                 value = DatasetFeatureCalculator.calculateRelativeFreqNorm(freq, totalTokens, lexemeSize);
 
                 // Si la columna es del tipo polarity_<palabra>

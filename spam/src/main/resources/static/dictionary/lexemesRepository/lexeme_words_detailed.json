@@ -1,8 +1,5 @@
 {
-  "contextualLexeme" : {
-    "count" : 5,
-    "words" : [ "aquél", "aun", "ese", "él", "éstos" ]
-  },
+
   "hamemoji" : {
     "count" : 1,
     "words" : [ "✔" ]
@@ -33,19 +30,38 @@
   },
   "lexactions" : {
     "count" : 231,
-    "words" : [ "abras", "abres", "abrir", "abrirlo", "acaban", "acabo", "acceda", "acceder", "accion", "acciones", "acelera", "acelere", "acepta", "aceptar", "aceptas", "acercarte", "aconseja", "acreditar", "activando", "activar", "actuacion", "actuar", "actuas", "acudir", "acudiste", "acumula", "adhesion", "adhiriendo", "adhirio", "administrar", "adoptan", "adoptando", "adquiere", "adquirir", "advierten", "advierto", "agendamos", "agendar", "agregadas", "agregalos", "agregar", "alterar", "anade", "anular", "aplicar", "aprovecha", "arrasara", "asiste", "attend", "baja", "becomes", "borrar", "buscamos", "calculado", "calcular", "cambiar", "cancela", "cancelacion", "cancelar", "canjea", "captar", "captas", "clic", "click", "comenzaras", "comienza", "comienzas", "committee", "compara", "compare", "compartir", "completar", "confirmar", "congelamos", "conoce", "conocer", "consegui", "continuar", "corre", "crear", "daremos", "das", "deja", "dejar", "desarrolla", "desata", "desbloquea", "descarrilar", "descartarian", "descubre", "desintoxica", "despierta", "discover", "disponga", "donando", "duplica", "echale", "echarte", "ejercer", "elegi", "elimina", "eliminar", "eliminare", "eliminaremos", "eliminemos", "empieza", "entrega", "envia", "enviamos", "envies", "envio", "evaluar", "evitar", "formar", "genera", "generado", "get", "go", "guarda", "hace", "hacen", "hacer", "hacerlo", "haces", "hacete", "haciendo", "haga", "hagan", "haganos", "hagas", "hazte", "ingresa", "iniciar", "intenta", "intentes", "intiman", "ir", "irse", "join", "llaman", "llegar", "llevate", "maneja", "manejas", "manten", "mantener", "mantenga", "mantente", "marcar", "monitoreando", "navegar", "obten", "obtendras", "obtener", "obtenga", "operar", "participando", "partir", "pedila", "pedir", "permita", "permite", "permiten", "permitido", "pierdas", "pon", "ponerle", "ponerte", "pongas", "pongase", "pongo", "presentarte", "presento", "probar", "procesa", "procesado", "procesar", "protege", "proveyo", "pruebes", "quedes", "quitara", "reactivate", "realice", "realicen", "realiza", "realizar", "realizarse", "recibe", "recibes", "regalate", "registra", "resolver", "retirar", "revelar", "revisa", "revisad", "rompe", "romper", "salga", "salida", "salir", "sigan", "simplificar", "solicitar", "start", "started", "stop", "sumamos", "sumate", "supera", "tomado", "tomamos", "tomando", "tomar", "tonifica", "trae", "trata", "unete", "unir", "usa", "usando", "usar", "usarlos", "utilizar", "ve", "ven", "vendra", "ver", "viene", "volver" ]
+    "words" : [ "abras", "abres", "abrir", "abrirlo", "acaban", "acabo", "acceda", "acceder", "accion", "acciones",
+      "acelera", "acelere", "acepta", "aceptar", "aceptas", "acercarte", "aconseja", "acreditar", "activando", "activar",
+      "actuacion", "actuar", "actuas", "acudir", "acudiste", "adhesion", "adhiriendo", "adhirio", "administrar",
+      "adoptan", "adoptando", "adquiere", "adquirir", "advierten", "advierto", "agendamos", "agendar", "agregadas",
+      "agregalos", "agregar", "alterar", "anade", "anular", "aplicar", "aprovecha", "arrasara", "asiste", "attend",
+      "baja", "becomes", "borrar", "buscamos", "calculado", "calcular", "cambiar", "cancela", "cancelacion", "cancelar",
+      "canjea", "captar", "captas", "comenzaras", "comienza", "comienzas", "committee", "compara", "compare",
+      "compartir", "completar", "confirmar", "congelamos", "conoce", "conocer", "consegui", "continuar", "corre", "crear",
+      "daremos", "das", "deja", "dejar", "desarrolla", "desata", "desbloquea", "descarrilar", "descartarian", "descubre",
+      "desintoxica", "despierta", "discover", "disponga", "donando", "duplica", "echale", "echarte", "ejercer", "elegi",
+      "elimina", "eliminar", "eliminare", "eliminaremos", "eliminemos", "empieza", "entrega", "envia", "enviamos", "envies",
+      "envio", "evaluar", "evitar", "formar", "genera", "generado", "get", "go", "guarda", "hace", "hacen", "hacer",
+      "hacerlo", "haces", "hacete", "haciendo", "haga", "hagan", "haganos", "hagas", "hazte", "ingresa", "iniciar",
+      "intenta", "intentes", "intiman", "ir", "irse", "join", "llaman", "llegar", "llevate", "maneja", "manejas",
+      "manten", "mantener", "mantenga", "mantente", "marcar", "monitoreando", "navegar", "obten", "obtendras", "obtener",
+      "obtenga", "operar", "participando", "partir", "pedila", "pedir", "permita", "permite", "permiten", "permitido",
+      "pierdas", "pon", "ponerle", "ponerte", "pongas", "pongase", "pongo", "presentarte", "presento", "probar",
+      "procesa", "procesado", "procesar", "protege", "proveyo", "pruebes", "quedes", "quitara", "reactivate", "realice",
+      "realicen", "realiza", "realizar", "realizarse", "recibe", "recibes", "regalate", "registra", "resolver",
+      "retirar", "revelar", "revisa", "revisad", "rompe", "romper", "salga", "salida", "salir", "sigan", "simplificar",
+      "solicitar", "start", "started", "stop", "sumamos", "sumate", "supera", "tomado", "tomamos", "tomando", "tomar",
+      "tonifica", "trae", "trata", "unete", "unir", "usa", "usando", "usar", "usarlos", "utilizar", "ve", "ven",
+      "vendra", "ver", "viene", "volver" ]
   },
-  "lexaddition" : {
-    "count" : 3,
-    "words" : [ "ademas", "agregada", "suma" ]
-  },
+
   "lexadditional" : {
     "count" : 6,
-    "words" : [ "adicional", "adicionales", "agregada", "extras", "suma", "sumar" ]
+    "words" : [ "adicional", "adicionales", "agregada", "extras", "suma", "sumar","agregada", "suma" ],
   },
   "lexadverbs" : {
     "count" : 35,
-    "words" : [ "absolutamente", "ademas", "algo", "antes", "asi", "bastante", "brevemente", "como", "comunmente", "correctamente", "cuando", "despues", "donde", "how", "incluso", "mas", "mente", "muy", "ni", "no", "rapida", "rapidamente", "re", "si", "siempre", "simplemente", "solamente", "solo", "suficientemente", "tambien", "tan", "tanto", "todavia", "unicamente", "ya" ]
+    "words" : [ "absolutamente", "algo", "antes", "asi", "bastante", "brevemente", "como", "comunmente", "correctamente", "cuando", "despues", "donde", "how", "incluso", "mas", "mente", "muy", "ni", "no", "rapida", "rapidamente", "re", "si", "siempre", "simplemente", "solamente", "solo", "suficientemente", "tambien", "tan", "tanto", "todavia", "unicamente", "ya" ]
   },
   "lexadvice" : {
     "count" : 5,
@@ -67,10 +83,7 @@
     "count" : 9,
     "words" : [ "aparecen", "look", "luce", "maquillaje", "parece", "pestanas", "radiante", "rostro", "sombras" ]
   },
-  "lexapplications" : {
-    "count" : 7,
-    "words" : [ "aplicable", "aplicacion", "aplicaciones", "aplicara", "application", "apps", "postulacion" ]
-  },
+
   "lexapplies" : {
     "count" : 18,
     "words" : [ "acredite", "acumula", "acumulable", "acumulas", "adaptadas", "adaptar", "aplica", "aplicables", "asegurarte", "asegurate", "busca", "buscan", "buscas", "including", "incluido", "incluidos", "inclusion", "inclusive" ]
@@ -79,10 +92,7 @@
     "count" : 10,
     "words" : [ "aceptacion", "acreditados", "aprobada", "aprobados", "aprobando", "merece", "preseleccionado", "reservados", "seleccionado", "vale" ]
   },
-  "lexapproximation" : {
-    "count" : 1,
-    "words" : [ "casi" ]
-  },
+
   "lexarchitecture" : {
     "count" : 2,
     "words" : [ "basilica", "plano" ]
@@ -111,10 +121,7 @@
     "count" : 4,
     "words" : [ "autorizadas", "habilitacion", "otorgada", "otorgue" ]
   },
-  "lexautomation" : {
-    "count" : 3,
-    "words" : [ "automatica", "automaticamente", "automatico" ]
-  },
+
   "lexauxiliaryverbs" : {
     "count" : 29,
     "words" : [ "es", "estan", "estar", "fue", "fuera", "fueron", "fui", "ha", "habia", "habian", "han", "has", "hay", "he", "hemos", "sea", "sean", "seas", "ser", "sera", "sido", "siendo", "son", "tendra", "tenemos", "tener", "tenes", "tiene", "tienen" ]
@@ -179,14 +186,7 @@
     "count" : 2,
     "words" : [ "entrevista", "interview" ]
   },
-  "lexcelebration" : {
-    "count" : 3,
-    "words" : [ "bodas", "mascota", "pascuas" ]
-  },
-  "lexchange" : {
-    "count" : 1,
-    "words" : [ "alterar" ]
-  },
+
   "lexchannels" : {
     "count" : 2,
     "words" : [ "mensajeria", "telegram" ]
@@ -233,7 +233,10 @@
   },
   "lexcommerce" : {
     "count" : 43,
-    "words" : [ "agregalos", "caja", "carrito", "carro", "catalogo", "categorias", "categoriza", "changomas", "comision", "compra", "consigue", "deals", "ecommerce", "gratis", "marketplace", "oferta", "ofertas", "oportunidad", "pedidos", "plataforma", "plataformas", "productos", "promociones", "publicidades", "puntos", "revendedores", "sale", "shipping", "shopper", "shopping", "sotheby", "stock", "store", "subastadas", "subastas", "tallas", "talle", "talles", "tickets", "vendidas", "ventas", "vip", "vuitton" ]
+    "words" : ["caja", "carrito", "carro", "catalogo", "categorias", "categoriza", "changomas", "comision", "compra", "consigue",
+      "deals", "ecommerce", "gratis", "marketplace", "oferta", "ofertas", "oportunidad", "pedidos", "plataforma", "plataformas",
+      "productos", "promociones", "publicidades", "puntos", "revendedores", "sale", "shipping", "shopper", "shopping", "sotheby",
+      "stock", "store", "subastadas", "subastas", "tallas", "talle", "talles", "tickets", "vendidas", "ventas", "vip", "vuitton" ]
   },
   "lexcommercial" : {
     "count" : 1,
@@ -297,7 +300,7 @@
   },
   "lexconjunctions" : {
     "count" : 19,
-    "words" : [ "ademas", "and", "are", "asi", "aunque", "because", "if", "mas", "mediante", "mientras", "o", "or", "pero", "porque", "que", "salvo", "si", "with", "y" ]
+    "words" : [ "ademas", "and", "are",  "aunque", "because", "if", "mas", "mediante", "mientras", "o", "or", "pero", "porque", "que", "salvo", "si", "with", "y" ]
   },
   "lexconsent" : {
     "count" : 1,
@@ -329,7 +332,7 @@
   },
   "lexcontextual" : {
     "count" : 47,
-    "words" : [ "basilicas", "brickell", "broadway", "brokline", "caso", "causa", "corte", "cosas", "enfocada", "environments", "escanea", "escuelas", "extendida", "exterior", "externas", "habitacion", "heladerias", "hogar", "hotel", "independientemente", "intercambio", "interes", "interesa", "intereses", "karma", "libera", "liberte", "libres", "lugar", "mira", "mirada", "mundo", "native", "ocasionados", "paradoja", "peluqueria", "pues", "reino", "respecto", "resto", "supuesto", "supuestos", "tabla", "temporal", "tocar", "universidad", "virtual" ]
+    "words" : [ "brickell", "broadway", "brokline", "caso", "causa", "corte", "cosas", "enfocada", "environments", "escanea", "escuelas", "extendida", "exterior", "externas", "habitacion", "heladerias", "hogar", "hotel", "independientemente", "intercambio", "interes", "interesa", "intereses", "karma", "libera", "liberte", "libres", "lugar", "mira", "mirada", "mundo", "native", "ocasionados", "paradoja", "peluqueria", "pues", "reino", "respecto", "resto", "supuesto", "supuestos", "tabla", "temporal", "tocar", "universidad", "virtual" ]
   },
   "lexcontrast" : {
     "count" : 1,
@@ -387,7 +390,7 @@
 
   "lexdaily" : {
     "count" : 34,
-    "words" : [ "actual", "ahora", "almuerzo", "beca", "boda", "caf", "cafe", "cena", "charla", "clima", "cotidianas", "des", "desayuno", "dia", "dona", "ello", "estare", "habitual", "hoy", "listos", "nda", "noche", "pin", "proximas", "reunion", "ruta", "rutina", "rutinas", "sede", "tarde", "tarea", "taxi", "trabajo", "yoga" ]
+    "words" : [ "actual","almuerzo", "beca", "boda", "caf", "cafe", "cena", "charla", "clima", "cotidianas", "des", "desayuno", "dia", "dona", "ello", "estare", "habitual", "hoy", "listos", "nda", "noche", "pin", "proximas", "reunion", "ruta", "rutina", "rutinas", "sede", "tarde", "tarea", "taxi", "trabajo", "yoga" ]
   },
   "lexdata" : {
     "count" : 4,
@@ -640,7 +643,10 @@
   },
   "lexfinance" : {
     "count" : 144,
-    "words" : [ "abonando", "accionista", "accionistas", "account", "afiliacion", "afiliadas", "afiliado", "afiliados", "ahorra", "ahorras", "ahorro", "ahorros", "apuesta", "balance", "balanceadores", "bancaria", "bancarias", "bancario", "bancarrota", "bancos", "bank", "banking", "bbva", "bitcoin", "bonificacion", "bonificados", "bonificara", "cambio", "canjeables", "canjear", "capital", "card", "cargo", "cargos", "cartera", "cashback", "cft", "cheque", "cheques", "cobertura", "cobrara", "coin", "comisiones", "commodities", "consumo", "costo", "crediticia", "crediticio", "credito", "creditos", "cuentas", "cuota", "debito", "debitos", "demorar", "deposito", "deudas", "deudores", "devolucion", "dinero", "donacion", "donativo", "efectivo", "emision", "emisor", "facturacion", "fatca", "financia", "financiacion", "financiamiento", "finanzas", "fiscal", "fiscales", "fondos", "galicia", "ganancias", "ganando", "ganar", "ganaras", "gasta", "gastas", "gastes", "gastos", "gold", "hipoteca", "icbc", "ingreso", "ingresos", "interes", "invierte", "jubilacion", "liquidacion", "litecoin", "mastercard", "millon", "monto", "mora", "negocio", "nomina", "nominal", "operaciones", "otorgamiento", "otorgar", "pasivas", "pasivos", "plata", "pospago", "precios", "prepago", "prestamos", "recargar", "recargos", "recaudar", "referente", "refinanciamiento", "regulaciones", "reintegra", "reintegro", "reintegros", "remunerada", "rentas", "requiera", "retiro", "saldo", "salvemos", "save", "subsidiarias", "subsidio", "sucursales", "sueldo", "supervielle", "tarifa", "tarjeta", "tarjetas", "tasas", "tax", "transacciones", "transfer", "transferencia", "transferida", "transfiere", "tributario", "usd", "venta" ]
+    "words" : [ "abonando", "accionista", "accionistas", "account", "afiliacion", "afiliadas", "afiliado", "afiliados", "ahorra",
+      "ahorras", "ahorro", "ahorros", "apuesta", "balance", "balanceadores", "bancaria", "bancarias", "bancario", "bancarrota",
+      "bancos", "bank", "banking", "bbva", "bitcoin", "bonificacion", "bonificados", "bonificara", "cambio", "canjeables", "canjear",
+      "capital", "card", "cargo", "cargos", "cartera", "cashback", "cft", "cheque", "cheques", "cobertura", "cobrara", "coin", "comisiones", "commodities", "consumo", "costo", "crediticia", "crediticio", "credito", "creditos", "cuentas", "cuota", "debito", "debitos", "demorar", "deposito", "deudas", "deudores", "devolucion", "dinero", "donacion", "donativo", "efectivo", "emision", "emisor", "facturacion", "fatca", "financia", "financiacion", "financiamiento", "finanzas", "fiscal", "fiscales", "fondos", "galicia", "ganancias", "ganando", "ganar", "ganaras", "gasta", "gastas", "gastes", "gastos", "gold", "hipoteca", "icbc", "ingreso", "ingresos", "interes", "invierte", "jubilacion", "liquidacion", "litecoin", "mastercard", "millon", "monto", "mora", "negocio", "nomina", "nominal", "operaciones", "otorgamiento", "otorgar", "pasivas", "pasivos", "plata", "pospago", "precios", "prepago", "prestamos", "recargar", "recargos", "recaudar", "referente", "refinanciamiento", "regulaciones", "reintegra", "reintegro", "reintegros", "remunerada", "rentas", "requiera", "retiro", "saldo", "salvemos", "save", "subsidiarias", "subsidio", "sucursales", "sueldo", "supervielle", "tarifa", "tarjeta", "tarjetas", "tasas", "tax", "transacciones", "transfer", "transferencia", "transferida", "transfiere", "tributario", "usd", "venta" ]
   },
   "lexfinancial" : {
     "count" : 4,
@@ -732,7 +738,7 @@
   },
   "lexhelp" : {
     "count" : 24,
-    "words" : [ "apoya", "apoyemos", "apoyo", "aqui", "asistencia", "asustes", "atender", "aun", "ayuda", "ayudado", "ayudame", "ayudan", "ayudanos", "ayudara", "ayudarlo", "ayudarte", "ayudo", "brinda", "colaborar", "hagamos", "necesitas", "necesito", "socorro", "soporte" ]
+    "words" : [ "apoya", "apoyemos", "apoyo",  "asistencia", "asustes", "atender", "aun", "ayuda", "ayudado", "ayudame", "ayudan", "ayudanos", "ayudara", "ayudarlo", "ayudarte", "ayudo", "brinda", "colaborar", "hagamos", "necesitas", "necesito", "socorro", "soporte" ]
   },
   "lexhighlight" : {
     "count" : 7,
@@ -1040,12 +1046,9 @@
   },
   "lexnotifications" : {
     "count" : 26,
-    "words" : [ "actualizar", "agenda", "alerta", "anuncio", "confirma", "detalles", "evita", "informa", "limpieza", "mensaje", "muestran", "notificacion", "notificaciones", "notificar", "novedades", "olvides", "pd", "pendiente", "presta", "recibidos", "recibiras", "recordatorio", "respondiendo", "resumen", "vigencia", "vigentes" ]
+    "words" : [ "actualizar", "confirma", "detalles", "evita", "informa", "limpieza", "mensaje", "muestran", "notificacion", "notificaciones", "notificar", "novedades", "olvides", "pd", "pendiente", "presta", "recibidos", "recibiras", "recordatorio", "respondiendo", "resumen", "vigencia", "vigentes" ]
   },
-  "lexnum" : {
-    "count" : 10,
-    "words" : [ "cinco", "cuatro", "diez", "dos", "nueve", "ocho", "seis", "siete", "tres", "uno" ]
-  },
+
   "lexnumbers" : {
     "count" : 16,
     "words" : [ "cero", "cien", "cientos", "cinco", "cuatro", "diez", "dos", "nueve", "numerica", "numero", "ocho", "seis", "siete", "trece", "tres", "uno" ]
@@ -1174,13 +1177,10 @@
     "count" : 13,
     "words" : [ "amateur", "desnudas", "hot", "masturba", "masturbandote", "masturbar", "milf", "nude", "onlyfans", "porn", "porno", "sex", "xxx" ]
   },
-  "lexposition" : {
-    "count" : 4,
-    "words" : [ "abajo", "aca", "debajo", "lado" ]
-  },
+
   "lexpositive" : {
     "count" : 99,
-    "words" : [ "actual", "adelante", "ademas", "adorables", "agradecemos", "alegria", "amable", "amigos", "amor", "amplia", "apreciamos", "bien", "bienvenida", "bienvenidas", "bienvenido", "brillante", "buen", "buena", "buenas", "bueno", "buenos", "cambia", "chance", "comodidad", "complace", "confiable", "confiar", "contento", "cordial", "deseos", "disfruta", "disfrutando", "disfrutar", "disfrutes", "dream", "encantaria", "engaging", "espectacular", "esperanza", "favorable", "favorablemente", "felices", "felicidad", "feliz", "fidelidad", "fiel", "firma", "ganado", "genial", "geniales", "gusta", "gustaria", "gusto", "ideales", "ideas", "impulso", "increible", "increibles", "interesa", "interesantes", "juntos", "libertad", "like", "listo", "motivacion", "orgulloso", "orgullosos", "paz", "perdonador", "positiva", "positivamente", "positivo", "positivos", "postular", "potentes", "preferirnos", "recuerda", "salva", "salvar", "satisfaccion", "satisfacer", "satisfacerte", "satisfactoriamente", "sincera", "sol", "solucion", "soluciones", "suenos", "sueños", "tranquilidad", "trusted", "unirte", "valida", "valoramos", "vida", "vive", "vivi", "viviendo", "voluntad" ]
+    "words" : [ "adelante", "adorables", "agradecemos", "alegria", "amable", "amigos", "amor", "apreciamos", "bien", "bienvenida", "bienvenidas", "bienvenido", "brillante", "buen", "buena", "buenas", "bueno", "buenos", "cambia", "chance", "comodidad", "complace", "confiable", "confiar", "contento", "cordial", "deseos", "disfruta", "disfrutando", "disfrutar", "disfrutes", "dream", "encantaria", "engaging", "espectacular", "esperanza", "favorable", "favorablemente", "felices", "felicidad", "feliz", "fidelidad", "fiel", "firma", "ganado", "genial", "geniales", "gusta", "gustaria", "gusto", "ideales", "ideas", "impulso", "increible", "increibles", "interesa", "interesantes", "juntos", "libertad", "like", "listo", "motivacion", "orgulloso", "orgullosos", "paz", "perdonador", "positiva", "positivamente", "positivo", "positivos", "postular", "potentes", "preferirnos", "recuerda", "salva", "salvar", "satisfaccion", "satisfacer", "satisfacerte", "satisfactoriamente", "sincera", "sol", "solucion", "soluciones", "suenos", "sueños", "tranquilidad", "trusted", "unirte", "valida", "valoramos", "vida", "vive", "vivi", "viviendo", "voluntad" ]
   },
   "lexpossession" : {
     "count" : 4,
@@ -1294,14 +1294,8 @@
     "count" : 7,
     "words" : [ "crees", "cual", "cuanto", "donde", "preguntas", "questions", "who" ]
   },
-  "lexrange" : {
-    "count" : 1,
-    "words" : [ "alcance" ]
-  },
-  "lexreach" : {
-    "count" : 1,
-    "words" : [ "alcance" ]
-  },
+
+
   "lexreading" : {
     "count" : 5,
     "words" : [ "lea", "lectura", "lee", "leelo", "lees" ]
@@ -1330,10 +1324,7 @@
     "count" : 6,
     "words" : [ "inscrip", "inscripcion", "register", "registrarte", "registraste", "registros" ]
   },
-  "lexregulations" : {
-    "count" : 3,
-    "words" : [ "aplican", "aplicaran", "compliance" ]
-  },
+
   "lexrelations" : {
     "count" : 21,
     "words" : [ "amante", "amiga", "amigo", "companero", "companeros", "correlate", "corresponde", "enemiga", "enemigo", "esposa", "esposo", "novia", "novio", "pareja", "relacionadas", "relacionado", "relacionados", "romantica", "solteras", "solteros", "vecina" ]
@@ -1472,7 +1463,7 @@
   },
   "lexspamalerts" : {
     "count" : 6,
-    "words" : [ "advertencia", "crucial", "inspam", "pornografia", "urgente", "vital" ]
+    "words" : [  ]
   },
   "lexspaminformation" : {
     "count" : 3,
@@ -1592,7 +1583,11 @@
   },
   "lextechnology" : {
     "count" : 132,
-    "words" : [ "access", "alfa", "algoritmo", "applications", "architectures", "artificial", "asincronicos", "audio", "autenticacion", "automatica", "automaticamente", "automaticos", "automatizado", "automatizados", "balanceadores", "boton", "brower", "camara", "camaras", "campaign", "cards", "celular", "celulares", "checkout", "chrome", "clic", "clica", "clicando", "clics", "climatizacion", "codegptwoct", "codificador", "codifique", "codigo", "compatibles", "componente", "conectar", "conectate", "conexion", "custom", "dashboards", "database", "datacenter", "ddos", "developer", "digital", "digitales", "digitalmente", "electronico", "elevenlabs", "eleventy", "flash", "galaxy", "gbit", "generador", "generativa", "github", "google", "googleplay", "gpt", "grapheneos", "grpc", "ia", "infrastructure", "interfaz", "internet", "ios", "iosapp", "ipad", "iphone", "itnext", "javaexcodigo", "javaexindevopsdev", "javainusejavainuse", "jetbrains", "jpa", "kafka", "linuxwindows", "machine", "macos", "metaai", "microservicios", "mitm", "mobile", "monitoring", "mysql", "nube", "nvme", "ollama", "openai", "optico", "ordenador", "ordenadores", "panel", "paneles", "pantalla", "pantallas", "pdf", "pegasus", "procesamiento", "produccion", "programacion", "programas", "prompt", "python", "ram", "readclaps", "realidad", "robot", "scaling", "search", "smart", "suite", "switch", "technologists", "tecnicos", "tecnologia", "tecnologias", "tecnologicos", "telefonia", "twitter", "upgrade", "upgrades", "uplink", "using", "vector", "version", "versiones", "virtuales", "visualizacion", "wifi", "windows" ]
+    "words" : [ "access", "alfa", "algoritmo", "applications", "architectures", "artificial", "asincronicos", "audio", "autenticacion", "automatica", "automaticamente", "automaticos",
+      "automatizado", "automatizados", "balanceadores", "boton", "brower", "camara", "camaras", "campaign", "cards", "celular", "celulares", "checkout",
+      "chrome", "clic", "clica", "clicando", "clics", "climatizacion", "codegptwoct", "codificador", "codifique", "codigo", "compatibles", "componente",
+      "conectar", "conectate", "conexion", "custom", "dashboards", "database", "datacenter", "ddos", "developer", "digital", "digitales", "digitalmente",
+      "electronico", "elevenlabs", "eleventy", "flash", "galaxy", "gbit", "generador", "generativa", "github", "google", "googleplay", "gpt", "grapheneos", "grpc", "ia", "infrastructure", "interfaz", "internet", "ios", "iosapp", "ipad", "iphone", "itnext", "javaexcodigo", "javaexindevopsdev", "javainusejavainuse", "jetbrains", "jpa", "kafka", "linuxwindows", "machine", "macos", "metaai", "microservicios", "mitm", "mobile", "monitoring", "mysql", "nube", "nvme", "ollama", "openai", "optico", "ordenador", "ordenadores", "panel", "paneles", "pantalla", "pantallas", "pdf", "pegasus", "procesamiento", "produccion", "programacion", "programas", "prompt", "python", "ram", "readclaps", "realidad", "robot", "scaling", "search", "smart", "suite", "switch", "technologists", "tecnicos", "tecnologia", "tecnologias", "tecnologicos", "telefonia", "twitter", "upgrade", "upgrades", "uplink", "using", "vector", "version", "versiones", "virtuales", "visualizacion", "wifi", "windows" ]
   },
   "lextelecom" : {
     "count" : 14,
@@ -1638,10 +1633,7 @@
     "count" : 3,
     "words" : [ "fiable", "reliable", "trusted" ]
   },
-  "lexuiux" : {
-    "count" : 1,
-    "words" : [ "boton" ]
-  },
+
   "lexunderstanding" : {
     "count" : 2,
     "words" : [ "entender", "entendera" ]
@@ -1664,7 +1656,7 @@
   },
   "lexurgentrequests" : {
     "count" : 13,
-    "words" : [ "accion", "ahora", "atendiendo", "hara", "inmediato", "lexurgentrequests", "now", "prioridad", "pronto", "puntualmente", "reprogramada", "resolveremos", "urgentemente" ]
+    "words" : [ "ahora", "atendiendo", "hara", "inmediato","now", "prioridad", "pronto", "puntualmente", "reprogramada", "resolveremos", "urgentemente" ]
   },
   "lexurls" : {
     "count" : 20,
@@ -1732,7 +1724,7 @@
   },
   "lexwebactions" : {
     "count" : 30,
-    "words" : [ "abre", "accede", "acceso", "aplicacion", "carga", "descarga", "descargar", "descargues", "explora", "formulario", "ingresar", "leer", "leido", "navega", "pulsa", "pulses", "recoger", "registrarse", "subimos", "subirlo", "up", "verlo", "viendo", "view", "visita", "visitar", "visitarnos", "visite", "visites", "wapage" ]
+    "words" : [ "abre", "accede", "acceso","carga", "descarga", "descargar", "descargues", "explora", "formulario", "ingresar", "leer", "leido", "navega", "pulsa", "pulses", "recoger", "registrarse", "subimos", "subirlo", "up", "verlo", "viendo", "view", "visita", "visitar", "visitarnos", "visite", "visites", "wapage" ]
   },
   "lexweight" : {
     "count" : 1,

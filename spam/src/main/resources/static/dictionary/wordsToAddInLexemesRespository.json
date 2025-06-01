@@ -1,13 +1,16 @@
 {
-  "lexlegal": ["estatutos", "oficiales"],
-  "lexreflection": ["reflexion"],
-  "lexclothing": ["ropa"],
-  "lexunknown": ["teraserver"]
 
-}
+  "lexdirection": ["abajo", "debajo", "lado","alcance"],
+  "lexalerts" :  ["advertencia", "crucial", "inspam", "pornografia", "urgente", "vital"],
+  "lexadditional": ["agregada", "suma"],
 
-{
-  "palabra que se repite más de una vez": [lexema1, lexema2, etc],
-
+  "lextechnology": ["aplicacion", "aplicaciones",  "application", "apps","automatica", "automaticamente", "automatico","click"],
+  "lexrequests": ["postulacion"],
+  "lexapplies" : [  "aplicable","aplicara", "aplican", "aplicaran" ],
+  "lexadverbs": ["casi"],
+  "lexcontextual" :["aquél", "aun", "ese", "él", "éstos" ],
+  "lexstructure" : [ "bloques" ],
+  "lexsubscriptions" :["boletines"],
+  "lexnumbers" :["cinco", "cuatro", "diez", "dos", "nueve", "ocho", "seis", "siete", "tres", "uno" ]
 
 }

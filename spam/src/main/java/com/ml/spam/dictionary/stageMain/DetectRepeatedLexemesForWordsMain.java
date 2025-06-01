@@ -6,6 +6,27 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * DetectRepeatedLexemesForWordsMain
+ *
+ * Este programa analiza el archivo structured_lexemes_repository.json
+ * y detecta todas las palabras que están asignadas a más de un lexema.
+ *
+ * Genera como salida un archivo JSON (repeated_words_with_lexemes.json)
+ * con el siguiente formato:
+ *
+ * {
+ *   "palabra_repetida": ["lexema1", "lexema2", ...],
+ *   ...
+ * }
+ *
+ * Uso principal: auditar inconsistencias en la asignación de palabras
+ * dentro del repositorio de lexemas, útil para mantenimiento o limpieza.
+ *
+ * INPUT_PATH: ruta absoluta del archivo JSON estructurado.
+ * OUTPUT_PATH: nombre del archivo de salida con las repeticiones detectadas.
+ */
+
 public class DetectRepeatedLexemesForWordsMain {
 
     private static final String INPUT_PATH = "F:/JAVA GENERAL/MACHINE LEARNING JAVA/Código-ejemplos-intellij/Clasificador Spam/SpamClassifier-vaadin/spam/src/main/resources/static/dictionary/lexemesRepository/structured_lexemes_repository.json";

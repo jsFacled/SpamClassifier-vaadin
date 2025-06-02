@@ -613,10 +613,7 @@
     "count" : 2,
     "words" : [ "expreso", "express" ]
   },
-  "lexexpression" : {
-    "count" : 1,
-    "words" : [ "cliche" ]
-  },
+
   "lexeyewear" : {
     "count" : 4,
     "words" : [ "anteojos", "armazon", "armazones", "optica" ]
@@ -1264,7 +1261,7 @@
   },
   "lexpurchases" : {
     "count" : 7,
-    "words" : [ "compra", "comprador", "compradores", "comprando", "compraras", "receta", "recetas" ]
+    "words" : [   ]
   },
   "lexqualities" : {
     "count" : 90,

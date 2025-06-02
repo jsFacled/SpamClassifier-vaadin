@@ -1,6 +1,6 @@
 {
   "eightChars" : {
-    "lexactions" : [ "utilizar", "discover", "haciendo", "cancelar", "eliminar", "buscamos", "enviamos", "registra", "resolver", "comienza", "adquiere", "procesar", "generado", "mantenga", "mantente", "aconseja", "acudiste", "advierto", "calcular", "realicen", "realizar", "acciones", "mantener", "descubre", "tonifica", "arrasara", "consegui", "disponga", "presento", "regalate", "permiten", "adquirir", "intentes", "adhesion" ],
+    "lexaction" : [ "utilizar", "discover", "haciendo", "cancelar", "eliminar", "buscamos", "enviamos", "registra", "resolver", "comienza", "adquiere", "procesar", "generado", "mantenga", "mantente", "aconseja", "acudiste", "advierto", "calcular", "realicen", "realizar", "acciones", "mantener", "descubre", "tonifica", "arrasara", "consegui", "disponga", "presento", "regalate", "permiten", "adquirir", "intentes", "adhesion" ],
 
     "lexadditional" : [ "agregada" ],
     "lexadverbs" : [ "bastante" ],
@@ -135,7 +135,7 @@
     "lexnumbers" : [ "numerica" ],
     "lexobjects" : [ "barritas", "inflable", "asientos" ],
     "lexobligation" : [ "deberias" ],
-    "lexobtaining" : [ "consegui" ],
+    
     "lexobtainment" : [ "obtienes" ],
     "lexopposites" : [ "opositor" ],
     "lexoptimization" : [ "acortado", "seamless" ],
@@ -217,7 +217,7 @@
   "fiveChars" : {
 
     "lexachievement" : [ "logre" ],
-    "lexactions" : [ "unete", "pedir", "hagas", "hacer", "envia", "envio", "dejar", "crear", "hagan", "tomar", "salir", "unete", "sigan", "obten", "anade", "abras", "abres", "abrir", "acabo", "haces", "pongo", "corre", "elegi", "trata", "hazte", "rompe", "viene", "salga", "hacen", "start" ],
+    "lexaction" : [ "unete", "pedir", "hagas", "hacer", "envia", "envio", "dejar", "crear", "hagan", "tomar", "salir", "unete", "sigan", "obten", "anade", "abras", "abres", "abrir", "acabo", "haces", "pongo", "corre", "elegi", "trata", "hazte", "rompe", "viene", "salga", "hacen", "start" ],
     "lexadditional" : [ "sumar" ],
     "lexadverbs" : [ "donde", "tanto", "antes", "mente" ],
     "lexalerts" : [ "error", "aviso", "grave" ],
@@ -402,7 +402,7 @@
   },
   "fourChars" : {
     "lexabbreviations" : [ "gral", "tnms", "sept", "vcpu" ],
-    "lexactions" : [ "haga", "stop", "hace", "clic", "baja", "usar", "unir", "deja", "trae", "irse", "join" ],
+    "lexaction" : [ "haga", "stop", "hace", "clic", "baja", "usar", "unir", "deja", "trae", "irse", "join" ],
 
     "lexadditional" : [ "suma" ],
     "lexadverbs" : [ "algo", "como", "solo" ],
@@ -554,7 +554,7 @@
     "lexabstractions" : [ "complejas" ],
     "lexaccountactions" : [ "actualiza", "supresion" ],
     "lexaccuracy" : [ "precision" ],
-    "lexactions" : [ "obtendras", "compartir", "actuacion", "agendamos", "procesado", "completar", "confirmar", "solicitar", "continuar", "despierta",
+    "lexaction" : [ "obtendras", "compartir", "actuacion", "agendamos", "procesado", "completar", "confirmar", "solicitar", "continuar", "despierta",
       "acercarte", "acreditar", "activando", "adoptando", "advierten", "agregadas", "agregalos", "calculado", "comienzas", "committee", "aprovecha",
       "permitido", "eliminare" ],
     "lexadditional" : [ "adicional" ],
@@ -672,7 +672,7 @@
     "lexnews" : [ "titulares", "periodico", "publiquen" ],
     "lexnotifications" : [ "recibidos", "notificar", "recibiras", "pendiente", "novedades" ],
     "lexobjects" : [ "billetera" ],
-    "lexobtaining" : [ "conseguir" ],
+   
     "lexoperations" : [ "operacion", "operativa" ],
     "lexopposites" : [ "invertido", "diferente", "contrario" ],
     "lexopposition" : [ "oposicion" ],
@@ -693,7 +693,7 @@
     "lexprofessional" : [ "productor" ],
     "lexpromotions" : [ "promocion", "descuento", "canjealos", "aproveche", "promovido" ],
     "lexproposals" : [ "propuesta" ],
-    "lexpurchases" : [ "compraras", "comprando", "comprador" ],
+
     "lexqualities" : [ "potencial", "efectivas", "demasiado", "confianza", "paciencia", "destacada", "fabulosos", "atractivo", "imposible", "fortaleza", "capacidad", "destacado", "naturales", "prudencia", "puntuales" ],
     "lexquality" : [ "excelente" ],
     "lexquantity" : [ "bastantes" ],
@@ -768,7 +768,7 @@
   "overTenChars" : {
     "lexaccountactions" : [ "actualizacion" ],
     "lexaccuracy" : [ "inexactitud" ],
-    "lexactions" : [ "participando", "eliminaremos", "administrar", "cancelacion", "desintoxica", "descarrilar", "presentarte", "simplificar", "monitoreando", "descartarian" ],
+    "lexaction" : [ "participando", "eliminaremos", "administrar", "cancelacion", "desintoxica", "descarrilar", "presentarte", "simplificar", "monitoreando", "descartarian" ],
     "lexadditional" : [ "adicionales" ],
     "lexadverbs" : [ "absolutamente", "rapidamente", "correctamente", "simplemente", "suficientemente" ],
     "lexadvice" : [ "asesoramiento" ],
@@ -914,7 +914,7 @@
     "lexproducts" : [ "lexproducts", "perfumerias" ],
     "lexprofessional" : [ "profesional", "profesionalidad" ],
     "lexpromotions" : [ "irresistible", "promocional", "bonificacion", "bonificados", "aprovechala", "megamillions", "promocionales" ],
-    "lexpurchases" : [ "compradores" ],
+
     "lexqualities" : [ "transparente", "especialmente", "creatividad", "responsabilidad", "controvertidos", "maravilloso", "imperfecciones", "sobresaliente", "extraordinaria", "exactamente", "destacables", "naturalmente", "reconocimiento" ],
     "lexrecommendation" : [ "encarecidamente", "recomendaciones", "recomendando" ],
     "lexreferences" : [ "referenciando", "referencias" ],
@@ -952,7 +952,10 @@
     "lexsubscriptions" : [ "unsubscribe", "desuscribirme", "desuscribir", "suscriptores", "suscribirse", "suscripcion", "suscribiendote", "inscripcion" ],
     "lexsuccess" : [ "exitosamente", "calificaste", "ascendieron", "bonificadas" ],
     "lexsuperlatives" : [ "extraordinario", "inigualable" ],
-    "lextechnology" : [ "applications", "architectures", "asincronicos", "automaticamente", "automaticos", "automatizado", "automatizados", "balanceadores", "codificador", "codegptwoct", "compatibles", "digitalmente", "javaexcodigo", "javaexindevopsdev", "javainusejavainuse", "ordenadores", "technologists", "tecnologicos", "climatizacion", "linuxwindows", "procesamiento", "tecnologias", "visualizacion", "electronico", "programacion", "microservicios", "infrastructure" ],
+    "lextechnology" : [ "applications", "architectures", "asincronicos", "automaticamente", "automaticos", "automatizado", "automatizados", "balanceadores",
+      "codificador", "codegptwoct", "compatibles", "digitalmente", "javaexcodigo", "javaexindevopsdev", "javainusejavainuse", "ordenadores", "technologists",
+      "tecnologicos", "climatizacion", "linuxwindows", "procesamiento", "tecnologias", "visualizacion", "electronico", "programacion", "microservicios",
+      "infrastructure" ],
     "lextelecom" : [ "portabilidad" ],
     "lextests" : [ "verificacion", "comprobacion", "experimentacion", "experimentar" ],
     "lexthoughts" : [ "pensamientos" ],
@@ -979,7 +982,7 @@
     "lexaccess" : [ "accedan", "accedes" ],
     "lexaccountactions" : [ ],
     "lexachievement" : [ "logrado" ],
-    "lexactions" : [ "usarlos", "mantente", "mantenga", "ejercer", "evaluar", "compare", "compara", "revisad", "donando", "empieza", "entrega", "retirar", "tomando", "realiza", "agendar", "acceder", "hacerlo", "guarda", "aplicar", "activar", "elimina", "procesa", "conocer", "obtener", "protege", "realice", "recibes", "proveyo", "abrirlo", "acelera", "acelere", "aceptar", "aceptas", "cambiar", "daremos", "echarte", "haganos", "ponerle", "ponerte", "cancela", "pierdas", "quitara", "becomes", "tomamos", "ingresa", "iniciar", "navegar", "obtenga", "pongase", "revelar", "permita", "permite", "agregar", "adoptan", "manejas", "intenta", "adhirio", "alterar", "llevate", "duplica", "intiman", "started", "pruebes", "sumamos" ],
+    "lexaction" : [ "usarlos", "mantente", "mantenga", "ejercer", "evaluar", "compare", "compara", "revisad", "donando", "empieza", "entrega", "retirar", "tomando", "realiza", "agendar", "acceder", "hacerlo", "guarda", "aplicar", "activar", "elimina", "procesa", "conocer", "obtener", "protege", "realice", "recibes", "proveyo", "abrirlo", "acelera", "acelere", "aceptar", "aceptas", "cambiar", "daremos", "echarte", "haganos", "ponerle", "ponerte", "cancela", "pierdas", "quitara", "becomes", "tomamos", "ingresa", "iniciar", "navegar", "obtenga", "pongase", "revelar", "permita", "permite", "agregar", "adoptan", "manejas", "intenta", "adhirio", "alterar", "llevate", "duplica", "intiman", "started", "pruebes", "sumamos" ],
     "lexadverbs" : [ "siempre", "tambien", "todavia", "despues", "incluso" ],
     "lexadvice" : [ "consejo" ],
     "lexalerts" : [ "embargo", "alarmas", "victima" ],
@@ -1144,7 +1147,7 @@
     "lexpronouns" : [ "quienes", "nuestra", "nuestro" ],
     "lexpublication" : [ "publica", "publico" ],
     "lexpurchase" : [ "cotizar", "comprar", "pagando", "compras" ],
-    "lexpurchases" : [ "recetas" ],
+
     "lexqualities" : [ "natural", "mejores", "efectos", "dificil", "exitosa", "lealtad", "eminent" ],
     "lexquality" : [ "calidad" ],
     "lexquantities" : [ "noventa" ],
@@ -1220,7 +1223,7 @@
   "sixChars" : {
     "lexaccountactions" : [ "ajusta", "cuenta" ],
     "lexachievement" : [ "lograr" ],
-    "lexactions" : [ "recibe", "partir", "pedila", "probar", "hacete", "genera", "evitar", "canjea", "revisa", "actuar", "accion", "envies",
+    "lexaction" : [ "recibe", "partir", "pedila", "probar", "hacete", "genera", "evitar", "canjea", "revisa", "actuar", "accion", "envies",
       "formar", "sumate", "conoce", "asiste", "acceda", "acepta", "probar", "anular", "guarda", "acaban", "actuas", "acudir",
       "captar", "captas", "echale", "pongas","desata", "manten", "usando", "attend", "tomado", "marcar", "operar",
       "supera", "volver", "llegar", "maneja", "llaman", "romper", "vendra", "salida", "quedes" ],
@@ -1243,9 +1246,9 @@
     "lexcapability" : [ "podria", "puedes" ],
     "lexchoices" : [ "decide", "option", "elegir", "elegis" ],
     "lexclassification" : [ "grupos", "clases" ],
-    "lexcodes" : [ "codigo", "ticket", "pedido", "xdukv1", "yauklj" ],
+    "lexcodes" : [ "ticket", "xdukv1", "yauklj" ],
     "lexcomeback" : [ "vuelve" ],
-    "lexcommerce" : [ "compra", "tallas", "talles", "gratis", "puntos", "oferta", "ventas" ],
+    "lexcommerce" : ["pedido","tallas", "talles", "gratis", "puntos", "oferta", "ventas" ],
     "lexcommon" : [ "common" ],
     "lexcommunication" : [ "frases", "aclaro", "correo", "fuiste", "tienes", "agente", "chatea", "emails", "hablar", "sender", "vision", "cliche", "llamar" ],
     "lexcommunity" : [ "vecino", "genero" ],
@@ -1292,7 +1295,7 @@
     "lexexpansion" : [ "amplia" ],
     "lexexpiration" : [ "expira", "expire" ],
     "lexexploration" : [ "ranger" ],
-    "lexexpression" : [ "cliche" ],
+
     "lexeyewear" : [ "optica" ],
     "lexfamily" : [ "gemela" ],
     "lexfashion" : [ "estilo" ],
@@ -1378,7 +1381,7 @@
     "lexpronouns" : [ "cuales" ],
     "lexpunctuation" : [ "------" ],
     "lexpurchase" : [ "cotiza", "pagado", "pagada", "compra" ],
-    "lexpurchases" : [ "receta", "compra" ],
+
     "lexqualities" : [ "nuevas", "nuevos", "ganado", "efecto", "rapido", "claras", "basico", "unicos", "formal", "suaves" ],
     "lexquality" : [ "maximo", "maxima" ],
     "lexquantities" : [ "billon", "muchas", "muchos", "variar", "varias", "varios", "veinte" ],
@@ -1445,7 +1448,7 @@
   },
   "tenChars" : {
     "lexaccountactions" : [ "activacion" ],
-    "lexactions" : [ "desarrolla", "desbloquea", "comenzaras", "realizarse", "congelamos", "reactivate", "adhiriendo", "eliminemos" ],
+    "lexaction" : [ "desarrolla", "desbloquea", "comenzaras", "realizarse", "congelamos", "reactivate", "adhiriendo", "eliminemos" ],
     "lexadverbs" : [ "unicamente", "brevemente", "comunmente" ],
     "lexanalysis" : [ "analizando" ],
     "lexappearance" : [ "maquillaje" ],
@@ -1625,7 +1628,7 @@
   "threeChars" : {
 
     "lexabbreviations" : [ "tna", "tte", "ucc", "pro", "sab", "sau", "vol" ],
-    "lexactions" : [ "usa", "das", "pon", "ver", "ven", "get" ],
+    "lexaction" : [ "usa", "das", "pon", "ver", "ven", "get" ],
     "lexadverbs" : [ "how", "asi", "muy", "tan", "mas", "tan" ],
     "lexauxiliaryverbs" : [ "fue", "fui", "hay", "ser", "son", "han", "has", "sea" ],
     "lexbrands" : [ "vps", "riu" ],
@@ -1706,7 +1709,7 @@
   "twoChars" : {
 
     "lexabbreviations" : [ "us", "th", "uc", "ue", "ap", "ar", "pb", "st", "uu", "er" ],
-    "lexactions" : [ "ve", "ir", "go" ],
+    "lexaction" : [ "ve", "ir", "go" ],
     "lexadverbs" : [ "ni", "no", "si", "ya", "re" ],
     "lexauxiliaryverbs" : [ "ha", "he", "es" ],
     "lexbrands" : [ "lg" ],

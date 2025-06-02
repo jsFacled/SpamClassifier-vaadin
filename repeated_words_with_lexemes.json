@@ -1,8 +1,5 @@
 {
 
-  "cliche" : [ "lexcommunication", "lexexpression" ],
-  "codigo" : [ "lexcodes", "lextechnology" ],
-  "compra" : [ "lexcommerce", "lexpurchase", "lexpurchases" ],
   "consegui" : [ "lexactions", "lexobtaining" ],
   "consultas" : [ "lexdocuments", "lexfeedback" ],
   "contratacion" : [ "lexemployment", "lexwork" ],

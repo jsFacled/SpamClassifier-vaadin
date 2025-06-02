@@ -1,0 +1,18 @@
+{
+  "lexDemoA" : {
+    "count" : 2,
+    "words" : [ "b1", "b2" ]
+  },
+  "lexDemoB" : {
+    "count" : 3,
+    "words" : [ "y1", "y2", "y3" ]
+  },
+  "lexTestDos" : {
+    "count" : 2,
+    "words" : [ "x1", "x2" ]
+  },
+  "lexTestUno" : {
+    "count" : 3,
+    "words" : [ "a1", "a2", "a3" ]
+  }
+}

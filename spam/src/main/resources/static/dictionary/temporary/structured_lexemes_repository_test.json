@@ -1,0 +1,10 @@
+{
+  "chart1": {
+    "lexTestUno": ["a1", "a2", "a3"],
+    "lexDemoA": ["b1", "b2"]
+  },
+  "chart2": {
+    "lexTestDos": ["x1", "x2"],
+    "lexDemoB": ["y1", "y2", "y3"]
+  }
+}

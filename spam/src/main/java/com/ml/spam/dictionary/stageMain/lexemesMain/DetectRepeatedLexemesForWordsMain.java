@@ -1,4 +1,4 @@
-package com.ml.spam.dictionary.stageMain;
+package com.ml.spam.dictionary.stageMain.lexemesMain;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

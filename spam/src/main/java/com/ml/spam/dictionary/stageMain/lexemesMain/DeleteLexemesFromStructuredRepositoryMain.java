@@ -1,4 +1,4 @@
-package com.ml.spam.dictionary.stageMain;
+package com.ml.spam.dictionary.stageMain.lexemesMain;
 
 import com.ml.spam.config.FilePathsConfig;
 import com.ml.spam.handlers.ResourcesHandler;
@@ -6,7 +6,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;

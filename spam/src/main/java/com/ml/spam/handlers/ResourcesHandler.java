@@ -602,7 +602,7 @@ public class ResourcesHandler {
      * @param lexemeRepositoryPath Ruta del archivo JSON del repositorio de lexemas.
      * @param inputJsonListPath Ruta del archivo JSON con lexemas y palabras a agregar.
      */
-    public void updateLexemeRepositoryFromJsonList(String lexemeRepositoryPath, String inputJsonListPath) {
+    public void updateAddingLexemeRepositoryFromJsonList(String lexemeRepositoryPath, String inputJsonListPath) {
 
         try {
             // Cargar los archivos JSON
@@ -697,6 +697,135 @@ public class ResourcesHandler {
             throw new RuntimeException("Error al agregar palabra al repositorio de lexemas: " + e.getMessage(), e);
         }
     }
+
+    /**
+     * Elimina lexemas completos del repositorio, según una lista provista en un archivo JSON.
+     * El archivo debe tener el formato: { "lexemesToDelete": ["lex1", "lex2", ...] }
+     *
+     * @param lexemeRepositoryPath Ruta del archivo JSON del repositorio de lexemas.
+     * @param inputJsonPath Ruta del archivo JSON con la lista de lexemas a eliminar.
+     */
+    public void updateDeletingLexemesFromJsonList(String lexemeRepositoryPath, String inputJsonPath) {
+        try {
+            JSONObject inputJson = loadJson(inputJsonPath);
+            JSONArray lexemesArray = inputJson.optJSONArray("lexemesToDelete");
+            if (lexemesArray == null) {
+                System.out.println("[INFO] No se encontró la clave 'lexemesToDelete'. Nada que eliminar.");
+                return;
+            }
+
+            List<String> lexemesToDelete = lexemesArray.toList().stream()
+                    .map(Object::toString)
+                    .toList();
+
+            for (String lexeme : lexemesToDelete) {
+                removeLexeme(lexemeRepositoryPath, lexeme);
+            }
+
+            System.out.println("[INFO] Lexemas eliminados correctamente desde: " + inputJsonPath);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al eliminar lexemas desde archivo JSON: " + e.getMessage(), e);
+        }
+    }
+    /**
+     * Elimina completamente un lexema (clave) del repositorio en todos los bloques CharSize.
+     *
+     * @param lexemeRepositoryPath Ruta al archivo JSON del repositorio de lexemas.
+     * @param lexeme Nombre del lexema a eliminar.
+     * @throws RuntimeException Si ocurre un error al leer o guardar el JSON.
+     */
+    public void removeLexeme(String lexemeRepositoryPath, String lexeme) {
+        try {
+            JSONObject lexemeRepository = loadJson(lexemeRepositoryPath);
+            boolean found = false;
+
+            for (CharSize charSize : CharSize.values()) {
+                String key = charSize.getJsonKey();
+                if (!lexemeRepository.has(key)) continue;
+
+                JSONObject charSizeJson = lexemeRepository.getJSONObject(key);
+                if (charSizeJson.has(lexeme)) {
+                    charSizeJson.remove(lexeme);
+                    System.out.println("[INFO] Lexema '" + lexeme + "' eliminado del bloque '" + key + "'.");
+                    found = true;
+                }
+            }
+
+            if (found) {
+                saveJson(lexemeRepository, lexemeRepositoryPath);
+            } else {
+                System.out.println("[INFO] Lexema '" + lexeme + "' no se encontró en ningún bloque.");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Error al eliminar lexema: " + e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Elimina palabras específicas dentro de lexemas del repositorio, según un archivo JSON.
+     * El archivo debe tener el formato: { "lex1": ["palabra1", "palabra2"], "lex2": ["p1"] }
+     *
+     * @param lexemeRepositoryPath Ruta del archivo JSON del repositorio de lexemas.
+     * @param inputJsonPath Ruta del archivo JSON con las palabras a eliminar por lexema.
+     */
+    public void updateDeletingWordsFromLexemesJsonList(String lexemeRepositoryPath, String inputJsonPath) {
+        try {
+            JSONObject inputJson = loadJson(inputJsonPath);
+
+            for (String lexeme : inputJson.keySet()) {
+                JSONArray wordsArray = inputJson.optJSONArray(lexeme);
+                if (wordsArray == null) continue;
+
+                List<String> wordsToRemove = wordsArray.toList().stream()
+                        .map(Object::toString)
+                        .toList();
+
+                removeWordsFromLexeme(lexemeRepositoryPath, lexeme, wordsToRemove);
+            }
+
+            System.out.println("[INFO] Palabras eliminadas de lexemas desde: " + inputJsonPath);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al eliminar palabras desde archivo JSON: " + e.getMessage(), e);
+        }
+    }
+    /**
+     * Elimina una lista de palabras de un lexema existente dentro del bloque correspondiente por CharSize.
+     * Si alguna palabra no está, simplemente se ignora.
+     *
+     * @param lexemeRepositoryPath Ruta al archivo JSON del repositorio de lexemas.
+     * @param lexeme Nombre del lexema del cual se eliminarán las palabras.
+     * @param words Lista de palabras a eliminar.
+     * @throws RuntimeException Si ocurre un error al leer o guardar el JSON.
+     */
+    public void removeWordsFromLexeme(String lexemeRepositoryPath, String lexeme, List<String> words) {
+        try {
+            JSONObject lexemeRepository = loadJson(lexemeRepositoryPath);
+
+            for (String word : words) {
+                CharSize charSize = TextUtils.determineCharSize(word);
+
+                if (!lexemeRepository.has(charSize.getJsonKey())) continue;
+
+                JSONObject charSizeJson = lexemeRepository.getJSONObject(charSize.getJsonKey());
+                JSONArray wordArray = charSizeJson.optJSONArray(lexeme);
+                if (wordArray == null) continue;
+
+                List<Object> currentWords = wordArray.toList();
+                if (currentWords.remove(word)) {
+                    System.out.println("[INFO] Palabra '" + word + "' eliminada del lexema '" + lexeme + "'.");
+                    charSizeJson.put(lexeme, new JSONArray(currentWords));
+                }
+            }
+
+            saveJson(lexemeRepository, lexemeRepositoryPath);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al eliminar palabras del lexema: " + e.getMessage(), e);
+        }
+    }
+
+
+    ////////////////////////////////////////////////////////////////
+
 
     //Recibe el path y el label ya que los archivos txt solamente tienen mensaje sin label.
     //Es para archivos tipo csv pero en formato .txt

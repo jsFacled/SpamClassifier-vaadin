@@ -1,6 +1,5 @@
-package com.ml.spam.dictionary.stageMain;
+package com.ml.spam.dictionary.stageMain.lexemesMain;
 
-import com.ml.spam.config.FilePathsConfig;
 import com.ml.spam.handlers.ResourcesHandler;
 import com.ml.spam.dictionary.models.CharSize;
 import com.ml.spam.utils.TextUtils;
@@ -10,10 +9,16 @@ import org.json.JSONObject;
 import java.time.LocalDate;
 import java.util.*;
 
+/**
+ * Recibe json con lexema y palabras a borrar, modifica el repositorio y reporta.
+ * {"lexDemoA":["b1"]}
+ */
 public class DeleteWordsFromLexemeRepositoryMain {
 
-    private static final String LEXEMES_REPOSITORY_PATH = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
-    private static final String WORDS_TO_DELETE_PATH = "static/dictionary/wordsToDeleteFromLexemes.json";
+  //private static final String LEXEMES_REPOSITORY_PATH = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+    private static final String LEXEMES_REPOSITORY_PATH = "static/dictionary/temporary/structured_lexemes_repository_test.json";
+
+    private static final String WORDS_TO_DELETE_PATH = "static/dictionary/wordsToDeleteInLexemeFromLexemesRepository.json";
     private static final String OUTPUT_REPORT_PATH = "static/dictionary/temporary/deleted_words_from_lexemes_report.json";
 
     public static void main(String[] args) {

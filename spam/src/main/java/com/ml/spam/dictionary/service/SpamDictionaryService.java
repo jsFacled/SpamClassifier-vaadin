@@ -948,8 +948,8 @@ public class SpamDictionaryService {
         resourcesHandler.addWordToLexemeRepository(repositoryPath, word, lexeme);
     }
 
-    public void updateLexemeRepositoryFromJsonList(String repositoryPath, String inputJsonPath) {
-        resourcesHandler.updateLexemeRepositoryFromJsonList(repositoryPath, inputJsonPath);
+    public void updateAddingLexemeRepositoryFromJsonList(String repositoryPath, String inputJsonPath) {
+        resourcesHandler.updateAddingLexemeRepositoryFromJsonList(repositoryPath, inputJsonPath);
     }
 
     ///////////////////////////////////////////////////////////

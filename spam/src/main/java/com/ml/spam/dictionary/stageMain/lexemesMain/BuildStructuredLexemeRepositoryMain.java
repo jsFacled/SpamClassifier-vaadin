@@ -1,13 +1,10 @@
-package com.ml.spam.dictionary.stageMain;
+package com.ml.spam.dictionary.stageMain.lexemesMain;
 
-import com.ml.spam.config.FilePathsConfig;
 import com.ml.spam.utils.TextUtils;
 import com.ml.spam.handlers.ResourcesHandler;
 import com.ml.spam.dictionary.models.CharSize;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-import java.util.List;
 
 /**
  * BuildStructuredLexemeRepositoryMain

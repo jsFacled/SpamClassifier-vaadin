@@ -1,16 +1,3 @@
 {
-
-  "lexdirection": ["abajo", "debajo", "lado","alcance"],
-  "lexalerts" :  ["advertencia", "crucial", "inspam", "pornografia", "urgente", "vital"],
-  "lexadditional": ["agregada", "suma"],
-
-  "lextechnology": ["aplicacion", "aplicaciones",  "application", "apps","automatica", "automaticamente", "automatico","click"],
-  "lexrequests": ["postulacion"],
-  "lexapplies" : [  "aplicable","aplicara", "aplican", "aplicaran" ],
-  "lexadverbs": ["casi"],
-  "lexcontextual" :["aquél", "aun", "ese", "él", "éstos" ],
-  "lexstructure" : [ "bloques" ],
-  "lexsubscriptions" :["boletines"],
-  "lexnumbers" :["cinco", "cuatro", "diez", "dos", "nueve", "ocho", "seis", "siete", "tres", "uno" ],
-  "lexpurchase" :[ "comprador", "compradores", "comprando", "compraras", "receta", "recetas" ]
+  "lexDemoA":["b1"]
 }

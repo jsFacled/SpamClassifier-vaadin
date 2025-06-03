@@ -1,4 +1,4 @@
-package com.ml.spam.dictionary.stageMain;
+package com.ml.spam.dictionary.stageMain.categorizedWordsMain;
 
 import com.ml.spam.config.FilePathsConfig;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
@@ -12,7 +12,7 @@ import com.ml.spam.dictionary.service.SpamDictionaryService;
  * - Exportar el diccionario a un archivo JSON persistido.
  * - Mostrar el contenido del diccionario en la consola.
  */
-public class BaseDictionaryBuilderMain {
+public class BaseCategorizedWordsBuilderMain {
 
     // Rutas para el JSON base y el archivo exportado
   //  private static final String INITIAL_JSON_PATH = FilePathsConfig.CATEGORIZED_WORDS_BASE_JSON_PATH;

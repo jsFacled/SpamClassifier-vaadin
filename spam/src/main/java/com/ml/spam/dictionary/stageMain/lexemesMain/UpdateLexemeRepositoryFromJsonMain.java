@@ -1,4 +1,4 @@
-package com.ml.spam.dictionary.stageMain;
+package com.ml.spam.dictionary.stageMain.lexemesMain;
 
 import com.ml.spam.config.FilePathsConfig;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
@@ -16,7 +16,7 @@ public class UpdateLexemeRepositoryFromJsonMain {
         SpamDictionaryService service = new SpamDictionaryService();
 
         //Actualizar desde una lista
-        service.updateLexemeRepositoryFromJsonList(lexemesRepositoryJsonPath,lexemeListToAddPath );
+        service.updateAddingLexemeRepositoryFromJsonList(lexemesRepositoryJsonPath,lexemeListToAddPath );
 
         //Agregar solamente una palabra
        // service.addWordToLexemeRepository(lexemesRepositoryJsonPath, word, lexeme);

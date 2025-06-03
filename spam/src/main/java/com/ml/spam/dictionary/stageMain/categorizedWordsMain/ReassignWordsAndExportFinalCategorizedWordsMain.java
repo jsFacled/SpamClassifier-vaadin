@@ -1,8 +1,8 @@
-package com.ml.spam.dictionary.stageMain;
+package com.ml.spam.dictionary.stageMain.categorizedWordsMain;
 
 import com.ml.spam.dictionary.service.SpamDictionaryService;
 
-public class ReassignWordsAndExportFinalDictionaryMain {
+public class ReassignWordsAndExportFinalCategorizedWordsMain {
     // Archivo de entrada: diccionario previamente actualizado
     private static final String updatedCatWordsPath = "static/dictionary/categorizedWords/updatedCategorizedWords_2.json";
 

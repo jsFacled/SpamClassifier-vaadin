@@ -1,12 +1,7 @@
 {
-
-  "hamemoji" : {
-    "count" : 1,
-    "words" : [ "✔" ]
-  },
   "lexabbreviations" : {
-    "count" : 21,
-    "words" : [ "ap", "ar", "er", "gral", "pb", "pro", "sab", "sau", "sept", "st", "th", "tna", "tnms", "tte", "uc", "ucc", "ue", "us", "uu", "vcpu", "vol" ]
+    "count" : 22,
+    "words" : [ "ap", "ar", "er", "gral", "pb", "pro", "questions", "sab", "sau", "sept", "st", "th", "tna", "tnms", "tte", "uc", "ucc", "ue", "us", "uu", "vcpu", "vol" ]
   },
   "lexabstractions" : {
     "count" : 2,
@@ -28,48 +23,25 @@
     "count" : 3,
     "words" : [ "logrado", "lograr", "logre" ]
   },
-  "lexactions" : {
-    "count" : 231,
-    "words" : [ "abras", "abres", "abrir", "abrirlo", "acaban", "acabo", "acceda", "acceder", "accion", "acciones",
-      "acelera", "acelere", "acepta", "aceptar", "aceptas", "acercarte", "aconseja", "acreditar", "activando", "activar",
-      "actuacion", "actuar", "actuas", "acudir", "acudiste", "adhesion", "adhiriendo", "adhirio", "administrar",
-      "adoptan", "adoptando", "adquiere", "adquirir", "advierten", "advierto", "agendamos", "agendar", "agregadas",
-      "agregalos", "agregar", "alterar", "anade", "anular", "aplicar", "aprovecha", "arrasara", "asiste", "attend",
-      "baja", "becomes", "borrar", "buscamos", "calculado", "calcular", "cambiar", "cancela", "cancelacion", "cancelar",
-      "canjea", "captar", "captas", "comenzaras", "comienza", "comienzas", "committee", "compara", "compare",
-      "compartir", "completar", "confirmar", "congelamos", "conoce", "conocer", "consegui", "continuar", "corre", "crear",
-      "daremos", "das", "deja", "dejar", "desarrolla", "desata", "desbloquea", "descarrilar", "descartarian", "descubre",
-      "desintoxica", "despierta", "discover", "disponga", "donando", "duplica", "echale", "echarte", "ejercer", "elegi",
-      "elimina", "eliminar", "eliminare", "eliminaremos", "eliminemos", "empieza", "entrega", "envia", "enviamos", "envies",
-      "envio", "evaluar", "evitar", "formar", "genera", "generado", "get", "go", "guarda", "hace", "hacen", "hacer",
-      "hacerlo", "haces", "hacete", "haciendo", "haga", "hagan", "haganos", "hagas", "hazte", "ingresa", "iniciar",
-      "intenta", "intentes", "intiman", "ir", "irse", "join", "llaman", "llegar", "llevate", "maneja", "manejas",
-      "manten", "mantener", "mantenga", "mantente", "marcar", "monitoreando", "navegar", "obten", "obtendras", "obtener",
-      "obtenga", "operar", "participando", "partir", "pedila", "pedir", "permita", "permite", "permiten", "permitido",
-      "pierdas", "pon", "ponerle", "ponerte", "pongas", "pongase", "pongo", "presentarte", "presento", "probar",
-      "procesa", "procesado", "procesar", "protege", "proveyo", "pruebes", "quedes", "quitara", "reactivate", "realice",
-      "realicen", "realiza", "realizar", "realizarse", "recibe", "recibes", "regalate", "registra", "resolver",
-      "retirar", "revelar", "revisa", "revisad", "rompe", "romper", "salga", "salida", "salir", "sigan", "simplificar",
-      "solicitar", "start", "started", "stop", "sumamos", "sumate", "supera", "tomado", "tomamos", "tomando", "tomar",
-      "tonifica", "trae", "trata", "unete", "unir", "usa", "usando", "usar", "usarlos", "utilizar", "ve", "ven",
-      "vendra", "ver", "viene", "volver" ]
+  "lexaction" : {
+    "count" : 225,
+    "words" : [ "abras", "abres", "abrir", "abrirlo", "acaban", "acabo", "acceda", "acceder", "accion", "acciones", "acelera", "acelere", "acepta", "aceptar", "aceptas", "acercarte", "aconseja", "acreditar", "activando", "activar", "actuacion", "actuar", "actuas", "acudir", "acudiste", "adhesion", "adhiriendo", "adhirio", "administrar", "adoptan", "adoptando", "adquiere", "adquirir", "advierten", "advierto", "agendamos", "agendar", "agregadas", "agregalos", "agregar", "alterar", "anade", "anular", "aplicar", "aprovecha", "arrasara", "asiste", "attend", "baja", "becomes", "buscamos", "calculado", "calcular", "cambiar", "cancela", "cancelacion", "cancelar", "canjea", "captar", "captas", "clic", "comenzaras", "comienza", "comienzas", "committee", "compara", "compare", "compartir", "completar", "confirmar", "congelamos", "conoce", "conocer", "consegui", "continuar", "corre", "crear", "daremos", "das", "deja", "dejar", "desarrolla", "desata", "desbloquea", "descarrilar", "descartarian", "descubre", "desintoxica", "despierta", "discover", "disponga", "donando", "duplica", "echale", "echarte", "ejercer", "elimina", "eliminar", "eliminare", "eliminaremos", "eliminemos", "empieza", "entrega", "envia", "enviamos", "envies", "envio", "evaluar", "evitar", "formar", "genera", "generado", "get", "go", "guarda", "hace", "hacen", "hacer", "hacerlo", "haces", "hacete", "haciendo", "haga", "hagan", "haganos", "hagas", "hazte", "ingresa", "iniciar", "intenta", "intentes", "intiman", "ir", "irse", "join", "llaman", "llegar", "llevate", "manten", "mantener", "mantenga", "mantente", "marcar", "monitoreando", "navegar", "obten", "obtendras", "obtener", "obtenga", "operar", "participando", "partir", "pedila", "pedir", "permita", "permite", "permiten", "permitido", "pierdas", "pon", "ponerle", "ponerte", "pongas", "pongase", "pongo", "presentarte", "presento", "probar", "procesa", "procesado", "procesar", "protege", "proveyo", "pruebes", "quedes", "quitara", "reactivate", "realice", "realicen", "realiza", "realizar", "realizarse", "recibe", "recibes", "regalate", "registra", "resolver", "retirar", "revelar", "revisa", "revisad", "rompe", "romper", "salga", "salida", "salir", "sigan", "simplificar", "solicitar", "start", "started", "stop", "sumamos", "sumate", "supera", "tomado", "tomamos", "tomando", "tomar", "tonifica", "trae", "trata", "unete", "unir", "usa", "usando", "usar", "usarlos", "utilizar", "ve", "ven", "vendra", "ver", "viene", "volver" ]
   },
-
   "lexadditional" : {
     "count" : 6,
-    "words" : [ "adicional", "adicionales", "agregada", "extras", "suma", "sumar","agregada", "suma" ]
+    "words" : [ "adicional", "adicionales", "agregada", "extras", "suma", "sumar" ]
   },
   "lexadverbs" : {
-    "count" : 35,
-    "words" : [ "absolutamente", "algo", "antes", "asi", "bastante", "brevemente", "como", "comunmente", "correctamente", "cuando", "despues", "donde", "how", "incluso", "mas", "mente", "muy", "ni", "no", "rapida", "rapidamente", "re", "si", "siempre", "simplemente", "solamente", "solo", "suficientemente", "tambien", "tan", "tanto", "todavia", "unicamente", "ya" ]
+    "count" : 30,
+    "words" : [ "absolutamente", "algo", "antes", "asi", "bastante", "brevemente", "casi", "como", "comunmente", "correctamente", "despues", "donde", "how", "incluso", "mente", "muy", "ni", "no", "rapida", "rapidamente", "re", "siempre", "simplemente", "solamente", "solo", "suficientemente", "tambien", "tan", "tanto", "unicamente" ]
   },
   "lexadvice" : {
     "count" : 5,
     "words" : [ "asesoramiento", "asesorar", "asesoria", "consejo", "tips" ]
   },
   "lexalerts" : {
-    "count" : 13,
-    "words" : [ "advertencia", "alarma", "alarmas", "alerta", "alerts", "aviso", "embargo", "error", "grave", "ocurra", "pierda", "trampa", "victima" ]
+    "count" : 18,
+    "words" : [ "advertencia", "alarma", "alarmas", "alerta", "alerts", "aviso", "crucial", "embargo", "error", "grave", "inspam", "ocurra", "pierda", "pornografia", "trampa", "urgente", "victima", "vital" ]
   },
   "lexanalysis" : {
     "count" : 6,
@@ -83,16 +55,14 @@
     "count" : 9,
     "words" : [ "aparecen", "look", "luce", "maquillaje", "parece", "pestanas", "radiante", "rostro", "sombras" ]
   },
-
   "lexapplies" : {
-    "count" : 18,
-    "words" : [ "acredite", "acumula", "acumulable", "acumulas", "adaptadas", "adaptar", "aplica", "aplicables", "asegurarte", "asegurate", "busca", "buscan", "buscas", "including", "incluido", "incluidos", "inclusion", "inclusive" ]
+    "count" : 22,
+    "words" : [ "acredite", "acumula", "acumulable", "acumulas", "adaptadas", "adaptar", "aplica", "aplicable", "aplicables", "aplican", "aplicara", "aplicaran", "asegurarte", "asegurate", "busca", "buscan", "buscas", "including", "incluido", "incluidos", "inclusion", "inclusive" ]
   },
   "lexapproval" : {
     "count" : 10,
     "words" : [ "aceptacion", "acreditados", "aprobada", "aprobados", "aprobando", "merece", "preseleccionado", "reservados", "seleccionado", "vale" ]
   },
-
   "lexarchitecture" : {
     "count" : 2,
     "words" : [ "basilica", "plano" ]
@@ -121,10 +91,9 @@
     "count" : 4,
     "words" : [ "autorizadas", "habilitacion", "otorgada", "otorgue" ]
   },
-
   "lexauxiliaryverbs" : {
-    "count" : 29,
-    "words" : [ "es", "estan", "estar", "fue", "fuera", "fueron", "fui", "ha", "habia", "habian", "han", "has", "hay", "he", "hemos", "sea", "sean", "seas", "ser", "sera", "sido", "siendo", "son", "tendra", "tenemos", "tener", "tenes", "tiene", "tienen" ]
+    "count" : 30,
+    "words" : [ "crees", "es", "estan", "estar", "fue", "fuera", "fueron", "fui", "ha", "habia", "habian", "han", "has", "hay", "he", "hemos", "sea", "sean", "seas", "ser", "sera", "sido", "siendo", "son", "tendra", "tenemos", "tener", "tenes", "tiene", "tienen" ]
   },
   "lexavailability" : {
     "count" : 5,
@@ -133,10 +102,6 @@
   "lexbackup" : {
     "count" : 4,
     "words" : [ "backups", "respaldado", "respaldar", "respaldo" ]
-  },
-  "lexbanking" : {
-    "count" : 7,
-    "words" : [ "banco", "credito", "cuotas", "depositan", "prestamo", "prestamos", "seguro" ]
   },
   "lexbase" : {
     "count" : 1,
@@ -172,21 +137,16 @@
   },
   "lexcalendar" : {
     "count" : 87,
-    "words" : [ "abr", "abril", "ago", "agosto", "am", "ano", "anos", "año", "años", "bisiesto", "decada", "decadas", "dias", "dic", "diciembre", "do", "dom", "domingo", "ene", "enero", "epocas", "eras", "feb", "febrero", "fecha", "festivo", "fracciones","hora", "horas", "hs", "intervalo", "intervalos", "jornada", "jornadas", "jue", "jueves", "jul", "julio", "jun", "junio", "lapsos", "lu", "lun", "lunes", "ma", "manana", "mar", "martes", "marzo", "may", "mayo", "mañana", "mes", "meses", "mie", "miercoles", "milenio", "milenios", "min", "minutos", "navidad", "navidadjpg", "nov", "november", "noviembre", "oct", "octubre", "periodo", "periodos", "pm", "previo", "primero", "quincena", "sa", "sabado", "sabados", "segundos", "semana", "semanales", "semanas", "sep", "septiembre", "setiembre", "siglo", "siglos", "vi", "vie", "viernes" ]
+    "words" : [ "abr", "abril", "ago", "agosto", "am", "ano", "anos", "año", "años", "bisiesto", "decada", "decadas", "dias", "dic", "diciembre", "do", "dom", "domingo", "ene", "enero", "epocas", "eras", "feb", "febrero", "fecha", "festivo", "fracciones", "horas", "hs", "intervalo", "intervalos", "jornada", "jornadas", "jue", "jueves", "jul", "julio", "jun", "junio", "lapsos", "lu", "lun", "lunes", "ma", "manana", "mar", "martes", "marzo", "may", "mayo", "mañana", "mes", "meses", "mie", "miercoles", "milenio", "milenios", "min", "minutos", "navidad", "navidadjpg", "nov", "november", "noviembre", "oct", "octubre", "periodo", "periodos", "pm", "previo", "primero", "quincena", "sa", "sabado", "sabados", "segundos", "semana", "semanales", "semanas", "sep", "septiembre", "setiembre", "siglo", "siglos", "vi", "vie", "viernes" ]
   },
   "lexcalls" : {
     "count" : 3,
     "words" : [ "llamadas", "llamado", "llame" ]
   },
-  "lexcapability" : {
-    "count" : 6,
-    "words" : [ "podamos", "podia", "podria", "podriamos", "puede", "puedes" ]
-  },
   "lexcareer" : {
     "count" : 2,
     "words" : [ "entrevista", "interview" ]
   },
-
   "lexchannels" : {
     "count" : 2,
     "words" : [ "mensajeria", "telegram" ]
@@ -196,8 +156,8 @@
     "words" : [ "caracter" ]
   },
   "lexchoices" : {
-    "count" : 17,
-    "words" : [ "decide", "elegi", "elegir", "elegirnos", "elegis", "elige", "maneras", "metodos", "optaste", "option", "preferencia", "preferencias", "preferido", "prefiere", "prefieres", "seleccion", "selecciona" ]
+    "count" : 16,
+    "words" : [ "decide", "elegi", "elegir", "elegirnos", "elegis", "elige", "maneras", "optaste", "option", "preferencia", "preferencias", "preferido", "prefiere", "prefieres", "seleccion", "selecciona" ]
   },
   "lexclassification" : {
     "count" : 14,
@@ -212,8 +172,8 @@
     "words" : [ "belts", "bombachas", "indumentaria", "ropa", "scarves" ]
   },
   "lexcodes" : {
-    "count" : 59,
-    "words" : [ "act", "bef0s", "ca", "cftna", "clave", "codigo", "cuit", "d9j", "etiqueta", "ewhl", "factura", "guia", "hq", "id", "ide", "igibp", "ii", "iii", "ipv", "iv", "licencia", "lote", "lv", "mwtx", "nac", "np", "nro", "nsud", "oogp", "pedido", "pmb", "prod", "producto", "pte", "pto", "publicasipv", "ref", "referencia", "reg", "registro", "ro", "serie", "sku", "ticket", "usr", "vtmz", "wbbd", "wc", "x1", "xcvt", "xdukv1", "xu", "xvi", "y8r", "yauklj", "ysl2", "z8y", "zffb8", "zwmwn" ]
+    "count" : 56,
+    "words" : [ "act", "bef0s", "ca", "cftna", "clave", "cuit", "d9j", "etiqueta", "ewhl", "factura", "hq", "id", "ide", "igibp", "ii", "iii", "ipv", "iv", "licencia", "lote", "lv", "mwtx", "nac", "np", "nro", "nsud", "oogp", "pmb", "prod", "producto", "pte", "pto", "publicasipv", "ref", "referencia", "reg", "registro", "ro", "serie", "sku", "ticket", "usr", "vtmz", "wbbd", "wc", "x1", "xcvt", "xdukv1", "xu", "xvi", "y8r", "yauklj", "ysl2", "z8y", "zffb8", "zwmwn" ]
   },
   "lexcoding" : {
     "count" : 3,
@@ -233,10 +193,7 @@
   },
   "lexcommerce" : {
     "count" : 43,
-    "words" : ["caja", "carrito", "carro", "catalogo", "categorias", "categoriza", "changomas", "comision", "compra", "consigue",
-      "deals", "ecommerce", "gratis", "marketplace", "oferta", "ofertas", "oportunidad", "pedidos", "plataforma", "plataformas",
-      "productos", "promociones", "publicidades", "puntos", "revendedores", "sale", "shipping", "shopper", "shopping", "sotheby",
-      "stock", "store", "subastadas", "subastas", "tallas", "talle", "talles", "tickets", "vendidas", "ventas", "vip", "vuitton" ]
+    "words" : [ "bienes", "caja", "carrito", "carro", "catalogo", "categorias", "categoriza", "changomas", "comision", "consigue", "deals", "ecommerce", "gratis", "marketplace", "oferta", "ofertas", "oportunidad", "pedido", "pedidos", "plataforma", "plataformas", "productos", "promociones", "publicidades", "puntos", "revendedores", "sale", "shipping", "shopper", "shopping", "sotheby", "stock", "store", "subastadas", "subastas", "tallas", "talle", "talles", "tickets", "vendidas", "ventas", "vip", "vuitton" ]
   },
   "lexcommercial" : {
     "count" : 1,
@@ -247,8 +204,8 @@
     "words" : [ "common", "comun" ]
   },
   "lexcommunication" : {
-    "count" : 98,
-    "words" : [ "aclaro", "agendanos", "agente", "agregame", "atenderemos", "boletines", "chatea", "cliche", "comentando", "comentar", "commenting", "comparten", "compartido", "comunica", "comunicacion", "comunicaciones", "comunicandose", "comunicara", "comuniquese", "conferencia", "consultanos", "consultar", "contactar", "contactarnos", "contactarse", "contactate", "contactenos", "contacto", "contamos", "contestando", "contigo", "conversacion", "conversar", "correo", "correoelectronico", "correos", "decir", "dice", "diciendole", "dijeron", "discusion", "electronico", "electronicos", "email", "emails", "emision", "emitidas", "enlaces", "entrevistas", "explicaciones", "explicar", "explique", "expresan", "expressed", "fluidez", "frases", "fuiste", "habla", "hablaescucha", "hablar", "interacciones", "invitamos", "llama", "llamada", "llamar", "llamaremos", "mail", "mails", "mencionados", "mencionaste", "mencione", "mensajes", "message", "messenger", "outlook", "phone", "pide", "pregunta", "presentamos", "propusiste", "recibimos", "reclamar", "reconnectar", "refiere", "registrate", "remitente", "reporte", "responda", "responde", "responderme", "respuesta", "retroalimentacion", "sender", "suscribiste", "suscripto", "suscrito", "tienes", "vision" ]
+    "count" : 95,
+    "words" : [ "aclaro", "agendanos", "agente", "agregame", "atenderemos", "chatea", "cliche", "comentando", "comentar", "commenting", "comparten", "compartido", "comunica", "comunicacion", "comunicaciones", "comunicandose", "comunicara", "comuniquese", "conferencia", "consultanos", "consultar", "contactar", "contactarnos", "contactarse", "contactate", "contactenos", "contacto", "contamos", "contestando", "contigo", "conversacion", "conversar", "correo", "correoelectronico", "correos", "decir", "dice", "diciendole", "dijeron", "discusion", "electronicos", "email", "emails", "emitidas", "enlaces", "entrevistas", "explicaciones", "explicar", "explique", "expresan", "expressed", "fluidez", "frases", "fuiste", "habla", "hablaescucha", "hablar", "interacciones", "invitamos", "llama", "llamada", "llamar", "llamaremos", "mail", "mails", "mencionados", "mencionaste", "mencione", "mensajes", "message", "messenger", "outlook", "phone", "pide", "pregunta", "preguntas", "presentamos", "propusiste", "recibimos", "reclamar", "reconnectar", "refiere", "registrate", "remitente", "reporte", "responda", "responde", "responderme", "respuesta", "retroalimentacion", "sender", "suscribiste", "suscripto", "suscrito", "tienes" ]
   },
   "lexcommunity" : {
     "count" : 29,
@@ -258,17 +215,13 @@
     "count" : 13,
     "words" : [ "mas", "mayor", "menos", "misma", "mismo", "mismos", "more", "más", "parecidos", "same", "similar", "similares", "triple" ]
   },
-  "lexcompatibility" : {
-    "count" : 2,
-    "words" : [ "combinable", "incompatible" ]
-  },
   "lexcompetence" : {
     "count" : 1,
     "words" : [ "competentes" ]
   },
   "lexcompletion" : {
-    "count" : 16,
-    "words" : [ "acabamos", "completadas", "completamente", "completarla", "concluir", "conseguido", "conseguirse", "finaliza", "finalizacion", "finalizado", "finalizamos", "over", "realizada", "terminando", "terminar", "termine" ]
+    "count" : 17,
+    "words" : [ "acabamos", "completadas", "completamente", "completarla", "concluir", "conseguido", "conseguir", "conseguirse", "finaliza", "finalizacion", "finalizado", "finalizamos", "over", "realizada", "terminando", "terminar", "termine" ]
   },
   "lexconcepts" : {
     "count" : 7,
@@ -299,8 +252,8 @@
     "words" : [ "aceptada", "aceptado", "activada", "actualizada", "actualizado", "acuerdo", "acuerdos", "aprobado", "confirmada", "confirmado", "confirmamos", "conforme", "elegida", "emitido", "entregado", "enviada", "enviado", "firmalo", "preaprobado", "procesada", "pudiera", "puedas", "recibiste", "renovada", "reservado", "reserved", "revisalo", "revises", "verifiques" ]
   },
   "lexconjunctions" : {
-    "count" : 19,
-    "words" : [ "ademas", "and", "are",  "aunque", "because", "if", "mas", "mediante", "mientras", "o", "or", "pero", "porque", "que", "salvo", "si", "with", "y" ]
+    "count" : 17,
+    "words" : [ "ademas", "and", "are", "aunque", "because", "if", "mediante", "mientras", "o", "or", "pero", "porque", "que", "salvo", "si", "with", "y" ]
   },
   "lexconsent" : {
     "count" : 1,
@@ -311,8 +264,8 @@
     "words" : [ "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "z", "ç", "ñ" ]
   },
   "lexconstraints" : {
-    "count" : 30,
-    "words" : [ "acumulables", "aplicaran", "basta", "excepto", "excluida", "excluidas", "forzado", "ilimitada", "limita", "limitaciones", "limitada", "limitadas", "limitado", "limitados", "limitan", "limitando", "limitas", "limite", "limitedtime", "minimo", "nunca", "obligacion", "prohibir", "restricciones", "retencion", "sujeta", "sujeto", "tope", "vence", "vencida" ]
+    "count" : 29,
+    "words" : [ "acumulables", "basta", "excepto", "excluida", "excluidas", "forzado", "ilimitada", "limita", "limitaciones", "limitada", "limitadas", "limitado", "limitados", "limitan", "limitando", "limitas", "limite", "limitedtime", "minimo", "nunca", "obligacion", "prohibir", "restricciones", "retencion", "sujeta", "sujeto", "tope", "vence", "vencida" ]
   },
   "lexconsulting" : {
     "count" : 3,
@@ -322,18 +275,13 @@
     "count" : 2,
     "words" : [ "consumir", "consumos" ]
   },
-
   "lexcontent" : {
     "count" : 6,
     "words" : [ "contener", "contenido", "contenidos", "contiene", "imagenes", "muestra" ]
   },
   "lexcontextual" : {
     "count" : 47,
-    "words" : [ "brickell", "broadway", "brokline", "caso", "causa", "corte", "cosas", "enfocada", "environments", "escanea", "escuelas", "extendida", "exterior", "externas", "habitacion", "heladerias", "hogar", "hotel", "independientemente", "intercambio", "interes", "interesa", "intereses", "karma", "libera", "liberte", "libres", "lugar", "mira", "mirada", "mundo", "native", "ocasionados", "paradoja", "peluqueria", "pues", "reino", "respecto", "resto", "supuesto", "supuestos", "tabla", "temporal", "tocar", "universidad", "virtual" ]
-  },
-  "lexcontrast" : {
-    "count" : 1,
-    "words" : [ "opuesto" ]
+    "words" : [ "aquél", "aun", "brickell", "brokline", "caso", "causa", "corte", "cosas", "enfocada", "environments", "escanea", "escuelas", "extendida", "exterior", "externas", "habitacion", "heladerias", "hogar", "hotel", "independientemente", "intercambio", "intereses", "karma", "libera", "liberte", "libres", "lugar", "mira", "mirada", "mundo", "native", "ocasionados", "paradoja", "peluqueria", "pues", "reino", "respecto", "resto", "supuesto", "supuestos", "tabla", "temporal", "tocar", "universidad", "virtual", "él", "éstos" ]
   },
   "lexcontributions" : {
     "count" : 4,
@@ -359,10 +307,6 @@
     "count" : 4,
     "words" : [ "costos", "importe", "lexcosts", "precio" ]
   },
-  "lexcountries" : {
-    "count" : 9,
-    "words" : [ "australia", "china", "cordoba", "corea", "ee", "eeuu", "europ", "paises", "sweden" ]
-  },
   "lexcourtesy" : {
     "count" : 5,
     "words" : [ "amigable", "amistoso", "apadrinando", "atencion", "gracias" ]
@@ -372,22 +316,16 @@
     "words" : [ "constructor", "construir", "creacion", "creaciones", "creado", "creador", "crean", "crearemos", "elaborado", "ingenio" ]
   },
   "lexcurrencies" : {
-    "count" : 36,
-    "words" : [ "birr", "bitcoin", "bolivares", "centavos", "colones", "corona", "cripto", "criptomoneda", "criptomonedas", "dinar", "doge", "dolar", "dolares", "euro", "franco", "francos", "guaranies", "libra", "lira", "peso", "pesos", "quetzales", "real", "reales", "rublo", "rublos", "rupia", "rupias", "shekel", "soles", "won", "yen", "yenes", "yuan", "yuanes", "zloty" ]
+    "count" : 38,
+    "words" : [ "ars", "birr", "bitcoin", "bolivares", "centavos", "colones", "corona", "cripto", "criptomoneda", "criptomonedas", "dinar", "doge", "dolar", "dolares", "euro", "euros", "franco", "francos", "guaranies", "libra", "lira", "peso", "pesos", "quetzales", "real", "reales", "rublo", "rublos", "rupia", "rupias", "shekel", "soles", "won", "yen", "yenes", "yuan", "yuanes", "zloty" ]
   },
-  "lexcurrency" : {
-    "count" : 2,
-    "words" : [ "ars", "euros" ]
-  },
-
   "lexcustomization" : {
     "count" : 6,
     "words" : [ "adaptarlos", "personaliza", "personalizadas", "personalizados", "personalizar", "personalmente" ]
   },
-
   "lexdaily" : {
-    "count" : 34,
-    "words" : [ "actual","almuerzo", "beca", "boda", "caf", "cafe", "cena", "charla", "clima", "cotidianas", "des", "desayuno", "dia", "dona", "ello", "estare", "habitual", "hoy", "listos", "nda", "noche", "pin", "proximas", "reunion", "ruta", "rutina", "rutinas", "sede", "tarde", "tarea", "taxi", "trabajo", "yoga" ]
+    "count" : 30,
+    "words" : [ "actual", "almuerzo", "beca", "boda", "caf", "cena", "charla", "clima", "cotidianas", "des", "desayuno", "dia", "dona", "ello", "estare", "habitual", "hoy", "listos", "nda", "noche", "pin", "proximas", "reunion", "rutina", "rutinas", "sede", "tarde", "tarea", "taxi", "yoga" ]
   },
   "lexdata" : {
     "count" : 4,
@@ -401,7 +339,6 @@
     "count" : 2,
     "words" : [ "fechas", "feriados" ]
   },
-
   "lexdecision" : {
     "count" : 11,
     "words" : [ "aprueba", "consideraremos", "decision", "decisiones", "detalle", "determinara", "determine", "manejo", "oponerse", "parecer", "termina" ]
@@ -435,8 +372,8 @@
     "words" : [ "deseado", "deseamos", "queriamos", "quieras", "quiere", "quieren" ]
   },
   "lexdeterminers" : {
-    "count" : 39,
-    "words" : [ "algunas", "alguno", "algunos", "cualquier", "cuyo", "el", "esa", "esas", "ese", "esos", "esta", "estas", "este", "estos", "la", "las", "lo", "los", "ningun", "ninguna", "ninguno", "otra", "otras", "otro", "otros", "primer", "primera", "primeros", "su", "sus", "the", "todo", "todos", "ultimas", "ultimos", "un", "una", "unas", "unos" ]
+    "count" : 38,
+    "words" : [ "algunas", "alguno", "algunos", "cualquier", "cuyo", "el", "esa", "esas", "ese", "esos", "esta", "estas", "este", "estos", "la", "las", "lo", "los", "ningun", "ninguna", "ninguno", "otra", "otras", "otro", "otros", "primer", "primera", "primeros", "su", "sus", "the", "todo", "todos", "ultimos", "un", "una", "unas", "unos" ]
   },
   "lexdevelopment" : {
     "count" : 11,
@@ -446,17 +383,13 @@
     "count" : 5,
     "words" : [ "dispositivo", "dispositivos", "distancia", "moviles", "tableta" ]
   },
-  "lexdifferences" : {
-    "count" : 3,
-    "words" : [ "diferencia", "diferencias", "diferente" ]
-  },
   "lexdimensions" : {
     "count" : 44,
     "words" : [ "cadena", "centimetro", "centimetros", "cm", "cubico", "cubicos", "decametro", "decimetros", "galon", "galones", "gramo", "gramos", "hectareas", "hectometro", "hectopascal", "kg", "kilo", "kilometros", "kilos", "km", "libras", "litro", "litros", "m2", "metro", "metros", "micrometro", "milibar", "mililitro", "mililitros", "milimetro", "millas", "mm", "nanometro", "onzas", "pie", "pies", "pulgada", "pulgadas", "rod", "tonelada", "toneladas", "yarda", "yardas" ]
   },
   "lexdirection" : {
-    "count" : 11,
-    "words" : [ "apunta", "apuntado", "centra", "centrada", "destinadas", "destinatarios", "directly", "directo", "directos", "east", "hacia" ]
+    "count" : 15,
+    "words" : [ "abajo", "alcance", "apunta", "apuntado", "centra", "centrada", "debajo", "destinadas", "destinatarios", "directly", "directo", "directos", "east", "hacia", "lado" ]
   },
   "lexdirections" : {
     "count" : 5,
@@ -470,13 +403,9 @@
     "count" : 5,
     "words" : [ "alejado", "far", "kms", "lejano", "lejos" ]
   },
-  "lexdistribution" : {
-    "count" : 2,
-    "words" : [ "distribucion", "proporcionada" ]
-  },
   "lexdocuments" : {
-    "count" : 70,
-    "words" : [ "adjuntos", "archivo", "archivos", "articulo", "bases", "biblioteca", "boletin", "borrador", "carpeta", "certificado", "certificados", "comprobante", "comunicado", "consulta", "consultas", "contrato", "copyright", "correspondiente", "curriculum", "descargables", "descargada", "descargado", "descargala", "descargalo", "descargarlo", "disposiciones", "doce", "docs", "documento", "documentos", "edicion", "editar", "ejemploscurriculumcom", "entrada", "extracto", "facturas", "fichero", "formato", "formatos", "forms", "formularios", "hojas", "informacion", "instrucciones", "library", "libro", "lista", "listas", "manuales", "modificados", "palabra", "parrafo", "plantilla", "plantillas", "publicacion", "publicaciones", "realizacion", "realizadas", "realizado", "realizados", "recabamos", "recibo", "registrada", "report", "sheets", "tratados", "utilizacion", "utilizada", "utilizado", "utilizados" ]
+    "count" : 66,
+    "words" : [ "adjuntos", "archivo", "archivos", "articulo", "bases", "biblioteca", "borrador", "carpeta", "certificado", "certificados", "comprobante", "comunicado", "consulta", "contrato", "copyright", "correspondiente", "curriculum", "descargables", "descargada", "descargado", "descargala", "descargalo", "descargarlo", "disposiciones", "doce", "docs", "documento", "documentos", "edicion", "editar", "ejemploscurriculumcom", "entrada", "extracto", "facturas", "fichero", "formato", "formatos", "forms", "formularios", "hojas", "library", "libro", "lista", "listas", "manuales", "modificados", "palabra", "parrafo", "plantilla", "plantillas", "publicacion", "publicaciones", "realizacion", "realizadas", "realizado", "realizados", "recabamos", "recibo", "registrada", "report", "sheets", "tratados", "utilizacion", "utilizada", "utilizado", "utilizados" ]
   },
   "lexdriving" : {
     "count" : 2,
@@ -490,10 +419,9 @@
     "count" : 8,
     "words" : [ "easy", "facil", "faciles", "facilidad", "facilmente", "sencilla", "sencillas", "simple" ]
   },
-
   "lexeducation" : {
-    "count" : 51,
-    "words" : [ "academicas", "aprende", "aprender", "capacitacion", "capacitaciones", "capacitamos", "carrera", "carreras", "crecer", "docente", "docentes", "educacion", "estudio", "examenes", "facultad", "formacion", "formaciones", "formativas", "formativos", "importa", "instituto", "instructor", "instructores", "intelecto", "intelectual", "lectores", "lectura", "nuncaparesdeaprender", "oratoria", "pedagogica", "pedagogico", "pedagogicos", "pensadas", "presentacion", "procesos", "profesionales", "programa", "revisada", "revista", "sabemos", "sabio", "science", "seduca", "teorias", "texto", "tutorial", "universitario", "virtud", "vision", "vitae", "workshop" ]
+    "count" : 52,
+    "words" : [ "academicas", "aprende", "aprender", "capacitacion", "capacitaciones", "capacitamos", "carrera", "carreras", "crecer", "docente", "docentes", "educacion", "estudio", "examenes", "facultad", "formacion", "formaciones", "formativas", "formativos", "handson", "importa", "instituto", "instructor", "instructores", "intelecto", "intelectual", "lectores", "lectura", "nuncaparesdeaprender", "oratoria", "pedagogica", "pedagogico", "pedagogicos", "pensadas", "presentacion", "procesos", "profesionales", "programa", "revisada", "revista", "sabemos", "sabio", "science", "seduca", "teorias", "texto", "tutorial", "universitario", "virtud", "vision", "vitae", "workshop" ]
   },
   "lexefficiency" : {
     "count" : 6,
@@ -516,16 +444,16 @@
     "words" : [ "✅", "✨", "❤️" ]
   },
   "lexemotion" : {
-    "count" : 53,
-    "words" : [ "agradecimiento", "ansiosos", "bendiciones", "congratulacion", "curioso", "desaparecere", "despedida", "dudes", "dudo", "eco", "encantados", "enhorabuena", "equilibrio", "estres", "fascinantes", "felicidades", "felicitaciones", "gustar", "inocente", "inspiran", "juguetones", "lamentamos", "lamento", "locura", "lucirse", "magia", "magicamente", "meditacion", "meditar", "mereces", "mostrando", "oscuros", "pena", "queria", "queridos", "raices", "realidad", "realidades", "realmente", "refugio", "sangre", "sentir", "sentiras", "sorprendente", "sorprendentes", "sorprendete", "sí", "sólo", "terrible", "tranquilo", "wish", "yá", "♥" ]
+    "count" : 52,
+    "words" : [ "agradecimiento", "ansiosos", "bendiciones", "congratulacion", "curioso", "desaparecere", "despedida", "dudes", "dudo", "eco", "encantados", "enhorabuena", "equilibrio", "estres", "fascinantes", "felicidades", "felicitaciones", "gustar", "inocente", "inspiran", "juguetones", "lamentamos", "lamento", "locura", "lucirse", "magia", "magicamente", "meditacion", "meditar", "mereces", "mostrando", "oscuros", "pena", "queria", "queridos", "raices", "realidades", "realmente", "refugio", "sangre", "sentir", "sentiras", "sorprendente", "sorprendentes", "sorprendete", "sí", "sólo", "terrible", "tranquilo", "wish", "yá", "♥" ]
   },
   "lexemotions" : {
     "count" : 5,
     "words" : [ "amas", "ambiciones", "crush", "emocionada", "odio" ]
   },
   "lexemployment" : {
-    "count" : 10,
-    "words" : [ "contractuales", "contrata", "contratacion", "contratada", "contratando", "contratar", "contraten", "desempleo", "developer", "freelancer" ]
+    "count" : 9,
+    "words" : [ "contractuales", "contrata", "contratacion", "contratada", "contratando", "contratar", "contraten", "desempleo", "freelancer" ]
   },
   "lexenergy" : {
     "count" : 4,
@@ -536,16 +464,16 @@
     "words" : [ "engineer", "engineering", "ingenieria" ]
   },
   "lexentertainment" : {
-    "count" : 27,
-    "words" : [ "bloopers", "broadway", "comedia", "diversion", "divertida", "divertidas", "divertidisimos", "divertido", "divertidos", "diviertete", "entretenimiento", "espectaculo", "pelicula", "peliculas", "premiere", "reality", "record", "reirse", "reto", "streams", "suerte", "super", "teatro", "teatros", "video", "videos", "youtube" ]
+    "count" : 26,
+    "words" : [ "bloopers", "broadway", "comedia", "diversion", "divertida", "divertidas", "divertidisimos", "divertido", "divertidos", "diviertete", "entretenimiento", "espectaculo", "pelicula", "peliculas", "premiere", "reality", "record", "reirse", "reto", "streams", "suerte", "super", "teatro", "teatros", "video", "youtube" ]
   },
   "lexenvironment" : {
     "count" : 2,
     "words" : [ "roca", "tierra" ]
   },
   "lexerrors" : {
-    "count" : 5,
-    "words" : [ "fails", "fallas", "falseamiento", "falta", "invalidNumber" ]
+    "count" : 4,
+    "words" : [ "fails", "fallas", "falseamiento", "falta" ]
   },
   "lexessentials" : {
     "count" : 3,
@@ -607,7 +535,6 @@
     "count" : 2,
     "words" : [ "expreso", "express" ]
   },
-
   "lexeyewear" : {
     "count" : 4,
     "words" : [ "anteojos", "armazon", "armazones", "optica" ]
@@ -633,11 +560,8 @@
     "words" : [ "asesorarte", "comentario", "comentarios", "compartelo", "consejos", "consultas", "coordinemos", "cuentanos", "encuesta", "escribenos", "feedback", "observaciones", "opina", "opinando", "opinion", "opiniones", "responderemos", "sugerencias", "testimonio", "testimonios" ]
   },
   "lexfinance" : {
-    "count" : 144,
-    "words" : [ "abonando", "accionista", "accionistas", "account", "afiliacion", "afiliadas", "afiliado", "afiliados", "ahorra",
-      "ahorras", "ahorro", "ahorros", "apuesta", "balance", "balanceadores", "bancaria", "bancarias", "bancario", "bancarrota",
-      "bancos", "bank", "banking", "bbva", "bitcoin", "bonificacion", "bonificados", "bonificara", "cambio", "canjeables", "canjear",
-      "capital", "card", "cargo", "cargos", "cartera", "cashback", "cft", "cheque", "cheques", "cobertura", "cobrara", "coin", "comisiones", "commodities", "consumo", "costo", "crediticia", "crediticio", "credito", "creditos", "cuentas", "cuota", "debito", "debitos", "demorar", "deposito", "deudas", "deudores", "devolucion", "dinero", "donacion", "donativo", "efectivo", "emision", "emisor", "facturacion", "fatca", "financia", "financiacion", "financiamiento", "finanzas", "fiscal", "fiscales", "fondos", "galicia", "ganancias", "ganando", "ganar", "ganaras", "gasta", "gastas", "gastes", "gastos", "gold", "hipoteca", "icbc", "ingreso", "ingresos", "interes", "invierte", "jubilacion", "liquidacion", "litecoin", "mastercard", "millon", "monto", "mora", "negocio", "nomina", "nominal", "operaciones", "otorgamiento", "otorgar", "pasivas", "pasivos", "plata", "pospago", "precios", "prepago", "prestamos", "recargar", "recargos", "recaudar", "referente", "refinanciamiento", "regulaciones", "reintegra", "reintegro", "reintegros", "remunerada", "rentas", "requiera", "retiro", "saldo", "salvemos", "save", "subsidiarias", "subsidio", "sucursales", "sueldo", "supervielle", "tarifa", "tarjeta", "tarjetas", "tasas", "tax", "transacciones", "transfer", "transferencia", "transferida", "transfiere", "tributario", "usd", "venta" ]
+    "count" : 147,
+    "words" : [ "abonando", "accionista", "accionistas", "account", "afiliacion", "afiliadas", "afiliado", "afiliados", "ahorra", "ahorras", "ahorro", "ahorros", "apuesta", "balance", "bancaria", "bancarias", "bancario", "bancarrota", "banco", "bancos", "bank", "banking", "bbva", "cambio", "canjeables", "canjear", "capital", "card", "cargo", "cargos", "cartera", "cashback", "cft", "cheque", "cheques", "cobertura", "cobrara", "coin", "comisiones", "commodities", "consumo", "costo", "crediticia", "crediticio", "credito", "creditos", "cuentas", "cuota", "cuotas", "debito", "debitos", "demorar", "depositan", "deposito", "deudas", "deudores", "devolucion", "dinero", "donacion", "donativo", "economicas", "economicos", "efectivo", "emision", "emisor", "facturacion", "fatca", "financia", "financiacion", "financiamiento", "finanzas", "fiscal", "fiscales", "fondos", "galicia", "ganancias", "ganando", "ganar", "ganaras", "gasta", "gastas", "gastes", "gastos", "gold", "hipoteca", "icbc", "ingreso", "ingresos", "interes", "inverti", "invertir", "invierte", "jubilacion", "liquidacion", "litecoin", "mastercard", "millon", "monto", "mora", "negocio", "nomina", "nominal", "operaciones", "otorgamiento", "otorgar", "pasivas", "pasivos", "plata", "pospago", "precios", "prepago", "prestamo", "prestamos", "recargar", "recargos", "recaudar", "referente", "refinanciamiento", "regulaciones", "reintegra", "reintegro", "remunerada", "rentas", "requiera", "retiro", "saldo", "salvemos", "save", "seguro", "subsidiarias", "subsidio", "sucursales", "sueldo", "supervielle", "tarifa", "tarjeta", "tarjetas", "tasas", "tax", "transacciones", "transfer", "transferencia", "transferida", "transfiere", "tributario", "usd", "venta" ]
   },
   "lexfinancial" : {
     "count" : 4,
@@ -655,17 +579,13 @@
     "count" : 1,
     "words" : [ "extranjeras" ]
   },
-  "lexformatting" : {
-    "count" : 3,
-    "words" : [ "“", "“””", "”" ]
-  },
   "lexfree" : {
     "count" : 4,
     "words" : [ "gratuita", "gratuitas", "gratuito", "gratuitos" ]
   },
   "lexfrequency" : {
-    "count" : 13,
-    "words" : [ "anual", "daily", "dia", "diariamente", "diarias", "diario", "diarios", "frecuente", "frecuentes", "mensual", "nuevamente", "regulares", "semanal" ]
+    "count" : 12,
+    "words" : [ "anual", "daily", "diariamente", "diarias", "diario", "diarios", "frecuente", "frecuentes", "mensual", "nuevamente", "regulares", "semanal" ]
   },
   "lexfunctionality" : {
     "count" : 6,
@@ -720,16 +640,16 @@
     "words" : [ "asegurado", "garantizada", "garantizado", "garantizar", "reembolsable", "reembolsado", "reembolsar", "reembolso", "segura", "seguros" ]
   },
   "lexguidelines" : {
-    "count" : 17,
-    "words" : [ "condiciones", "conozca", "directrices", "guia", "guias", "lineamientos", "normas", "normativa", "politica", "politicas", "practica", "practicas", "practices", "reglas", "requisitos", "terminos", "terms" ]
+    "count" : 16,
+    "words" : [ "condiciones", "conozca", "directrices", "guia", "guias", "lineamientos", "normas", "normativa", "politica", "politicas", "practica", "practicas", "practices", "reglas", "requisitos", "terms" ]
   },
   "lexhealth" : {
-    "count" : 59,
-    "words" : [ "abdomen", "abdominal", "acne", "adelgaza", "bancaria", "bancarias", "bienestar", "cabello", "capsulas", "covid", "cuerpo", "cuidado", "cura", "cure", "curo", "dental", "diagnostico", "duermes", "durmiendo", "embarazadas", "enfermedad", "enfermiza", "estimula", "estreses", "farmacias", "farmacity", "grasa", "hospital", "inmunologico", "libido", "md", "medica", "medicamento", "medicamentos", "medicos", "mental", "organica", "organo", "paciente", "pastilla", "pastillas", "preexistencias", "prevencion", "probioticos", "rejuvenece", "resistencia", "salud", "saludablemente", "saludables", "sexual", "suero", "suplemento", "terapia", "tratamiento", "tratar", "viagra", "vitales", "vitamina", "vitaminas" ]
+    "count" : 60,
+    "words" : [ "abdomen", "abdominal", "acne", "adelgaza", "bienestar", "cabello", "capsulas", "covid", "cuerpo", "cuidado", "cura", "cure", "curo", "dental", "diagnostico", "duermes", "durmiendo", "ejercicios", "embarazadas", "enfermedad", "enfermiza", "entrena", "estimula", "estreses", "farmacias", "farmacity", "grasa", "hospital", "inmunologico", "libido", "md", "medica", "medicamento", "medicamentos", "medicos", "mental", "organica", "organo", "paciente", "pastilla", "pastillas", "preexistencias", "prevencion", "probioticos", "rejuvenece", "resistencia", "salud", "saludablemente", "saludables", "sexual", "suero", "suplemento", "terapia", "training", "tratamiento", "tratar", "viagra", "vitales", "vitamina", "vitaminas" ]
   },
   "lexhelp" : {
-    "count" : 24,
-    "words" : [ "apoya", "apoyemos", "apoyo",  "asistencia", "asustes", "atender", "aun", "ayuda", "ayudado", "ayudame", "ayudan", "ayudanos", "ayudara", "ayudarlo", "ayudarte", "ayudo", "brinda", "colaborar", "hagamos", "necesitas", "necesito", "socorro", "soporte" ]
+    "count" : 22,
+    "words" : [ "apoya", "apoyemos", "apoyo", "asistencia", "asustes", "atender", "ayuda", "ayudado", "ayudame", "ayudan", "ayudanos", "ayudara", "ayudarlo", "ayudarte", "ayudo", "brinda", "colaborar", "hagamos", "necesitas", "necesito", "socorro", "soporte" ]
   },
   "lexhighlight" : {
     "count" : 7,
@@ -738,10 +658,6 @@
   "lexhistory" : {
     "count" : 3,
     "words" : [ "historia", "historias", "reconquista" ]
-  },
-  "lexhousehold" : {
-    "count" : 4,
-    "words" : [ "cobertor", "cocinas", "jabon", "limpieza" ]
   },
   "lexhumanities" : {
     "count" : 1,
@@ -772,20 +688,20 @@
     "words" : [ "impedira", "implica", "implicara" ]
   },
   "leximprovements" : {
-    "count" : 30,
-    "words" : [ "aumenta", "avance", "avanzados", "avanzaras", "awesome", "desarrollo", "directamente", "disenamos", "diseñamos", "fortalece", "levita", "mejora", "mejoradas", "mejoran", "mejorando", "mejorar", "mejoraran", "mejoras", "mejore", "novedades", "optimizacion", "perfeccion", "potenciemos", "progresado", "progreso", "recupera", "recuperacion", "reducir", "reestructurando", "revolucionario" ]
+    "count" : 29,
+    "words" : [ "aumenta", "avance", "avanzados", "avanzaras", "awesome", "desarrollo", "directamente", "disenamos", "diseñamos", "fortalece", "levita", "mejora", "mejoradas", "mejoran", "mejorando", "mejorar", "mejoraran", "mejoras", "mejore", "optimizacion", "perfeccion", "potenciemos", "progresado", "progreso", "recupera", "recuperacion", "reducir", "reestructurando", "revolucionario" ]
   },
   "lexindividuality" : {
     "count" : 2,
     "words" : [ "individual", "individuo" ]
   },
   "lexinformation" : {
-    "count" : 8,
-    "words" : [ "fuente", "fuentes", "info", "informaciones", "informados", "informaticos", "informes", "informo" ]
+    "count" : 9,
+    "words" : [ "fuente", "fuentes", "info", "informaciones", "informados", "informaticos", "informes", "informo", "proporcionada" ]
   },
   "lexinformative" : {
-    "count" : 19,
-    "words" : [ "actividad", "area", "comprension", "dicha", "dichas", "dicho", "horarios", "informacion", "informamos", "informar", "informarte", "nota", "notado", "noticias", "relevantes", "tablas", "table", "tema", "temas" ]
+    "count" : 18,
+    "words" : [ "actividad", "area", "comprension", "dicha", "dichas", "dicho", "horarios", "informacion", "informamos", "informar", "informarte", "nota", "notado", "relevantes", "tablas", "table", "tema", "temas" ]
   },
   "lexinnovation" : {
     "count" : 4,
@@ -808,8 +724,8 @@
     "words" : [ "dé", "gánate", "házlo", "instructivo", "míra", "sé", "usalo" ]
   },
   "lexinstructions" : {
-    "count" : 32,
-    "words" : [ "apunto", "avanza", "completa", "consiste", "continua", "continuacion", "continuamos", "cumpliendo", "debera", "ejecutando", "ejecutar", "firmes", "implementa", "incluye", "ingresando", "ingrese", "instruccion", "instrucciones", "introduccion", "introducir", "metodo", "prepara", "preparado", "preparar", "proceder", "prompting", "realizando", "resuelve", "sigamos", "sigue", "tecnicas", "ten" ]
+    "count" : 33,
+    "words" : [ "apunto", "avanza", "completa", "consiste", "continua", "continuacion", "continuamos", "cumpliendo", "debera", "ejecutando", "ejecutar", "firmes", "implementa", "incluye", "ingresando", "ingrese", "instruccion", "instrucciones", "introduccion", "introducir", "metodo", "metodos", "prepara", "preparado", "preparar", "proceder", "prompting", "realizando", "resuelve", "sigamos", "sigue", "tecnicas", "ten" ]
   },
   "lexintegration" : {
     "count" : 7,
@@ -820,8 +736,8 @@
     "words" : [ "inteligencia", "inteligente", "inteligentes" ]
   },
   "lexintensity" : {
-    "count" : 5,
-    "words" : [ "altamente", "altas", "epicos", "increiblemente", "increibles" ]
+    "count" : 4,
+    "words" : [ "altamente", "altas", "epicos", "increiblemente" ]
   },
   "lexinterest" : {
     "count" : 4,
@@ -838,10 +754,6 @@
   "lexintuitive" : {
     "count" : 2,
     "words" : [ "instintivamente", "instintivo" ]
-  },
-  "lexinvestment" : {
-    "count" : 2,
-    "words" : [ "inverti","invertir" ]
   },
   "lexissues" : {
     "count" : 26,
@@ -874,10 +786,6 @@
   "lexlaunch" : {
     "count" : 7,
     "words" : [ "despegarse", "despegue", "lanzado", "lanzamiento", "lanzamos", "lanzar", "lanzaremos" ]
-  },
-  "lexlaw" : {
-    "count" : 1,
-    "words" : [ "policia" ]
   },
   "lexleadership" : {
     "count" : 4,
@@ -912,8 +820,8 @@
     "words" : [ "sonnet" ]
   },
   "lexlocation" : {
-    "count" : 75,
-    "words" : [ "aca", "aereos", "afuera", "aires", "alquiler", "america", "american", "aqui", "argentina", "atlas", "av", "avenida", "avenue", "bajo", "bandeja", "barcelona", "bentonville", "bouchard", "buenos", "caba", "canada", "canal", "cancun", "casa", "center", "central", "centro", "centros", "ciudad", "ciudadanos", "ciudades", "coordenadas", "coto", "cp", "dinamarca", "direccion", "domicilio", "dublin", "espana", "estados", "estancia", "estás", "europa", "europe", "europeos", "externo", "floor", "florida", "fuenlabrada", "gcba", "home", "house", "interior", "ireland", "localizacion", "madrid", "mapa", "mexico", "miami", "monumento", "mundial", "museum", "nigeriano", "ny", "oficinas", "pais", "paises", "piso", "playa", "puerta", "republica", "san", "unidos", "valencia", "york" ]
+    "count" : 82,
+    "words" : [ "aca", "aereos", "afuera", "aires", "alquiler", "america", "american", "aqui", "argentina", "atlas", "australia", "av", "avenida", "avenue", "bajo", "bandeja", "barcelona", "bentonville", "bouchard", "caba", "canada", "canal", "cancun", "casa", "center", "central", "centro", "centros", "china", "ciudad", "ciudadanos", "ciudades", "coordenadas", "cordoba", "corea", "coto", "cp", "dinamarca", "direccion", "domicilio", "dublin", "ee", "eeuu", "espana", "estados", "estancia", "estás", "europ", "europa", "europe", "europeos", "externo", "floor", "florida", "fuenlabrada", "gcba", "home", "house", "interior", "ireland", "localizacion", "madrid", "mapa", "mexico", "miami", "monumento", "mundial", "museum", "nigeriano", "ny", "oficinas", "pais", "paises", "piso", "playa", "puerta", "republica", "san", "sweden", "unidos", "valencia", "york" ]
   },
   "lexmaintenance" : {
     "count" : 5,
@@ -924,8 +832,8 @@
     "words" : [ "administra", "administracion", "autoadministradas", "autogestion", "dirigido", "dirigir", "dirigirse", "gestion", "maneja", "manejas", "supervision" ]
   },
   "lexmarketing" : {
-    "count" : 33,
-    "words" : [ "ads", "anuncio", "anuncios", "asequible", "banner", "bannerbb", "boletines", "boletos", "branding", "campañas", "leverage", "marketing", "metrics", "monetiza", "patrocinadores", "promo", "promocionando", "publicidad", "publicitario", "publicitarios", "rebajas", "recomendamos", "sin", "solo", "sorprende", "spam", "survey", "tendencias", "trabaja", "trabajar", "ventajas", "viral", "visualiza" ]
+    "count" : 29,
+    "words" : [ "ads", "anuncio", "anuncios", "asequible", "banner", "bannerbb", "branding", "campañas", "leverage", "marketing", "metrics", "monetiza", "patrocinadores", "promo", "promocionando", "publicidad", "publicitario", "publicitarios", "rebajas", "recomendamos", "sorprende", "spam", "survey", "tendencias", "trabaja", "trabajar", "ventajas", "viral", "visualiza" ]
   },
   "lexmaterials" : {
     "count" : 7,
@@ -936,8 +844,8 @@
     "words" : [ "motivo", "sentido", "significa", "significado", "significan", "significativas" ]
   },
   "lexmeasurement" : {
-    "count" : 10,
-    "words" : [ "larga", "largas", "largo", "medida", "medio", "minima", "minimo", "ms", "numeros", "plazo" ]
+    "count" : 9,
+    "words" : [ "larga", "largas", "largo", "medida", "medio", "minima", "ms", "numeros", "plazo" ]
   },
   "lexmedia" : {
     "count" : 20,
@@ -955,10 +863,6 @@
     "count" : 2,
     "words" : [ "soldados", "tropas" ]
   },
-  "lexminimum" : {
-    "count" : 1,
-    "words" : [ "minimo" ]
-  },
   "lexmiracle" : {
     "count" : 4,
     "words" : [ "magica", "milagrosa", "milagrosas", "milagroso" ]
@@ -966,10 +870,6 @@
   "lexmirroring" : {
     "count" : 1,
     "words" : [ "mirando" ]
-  },
-  "lexmobile" : {
-    "count" : 1,
-    "words" : [ "movil" ]
   },
   "lexmobility" : {
     "count" : 1,
@@ -1000,8 +900,8 @@
     "words" : [ "guitarra", "instrumento", "musica", "ritmo", "rockroll", "tango" ]
   },
   "lexnames" : {
-    "count" : 43,
-    "words" : [ "alexander", "alicia", "ana", "antonio", "avila", "ben", "cabrera", "carlos", "catalanointhe", "catalanosamuel", "chameera", "chris", "claude", "daniel", "diaz", "donald", "eliot", "elon", "gavin", "gladys", "jose", "louis", "maksim", "marcela", "marco", "merrion", "micaela", "montilla", "moreau", "musk", "pacheco", "pedro", "pellegrini", "peron", "prieto", "ruth", "sams", "samuel", "sarah", "shetty", "shettyviraj", "them", "trump" ]
+    "count" : 42,
+    "words" : [ "alexander", "alicia", "ana", "antonio", "avila", "ben", "cabrera", "carlos", "catalanointhe", "catalanosamuel", "chameera", "chris", "claude", "daniel", "diaz", "donald", "eliot", "elon", "gavin", "gladys", "jose", "louis", "maksim", "marcela", "marco", "merrion", "micaela", "montilla", "moreau", "musk", "pacheco", "pedro", "pellegrini", "peron", "prieto", "ruth", "sams", "samuel", "sarah", "shetty", "shettyviraj", "trump" ]
   },
   "lexnationality" : {
     "count" : 3,
@@ -1024,22 +924,21 @@
     "words" : [ "hosk", "hotspot" ]
   },
   "lexnetworking" : {
-    "count" : 35,
-    "words" : [ "agencia", "at", "bcra", "boot", "browser", "codegpt", "content", "direccion", "dominio", "dominios", "enrutador", "for", "gateway", "gateways", "gb", "host", "inc", "ip", "jpg", "microsoft", "mongodb", "navegador", "network", "of", "off", "on", "proxy", "react", "red", "redes", "referidos", "routers", "servidor", "subred", "tb" ]
+    "count" : 34,
+    "words" : [ "agencia", "at", "bcra", "boot", "browser", "codegpt", "content", "dominio", "dominios", "enrutador", "for", "gateway", "gateways", "gb", "host", "inc", "ip", "jpg", "microsoft", "mongodb", "navegador", "network", "of", "off", "on", "proxy", "react", "red", "redes", "referidos", "routers", "servidor", "subred", "tb" ]
   },
   "lexneutral" : {
-    "count" : 19,
-    "words" : [ "activa", "activo", "adjunto", "agrega", "alguna", "ambos", "aporte", "boleta", "bordo", "cambios", "camino", "favor", "menu", "prioritariamente", "suelto", "verte", "vidas", "vuelo", "was" ]
+    "count" : 18,
+    "words" : [ "activa", "activo", "adjunto", "agrega", "alguna", "ambos", "aporte", "boleta", "bordo", "cambios", "camino", "favor", "menu", "suelto", "verte", "vidas", "vuelo", "was" ]
   },
   "lexnews" : {
     "count" : 11,
     "words" : [ "enterate", "news", "newsletter", "noticias", "periodico", "publicar", "publicaran", "publiquen", "titulares", "ultimas", "vertical" ]
   },
   "lexnotifications" : {
-    "count" : 26,
-    "words" : [ "actualizar", "confirma", "detalles", "evita", "informa", "limpieza", "mensaje", "muestran", "notificacion", "notificaciones", "notificar", "novedades", "olvides", "pd", "pendiente", "presta", "recibidos", "recibiras", "recordatorio", "respondiendo", "resumen", "vigencia", "vigentes" ]
+    "count" : 22,
+    "words" : [ "actualizar", "confirma", "detalles", "evita", "informa", "mensaje", "muestran", "notificacion", "notificaciones", "notificar", "novedades", "olvides", "pd", "pendiente", "presta", "recibidos", "recibiras", "recordatorio", "respondiendo", "resumen", "vigencia", "vigentes" ]
   },
-
   "lexnumbers" : {
     "count" : 16,
     "words" : [ "cero", "cien", "cientos", "cinco", "cuatro", "diez", "dos", "nueve", "numerica", "numero", "ocho", "seis", "siete", "trece", "tres", "uno" ]
@@ -1056,10 +955,6 @@
     "count" : 5,
     "words" : [ "deberia", "deberias", "obligatoria", "obligatorio", "should" ]
   },
-  "lexobtaining" : {
-    "count" : 2,
-    "words" : [ "conseguir" ]
-  },
   "lexobtainment" : {
     "count" : 3,
     "words" : [ "obtene", "obtiene", "obtienes" ]
@@ -1068,17 +963,13 @@
     "count" : 2,
     "words" : [ "free", "offers" ]
   },
-  "lexoperations" : {
-    "count" : 2,
-    "words" : [ "operacion", "operativa" ]
-  },
   "lexopportunity" : {
     "count" : 1,
     "words" : [ "aprovechar" ]
   },
   "lexopposites" : {
-    "count" : 14,
-    "words" : [ "antagonico", "contradictorio", "contraparte", "contrapuesto", "contrario", "diferente", "discrepante", "divergente", "incompatible", "inverso", "invertido", "opositor", "opuesto", "sino" ]
+    "count" : 16,
+    "words" : [ "antagonico", "contradictorio", "contraparte", "contrapuesto", "contrario", "diferencia", "diferencias", "diferente", "discrepante", "divergente", "incompatible", "inverso", "invertido", "opositor", "opuesto", "sino" ]
   },
   "lexopposition" : {
     "count" : 3,
@@ -1168,26 +1059,21 @@
     "count" : 13,
     "words" : [ "amateur", "desnudas", "hot", "masturba", "masturbandote", "masturbar", "milf", "nude", "onlyfans", "porn", "porno", "sex", "xxx" ]
   },
-
   "lexpositive" : {
-    "count" : 99,
-    "words" : [ "adelante", "adorables", "agradecemos", "alegria", "amable", "amigos", "amor", "apreciamos", "bien", "bienvenida", "bienvenidas", "bienvenido", "brillante", "buen", "buena", "buenas", "bueno", "buenos", "cambia", "chance", "comodidad", "complace", "confiable", "confiar", "contento", "cordial", "deseos", "disfruta", "disfrutando", "disfrutar", "disfrutes", "dream", "encantaria", "engaging", "espectacular", "esperanza", "favorable", "favorablemente", "felices", "felicidad", "feliz", "fidelidad", "fiel", "firma", "ganado", "genial", "geniales", "gusta", "gustaria", "gusto", "ideales", "ideas", "impulso", "increible", "increibles", "interesa", "interesantes", "juntos", "libertad", "like", "listo", "motivacion", "orgulloso", "orgullosos", "paz", "perdonador", "positiva", "positivamente", "positivo", "positivos", "postular", "potentes", "preferirnos", "recuerda", "salva", "salvar", "satisfaccion", "satisfacer", "satisfacerte", "satisfactoriamente", "sincera", "sol", "solucion", "soluciones", "suenos", "sueños", "tranquilidad", "trusted", "unirte", "valida", "valoramos", "vida", "vive", "vivi", "viviendo", "voluntad" ]
+    "count" : 95,
+    "words" : [ "adelante", "adorables", "agradecemos", "alegria", "amable", "amigos", "amor", "apreciamos", "bien", "bienvenida", "bienvenidas", "bienvenido", "brillante", "buen", "buena", "buenas", "bueno", "buenos", "cambia", "chance", "comodidad", "complace", "confiable", "confiar", "contento", "cordial", "deseos", "disfruta", "disfrutando", "disfrutar", "disfrutes", "dream", "encantaria", "engaging", "espectacular", "esperanza", "favorable", "favorablemente", "felices", "felicidad", "feliz", "fidelidad", "fiel", "firma", "ganado", "genial", "geniales", "gusta", "gustaria", "gusto", "ideales", "ideas", "impulso", "increible", "increibles", "interesa", "interesantes", "juntos", "libertad", "like", "listo", "motivacion", "orgulloso", "orgullosos", "paz", "perdonador", "positiva", "positivamente", "positivo", "positivos", "postular", "potentes", "preferirnos", "recuerda", "salva", "salvar", "satisfaccion", "satisfacer", "satisfacerte", "satisfactoriamente", "sincera", "sol", "solucion", "soluciones", "suenos", "sueños", "tranquilidad", "unirte", "valida", "valoramos", "vida", "vive", "vivi", "viviendo", "voluntad" ]
   },
   "lexpossession" : {
     "count" : 4,
     "words" : [ "tene", "tenela", "tenerlas", "tuyas" ]
   },
   "lexpossibilities" : {
-    "count" : 18,
-    "words" : [ "estaria", "podemos", "podes", "podra", "podramos", "podran", "podriamos", "podrian", "posean", "posibilidad", "posibilidades", "posible", "posibles", "probables", "pudiendo", "pueda", "pueden", "siquiera" ]
-  },
-  "lexpractice" : {
-    "count" : 2,
-    "words" : [ "entrena", "training" ]
+    "count" : 23,
+    "words" : [ "estaria", "podamos", "podemos", "podes", "podia", "podra", "podramos", "podran", "podria", "podriamos", "podrian", "posean", "posibilidad", "posibilidades", "posible", "posibles", "probables", "pudiendo", "pueda", "puede", "pueden", "puedes", "siquiera" ]
   },
   "lexprepositions" : {
-    "count" : 16,
-    "words" : [ "al", "ante", "con", "de", "del", "dentro", "desde", "en", "entre", "from", "hasta", "para", "por", "sin", "sobre", "to" ]
+    "count" : 17,
+    "words" : [ "al", "ante", "con", "cuanto", "de", "del", "dentro", "desde", "en", "entre", "from", "hasta", "para", "por", "sin", "sobre", "to" ]
   },
   "lexpresence" : {
     "count" : 2,
@@ -1210,8 +1096,8 @@
     "words" : [ "procesando" ]
   },
   "lexproducts" : {
-    "count" : 18,
-    "words" : [ "articulos", "automovil", "beverage", "beverages", "cafe", "caliente", "calientes", "catalogo", "coleccion", "cucina", "juguetes", "lego", "lexproducts", "muestras", "packs", "perfumerias", "shoes", "taza" ]
+    "count" : 20,
+    "words" : [ "articulos", "automovil", "beverage", "beverages", "caliente", "calientes", "cobertor", "cocinas", "coleccion", "cucina", "jabon", "juguetes", "lego", "lexproducts", "limpieza", "muestras", "packs", "perfumerias", "shoes", "taza" ]
   },
   "lexprofessional" : {
     "count" : 4,
@@ -1226,16 +1112,12 @@
     "words" : [ "aprovechala", "aproveche", "bonificacion", "bonificada", "bonificado", "bonificados", "bonificara", "bono", "bonos", "canjealos", "cupon", "descuento", "descuentos", "irresistible", "megamillions", "premio", "premios", "promesas", "promocion", "promocional", "promocionales", "promovido", "rebaja", "rebajado", "regalo", "sorteo", "sorteos", "sube" ]
   },
   "lexpronouns" : {
-    "count" : 35,
-    "words" : [ "cuales", "cualquiera", "el", "ella", "ellas", "ellos", "eres", "le", "me", "mi", "mis", "mí", "nos", "nosotras", "nosotros", "nuestra", "nuestras", "nuestro", "nuestros", "quien", "quienes", "se", "somos", "te", "them", "ti", "tu", "tus", "tuyos", "tú", "usted", "yo", "you", "your", "yourself" ]
+    "count" : 36,
+    "words" : [ "cual", "cuales", "cualquiera", "ella", "ellas", "ellos", "eres", "le", "me", "mi", "mis", "mí", "nos", "nosotras", "nosotros", "nuestra", "nuestras", "nuestro", "nuestros", "quien", "quienes", "se", "somos", "te", "them", "ti", "tu", "tus", "tuyos", "tú", "usted", "who", "yo", "you", "your", "yourself" ]
   },
   "lexproposals" : {
     "count" : 2,
     "words" : [ "propuesta", "propuestas" ]
-  },
-  "lexprotection" : {
-    "count" : 4,
-    "words" : [ "cubre", "proteccion", "protegen", "proteger" ]
   },
   "lexproximity" : {
     "count" : 2,
@@ -1250,16 +1132,12 @@
     "words" : [ "!!", "---", "------", "etc", "“", "“””", "”" ]
   },
   "lexpurchase" : {
-    "count" : 13,
-    "words" : [ "compra", "comprar", "compras", "comprate", "cotiza", "cotizar", "paga", "pagada", "pagado", "pagando", "pagar", "pago", "pagos" ]
-  },
-  "lexpurchases" : {
-    "count" : 7,
-    "words" : [   ]
+    "count" : 19,
+    "words" : [ "compra", "comprador", "compradores", "comprando", "comprar", "compraras", "compras", "comprate", "cotiza", "cotizar", "paga", "pagada", "pagado", "pagando", "pagar", "pago", "pagos", "receta", "recetas" ]
   },
   "lexqualities" : {
-    "count" : 90,
-    "words" : [ "accesibles", "adictivo", "agilidad", "alta", "atractivo", "basico", "big", "breve", "brevedad", "capacidad", "claras", "claridad", "completo", "compromiso", "confianza", "controvertidos", "creatividad", "demasiado", "destacables", "destacada", "destacado", "dificil", "dificultad", "doble", "duro", "efectivas", "efecto", "efectos", "eminent", "escollos", "especialmente", "exactamente", "exitosa", "extraordinaria", "fabulosos", "fama", "flexible", "forma", "formal", "fortaleza", "ganado", "honestidad", "ideal", "imperfecciones", "imposible", "inferiores", "intuitivas", "lealtad", "lleno", "mala", "malo", "maravilloso", "mejor", "mejorada", "mejores", "merecera", "merecido", "modo", "mucho", "natural", "naturales", "naturalmente", "noble", "nueva", "nuevas", "nuevo", "nuevos", "paciencia", "perfecta", "perfecto", "poco", "poderoso", "potencia", "potencial", "prudencia", "puntuales", "rapido", "reconocido", "reconocimiento", "resistente", "responsabilidad", "sencillo", "sinceridad", "sobresaliente", "suaves", "superior", "superiores", "transparente", "unicos", "valor" ]
+    "count" : 89,
+    "words" : [ "accesibles", "adictivo", "agilidad", "alta", "atractivo", "basico", "big", "breve", "brevedad", "capacidad", "claras", "claridad", "combinable", "completo", "compromiso", "confianza", "controvertidos", "creatividad", "demasiado", "destacables", "destacada", "destacado", "dificil", "dificultad", "doble", "duro", "efectivas", "efecto", "efectos", "escollos", "especialmente", "exactamente", "exitosa", "extraordinaria", "fabulosos", "fama", "fiable", "flexible", "forma", "formal", "fortaleza", "honestidad", "ideal", "imperfecciones", "imposible", "inferiores", "intuitivas", "lealtad", "lleno", "mala", "malo", "maravilloso", "mejor", "mejorada", "mejores", "merecera", "merecido", "modo", "mucho", "natural", "naturales", "naturalmente", "noble", "nueva", "nuevas", "nuevo", "nuevos", "paciencia", "perfecta", "perfecto", "poco", "poderoso", "potencia", "prudencia", "puntuales", "reconocido", "reconocimiento", "reliable", "resistente", "responsabilidad", "sencillo", "sinceridad", "sobresaliente", "suaves", "superior", "superiores", "transparente", "trusted", "valor" ]
   },
   "lexquality" : {
     "count" : 5,
@@ -1270,8 +1148,8 @@
     "words" : [ "cada" ]
   },
   "lexquantities" : {
-    "count" : 19,
-    "words" : [ "abundancia", "any", "billon", "contados", "mil", "miles", "millones", "mitad", "muchas", "muchos", "nivel", "noventa", "pares", "pequenos", "suficiente", "variar", "varias", "varios", "veinte" ]
+    "count" : 18,
+    "words" : [ "abundancia", "any", "billon", "contados", "mil", "miles", "millones", "mitad", "muchas", "muchos", "nivel", "noventa", "pares", "suficiente", "variar", "varias", "varios", "veinte" ]
   },
   "lexquantity" : {
     "count" : 5,
@@ -1281,15 +1159,9 @@
     "count" : 6,
     "words" : [ "cuál", "cuándo", "cómo", "dónde", "quién", "qué" ]
   },
-  "lexquestions" : {
-    "count" : 7,
-    "words" : [ "crees", "cual", "cuanto", "donde", "preguntas", "questions", "who" ]
-  },
-
-
   "lexreading" : {
-    "count" : 5,
-    "words" : [ "lea", "lectura", "lee", "leelo", "lees" ]
+    "count" : 4,
+    "words" : [ "lea", "lee", "leelo", "lees" ]
   },
   "lexreceiving" : {
     "count" : 11,
@@ -1315,7 +1187,10 @@
     "count" : 6,
     "words" : [ "inscrip", "inscripcion", "register", "registrarte", "registraste", "registros" ]
   },
-
+  "lexregulations" : {
+    "count" : 1,
+    "words" : [ "compliance" ]
+  },
   "lexrelations" : {
     "count" : 21,
     "words" : [ "amante", "amiga", "amigo", "companero", "companeros", "correlate", "corresponde", "enemiga", "enemigo", "esposa", "esposo", "novia", "novio", "pareja", "relacionadas", "relacionado", "relacionados", "romantica", "solteras", "solteros", "vecina" ]
@@ -1326,7 +1201,7 @@
   },
   "lexrequests" : {
     "count" : 44,
-    "words" : [ "aprobacion", "buscalo", "busque", "comunicate", "contactanos", "desea", "deseas", "detallanos", "enviame", "informanos", "necesitamos", "necesitan", "pedi", "pedirlas", "pedirnos", "proveenos", "queremos", "queres", "quieres", "quiero", "rechazada", "reclama", "requerimos", "requerirle", "requieren", "respondas", "respondeme", "responder", "respuestas", "retiremos", "solicita", "solicitada", "solicitala", "solicitando", "solicitante", "solicitarla", "solicitarse", "solicitud", "solicitudes", "tenes", "tenga", "tengamos", "tengas", "use" ]
+    "words" : [ "aprobacion", "buscalo", "busque", "comunicate", "contactanos", "desea", "deseas", "detallanos", "enviame", "informanos", "necesitamos", "necesitan", "pedi", "pedirlas", "pedirnos", "postulacion", "proveenos", "queremos", "queres", "quieres", "quiero", "rechazada", "reclama", "requerimos", "requerirle", "requieren", "respondas", "respondeme", "responder", "respuestas", "retiremos", "solicita", "solicitada", "solicitala", "solicitando", "solicitante", "solicitarla", "solicitarse", "solicitud", "solicitudes", "tenga", "tengamos", "tengas", "use" ]
   },
   "lexrequirements" : {
     "count" : 5,
@@ -1394,11 +1269,11 @@
   },
   "lexsector" : {
     "count" : 12,
-    "words" : [ "comercial", "empresarial", "financiero", "industria", "industrial", "inversiones", "mercado", "negocios", "plantas", "proyectos", "sector", "tecnologia" ]
+    "words" : [ "comercial", "empresarial", "financiero", "industria", "industrial", "inversiones", "mercado", "negocios", "plantas", "proyectos", "sector", "tecnologico" ]
   },
   "lexsecurity" : {
-    "count" : 87,
-    "words" : [ "actionable", "antiintrusion", "asegura", "autenticacion", "autentificacion", "autoriza", "autorizacion", "autorizado", "biometria", "biometricos", "bloque", "bloqueo", "bloques", "borrar", "casilla", "claves", "confiabilidad", "confidencial", "confirmacion", "confirmes", "contrasena", "contraseña", "criptografia", "cyber", "debug", "desbloqueada", "desinformacion", "detectado", "disyuntor", "engaña", "engañe", "engaño", "ensuring", "espia", "estafa", "estafe", "estafo", "falsa", "falsos", "firewall", "fraude", "garantia", "hackeado", "identidad", "incumplimiento", "key", "mentira", "ofuscacion", "ofuscalo", "peligroso", "perimetral", "policia", "privacidad", "privada", "privado", "proteccion", "protegemos", "protegido", "qr", "resguardo", "restablecer", "riesgos", "roba", "robar", "robe", "robo", "secretos", "segundo", "seguras", "seguridad", "sensible", "servidores", "signature", "sospechosa", "sospechoso", "superseguro", "suspension", "suspensiones", "transparencia", "validacion", "verifica", "verificada", "verificado", "verificas", "verifico", "verisure", "virus" ]
+    "count" : 88,
+    "words" : [ "actionable", "antiintrusion", "asegura", "autenticacion", "autentificacion", "autoriza", "autorizacion", "autorizado", "biometria", "biometricos", "bloqueo", "borrar", "casilla", "claves", "confiabilidad", "confidencial", "confirmacion", "confirmes", "contrasena", "contraseña", "criptografia", "cubre", "cyber", "debug", "desbloqueada", "desinformacion", "detectado", "disyuntor", "engaña", "engañe", "engaño", "ensuring", "espia", "estafa", "estafe", "estafo", "falsa", "falsos", "firewall", "fraude", "garantia", "hackeado", "identidad", "incumplimiento", "key", "mentira", "ofuscacion", "ofuscalo", "peligroso", "perimetral", "policia", "privacidad", "privada", "privado", "proteccion", "protegemos", "protegen", "proteger", "protegido", "qr", "resguardo", "restablecer", "riesgos", "roba", "robar", "robe", "robo", "secretos", "segundo", "seguras", "seguridad", "sensible", "servidores", "signature", "sospechosa", "sospechoso", "superseguro", "suspension", "suspensiones", "transparencia", "validacion", "verifica", "verificada", "verificado", "verificas", "verifico", "verisure", "virus" ]
   },
   "lexselection" : {
     "count" : 6,
@@ -1411,14 +1286,6 @@
   "lexservices" : {
     "count" : 19,
     "words" : [ "atendido", "colocacion", "funerarios", "hoteleria", "ofrecemos", "ofrecen", "ofrecido", "prestadores", "proporciona", "proporcionado", "proveedor", "segmentacion", "segmentaciones", "servicio", "servicios", "servirte", "sistemas", "software", "suplir" ]
-  },
-  "lexsession" : {
-    "count" : 1,
-    "words" : [ "sesion" ]
-  },
-  "lexsessions" : {
-    "count" : 1,
-    "words" : [ "sesion" ]
   },
   "lexsettings" : {
     "count" : 1,
@@ -1451,10 +1318,6 @@
   "lexsoftware" : {
     "count" : 3,
     "words" : [ "excel", "sql", "ssl" ]
-  },
-  "lexspamalerts" : {
-    "count" : 6,
-    "words" : [  ]
   },
   "lexspaminformation" : {
     "count" : 3,
@@ -1505,8 +1368,8 @@
     "words" : [ "abiertas", "abierto", "active", "afectado", "aguardo", "cancelado", "cierre", "deshabilitado", "eminent", "est", "rechazado", "rechazan", "rechazarian", "remains" ]
   },
   "lexsteps" : {
-    "count" : 16,
-    "words" : [ "caminos", "desarrollo", "etapas", "fase", "guia", "indicaciones", "instrucciones", "metodo", "paso", "pasos", "procedimiento", "proceso", "ruta", "secuencia", "steps", "trayectoria" ]
+    "count" : 12,
+    "words" : [ "caminos", "etapas", "fase", "indicaciones", "paso", "pasos", "procedimiento", "proceso", "ruta", "secuencia", "steps", "trayectoria" ]
   },
   "lexstorage" : {
     "count" : 7,
@@ -1521,8 +1384,8 @@
     "words" : [ "estrictas" ]
   },
   "lexstructure" : {
-    "count" : 15,
-    "words" : [ "basados", "bloque", "cadenas", "capas", "colas", "divide", "elemento", "esquema", "filas", "fracciona", "main", "partes", "pieces", "pieza", "replica" ]
+    "count" : 16,
+    "words" : [ "basados", "bloque", "bloques", "cadenas", "capas", "colas", "divide", "elemento", "esquema", "filas", "fracciona", "main", "partes", "pieces", "pieza", "replica" ]
   },
   "lexstyle" : {
     "count" : 2,
@@ -1534,7 +1397,7 @@
   },
   "lexsubscriptions" : {
     "count" : 17,
-    "words" : [ "boletin", "desuscribir", "desuscribirme", "inscripcion", "membresia", "otorgadas", "renovacion", "renovar", "renovemos", "renueva", "suscribete", "suscribiendote", "suscribirse", "suscripcion", "suscripta", "suscriptores", "unsubscribe" ]
+    "words" : [ "boletin", "boletines", "desuscribir", "desuscribirme", "membresia", "otorgadas", "renovacion", "renovar", "renovemos", "renueva", "suscribete", "suscribiendote", "suscribirse", "suscripcion", "suscripta", "suscriptores", "unsubscribe" ]
   },
   "lexsuccess" : {
     "count" : 16,
@@ -1545,16 +1408,16 @@
     "words" : [ "idea" ]
   },
   "lexsuperlatives" : {
-    "count" : 11,
-    "words" : [ "asombroso", "eminent", "extraordinario", "extreme", "fabuloso", "guinness", "inigualable", "inusual", "top", "ultima", "unicos" ]
+    "count" : 9,
+    "words" : [ "asombroso", "extraordinario", "extreme", "fabuloso", "guinness", "inigualable", "inusual", "top", "unicos" ]
   },
   "lexsupport" : {
     "count" : 4,
     "words" : [ "apoyadas", "apoyate", "contribuir", "support" ]
   },
   "lexsymbols" : {
-    "count" : 44,
-    "words" : [ "#", "%)", "%.", "&", "(", "(*)", "(*)(", "(**)", ")", ").", "):", "->", ".", ":", ";", "<>", "TM", "[", "\\", "]", "_", "flecha", "flechas", "nº", "o", "|", "||", "~", "©", "°", "·", "º", "–", "—", "’", "“””", "•", "…", "™", "→", "┴", "⚡", "✔", "�" ]
+    "count" : 41,
+    "words" : [ "#", "%)", "%.", "&", "(", "(*)", "(*)(", "(**)", ")", ").", "):", "->", ".", ":", ";", "<>", "TM", "[", "\\", "]", "_", "flecha", "flechas", "nº", "|", "||", "~", "©", "°", "·", "º", "–", "—", "’", "•", "…", "™", "→", "┴", "⚡", "�" ]
   },
   "lexsystems" : {
     "count" : 3,
@@ -1573,24 +1436,16 @@
     "words" : [ "ai", "android", "aws", "java", "jenkins", "spring" ]
   },
   "lextechnology" : {
-    "count" : 132,
-    "words" : [ "access", "alfa", "algoritmo", "applications", "architectures", "artificial", "asincronicos", "audio", "autenticacion", "automatica", "automaticamente", "automaticos",
-      "automatizado", "automatizados", "balanceadores", "boton", "brower", "camara", "camaras", "campaign", "cards", "celular", "celulares", "checkout",
-      "chrome", "clic", "clica", "clicando", "clics", "climatizacion", "codegptwoct", "codificador", "codifique", "codigo", "compatibles", "componente",
-      "conectar", "conectate", "conexion", "custom", "dashboards", "database", "datacenter", "ddos", "developer", "digital", "digitales", "digitalmente",
-      "electronico", "elevenlabs", "eleventy", "flash", "galaxy", "gbit", "generador", "generativa", "github", "google", "googleplay", "gpt", "grapheneos", "grpc", "ia", "infrastructure", "interfaz", "internet", "ios", "iosapp", "ipad", "iphone", "itnext", "javaexcodigo", "javaexindevopsdev", "javainusejavainuse", "jetbrains", "jpa", "kafka", "linuxwindows", "machine", "macos", "metaai", "microservicios", "mitm", "mobile", "monitoring", "mysql", "nube", "nvme", "ollama", "openai", "optico", "ordenador", "ordenadores", "panel", "paneles", "pantalla", "pantallas", "pdf", "pegasus", "procesamiento", "produccion", "programacion", "programas", "prompt", "python", "ram", "readclaps", "realidad", "robot", "scaling", "search", "smart", "suite", "switch", "technologists", "tecnicos", "tecnologia", "tecnologias", "tecnologicos", "telefonia", "twitter", "upgrade", "upgrades", "uplink", "using", "vector", "version", "versiones", "virtuales", "visualizacion", "wifi", "windows" ]
+    "count" : 136,
+    "words" : [ "access", "alfa", "algoritmo", "aplicacion", "aplicaciones", "application", "applications", "apps", "architectures", "artificial", "asincronicos", "audio", "automatica", "automaticamente", "automatico", "automaticos", "automatizado", "automatizados", "balanceadores", "boton", "brower", "camara", "camaras", "campaign", "cards", "celular", "celulares", "checkout", "chrome", "clica", "clicando", "click", "clics", "climatizacion", "codegptwoct", "codificador", "codifique", "codigo", "compatibles", "componente", "conectar", "conectate", "conexion", "custom", "dashboards", "database", "datacenter", "ddos", "developer", "digital", "digitales", "digitalmente", "electronico", "elevenlabs", "eleventy", "flash", "galaxy", "gbit", "generador", "generativa", "github", "google", "googleplay", "gpt", "grapheneos", "grpc", "ia", "infrastructure", "interfaz", "internet", "ios", "iosapp", "ipad", "iphone", "itnext", "javaexcodigo", "javaexindevopsdev", "javainusejavainuse", "jetbrains", "jpa", "kafka", "linuxwindows", "machine", "macos", "metaai", "microservicios", "mitm", "mobile", "monitoring", "mysql", "nube", "nvme", "ollama", "openai", "optico", "ordenador", "ordenadores", "panel", "paneles", "pantalla", "pantallas", "pdf", "pegasus", "procesamiento", "produccion", "programacion", "programas", "prompt", "python", "ram", "readclaps", "realidad", "robot", "scaling", "search", "smart", "suite", "switch", "technologists", "tecnicos", "tecnologia", "tecnologias", "tecnologicos", "telefonia", "twitter", "upgrade", "upgrades", "uplink", "using", "vector", "version", "versiones", "virtuales", "visualizacion", "wifi", "windows" ]
   },
   "lextelecom" : {
-    "count" : 14,
-    "words" : [ "cel", "contactos", "extension", "fax", "fijo", "lexero", "linea", "movil", "portabilidad", "tel", "telecentro", "telefonica", "telefono", "whatsapp" ]
-  },
-  "lextelephony" : {
-    "count" : 3,
-    "words" : [ "telefonica", "telefonico", "telefonos" ]
+    "count" : 16,
+    "words" : [ "cel", "contactos", "extension", "fax", "fijo", "lexero", "linea", "movil", "portabilidad", "tel", "telecentro", "telefonica", "telefonico", "telefono", "telefonos", "whatsapp" ]
   },
   "lextests" : {
-    "count" : 14,
-    "words" : [ "comprobacion", "ensayo", "evaluacion", "experimentacion", "experimentar", "intento", "probada", "probado", "probando", "prueba", "simulacro", "test", "testeando", "verificacion" ]
+    "count" : 13,
+    "words" : [ "comprobacion", "ensayo", "evaluacion", "experimentacion", "experimentar", "intento", "probada", "probado", "probando", "prueba", "simulacro", "test", "testeando" ]
   },
   "lexthoughts" : {
     "count" : 4,
@@ -1605,23 +1460,17 @@
     "words" : [ "herramientas" ]
   },
   "lextracking" : {
-    "count" : 40,
-    "words" : [ "actualizaciones", "alcanzar", "asegurando", "atribucion", "chequeo", "conjunto", "control", "cumplimiento", "dado", "dato", "derechos", "despachado", "destinatario", "encuentra", "esto", "existencias", "expresa", "final", "flujos", "fondo", "historial", "indicando", "indicar", "monitorea", "parcial", "parte", "planes", "ponen", "proceso", "rastrea", "recibido", "recogeran", "recogerlo", "recogido", "reserva", "seguimiento", "seguir", "siga", "siguiendo", "tracking" ]
+    "count" : 38,
+    "words" : [ "actualizaciones", "alcanzar", "asegurando", "atribucion", "chequeo", "conjunto", "control", "cumplimiento", "dado", "dato", "derechos", "despachado", "destinatario", "encuentra", "esto", "existencias", "expresa", "final", "flujos", "fondo", "historial", "indicando", "indicar", "monitorea", "parcial", "parte", "planes", "ponen", "rastrea", "recibido", "recogeran", "recogerlo", "recogido", "seguimiento", "seguir", "siga", "siguiendo", "tracking" ]
   },
-
   "lextransport" : {
     "count" : 19,
     "words" : [ "conducir", "delivering", "expres", "lleva", "llevala", "llevaria", "llevarte", "llevas", "multiviajes", "taxis", "traslados", "trayectos", "turismo", "vehicular", "vehiculo", "vehiculos", "viajes", "volador", "vuelos" ]
   },
   "lextravel" : {
-    "count" : 20,
-    "words" : [ "aeropuerto", "alojamiento", "arrivals", "avion", "boleto", "boletos", "cruceros", "equipaje", "estadia", "eventos", "hoteles", "maleta", "turistico", "vayas", "via", "viaja", "viajando", "viajar", "viaje", "viajero" ]
+    "count" : 19,
+    "words" : [ "aeropuerto", "alojamiento", "arrivals", "avion", "boleto", "boletos", "cruceros", "equipaje", "estadia", "hoteles", "maleta", "turistico", "vayas", "via", "viaja", "viajando", "viajar", "viaje", "viajero" ]
   },
-  "lextrust" : {
-    "count" : 3,
-    "words" : [ "fiable", "reliable", "trusted" ]
-  },
-
   "lexunderstanding" : {
     "count" : 2,
     "words" : [ "entender", "entendera" ]
@@ -1643,12 +1492,12 @@
     "words" : [ "agotar", "anticipado", "instantanea", "instantaneas", "instantaneo", "instantaneos", "paramos", "pocos", "prioritariamente", "prisa", "proxima", "repente", "ultima", "ultimo", "vigencias" ]
   },
   "lexurgentrequests" : {
-    "count" : 13,
-    "words" : [ "ahora", "atendiendo", "hara", "inmediato","now", "prioridad", "pronto", "puntualmente", "reprogramada", "resolveremos", "urgentemente" ]
+    "count" : 11,
+    "words" : [ "ahora", "atendiendo", "hara", "inmediato", "now", "prioridad", "pronto", "puntualmente", "reprogramada", "resolveremos", "urgentemente" ]
   },
   "lexurls" : {
-    "count" : 20,
-    "words" : [ "app", "blog", "cloud", "com", "dev", "edu", "gov", "http", "https", "io", "link", "net", "oline", "online", "org", "page", "plataforma", "site", "web", "www" ]
+    "count" : 19,
+    "words" : [ "app", "blog", "cloud", "com", "dev", "edu", "gov", "http", "https", "io", "link", "net", "oline", "online", "org", "page", "site", "web", "www" ]
   },
   "lexusage" : {
     "count" : 2,
@@ -1659,12 +1508,12 @@
     "words" : [ "members", "user", "usuario" ]
   },
   "lexvalidation" : {
-    "count" : 9,
-    "words" : [ "invalidNumber", "invalidnumber", "validado", "validar", "validas", "validez", "valido", "verificacion", "verificar" ]
+    "count" : 8,
+    "words" : [ "invalidNumber", "validado", "validar", "validas", "validez", "valido", "verificacion", "verificar" ]
   },
   "lexvaluable" : {
-    "count" : 9,
-    "words" : [ "importante", "mayores", "unica", "unico", "utiles", "valiosa", "valiosas", "valioso", "valiosos" ]
+    "count" : 8,
+    "words" : [ "importante", "mayores", "unica", "utiles", "valiosa", "valiosas", "valioso", "valiosos" ]
   },
   "lexvehicles" : {
     "count" : 4,
@@ -1707,20 +1556,16 @@
     "words" : [ "antigranizo", "granizo", "intemperie" ]
   },
   "lexweb" : {
-    "count" : 12,
-    "words" : [ "pagina", "paginas", "raskreddit", "redditors", "rhouseplants", "rnewtoreddit", "signnow", "sitio", "sitios", "tiktok", "webhosting", "wordpress" ]
+    "count" : 13,
+    "words" : [ "gmail", "pagina", "paginas", "raskreddit", "redditors", "rhouseplants", "rnewtoreddit", "signnow", "sitio", "sitios", "tiktok", "webhosting", "wordpress" ]
   },
   "lexwebactions" : {
     "count" : 30,
-    "words" : [ "abre", "accede", "acceso","carga", "descarga", "descargar", "descargues", "explora", "formulario", "ingresar", "leer", "leido", "navega", "pulsa", "pulses", "recoger", "registrarse", "subimos", "subirlo", "up", "verlo", "viendo", "view", "visita", "visitar", "visitarnos", "visite", "visites", "wapage" ]
-  },
-  "lexweight" : {
-    "count" : 1,
-    "words" : [ "kilos" ]
+    "words" : [ "abre", "accede", "acceso", "carga", "descarga", "descargar", "descargues", "explora", "formulario", "ingresar", "leer", "leido", "navega", "pulsa", "pulses", "recoger", "registrarse", "sesion", "subimos", "subirlo", "up", "verlo", "viendo", "view", "visita", "visitar", "visitarnos", "visite", "visites", "wapage" ]
   },
   "lexwork" : {
-    "count" : 29,
-    "words" : [ "ascenso", "brindar", "buscadores", "contratacion", "contratado", "dentista", "desarrollador", "despacho", "empleo", "empresas", "finalidad", "funcion", "gerente", "laboral", "laborales", "onboarding", "operacion", "operativa", "operator", "preparando", "productividad", "reclutador", "senior", "talento", "tareas", "trabajando", "trabajo", "trabajos", "vacante" ]
+    "count" : 28,
+    "words" : [ "ascenso", "brindar", "buscadores", "contratado", "dentista", "desarrollador", "despacho", "empleo", "empresas", "finalidad", "funcion", "gerente", "laboral", "laborales", "onboarding", "operacion", "operativa", "operator", "preparando", "productividad", "reclutador", "senior", "talento", "tareas", "trabajando", "trabajo", "trabajos", "vacante" ]
   },
   "lexwriting" : {
     "count" : 10,

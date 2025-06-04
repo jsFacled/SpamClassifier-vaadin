@@ -36,9 +36,9 @@ public class JoinDatasetsMain {
     public static void main(String[] args) throws Exception {
         // Paths relativos y base
         String basePath = "spam/src/main/resources/";
-        String file1 = "static/mlDatasets/generated_dataset_train.csv";
-        String file2 = "static/mlDatasets/generated_dataset_test.csv";
-        String file3 = "static/mlDatasets/generated_dataset_comillas_spam.csv";
+        String file1 = "generated_dataset_train.csv";
+        String file2 = "generated_dataset_test.csv";
+        String file3 = "generated_dataset_comillas_spam.csv";
         String outputRelative = "static/mlDatasets/combined_dataset.csv";
         String outputAbsolute = basePath + outputRelative;
 

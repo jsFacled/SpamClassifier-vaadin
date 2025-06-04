@@ -7,7 +7,7 @@ public class ReassignWordsAndExportFinalCategorizedWordsMain {
     private static final String updatedCatWordsPath = "static/dictionary/categorizedWords/updatedCategorizedWords_2.json";
 
     // Archivo de salida definitivo: con reasignaciones manuales ya incorporadas
-    private static final String finalOutputPath = "static/dictionary/categorizedWords/finalCategorizedWords.json";
+    private static final String finalOutputPath = "static/dictionary/categorizedWords/finalCategorizedWords/finalCategorizedWords.json";
 
     public static void main(String[] args) {
         try {

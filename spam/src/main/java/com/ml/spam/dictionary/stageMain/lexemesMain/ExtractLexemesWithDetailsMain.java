@@ -8,11 +8,12 @@ import java.util.*;
 
 public class ExtractLexemesWithDetailsMain {
 
-//    private static final String INPUT_PATH = "F:\\JAVA GENERAL\\MACHINE LEARNING JAVA\\Código-ejemplos-intellij\\Clasificador Spam\\SpamClassifier-vaadin\\spam\\src\\main\\resources\\static\\dictionary\\lexemesRepository\\structured_lexemes_repository.json";
-    private static final String INPUT_PATH = "F:\\JAVA GENERAL\\MACHINE LEARNING JAVA\\Código-ejemplos-intellij\\Clasificador Spam\\SpamClassifier-vaadin\\spam\\src\\main\\resources\\static\\dictionary\\temporary\\structured_lexemes_repository_test.json";
+    private static final String INPUT_PATH = "F:\\JAVA GENERAL\\MACHINE LEARNING JAVA\\Código-ejemplos-intellij\\Clasificador Spam\\SpamClassifier-vaadin\\spam\\src\\main\\resources\\static\\dictionary\\lexemesRepository\\structured_lexemes_repository.json";
+    private static final String OUTPUT_PATH = "lexeme_words_detailed.json";
 
-    //private static final String OUTPUT_PATH = "lexeme_words_detailed.json";
-    private static final String OUTPUT_PATH = "F:\\JAVA GENERAL\\MACHINE LEARNING JAVA\\Código-ejemplos-intellij\\Clasificador Spam\\SpamClassifier-vaadin\\spam\\src\\main\\resources\\static\\dictionary\\temporary\\lexeme_words_detailed_test.json";
+    // ** Para testear ** //
+    //private static final String INPUT_PATH = "F:\\JAVA GENERAL\\MACHINE LEARNING JAVA\\Código-ejemplos-intellij\\Clasificador Spam\\SpamClassifier-vaadin\\spam\\src\\main\\resources\\static\\dictionary\\temporary\\structured_lexemes_repository_test.json";
+    //private static final String OUTPUT_PATH = "F:\\JAVA GENERAL\\MACHINE LEARNING JAVA\\Código-ejemplos-intellij\\Clasificador Spam\\SpamClassifier-vaadin\\spam\\src\\main\\resources\\static\\dictionary\\temporary\\lexeme_words_detailed_test.json";
 
     public static void main(String[] args) {
         ObjectMapper mapper = new ObjectMapper();

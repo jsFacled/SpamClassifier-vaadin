@@ -14,7 +14,7 @@ public class FilePathsConfig {
     public static final String LEXEME_WORDS_BY_CATEGORY_JSON_PATH = "static/dictionary/lexemesRepository/lexeme_words_by_category.json";
 
     // Rutas relativas dentro de 'src/main/resources/static/datasets'
-    public static final String PRUEBA_CSV_DATA_PATH = "static/datasets/mensajes_pruebas.csv";
+    public static final String PRUEBA_CSV_DATA_PATH = "static/datasets/forDictionaryTest/mensajes_pruebas.csv";
     public static final String TEST_MESSAGES_CSV_ESPAÑOL_DATA_PATH = "static/datasets/test-mensajesEspañol.csv";
     public static final String TRAIN_MESSAGES_CSV_ESPAÑOL_DATA_PATH = "static/datasets/train-mensajesEspañol.csv";
     public static final String CORREOS_SPAM_FAC_TXT_PATH = "static/datasets/correos-spam-fac.txt";

@@ -1,8 +1,4 @@
-package com.ml.spam.dictionary.stageMain;
-
-import com.ml.spam.config.FilePathsConfig;
-import com.ml.spam.dictionary.service.SpamDictionaryService;
-import com.ml.spam.handlers.ResourcesHandler;
+package com.ml.spam.dictionary.stageMain.ExtraMethods;
 
 import java.io.IOException;
 import java.nio.file.Files;

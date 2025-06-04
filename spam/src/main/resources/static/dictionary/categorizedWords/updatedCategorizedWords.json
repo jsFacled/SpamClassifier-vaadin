@@ -21,8 +21,8 @@
       "spamFrequency" : 0
     },
     "lexdocuments" : {
-      "hamFrequency" : 9,
-      "spamFrequency" : 2
+      "hamFrequency" : 8,
+      "spamFrequency" : 1
     },
     "lexemotion" : {
       "hamFrequency" : 9,
@@ -49,7 +49,7 @@
       "spamFrequency" : 1
     },
     "lexinformative" : {
-      "hamFrequency" : 3,
+      "hamFrequency" : 4,
       "spamFrequency" : 0
     },
     "lexnotifications" : {
@@ -68,6 +68,10 @@
       "hamFrequency" : 3,
       "spamFrequency" : 0
     },
+    "lexpurchase" : {
+      "hamFrequency" : 10,
+      "spamFrequency" : 4
+    },
     "lexsuccess" : {
       "hamFrequency" : 5,
       "spamFrequency" : 1
@@ -78,9 +82,9 @@
     }
   },
   "moderateSpamWord" : {
-    "lexactions" : {
-      "hamFrequency" : 20,
-      "spamFrequency" : 42
+    "lexcommerce" : {
+      "hamFrequency" : 3,
+      "spamFrequency" : 12
     },
     "lexcomparisons" : {
       "hamFrequency" : 1,
@@ -88,22 +92,22 @@
     },
     "lexentertainment" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 9
+      "spamFrequency" : 8
     },
     "lexexclusive" : {
       "hamFrequency" : 1,
       "spamFrequency" : 5
     },
+    "lexfood" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 6
+    },
     "lexhealth" : {
       "hamFrequency" : 4,
-      "spamFrequency" : 11
+      "spamFrequency" : 12
     }
   },
   "neutralBalancedWords" : {
-    "lexbanking" : {
-      "hamFrequency" : 4,
-      "spamFrequency" : 4
-    },
     "lexcommunity" : {
       "hamFrequency" : 3,
       "spamFrequency" : 2
@@ -113,31 +117,27 @@
       "spamFrequency" : 7
     },
     "lexdaily" : {
-      "hamFrequency" : 8,
-      "spamFrequency" : 7
+      "hamFrequency" : 7,
+      "spamFrequency" : 6
     },
     "lexfinance" : {
-      "hamFrequency" : 17,
-      "spamFrequency" : 20
+      "hamFrequency" : 21,
+      "spamFrequency" : 25
     },
     "leximprovements" : {
       "hamFrequency" : 4,
       "spamFrequency" : 2
     },
-    "lexpurchase" : {
-      "hamFrequency" : 8,
-      "spamFrequency" : 4
-    },
     "lexsecurity" : {
       "hamFrequency" : 8,
-      "spamFrequency" : 7
+      "spamFrequency" : 8
     },
     "lexsubscriptions" : {
       "hamFrequency" : 3,
       "spamFrequency" : 2
     },
     "lextechnology" : {
-      "hamFrequency" : 5,
+      "hamFrequency" : 4,
       "spamFrequency" : 4
     },
     "lextime" : {
@@ -163,7 +163,7 @@
       "spamFrequency" : 0
     },
     "lexsymbols" : {
-      "hamFrequency" : 1,
+      "hamFrequency" : 0,
       "spamFrequency" : 0
     },
     "unknownemojis" : {
@@ -173,7 +173,7 @@
   },
   "stopWords" : {
     "lexadverbs" : {
-      "hamFrequency" : 7,
+      "hamFrequency" : 8,
       "spamFrequency" : 4
     },
     "lexauxiliaryverbs" : {
@@ -185,20 +185,20 @@
       "spamFrequency" : 7
     },
     "lexcodes" : {
-      "hamFrequency" : 5,
-      "spamFrequency" : 2
+      "hamFrequency" : 2,
+      "spamFrequency" : 1
     },
     "lexconjunctions" : {
-      "hamFrequency" : 10,
+      "hamFrequency" : 11,
       "spamFrequency" : 11
     },
     "lexdeterminers" : {
-      "hamFrequency" : 37,
-      "spamFrequency" : 41
+      "hamFrequency" : 50,
+      "spamFrequency" : 51
     },
     "lexdimensions" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 1
+      "spamFrequency" : 2
     },
     "lexneutral" : {
       "hamFrequency" : 9,
@@ -209,8 +209,8 @@
       "spamFrequency" : 109
     },
     "lexpronouns" : {
-      "hamFrequency" : 110,
-      "spamFrequency" : 92
+      "hamFrequency" : 97,
+      "spamFrequency" : 82
     },
     "lexunits" : {
       "hamFrequency" : 0,
@@ -229,10 +229,6 @@
     "lexbenefits" : {
       "hamFrequency" : 0,
       "spamFrequency" : 19
-    },
-    "lexcommerce" : {
-      "hamFrequency" : 2,
-      "spamFrequency" : 12
     }
   },
   "unassignedWords" : {
@@ -249,6 +245,10 @@
       "spamFrequency" : 1
     },
     "lexappearance" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
+    "lexapplies" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -340,10 +340,6 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "lexdifferences" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 1
-    },
     "lexdistance" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -410,7 +406,7 @@
     },
     "lexguidelines" : {
       "hamFrequency" : 1,
-      "spamFrequency" : 0
+      "spamFrequency" : 1
     },
     "lexhighlight" : {
       "hamFrequency" : 0,
@@ -426,13 +422,9 @@
     },
     "lexinstructions" : {
       "hamFrequency" : 1,
-      "spamFrequency" : 0
-    },
-    "lexinternet" : {
-      "hamFrequency" : 0,
       "spamFrequency" : 1
     },
-    "lexinvestment" : {
+    "lexinternet" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -452,6 +444,10 @@
       "hamFrequency" : 0,
       "spamFrequency" : 2
     },
+    "lexmanagement" : {
+      "hamFrequency" : 0,
+      "spamFrequency" : 1
+    },
     "lexmarketing" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -463,10 +459,6 @@
     "lexmethods" : {
       "hamFrequency" : 1,
       "spamFrequency" : 0
-    },
-    "lexmobile" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
     },
     "lexmotivational" : {
       "hamFrequency" : 2,
@@ -485,6 +477,10 @@
       "spamFrequency" : 2
     },
     "lexnutrition" : {
+      "hamFrequency" : 1,
+      "spamFrequency" : 1
+    },
+    "lexopposites" : {
       "hamFrequency" : 1,
       "spamFrequency" : 1
     },
@@ -516,10 +512,6 @@
       "hamFrequency" : 1,
       "spamFrequency" : 0
     },
-    "lexprotection" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "lexpublication" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
@@ -531,10 +523,6 @@
     "lexquantities" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
-    },
-    "lexquestions" : {
-      "hamFrequency" : 1,
-      "spamFrequency" : 0
     },
     "lexreading" : {
       "hamFrequency" : 2,
@@ -610,7 +598,7 @@
     },
     "lextelecom" : {
       "hamFrequency" : 2,
-      "spamFrequency" : 0
+      "spamFrequency" : 1
     },
     "lextests" : {
       "hamFrequency" : 1,
@@ -621,10 +609,6 @@
       "spamFrequency" : 1
     },
     "lextools" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
-    "lextraining" : {
       "hamFrequency" : 0,
       "spamFrequency" : 1
     },
@@ -652,13 +636,9 @@
       "hamFrequency" : 2,
       "spamFrequency" : 0
     },
-    "lexweight" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 1
-    },
     "lexwork" : {
       "hamFrequency" : 2,
-      "spamFrequency" : 1
+      "spamFrequency" : 2
     },
     "mathop" : {
       "hamFrequency" : 1,
@@ -674,6 +654,10 @@
     }
   },
   "weakSpamWord" : {
+    "lexaction" : {
+      "hamFrequency" : 21,
+      "spamFrequency" : 40
+    },
     "lexconfidence" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
@@ -690,10 +674,6 @@
       "hamFrequency" : 0,
       "spamFrequency" : 4
     },
-    "lexfood" : {
-      "hamFrequency" : 0,
-      "spamFrequency" : 6
-    },
     "lexgames" : {
       "hamFrequency" : 0,
       "spamFrequency" : 3
@@ -704,7 +684,7 @@
     },
     "lexmedia" : {
       "hamFrequency" : 0,
-      "spamFrequency" : 4
+      "spamFrequency" : 5
     },
     "lexobjects" : {
       "hamFrequency" : 0,

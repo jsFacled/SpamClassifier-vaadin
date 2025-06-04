@@ -24,7 +24,7 @@ public class TestCsvUtilsMain {
      * Prueba directa de CsvUtils.
      */
     private static void testCsvUtilsDirectly() {
-        String resourcePath = "static/datasets/mensajes_pruebas.csv";
+        String resourcePath = "static/datasets/forDictionaryTest/mensajes_pruebas.csv";
 
         try {
             URL resourceUrl = TestCsvUtilsMain.class.getClassLoader().getResource(resourcePath);

@@ -3,7 +3,7 @@ package com.ml.spam.dictionary.stageMain.lexemesMain;
 import com.ml.spam.config.FilePathsConfig;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
 
-public class UpdateLexemeRepositoryFromJsonMain {
+public class UpdateLexemeRepositoryAddingFromJsonMain {
 
     private static final String lexemesRepositoryJsonPath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
     private static final String lexemeListToAddPath = "static/dictionary/wordsToAddInLexemesRespository.json";

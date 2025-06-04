@@ -1,5 +1,9 @@
 {
   "lexemesToDelete": [
-    "lexDemoA"
+    "lexobtaining","lexbanking","lexnum","lexdifferences","lexcontact", "lexdistribution","lexquestions","lextraining",
+    "lexpractice", "lexcurrency", "lexeconomy", "lexcompatibility","lexinvestment", "lexweight","lexhousehold","lexminimum",
+    "lexoperations","lexcountries","lexcapability","lexlaw","lexprotection","lexsession","lexsessions","lextelephony","lextrust",
+
+
   ]
 }

@@ -12,11 +12,11 @@ public class updateDeletingWordsFromLexemesJsonListMain {
         String wordsToDeleteJsonPath = "static/dictionary/wordsToDeleteInLexemeFromLexemesRespository.json";
 
         ResourcesHandler handler = new ResourcesHandler();
-      //  handler.updateDeletingWordsFromLexemesJsonList(lexemeRepositoryPath, wordsToDeleteJsonPath);
+        handler.updateDeletingWordsFromLexemesJsonList(lexemeRepositoryPath, wordsToDeleteJsonPath);
 
 
         //********** TEST ****************//
-        handler.updateDeletingWordsFromLexemesJsonList(lexemeRepositoryPathTest, wordsToDeleteJsonPath);
+       // handler.updateDeletingWordsFromLexemesJsonList(lexemeRepositoryPathTest, wordsToDeleteJsonPath);
 
     }
 }

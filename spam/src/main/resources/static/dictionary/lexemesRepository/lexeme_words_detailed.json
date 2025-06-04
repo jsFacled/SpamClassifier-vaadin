@@ -57,7 +57,7 @@
 
   "lexadditional" : {
     "count" : 6,
-    "words" : [ "adicional", "adicionales", "agregada", "extras", "suma", "sumar","agregada", "suma" ],
+    "words" : [ "adicional", "adicionales", "agregada", "extras", "suma", "sumar","agregada", "suma" ]
   },
   "lexadverbs" : {
     "count" : 35,
@@ -322,10 +322,7 @@
     "count" : 2,
     "words" : [ "consumir", "consumos" ]
   },
-  "lexcontact" : {
-    "count" : 2,
-    "words" : [ "direccion", "gmail" ]
-  },
+
   "lexcontent" : {
     "count" : 6,
     "words" : [ "contener", "contenido", "contenidos", "contiene", "imagenes", "muestra" ]
@@ -493,10 +490,7 @@
     "count" : 8,
     "words" : [ "easy", "facil", "faciles", "facilidad", "facilmente", "sencilla", "sencillas", "simple" ]
   },
-  "lexeconomy" : {
-    "count" : 4,
-    "words" : [ "bienes", "economicas", "economicos", "euros" ]
-  },
+
   "lexeducation" : {
     "count" : 51,
     "words" : [ "academicas", "aprende", "aprender", "capacitacion", "capacitaciones", "capacitamos", "carrera", "carreras", "crecer", "docente", "docentes", "educacion", "estudio", "examenes", "facultad", "formacion", "formaciones", "formativas", "formativos", "importa", "instituto", "instructor", "instructores", "intelecto", "intelectual", "lectores", "lectura", "nuncaparesdeaprender", "oratoria", "pedagogica", "pedagogico", "pedagogicos", "pensadas", "presentacion", "procesos", "profesionales", "programa", "revisada", "revista", "sabemos", "sabio", "science", "seduca", "teorias", "texto", "tutorial", "universitario", "virtud", "vision", "vitae", "workshop" ]
@@ -846,8 +840,8 @@
     "words" : [ "instintivamente", "instintivo" ]
   },
   "lexinvestment" : {
-    "count" : 3,
-    "words" : [ "inverti", "invertido", "invertir" ]
+    "count" : 2,
+    "words" : [ "inverti","invertir" ]
   },
   "lexissues" : {
     "count" : 26,
@@ -1064,7 +1058,7 @@
   },
   "lexobtaining" : {
     "count" : 2,
-    "words" : [ "consegui", "conseguir" ]
+    "words" : [ "conseguir" ]
   },
   "lexobtainment" : {
     "count" : 3,
@@ -1614,10 +1608,7 @@
     "count" : 40,
     "words" : [ "actualizaciones", "alcanzar", "asegurando", "atribucion", "chequeo", "conjunto", "control", "cumplimiento", "dado", "dato", "derechos", "despachado", "destinatario", "encuentra", "esto", "existencias", "expresa", "final", "flujos", "fondo", "historial", "indicando", "indicar", "monitorea", "parcial", "parte", "planes", "ponen", "proceso", "rastrea", "recibido", "recogeran", "recogerlo", "recogido", "reserva", "seguimiento", "seguir", "siga", "siguiendo", "tracking" ]
   },
-  "lextraining" : {
-    "count" : 4,
-    "words" : [ "ejercicios", "entrena", "formaciones", "handson" ]
-  },
+
   "lextransport" : {
     "count" : 19,
     "words" : [ "conducir", "delivering", "expres", "lleva", "llevala", "llevaria", "llevarte", "llevas", "multiviajes", "taxis", "traslados", "trayectos", "turismo", "vehicular", "vehiculo", "vehiculos", "viajes", "volador", "vuelos" ]

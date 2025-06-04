@@ -1,3 +1,15 @@
 {
-  "lexDemoA": ["valor"]
+  "lexdocuments": ["consultas"],
+  "lexwork": ["contratacion"],
+  "lexadverbs": ["cuando"],
+  "lexsteps": ["desarrollo"],
+  "lexemployment": ["developer"],
+  "lexfrequency": ["dia"],
+  "lexnetworking": ["direccion"],
+  "lexpronouns": ["el"],
+  "lexcommunication": ["electronico"],
+  "lexactions": ["elegi"],
+
+
+
 }

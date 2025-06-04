@@ -13,8 +13,8 @@ public class updateDeletingLexemesFromJsonListMain {
         String lexemesToDeleteJsonPath = "static/dictionary/lexemesToDelete.json";
 
         ResourcesHandler handler = new ResourcesHandler();
-//        handler.updateDeletingLexemesFromJsonList(lexemeRepositoryPath, lexemesToDeleteJsonPath);
-        handler.updateDeletingLexemesFromJsonList(lexemeRepositoryPathTest, lexemesToDeleteJsonPath);
+        handler.updateDeletingLexemesFromJsonList(lexemeRepositoryPath, lexemesToDeleteJsonPath);
+       // handler.updateDeletingLexemesFromJsonList(lexemeRepositoryPathTest, lexemesToDeleteJsonPath);
 
 
     }

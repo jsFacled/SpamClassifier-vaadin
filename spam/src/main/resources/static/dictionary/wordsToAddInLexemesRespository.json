@@ -12,5 +12,30 @@
   "lexstructure" : [ "bloques" ],
   "lexsubscriptions" :["boletines"],
   "lexnumbers" :["cinco", "cuatro", "diez", "dos", "nueve", "ocho", "seis", "siete", "tres", "uno" ],
-  "lexpurchase" :[ "comprador", "compradores", "comprando", "compraras", "receta", "recetas" ]
+  "lexpurchase" :[ "comprador", "compradores", "comprando", "compraras", "receta", "recetas" ],
+  "lexcompletion": ["conseguir"],
+  "lexfinance": ["inverti", "invertir","economicas", "economicos","banco", "credito", "cuotas", "depositan", "prestamo", "prestamos", "seguro"],
+  "lexopposites": ["diferencia", "diferencias", "diferente"],
+  "lexweb": ["gmail"],
+  "lexinformation": ["proporcionada"],
+  "lexauxiliaryverbs": ["crees"],
+  "lexpronouns": ["cual", "who"],
+  "lexprepositions": ["cuanto", "donde"],
+  "lexcommunication": ["preguntas"],
+  "lexabbreviations": ["questions"],
+  "lexhealth": ["ejercicios", "entrena","training"],
+  "lexeducation": ["formaciones", "handson"],
+  "lexcurrencies" :[ "ars", "euros" ],
+  "lexqualities": ["combinable","fiable", "reliable", "trusted"],
+  "lexproducts": ["cobertor", "cocinas", "jabon", "limpieza"],
+  "lexinstructions" :["metodos"],
+  "lexlocation": ["australia", "china", "cordoba", "corea", "ee", "eeuu", "europ", "sweden"],
+  "lexpossibilities": ["podamos", "podia", "podria", "puede", "puedes"],
+  "lexsecurity": ["cubre", "proteccion", "protegen", "proteger"],
+  "lexwebactions": ["sesion"],
+  "lexsector": ["tecnologico"],
+  "lexcommerce": ["bienes"],
+  "lextelecom": ["telefonica", "telefonico", "telefonos"]
+
+
 }

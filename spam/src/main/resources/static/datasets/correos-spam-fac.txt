@@ -1,18 +1,91 @@
-﻿"""
+﻿
 
 
+"""
+Conversación abierta. 1 mensaje sin leer.
+
+Ir al contenido
+Uso de Correo de Ministerio de Educación - G.C.B.A. con lectores de pantalla
+4 de 7
+¿Planificando un viaje? Últimos días de asistencia al viajeron con 50% OFF
+Externo
+EUROP ASSISTANCE <clientes@loeadsboosting.com>
+mié, 7 may, 21:17
+para mí
+
+Viajá protegido con EUROP ASSISTANCE
+COTIZÁ AHORA
+Asistencia al Viajero
+Planes con hasta 50% OFF y hasta 9 cuotas sin interés
+COTIZÁ GRATIS AHORA
+Viajá con la empresa creadora del concepto de asistencia al viajero
+
+Tus necesidades a la hora de realizar un viaje siempre son nuestra prioridad.
+
+Contamos con todo tipo de asistencias al viajero adaptadas especialmente para vos y tu forma de viajar: lugares exóticos o tradicionales, solo o acompañado, con niños o sólo adultos, por ocio, trabajo o estudios.
+
+Te cuidamos en cualquier parte del mundo las 24h.
+COTIZÁ GRATIS AHORA
+Viajá protegido
+y sin preocupaciones
+
+Vigencia del 01/05/2025 al 11/05/2025 y del 20/05/2025 al 31/05/2025 . Productos: Silver (diario): 20% Off + 9 ctas. sin int. | Gold (diario): 40% Off + 6 ctas. sin int. | Titanium Plus (diario): 45% Off + 9 ctas. sin int. | Silver Anual (x30 días): 50% Off + 6 ctas. sin int. | Gold Anual (x30 días): 40% Off + 6 ctas. sin int. | Dimond (diario): 40% Off + 9 ctas. sin int. | Ruby (diario): 40% Off + 9 ctas. sin int. Ley 25326 - Art.27. - INC. 3. El titular podrá en cualquier momento solicitar el retiro o bloqueo de su nombre de los bancos de datos a los que se refiere el presente artículo. Decreto 1558/01- art. 27. - 3er. párrafo. En toda comunicación con fines de publicidad que se realice por correo, teléfono, correo electrónico, Internet u otro medio a distancia a conocer, se deberá indicar, en forma expresa y destacada, la posibilidad del titular del dato de solicitar el retiro o bloqueo, total o parcial, de su nombre de la base de datos.
+Las imágenes son de carácter ilustrativo, no contractuales. Consulte condiciones de contratación.
+"""
+
+
+"""
+Conversación abierta. 1 mensaje sin leer.
+
+Ir al contenido
+Uso de Correo de Ministerio de Educación - G.C.B.A. con lectores de pantalla
+in:spam
+
+8 de 8
+elias.ledezma@bue.edu.ar esta tarjeta te lleva más lejos de lo que pensás
+Externo
+Spam
+tarjeta de credito gratis bbva <clientes@haztecliente.com>
+5 may 2025, 10:50
+para mí
+
+Pedí tu tarjeta ahora
+Activá BBVA y obtené beneficios desde hoy
+Activá BBVA y obtené beneficios desde hoy
+La tarjeta que va con vos está en BBVA
+Con tu tarjeta de crédito acumulás Millas BBVA para canjear por viajes, experiencias y mucho más.
+Descuentos en gastronomía, cine y espectáculos.
+Comprás y sumás Millas BBVA para canjear por vuelos y hoteles.
+Adicionales sin cargo.
+Control total desde la app BBVA.
+Pedí tu tarjeta ahora
+Sumá experiencias con tu BBVA
+Pedí tu tarjeta ahora
+¿Te gustaría recibir nuestras mejores ofertas?
+Guarda este correo como deseado y agrega nuestra dirección a tus contactos para no perderte ninguna promoción.
+Para dejar de recibir comunicaciones, por favor responde con "ANULAR SUSCRIPCIÓN".
+
+"""
+"""
+Coinbase Alert
+De:
+markhira@cameo.plala.or.jp
+Para:
+facled@yahoo.com.ar
+lun, 2 jun a las 6:30 p. m.
+We are contacting you to notify you that your Coinbase Wallet has recently been compromised, as a routine security measure we prioritize the security of our users and wish to make you aware of this situation so that you can take the appropriate actions to safeguard your assets.
+To ensure the security of your account, we kindly request your immediate cooperation in updating your wallet information to avert any possible loss of your cryptocurrency assets. Please use the link below to verify your account.
+GET STARTED
+"""
+
+"""
 Pro Ciudad de Buenos Aires
-
 De:
 info@hayequipoprocaba.com
 Para:
 facled@yahoo.com.ar
 
 mié, 7 may a las 10:12 p. m.
-
-Por tu seguridad, hemos deshabilitado todas las imágenes y enlaces contenido en este correo electrónico. Si crees que es seguro usarlos, marca este mensaje indicando que no es spam.Mostrar imágenes
-Si no lees correctamente este mensaje, haz clic aquí
-
 
 
 El domingo 18 de mayo acompañá al equipo PRO. Porque
@@ -37,18 +110,9 @@ Prohibida la reproducción total o parcial. Las imágenes son ilustrativas. Pien
 
 Gestiona tu suscripción  |  Desuscríbete
 
-
-
-
-
-
-
-
-
 """
 
 """
-
 
 Hertz
 
@@ -99,14 +163,8 @@ www.hertz.com.ar | reservas@hertz.com.ar | (11) 7090-4000
 Versión web - Darse de baja
 Click aquí para desafiliarse
 
-
-
-
-
-
 """
 “””
-
 
 Lecol Talles Reales
 

@@ -23,6 +23,6 @@ public class FilePathsConfig {
 
     public static final String CATEGORIZED_WORDS_ONLY_BASE_JSON_PATH = "static/dictionary/categorizedWords/updatedCategorizedWordsOnly.json";
     public static final String BASE_OUTPUT_JSON_PATH = "static/dictionary/categorizedWords/updatedCategorizedWords.json";
-    public static final String DICTIONARY_METADATA_JSON_PATH = "static/dictionary/categorizedWords/dictionary_metadata.json";
+    public static final String DICTIONARY_METADATA_JSON_PATH = "static/dictionary/categorizedWords/dictionary_metadata_2.json";
 
 }

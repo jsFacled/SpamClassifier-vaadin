@@ -12,17 +12,21 @@ public class DatasetGenerationMain {
     private static final String lexemeMetadataPath = "static/dictionary/lexemesRepository/lexeme_words_detailed.json";
 
    // private static final String inputCsvPath = FilePathsConfig.CLEANED_TRAIN_MESSAGES_CSV_PATH;
-  // private static final String inputCsvPath = FilePathsConfig.TEST_MESSAGES_CSV_ESPAÑOL_DATA_PATH;
-   //private static final String inputCsvPath = FilePathsConfig.CORREOS_SPAM_FAC_TXT_PATH;
-    private static final String inputCsvPath = FilePathsConfig.PRUEBA_CSV_DATA_PATH;
+    //private static final String outputDatasetPath = "generated_dataset_train.csv";
 
-    // private static final String outputDatasetPath = "generated_dataset_train.csv";
-   // private static final String outputDatasetPath = "generated_dataset_test.csv";
-   // private static final String outputDatasetPath = "generated_dataset_comillas_spam.csv";
-    private static final String outputDatasetPath = "generated_dataset_pruebas.csv";
+    // private static final String inputCsvPath = FilePathsConfig.TEST_MESSAGES_CSV_ESPAÑOL_DATA_PATH;
+    //private static final String outputDatasetPath = "generated_dataset_test.csv";
 
-    private static final String datasetFormatType = "csv";
-    //private static final String datasetFormatType = "txt";
+    //private static final String inputCsvPath = FilePathsConfig.PRUEBA_CSV_DATA_PATH;
+    // private static final String outputDatasetPath = "generated_dataset_pruebas.csv";
+
+    //private static final String datasetFormatType = "csv";
+    //private static final String labelType = "null";
+
+
+    private static final String outputDatasetPath = "generated_dataset_comillas_spam.csv";
+    private static final String inputCsvPath = FilePathsConfig.CORREOS_SPAM_FAC_TXT_PATH;
+    private static final String datasetFormatType = "txt";
     private static final String labelType = "spam";
 
 
@@ -39,7 +43,7 @@ public class DatasetGenerationMain {
                     metadataPath,
                     inputCsvPath,
                     datasetFormatType,     // indicar si es "txt" para triple comillas o "csv"
-                    "null",      // label no necesario para csv
+                    labelType,      // label no necesario para csv
                     outputDatasetPath,
                     lexemeMetadataPath
             );

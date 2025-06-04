@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -67,6 +68,9 @@ public class JoinDatasetsMain {
             totalRows += rowsCount;
             System.out.println("[INFO] " + file + " → columnas: " + expectedColumns + ", filas: " + rowsCount);
         }
+
+        // Mezclar las filas combinadas
+        Collections.shuffle(allRows);
 
         // Exportar
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputAbsolute))) {

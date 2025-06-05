@@ -1,0 +1,78 @@
+## 📄 Instrucción formal para la generación de mensajes etiquetados como *spam* o *ham*
+
+### 1. **Propósito del dataset**
+
+Generar un conjunto de datos sintético para tareas de clasificación binaria de mensajes, con dos clases posibles:
+
+* `spam`: Mensajes no deseados, típicamente comerciales o fraudulentos.
+* `ham`: Mensajes legítimos, personales, informativos o administrativos.
+
+Cada entrada del dataset simula un mensaje textual corto (SMS, correo electrónico, notificación o similar), seguido de su correspondiente etiqueta.
+
+---
+
+### 2. **Formato requerido**
+
+Cada fila debe tener el siguiente formato CSV:
+
+```plaintext
+"mensaje",label
+```
+
+* `mensaje`: Cadena de texto breve representando el contenido del mensaje.
+* `label`: Valor categórico, puede ser `spam` o `ham` (en minúsculas y sin comillas).
+
+**Ejemplo:**
+
+```plaintext
+"¡Gran oferta! Gana dinero desde casa, solo haz clic aquí",spam
+"Reunión programada para el lunes a las 10 AM",ham
+```
+
+---
+
+### 3. **Criterios de clasificación**
+
+#### 🟩 HAM (mensajes legítimos)
+
+* **Descripción:**
+  Contenido neutral o informativo. No intenta persuadir, vender ni provocar una acción urgente.
+
+* **Contextos comunes:**
+
+  * Confirmaciones de citas, entregas o registros.
+  * Notificaciones de servicios (facturación, soporte, recordatorios).
+  * Interacciones personales, profesionales o administrativas.
+
+* **Características técnicas:**
+
+  * Ausencia de llamados explícitos a la acción.
+  * Tono formal, neutral o cordial.
+  * No se utilizan expresiones promocionales ni promesas.
+
+---
+
+#### 🟥 SPAM (mensajes no deseados)
+
+* **Descripción:**
+  Contenido con intención persuasiva, comercial, fraudulenta o engañosa. Usualmente no solicitado.
+
+* **Contextos comunes:**
+
+  * Publicidad masiva o no solicitada.
+  * Promesas de premios, dinero fácil, productos gratuitos.
+  * Llamados urgentes a la acción: “haz clic”, “responde ahora”, “gana ya”.
+
+* **Características técnicas:**
+
+  * Léxico promocional (ej. "gratis", "oferta", "última oportunidad").
+  * Presencia de frases imperativas.
+  * Frecuente uso de signos de exclamación y urgencia.
+
+---
+
+### 4. **Consideraciones adicionales**
+
+* La longitud de los mensajes debe oscilar entre 8 y 140 caracteres.
+* El tono, vocabulario y estructura deben ser realistas y representativos de comunicaciones humanas reales.
+* Se debe evitar la repetición de patrones o plantillas idénticas para no sesgar el modelo.

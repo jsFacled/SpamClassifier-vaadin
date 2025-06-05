@@ -1,0 +1,85 @@
+Instrucción profesional para la generación de mensajes ham en español (formato triple comillas)
+1. 🎯 Objetivo
+Crear un conjunto de mensajes que simulen correos electrónicos reales, legítimos y no comerciales, redactados completamente en español natural. Estos mensajes deben representar comunicaciones habituales, esperadas y útiles entre personas, organizaciones, instituciones o servicios, sin ningún contenido engañoso ni persuasivo.
+
+2. 📐 Formato de cada mensaje
+Cada mensaje debe estar encerrado entre triple comillas (""") y seguir estrictamente esta estructura:
+
+plaintext
+Copiar
+Editar
+"""
+De: <Nombre completo ficticio> <correo@ficticio.com>
+Para: <Nombre completo destinatario> <correo@destinatario.com>
+Fecha: <Día de la semana, DD de mes de YYYY HH:mm>
+Asunto: <Título breve y coherente>
+
+<Cuerpo del mensaje redactado en español claro, correcto y realista>
+
+<Despedida o firma opcional>
+"""
+🔹 Todos los campos deben tener contenido ficticio pero plausible (nombres, fechas, correos, horarios).
+
+🔹 Los mensajes no deben incluir ninguna etiqueta ni clasificación interna.
+
+3. ✍️ Contenido del mensaje
+✅ Características requeridas:
+Lenguaje formal o informal dependiendo del contexto del correo.
+
+Redacción 100% en español real, sin traducciones automáticas ni errores sintácticos.
+
+Temas centrados en información, coordinación, solicitudes o notificaciones reales.
+
+Tono profesional, neutral o amable, sin elementos comerciales ni persuasivos.
+
+🚫 Debe evitarse completamente:
+Llamados urgentes o agresivos a la acción (¡clic aquí!, ¡última oportunidad!, etc.).
+
+Promesas exageradas, premios, sorteos, descuentos, regalos, etc.
+
+Lenguaje ambiguo, engañoso, persuasivo o sin sentido.
+
+Cualquier frase que pueda confundirse con contenido spam, phishing o comercial.
+
+4. 📂 Categorías temáticas sugeridas
+Para lograr variedad y realismo, se recomienda distribuir los mensajes entre las siguientes categorías. No se deben indicar estas categorías en el mensaje.
+
+Categoría	Descripción breve
+Administración pública	Turnos, trámites, licencias, notificaciones de organismos oficiales
+Comunicaciones laborales	Coordinación de tareas, reuniones, informes, vacaciones, consultas internas
+Educación	Comunicaciones escolares o académicas entre docentes, alumnos, tutores
+Comunicaciones personales	Mensajes familiares o entre amistades, saludos, agradecimientos, avisos personales
+Salud y servicios	Citas médicas, atención al cliente, facturación, consultas
+Avisos técnicos	Soporte informático, mantenimiento, actualización de sistemas
+Eventos y comunidad	Invitaciones a actividades, confirmaciones de asistencia, coordinaciones locales
+
+5. 💡 Consejos de redacción
+Utilizar nombres, direcciones de correo, empresas, instituciones y servicios ficticios, pero coherentes.
+
+Incluir detalles contextuales: fechas, horas, ubicaciones, sitios web y teléfonos cuando sea apropiado.
+
+Firmar el mensaje con un nombre y rol institucional, familiar o técnico según corresponda.
+
+Mantener una estructura clara y limpia, como en un correo real.
+
+La longitud del mensaje puede variar: desde 3-4 líneas (mensajes breves) hasta textos más desarrollados (recordatorios o avisos formales).
+
+6. 📌 Ejemplo completo
+plaintext
+Copiar
+Editar
+"""
+De: Valeria Ruiz <valeria.ruiz@institutoeducar.org>
+Para: Facundo Gutiérrez <fgutierrez82@gmail.com>
+Fecha: miércoles, 5 de junio de 2025 10:25
+Asunto: Entrega de trabajo práctico
+
+Hola Facundo,
+
+Te recuerdo que tenés tiempo hasta el viernes a las 20 hs para entregar el trabajo práctico de Historia. Podés enviarlo por este mismo medio o subirlo al campus virtual.
+
+Cualquier duda, quedo a disposición.
+
+Saludos cordiales,
+Valeria Ruiz – Instituto Educar (Córdoba)
+"""

@@ -15,13 +15,15 @@ public class DatasetGenerationMain {
     //private static final String outputDatasetPath = "generated_dataset_train.csv";
 
     // private static final String inputCsvPath = FilePathsConfig.TEST_MESSAGES_CSV_ESPAÑOL_DATA_PATH;
-    //private static final String outputDatasetPath = "generated_dataset_test.csv";
+   // private static final String outputDatasetPath = "generated_dataset_test.csv";
 
-    //private static final String inputCsvPath = FilePathsConfig.PRUEBA_CSV_DATA_PATH;
-    // private static final String outputDatasetPath = "generated_dataset_pruebas.csv";
+                    // ** paths para realizar pruebas **  //
+            //private static final String inputCsvPath = FilePathsConfig.PRUEBA_CSV_DATA_PATH;
+            //private static final String inputCsvPath = "static/datasets/forDictionaryTest/mensajes_test_lexeme_para_generateDataset.csv";
+            //private static final String outputDatasetPath = "generated_dataset_pruebas.csv";
 
-    //private static final String datasetFormatType = "csv";
-    //private static final String labelType = "null";
+   // private static final String datasetFormatType = "csv";
+  //  private static final String labelType = "null";
 
 
     private static final String outputDatasetPath = "generated_dataset_comillas_spam.csv";

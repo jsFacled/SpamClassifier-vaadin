@@ -7,10 +7,10 @@ public enum DatasetColumnName {
     POLARITY("polarity_"),               // Ej: polarity_lexactions
 
     // Features globales (nombres fijos)
-    COUNT_MODERATE_SPAM_WORDS("count_moderateSpamWords"),
-    RATIO_MODERATE_SPAM_WORDS("ratio_moderateSpamWords"),
-    COUNT_WEAK_SPAM_WORDS("count_weakSpamWords"),
-    RATIO_WEAK_SPAM_WORDS("ratio_weakSpamWords"),
+    COUNT_MODERATE_SPAM_WORDS("count_moderateSpamWord"),
+    RATIO_MODERATE_SPAM_WORDS("ratio_moderateSpamWord"),
+    COUNT_WEAK_SPAM_WORDS("count_weakSpamWord"),
+    RATIO_WEAK_SPAM_WORDS("ratio_weakSpamWord"),
     COUNT_HAM_INDICATORS("count_hamIndicators"),
     RATIO_HAM_INDICATORS("ratio_hamIndicators"),
     COUNT_NEUTRAL_BALANCED_WORDS("count_neutralBalancedWords"),

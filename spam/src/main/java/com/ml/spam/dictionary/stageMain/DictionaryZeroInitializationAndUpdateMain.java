@@ -24,7 +24,7 @@ public class DictionaryZeroInitializationAndUpdateMain {
         // Inicialización
         System.out.println("[ STAGE 1 ] Inicializando diccionario desde base con frecuencias en cero...\n");
         service.initializeDictionaryFromJsonIfContainOnlyZeroFrequencies(newCatWordsFreqZeroPath, lexemePath);
-        service.displayCategorizedWordsInDictionary();
+       // service.displayCategorizedWordsInDictionary();
 
         // Actualización con dataset
         System.out.println("\n[ STAGE 2 ] Procesando mensajes del dataset...\n");
@@ -49,7 +49,7 @@ public class DictionaryZeroInitializationAndUpdateMain {
 
         // Reportes
         System.out.println("\n[ REPORT ] Diccionario actualizado:\n");
-        service.displayCategorizedWordsInDictionary();
+       // service.displayCategorizedWordsInDictionary();
 
         System.out.println("\n[ REPORT ] Resumen del diccionario:\n");
         DictionarySummaryReport.displaySummaryReport(service);

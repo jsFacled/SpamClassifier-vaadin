@@ -57,8 +57,8 @@ public class DatasetGeneratorService {
                 .get(WordCategory.STRONG_SPAM_WORD)
                 .keySet();
         //debug//
-        System.out.println(">>> DEBUG STRONG SPAM WORDS SET desde dictionary <<<");
-        System.out.println("Total palabras: " + strongWords.size());
+        System.out.println("> > > > DEBUG STRONG SPAM WORDS SET desde dictionary < < < <");
+        System.out.println("Total palabras en strongSpamWords: " + strongWords.size());
 
         //fin debug//
 
@@ -72,6 +72,7 @@ public class DatasetGeneratorService {
             List<WordData> messageTokens = processedWordData.get(i);
             String label = validRows.get(i)[1];
             datasetRows.add(rowBuilder.buildRow(messageTokens, label));
+            System.out.println("Los tokens de la fila <"+i+"> son : "+ messageTokens);
         }
         System.out.println(">>> DEBUG rowBuilder desde generateDatasetFromCorpus <<<: el datasetRows.size es:"+datasetRows.size());
         System.out.println(">>> DEBUG rowBuilder desde generateDatasetFromCorpus <<<: datasetRows es:"+datasetRows);

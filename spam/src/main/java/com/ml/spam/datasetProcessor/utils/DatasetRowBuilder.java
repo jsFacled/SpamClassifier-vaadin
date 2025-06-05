@@ -52,6 +52,15 @@ public class DatasetRowBuilder {
                 }
             }
 
+            // ** Para test **
+
+            if (foundCategory == null) {
+                System.out.println(" < < < < [Testeando DatesRowBuilder] > > > No encontrado esta  *word* en categorías: " + word + "<<<>>>");
+            }
+
+            // ** Fin test
+
+
             String cat = (foundCategory != null) ? foundCategory.getJsonKey() : "unassignedWords";
             categoryCounts.put(cat, categoryCounts.getOrDefault(cat, 0L) + 1);
         }

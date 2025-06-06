@@ -88,7 +88,7 @@ public class DatasetRowBuilder {
                 }
                 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-                value = DatasetFeatureCalculator.calculateRelativeFreqNorm(freq, totalTokens, lexemeSize);
+                value = DatasetFeatureCalculator.calculateRelativeFreqNormLog(freq, totalTokens, lexemeSize);
 
                 // Si la columna es del tipo polarity_<palabra>
             } else if (column.startsWith(DatasetColumnName.POLARITY.get())) {

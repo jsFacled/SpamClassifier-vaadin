@@ -11,26 +11,36 @@ public class DatasetGenerationMain {
     private static final String metadataPath = FilePathsConfig.DICTIONARY_METADATA_JSON_PATH;
     private static final String lexemeMetadataPath = "static/dictionary/lexemesRepository/lexeme_words_detailed.json";
 
-   // private static final String inputCsvPath = FilePathsConfig.CLEANED_TRAIN_MESSAGES_CSV_PATH;
+
+   // private static final String inputCsvPathIA ="static/datasets/mensajesInventadosIA/ham_triplecomillas_ia_varios.txt";
+    private static final String inputCsvPathIA ="static/datasets/mensajesInventadosIA/Mensajes_varios_label_spam__ham.csv";
+   //private static final String inputCsvPathIA ="static/datasets/mensajesInventadosIA/spam_triplecomillas_ia_varios.txt";
+
+    // private static final String outputDatasetPathIA = "generated_dataset_ia_ham.csv";
+   // private static final String outputDatasetPathIA = "generated_dataset_ia_spam.csv";
+    private static final String outputDatasetPathIA = "generated_dataset_ia_mix.csv";
+
+    // private static final String inputCsvPath = FilePathsConfig.CLEANED_TRAIN_MESSAGES_CSV_PATH;
     //private static final String outputDatasetPath = "generated_dataset_train.csv";
 
-    // private static final String inputCsvPath = FilePathsConfig.TEST_MESSAGES_CSV_ESPAÑOL_DATA_PATH;
-   // private static final String outputDatasetPath = "generated_dataset_test.csv";
+     private static final String inputCsvPath = FilePathsConfig.TEST_MESSAGES_CSV_ESPAÑOL_DATA_PATH;
+    private static final String outputDatasetPath = "generated_dataset_test.csv";
 
                     // ** paths para realizar pruebas **  //
             //private static final String inputCsvPath = FilePathsConfig.PRUEBA_CSV_DATA_PATH;
             //private static final String inputCsvPath = "static/datasets/forDictionaryTest/mensajes_test_lexeme_para_generateDataset.csv";
             //private static final String outputDatasetPath = "generated_dataset_pruebas.csv";
 
-   // private static final String datasetFormatType = "csv";
-  //  private static final String labelType = "null";
+    private static final String datasetFormatType = "csv";
+    private static final String labelType = "null";
 
-
+/*
     private static final String outputDatasetPath = "generated_dataset_comillas_spam.csv";
     private static final String inputCsvPath = FilePathsConfig.CORREOS_SPAM_FAC_TXT_PATH;
-    private static final String datasetFormatType = "txt";
-    private static final String labelType = "spam";
-
+*/
+   // private static final String datasetFormatType = "txt";
+    //private static final String labelType = "spam";
+    //private static final String labelType = "ham";
 
 
     public static void main(String[] args) {
@@ -43,10 +53,10 @@ public class DatasetGenerationMain {
                     updatedCatWordsPath,
                     lexemePath,
                     metadataPath,
-                    inputCsvPath,
+                    inputCsvPathIA,
                     datasetFormatType,     // indicar si es "txt" para triple comillas o "csv"
                     labelType,      // label no necesario para csv
-                    outputDatasetPath,
+                    outputDatasetPathIA,
                     lexemeMetadataPath
             );
 

@@ -67,4 +67,14 @@ public class DatasetFeatureCalculator {
         if (label.equalsIgnoreCase("ham")) return 0.0;
         throw new IllegalArgumentException("Etiqueta no reconocida: " + label);
     }
+
+    public static double calculateRelativeFreqNormLog(long freq, int totalTokens, int lexemeSize) {
+        if (totalTokens == 0) return 0.0;
+        if (lexemeSize <= 0) lexemeSize = 1;
+        double freqRel = (double) freq / totalTokens;
+        double divisor = Math.log(lexemeSize + 1) / Math.log(2); // log base 2
+        return freqRel / divisor;
+    }
+
+
 }

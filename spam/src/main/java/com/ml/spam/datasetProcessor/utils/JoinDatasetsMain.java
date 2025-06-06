@@ -44,14 +44,15 @@ public class JoinDatasetsMain {
         String outputRelative = "static/mlDatasets/combined_dataset.csv";
         */
 
-        /*
+/*
         String file1 = "generated_dataset_ia_ham.csv";
-        String file2 = "generated_dataset_ia_mix.csv";
+        String file2 = "generated_dataset_ia_otros_spam_ham.csv";
         String file3 = "generated_dataset_ia_spam.csv";
-        String outputRelative = "static/mlDatasets/combined_ia_dataset.csv";
+        String outputRelative = "static/mlDatasets/combined_ia_tres_datasets.csv";
 */
+
         String file1 = "static/mlDatasets/combined_dataset.csv";
-        String file2 = "static/mlDatasets/combined_ia_dataset.csv";
+        String file2 = "static/mlDatasets/combined_ia_tres_datasets.csv";
         String outputRelative = "static/mlDatasets/mix_combined_full_dataset.csv";
 
 

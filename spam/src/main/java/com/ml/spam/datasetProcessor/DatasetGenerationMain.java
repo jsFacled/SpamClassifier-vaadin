@@ -12,13 +12,13 @@ public class DatasetGenerationMain {
     private static final String lexemeMetadataPath = "static/dictionary/lexemesRepository/lexeme_words_detailed.json";
 
 
-   // private static final String inputCsvPathIA ="static/datasets/mensajesInventadosIA/ham_triplecomillas_ia_varios.txt";
+    //private static final String inputCsvPathIA ="static/datasets/mensajesInventadosIA/ham_triplecomillas_ia_varios.txt";
     private static final String inputCsvPathIA ="static/datasets/mensajesInventadosIA/Mensajes_varios_label_spam__ham.csv";
-   //private static final String inputCsvPathIA ="static/datasets/mensajesInventadosIA/spam_triplecomillas_ia_varios.txt";
+  // private static final String inputCsvPathIA ="static/datasets/mensajesInventadosIA/spam_triplecomillas_ia_varios.txt";
 
-    // private static final String outputDatasetPathIA = "generated_dataset_ia_ham.csv";
-   // private static final String outputDatasetPathIA = "generated_dataset_ia_spam.csv";
-    private static final String outputDatasetPathIA = "generated_dataset_ia_mix.csv";
+   //  private static final String outputDatasetPathIA = "generated_dataset_ia_ham.csv";
+    //private static final String outputDatasetPathIA = "generated_dataset_ia_spam.csv";
+    private static final String outputDatasetPathIA = "generated_dataset_ia_otros_spam_ham.csv";
 
     // private static final String inputCsvPath = FilePathsConfig.CLEANED_TRAIN_MESSAGES_CSV_PATH;
     //private static final String outputDatasetPath = "generated_dataset_train.csv";

@@ -17,6 +17,8 @@ public class UpdateDictionaryMain {
     private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
     private static final String cleanedTrainMessagesPath = FilePathsConfig.CLEANED_TRAIN_MESSAGES_CSV_PATH;
 
+    private static final String inputMessagesCsvPath = "static/datasets/joined/joined_messages_label.csv";
+
     public static void main(String[] args) throws IOException {
         long startUpdate = System.nanoTime();
         SpamDictionaryService service = new SpamDictionaryService();
@@ -34,7 +36,7 @@ public class UpdateDictionaryMain {
 
         // Actualizar con los nuevos mensajes
         System.out.println("\n[ STAGE 2 ] Procesando mensajes del dataset...\n");
-        service.updateDictionaryFromCsvMessages(cleanedTrainMessagesPath);
+        service.updateDictionaryFromCsvMessages(inputMessagesCsvPath);
         System.out.println("Actualización finalizada.\n");
 
         // Calcular diferencias
@@ -46,7 +48,7 @@ public class UpdateDictionaryMain {
         int newTotal = newSpam + newHam;
 
         // Registrar el nuevo dataset
-        String datasetFileName = cleanedTrainMessagesPath.substring(cleanedTrainMessagesPath.lastIndexOf("/") + 1);
+        String datasetFileName = inputMessagesCsvPath.substring(inputMessagesCsvPath.lastIndexOf("/") + 1);
         String timestamp = java.time.LocalDateTime.now().toString();
 
         DatasetMetadata dataset = new DatasetMetadata(

@@ -30,6 +30,7 @@ public class DatasetInspectorUI extends Application {
         Button describeBtn = new Button("Describir datos");
         Button uniqueBtn = new Button("Valores únicos");
         Button valueCountsBtn = new Button("Conteo por categoría");
+        Button totalFreqBtn = new Button("Sumar todas freq_palabra");
 
         ComboBox<String> col1Combo = new ComboBox<>();
         ComboBox<String> col2Combo = new ComboBox<>();
@@ -91,156 +92,6 @@ public class DatasetInspectorUI extends Application {
             }
         });
 
-        verColumnasBtn.setOnAction(e -> {
-            try {
-                if (csvPath != null) {
-                    BufferedReader reader = new BufferedReader(new FileReader(csvPath));
-                    String[] headers = reader.readLine().split(",");
-
-                    StringBuilder sbH = new StringBuilder();
-                    for (String col : headers) sbH.append(col).append("\t");
-                    sbH.append("\n\nTotal: ").append(headers.length);
-
-                    StringBuilder sbV = new StringBuilder();
-                    for (String col : headers) sbV.append("- ").append(col).append("\n");
-                    sbV.append("\nTotal: ").append(headers.length);
-
-                    TabPane tabPane = new TabPane();
-                    TextArea taH = new TextArea(sbH.toString());
-                    taH.setWrapText(true); taH.setEditable(false);
-                    TextArea taV = new TextArea(sbV.toString());
-                    taV.setWrapText(true); taV.setEditable(false);
-                    Tab tab1 = new Tab("Horizontal", taH);
-                    Tab tab2 = new Tab("Vertical", taV);
-                    tab1.setClosable(false); tab2.setClosable(false);
-                    tabPane.getTabs().addAll(tab1, tab2);
-
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Columnas (" + headers.length + ")");
-                    alert.setHeaderText("Vista de columnas");
-                    alert.getDialogPane().setContent(tabPane);
-                    alert.setResizable(true);
-                    alert.getDialogPane().setPrefSize(700, 500);
-                    alert.showAndWait();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        });
-
-        headBtn.setOnAction(e -> {
-            try {
-                if (csvPath != null) {
-                    TextInputDialog inputDialog = new TextInputDialog("10");
-                    inputDialog.setTitle("Filas a mostrar");
-                    inputDialog.setHeaderText("¿Cuántas filas querés ver?");
-                    inputDialog.setContentText("Cantidad:");
-                    Optional<String> result = inputDialog.showAndWait();
-                    int cantidad = result.map(s -> {
-                        try { return Integer.parseInt(s); } catch (Exception e1) { return 10; }
-                    }).orElse(10);
-
-                    BufferedReader reader = new BufferedReader(new FileReader(csvPath));
-                    String[] headers = reader.readLine().split(",");
-                    List<String[]> rows = new ArrayList<>();
-                    for (int i = 0; i < cantidad; i++) {
-                        String line = reader.readLine();
-                        if (line == null) break;
-                        rows.add(line.split(",", -1));
-                    }
-                    StringBuilder sb = new StringBuilder();
-                    for (int i = 0; i < headers.length; i++) {
-                        sb.append(headers[i]).append("\t");
-                        for (String[] row : rows) {
-                            if (i < row.length) sb.append(row[i]).append("\t");
-                            else sb.append("\t");
-                        }
-                        sb.append("\n");
-                    }
-                    TextArea ta = new TextArea(sb.toString());
-                    ta.setWrapText(false);
-                    ta.setEditable(false);
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Primeras filas");
-                    alert.setHeaderText("df.head(" + cantidad + ")");
-                    alert.getDialogPane().setContent(ta);
-                    alert.setResizable(true);
-                    alert.getDialogPane().setPrefSize(700, 400);
-                    alert.showAndWait();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        });
-
-        tiposBtn.setOnAction(e -> {
-            try {
-                if (csvPath != null) {
-                    BufferedReader reader = new BufferedReader(new FileReader(csvPath));
-                    String[] headers = reader.readLine().split(",");
-                    String[] sample = reader.readLine().split(",", -1);
-                    StringBuilder sb = new StringBuilder();
-                    for (int i = 0; i < headers.length; i++) {
-                        String tipo = "string";
-                        try { Double.parseDouble(sample[i]); tipo = "float"; } catch (Exception ignored) {}
-                        sb.append(headers[i]).append(" -> ").append(tipo).append("\n");
-                    }
-                    TextArea ta = new TextArea(sb.toString());
-                    ta.setWrapText(false); ta.setEditable(false);
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Tipos de datos");
-                    alert.setHeaderText("df.dtypes (estimado)");
-                    alert.getDialogPane().setContent(ta);
-                    alert.setResizable(true);
-                    alert.getDialogPane().setPrefSize(600, 400);
-                    alert.showAndWait();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        });
-
-        describeBtn.setOnAction(e -> {
-            try {
-                if (csvPath != null) {
-                    BufferedReader reader = new BufferedReader(new FileReader(csvPath));
-                    String[] headers = reader.readLine().split(",");
-                    int N = headers.length;
-                    List<List<Double>> columnas = new ArrayList<>(Collections.nCopies(N, null));
-                    for (int i = 0; i < N; i++) columnas.set(i, new ArrayList<>());
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        String[] parts = line.split(",", -1);
-                        for (int i = 0; i < Math.min(parts.length, N); i++) {
-                            try { columnas.get(i).add(Double.parseDouble(parts[i])); } catch (Exception ignored) {}
-                        }
-                    }
-                    StringBuilder sb = new StringBuilder();
-                    for (int i = 0; i < N; i++) {
-                        List<Double> vals = columnas.get(i);
-                        if (vals.isEmpty()) continue;
-                        double min = Collections.min(vals);
-                        double max = Collections.max(vals);
-                        double avg = vals.stream().mapToDouble(Double::doubleValue).average().orElse(0);
-                        double std = Math.sqrt(vals.stream().mapToDouble(d -> (d - avg)*(d - avg)).sum() / vals.size());
-                        sb.append(headers[i]).append(": min=").append(min).append(" max=").append(max)
-                                .append(" mean=").append(avg).append(" std=").append(std).append("\n");
-                    }
-                    TextArea ta = new TextArea(sb.toString());
-                    ta.setWrapText(false); ta.setEditable(false);
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Resumen numérico");
-                    alert.setHeaderText("df.describe()");
-                    alert.getDialogPane().setContent(ta);
-                    alert.setResizable(true);
-                    alert.getDialogPane().setPrefSize(700, 400);
-                    alert.showAndWait();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        });
-
         uniqueBtn.setOnAction(e -> {
             String col = col1Combo.getValue();
             if (csvPath != null && col != null) {
@@ -297,6 +148,14 @@ public class DatasetInspectorUI extends Application {
             }
         });
 
+        totalFreqBtn.setOnAction(e -> {
+            try {
+                DatasetInspector.showTotalFreqPerWord(csvPath);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+
         VBox root = new VBox(10,
                 cargarBtn, archivoLabel,
                 col1Combo, col2Combo,
@@ -304,10 +163,11 @@ public class DatasetInspectorUI extends Application {
                 boxplotBtn, correlacionBtn,
                 verColumnasBtn, headBtn,
                 tiposBtn, describeBtn,
-                uniqueBtn, valueCountsBtn
+                uniqueBtn, valueCountsBtn,
+                totalFreqBtn
         );
 
-        Scene scene = new Scene(root, 400, 700);
+        Scene scene = new Scene(root, 400, 750);
         stage.setScene(scene);
         stage.show();
     }

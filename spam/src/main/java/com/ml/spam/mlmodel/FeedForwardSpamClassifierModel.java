@@ -15,7 +15,7 @@ public class FeedForwardSpamClassifierModel {
 
     public static void main(String[] args) {
         try {
-            int numInputs = 464;
+            int numInputs = 466;
             int numOutputs = 1;
 
             // Cargar el dataset combinado
@@ -34,8 +34,9 @@ public class FeedForwardSpamClassifierModel {
 
             FeedForwardNetwork neuralNet = FeedForwardNetwork.builder()
                     .addInputLayer(numInputs)
-                    .addFullyConnectedLayer(30, ActivationType.TANH)
-                    .addFullyConnectedLayer(15, ActivationType.TANH)
+                    .addFullyConnectedLayer(50, ActivationType.TANH)//30
+                    .addFullyConnectedLayer(25, ActivationType.TANH)//15
+                    .addFullyConnectedLayer(15, ActivationType.TANH)//15
                     .addOutputLayer(numOutputs, ActivationType.SIGMOID)
                     .lossFunction(LossType.CROSS_ENTROPY)
                     .randomSeed(123)
@@ -50,9 +51,9 @@ public class FeedForwardSpamClassifierModel {
             }
 
             neuralNet.getTrainer()
-                    .setMaxError(0.03f)
-                    .setLearningRate(0.001f)
-                    .setMaxEpochs(15000);
+                    .setMaxError(0.0003f)//0.03f
+                    .setLearningRate(0.00001f)//0.001f
+                    .setMaxEpochs(20000);
 
             System.out.println("Entrenando...");
             neuralNet.train(trainingSet);

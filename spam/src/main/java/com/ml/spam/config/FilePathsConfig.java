@@ -25,4 +25,8 @@ public class FilePathsConfig {
     public static final String BASE_OUTPUT_JSON_PATH = "static/dictionary/categorizedWords/updatedCategorizedWords.json";
     public static final String DICTIONARY_METADATA_JSON_PATH = "static/dictionary/categorizedWords/dictionary_metadata_2.json";
 
+    public static final String IA_HAM_TXT_PATH = "static/datasets/mensajesInventadosIA/ham_triplecomillas_ia_varios.txt";
+    public static final String IA_SPAM_TXT_PATH = "static/datasets/mensajesInventadosIA/spam_triplecomillas_ia_varios.txt";
+    public static final String IA_OTROS_CSV_PATH = "static/datasets/mensajesInventadosIA/Mensajes_varios_label_spam__ham.csv";
+
 }

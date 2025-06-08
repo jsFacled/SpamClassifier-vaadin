@@ -7,7 +7,10 @@ import com.ml.spam.dictionary.service.SpamDictionaryService;
 
 public class UpdateDictionaryFromTripleQuotesTxtMain {
 
-    private static final String inputTxtFilePath = "static/datasets/correos-spam-fac.txt";
+   // private static final String inputTxtFilePath = "static/datasets/correos-spam-fac.txt";
+    //private static final String inputTxtFilePath = "static/datasets/joined/joined_messages_triplecomillas_ham.txtxt";
+    private static final String inputTxtFilePath = "static/datasets/joined/joined_messages_triplecomillas_spam.txt";
+
     private static final String baseOutputPath = FilePathsConfig.BASE_OUTPUT_JSON_PATH;
 
     private static final String updatedCatWordsPath = "static/dictionary/categorizedWords/updatedCategorizedWords_1.json";
@@ -16,6 +19,8 @@ public class UpdateDictionaryFromTripleQuotesTxtMain {
     private static final String dictionaryMetadataJsonPath2 = "F:\\JAVA GENERAL\\MACHINE LEARNING JAVA\\Código-ejemplos-intellij\\Clasificador Spam\\SpamClassifier-vaadin\\spam\\src\\main\\resources\\static\\dictionary\\categorizedWords\\dictionary_metadata_1.json";
 
     private static final String messageLabel = "spam";
+    //private static final String messageLabel = "ham";
+
 
     public static void main(String[] args) {
         try {

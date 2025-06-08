@@ -1,8 +1,12 @@
 package com.ml.spam.analysis;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextArea;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.*;
+import java.util.List;
 
 public class DatasetInspector {
 
@@ -190,4 +194,45 @@ public class DatasetInspector {
         }
         return values;
     }
+
+    public static void showTotalFreqPerWord(String csvPath) throws Exception {
+        BufferedReader reader = new BufferedReader(new FileReader(csvPath));
+        String[] headers = reader.readLine().split(",");
+        Map<String, Double> freqSums = new LinkedHashMap<>();
+
+        for (String header : headers) {
+            if (header.startsWith("freq_")) {
+                freqSums.put(header, 0.0);
+            }
+        }
+
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] parts = line.split(",", -1);
+            for (int i = 0; i < headers.length; i++) {
+                if (headers[i].startsWith("freq_")) {
+                    try {
+                        double val = Double.parseDouble(parts[i]);
+                        freqSums.put(headers[i], freqSums.get(headers[i]) + val);
+                    } catch (Exception ignored) {}
+                }
+            }
+        }
+
+        StringBuilder sb = new StringBuilder();
+        freqSums.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .forEach(e -> sb.append(e.getKey()).append(" = ").append(e.getValue().intValue()).append("\n"));
+
+        TextArea ta = new TextArea(sb.toString());
+        ta.setWrapText(false); ta.setEditable(false);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Suma total de freq_palabra");
+        alert.setHeaderText("Sumatoria de columnas freq_");
+        alert.getDialogPane().setContent(ta);
+        alert.setResizable(true);
+        alert.getDialogPane().setPrefSize(500, 600);
+        alert.showAndWait();
+    }
+
 }

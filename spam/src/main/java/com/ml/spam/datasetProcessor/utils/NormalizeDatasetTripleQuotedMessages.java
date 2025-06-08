@@ -1,42 +1,45 @@
 package com.ml.spam.datasetProcessor.utils;
-import com.ml.spam.config.FilePathsConfig;
 
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 
 /**
- * Elimina las triple comillas y coloca cada  mensaje entero en una fila
+ * Elimina las triple comillas, coloca cada mensaje en una sola línea,
+ * le agrega la etiqueta correspondiente (",spam" o ",ham")
+ * y elimina los mensajes duplicados.
  */
 public class NormalizeDatasetTripleQuotedMessages {
 
     public static void main(String[] args) {
 
-        //Path inputPath = Paths.get("spam/src/main/resources/static/datasets/joined/joined_messages_triplecomillas_ham.txt");
-        // Path outputPath = Paths.get("corpus_joined_ham_normalized.txt");
+        // ----- HABILITÁ UNO SOLO SEGÚN NECESITES -----
 
+         String inputPath = "spam/src/main/resources/static/datasets/joined/joined_messages_triplecomillas_ham.txt";
+         String label = "ham";
+         String outputPath = "joined_messages_triplecomillas_ham_normalized.txt";
 
-        Path inputPath = Paths.get("spam/src/main/resources/static/datasets/joined/joined_messages_triplecomillas_spam.txt");
-        Path outputPath = Paths.get("corpus_joined_spam_normalized.txt");
+      ///  String inputPath = "spam/src/main/resources/static/datasets/joined/joined_messages_triplecomillas_spam.txt";
+       /// String label = "spam";
+      ///  String outputPath = "joined_messages_triplecomillas_spam_normalized.txt";
 
         try {
-            String content = Files.readString(inputPath);
+            String content = Files.readString(Paths.get(inputPath));
             String[] bloques = content.split("\"\"\"");
-            List<String> mensajes = new ArrayList<>();
+
+            // Usar Set para evitar duplicados y mantener orden
+            Set<String> mensajes = new LinkedHashSet<>();
 
             for (String bloque : bloques) {
-                //String limpio = bloque.trim().replace("\n", " ");
-
                 String limpio = bloque.replaceAll("\\s+", " ").trim();
-
-
                 if (!limpio.isEmpty()) {
-                    mensajes.add(limpio);
+                    mensajes.add(limpio + "," + label);
                 }
             }
 
-            Files.write(outputPath, mensajes);
+            Files.write(Paths.get(outputPath), mensajes);
             System.out.println("Corpus normalizado generado en: " + outputPath);
+            System.out.println("Total mensajes únicos: " + mensajes.size());
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -56,6 +56,7 @@ public class JoinDatasetsMain {
       // String file1 = "static/mlDatasets/combined_dataset_train_test_y_comillas.csv";
      //   String file2 = "static/mlDatasets/combined_ia_tres_datasets.csv";
 
+
         String file1 = "generated_dataset_comillas_spam.csv";
 
         String file2 = "generated_dataset_ia_ham.csv";
@@ -66,6 +67,7 @@ public class JoinDatasetsMain {
 
 
         String outputRelative = "static/mlDatasets/mix_combined_full_dataset.csv";
+
 
 
         String outputAbsolute = basePath + outputRelative;
@@ -79,7 +81,7 @@ public class JoinDatasetsMain {
         // Reporte inicial
         int totalRows = 0;
         List<String[]> allRows = new ArrayList<>();
-        for (String file : List.of(file1, file2,file3,file4,file5,file6)) {
+        for (String file : List.of(file1, file2,file3)) {
             int rowsCount = 0;
             try (BufferedReader reader = new BufferedReader(new FileReader(basePath + file))) {
                 String line = reader.readLine(); // omitir header

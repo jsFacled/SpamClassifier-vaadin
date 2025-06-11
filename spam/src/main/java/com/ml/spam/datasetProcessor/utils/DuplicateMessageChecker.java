@@ -37,16 +37,40 @@ public class DuplicateMessageChecker {
         this.removeLabel = removeLabel;
     }
 
+    public int countDuplicates(String path, InputFormat format) throws IOException {
+        if (format == InputFormat.LINE_BY_LINE) {
+            return countDuplicatesFromLineByLineFile(path);
+        } else if (format == InputFormat.TRIPLE_QUOTED) {
+            return countDuplicatesFromTripleQuotedFile(path);
+        }
+        throw new IllegalArgumentException("Formato no soportado: " + format);
+    }
+
+    public void removeDuplicates(String inputPath, String outputPath, InputFormat format) throws IOException {
+        if (format == InputFormat.LINE_BY_LINE) {
+            removeDuplicatesFromFile(inputPath, outputPath);
+        } else if (format == InputFormat.TRIPLE_QUOTED) {
+            removeDuplicatesFromTripleQuotedFile(inputPath, outputPath);
+        } else {
+            throw new IllegalArgumentException("Formato no soportado: " + format);
+        }
+    }
+
     public int countDuplicatesFromLineByLineFile(String path) throws IOException {
-        List<String> lines = Files.readAllLines(Paths.get(path));
+        Path file = Paths.get(path);
         Set<String> unique = new HashSet<>();
         int duplicates = 0;
-        for (String line : lines) {
-            String processed = preprocess(line);
-            if (!unique.add(processed)) {
-                duplicates++;
+
+        try (BufferedReader reader = Files.newBufferedReader(file)) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String processed = preprocess(line);
+                if (!unique.add(processed)) {
+                    duplicates++;
+                }
             }
         }
+
         return duplicates;
     }
 
@@ -65,28 +89,71 @@ public class DuplicateMessageChecker {
                 duplicates++;
             }
         }
+
         return duplicates;
     }
 
-    public void removeDuplicatesFromFile(String inputPath, String outputPath) throws IOException {
-        List<String> lines = Files.readAllLines(Paths.get(inputPath));
-        Set<String> seen = new HashSet<>();
-        List<String> output = new ArrayList<>();
+    public void removeDuplicatesFromTripleQuotedFile(String inputPath, String outputPath) throws IOException {
+        String content = Files.readString(Paths.get(inputPath));
+        Pattern pattern = Pattern.compile("(?m)^[\\\"“”]{3}\\s*$([\\s\\S]*?)(?=^[\\\"“”]{3}\\s*$|\\z)", Pattern.MULTILINE);
+        Matcher matcher = pattern.matcher(content);
 
-        for (String line : lines) {
-            String processed = preprocess(line);
-            if (seen.add(processed)) {
-                output.add(line); // conservar línea original
+        LinkedHashSet<String> uniqueMessages = new LinkedHashSet<>();
+
+        while (matcher.find()) {
+            String msg = matcher.group(1).replaceAll("\\s+", " ").trim();
+            String processed = preprocess(msg);
+            if (uniqueMessages.add(processed)) {
+                // el mensaje se almacena sin espacios extra
             }
         }
 
         Path outputFile = Paths.get(outputPath);
         Files.createDirectories(outputFile.getParent());
-        Files.write(outputFile, output, StandardCharsets.UTF_8);
+
+        try (BufferedWriter writer = Files.newBufferedWriter(outputFile, StandardCharsets.UTF_8)) {
+            for (String msg : uniqueMessages) {
+                writer.write("\"\"\"");
+                writer.newLine();
+                writer.write(msg);
+                writer.newLine();
+                writer.write("\"\"\"");
+                writer.newLine();
+            }
+        }
 
         System.out.println("✅ Archivo generado sin duplicados: " + outputPath);
-        System.out.println("Total líneas originales: " + lines.size());
-        System.out.println("Líneas únicas conservadas: " + output.size());
+        System.out.println("Total mensajes únicos: " + uniqueMessages.size());
+    }
+
+    public void removeDuplicatesFromFile(String inputPath, String outputPath) throws IOException {
+        Path input = Paths.get(inputPath);
+        Path output = Paths.get(outputPath);
+
+        Files.createDirectories(output.getParent());
+
+        Set<String> seen = new HashSet<>();
+        int originalLines = 0;
+        int uniqueLines = 0;
+
+        try (BufferedReader reader = Files.newBufferedReader(input);
+             BufferedWriter writer = Files.newBufferedWriter(output, StandardCharsets.UTF_8)) {
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                originalLines++;
+                String processed = preprocess(line);
+                if (seen.add(processed)) {
+                    writer.write(line);
+                    writer.newLine();
+                    uniqueLines++;
+                }
+            }
+        }
+
+        System.out.println("✅ Archivo generado sin duplicados: " + outputPath);
+        System.out.println("Total líneas originales: " + originalLines);
+        System.out.println("Líneas únicas conservadas: " + uniqueLines);
     }
 
     private String preprocess(String text) {

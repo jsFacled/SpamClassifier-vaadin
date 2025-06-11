@@ -1,4 +1,6 @@
-package com.ml.spam.datasetProcessor.utils;
+package com.ml.spam.datasetProcessor.utils.deprecated;
+
+import com.ml.spam.datasetProcessor.utils.DuplicateMessageChecker;
 
 public class CheckAndCleanDuplicatesMain {
 

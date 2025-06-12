@@ -1,8 +1,7 @@
-package com.ml.spam.datasetProcessor;
+package com.ml.spam.datasetProcessor.stageMain;
 
 import com.ml.spam.config.FilePathsConfig;
 import com.ml.spam.datasetProcessor.services.DatasetGeneratorService;
-import com.ml.spam.datasetProcessor.utils.JoinDatasetsMain;
 
 public class DatasetGenerationMain {
 

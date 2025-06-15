@@ -1,4 +1,4 @@
-package com.ml.spam.datasetProcessor.utils;
+package com.ml.spam.datasetProcessor.utils.datasetBuilder;
 
 import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.models.WordCategory;

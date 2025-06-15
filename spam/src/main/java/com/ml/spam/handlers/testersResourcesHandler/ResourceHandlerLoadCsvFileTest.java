@@ -29,7 +29,7 @@ public class ResourceHandlerLoadCsvFileTest {
 
         // Ruta relativa al archivo CSV de prueba
         String testCsvPath = "static/datasets/forDictionaryTest/mensajes_pruebas.csv";
-        String testMmensajesEspañol = "static/datasets/test-mensajesEspañol.csv";
+        String testMmensajesEspañol = "static/datasets/originales/test-mensajesEspañol.csv";
 
         try {
             // Cargar y procesar el archivo CSV

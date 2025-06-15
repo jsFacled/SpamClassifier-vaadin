@@ -1,103 +1,75 @@
 package com.ml.spam.datasetProcessor.utils;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.nio.file.*;
+import java.util.*;
 
-/**
- * Utilidad para combinar múltiples archivos de texto o CSV en un solo archivo.
- */
 public class FileJoiner {
 
-    public enum Format {
-        CSV,
-        TEXT
+    public void joinCsvFiles(List<String> inputPaths, String outputFilePath) throws IOException {
+        Path outputPath = Paths.get(outputFilePath);
+        Path parent = outputPath.getParent();
+        if (parent != null) {
+            Files.createDirectories(parent);
+        }
+
+        try (BufferedWriter writer = Files.newBufferedWriter(outputPath, StandardCharsets.UTF_8)) {
+            for (String pathStr : inputPaths) {
+                Path path = Paths.get(pathStr);
+                if (Files.exists(path)) {
+                    List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
+                    for (String line : lines) {
+                        if (!line.trim().isEmpty()) {
+                            writer.write(line);
+                            writer.newLine();
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    /**
-     * Une los archivos indicados en un único archivo de salida.
-     *
-     * @param inputs  rutas de entrada
-     * @param output  ruta del archivo combinado
-     * @param format  formato de los archivos
-     * @param shuffle si se deben mezclar las líneas antes de exportar
-     */
-    public static void joinFiles(List<Path> inputs, Path output, Format format, boolean shuffle) throws IOException {
-        if (format == Format.CSV) {
-            joinCsvFiles(inputs, output, shuffle);
+    public void joinTextFiles(List<String> inputPaths, String outputFilePath) throws IOException {
+        Path outputPath = Paths.get(outputFilePath);
+        Path parent = outputPath.getParent();
+        if (parent != null) {
+            Files.createDirectories(parent);
+        }
+
+        try (BufferedWriter writer = Files.newBufferedWriter(outputPath, StandardCharsets.UTF_8)) {
+            for (String pathStr : inputPaths) {
+                Path path = Paths.get(pathStr);
+                if (Files.exists(path)) {
+                    List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
+                    StringBuilder currentMessage = new StringBuilder();
+                    boolean insideMessage = false;
+
+                    for (String line : lines) {
+                        line = line.trim();
+                        if (line.startsWith("\"\"\"")) {
+                            insideMessage = true;
+                            currentMessage = new StringBuilder();
+                            currentMessage.append(line);
+                        } else if (line.endsWith("\"\"\"") && insideMessage) {
+                            currentMessage.append(" ").append(line);
+                            writer.write(currentMessage.toString().trim());
+                            writer.newLine();
+                            insideMessage = false;
+                        } else if (insideMessage) {
+                            currentMessage.append(" ").append(line);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void joinFiles(List<String> inputPaths, String outputFilePath, boolean isCsv) throws IOException {
+        if (isCsv) {
+            joinCsvFiles(inputPaths, outputFilePath);
         } else {
-            joinTextFiles(inputs, output, shuffle);
+            joinTextFiles(inputPaths, outputFilePath);
         }
-    }
-
-    private static void joinCsvFiles(List<Path> inputs, Path output, boolean shuffle) throws IOException {
-        List<String[]> allRows = new ArrayList<>();
-        String header = null;
-        int expectedColumns = -1;
-
-        for (Path file : inputs) {
-            if (!Files.exists(file)) {
-                continue;
-            }
-            try (BufferedReader reader = Files.newBufferedReader(file)) {
-                String firstLine = reader.readLine();
-                if (firstLine == null) {
-                    continue;
-                }
-                if (header == null) {
-                    header = firstLine;
-                    expectedColumns = header.split(",").length;
-                } else {
-                    if (firstLine.split(",").length != expectedColumns) {
-                        throw new IllegalArgumentException("Encabezado incompatible en " + file);
-                    }
-                }
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    String[] cols = line.split(",");
-                    if (cols.length != expectedColumns) {
-                        throw new IllegalArgumentException("Fila con columnas incorrectas en " + file + ": " + line);
-                    }
-                    allRows.add(cols);
-                }
-            }
-        }
-
-        if (shuffle) {
-            Collections.shuffle(allRows);
-        }
-
-        Files.createDirectories(output.getParent());
-        try (BufferedWriter writer = Files.newBufferedWriter(output, StandardCharsets.UTF_8)) {
-            if (header != null) {
-                writer.write(header);
-                writer.newLine();
-            }
-            for (String[] row : allRows) {
-                writer.write(String.join(",", row));
-                writer.newLine();
-            }
-        }
-    }
-
-    private static void joinTextFiles(List<Path> inputs, Path output, boolean shuffle) throws IOException {
-        List<String> lines = new ArrayList<>();
-        for (Path file : inputs) {
-            if (!Files.exists(file)) {
-                continue;
-            }
-            lines.addAll(Files.readAllLines(file));
-        }
-        if (shuffle) {
-            Collections.shuffle(lines);
-        }
-        Files.createDirectories(output.getParent());
-        Files.write(output, lines, StandardCharsets.UTF_8);
     }
 }

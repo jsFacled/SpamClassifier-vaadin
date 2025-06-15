@@ -5,7 +5,7 @@ import com.ml.spam.datasetProcessor.models.DatasetRow;
 import com.ml.spam.datasetProcessor.schema.DatasetSchema;
 import com.ml.spam.datasetProcessor.utils.DatasetExporter;
 import com.ml.spam.datasetProcessor.metadata.LexemeWordMetadata;
-import com.ml.spam.datasetProcessor.utils.DatasetRowBuilder;
+import com.ml.spam.datasetProcessor.utils.datasetBuilder.DatasetRowBuilder;
 import com.ml.spam.dictionary.models.WordCategory;
 import com.ml.spam.dictionary.models.WordData;
 import com.ml.spam.dictionary.models.CharSize;

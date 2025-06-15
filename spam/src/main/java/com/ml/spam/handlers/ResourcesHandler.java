@@ -4,10 +4,7 @@ import com.fasterxml.jackson.core.json.JsonWriteFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.ml.spam.dictionary.models.CharSize;
-import com.ml.spam.utils.CsvUtils;
-import com.ml.spam.utils.JsonUtils;
-import com.ml.spam.utils.TextUtils;
-import com.ml.spam.utils.ValidationResult;
+import com.ml.spam.utils.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -246,25 +243,11 @@ public class ResourcesHandler {
 
    // Este método lee mensajes separados por triple comillas (de cualquier tipo)
     public List<String> loadTxtFileAsMessages(String txtFilePath) throws Exception {
-       // Path absolutePath = resolvePath(relativePath);
-      //  String content = Files.readString(Paths.get(txtFilePath));
 
         Path absolutePath = resolvePath(txtFilePath);
         String content = Files.readString(absolutePath);
 
-        List<String> messages = new ArrayList<>();
-
-        // Expresión regular para triple comillas estándar y tipográficas
-        Pattern pattern = Pattern.compile("(?m)^[\"“”]{3}\\s*$([\\s\\S]*?)(?=^[\"“”]{3}\\s*$|\\z)", Pattern.MULTILINE);
-        Matcher matcher = pattern.matcher(content);
-
-        while (matcher.find()) {
-            String message = matcher.group(1).trim();
-            if (!message.isEmpty()) {
-                messages.add(message);
-            }
-        }
-        return messages;
+        return TripleQuoteUtils.extractMessages(content);
     }
 
     ///////////////////////////////////////////////////
@@ -838,19 +821,15 @@ public class ResourcesHandler {
 
             // Leer el contenido del archivo como un String
             String content = Files.readString(absolutePath, StandardCharsets.UTF_8);
-            // Reemplazar comillas tipográficas por comillas rectas
-            content = content.replace("“””", "\"\"\"").replace("“", "\"").replace("”", "\"");
-            // Dividir contenido por las triples comillas
-            int totalMessages=0;
-            String[] blocks = content.split("\"\"\"");
-            for (String block : blocks) {
-                String message = block.trim();
-                if (!message.isEmpty()) {
-                    rows.add(new String[]{message, label});
-                    totalMessages++;
-                }
+
+            int totalMessages = 0;
+            List<String> messages = TripleQuoteUtils.extractMessages(content);
+            for (String message : messages) {
+                rows.add(new String[]{message, label});
+                totalMessages++;
+
             }
-            System.out.println("[INFO * * * In LoadtxtfilaAsRows * * * ] Cantidad de mensajes obtenidos: "+ totalMessages);
+            System.out.println("[INFO * * * In LoadtxtfilaAsRows * * * ] Cantidad de mensajes obtenidos: " + totalMessages);
         } catch (Exception e) {
             throw new RuntimeException("Error al leer el archivo TXT: " + txtFilePath, e);
         }

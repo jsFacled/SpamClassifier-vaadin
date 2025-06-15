@@ -129,8 +129,11 @@ public class DuplicateMessageChecker {
     public void removeDuplicatesFromFile(String inputPath, String outputPath) throws IOException {
         Path input = Paths.get(inputPath);
         Path output = Paths.get(outputPath);
+        Path parent = output.getParent();
+        if (parent != null) {
+            Files.createDirectories(parent);
+        }
 
-        Files.createDirectories(output.getParent());
 
         Set<String> seen = new HashSet<>();
         int originalLines = 0;

@@ -2,6 +2,7 @@ package com.ml.spam.datasetProcessor.utils.deprecated;
 
 import com.ml.spam.datasetProcessor.utils.DuplicateMessageChecker;
 
+@Deprecated
 public class CheckAndCleanDuplicatesMain {
 
     public static void main(String[] args) throws Exception {

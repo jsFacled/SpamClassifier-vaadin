@@ -1,6 +1,5 @@
 package com.ml.spam.datasetProcessor.stageMain;
 
-
 import com.ml.spam.datasetProcessor.utils.FileJoiner;
 
 import java.nio.file.Path;
@@ -20,21 +19,21 @@ public class JoinCsvFilesMain {
                 "spam/src/main/resources/static/mlDatasets/generated_dataset_test.csv"
         };
         String outputArg;
-        List<Path> inputs = new ArrayList<>();
+        List<String> inputs = new ArrayList<>();
         if (args.length >= 2) {
             for (int i = 0; i < args.length - 1; i++) {
-                inputs.add(Paths.get(args[i]));
+                inputs.add(args[i]);
             }
             outputArg = args[args.length - 1];
         } else {
             for (String d : defaults) {
-                inputs.add(Paths.get(d));
+                inputs.add(d);
             }
             outputArg = "combined_dataset.csv";
         }
 
-        Path output = Paths.get(outputArg);
-        FileJoiner.joinFiles(inputs, output, FileJoiner.Format.CSV, true);
-        System.out.println("✅ CSV combinado generado en: " + output);
+        FileJoiner joiner = new FileJoiner(); // 👉 Instancia de FileJoiner
+        joiner.joinFiles(inputs, outputArg, true); // 👉 Llamada al método de instancia
+        System.out.println("✅ CSV combinado generado en: " + outputArg);
     }
 }

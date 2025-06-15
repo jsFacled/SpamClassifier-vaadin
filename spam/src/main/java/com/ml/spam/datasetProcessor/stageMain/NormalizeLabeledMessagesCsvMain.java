@@ -9,14 +9,17 @@ import java.nio.file.Paths;
 import java.util.List;
 
 /**
- * Normaliza un archivo CSV de mensajes con etiqueta,
- * elimina duplicados y exporta el resultado a disco.
+ * Normaliza un CSV donde cada línea contiene un mensaje y su etiqueta.
+ * Permite pasar rutas de entrada y salida como argumentos.
  */
-public class NormalizeCsvMain {
+public class NormalizeLabeledMessagesCsvMain {
+    private static final String inputPath = "spam/src/main/resources/static/datasets/joined/joined_messages_label.csv";
 
     public static void main(String[] args) throws Exception {
-        String inputArg = args.length > 0 ? args[0] : "spam/src/main/resources/static/datasets/joined/joined_messages_label.csv";
-        String outputArg = args.length > 1 ? args[1] : "joined_messages_labels_normalized_unique.txt";
+        String inputArg = args.length > 0 ? args[0]
+                : inputPath;
+        String outputArg = args.length > 1 ? args[1]
+                : "joined_messages_labels_normalized_unique.txt";
 
         Path input = Paths.get(inputArg);
         Path output = Paths.get(outputArg);
@@ -28,7 +31,8 @@ public class NormalizeCsvMain {
         service.exportToFile(normalized, temp);
 
         DuplicateMessageChecker checker = new DuplicateMessageChecker();
-        checker.removeDuplicates(temp.toString(), output.toString(), DuplicateMessageChecker.InputFormat.LINE_BY_LINE);
+        checker.removeDuplicates(temp.toString(), output.toString(),
+                DuplicateMessageChecker.InputFormat.LINE_BY_LINE);
 
         Files.deleteIfExists(temp);
         System.out.println("✅ Archivo generado: " + output);

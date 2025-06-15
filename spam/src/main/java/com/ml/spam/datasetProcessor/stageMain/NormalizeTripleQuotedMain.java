@@ -19,8 +19,13 @@ public class NormalizeTripleQuotedMain {
     public static void main(String[] args) throws Exception {
         // Rutas por defecto para facilitar la ejecución directa
         String inputArg = args.length > 0 ? args[0] : "spam/src/main/resources/static/datasets/joined/joined_messages_triplecomillas_spam.txt";
-        String outputArg = args.length > 1 ? args[1] : "joined_messages_triplecomillas_spam_normalized.txt";
         String labelArg = args.length > 2 ? args[2] : "spam";
+        String outputArg = args.length > 1 ? args[1] : "joined_messages_triplecomillas_spam_normalized.txt";
+
+        // Alternativa para ham (comentar/descomentar si es necesario)
+        // String inputArg = args.length > 0 ? args[0] : "spam/src/main/resources/static/datasets/joined/joined_messages_triplecomillas_ham.txt";
+        // String labelArg = args.length > 2 ? args[2] : "ham";
+        // String outputArg = args.length > 1 ? args[1] : "joined_messages_triplecomillas_ham_normalized.txt";
 
         Path input = Paths.get(inputArg);
         Path output = Paths.get(outputArg);

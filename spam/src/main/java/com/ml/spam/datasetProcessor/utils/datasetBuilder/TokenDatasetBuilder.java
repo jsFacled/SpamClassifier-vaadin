@@ -1,4 +1,4 @@
-package com.ml.spam.datasetProcessor.utils;
+package com.ml.spam.datasetProcessor.utils.datasetBuilder;
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;

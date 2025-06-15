@@ -1,4 +1,4 @@
-package com.ml.spam.datasetProcessor.utils;
+package com.ml.spam.datasetProcessor.utils.datasetBuilder;
 
 import com.ml.spam.datasetProcessor.metadata.LexemeWordMetadata;
 import com.ml.spam.datasetProcessor.models.DatasetColumnName;

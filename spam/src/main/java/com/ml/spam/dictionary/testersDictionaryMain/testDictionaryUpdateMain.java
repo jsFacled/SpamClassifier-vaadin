@@ -9,7 +9,7 @@ import java.util.List;
 
 public class testDictionaryUpdateMain {
 
-    private static final String testMessagesFilePath = FilePathsConfig.PRUEBA_CSV_DATA_PATH;
+    private static final String testMessagesFilePath = FilePathsConfig.TRIAL_MESSAGES_LABELED_CSV_DATA_PATH;
 
     public static void main(String[] args) throws IOException {
         SpamDictionaryService service = new SpamDictionaryService();

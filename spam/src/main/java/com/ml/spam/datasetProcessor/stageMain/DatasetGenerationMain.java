@@ -5,7 +5,7 @@ import com.ml.spam.datasetProcessor.services.DatasetGeneratorService;
 public class DatasetGenerationMain {
 
     private static final String updatedCatWordsPath = "static/dictionary/categorizedWords/finalCategorizedWords/finalCategorizedWords.json";
-    private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+    private static final String lexemePath = FilePathsConfig.DICTIONARY_LEXEMES_REPOSITORY_JSON_PATH;
     private static final String metadataPath = FilePathsConfig.DICTIONARY_METADATA_JSON_PATH;
     private static final String lexemeMetadataPath = "static/dictionary/lexemesRepository/lexeme_words_detailed.json";
 

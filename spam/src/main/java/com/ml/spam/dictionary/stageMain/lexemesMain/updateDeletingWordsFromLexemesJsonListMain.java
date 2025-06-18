@@ -6,7 +6,7 @@ import com.ml.spam.handlers.ResourcesHandler;
 
 public class updateDeletingWordsFromLexemesJsonListMain {
     public static void main(String[] args) {
-        String lexemeRepositoryPath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+        String lexemeRepositoryPath = FilePathsConfig.DICTIONARY_LEXEMES_REPOSITORY_JSON_PATH;
         String lexemeRepositoryPathTest = "static/dictionary/temporary/structured_lexemes_repository_test.json";
 
         String wordsToDeleteJsonPath = "static/dictionary/wordsToDeleteInLexemeFromLexemesRespository.json";

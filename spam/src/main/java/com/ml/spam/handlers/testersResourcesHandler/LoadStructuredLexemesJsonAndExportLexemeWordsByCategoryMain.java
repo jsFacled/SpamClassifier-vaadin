@@ -8,8 +8,8 @@ public class LoadStructuredLexemesJsonAndExportLexemeWordsByCategoryMain {
 
     public static void main(String[] args) {
         ResourcesHandler handler = new ResourcesHandler();
-        String inputFilePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
-        String outputFilePath = FilePathsConfig.LEXEME_WORDS_BY_CATEGORY_JSON_PATH;
+        String inputFilePath = FilePathsConfig.DICTIONARY_LEXEMES_REPOSITORY_JSON_PATH;
+        String outputFilePath = FilePathsConfig.DICTIONARY_LEXEME_WORDS_BY_CATEGORY_JSON_PATH;
 
         // Leer y validar el archivo JSON
         ValidationResult validationResult = handler.validateAndProcessStructuredLexemes(inputFilePath);

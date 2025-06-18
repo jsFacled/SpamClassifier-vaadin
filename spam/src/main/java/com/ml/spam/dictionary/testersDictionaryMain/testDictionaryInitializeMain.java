@@ -7,8 +7,8 @@ import com.ml.spam.utils.JsonDebugHelper;
 
 public class testDictionaryInitializeMain {
 
-    private static final String catWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
-    private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+    private static final String catWordsPath = FilePathsConfig.DICTIONARY_CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
+    private static final String lexemePath = FilePathsConfig.DICTIONARY_LEXEMES_REPOSITORY_JSON_PATH;
     public static void main(String[] args) {
         SpamDictionaryService service = new SpamDictionaryService();
         JsonDebugHelper jsonDebugHelper = new JsonDebugHelper();

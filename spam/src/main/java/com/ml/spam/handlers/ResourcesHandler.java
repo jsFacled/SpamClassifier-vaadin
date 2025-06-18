@@ -829,8 +829,7 @@ public class ResourcesHandler {
                 totalMessages++;
 
             }
-            System.out.println("[INFO * * * In LoadtxtfilaAsRows * * * ] Cantidad de mensajes obtenidos: " + totalMessages);
-        } catch (Exception e) {
+              } catch (Exception e) {
             throw new RuntimeException("Error al leer el archivo TXT: " + txtFilePath, e);
         }
         return rows;

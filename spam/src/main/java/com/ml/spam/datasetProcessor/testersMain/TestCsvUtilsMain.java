@@ -24,7 +24,7 @@ public class TestCsvUtilsMain {
      * Prueba directa de CsvUtils.
      */
     private static void testCsvUtilsDirectly() {
-        String resourcePath = "static/datasets/forDictionaryTest/mensajes_pruebas.csv";
+        String resourcePath = "static/datasets/trialMessages/mensajes_pruebas_labeled.csv";
 
         try {
             URL resourceUrl = TestCsvUtilsMain.class.getClassLoader().getResource(resourcePath);
@@ -47,7 +47,7 @@ public class TestCsvUtilsMain {
      * Prueba a través del ResourcesHandler para cargar el archivo y procesarlo.
      */
     private static void testResourcesHandler() {
-        String relativePath = FilePathsConfig.PRUEBA_CSV_DATA_PATH;
+        String relativePath = FilePathsConfig.TRIAL_MESSAGES_LABELED_CSV_DATA_PATH;
 
         try {
             ResourcesHandler handler = new ResourcesHandler();

@@ -10,10 +10,10 @@ import java.io.IOException;
 
 public class DictionaryZeroInitializationAndUpdateMain {
 
-    private static final String newCatWordsFreqZeroPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
-    private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
-    private static final String testMessagesFilePath = FilePathsConfig.TEST_MESSAGES_CSV_ESPAÑOL_DATA_PATH;
-    private static final String baseOutputPath = FilePathsConfig.BASE_OUTPUT_JSON_PATH;
+    private static final String newCatWordsFreqZeroPath = FilePathsConfig.DICTIONARY_CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
+    private static final String lexemePath = FilePathsConfig.DICTIONARY_LEXEMES_REPOSITORY_JSON_PATH;
+    private static final String testMessagesFilePath = FilePathsConfig.MODEL_ORIGINAL_TEST_MESSAGES_CSV_ESPAÑOL_DATA_PATH;
+    private static final String baseOutputPath = FilePathsConfig.DICTIONARY_OUTPUT_BASE_JSON_PATH;
 
     public static void main(String[] args) throws IOException {
         long startUpdate = System.nanoTime();

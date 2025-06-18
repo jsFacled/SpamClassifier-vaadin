@@ -11,7 +11,7 @@ import java.util.Set;
 public class initializeLexemesTest {
 
 
-      private static final String lexemesRepositoryJsonPath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+      private static final String lexemesRepositoryJsonPath = FilePathsConfig.DICTIONARY_LEXEMES_REPOSITORY_JSON_PATH;
         public static void main(String[] args) {
             SpamDictionaryService service = new SpamDictionaryService();
 

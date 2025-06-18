@@ -1,7 +1,6 @@
 package com.ml.spam.datasetProcessor.testersMain;
 
 import com.ml.spam.config.FilePathsConfig;
-import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.models.WordData;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
 import com.ml.spam.datasetProcessor.MessageProcessor;
@@ -9,12 +8,11 @@ import com.ml.spam.datasetProcessor.MessageProcessor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 public class TestProcessToWordDataTest {
 
-    private static final String catWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
-   private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+    private static final String catWordsPath = FilePathsConfig.DICTIONARY_CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
+   private static final String lexemePath = FilePathsConfig.DICTIONARY_LEXEMES_REPOSITORY_JSON_PATH;
 
 
     public static void main(String[] args) {

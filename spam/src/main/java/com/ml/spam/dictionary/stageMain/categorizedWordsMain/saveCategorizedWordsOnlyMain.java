@@ -5,7 +5,7 @@ import com.ml.spam.dictionary.service.SpamDictionaryService;
 
 public class saveCategorizedWordsOnlyMain {
     private static final String categorizedWordsPath = "static/dictionary/categorizedWords/updatedCategorizedWords_2.json";
-    private static final String updatedCatWordsOnlyBasePathForExport = FilePathsConfig.CATEGORIZED_WORDS_ONLY_BASE_JSON_PATH;
+    private static final String updatedCatWordsOnlyBasePathForExport = FilePathsConfig.DICTIONARY_CATEGORIZED_WORDS_ONLY_BASE_JSON_PATH;
 
 
 

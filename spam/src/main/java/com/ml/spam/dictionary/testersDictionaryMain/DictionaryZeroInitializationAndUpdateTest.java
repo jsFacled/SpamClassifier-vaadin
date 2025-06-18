@@ -7,10 +7,10 @@ import com.ml.spam.dictionary.service.SpamDictionaryService;
 import java.io.IOException;
 
 public class DictionaryZeroInitializationAndUpdateTest {
-    private static final String catWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
-    private static final String lexemesPath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+    private static final String catWordsPath = FilePathsConfig.DICTIONARY_CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
+    private static final String lexemesPath = FilePathsConfig.DICTIONARY_LEXEMES_REPOSITORY_JSON_PATH;
 
-private static final String pruebaMessagesFilePath = FilePathsConfig.PRUEBA_CSV_DATA_PATH;
+private static final String pruebaMessagesFilePath = FilePathsConfig.TRIAL_MESSAGES_LABELED_CSV_DATA_PATH;
 
 
    public static void main(String[] args) throws IOException {

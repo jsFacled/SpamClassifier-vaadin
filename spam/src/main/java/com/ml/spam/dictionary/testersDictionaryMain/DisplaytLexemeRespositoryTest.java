@@ -1,7 +1,6 @@
 package com.ml.spam.dictionary.testersDictionaryMain;
 
 import com.ml.spam.config.FilePathsConfig;
-import com.ml.spam.dictionary.models.SpamDictionary;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
 
 import java.io.IOException;
@@ -11,9 +10,9 @@ import java.nio.file.Paths;
 
 public class DisplaytLexemeRespositoryTest {
 
-static String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+static String lexemePath = FilePathsConfig.DICTIONARY_LEXEMES_REPOSITORY_JSON_PATH;
 static String lexemePathSinResolve = "spam/src/main/resources/static/dictionary/lexemes_repository.json";
-static String catwords = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
+static String catwords = FilePathsConfig.DICTIONARY_CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
 
         public static void main(String[] args) {
             System.out.println("=== Inicializando Diccionario Completo ===");

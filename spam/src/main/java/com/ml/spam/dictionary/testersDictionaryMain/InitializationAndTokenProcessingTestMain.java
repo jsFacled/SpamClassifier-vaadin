@@ -13,10 +13,10 @@ import java.util.List;
 //Es el primer update que recibe el diccionario.
 public class InitializationAndTokenProcessingTestMain {
 
-    private static final String catWordsPath = FilePathsConfig.CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
-   private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+    private static final String catWordsPath = FilePathsConfig.DICTIONARY_CATEGORIZED_WORDS_FREQUENCIES_ZERO_JSON_PATH;
+   private static final String lexemePath = FilePathsConfig.DICTIONARY_LEXEMES_REPOSITORY_JSON_PATH;
 
-    private static final String testMessagesFilePath = FilePathsConfig.PRUEBA_CSV_DATA_PATH;
+    private static final String testMessagesFilePath = FilePathsConfig.TRIAL_MESSAGES_LABELED_CSV_DATA_PATH;
 
     public static void main(String[] args) {
         try {

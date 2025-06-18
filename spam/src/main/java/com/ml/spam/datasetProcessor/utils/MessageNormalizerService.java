@@ -20,7 +20,8 @@ public class MessageNormalizerService {
     /**
      * Normaliza un archivo con mensajes encerrados entre triple comillas y agrega
      * la etiqueta indicada a cada mensaje.
-     *
+     * Resultado: mensaje,label.
+     * 
      * @param input ruta de entrada
      * @param label etiqueta a añadir (spam o ham)
      * @return lista de mensajes únicos ya etiquetados

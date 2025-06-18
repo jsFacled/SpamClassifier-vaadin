@@ -11,10 +11,10 @@ public class UpdateDictionaryFromTripleQuotesTxtMain {
     //private static final String inputTxtFilePath = "static/datasets/joined/joined_messages_triplecomillas_ham.txtxt";
     private static final String inputTxtFilePath = "static/datasets/joined/joined_messages_triplecomillas_spam.txt";
 
-    private static final String baseOutputPath = FilePathsConfig.BASE_OUTPUT_JSON_PATH;
+    private static final String baseOutputPath = FilePathsConfig.DICTIONARY_OUTPUT_BASE_JSON_PATH;
 
     private static final String updatedCatWordsPath = "static/dictionary/categorizedWords/updatedCategorizedWords_1.json";
-    private static final String lexemePath = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+    private static final String lexemePath = FilePathsConfig.DICTIONARY_LEXEMES_REPOSITORY_JSON_PATH;
     private static final String dictionaryMetadataJsonPath = FilePathsConfig.DICTIONARY_METADATA_JSON_PATH;
     private static final String dictionaryMetadataJsonPath2 = "F:\\JAVA GENERAL\\MACHINE LEARNING JAVA\\Código-ejemplos-intellij\\Clasificador Spam\\SpamClassifier-vaadin\\spam\\src\\main\\resources\\static\\dictionary\\categorizedWords\\dictionary_metadata_1.json";
 

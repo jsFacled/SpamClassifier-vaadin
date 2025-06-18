@@ -15,7 +15,7 @@ import java.util.*;
  */
 public class DeleteWordsFromLexemeRepositoryMain {
 
-  //private static final String LEXEMES_REPOSITORY_PATH = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+  //private static final String LEXEMES_REPOSITORY_PATH = FilePathsConfig.DICTIONARY_LEXEMES_REPOSITORY_JSON_PATH;
     private static final String LEXEMES_REPOSITORY_PATH = "static/dictionary/temporary/structured_lexemes_repository_test.json";
 
     private static final String WORDS_TO_DELETE_PATH = "static/dictionary/wordsToDeleteInLexemeFromLexemesRepository.json";

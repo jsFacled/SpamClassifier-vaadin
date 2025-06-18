@@ -1,11 +1,10 @@
 package com.ml.spam.dictionary.testersDictionaryMain;
 import com.ml.spam.config.FilePathsConfig;
-import com.ml.spam.dictionary.reports.DictionarySummaryReport;
 import com.ml.spam.dictionary.service.SpamDictionaryService;
 
 public class InitializeCategorizedWordsTest {
 
-    private static final String categorizedWordsJsonPath = FilePathsConfig.CATEGORIZED_WORDS_BASE_JSON_PATH;
+    private static final String categorizedWordsJsonPath = FilePathsConfig.DICTIONARY_CATEGORIZED_WORDS_BASE_JSON_PATH;
 
     public static void main(String[] args) {
         SpamDictionaryService service = new SpamDictionaryService();

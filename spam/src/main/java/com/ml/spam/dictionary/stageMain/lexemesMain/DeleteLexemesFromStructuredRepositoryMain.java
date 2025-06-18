@@ -13,7 +13,7 @@ import java.util.*;
 
 public class DeleteLexemesFromStructuredRepositoryMain {
 
-    private static final String STRUCTURED_REPO_PATH = FilePathsConfig.LEXEMES_REPOSITORY_JSON_PATH;
+    private static final String STRUCTURED_REPO_PATH = FilePathsConfig.DICTIONARY_LEXEMES_REPOSITORY_JSON_PATH;
     private static final String LEXEMES_TO_DELETE_PATH = "static/dictionary/temporary/lexemes_to_eliminate.json";
     private static final String OUTPUT_REPORT_PATH = "static/dictionary/temporary/deleted_lexemes_report.json";
 

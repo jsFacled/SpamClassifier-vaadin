@@ -1,0 +1,26 @@
+-Juntar mensajes triple comillas: se obtienen 2 archivos txt (spam, ham).
+-Juntar labeled mensajes: se obtiene 1 archivo csv.
+
+-Normalizar mensajes con triple comillas quedando en una sola fila.
+El resultado son 2 archivos txt: spam, ham.
+-Normalizar mensajes labeled txt.
+
+El resultado final serán 3 archivos:
+a) Mensajes labeled Normalizados.
+b) Mensajes triplecomillas Normalizados con label spam.
+c) Mensajes triplecomillas Normalizados con label ham.
+
+Normalizados implica:
+    * Una fila por mensaje + label
+    * Eliminar duplicados
+    * Se quitan las comillas que encierran mensajes
+
+-Juntar los 3 archivos
+El resultado es un archivo csv.
+
+-Normalizar el archivo full joined.
+El resultado es un archivo Full Normalized joined.
+
+-Quitar label y guardar el orden para agregarlo luego de tokenizar con SecuencePieces.
+El resultado es un archivo Full Normalized joined sin Label.
+

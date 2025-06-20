@@ -16,7 +16,7 @@ public class DatasetGenerationMain {
 
             // El archivo CSV ya reúne todos los mensajes normalizados y etiquetados
             String inputCsv = "static/datasets/joined/joined_messages_label.csv";
-            String outputCsv = "static/mlDatasets/mix_combined_full_dataset.csv";
+            String outputCsv = "static/mlDatasets/mix_combined_full_dataset_from_Dictionary.csv";
 
             generator.generateDatasetFromCorpus(
                     updatedCatWordsPath,

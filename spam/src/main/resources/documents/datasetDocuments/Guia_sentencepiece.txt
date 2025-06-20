@@ -1,0 +1,50 @@
+# Guía rápida: uso de SentencePiece
+
+Estos pasos resumen cómo entrenar un modelo de tokenización y tokenizar el corpus desde la línea de comandos.
+
+1. **Preprocesamiento**
+   - Asegúrate de tener un archivo `Full Normalized joined` sin etiqueta.
+   Si parte de un CSV etiquetado, puedes ejecutar:
+
+     ```
+     mvn -q -f spam/pom.xml compile
+     java -cp "spam/target/classes" com.ml.spam.datasetProcessor.stageMain.RemoveLabelsMain joined_messages_labels_normalized_unique.txt joined_messages_labels_normalized_NoLabel.txt
+     ```
+
+   - Conserva también el archivo `labels.csv` para añadir la etiqueta más adelante.
+
+2. **Entrenar el modelo con SentencePiece**
+   - Instala la librería `sentencepiece` en Python (si no la tienes):
+
+     ```
+     pip install sentencepiece
+     ```
+
+   - Ejecuta el script de entrenamiento:
+
+     ```
+     python spam/src/main/resources/tokenizer/entrenar_tokenizador.py
+     ```
+
+     Esto generará `spam_tokenizer.model` y `spam_tokenizer.vocab`.
+
+3. **Tokenizar el corpus**
+   - Con el modelo entrenado, tokeniza las mismas líneas del corpus:
+
+     ```
+     python spam/src/main/resources/tokenizer/tokenizar_spam.py
+     ```
+
+     Obtendrás `tokens_spam.txt` (o `corpus_ids.txt` en la variante Java).
+
+4. **Opción Java para tokenizar**
+   - Puedes realizar la tokenización usando la clase `SentencePieceTokenizeMain`:
+
+     ```
+     mvn -q -f spam/pom.xml package
+     java -cp "spam/target/classes" com.ml.spam.datasetProcessor.stageMain.SentencePieceTokenizeMain spam_tokenizer.model joined_messages_labels_normalized_NoLabel.txt corpus_ids.txt
+     ```
+
+5. **Siguientes pasos**
+   - Sigue las indicaciones del documento "Pasos en tratamiento de Messages_Dataset_Final a Tensores float con Label"
+    para convertir `corpus_ids.txt` en `dataset_ready.csv` con padding y la etiqueta correspondiente.

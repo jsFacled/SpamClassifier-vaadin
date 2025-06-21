@@ -1,5 +1,6 @@
 package com.ml.spam.datasetProcessor.stageMain;
 
+import com.ml.spam.config.FilePathsConfig;
 import com.ml.spam.datasetProcessor.utils.FileJoiner;
 
 import java.util.ArrayList;
@@ -13,10 +14,10 @@ public class JoinTextFilesMain {
     public static void main(String[] args) throws Exception {
         // Archivos de entrada por defecto
         String[] defaults = {
-                "F:\\JAVA GENERAL\\MACHINE LEARNING JAVA\\Código-ejemplos-intellij\\Clasificador Spam\\SpamClassifier-vaadin\\joined_messages_labels_normalized_unique.txt",
-                "F:\\JAVA GENERAL\\MACHINE LEARNING JAVA\\Código-ejemplos-intellij\\Clasificador Spam\\SpamClassifier-vaadin\\joined_messages_triplecomillas_ham_normalized.txt",
-                "F:\\JAVA GENERAL\\MACHINE LEARNING JAVA\\Código-ejemplos-intellij\\Clasificador Spam\\SpamClassifier-vaadin\\joined_messages_triplecomillas_spam_normalized.txt"
-        };
+                FilePathsConfig.MODEL_ORIGINAL_CORREOS_SPAM_FAC_TXT_PATH,
+                FilePathsConfig.IA_GENERATED_TRIPLECUOTES_SPAM_PATH
+
+                 };
         String outputArg;
         List<String> inputs = new ArrayList<>();
         if (args.length >= 2) {
@@ -28,7 +29,7 @@ public class JoinTextFilesMain {
             for (String d : defaults) {
                 inputs.add(d);
             }
-            outputArg = "combined_full_messages.txt";
+            outputArg =FilePathsConfig.COMBINED_SPAM_TRIPLE_QUOTES_OUTPUT_PATH;
         }
 
         FileJoiner joiner = new FileJoiner(); // ✅ Instancia

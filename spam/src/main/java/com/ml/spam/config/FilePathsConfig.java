@@ -27,6 +27,10 @@ public class FilePathsConfig {
     public static final String MODEL_ORIGINAL_CLEANED_TRAIN_MESSAGES_CSV_PATH = "static/datasets/originales/train-mensajesEspañol_cleaned.csv";
     public static final String MODEL_ORIGINAL_CORREOS_SPAM_FAC_TXT_PATH = "static/datasets/originales/correos-spam-fac.txt";
 
+    // Combinación específica: solo mensajes spam entre triple comillas
+    public static final String COMBINED_SPAM_TRIPLE_QUOTES_OUTPUT_PATH = "combined_spam_triple_quotes.txt";
+
+
 // --- Rutas para Pruebas de Código / Desarrollo (src/main/resources/static/datasets) ---
 
     public static final String TRIAL_MESSAGES_LABELED_CSV_DATA_PATH = "static/datasets/trialMessages/mensajes_pruebas_labeled.csv";

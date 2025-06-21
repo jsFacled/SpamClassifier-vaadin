@@ -19,7 +19,7 @@ public class ShowTripleQuotedMessagesMain {
 
         try {
             ResourcesHandler handler = new ResourcesHandler();
-            List<String> mensajes = handler.loadTripleQuotedTxtFileAsMessages(relativeIATriplecomillasPath);
+            List<String> mensajes = handler.loadTripleQuotedTxtFileAsMessages(relativeOriginalTriplecomillasPath);
 
             System.out.println("\n=== Mensajes extraídos del archivo ===\n");
             int count = 1;

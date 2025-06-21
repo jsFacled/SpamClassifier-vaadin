@@ -2702,6 +2702,7 @@ No me contactes ni intentes negociar. Solo paga.
 Atentamente,
 El Vigilante
 """
+
 """
 De: Seguridad Electrónica <alertas@ciberproteccion.net>
 Para: cuenta@usuario.com
@@ -5063,7 +5064,7 @@ Todos tus datos personales serán eliminados si no realizas el pago de $9,500 en
 Banco: Corporación Financiera Segura Cuenta: XXXX-XXXX-XXXX-6543
 
 No ignores este mensaje.
-""
+"""
 
 """
  De: Alertas de Riesgo <seguridad@redcorporativa.net> Para: [Destinatario desconocido] Fecha: lunes, 27 de octubre de 2025, 18:10 Asunto: Pago urgente requerido por actividad fraudulenta

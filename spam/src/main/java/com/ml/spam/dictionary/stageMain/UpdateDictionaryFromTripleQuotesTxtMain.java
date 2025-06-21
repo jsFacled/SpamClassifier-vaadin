@@ -7,7 +7,7 @@ import com.ml.spam.dictionary.service.SpamDictionaryService;
 
 public class UpdateDictionaryFromTripleQuotesTxtMain {
 
-   // private static final String inputTxtFilePath = "static/datasets/correos-spam-fac.txt";
+   // private static final String inputTxtFilePath = "static/datasets/correos-spam-fac-79m.txt";
     //private static final String inputTxtFilePath = "static/datasets/joined/joined_messages_triplecomillas_ham.txtxt";
     private static final String inputTxtFilePath = "static/datasets/joined/joined_messages_triplecomillas_spam.txt";
 

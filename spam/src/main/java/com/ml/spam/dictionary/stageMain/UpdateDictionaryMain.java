@@ -15,7 +15,7 @@ public class UpdateDictionaryMain {
 
     private static final String updatedCatWordsPath = "static/dictionary/categorizedWords/updatedCategorizedWords.json";;
     private static final String lexemePath = FilePathsConfig.DICTIONARY_LEXEMES_REPOSITORY_JSON_PATH;
-    private static final String cleanedTrainMessagesPath = FilePathsConfig.MODEL_ORIGINAL_CLEANED_TRAIN_MESSAGES_CSV_PATH;
+    private static final String cleanedTrainMessagesPath = FilePathsConfig.MODEL_ORIGINAL_TRAIN_MESSAGES_CSV_ESPAÑOL_PATH;
 
     private static final String inputMessagesCsvPath = "static/datasets/joined/joined_messages_label.csv";
 

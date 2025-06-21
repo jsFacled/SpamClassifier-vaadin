@@ -12,14 +12,15 @@ public class ShowTripleQuotedMessagesMain {
 
     public static void main(String[] args) {
        String relativeOriginalTriplecomillasPath = args.length > 0 ? args[0] : FilePathsConfig.MODEL_ORIGINAL_CORREOS_SPAM_FAC_TXT_PATH;
-        String relativeIATriplecomillasPath = args.length > 0 ? args[0] : FilePathsConfig.IA_GENERATED_TRIPLECUOTES_SPAM_PATH;
+        String relativeIATriplecomillasSpamPath = args.length > 0 ? args[0] : FilePathsConfig.IA_GENERATED_TRIPLECUOTES_SPAM_PATH;
+        String relativeIATriplecomillasHamPath = args.length > 0 ? args[0] : FilePathsConfig.IA_GENERATED_TRIPLECUOTES_HAM_PATH;
 
         //Para realizar pruebas
         String relativePathTrial = args.length > 0 ? args[0] : FilePathsConfig.TRIAL_MESSAGES_TIPLECUOTES_Y_SIMPLECUOTE_PATH;
 
         try {
             ResourcesHandler handler = new ResourcesHandler();
-            List<String> mensajes = handler.loadTripleQuotedTxtFileAsMessages(relativeOriginalTriplecomillasPath);
+            List<String> mensajes = handler.loadTripleQuotedTxtFileAsMessages(relativeIATriplecomillasHamPath);
 
             System.out.println("\n=== Mensajes extraídos del archivo ===\n");
             int count = 1;

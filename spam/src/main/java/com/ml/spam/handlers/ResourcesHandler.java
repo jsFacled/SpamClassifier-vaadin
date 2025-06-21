@@ -248,6 +248,41 @@ public class ResourcesHandler {
         return TripleQuoteUtils.extractMessages(content);
     }
 
+
+    /* Este métod lee mensajes de un txt que están en una única fila, con label spam/ham.
+        * El mensaje puede estar encerrado entre comillas o sin ellas:
+            * Con comillas: "Mensaje en comillas",ham
+            * Sin comillas: Mensaje sin comillas,spam
+    */
+    public List<String[]> loadQuotedOrPlainLabeledTxtFileAsMessages(String txtFilePath) {
+        List<String[]> rows = new ArrayList<>();
+        try {
+            Path absolutePath = resolvePath(txtFilePath);
+            List<String> lines = Files.readAllLines(absolutePath, StandardCharsets.UTF_8);
+
+            for (String line : lines) {
+                int lastCommaIndex = line.lastIndexOf(',');
+                if (lastCommaIndex == -1) continue;
+
+                String rawMessage = line.substring(0, lastCommaIndex).trim();
+                String label = line.substring(lastCommaIndex + 1).trim();
+
+                // Elimina comillas si están presentes
+                if ((rawMessage.startsWith("\"") && rawMessage.endsWith("\"")) ||
+                        (rawMessage.startsWith("“") && rawMessage.endsWith("”"))) {
+                    rawMessage = rawMessage.substring(1, rawMessage.length() - 1).trim();
+                }
+
+                if (!rawMessage.isEmpty() && (label.equals("spam") || label.equals("ham"))) {
+                    rows.add(new String[]{rawMessage, label});
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Error leyendo archivo: " + txtFilePath, e);
+        }
+        return rows;
+    }
+
     ///////////////////////////////////////////////////
     public void saveJson(JSONObject jsonObject, String relativePath) {
         try {

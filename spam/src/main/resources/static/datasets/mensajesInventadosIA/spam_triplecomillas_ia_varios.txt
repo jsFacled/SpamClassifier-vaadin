@@ -4452,7 +4452,7 @@ Nadie cree lo que vi, pero sé que tú lo harás. Hay una grabación en un disco
 """
 
 
- """
+"""
   De: Control Sombra <alerta@sombras.net> Para: Martín Salgado <periodista@confidencial.com> Fecha: lunes, 12 de mayo de 2025, 14:03 Asunto: Tu tiempo se acaba.
 
 Hemos visto tus movimientos. Sabemos lo que intentas hacer. Si valoras tu vida, olvida el caso y desaparece. No hay segundas oportunidades.
@@ -4639,7 +4639,7 @@ De: Justicia Oculta <orden@seguridad.net> Para: [Destinatario desconocido] Fecha
 Tu nombre aparece en una investigación activa de fraude financiero. Si no realizas el depósito de $5,000 antes de las próximas 24 horas, se emitirán órdenes de arresto.
 
 Haz la transferencia aquí: [enlace falso] No ignores este mensaje. Es tu única oportunidad.
- """
+"""
 
 """
 De: Círculo Cerrado <bloqueo@seguridadprivada.net> Para: [Destinatario desconocido] Fecha: viernes, 25 de julio de 2025, 03:40 Asunto: Hemos visto lo que hiciste.
@@ -4647,7 +4647,7 @@ De: Círculo Cerrado <bloqueo@seguridadprivada.net> Para: [Destinatario desconoc
 Tus movimientos han sido rastreados. Tenemos pruebas que pueden arruinarte. Si no pagas $9,000 en las próximas 36 horas, enviaremos el material a la policía y tus contactos.
 
 No creas que esto es una advertencia. Es una sentencia.
- """
+"""
 
 """
 De: Secuencia 47-X <control@agenciaseguridad.net> Para: [Destinatario desconocido] Fecha: domingo, 27 de julio de 2025, 10:55 Asunto: Tu cuenta ha sido intervenida.
@@ -4655,7 +4655,7 @@ De: Secuencia 47-X <control@agenciaseguridad.net> Para: [Destinatario desconocid
 Nuestro sistema ha detectado actividad sospechosa vinculada a Martín Salgado. Por seguridad, requerimos un pago de $4,500 para desbloquear todas las cuentas antes de que sean cerradas permanentemente.
 
 Accede al pago ahora: [enlace falso] No hay segundas oportunidades.
- """
+"""
 
 """
  De: Eliminación Inminente <alerta@oculto.net> Para: [Destinatario desconocido] Fecha: martes, 29 de julio de 2025, 19:30 Asunto: Es ahora o nunca.
@@ -4671,7 +4671,7 @@ No responder este mensaje. Solo obedece.
 No es un juego. Sabemos exactamente quién eres y quiénes son tus seres queridos. Si no envías $6,500 de inmediato, alguien cercano a ti pagará el precio.
 
 La elección es tuya.
- """
+"""
 
 """
  De: Orden Directa <juridico@tribunal.net> Para: [Destinatario desconocido] Fecha: sábado, 2 de agosto de 2025, 14:45 Asunto: Resolución de caso - pago obligatorio.
@@ -4695,7 +4695,7 @@ Decide rápido. No hay negociaciones.
 Cada paso que das lo tenemos registrado. Si no envías $10,500, haremos pública toda la información que tenemos sobre ti.
 
 No subestimes esta oportunidad.
- """
+"""
 
 """
 De: Silencio Forzado <exterminio@sombras.net> Para: [Destinatario desconocido] Fecha: viernes, 8 de agosto de 2025, 16:50 Asunto: El precio del silencio.
@@ -4703,7 +4703,7 @@ De: Silencio Forzado <exterminio@sombras.net> Para: [Destinatario desconocido] F
 Si quieres que esto desaparezca, debes pagar. El monto exacto es $12,000, y tienes 24 horas para hacer la transferencia antes de que pase a otro nivel.
 
 Tu destino depende de tu respuesta.
- """
+"""
 
 """
  De: Seguridad Financiera <soporte@bancoelite.com> Para: [Destinatario desconocido] Fecha: lunes, 11 de agosto de 2025, 08:30 Asunto: Bloqueo inminente de tu cuenta
@@ -4711,7 +4711,7 @@ Tu destino depende de tu respuesta.
 Estimado usuario, Detectamos múltiples intentos de acceso no autorizado a tu cuenta. Por seguridad, requerimos un depósito de $4,500 para verificar tu identidad y evitar el cierre inmediato.
 
 Haz la transferencia aquí: [enlace falso] Tienes 24 horas antes de que tu cuenta sea suspendida permanentemente.
- """
+"""
 
 """
  De: Departamento de Cuentas <cobros@seguridadbancaria.net> Para: [Destinatario desconocido] Fecha: miércoles, 13 de agosto de 2025, 15:10 Asunto: Pago pendiente obligatorio
@@ -4721,7 +4721,7 @@ Estimado cliente, Tu cuenta presenta un saldo negativo de $6,200 debido a una ir
 Número de cuenta: XXXX-XXXX-XXXX-1234 Banco: Internacional Plus
 
 Este es el único aviso.
- """
+"""
 
 """
  De: Servicio de Protección Bancaria <soporte@bancoseguro.net> Para: [Destinatario desconocido] Fecha: viernes, 15 de agosto de 2025, 10:05 Asunto: Transferencia requerida por actividad sospechosa
@@ -4731,7 +4731,7 @@ Hemos detectado un intento de fraude en tu cuenta, vinculado a una transacción 
 Número de cuenta: XXXX-XXXX-XXXX-5678 Banco: Corporación Bancaria Global
 
 No ignores esta advertencia.
- """
+"""
 
 """
  De: Notificación Urgente <soporte@bancovip.net> Para: [Destinatario desconocido] Fecha: domingo, 17 de agosto de 2025, 22:50 Asunto: Suspensión inminente de tu cuenta bancaria
@@ -4741,7 +4741,7 @@ Tu cuenta ha sido marcada por movimientos irregulares. Para restaurar el acceso,
 Datos de transferencia: Banco: Seguridad Privada Nacional Cuenta: XXXX-XXXX-XXXX-7654
 
 Si no cumples en 24 horas, perderás acceso a todos tus fondos.
- """
+"""
 
 """
  De: Autenticación Bancaria <verificacion@bancoexpress.net> Para: [Destinatario desconocido] Fecha: martes, 19 de agosto de 2025, 13:45 Asunto: Verificación obligatoria de identidad
@@ -4759,7 +4759,7 @@ Tu cuenta de crédito ha sido marcada por actividad inusual. Si no realizas el d
 Número de cuenta: XXXX-XXXX-XXXX-9876 Banco: Primera Seguridad Financiera
 
 Este es tu último aviso.
- """
+"""
 
 """
  De: Autoridad de Cuentas <control@seguridadbancaria.net> Para: [Destinatario desconocido] Fecha: sábado, 23 de agosto de 2025, 18:10 Asunto: Alerta de bloqueo total de fondos
@@ -4779,7 +4779,7 @@ Tu cuenta ha sido señalada por un intento de fraude internacional. Para garanti
 Datos de transferencia: Banco: Corporación Financiera Avanzada Cuenta: XXXX-XXXX-XXXX-6543
 
 Tiempo límite: 72 horas.
- """
+"""
 
 """
  De: Gestión de Riesgos <riesgo@seguridadglobal.net> Para: [Destinatario desconocido] Fecha: miércoles, 27 de agosto de 2025, 20:05 Asunto: Advertencia sobre fondos bloqueados
@@ -4789,7 +4789,7 @@ Tu cuenta se encuentra retenida por anomalías. Para evitar cargos legales, debe
 Banco: Red Global Bancaria Número de cuenta: XXXX-XXXX-XXXX-4521
 
 No hay excepciones.
- """
+"""
 
 """
  De: Seguridad Financiera Premium <atencion@bancoprotegido.net> Para: [Destinatario desconocido] Fecha: viernes, 29 de agosto de 2025, 10:50 Asunto: Pago urgente requerido
@@ -4799,7 +4799,7 @@ Tu cuenta está bajo investigación por movimientos sospechosos. Para desbloquea
 Banco: Elite Plus Financiero Cuenta: XXXX-XXXX-XXXX-9087
 
 Este es tu último aviso.
- """
+"""
 
 """
  De: Departamento de Fraudes <alerta@seguridadfinanciera.net> Para: [Destinatario desconocido] Fecha: lunes, 1 de septiembre de 2025, 08:15 Asunto: Bloqueo definitivo de tu cuenta
@@ -4809,7 +4809,7 @@ Tu cuenta ha sido suspendida por actividad sospechosa. Para restaurar el acceso,
 Banco: Protección Internacional Cuenta: XXXX-XXXX-XXXX-1123
 
 Tiempo límite: 24 horas. No habrá segunda oportunidad.
- """
+"""
 
 """
 De: Notificación Urgente <soporte@seguridadglobal.net> Para: [Destinatario desconocido] Fecha: miércoles, 3 de septiembre de 2025, 14:30 Asunto: Responde ahora o enfrenta consecuencias
@@ -4819,7 +4819,7 @@ Detectamos una violación en tu perfil financiero vinculada a movimientos ilegal
 Datos de la cuenta: Banco: Corporación Financiera Avanzada Número de cuenta: XXXX-XXXX-XXXX-5678
 
 No esperes, el tiempo se acaba.
- """
+"""
 
 """
  De: Administración Central <juridico@bancopremium.net> Para: [Destinatario desconocido] Fecha: viernes, 5 de septiembre de 2025, 10:05 Asunto: Última advertencia de cobro
@@ -4837,7 +4837,7 @@ Hemos recibido una solicitud de bloqueo de tu cuenta por actividad de alto riesg
 Banco: Elite Bancario Global Cuenta: XXXX-XXXX-XXXX-7654
 
 Tiempo límite: 24 horas.
- """
+"""
 
 """
  De: Sistema de Protección <alerta@seguridadcorporativa.net> Para: [Destinatario desconocido] Fecha: martes, 9 de septiembre de 2025, 17:20 Asunto: Identificación requerida
@@ -4847,7 +4847,7 @@ Tu perfil ha sido clasificado como de alto riesgo. Si deseas seguir operando, de
 Banco: Protección Bancaria Nacional Cuenta: XXXX-XXXX-XXXX-7654
 
 Haz el pago ahora o perderás el acceso.
- """
+"""
 
 """
  De: Departamento de Control <juridico@bancodelta.net> Para: [Destinatario desconocido] Fecha: jueves, 11 de septiembre de 2025, 09:40 Asunto: Resolución de caso
@@ -4867,7 +4867,7 @@ Tu cuenta ha sido señalada en una investigación criminal. Para limpiar tu hist
 Banco: Corporación Financiera Global Cuenta: XXXX-XXXX-XXXX-6543
 
 No ignores este mensaje.
- """
+"""
 
 """
  De: Alertas Internacionales <riesgo@seguridadcorporativa.net> Para: [Destinatario desconocido] Fecha: lunes, 15 de septiembre de 2025, 18:10 Asunto: Transferencia requerida para mantener tu cuenta activa
@@ -4877,7 +4877,7 @@ Nuestros sistemas han bloqueado tu perfil por un posible fraude internacional. P
 Datos de transferencia: Banco: Seguridad Bancaria Avanzada Cuenta: XXXX-XXXX-XXXX-9087
 
 Este es tu último aviso.
- """
+"""
 
 """
 De: Cierre de Cuentas <servicio@seguridadfinanciera.net> Para: [Destinatario desconocido] Fecha: miércoles, 17 de septiembre de 2025, 10:50 Asunto: Suspensión de cuenta en proceso
@@ -4887,7 +4887,7 @@ Tu cuenta está marcada para suspensión definitiva. Si deseas mantener tus fond
 Banco: Protección Privada Financiera Cuenta: XXXX-XXXX-XXXX-3214
 
 Tiempo límite: 24 horas.
- """
+"""
 
 """
 De: Regulación de Activos <control@seguridadbancaria.net> Para: [Destinatario desconocido] Fecha: viernes, 19 de septiembre de 2025, 07:30 Asunto: Pago urgente solicitado
@@ -4907,7 +4907,7 @@ Tu cuenta ha sido intervenida por seguridad. Para restaurar el acceso, realiza u
 Banco: Protección Internacional Cuenta: XXXX-XXXX-XXXX-1123
 
 Tiempo límite: 24 horas. No hay segundas oportunidades.
- """
+"""
 
 """
  De: Seguridad Avanzada <seguridad@bancovip.net> Para: [Destinatario desconocido] Fecha: miércoles, 24 de septiembre de 2025, 17:30 Asunto: Responde ahora o enfrenta sanciones
@@ -4935,7 +4935,7 @@ Tu cuenta está bajo bloqueo por actividad sospechosa. Para evitar la congelaci�
 Banco: Elite Bancario Global Cuenta: XXXX-XXXX-XXXX-7654
 
 Tiempo límite: 24 horas.
- """
+"""
 
 """
  De: División de Cuentas <control@seguridadcorporativa.net> Para: [Destinatario desconocido] Fecha: martes, 30 de septiembre de 2025, 14:40 Asunto: Verificación obligatoria
@@ -4945,7 +4945,7 @@ Tu perfil ha sido marcado como de alto riesgo. Si deseas evitar el bloqueo, debe
 Banco: Protección Bancaria Nacional Cuenta: XXXX-XXXX-XXXX-7654
 
 Haz el pago ahora o perderás el acceso.
- """
+"""
 
 """
  De: Comisión Bancaria <juridico@bancopremium.net> Para: [Destinatario desconocido] Fecha: jueves, 2 de octubre de 2025, 09:40 Asunto: Resolución de caso
@@ -4955,7 +4955,7 @@ Tu cuenta está bajo auditoría. Para evitar sanciones graves, necesitas realiza
 Banco: Institución Global Financiera Cuenta: XXXX-XXXX-XXXX-3214
 
 Última advertencia.
- """
+"""
 
 """
  De: División de Fraudes <fraude@seguridadred.net> Para: [Destinatario desconocido] Fecha: sábado, 4 de octubre de 2025, 14:25 Asunto: Actividad ilegal detectada en tu cuenta
@@ -4965,7 +4965,7 @@ Tu cuenta ha sido señalada en una operación criminal. Si no realizas la transf
 Banco: Corporación Financiera Global Cuenta: XXXX-XXXX-XXXX-6543
 
 Última oportunidad.
- """
+"""
 
 """
  De: Alertas Internacionales <riesgo@seguridadcorporativa.net> Para: [Destinatario desconocido] Fecha: lunes, 6 de octubre de 2025, 18:10 Asunto: Urgente: Transacción requerida
@@ -4975,7 +4975,7 @@ Nuestro sistema ha bloqueado tu perfil por una alerta de fraude internacional. P
 Banco: Seguridad Bancaria Avanzada Cuenta: XXXX-XXXX-XXXX-9087
 
 Tiempo límite: 72 horas.
- """
+"""
 
 """
 De: Cierre de Cuentas <servicio@seguridadfinanciera.net> Para: [Destinatario desconocido] Fecha: miércoles, 8 de octubre de 2025, 10:50 Asunto: Tu cuenta será suspendida en 24 horas
@@ -4995,7 +4995,7 @@ Tu cuenta está en auditoría por irregularidades graves. Para evitar el bloqueo
 Banco: Red Financiera Global Cuenta: XXXX-XXXX-XXXX-4521
 
 No hay excepciones.
- """
+"""
 
 """
 De: Protección de Identidad <soporte@seguridaddigital.net> Para: [Destinatario desconocido] Fecha: lunes, 13 de octubre de 2025, 08:45 Asunto: Tu identidad ha sido comprometida
@@ -5015,7 +5015,7 @@ Tu nombre ha aparecido en una demanda judicial por evasión de impuestos. Si no 
 Banco: Corporación Jurídica Bancaria Cuenta: XXXX-XXXX-XXXX-5678
 
 Última advertencia.
- """
+"""
 
 """
  De: Inversión Secreta <oportunidad@finanzasvip.net> Para: [Destinatario desconocido] Fecha: viernes, 17 de octubre de 2025, 10:15 Asunto: Multiplica tu dinero en 48 horas
@@ -5053,7 +5053,7 @@ Nuestro sistema ha detectado actividades cuestionables en tu perfil digital. Si 
 Banco: Protección Global Cuenta: XXXX-XXXX-XXXX-3214
 
 Última oportunidad.
- """
+"""
 
 """
  De: Eliminación de Datos <fraude@bancoseguro.net> Para: [Destinatario desconocido] Fecha: sábado, 25 de octubre de 2025, 14:25 Asunto: Bloqueo total de tu información
@@ -5083,7 +5083,7 @@ Tu cuenta será eliminada y todos tus activos congelados si no realizas el pago 
 Banco: Protección Financiera Privada Cuenta: XXXX-XXXX-XXXX-3214
 
 Última advertencia antes del cierre definitivo.
- """
+"""
 
 """
  De: Regulación de Activos <control@seguridadbancaria.net> Para: [Destinatario desconocido] Fecha: viernes, 31 de octubre de 2025, 07:30 Asunto: Pago obligatorio por auditoría de cuenta

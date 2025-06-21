@@ -11,19 +11,20 @@ import java.util.List;
 public class ShowTripleQuotedMessagesMain {
 
     public static void main(String[] args) {
-      //  String relativePath = args.length > 0 ? args[0] : FilePathsConfig.MODEL_ORIGINAL_CORREOS_SPAM_FAC_TXT_PATH;
+       String relativeOriginalTriplecomillasPath = args.length > 0 ? args[0] : FilePathsConfig.MODEL_ORIGINAL_CORREOS_SPAM_FAC_TXT_PATH;
+        String relativeIATriplecomillasPath = args.length > 0 ? args[0] : FilePathsConfig.IA_GENERATED_TRIPLECUOTES_SPAM_PATH;
 
         //Para realizar pruebas
-        String relativePath = args.length > 0 ? args[0] : FilePathsConfig.TRIAL_MESSAGES_TIPLECUOTES_Y_SIMPLECUOTE_PATH;
+        String relativePathTrial = args.length > 0 ? args[0] : FilePathsConfig.TRIAL_MESSAGES_TIPLECUOTES_Y_SIMPLECUOTE_PATH;
 
         try {
             ResourcesHandler handler = new ResourcesHandler();
-            List<String> mensajes = handler.loadTripleQuotedTxtFileAsMessages(relativePath);
+            List<String> mensajes = handler.loadTripleQuotedTxtFileAsMessages(relativeIATriplecomillasPath);
 
             System.out.println("\n=== Mensajes extraídos del archivo ===\n");
             int count = 1;
             for (String mensaje : mensajes) {
-                System.out.println("mensaje " + count + ": " + mensaje + "\n");
+               // System.out.println("mensaje " + count + ": " + mensaje + "\n");
                 count++;
             }
 

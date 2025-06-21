@@ -34,7 +34,7 @@ public class FilePathsConfig {
 // --- Rutas para Pruebas de Código / Desarrollo (src/main/resources/static/datasets) ---
 
     public static final String TRIAL_MESSAGES_LABELED_CSV_DATA_PATH = "static/datasets/trialMessages/mensajes_pruebas_labeled.csv";
-
+    public static final String TRIAL_MESSAGES_TIPLECUOTES_Y_SIMPLECUOTE_PATH ="static/datasets/trialMessages/mensajes_pruebas_triple_cuotes_y_simple_cuotes.txt";
 
     public static final String IA_GENERATED_TRIPLECUOTES_HAM_PATH = "static/datasets/mensajesInventadosIA/ham_triplecomillas_ia_varios.txt";
     public static final String IA_GENERATED_TRIPLECUOTES_SPAM_PATH = "static/datasets/mensajesInventadosIA/spam_triplecomillas_ia_varios.txt";

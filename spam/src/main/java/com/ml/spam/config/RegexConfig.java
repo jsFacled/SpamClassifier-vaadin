@@ -12,4 +12,5 @@ public class RegexConfig {
     public static final String NUM_IP = "\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b";
     public static final String NUM_LOW = "\\b\\d{1,2}(\\s(?:veces|intentos|meses))?\\b";
 
+
 }

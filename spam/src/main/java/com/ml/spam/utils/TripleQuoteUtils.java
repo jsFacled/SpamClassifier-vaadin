@@ -14,13 +14,24 @@ public final class TripleQuoteUtils {
 
     /**
      * Patrón de expresión regular para encontrar bloques de texto
-     * delimitados por tres comillas (", “, ”) al inicio y fin de línea.
+     * delimitados por tres comillas (\", \u201C, \u201D) al inicio y fin de línea.
      * Utiliza Pattern.MULTILINE para que '^' y '$' coincidan con los
      * inicios y finales de cada línea.
      * El grupo de captura (1) obtiene el contenido del mensaje.
      */
+  //  private static final Pattern TRIPLE_QUOTE_PATTERN =
+   //         Pattern.compile("^[\"“”]{3}\\s*$([\\s\\S]*?)(?=^[\"“”]{3}\\s*$|\\z)", Pattern.MULTILINE);
+
+    // Bloques que inician y cierran con triple comilla doble o simple
+   // private static final String QUOTE_BLOCK = "[\"“”]{3}|['‘’]{3}";
+
+            //Reconoce ambos tipos de triplecomillas tanto si el mensaje está en distintos renglones como
+            //en el mismo renglón. No se debe eliminar "?:"
+    private static final String QUOTE_BLOCK = "(?:[\"\\u201C\\u201D]{3}|['\\u2018\\u2019]{3})";
+
     private static final Pattern TRIPLE_QUOTE_PATTERN =
-            Pattern.compile("^[\"“”]{3}\\s*$([\\s\\S]*?)(?=^[\"“”]{3}\\s*$|\\z)", Pattern.MULTILINE);
+            Pattern.compile(QUOTE_BLOCK + "\\s*(.*?)\\s*" + QUOTE_BLOCK, Pattern.DOTALL);
+
 
     /**
      * Constructor privado para evitar la instanciación de esta clase de utilidad.

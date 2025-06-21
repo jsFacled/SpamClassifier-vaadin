@@ -4,6 +4,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.util.*;
+import com.ml.spam.utils.TripleQuoteUtils;
 
 public class FileJoiner {
 
@@ -41,24 +42,22 @@ public class FileJoiner {
             for (String pathStr : inputPaths) {
                 Path path = Paths.get(pathStr);
                 if (Files.exists(path)) {
-                    List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
-                    StringBuilder currentMessage = new StringBuilder();
-                    boolean insideMessage = false;
+                    String content = Files.readString(path, StandardCharsets.UTF_8);
 
-                    for (String line : lines) {
-                        line = line.trim();
-                        if (line.startsWith("\"\"\"")) {
-                            insideMessage = true;
-                            currentMessage = new StringBuilder();
-                            currentMessage.append(line);
-                        } else if (line.endsWith("\"\"\"") && insideMessage) {
-                            currentMessage.append(" ").append(line);
-                            writer.write(currentMessage.toString().trim());
-                            writer.newLine();
-                            insideMessage = false;
-                        } else if (insideMessage) {
-                            currentMessage.append(" ").append(line);
+                    List<String> messages = TripleQuoteUtils.extractMessages(content);
+
+                    if (messages.isEmpty()) {
+                        for (String line : content.split("\\R")) {
+                            String trimmed = line.trim();
+                            if (!trimmed.isEmpty()) {
+                                messages.add(trimmed);
+                            }
                         }
+                    }
+
+                    for (String msg : messages) {
+                        writer.write(msg.trim());
+                        writer.newLine();
                     }
                 }
             }

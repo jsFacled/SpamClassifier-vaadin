@@ -1,0 +1,25 @@
+"""
+
+Mensaje1 ES TRIPLE y debe ser agregado. -->A
+"""
+
+"""
+
+
+Mensaje2 ES TRIPLE. Y debe ser agregado.
+Luego el mensaje3 está vacío. --B
+
+
+"""
+"""
+"""
+
+"Mensaje 4 es Simple en la misma fila y NO debe ser agregado"
+"Mensaje 5 es Simple
+pero
+en distinta filas y NO debe ser agregado"
+
+
+
+
+""" Mensaje6 Es Triple pero en la misma fila -->C"""

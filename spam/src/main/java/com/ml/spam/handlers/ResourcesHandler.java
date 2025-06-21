@@ -18,8 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * ResourcesHandler:
@@ -234,15 +232,15 @@ public class ResourcesHandler {
      */
     public List<String[]> extractMessagesAndAddLabelFromTxt(String txtFilePath, String label) throws Exception {
         List<String[]> rows = new ArrayList<>();
-        List<String> mensajes = loadTxtFileAsMessages(txtFilePath); // Método robusto para triple comillas
+        List<String> mensajes = loadTripleQuotedTxtFileAsMessages(txtFilePath); // Método robusto para triple comillas
         for (String msg : mensajes) {
             rows.add(new String[] {msg, label});
         }
         return rows;
     }
 
-   // Este método lee mensajes separados por triple comillas (de cualquier tipo)
-    public List<String> loadTxtFileAsMessages(String txtFilePath) throws Exception {
+   // Este métod lee mensajes separados por triple comillas (de cualquier tipo)
+    public List<String> loadTripleQuotedTxtFileAsMessages(String txtFilePath) throws Exception {
 
         Path absolutePath = resolvePath(txtFilePath);
         String content = Files.readString(absolutePath);

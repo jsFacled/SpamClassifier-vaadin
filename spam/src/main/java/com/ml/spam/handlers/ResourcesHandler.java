@@ -283,6 +283,32 @@ public class ResourcesHandler {
         return rows;
     }
 
+    /**
+     * Exporta una lista de mensajes con su etiqueta al archivo indicado, en formato CSV: mensaje,label
+     *
+     * @param rows lista de arreglos [mensaje, label]
+     * @param outputPath ruta de salida relativa
+     */
+    public void exportLabeledRowsToCsvFile(List<String[]> rows, String outputPath) {
+        try {
+            Path absolutePath = resolvePath(outputPath);
+            Files.createDirectories(absolutePath.getParent());
+            try (BufferedWriter writer = Files.newBufferedWriter(absolutePath, StandardCharsets.UTF_8)) {
+                for (String[] row : rows) {
+                    if (row.length == 2) {
+                        String message = row[0].replaceAll("\\s+", " ").trim();
+                        String label = row[1].trim();
+                        writer.write(message + "," + label);
+                        writer.newLine();
+                    }
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Error exportando archivo a: " + outputPath, e);
+        }
+    }
+
+
     ///////////////////////////////////////////////////
     public void saveJson(JSONObject jsonObject, String relativePath) {
         try {

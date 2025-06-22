@@ -1,3 +1,20 @@
+-Normalizar mensajes triplecomillas llevando cada mensaje a una sola fila y luego agregar el label.
+Se obtiene:
+    Mensajes triplecomillas Normalizados con label spam
+    Mensajes triplecomillas Normalizados con label ham
+
+-Normalizar mensajes labeled extrayendo las comillas en los que haga falta.
+Se obtiene:
+    Mensajes labeled Normalizados:
+    original_triplecomillas_spam_normalized.txt
+    ia_triplecomillas_spam_normalized.txt
+    ia_triplecomillas_ham_normalized.txt
+
+
+
+
+---------------------
+------------------------
 -Juntar mensajes triple comillas: se obtienen 2 archivos txt (spam, ham).
 -Juntar labeled mensajes: se obtiene 1 archivo csv.
 
@@ -12,8 +29,9 @@ c) Mensajes triplecomillas Normalizados con label ham.
 
 Normalizados implica:
     * Una fila por mensaje + label
-    * Eliminar duplicados
     * Se quitan las comillas que encierran mensajes
+    * Eliminar duplicados
+
 
 -Juntar los 3 archivos
 El resultado es un archivo csv.

@@ -283,6 +283,29 @@ public class ResourcesHandler {
         return rows;
     }
 
+
+    /**
+     * Exporta una lista de líneas ya formateadas como mensaje,label al archivo indicado.
+     *
+     * @param labeledLines lista de líneas con formato CSV: mensaje,label
+     * @param outputPath ruta de salida relativa
+     */
+    public void exportLabeledLinesToCsvFile(List<String> labeledLines, String outputPath) {
+        try {
+            Path absolutePath = resolvePath(outputPath);
+            Files.createDirectories(absolutePath.getParent());
+            try (BufferedWriter writer = Files.newBufferedWriter(absolutePath, StandardCharsets.UTF_8)) {
+                for (String line : labeledLines) {
+                    writer.write(line);
+                    writer.newLine();
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Error exportando archivo a: " + outputPath, e);
+        }
+    }
+
+
     /**
      * Exporta una lista de mensajes con su etiqueta al archivo indicado, en formato CSV: mensaje,label
      *

@@ -1,40 +1,43 @@
 package com.ml.spam.datasetProcessor.stageMain;
 
-import com.ml.spam.datasetProcessor.utils.DuplicateMessageChecker;
+import com.ml.spam.config.FilePathsConfig;
 import com.ml.spam.datasetProcessor.utils.MessageNormalizerService;
+import com.ml.spam.handlers.ResourcesHandler;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
- * Normaliza un CSV donde cada línea contiene un mensaje y su etiqueta.
- * Permite pasar rutas de entrada y salida como argumentos.
+ * Normaliza un archivo CSV con mensajes etiquetados (mensaje,label).
+ * Quita comillas innecesarias, unifica espacios y elimina duplicados.
+ * Exporta el resultado limpio en formato CSV.
  */
 public class NormalizeLabeledMessagesCsvMain {
-    private static final String inputPath = "spam/src/main/resources/static/datasets/joined/joined_messages_label.csv";
 
     public static void main(String[] args) throws Exception {
-        String inputArg = args.length > 0 ? args[0]
-                : inputPath;
-        String outputArg = args.length > 1 ? args[1]
-                : "joined_messages_labels_normalized_unique.txt";
+      //  String inputArg = args.length > 0 ? args[0] : FilePathsConfig.MODEL_ORIGINAL_TEST_MESSAGES_CSV_ESPAÑOL_DATA_PATH;
+      //  String outputArg = args.length > 1 ? args[1] : "labeled_original_test_messages_normalized.csv";
 
-        Path input = Paths.get(inputArg);
-        Path output = Paths.get(outputArg);
+      //  String inputArg = args.length > 0 ? args[0] : FilePathsConfig.MODEL_ORIGINAL_TRAIN_MESSAGES_CSV_ESPAÑOL_PATH;
+       // String outputArg = args.length > 1 ? args[1] : "labeled_original_train_messages_normalized.csv";
+
+        String inputArg = args.length > 0 ? args[0] : FilePathsConfig.IA_GENERATED_LABELED_CSV_PATH;
+        String outputArg = args.length > 1 ? args[1] : "labeled_ia_messages_normalized.csv";
+
+        ResourcesHandler handler = new ResourcesHandler();
+        List<String[]> rawRows = handler.loadQuotedOrPlainLabeledTxtFileAsMessages(inputArg);
 
         MessageNormalizerService service = new MessageNormalizerService();
-        List<String> normalized = service.normalizeFromCsv(input);
+        List<String> normalizedLines = service.normalizeFromCsv(rawRows);
 
-        Path temp = Files.createTempFile("normalized_csv", ".txt");
-        service.exportToFile(normalized, temp);
+        // Eliminar duplicados
+        Set<String> unique = new LinkedHashSet<>(normalizedLines);
 
-        DuplicateMessageChecker checker = new DuplicateMessageChecker();
-        checker.removeDuplicates(temp.toString(), output.toString(),
-                DuplicateMessageChecker.InputFormat.LINE_BY_LINE);
+        // Exportar resultado
+        handler.exportLabeledLinesToCsvFile(List.copyOf(unique), outputArg);
 
-        Files.deleteIfExists(temp);
-        System.out.println("✅ Archivo generado: " + output);
+        System.out.println("✅ Archivo generado: " + outputArg);
+        System.out.println("Total mensajes normalizados únicos: " + unique.size());
     }
 }

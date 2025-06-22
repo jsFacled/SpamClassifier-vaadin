@@ -37,7 +37,7 @@ public class FilePathsConfig {
 
     public static final String IA_GENERATED_TRIPLECUOTES_HAM_PATH = "static/datasets/mensajesInventadosIA/ham_triplecomillas_ia_varios_347m.txt";
     public static final String IA_GENERATED_TRIPLECUOTES_SPAM_PATH = "static/datasets/mensajesInventadosIA/spam_triplecomillas_ia_varios_540m.txt";
-    public static final String IA_GENERATED_LABELED_CSV_PATH = "static/datasets/mensajesInventadosIA/Mensajes_varios_label_spam_ham_3362m.csv";
+    public static final String IA_GENERATED_LABELED_CSV_PATH = "static/datasets/mensajesInventadosIA/labeled_messages_ia_varios_3362m.csv";
 
 
 // --- Rutas para Datasets con cada tipo de mensajes juntados (src/main/resources/static/datasets/joined) ---

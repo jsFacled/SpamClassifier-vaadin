@@ -23,7 +23,7 @@ public class NormalizeTripleQuotedMain {
 
 
         String inputArg = args.length > 0 ? args[0] : FilePathsConfig.IA_GENERATED_TRIPLECUOTES_SPAM_PATH;
-       String outputArg = args.length > 1 ? args[1] : "ia_triplecomillas_spam_normalized.txt";
+       String outputArg = args.length > 1 ? args[1] : "static/datasets/normalized/ia_triplecomillas_spam_normalized.txt";
         String labelArg = args.length > 2 ? args[2] : "spam";
 
        // String inputArg = args.length > 0 ? args[0] : FilePathsConfig.IA_GENERATED_TRIPLECUOTES_HAM_PATH;

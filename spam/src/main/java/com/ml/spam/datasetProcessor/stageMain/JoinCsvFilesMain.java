@@ -1,39 +1,68 @@
 package com.ml.spam.datasetProcessor.stageMain;
 
-import com.ml.spam.datasetProcessor.utils.FileJoiner;
-
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.*;
+import java.util.*;
 
 /**
- * Combina múltiples archivos CSV en un solo archivo.
- * Se asume que todos tienen el mismo formato de columnas.
+ * Une múltiples archivos con formato mensaje,label directamente en memoria y genera un único archivo final sin duplicados.
  */
 public class JoinCsvFilesMain {
 
     public static void main(String[] args) throws Exception {
         String[] defaults = {
-                "spam/src/main/resources/static/mlDatasets/generated_dataset_train.csv",
-                "spam/src/main/resources/static/mlDatasets/generated_dataset_test.csv"
+                "spam/src/main/resources/static/datasets/normalized/ia_triplecomillas_ham_normalized.txt",
+                "spam/src/main/resources/static/datasets/normalized/ia_triplecomillas_spam_normalized.txt",
+                "spam/src/main/resources/static/datasets/normalized/labeled_ia_messages_normalized.csv",
+                "spam/src/main/resources/static/datasets/normalized/labeled_test_messages_normalized.csv",
+                "spam/src/main/resources/static/datasets/normalized/labeled_train_messages_normalized.csv",
+                "spam/src/main/resources/static/datasets/normalized/original_triplecomillas_spam_normalized.txt"
         };
-        String outputArg;
-        List<String> inputs = new ArrayList<>();
+
+        List<String> inputPaths = new ArrayList<>();
+        String outputPath;
         if (args.length >= 2) {
             for (int i = 0; i < args.length - 1; i++) {
-                inputs.add(args[i]);
+                inputPaths.add(args[i]);
             }
-            outputArg = args[args.length - 1];
+            outputPath = args[args.length - 1];
         } else {
-            for (String d : defaults) {
-                inputs.add(d);
-            }
-            outputArg = "combined_dataset.csv";
+            Collections.addAll(inputPaths, defaults);
+            outputPath = "src/main/resources/static/datasets/joined/full_joined_normalized_noduplicates.csv";
         }
 
-        FileJoiner joiner = new FileJoiner(); // 👉 Instancia de FileJoiner
-        joiner.joinFiles(inputs, outputArg, true); // 👉 Llamada al método de instancia
-        System.out.println("✅ CSV combinado generado en: " + outputArg);
+        // Leer todos los archivos y eliminar duplicados en memoria
+        Set<String> uniqueLines = new LinkedHashSet<>();
+        int totalOriginalLines = 0;
+
+        for (String pathStr : inputPaths) {
+            Path path = Paths.get(pathStr);
+            if (Files.exists(path)) {
+                try (BufferedReader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        totalOriginalLines++;
+                        String normalized = line.trim().replaceAll("\\s+", " ");
+                        uniqueLines.add(normalized);
+                    }
+                }
+            }
+        }
+
+        // Escribir archivo final sin duplicados
+        Path finalOutput = Paths.get(outputPath);
+        Files.createDirectories(finalOutput.getParent());
+
+        try (BufferedWriter writer = Files.newBufferedWriter(finalOutput, StandardCharsets.UTF_8)) {
+            for (String line : uniqueLines) {
+                writer.write(line);
+                writer.newLine();
+            }
+        }
+
+        System.out.println("✅ Dataset final sin duplicados generado: " + outputPath);
+        System.out.println("📊 Líneas originales: " + totalOriginalLines);
+        System.out.println("📉 Líneas únicas: " + uniqueLines.size());
     }
 }

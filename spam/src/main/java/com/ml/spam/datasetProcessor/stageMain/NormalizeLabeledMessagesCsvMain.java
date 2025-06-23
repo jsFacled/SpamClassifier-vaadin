@@ -23,7 +23,7 @@ public class NormalizeLabeledMessagesCsvMain {
        // String outputArg = args.length > 1 ? args[1] : "labeled_original_train_messages_normalized.csv";
 
         String inputArg = args.length > 0 ? args[0] : FilePathsConfig.IA_GENERATED_LABELED_CSV_PATH;
-        String outputArg = args.length > 1 ? args[1] : "labeled_ia_messages_normalized.csv";
+        String outputArg = args.length > 1 ? args[1] : "static/datasets/normalized/labeled_ia_messages_normalized.csv";
 
         ResourcesHandler handler = new ResourcesHandler();
         List<String[]> rawRows = handler.loadQuotedOrPlainLabeledTxtFileAsMessages(inputArg);

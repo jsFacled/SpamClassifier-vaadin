@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.json.JsonWriteFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.ml.spam.dictionary.models.CharSize;
+import com.ml.spam.dictionary.models.WordData;
 import com.ml.spam.utils.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,10 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.Normalizer;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * ResourcesHandler:
@@ -333,6 +331,20 @@ public class ResourcesHandler {
 
 
     ///////////////////////////////////////////////////
+    public Map<String, WordData> loadWordDataMapFromJson(String path) throws IOException {
+        JSONObject json = loadJson(path);
+        Map<String, WordData> map = new HashMap<>();
+
+        for (String key : json.keySet()) {
+            JSONObject obj = json.getJSONObject(key);
+            WordData wd = new WordData(key);
+            wd.incrementSpamFrequency(obj.optInt("spamFrequency", 0));
+            wd.incrementHamFrequency(obj.optInt("hamFrequency", 0));
+            map.put(key, wd);
+        }
+        return map;
+    }
+
     public void saveJson(JSONObject jsonObject, String relativePath) {
         try {
             Path path = resolvePath(relativePath);
@@ -418,6 +430,18 @@ public class ResourcesHandler {
 
         return normalized.isEmpty() ? "invalid_key" : normalized;
     }
+
+    public void exportFilteredWordDataList(List<WordData> wordList, String outputPath) {
+        JSONObject json = new JSONObject();
+        for (WordData wd : wordList) {
+            JSONObject obj = new JSONObject();
+            obj.put("hamFrequency", wd.getHamFrequency());
+            obj.put("spamFrequency", wd.getSpamFrequency());
+            json.put(wd.getWord(), obj);
+        }
+        saveJson(json, outputPath);
+    }
+
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -947,5 +971,17 @@ public class ResourcesHandler {
         }
     }
 
+
+    public void exportWordDataMapToJson(Map<String, WordData> wordMap, String outputPath) {
+        JSONObject outputJson = new JSONObject();
+        for (Map.Entry<String, WordData> entry : wordMap.entrySet()) {
+            WordData wd = entry.getValue();
+            JSONObject freqJson = new JSONObject();
+            freqJson.put("hamFrequency", wd.getHamFrequency());
+            freqJson.put("spamFrequency", wd.getSpamFrequency());
+            outputJson.put(entry.getKey(), freqJson);
+        }
+        saveJson(outputJson, outputPath); // método ya implementado
+    }
 
 }//end

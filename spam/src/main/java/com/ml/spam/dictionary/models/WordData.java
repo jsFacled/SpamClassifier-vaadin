@@ -39,6 +39,7 @@ public class WordData {
     public int getSpamFrequency() {
         return spamFrequency;
     }
+
     public void incrementSpamFrequency(int count) {
         if (count < 0) {
             throw new IllegalArgumentException("La frecuencia no puede ser negativa.");

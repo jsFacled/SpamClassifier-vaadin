@@ -3,7 +3,7 @@
 Estos pasos resumen cómo entrenar un modelo de tokenización y tokenizar el corpus desde la línea de comandos.
 
 1. **Preprocesamiento**
-   - Asegúrate de tener un archivo `Full Normalized joined` sin etiqueta.
+   - Asegúrate de tener un archivo `joined_messages_labels_normalized_NoLabel.txt` sin etiqueta.
    Si parte de un CSV etiquetado, puedes ejecutar:
 
      ```

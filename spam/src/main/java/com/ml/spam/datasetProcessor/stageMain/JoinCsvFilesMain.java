@@ -29,7 +29,7 @@ public class JoinCsvFilesMain {
             outputPath = args[args.length - 1];
         } else {
             Collections.addAll(inputPaths, defaults);
-            outputPath = "src/main/resources/static/datasets/joined/full_joined_normalized_noduplicates.csv";
+            outputPath = "spam/src/main/resources/static/datasets/joined/full_joined_normalized_noduplicates.csv";
         }
 
         // Leer todos los archivos y eliminar duplicados en memoria
@@ -54,8 +54,12 @@ public class JoinCsvFilesMain {
         Path finalOutput = Paths.get(outputPath);
         Files.createDirectories(finalOutput.getParent());
 
+        // Mezclar todas las filas
+        List<String> shuffledLines = new ArrayList<>(uniqueLines);
+        Collections.shuffle(shuffledLines, new Random(42)); // Seed fijo para reproducibilidad
+
         try (BufferedWriter writer = Files.newBufferedWriter(finalOutput, StandardCharsets.UTF_8)) {
-            for (String line : uniqueLines) {
+            for (String line : shuffledLines) {
                 writer.write(line);
                 writer.newLine();
             }

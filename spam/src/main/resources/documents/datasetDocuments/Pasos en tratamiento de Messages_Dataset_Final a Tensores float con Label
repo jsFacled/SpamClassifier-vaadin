@@ -1,15 +1,17 @@
 
 --- Quitar label al Full Normalized joined y guardar el orden para agregarlo luego de tokenizar con SecuencePieces.
   El resultado son 2 archivos:
-    a) Full Normalized joined sin Label.
+    a) Full Normalized joined sin Label:full_joined_normalized_noduplicates_NoLabel.txt
     b) labels.csv (orden paralelo)
 
 --- Entrenar modelo Tokenización con SentencePiece.
   Con el Full Normalized joined sin Label se obtiene:
-    a)tokenizer.model
-    b)tokenizer.vocab
+  (En carpeta static/modelAndVocabSentencePiece)
+        a)tokenizer.model
+        b)tokenizer.vocab
+
 ---- Tokenizar el mismo archivo que se utilizó para entrenar SentencePiece.
-  El resultado es un archivo:
+  El resultado es un archivo en carpeta static/mlDatasets:
       * corpus_ids.txt (líneas de enteros separados por espacio)
 
 --- Preparación para DeepNetts

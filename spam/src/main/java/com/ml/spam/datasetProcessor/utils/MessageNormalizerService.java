@@ -83,7 +83,10 @@ public class MessageNormalizerService {
      * @param output ruta de salida
      */
     public void exportToFile(List<String> lines, Path output) throws IOException {
-        Files.createDirectories(output.getParent());
+        Path parent = output.getParent();
+        if (parent != null) {
+            Files.createDirectories(parent);
+        }
         try (BufferedWriter writer = Files.newBufferedWriter(output, StandardCharsets.UTF_8)) {
             for (String line : lines) {
                 writer.write(line);
@@ -91,4 +94,5 @@ public class MessageNormalizerService {
             }
         }
     }
+
 }

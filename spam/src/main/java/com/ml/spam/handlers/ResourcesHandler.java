@@ -984,4 +984,17 @@ public class ResourcesHandler {
         saveJson(outputJson, outputPath); // método ya implementado
     }
 
+
+    ///////////////////////////////////////////////////////////////////
+    /*
+       * Lee todas las líneas como texto plano
+       * Devuelve una lista de String, cada una representando una línea (mensaje tokenizado en tu caso).
+    */
+    public List<String> loadPlainTextLines(String relativePath) throws IOException {
+       Path absolutePath = resolvePath(relativePath);
+
+        return Files.readAllLines(absolutePath, StandardCharsets.UTF_8);
+    }
+
+
 }//end

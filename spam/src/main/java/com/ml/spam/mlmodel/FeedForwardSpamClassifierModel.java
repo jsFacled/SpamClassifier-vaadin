@@ -15,12 +15,22 @@ public class FeedForwardSpamClassifierModel {
 
     public static void main(String[] args) {
         try {
+            /*
             int numInputs = 466;
             int numOutputs = 1;
 
             // Cargar el dataset combinado
             DataSet<MLDataItem> combinedDataset = DataSets.readCsv(
                     "spam/src/main/resources/static/mlDatasets/mix_combined_full_dataset.csv",
+                    numInputs, numOutputs, true);
+*/
+
+            int numInputs = 80;
+            int numOutputs = 1;
+
+            // Cargar el dataset combinado
+            DataSet<MLDataItem> combinedDataset = DataSets.readCsv(
+                    "spam/src/main/resources/static/mlDatasets/messages_spamham_dataset_float.csv",
                     numInputs, numOutputs, true);
 
             // Dividir automáticamente en entrenamiento y prueba (80%-20%)
@@ -29,18 +39,20 @@ public class FeedForwardSpamClassifierModel {
             DataSet<MLDataItem> testSet = (DataSet<MLDataItem>) split[1];
 
             // Normalización de los datos
-            DataSets.scaleMax(trainingSet); // o DataSets.standardize(trainingSet);
-            DataSets.scaleMax(testSet);
+           // DataSets.scaleMax(trainingSet); // o DataSets.standardize(trainingSet);
+           // DataSets.scaleMax(testSet);
+            DataSets.standardize(trainingSet);
+            DataSets.standardize(testSet);
 
             FeedForwardNetwork neuralNet = FeedForwardNetwork.builder()
                     .addInputLayer(numInputs)
-                    .addFullyConnectedLayer(50, ActivationType.TANH)//30
-                    .addFullyConnectedLayer(25, ActivationType.TANH)//15
-                    .addFullyConnectedLayer(15, ActivationType.TANH)//15
+                    .addFullyConnectedLayer(64, ActivationType.RELU)
+                    .addFullyConnectedLayer(32, ActivationType.RELU)
                     .addOutputLayer(numOutputs, ActivationType.SIGMOID)
                     .lossFunction(LossType.CROSS_ENTROPY)
-                    .randomSeed(123)
+                    .randomSeed(42)
                     .build();
+
 
             for (MLDataItem item : trainingSet) {
                 for (float val : item.getInput().getValues()) {
@@ -51,9 +63,9 @@ public class FeedForwardSpamClassifierModel {
             }
 
             neuralNet.getTrainer()
-                    .setMaxError(0.0003f)//0.03f
-                    .setLearningRate(0.00001f)//0.001f
-                    .setMaxEpochs(20000);
+                    .setMaxError(0.0003f)
+                    .setLearningRate(0.000005f)  // Ajuste clave
+                    .setMaxEpochs(3000);
 
             System.out.println("Entrenando...");
             neuralNet.train(trainingSet);

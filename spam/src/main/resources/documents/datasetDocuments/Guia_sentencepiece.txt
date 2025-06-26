@@ -8,7 +8,7 @@ Estos pasos resumen cómo entrenar un modelo de tokenización y tokenizar el cor
 
      ```
      mvn -q -f spam/pom.xml compile
-     java -cp "spam/target/classes" com.ml.spam.datasetProcessor.stageMain.RemoveLabelsMain joined_messages_labels_normalized_unique.txt joined_messages_labels_normalized_NoLabel.txt
+     java -cp "spam/target/classes" com.ml.spam.datasetProcessor.stageMain.RemoveLabelsAndExportLabelsMain joined_messages_labels_normalized_unique.txt joined_messages_labels_normalized_NoLabel.txt
      ```
 
    - Conserva también el archivo `labels.csv` para añadir la etiqueta más adelante.

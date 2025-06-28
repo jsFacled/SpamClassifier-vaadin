@@ -28,9 +28,10 @@ public class FeedForwardSpamClassifierModel {
             int numInputs = 80;
             int numOutputs = 1;
 
+            //String filename="spam/src/main/resources/static/mlDatasets/messages_spamham_dataset_float.csv";
+            String filename="spam/src/main/resources/static/mlDatasets/messages_spamham_dataset_float_DUPLICATED.csv";
             // Cargar el dataset combinado
-            DataSet<MLDataItem> combinedDataset = DataSets.readCsv(
-                    "spam/src/main/resources/static/mlDatasets/messages_spamham_dataset_float.csv",
+            DataSet<MLDataItem> combinedDataset = DataSets.readCsv(filename,
                     numInputs, numOutputs, true);
 
             // Dividir automáticamente en entrenamiento y prueba (80%-20%)
@@ -65,7 +66,7 @@ public class FeedForwardSpamClassifierModel {
             neuralNet.getTrainer()
                     .setMaxError(0.0003f)
                     .setLearningRate(0.000005f)  // Ajuste clave
-                    .setMaxEpochs(3000);
+                    .setMaxEpochs(4000);
 
             System.out.println("Entrenando...");
             neuralNet.train(trainingSet);

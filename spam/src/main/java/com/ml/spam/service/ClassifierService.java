@@ -6,9 +6,13 @@ import deepnetts.net.FeedForwardNetwork;
 import deepnetts.util.FileIO;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ClassifierService {
@@ -50,18 +54,56 @@ public class ClassifierService {
      * @return "Spam" si el correo es clasificado como spam, "No Spam" en caso contrario.
      */
     public String classifyEmail(String remitente, String asunto, String mensaje) {
-        // Combinar asunto y mensaje para crear el contenido del correo
-        String contenidoCorreo = asunto + " " + mensaje;
+        try {
+            String contenidoCorreo = asunto + " " + mensaje;
+            float[] features = extractFeaturesWithSentencePiece(contenidoCorreo);
+            float output = spamClassifier.predict(features)[0];
+            System.out.println("Salida del modelo: " + output);
 
-        // Crear el objeto Email con el contenido combinado
-        Email email = new Email(contenidoCorreo);
+            return (output >= 0.1) ? "Spam" : "No Spam";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Error al clasificar";
+        }
+    }
 
-        // Obtener el vector de características del email para clasificarlo
-        float[] features = email.getClassifierInput();
-        float output = spamClassifier.predict(features)[0]; // Predicción directa con FeedForwardNetwork
+    private float[] extractFeaturesWithSentencePiece(String texto) throws IOException, InterruptedException {
+        String pythonScript = "spam/src/main/resources/sentencepiece-tokenizer/tokenizar_mensaje_individual.py";
+        String modelPath = "F:\\JAVA GENERAL\\MACHINE LEARNING JAVA\\Código-ejemplos-intellij\\Clasificador Spam\\SpamClassifier-vaadin\\messages_spamham_tokenizer.model"; // o la ruta absoluta si lo preferís
 
-        // Interpretar el resultado de clasificación
-        return (output > 0.5) ? "Spam" : "No Spam";
+        // Construir proceso
+        ProcessBuilder pb = new ProcessBuilder("python", pythonScript, modelPath, texto);
+        pb.redirectErrorStream(true);
+        Process process = pb.start();
+
+        // Leer salida
+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        String line = reader.readLine(); // esperamos una línea tipo: 54,22,1,...
+        int exitCode = process.waitFor();
+
+        if (exitCode != 0 || line == null || line.contains("Traceback")) {
+            throw new RuntimeException("Error en ejecución del tokenizador Python: " + line);
+        }
+
+        // Convertir tokens a float[], con padding a 80
+        int inputSize = spamClassifier.getInputLayer().getWidth();
+        float[] features = new float[inputSize];
+        String[] parts = line.split(",");
+        for (int i = 0; i < Math.min(parts.length, inputSize); i++) {
+            features[i] = Float.parseFloat(parts[i]);
+        }
+
+        return features;
+    }
+
+    private float[] extractFeaturesWithCustomDictionary(String texto) {
+        int inputSize = spamClassifier.getInputLayer().getWidth();//Obtiene la cantidad de columnas que surgieron del entrenamiento
+
+        float[] features = new float[inputSize];
+
+        // TODO: implementar lógica real usando diccionario y extracción de 462 features
+        // Por ahora, devolver todo ceros
+        return features;
     }
 
     /**
